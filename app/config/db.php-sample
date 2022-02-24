@@ -1,0 +1,22 @@
+<?php
+
+require_once __DIR__ . '/../helpers/App.php';
+
+use app\helpers\App;
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../..');
+$dotenv->load();
+
+return [
+    'class' => 'yii\db\Connection',
+    'dsn' => App::env('DB_DSN'), // ?: null
+    'username' => App::env('DB_USERNAME'),
+    'password' => App::env('DB_PASSWORD'),
+    'tablePrefix' => App::env('DB_TABLE_PREFIX'),
+    'charset' => 'utf8',
+
+    // Schema cache options (for production environment)
+    // 'enableSchemaCache' => true,
+    // 'schemaCacheDuration' => 60,
+    // 'schemaCache' => 'cache',
+];

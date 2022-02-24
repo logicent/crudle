@@ -1,0 +1,30 @@
+{
+  "name": "crudle-basic",
+  "authors": [
+    "Ken Mwai <logicent.africa@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower",
+    "vendor/bower-asset",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "flatpickr": "flatpickr-calendar#^4.6.6",
+    "sweetalert": "^2.1.2",
+    "dirrty": "^0.2.0",
+    "fullcalendar": "^5.3.0",
+    "semantic-ui": "^2.4.0",
+    "semantic": "semantic-ui#^2.4.0",
+    "datatables.net": "^1.10.21",
+    "datatables.net-dt": "^3.2.2",
+    "datatables.net-se": "^1.10.22"
+  }
+}

@@ -1,0 +1,102 @@
+{
+    "name": "logicent/yii2-crudle",
+    "description": "Yii2 Crudle",
+    "version": "1.0.0-beta",
+    "keywords": [
+        "enterprise",
+        "starter-kit",
+        "yii2"
+    ],
+    "homepage": "https://github.com/logicent/yii2-crudle",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Appsoft",
+            "homepage": "https://appsoft.co.ke/"
+        }
+    ],
+    "support": {
+        "email": "logicent.africa@gmail.com",
+        "issues": "https://github.com/logicent/yii2-crudle/issues?state=open",
+        "source": "https://github.com/logicent/yii2-crudle",
+        "docs": "https://github.com/logicent/yii2-crudle/wiki/1.x/"
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "~2.0.14",
+        "yiisoft/yii2-bootstrap": "~2.0.0",
+        "yiisoft/yii2-swiftmailer": "~2.0.0",
+        "zelenin/yii2-semantic-ui": "~2",
+        "yiisoft/yii2-redis": "^2.0",
+        "yiisoft/yii2-imagine": "^2.3",
+        "yiisoft/yii2-shell": "^2.0",
+        "league/flysystem": "^1.0",
+        "mikehaertl/phpwkhtmltopdf": "^2.2",
+        "yiisoft/yii2-jui": "^2.0",
+        "kint-php/kint": "^1.1",
+        "bizley/migration": "^4.1",
+        "spatie/db-dumper": "^2.21",
+        "thamtech/yii2-yaml": "^0.3.2",
+        "thamtech/yii2-uuid": "^1.2",
+        "yii2mod/yii2-enum": "*",
+        "league/csv": "^9.7",
+        "myclabs/php-enum": "^1.8",
+        "knplabs/knp-snappy": "^1.2",
+        "phpoffice/phpspreadsheet": "^1.17",
+        "phpoffice/phpword": "^0.18.1",
+        "vlucas/phpdotenv": "^5.3"
+    },
+    "require-dev": {
+        "yiisoft/yii2-debug": "~2.0.0",
+        "yiisoft/yii2-gii": "~2.0.0",
+        "yiisoft/yii2-faker": "~2.0.0",
+        "codeception/verify": "~0.3.1",
+        "codeception/specify": "~0.4.3"
+    },
+    "config": {
+        "process-timeout": 1800,
+        "fxp-asset": {
+            "enabled": false
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "yii\\composer\\Installer::postInstall"
+        ],
+        "post-create-project-cmd": [
+            "yii\\composer\\Installer::postCreateProject",
+            "yii\\composer\\Installer::postInstall"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ]
+    },
+    "extra": {
+        "yii\\composer\\Installer::postCreateProject": {
+            "setPermission": [
+                {
+                    "runtime": "0777",
+                    "web/assets": "0777",
+                    "yii": "0755"
+                }
+            ]
+        },
+        "yii\\composer\\Installer::postInstall": {
+            "generateCookieValidationKey": [
+                "config/web.php"
+            ]
+        },
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm-asset",
+            "bower-asset-library": "vendor/bower-asset"
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
+}
