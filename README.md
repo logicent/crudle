@@ -11,8 +11,13 @@ Prerequisites
 - Composer
 - NPM
 
-via CLI
-- Clone the github repo `git@github.com:logicent/yii2-crudle.git && cd logicent`
+Option 1: via Composer
+- Run `composer create-project logicent/yii2-crudle && cd logicent`
+
+Option 2: via CLI
+- Clone this repo `git@github.com:logicent/yii2-crudle.git && cd logicent`
+
+Continue:
 - Run `composer install`
 - Run `npm install -g bower && npm install -g bower-npm-resolver`
 - Run `bower install`
@@ -27,7 +32,6 @@ via CLI
 - PHP 7.4 using Yii2 (latest) and JavaScript using jQuery (latest)
 - MySQL 5.7
 - Semantic UI 2.4
-- jQuery
 - Datatables 1.10
 - Flatpickr 4.6
 - SweetAlert 2.1
@@ -52,10 +56,10 @@ _Now:_
 
 - [ ] Email sending with attachment option for documents and reports
 - [ ] Email templates and email digest of recent business activity
+- [ ] Improve all the end-user system tools options and performance
 
 _Next:_
 
-- [ ] Improve all the end-user system tools options and performance
 - [ ] Upgrade to latest Yii2 using PHP 8+ and MySQL 8+ with Fomantic UI 2.8+
 - [ ] Change the UI layout to full-width with primary and secondary sidebars
 - [ ] Create Yii extensions for the tools and starter kit as composer packages
