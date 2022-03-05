@@ -1,12 +1,6 @@
 <?php
 
 use app\enums\Type_Model;
-use app\enums\Type_Module;
-use app\enums\Type_Report;
-use app\enums\Type_Role;
-use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\Elements;
-use Zelenin\yii\SemanticUI\modules\Select;
 use Zelenin\yii\SemanticUI\widgets\ActiveForm;
 
 
@@ -21,10 +15,7 @@ $form = ActiveForm::begin([
         'autocomplete' => 'off',
         'class' => 'ui form modal-form',
     ],
-]);
-
-echo $this->render('//_form/_modal_header', ['model' => $model]) ?>
-
+]) ?>
     <div class="ui attached padded segment">
         <div class="two fields">
             <?= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>

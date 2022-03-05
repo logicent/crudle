@@ -2,33 +2,18 @@
 
 namespace app\modules\setup\controllers;
 
-use app\modules\setup\controllers\base\BaseSetupCrudController;
+use app\controllers\base\BaseCrudController;
 use app\modules\setup\models\EmailQueue;
+use app\modules\setup\models\EmailQueueSearch;
 use yii\data\ActiveDataProvider;
 
-class EmailQueueController extends BaseSetupCrudController
+class EmailQueueController extends BaseCrudController
 {
     public function init()
     {
         $this->modelClass = EmailQueue::class;
+        $this->modelSearchClass = EmailQueueSearch::class;
 
         return parent::init();
-    }
-
-    public function actionIndex()
-    {
-        $dataProvider = new ActiveDataProvider([
-            'query' => $this->modelClass::find(), // ->where(['status' => null])->orWhere(['status' => Status_Queue::Error]),
-            'sort' => [
-                'defaultOrder' => [
-                    'id' => SORT_DESC,
-                ]
-            ],
-            'pagination' => false
-        ]);
-
-        return $this->renderAjax('index', [
-            'dataProvider' => $dataProvider,
-        ]);
     }
 }

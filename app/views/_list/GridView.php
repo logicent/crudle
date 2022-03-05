@@ -21,9 +21,6 @@ $newBtnUrl = Url::to(['create']);
 $newBtnLabel = Yii::t('app', 'New') . '&nbsp;' . Inflector::titleize($resource);
 $showListCaptions = $searchModel->getGeneralSettings('showViewCaptions');
 
-$this->title = Yii::t('app', Inflector::camel2words(Inflector::id2camel($resource)));
-$this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['index']];
-
 if (file_exists($searchForm)) : ?>
     <div style="display: none;" id="list_header" class="ui basic segment filters">
         <?= $this->renderFile($searchForm, ['searchModel' => $searchModel, 'model' => $modelClass]) ?>

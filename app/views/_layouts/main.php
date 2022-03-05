@@ -26,49 +26,49 @@ $this->beginPage() ?>
     <div id="header_wrapper">
     <?php
         echo $this->render('//_layouts/_main_navbar', ['context' => $this->context]);
-        if ($this->context->id !== 'main' &&
-            $this->context->id !== 'setup') :
+        if ($this->context->id !== 'main') :
             echo $this->render('//_layouts/_view_header', ['context' => $this->context]);
         endif ?>
     </div>
+    <!-- labeled icon -->
+    <div class="ui sidebar vertical menu" id="main_sidebar">
+        <?= $this->render('_main_menu') ?>
+    </div>
 
-    <!-- <div class="main ui basic segment"> -->
-    <div class="main ui container" 
-        style="margin-top: <?= $this->context->id == 'main' || $this->context->id == 'setup' ? '84px;' : '124px;' ?>">
-        <!-- <div class="ui divider hidden"></div> -->
+    <div class="main ui container pusher" style="margin-top: <?= $this->context->id == 'main' || $this->context->id == 'setup' ? '84px;' : '124px;' ?>">
         <div class="ui stackable grid">
-            <?php if ( $this->context->id !== 'main' && $this->context->sidebar !== false ) : ?>
+            <?php if ($this->context->id !== 'main' && $this->context->sidebar !== false) : ?>
                 <div class="computer only large screen only <?= $this->context->sidebarWidth ?> wide column">
                     <!-- <div class="ui rail"> -->
-                        <div class="ui sticky">
+                    <div class="ui sticky">
                         <?php
-                            // action id
-                            if (    $this->context->action->id !== 'index'
-                                &&  $this->context->action->id !== 'file-upload'
-                            )
-                            {
-                                if (file_exists($this->context->viewPath . '/_sidebar.php')) {
-                                    echo $this->context->renderPartial('_sidebar', ['context' => $this->context]);
-                                }
-                                else
-                                    echo $this->context->renderPartial('//_form/_sidebar', ['context' => $this->context]);
+                        // action id
+                        if (
+                            $this->context->action->id !== 'index'
+                            &&  $this->context->action->id !== 'file-upload'
+                        ) {
+                            if (file_exists($this->context->viewPath . '/_sidebar.php')) {
+                                echo $this->context->renderPartial('_sidebar', ['context' => $this->context]);
+                            } else
+                                echo $this->context->renderPartial('//_form/_sidebar', ['context' => $this->context]);
+                        }
+                        // controller id
+                        elseif (
+                            $this->context->id == 'report'
+                            ||  $this->context->id == 'setup'
+                        ) {
+                            if (file_exists($this->context->viewPath . '/_sidebar.php')) {
+                                echo $this->context->renderPartial('_sidebar', ['context' => $this->context]);
                             }
-                            // controller id
-                            elseif ($this->context->id == 'report'
-                                ||  $this->context->id == 'setup'
-                            ) {
-                                if (file_exists($this->context->viewPath . '/_sidebar.php')) {
-                                    echo $this->context->renderPartial('_sidebar', ['context' => $this->context]);
-                                }
-                            }
-                            // else {
-                            //     echo $this->context->renderPartial('/_layouts/_sidebar', [
-                            //         'reports' => [],
-                            //         'context' => $this->context
-                            //     ]);
-                            // }
-                            ?>
-                        </div>
+                        }
+                        // else {
+                        //     echo $this->context->renderPartial('/_layouts/_sidebar', [
+                        //         'reports' => [],
+                        //         'context' => $this->context
+                        //     ]);
+                        // }
+                        ?>
+                    </div>
                     <!-- </div> -->
                 </div>
             <?php endif ?>
@@ -81,20 +81,26 @@ $this->beginPage() ?>
     </div>
 
     <div class="ui divider hidden"></div>
-
 <?php
-$this->registerJs(<<<JS
+    $this->registerJs(<<<JS
     // $('.ui.accordion').accordion();
+
+    $('#main_menu').on('click', function(e){
+        // $('.ui.labeled.icon.sidebar')
+        $('.ui.sidebar')
+            .sidebar('setting', 'dimPage', false)
+            .sidebar('setting', 'transition', 'overlay')
+            .sidebar('setting', 'onChange', $('body').removeClass('dimmable pushable'))
+            .sidebar('toggle');
+    });
 
     $('.ui.sticky')
         .sticky({
             context: '#content'
         });
-JS
-);
+    JS);
     $this->endBody() ?>
-    
+
     </body>
 </html>
-
 <?php $this->endPage() ?>

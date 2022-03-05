@@ -22,10 +22,7 @@ $form = ActiveForm::begin([
         'autocomplete' => 'off',
         'class' => 'ui form modal-form',
     ],
-]);
-
-echo $this->render('//_form/_modal_header', ['model' => $model]) ?>
-
+]) ?>
     <div class="ui attached padded segment">
         <div class="two fields">
             <?= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>

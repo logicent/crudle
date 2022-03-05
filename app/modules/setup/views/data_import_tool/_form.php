@@ -5,10 +5,7 @@ use Zelenin\yii\SemanticUI\modules\CheckboxList;
 use Zelenin\yii\SemanticUI\modules\RadioList;
 use Zelenin\yii\SemanticUI\widgets\ActiveForm;
 
-$this->title = Yii::t('app', 'Data Import Tool');
 ?>
-
-<?= $this->render('//_form/_modal_header', ['model' => $model]) ?>
 
 <div class="ui attached padded segment">
     <div class="ui small header" style="font-weight: 500">

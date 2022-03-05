@@ -2,13 +2,14 @@
 
 namespace app\models\auth;
 
+use app\models\base\BaseActiveRecord;
 use Yii;
 use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "auth_item".
  */
-class Item extends \yii\db\ActiveRecord
+class Item extends BaseActiveRecord
 {
     const TYPE_ROLE = 1;
     const TYPE_PERMISSION = 2;

@@ -5,15 +5,13 @@ use Zelenin\yii\SemanticUI\Elements;
 
 ?>
 
-<!-- <div class="ui menu"> -->
-    <div class="ui pointing dropdown">
-        <?= Elements::icon('grey unordered list large') ?>
-        <span class="text"><?= Yii::t('app', 'Menu') ?></span>&ensp;
-        <!-- plus square outline -->
-        <?= Elements::icon('down small chevron') ?>
+<div class="ui dropdown item">
+    <?= Elements::icon('grey plus square outline large') ?>
+    <span class="text"><?= Yii::t('app', 'Create') ?></span>&ensp;
+    <?= Elements::icon('down small chevron') ?>
 
-        <div class="menu">
-            <?= Html::a(Elements::icon('grey') . Yii::t('app', ''), ['/index'], ['class' => 'item']) ?>
-        </div>
+    <div class="menu">
+        <?= Html::a(Elements::icon('grey shopping basket') . Yii::t('app', 'Doc Type'),
+                    ['/customize/doc-type/create'], ['class' => 'item']) ?>
     </div>
-<!-- </div> -->
+</div>&ensp;

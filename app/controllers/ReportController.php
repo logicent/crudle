@@ -14,8 +14,8 @@ class ReportController extends BaseController
     public function init()
     {
         $this->sidebar = true;
-        $this->sidebarWidth = 'four';
-        $this->mainWidth = 'twelve';
+        $this->sidebarWidth = 'three';
+        $this->mainWidth = 'thirteen';
 
         return parent::init();
     }

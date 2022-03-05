@@ -5,38 +5,11 @@ use app\enums\Type_Role;
 use app\models\auth\Person;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;
-use Zelenin\yii\SemanticUI\widgets\GridView;
 
-$this->title = Yii::t('app', 'Role');
-?>
-<?= $this->render('/setup/_list/_header', ['context_id' => 'role/']) ?>
+$this->title = Yii::t('app', 'Role & Permission');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Setup'), 'url' => ['/setup']];
 
-<div class="ui bottom attached padded segment">
-
-<?= GridView::widget([
-    'layout' => "{items}\n{pager}",
-    'tableOptions' => [
-        'class' => 'ui very basic table'
-    ],
-    'dataProvider' => $dataProvider,
-    'columns' => [
-        // ['class' => 'Zelenin\yii\SemanticUI\widgets\CheckboxColumn'],
-        [
-            'attribute' => 'name',
-            'format' => 'raw',
-            'value' => function ($model) {
-                return 
-                    Html::a($model->name, 
-                            ['/setup/role-permission/update', 'id' => $model->name], 
-                            [
-                                'class' => 'show-list-form',
-                                'data' => [
-                                    'id' => $model->name,
-                                ],
-                                'style' => 'font-weight: 500',
-                            ]);
-            }
-        ],
+$columns = [
         [
             'attribute' => 'description',
             'contentOptions' => [
@@ -83,6 +56,10 @@ $this->title = Yii::t('app', 'Role');
                 'class' => 'right aligned text-muted'
             ]
         ]
-    ],
+    ];
+
+echo $this->render('//_list/GridView', [
+    'dataProvider'  => $dataProvider, 
+    'searchModel'   => $searchModel,
+    'columns'       => $columns
 ]) ?>
-</div>

@@ -1,6 +1,7 @@
 <?php
 
-$this->title = Yii::t('app', $model->id);
+$this->title = $model->id;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Setup'), 'url' => ['/setup']];
 ?>
 
 <div class="email-notification-update">

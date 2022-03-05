@@ -51,7 +51,7 @@ abstract class BaseController extends Controller
     {
         $resourceId = null;
         if ($this->module->id !== 'yii2-crudle-web')
-            $baseViewPath = Yii::getAlias('@modules/') . $this->module->id . '/views';
+            $baseViewPath = Yii::getAlias('@system_modules/') . $this->module->id . '/views';
         else
             $baseViewPath = Yii::getAlias('@app/views');
 

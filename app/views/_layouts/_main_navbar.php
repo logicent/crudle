@@ -5,13 +5,15 @@ use Zelenin\yii\SemanticUI\collections\Breadcrumb;
 use Zelenin\yii\SemanticUI\Elements;
 
 ?>
-
 <div id="main_nav" class="ui attached menu text">
     <div class="ui grid container">
         <div class="item" id="home_icon">
             <?= Html::a(Elements::icon('globe brown large'), ['/'], ['class' => "compact ui icon button"]) ?>
+        </div>&nbsp;
+        <div class="item" id="menu_icon">
+            <?= Html::a(Elements::icon('sidebar grey large'), ['#'],
+                    ['id' => 'main_menu', 'class' => "compact ui icon button"]) ?>
         </div>
-
         <div class="computer only large screen only four wide column item">
             <?php
             if ($this->context->id !== 'main') :
@@ -25,7 +27,7 @@ use Zelenin\yii\SemanticUI\Elements;
             endif ?>
         </div>
 
-        <div class="computer only large screen only eleven wide column item right">
+        <div class="computer only large screen only ten wide column item right">
             <?= $this->render('_main_newmenu') ?>
             <?= $this->render('_global_search') ?>
             <?= $this->render('_main_navmenu') ?>

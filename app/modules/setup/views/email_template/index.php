@@ -1,14 +1,16 @@
 <?php
 
+$this->title = Yii::t('app', 'Email Template');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Setup'), 'url' => ['/setup']];
+
 $columns = [
     'inactive:boolean',
 ];
 
 $controller = $this->context->id;
 
-echo $this->render('/setup/_list/GridView', [
-    'columns'       => $columns,
-    'dataProvider'  => $dataProvider,
-    'context_id'    => $controller . '/',
-    'listTitle'     => $this->context->resourceName
+echo $this->render('//_list/GridView', [
+    'dataProvider' => $dataProvider, 
+    'searchModel' => $searchModel,
+    'columns'       => $columns
 ]) ?>

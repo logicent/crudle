@@ -4,6 +4,9 @@ use app\helpers\StatusMarker;
 use yii\helpers\Html;
 use yii\helpers\Json;
 
+$this->title = Yii::t('app', 'Email Queue');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Setup'), 'url' => ['/setup']];
+
 $columns = [
     [
         'attribute' => 'id',
@@ -72,10 +75,8 @@ $columns = [
 
 $controller = $this->context->id;
 
-echo $this->render('/setup/_list/GridView', [
-    'hideId'        => true,
-    'columns'       => $columns,
-    'dataProvider'  => $dataProvider,
-    'context_id'    => $controller . '/',
-    'listTitle'     => $this->context->resourceName
+echo $this->render('//_list/GridView', [
+    'dataProvider' => $dataProvider, 
+    'searchModel' => $searchModel,
+    'columns'       => $columns
 ]) ?>

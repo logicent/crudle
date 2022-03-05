@@ -26,7 +26,7 @@ DirrtyAsset::register($this);
                 echo Html::a( Elements::icon('arrow up') . Yii::t('app', 'Back'),
                             ['/' . $this->context->module->id . '/' . $this->context->id . '/index'],
                             ['class' => 'compact ui button show-list-form']);
-                $this->registerJs( $this->render( '@setup/views/setup/_form.js' ) );
+                $this->registerJs( $this->render( '@app_setup/views/setup/_form.js' ) );
             endif;
             if ( $this->context->formViewType == Type_Form_View::Single
                 || ($this->context->formViewType == Type_Form_View::Multiple &&

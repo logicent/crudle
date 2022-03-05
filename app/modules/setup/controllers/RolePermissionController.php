@@ -2,20 +2,22 @@
 
 namespace app\modules\setup\controllers;
 
-use app\modules\setup\controllers\base\BaseSetupCrudController;
+use app\controllers\base\BaseCrudController;
 use app\enums\Type_Role;
-use app\models\auth\Role;
+use app\modules\setup\models\Role;
+use app\modules\setup\models\RoleSearch;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\helpers\Html;
 
-class RolePermissionController extends BaseSetupCrudController
+class RolePermissionController extends BaseCrudController
 {
     public function init()
     {
         $this->modelClass = Role::class;
+        $this->modelSearchClass = RoleSearch::class;
 
         return parent::init();
     }
@@ -50,28 +52,12 @@ class RolePermissionController extends BaseSetupCrudController
 
     public function actionIndex()
     {
-        $roles_filter = '';
-        if (!Yii::$app->user->can(Type_Role::SystemManager) && !Yii::$app->user->can(Type_Role::Administrator))
-            $roles_filter = ['not in', 'name', [Type_Role::Administrator, Type_Role::SystemManager]];
+        $searchModel = new $this->modelSearchClass();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        if (Yii::$app->user->can(Type_Role::SystemManager))
-            $roles_filter = ['not in', 'name', [Type_Role::Administrator]];
-
-        $dataProvider = new ActiveDataProvider([
-            'query' => Role::find()->where(['type' => Role::TYPE_ROLE])
-                                   ->andWhere($roles_filter),
-            'pagination' => false,                                   
-            'sort' => false,
-            // 'sort' => [
-            //     'defaultOrder' => [
-            //         'name' => SORT_ASC,
-            //         'updated_at' => SORT_DESC,
-            //     ]
-            // ],
-        ]);
-
-        return $this->renderAjax('index', [
+        return $this->render('index', [
             'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
         ]);
     }
 
@@ -107,7 +93,7 @@ class RolePermissionController extends BaseSetupCrudController
         $model->loadDefaultValues();
         $model->type = Role::TYPE_ROLE;
 
-        return $this->renderAjax('create', [
+        return $this->render('create', [
             'model' => $model,
         ]);
     }
@@ -165,7 +151,7 @@ class RolePermissionController extends BaseSetupCrudController
                 return $this->asJson(['validation' => $result]);
             }
 
-        return $this->renderAjax('update', [
+        return $this->render('update', [
             'model' => $model,
         ]);
     }

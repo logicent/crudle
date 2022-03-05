@@ -29,6 +29,26 @@ abstract class BaseCrudController extends BaseController
     public $detailModelsErrors = []; // public $errors = []
     public $isReadonly = false; // use in editable data views (check permission and action)
 
+    public function init()
+    {
+        parent::init();
+        switch ($this->module->id)
+        {
+            case 'setup':
+                $baseViewPath = Yii::getAlias('@app_setup/views');
+            break;
+            case 'customize':
+                $baseViewPath = Yii::getAlias('@app_customize/views');
+            break;
+            default:
+                $baseViewPath = Yii::getAlias('@system_modules/') . $this->module->id . '/views';
+        }
+
+        $this->viewPath = $baseViewPath . '/' . Inflector::underscore(
+            Inflector::id2camel($this->id)
+        );
+        // return;
+    }
 
     public function behaviors()
     {

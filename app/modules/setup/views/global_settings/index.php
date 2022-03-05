@@ -2,9 +2,9 @@
 
 use Zelenin\yii\SemanticUI\widgets\ActiveForm;
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\Elements;
 
 $this->title = Yii::t('app', 'General Settings');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Setup'), 'url' => ['/setup']];
 
 $form = ActiveForm::begin([
         // 'id' => $model->formName(),
@@ -14,8 +14,6 @@ $form = ActiveForm::begin([
             'enctype' => 'multipart/form-data',
         ],
     ]) ?>
-
-    <?= $this->render('//_form/_modal_header', ['model' => $model]) ?>
 
     <div class="ui attached padded segment">
         <div class="two fields">

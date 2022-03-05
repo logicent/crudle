@@ -5,6 +5,7 @@ use Zelenin\yii\SemanticUI\widgets\ActiveForm;
 use Zelenin\yii\SemanticUI\modules\Select;
 
 $this->title = Yii::t('app', 'Printer Settings');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Setup'), 'url' => ['/setup']];
 
 $form = ActiveForm::begin([
         'id' => $model->formName(),
@@ -13,8 +14,6 @@ $form = ActiveForm::begin([
             'class' => 'ui form ajax-submit',
         ],
     ]) ?>
-
-    <?= $this->render('//_form/_modal_header', ['model' => $model]) ?>
 
     <div class="ui attached padded segment">
         <div class="two fields">

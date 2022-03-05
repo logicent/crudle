@@ -10,10 +10,7 @@ $dotenv->load();
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 $url = require __DIR__ . '/url.php';
-
-Yii::setAlias('@setup', dirname( __DIR__ ) . '/modules/setup');
-// Set a @modules alias pointed to the modules/ directory
-Yii::setAlias('@modules', dirname (dirname( __DIR__ )) . '/modules');
+$modules = require __DIR__ . '/modules.php';
 
 $config = [
     'id' => 'yii2-crudle-web',
@@ -84,11 +81,7 @@ $config = [
             'defaultTimeZone' => 'Africa/Nairobi',
         ],
     ],
-    'modules' => [
-        'setup' => [
-            'class' => \app\modules\setup\Module::class,
-        ],
-    ],
+    'modules' => $modules,
     'params' => $params,
 ];
 

@@ -17,7 +17,7 @@ return [
         'visible' => true,
     ],
     [
-        'route' => 'setup/setup/index',
+        'route' => '/setup',
         'label' => Type_Model::Setup,
         'icon' => 'cog',
         'iconPath' => null,

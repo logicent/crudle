@@ -8,6 +8,7 @@ use app\assets\SweetAlertAsset;
 SweetAlertAsset::register($this);
 
 $this->title = Yii::t('app', 'Database Backup');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Setup'), 'url' => ['/setup']];
 
 $form = ActiveForm::begin([
         'id' => $model->formName(),
@@ -16,8 +17,6 @@ $form = ActiveForm::begin([
             'class' => 'ui form ajax-submit',
         ],
     ]) ?>
-
-<?= $this->render('//_form/_modal_header', ['model' => $model]) ?>
 
     <div class="ui secondary bottom attached padded segment">
         <div class="ui two column grid">

@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 $this->title = Yii::t('app', 'New Print Format');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Print Format'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Setup'), 'url' => ['/setup']];
 ?>
 
 <div class="print-format-create">

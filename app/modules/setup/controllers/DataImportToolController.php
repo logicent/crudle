@@ -295,7 +295,7 @@ class DataImportToolController extends BaseSettingsController
         }
 
         return 
-            $this->renderAjax('index', [
+            $this->render('index', [
                     'model' => $dt_model,
                     'import_errors' => $import_errors,
                     // 'import_results' => $import_results

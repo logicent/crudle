@@ -3,8 +3,8 @@
 namespace app\models\auth;
 
 use app\enums\Status_Active;
-use app\enums\Status_Party;
-use app\enums\Type_Party;
+use logicent\accounts\enums\Status_Party;
+use logicent\accounts\enums\Type_Party;
 use app\enums\Type_Role;
 use app\models\base\BaseActiveRecord;
 use app\models\UploadForm;

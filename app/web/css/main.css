@@ -6,6 +6,16 @@ body {
     height: auto;
 }
 
+/* @media only screen and (min-width: 1200px)  */
+.ui.container, .ui.grid.container {
+    width: 1290px !important;
+}
+
+#page_head > .grid > .column {
+    padding-left: 0rem;
+    padding-right: 0rem;
+}
+
 .main {
     /* background-color: #4b4c9d; */
     /* background-attachment: fixed; */
@@ -56,7 +66,7 @@ body {
     position: relative;
 }
 
-#home_icon .ui.button {
+#home_icon .ui.button, #main_menu {
     font-weight: bold;
     color: #fff;
     background-color: #f5f7fa;
@@ -176,6 +186,7 @@ body::-webkit-scrollbar-thumb {
 #main_nav.ui.text.menu .item {
     font-weight: 500;
     font-size: 1rem;
+    padding: 0.35714286em 0em;
 }
 
 .ui.menu {
@@ -642,4 +653,34 @@ body::-webkit-scrollbar-thumb {
 
 .number input {
     text-align: right;
+}
+
+.in-form.table th {
+    color: #6c7680 !important;
+    font-weight: normal !important;
+}
+
+.login {
+    padding-left: 3em !important;
+    padding-right: 3em !important;
+}
+
+#main_sidebar {
+    position: absolute;
+    z-index: 800;
+    padding-top: 8em;
+}
+
+#main_sidebar.ui.vertical.menu .item {
+    font-size: 115%;
+    /* border: none !important; */
+}
+
+/* #main_sidebar.ui.vertical.menu .item > i.icon {
+    float: left;
+} */
+
+#main_sidebar > a.item > i.grey {
+    color: #8D99A6 !important;
+    opacity: 0.8;
 }

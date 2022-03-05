@@ -3,6 +3,7 @@
 namespace app\modules\setup\models;
 
 use app\enums\Status_Active;
+use app\enums\Status_Transaction;
 use app\enums\Type_Relation;
 use app\models\base\BaseActiveRecord;
 use Yii;
@@ -55,7 +56,7 @@ class PrintStyle extends BaseActiveRecord
     public static function enums()
     {
         return [
-            'inactive' => Status_Active::class
+            'status' => Status_Transaction::class
         ];
     }
 

@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 $this->title = Yii::t('app', 'Setup');
-$this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['/setup/setup']];
+$this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['/setup']];
 ?>
 
 <div id="setup" class="active ui tab">

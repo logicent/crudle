@@ -33,22 +33,24 @@ $form =
 <?php
     endif ?>
     <div class="six wide computer eight wide tablet sixteen wide mobile column">
-        <div class="ui top secondary attached padded segment">
-            <h4 class="ui header" style="font-weight: 500">
-                <?= Elements::label('', ['class' => 'brown empty tiny circular'] ) ?>&ensp;<?= Html::encode( $this->title ) ?>
-            </h4>
-        </div>
-        <div class="ui attached padded segment">
-            <?= $form->field($model, 'username')->textInput(['placeholder' => Yii::t('app', 'Username or Email address'), 'autofocus' => true])->label(false) ?>
-            <?= $form->field($model, 'password')->passwordInput(['placeholder' => Yii::t('app', 'Password')])->label(false) ?>
-            <?= $form->field($model, 'rememberMe')->checkbox(['class' => 'toggle']) ?>
-        </div>
-        <div class="ui bottom secondary attached right aligned padded segment">
-            <?= Html::submitButton('Log in', [
-                    'class' => 'compact ui primary button', 
-                    'name' => 'login-button',
-                    'style' => 'margin-right: 0em'
-                ]) ?>
+        <div class="login">
+            <div class="ui top secondary attached padded segment">
+                <h4 class="ui header" style="font-weight: 500">
+                    <?= Elements::label('', ['class' => 'brown empty tiny circular'] ) ?>&ensp;<?= Html::encode( $this->title ) ?>
+                </h4>
+            </div>
+            <div class="ui attached padded segment">
+                <?= $form->field($model, 'username')->textInput(['placeholder' => Yii::t('app', 'Username or Email address'), 'autofocus' => true])->label(false) ?>
+                <?= $form->field($model, 'password')->passwordInput(['placeholder' => Yii::t('app', 'Password')])->label(false) ?>
+                <?= $form->field($model, 'rememberMe')->checkbox(['class' => 'toggle']) ?>
+            </div>
+            <div class="ui bottom secondary attached right aligned padded segment">
+                <?= Html::submitButton('Log in', [
+                        'class' => 'compact ui primary button', 
+                        'name' => 'login-button',
+                        'style' => 'margin-right: 0em'
+                    ]) ?>
+            </div>
         </div>
     </div>
     <div class="ui centered row">

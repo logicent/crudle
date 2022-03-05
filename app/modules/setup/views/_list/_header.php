@@ -55,7 +55,7 @@ $modal = Modal::begin([
 <?php
 $modal::end();
 
-$this->registerJs( $this->render( '../_form.js' ) );
+$this->registerJs( $this->render( '_form.js' ) );
 $this->registerJs(<<<JS
     $('#delete_btn').on('click', function(e) {
         // keys is an array of the keys from the selected rows

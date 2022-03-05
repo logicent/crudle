@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 $this->title = Yii::t('app', 'New Report Builder');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Report Builder'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Setup'), 'url' => ['/setup']];
 ?>
 
 <div class="report-builder-create">

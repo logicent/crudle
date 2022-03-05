@@ -5,7 +5,7 @@
   ],
   "description": "",
   "main": "",
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "homepage": "",
   "ignore": [
     "**/.*",

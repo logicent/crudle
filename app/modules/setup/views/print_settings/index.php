@@ -1,10 +1,9 @@
 <?php
 
-use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\widgets\ActiveForm;
-use Zelenin\yii\SemanticUI\modules\Select;
 
 $this->title = Yii::t('app', 'Print Settings');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Setup'), 'url' => ['/setup']];
 
 $form = ActiveForm::begin([
         'id' => $model->formName(),
@@ -14,8 +13,6 @@ $form = ActiveForm::begin([
         ],
     ]) ?>
 
-    <?= $this->render('//_form/_modal_header', ['model' => $model]) ?>
-    
     <div class="ui attached padded segment">
         <?= $form->field($model, 'sendPrintAsPdf')->checkbox() ?>
         <?= $form->field($model, 'repeatHeaderAndFooterInPdf')->checkbox() ?>

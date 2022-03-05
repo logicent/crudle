@@ -4,7 +4,7 @@ namespace app\controllers;
 
 use app\controllers\base\BaseCrudController;
 use app\enums\Type_Form_View;
-use app\enums\Status_Party;
+use logicent\accounts\enums\Status_Party;
 use app\enums\Status_User;
 use app\models\auth\Auth;
 use app\models\auth\Person;

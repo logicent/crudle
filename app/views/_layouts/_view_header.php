@@ -80,7 +80,9 @@ $model = $this->context->model;
                     &ensp;<?= Yii::t('app', 'Not saved') ?>&ensp;
                 </span>
             <?php
-                if (!$model->isNewRecord && $model->status === Status_Transaction::Draft) :
+                if (!$model->isNewRecord && 
+                    $model->hasWorkflow() &&
+                    $model->status === Status_Transaction::Draft) :
                     echo Html::button(Yii::t('app', 'Submit'), [
                         'class' => 'compact ui primary button',
                         'id'    => 'submit_btn',

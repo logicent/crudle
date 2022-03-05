@@ -2,14 +2,15 @@
 
 namespace app\modules\setup\controllers;
 
-use app\modules\setup\controllers\base\BaseSetupCrudController;
+use app\controllers\base\BaseCrudController;
 use app\modules\setup\models\EmailForm;
 
-class EmailController extends BaseSetupCrudController
+class EmailController extends BaseCrudController
 {
     public function init()
     {
         $this->modelClass = EmailForm::class;
+        $this->modelSearchClass = EmailSearch::class;
 
         return parent::init();
     }

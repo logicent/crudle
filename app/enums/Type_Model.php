@@ -15,12 +15,14 @@ use app\modules\setup\models\ReportBuilderItem;
 use app\modules\setup\models\PrintFormat;
 use app\modules\setup\models\PrintStyle;
 
+use app\modules\customize\models\DocType;
+
 // Data Model
 
 class Type_Model
 {
     // Business Document Models
-
+    const DocType               = 'Doc Type';
     // const EmailDigest           = 'Email Digest';
     const EmailNotification     = 'Email Notification';
     const EmailQueue            = 'Email Queue';
@@ -39,6 +41,7 @@ class Type_Model
     public static function enums()
     {
         return [
+            self::DocType            => self::DocType,
             self::EmailNotification     => self::EmailNotification,
             self::EmailQueue            => self::EmailQueue,
             self::People                => self::People,
@@ -70,6 +73,7 @@ class Type_Model
     public static function coreModelClass()
     {
         return [
+            self::DocType        => DocType::class,
             self::EmailNotification => EmailNotification::class,
             self::EmailQueue        => EmailQueue::class,
             self::People            => People::class,
