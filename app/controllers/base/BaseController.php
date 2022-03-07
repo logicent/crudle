@@ -46,25 +46,6 @@ abstract class BaseController extends Controller
     public $commentCount = 0;
     public $resourceName;
 
-
-    public function init()
-    {
-        $resourceId = null;
-        if ($this->module->id !== 'yii2-crudle-web')
-            $baseViewPath = Yii::getAlias('@system_modules/') . $this->module->id . '/views';
-        else
-            $baseViewPath = Yii::getAlias('@app/views');
-
-        if ($this->sharedViewPath == false)
-            $this->viewPath = $baseViewPath . '/' . Inflector::underscore(
-                Inflector::id2camel($this->id)
-            );
-        else
-            $this->viewPath = $this->sharedViewPath;
-
-        return parent::init();
-    }
-
     public function beforeAction($action)
     {
         // If there is no session log me out

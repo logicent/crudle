@@ -2,25 +2,30 @@
 
 namespace app\controllers;
 
+use app\controllers\base\BaseController;
 use app\controllers\base\BaseCrudController;
+use app\enums\Status_Active;
 use app\enums\Type_Form_View;
-use logicent\accounts\enums\Status_Party;
 use app\enums\Status_User;
 use app\models\auth\Auth;
 use app\models\auth\Person;
 use app\models\auth\PersonSearch;
 use Yii;
 use yii\helpers\Html;
+use yii\helpers\Inflector;
 use yii\helpers\Json;
 
 class PeopleController extends BaseCrudController
 {
     public function init()
     {
+        parent::init();
+
         $this->modelClass = Person::class;
         $this->modelSearchClass = PersonSearch::class;
 
-        return parent::init();
+        $this->viewPath = Yii::getAlias('@app/views/people');
+        // return;
     }
 
     public function actionRead($id)
@@ -78,10 +83,10 @@ class PeopleController extends BaseCrudController
                                 $person->avatar = $this->uploadFile( $person );
 
                             if ($auth->status == Status_User::Active)
-                                $person->status = Status_Party::Yes;
+                                $person->status = Status_Active::Yes;
 
                             if ($auth->status == Status_User::Deleted)
-                                $person->status = Status_Party::No;
+                                $person->status = Status_Active::No;
 
                             if ($person->save(false)) {
                                 $authMan = Yii::$app->authManager;
@@ -143,10 +148,10 @@ class PeopleController extends BaseCrudController
                 $person->avatar = $this->uploadFile( $person );
 
             if ($auth->status == Status_User::Active)
-                $person->status = Status_Party::Yes;
+                $person->status = Status_Active::Yes;
 
             if ($auth->status == Status_User::Deleted)
-                $person->status = Status_Party::No;
+                $person->status = Status_Active::No;
 
             $person->save(false);
 
@@ -190,7 +195,7 @@ class PeopleController extends BaseCrudController
         }
 
         if ($person) {
-            $person->status = Status_Party::No;
+            $person->status = Status_Active::No;
             $person->deleted_at = date('Y-m-d H:i:s');
             $person->save(false);
         }
@@ -214,7 +219,7 @@ class PeopleController extends BaseCrudController
             }
 
             if ($person) {
-                $person->status = Status_Party::No;
+                $person->status = Status_Active::No;
                 $person->deleted_at = date('Y-m-d H:i:s');
                 $person->save(false);
             }

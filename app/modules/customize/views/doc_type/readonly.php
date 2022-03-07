@@ -8,9 +8,10 @@ use yii\helpers\Html;
 $this->title = Yii::t('app', '{name}', [
     'name' => $model->name,
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Doc Type'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Customize'), 'url' => ['/customize']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Doc Type'), 'url' => ['/customize/doc-type']];
 ?>
-<div class="doc-type-view">
+<div class="doc-type-read">
 
     <?= $this->render('_form', [
         'model' => $model,

@@ -1,18 +1,18 @@
 <?php
 
-namespace app\modules\customize;
+namespace app\modules\integration;
 
 use Yii;
 
 /**
- * customize module definition class
+ * integration module definition class
  */
 class Module extends \yii\base\Module
 {
     /**
      * {@inheritdoc}
      */
-    public $controllerNamespace = 'app\modules\customize\controllers';
+    public $controllerNamespace = 'app\modules\integration\controllers';
 
     /**
      * {@inheritdoc}

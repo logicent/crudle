@@ -1,11 +1,11 @@
 <?php
 
-namespace app\modules\setup\controllers;
+namespace app\modules\customize\controllers;
 
 use app\controllers\base\BaseCrudController;
-use app\modules\setup\models\ReportBuilder;
-use app\modules\setup\models\ReportBuilderItem;
-use app\modules\setup\models\ReportBuilderSearch;
+use app\modules\customize\models\ReportBuilder;
+use app\modules\customize\models\ReportBuilderItem;
+use app\modules\customize\models\ReportBuilderSearch;
 
 class ReportBuilderController extends BaseCrudController
 {

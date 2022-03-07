@@ -6,13 +6,16 @@ use Zelenin\yii\SemanticUI\Elements;
 
 ?>
 <div id="main_nav" class="ui attached menu text">
+    <div class="item" id="menu_icon">
+        <?= Html::a(Elements::icon('sidebar large'), ['#'],
+                [
+                    'id' => 'main_menu',
+                    'style' => 'position: fixed; padding-left: 0.65em; color: grey; background: none;'
+                ]) ?>
+    </div>
     <div class="ui grid container">
         <div class="item" id="home_icon">
             <?= Html::a(Elements::icon('globe brown large'), ['/'], ['class' => "compact ui icon button"]) ?>
-        </div>&nbsp;
-        <div class="item" id="menu_icon">
-            <?= Html::a(Elements::icon('sidebar grey large'), ['#'],
-                    ['id' => 'main_menu', 'class' => "compact ui icon button"]) ?>
         </div>
         <div class="computer only large screen only four wide column item">
             <?php

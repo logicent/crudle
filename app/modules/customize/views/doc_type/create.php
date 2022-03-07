@@ -6,8 +6,9 @@ use yii\helpers\Html;
 /* @var $model app\models\DocType */
 
 $this->title = Yii::t('app', 'New Doc Type');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Doc Type'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Customize'), 'url' => ['/customize']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Doc Type'), 'url' => ['/customize/doc-type']];
+
 ?>
 <div class="doc-type-create">
 

@@ -1,10 +1,11 @@
 <?php
 
-namespace app\modules\setup\models;
+namespace app\modules\customize\models;
 
 use app\enums\Status_Active;
 use app\enums\Type_Relation;
 use app\models\base\BaseActiveRecord;
+use app\modules\setup\models\ListViewSettingsForm;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Json;

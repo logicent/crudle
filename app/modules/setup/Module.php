@@ -2,8 +2,10 @@
 
 namespace app\modules\setup;
 
+use Yii;
+
 /**
- * accounts module definition class
+ * setup module definition class
  */
 class Module extends \yii\base\Module
 {
@@ -19,5 +21,6 @@ class Module extends \yii\base\Module
     {
         parent::init();
         // custom initialization code goes here
+        Yii::configure($this, require __DIR__ . '/config.php');
     }
 }

@@ -9,7 +9,7 @@ use app\enums\Type_Role;
 return [
     [
         'route' => 'report/index',
-        'label' => 'Reports',
+        'label' => 'Report',
         'icon' => 'line chart',
         'iconPath' => null,
         'iconColor' => 'blue',

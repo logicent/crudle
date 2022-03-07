@@ -1,13 +1,13 @@
 <?php
 
-namespace app\modules\setup\controllers;
+namespace app\modules\website\controllers;
 
 use app\controllers\base\BaseController;
 
 /**
- * Setup controller for the `setup` module
+ * Website controller for the `website` module
  */
-class SetupController extends BaseController
+class WebsiteController extends BaseController
 {
     /**
      * Renders the index view for the module

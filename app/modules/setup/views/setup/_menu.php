@@ -46,12 +46,6 @@ return [
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/setup/report-builder',
-        'label' => 'Report Builder',
-        'group' => Type_Module_Sub_Module::Tool,
-        'visible' => Yii::$app->user->can(Type_Role::SystemManager),
-    ],
-    [
         'route' => '/setup/role-permission',
         'label' => 'Role & Permission',
         'group' => Type_Module::System,

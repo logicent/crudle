@@ -1,18 +1,18 @@
 <?php
 
-namespace app\modules\customize;
+namespace app\modules\tool;
 
 use Yii;
 
 /**
- * customize module definition class
+ * tool module definition class
  */
 class Module extends \yii\base\Module
 {
     /**
      * {@inheritdoc}
      */
-    public $controllerNamespace = 'app\modules\customize\controllers';
+    public $controllerNamespace = 'app\modules\tool\controllers';
 
     /**
      * {@inheritdoc}

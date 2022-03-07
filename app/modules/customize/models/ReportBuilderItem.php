@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\setup\models;
+namespace app\modules\customize\models;
 
 use app\models\base\BaseActiveRecordDetail;
 use Yii;

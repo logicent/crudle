@@ -3,9 +3,11 @@
 ### Introduction
 
 **Overview**
+
 A free and open-source enterprise application starter kit for web development projects.
 
 **Installation**
+
 Prerequisites
 - Git
 - Composer
@@ -51,6 +53,7 @@ Continue:
 ### System Architecture
 
 **Context**
+
 Yii2 Crudle (CRUD logic engine) is a meta framework for rapid application development and customization using a modified (basic) template, predefined coding conventions and fully-fledged admin backend based on Semantic UI.
 
 **Containers**
@@ -61,38 +64,22 @@ Yii2 Crudle (CRUD logic engine) is a meta framework for rapid application develo
 **Components**
 - kit
   - config
-    - kit
-  - controllers
-    - DataModelController
-    - DataModelFieldController
   - enums
-    - DataType
-    - ModelType
   - helpers
-  - models
-    - DataModel
-    - DataModelField
-  - views
-    - data_model
-      - field
   - widgets
 
-- ext
-  
 **Code**
 - role/load-defaults
 - role/create
 - user/create
 - setup/init-auth
-
 - email/send-notification
-
 - site/home
 - site/login
 - site/logout
 - site/change-password
 - site/forgot-password
-- site/reset-password-request
+- site/request-password-reset
 - site/reset-password
 
 ### Technology Stack
@@ -112,7 +99,7 @@ Yii2 Crudle (CRUD logic engine) is a meta framework for rapid application develo
 - Fullcalendar 5.3
 
 **Web Servers**
-- PHP via ./yii serve or Caddy 2 (Development)
+- PHP built-in web server via `./yii serve` or Caddy 2 (Development)
 - Nginx or RoadRunner 2 (Production)
 
 **Process Manager**
@@ -129,7 +116,7 @@ Yii2 Crudle (CRUD logic engine) is a meta framework for rapid application develo
 - Web sockets
 
 **Command Line**
-* - To be determined
+- _To be determined_
 
 ### Domain-driven
 Use domain-driven project structure that maps to modified Yii2 modules and extensions
@@ -172,7 +159,7 @@ Use domain-driven project structure that maps to modified Yii2 modules and exten
 - Redis
 
 **Authentication**
-- ~~~Hybrid of Php Auth Manager and Db Auth Manager~~~
+- Hybrid of Php Auth Manager and Db Auth Manager*
 - Administrator and System manager roles are predefined
 
 ### Roadmap

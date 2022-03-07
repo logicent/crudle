@@ -12,9 +12,8 @@ use app\models\auth\Person;
 use app\helpers\StatusMarker;
 
 $this->title = Yii::t('app', 'People');
-$this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['/people']];
 
-// Pjax::begin();
     echo GridView::widget([
         'layout' => "{items}\n{pager}", // {summary} {errors} {sorter}
         'dataProvider' => $dataProvider,

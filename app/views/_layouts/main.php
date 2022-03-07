@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use app\assets\AppAsset;
+use Zelenin\yii\SemanticUI\Elements;
+
 // use Zelenin\yii\SemanticUI\collections\Message;
 
 AppAsset::register($this);
@@ -30,12 +32,9 @@ $this->beginPage() ?>
             echo $this->render('//_layouts/_view_header', ['context' => $this->context]);
         endif ?>
     </div>
-    <!-- labeled icon -->
-    <div class="ui sidebar vertical menu" id="main_sidebar">
-        <?= $this->render('_main_menu') ?>
-    </div>
+    <?= $this->render('_main_sidebar') ?>
 
-    <div class="main ui container pusher" style="margin-top: <?= $this->context->id == 'main' || $this->context->id == 'setup' ? '84px;' : '124px;' ?>">
+    <div class="main ui container pusher" style="margin-top: <?= $this->context->id == 'main' || $this->context->id == 'setup' ? '93px;' : '133px;' ?>">
         <div class="ui stackable grid">
             <?php if ($this->context->id !== 'main' && $this->context->sidebar !== false) : ?>
                 <div class="computer only large screen only <?= $this->context->sidebarWidth ?> wide column">
@@ -84,15 +83,6 @@ $this->beginPage() ?>
 <?php
     $this->registerJs(<<<JS
     // $('.ui.accordion').accordion();
-
-    $('#main_menu').on('click', function(e){
-        // $('.ui.labeled.icon.sidebar')
-        $('.ui.sidebar')
-            .sidebar('setting', 'dimPage', false)
-            .sidebar('setting', 'transition', 'overlay')
-            .sidebar('setting', 'onChange', $('body').removeClass('dimmable pushable'))
-            .sidebar('toggle');
-    });
 
     $('.ui.sticky')
         .sticky({

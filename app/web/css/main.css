@@ -104,7 +104,9 @@ body {
     line-height: 20px;
 }
 
-#sidebar .ui.vertical.menu .item > .label, #open_issues .ui.vertical.menu .item > .label {
+#sidebar .ui.vertical.menu .item > .label,
+#open_issues .ui.vertical.menu .item > .label
+{
     font-weight: normal;
     color: #555;
     margin-top: -0.45em;
@@ -355,7 +357,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 #search_form .ui.icon.input > input {
-    padding: 0.5rem 0.75rem;
+    /* padding: 0.5rem 0.75rem; */
     font-size: 1rem;
     border-width: 1px;
     background-color: #fafbfc;
@@ -667,20 +669,39 @@ body::-webkit-scrollbar-thumb {
 
 #main_sidebar {
     position: absolute;
-    z-index: 800;
-    padding-top: 8em;
+    z-index: 900;
+    background: #f5f7fa;
 }
 
 #main_sidebar.ui.vertical.menu .item {
     font-size: 115%;
-    /* border: none !important; */
+    border: none !important;
 }
 
-/* #main_sidebar.ui.vertical.menu .item > i.icon {
-    float: left;
-} */
+#main_sidebar.ui.vertical.menu {
+    border: none;
+}
+
+#main_sidebar.ui.vertical.menu .item > i.icon {
+    /* float: left; */
+    line-height: 0.5em;
+}
 
 #main_sidebar > a.item > i.grey {
     color: #8D99A6 !important;
     opacity: 0.8;
+}
+
+#main_sidebar a#pin_sidebar {
+    float: right;
+}
+
+#main_sidebar a#pin_sidebar i {
+    margin-right: 0em;
+    color: #8d99a6 !important;
+}
+
+.nav-menu {
+    margin-top: 1.2em !important;
+    border-radius: 0rem !important;
 }

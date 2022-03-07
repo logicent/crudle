@@ -35,8 +35,8 @@ class DocTypeController extends BaseCrudController
      */
     public function actionCreate($id = null)
     {
-        $model = new DocType();
-        $modelDetails = [];
+        $this->model = new DocType();
+        $this->detailModels = [];
 
         $formDetails = Yii::$app->request->post('DocTypeField', []);
         foreach ($formDetails as $i => $formDetail) 
@@ -44,48 +44,48 @@ class DocTypeController extends BaseCrudController
             $modelDetail = new DocTypeField(['scenario' => DocTypeField::SCENARIO_BATCH_ACTION]);
             $modelDetail->attributes = $formDetail;
             $modelDetail->actionType = DocTypeField::ACTION_TYPE_CREATE;
-            $modelDetails[] = $modelDetail;
+            $this->detailModels[] = $modelDetail;
         }
 
         $dataProvider = new ActiveDataProvider([
             'query' => DocTypeField::find()->where(['doc_type' => '']),
         ]);
 
-        $dataProvider->setModels( !empty($modelDetails) ? $modelDetails :  [new DocTypeField(['scenario' => DocTypeField::SCENARIO_BATCH_ACTION])] );
+        $dataProvider->setModels( !empty($this->detailModels) ? $this->detailModels :  [new DocTypeField(['scenario' => DocTypeField::SCENARIO_BATCH_ACTION])] );
 
         // handling if the addRow button has been pressed
         if ( isset( Yii::$app->request->post()['addRow']) ) 
         {
-            $model->load(Yii::$app->request->post());
-            $modelDetails[] = new DocTypeField(['scenario' => DocTypeField::SCENARIO_BATCH_ACTION]);
-            $dataProvider->setModels( $modelDetails );
+            $this->model->load(Yii::$app->request->post());
+            $this->detailModels[] = new DocTypeField(['scenario' => DocTypeField::SCENARIO_BATCH_ACTION]);
+            $dataProvider->setModels( $this->detailModels );
 
             return $this->render('create', [
-                'model' => $model,
+                'model' => $this->model,
                 'fieldDataProvider' => $dataProvider,
             ]);
         }
 
-        if ($model->load(Yii::$app->request->post())) 
+        if ($this->model->load(Yii::$app->request->post())) 
         {
-            if (Model::validateMultiple($modelDetails) && $model->validate()) 
+            if (Model::validateMultiple($this->detailModels) && $this->model->validate()) 
             {
                 // use AR/DB transaction here ?
-                if ( $model->save(false) ) 
+                if ( $this->model->save(false) ) 
                 {
-                    foreach($modelDetails as $modelDetail) 
+                    foreach($this->detailModels as $modelDetail) 
                     {
-                        $modelDetail->doc_type = $model->name;
+                        $modelDetail->doc_type = $this->model->name;
                         $modelDetail->save(false);
                     }
-                    $model->createTable();
+                    $this->model->createTable();
                 }
-                return $this->redirect(['view', 'id' => $model->name]);
+                return $this->redirect(['view', 'id' => $this->model->name]);
             }
         }
 
         return $this->render('create', [
-            'model' => $model,
+            'model' => $this->model,
             'fieldDataProvider' => $dataProvider,
         ]);
     }

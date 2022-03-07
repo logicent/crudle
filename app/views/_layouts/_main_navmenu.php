@@ -7,12 +7,14 @@ use Zelenin\yii\SemanticUI\Elements;
 ?>
 
 <div class="ui dropdown item">&ensp;
-    <?= Yii::t('app', 'Help') ?>
+    <?= Yii::t('app', 'Help') ?>&ensp;
     <?= Elements::icon('down small chevron') ?>
-    <div class="menu">
+    <div class="menu nav-menu">
         <?= Html::a(Yii::t('app', 'User manual'), ['main/user-manual'], ['class' => 'item']) ?>
-        <div class="divider" style="margin: 0"></div>
+        <?= Html::a(Yii::t('app', 'User forum'), ['main/user-forum'], ['class' => 'item']) ?>
+        <?= Html::a(Yii::t('app', 'Report an issue'), ['main/report-an-issue'], ['class' => 'item']) ?>
         <?= Html::a(Yii::t('app', 'About'), ['main/about'], ['class' => 'item']) ?>
+        <?= Html::a(Yii::t('app', 'Keyboard shortcuts'), ['main/keyboard-shortcuts'], ['class' => 'item']) ?>
     </div>
 </div>
 
@@ -20,15 +22,15 @@ use Zelenin\yii\SemanticUI\Elements;
     <!-- <img class="ui mini image" src="<?= Yii::$app->urlManager->baseUrl ?>/img/photo-ph.jpg"> &ensp;-->
     <?= is_null( Yii::$app->user->identity ) ? '' : Yii::$app->user->identity->username ?>&ensp;
     <?= Elements::icon('down small chevron') ?>
-    <div class="menu">
-        <?= Html::a(Yii::t('app', 'My preferences'), ['people/edit-preferences', 'id' => is_null( Yii::$app->user->identity ) ? '' : Yii::$app->user->id], ['class' => 'item']) ?>
-        <?= Html::a(Yii::t('app', 'My account'), ['people/update', 'id' => is_null( Yii::$app->user->identity ) ? '' : Yii::$app->user->id], ['class' => 'item']) ?>
-        <div class="divider" style="margin: 0"></div>
-        <?= Html::a(Yii::t('app', 'Visit website'), ['site/index'], ['class' => 'item']) ?>
+    <div class="menu nav-menu">
+        <?= Html::a(Yii::t('app', 'My preferences'), ['/people/my-preferences', 'id' => is_null( Yii::$app->user->identity ) ? '' : Yii::$app->user->id], ['class' => 'item']) ?>
+        <?= Html::a(Yii::t('app', 'My account'), ['/people/my-account', 'id' => is_null( Yii::$app->user->identity ) ? '' : Yii::$app->user->id], ['class' => 'item']) ?>
+        <?= Html::a(Yii::t('app', 'Visit website'), ['/site'], ['class' => 'item']) ?>
+        <?= Html::tag('div', null, ['class' => 'divider', 'style' => 'margin: 0']) ?>
         <?= Html::a(Yii::t('app', 'Log out'), ['/logout'], [
-            'class' => 'item',
-            'data' => ['method' => 'post']
-        ]) ?>
+                'class' => 'item',
+                'data' => ['method' => 'post']
+            ]) ?>
     </div><!-- ./menu -->
 </div><!-- ./dropdown item -->
 
@@ -38,7 +40,7 @@ use Zelenin\yii\SemanticUI\Elements;
                 'class' => 'compact ui icon button',
                 'style' => 'background: #fafbfc'
             ]) ?>
-    <div class="ui vertical menu">
+    <div class="ui vertical menu nav-menu" style="margin-top: 0.8em !important;">
         <?= $this->render('_main_navalert') ?>
     </div><!-- ./vertical menu -->
 </div><!-- ./dropdown item -->
