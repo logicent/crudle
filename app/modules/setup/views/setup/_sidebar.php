@@ -11,7 +11,7 @@ $menuGroups = ArrayHelper::map($menuList, 'label', 'label', 'group');
 
 ?>
 
-<div id="setup_sidebar" class="page-sidebar">
+<div class="page-sidebar">
     <?= $this->render('//_form_field/search_input', [
                     'filterClass' => 'searchList',
                     'showSortButtons' => false,
@@ -45,7 +45,7 @@ $menuGroups = ArrayHelper::map($menuList, 'label', 'label', 'group');
 <?php
 $this->registerJs(<<<JS
     //  Use transitions for better UX
-    $('#setup_sidebar .item').on('click', function(e) {
+    $('.page-sidebar .item').on('click', function(e) {
         e.stopPropagation();
 
         item = $(this);

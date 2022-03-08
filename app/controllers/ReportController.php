@@ -3,7 +3,8 @@
 namespace app\controllers;
 
 use app\controllers\base\BaseController;
-use app\modules\customize\models\ReportBuilder;
+use app\modules\tool\models\ReportBuilder;
+use Yii;
 use yii\data\ActiveDataProvider;
 use yii\helpers\ArrayHelper;
 
@@ -13,11 +14,14 @@ class ReportController extends BaseController
 
     public function init()
     {
+        parent::init();
+
         $this->sidebar = true;
         $this->sidebarWidth = 'three';
         $this->mainWidth = 'thirteen';
 
-        return parent::init();
+        $this->viewPath = Yii::getAlias('@app/views/report');
+        // return;
     }
 
     public function actionIndex($id = null)

@@ -10,9 +10,9 @@ use app\enums\Type_Model_Id;
 use app\enums\Type_Permission;
 use app\enums\Type_Relation;
 use app\enums\Type_View;
-use app\modules\setup\models\GlobalSettingsForm;
 use app\modules\setup\models\ListViewSettingsForm;
 use app\models\auth\Person;
+use app\modules\setup\models\LayoutSettingsForm;
 use app\modules\setup\models\Setup;
 use app\workflows\WorkflowInterface;
 use Yii;
@@ -226,9 +226,9 @@ abstract class BaseActiveRecord extends ActiveRecord implements ActiveRecordInte
         }
     }
 
-    public function getGeneralSettings($attribute)
+    public function getLayoutSettings($attribute)
     {
-        $settings = Setup::getSettings( GlobalSettingsForm::class );
+        $settings = Setup::getSettings( LayoutSettingsForm::class );
         return $settings->$attribute;
     }
 

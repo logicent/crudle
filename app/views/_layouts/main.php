@@ -34,7 +34,7 @@ $this->beginPage() ?>
     </div>
     <?= $this->render('_main_sidebar') ?>
 
-    <div class="main ui container pusher" style="margin-top: <?= $this->context->id == 'main' || $this->context->id == 'setup' ? '93px;' : '133px;' ?>">
+    <div class="main ui container pusher" style="margin-top: <?= $this->context->id == 'main' ? '103px;' : '133px;' ?>">
         <div class="ui stackable grid">
             <?php if ($this->context->id !== 'main' && $this->context->sidebar !== false) : ?>
                 <div class="computer only large screen only <?= $this->context->sidebarWidth ?> wide column">
@@ -54,7 +54,6 @@ $this->beginPage() ?>
                         // controller id
                         elseif (
                             $this->context->id == 'report'
-                            ||  $this->context->id == 'setup'
                         ) {
                             if (file_exists($this->context->viewPath . '/_sidebar.php')) {
                                 echo $this->context->renderPartial('_sidebar', ['context' => $this->context]);

@@ -674,7 +674,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 #main_sidebar.ui.vertical.menu .item {
-    font-size: 115%;
+    /* font-size: 115%; */
     border: none !important;
 }
 

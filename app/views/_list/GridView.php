@@ -19,7 +19,7 @@ $searchForm = $this->context->viewPath . '/_search.php';
 $emptyText = "No {$this->context->resourceName} found.";
 $newBtnUrl = Url::to(['create']);
 $newBtnLabel = Yii::t('app', 'New') . '&nbsp;' . Inflector::titleize($resource);
-$showListCaptions = $searchModel->getGeneralSettings('showViewCaptions');
+$showListCaptions = $searchModel->getLayoutSettings('showHelpInfo');
 
 if (file_exists($searchForm)) : ?>
     <div style="display: none;" id="list_header" class="ui basic segment filters">

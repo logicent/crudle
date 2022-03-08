@@ -11,7 +11,6 @@ $form = ActiveForm::begin([
         'options' => [
             'autocomplete' => 'off',
             'class' => 'ui form',
-            'enctype' => 'multipart/form-data',
         ],
     ]) ?>
 
@@ -27,35 +26,7 @@ $form = ActiveForm::begin([
             <?= $form->field($model, 'defaultDateFormat')->textInput(['readonly' => true, 'class' => 'datePicker']) ?>
             <?= $form->field($model, 'defaultTimeFormat')->textInput(['readonly' => true, 'class' => 'timePicker']) ?>
         </div>
-        <?= $form->field($model, 'showViewCaptions')->checkbox() ?>
     </div>
-
-    <div class="ui bottom attached padded segment">
-        <div class="ui one column stackable grid">
-            <div class="column center aligned">
-                <?= Html::activeFileInput( $model->uploadForm, 'file_upload', [
-                        'accept' => 'image/*', 'style' => 'display: none'
-                    ]) ?>
-                <?= Html::tag('div', Html::activeLabel( $model, 'bgImagePath' ), [
-                        'class' => 'field'
-                    ]) ?>
-                <?= Html::activeHiddenInput( $model, 'bgImagePath', [
-                        'id' => 'file_path', 
-                        'readonly' => true
-                    ]) ?>
-                <?= $this->render( '//_form_field/file_input', [
-                        'attribute' => 'bgImagePath',
-                        'model' => $model,
-                    ]) ?>
-                <div class="ui divider hidden"></div>
-                <?= $form->field( $model, 'bgImageStyles' )->textarea([
-                        'rows' => 1, 
-                        'maxlength' => true
-                    ]) ?>
-            </div>
-        </div>
-    </div>
-
 <?php
 ActiveForm::end();
 ?>

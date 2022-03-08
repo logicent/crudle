@@ -2,10 +2,9 @@
 
 namespace app\enums;
 
-use Yii;
-
 class Type_View
 {
+    const Workspace      = 'Workspace';
     const List      = 'List';
     const Form      = 'Form';
     // const Map       = 'Map';
@@ -18,6 +17,13 @@ class Type_View
     public static function enums()
     {
         return [
+            self::Workspace => [
+                'icon' => 'table',
+                'label' => 'List',
+                'color' => '',
+                'link' => '#list',
+                'action' => ['index'],
+            ],
             self::List => [
                 'icon' => 'list',
                 'label' => 'List',
@@ -26,7 +32,7 @@ class Type_View
                 'action' => ['index'],
             ],
             // self::Form => [
-            //     'icon' => 'form',
+            //     'icon' => 'columns',
             //     'label' => 'Form',
             //     'color' => '',
             //     'link' => '#form',
@@ -47,7 +53,7 @@ class Type_View
             //     'action' => ['index'],
             // ],
             self::Dashboard => [
-                'icon' => 'trello',
+                'icon' => 'pie chart',
                 'label' => 'Dashboard',
                 'color' => '',
                 'link' => '#dashboard',

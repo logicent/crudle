@@ -7,10 +7,10 @@ use Zelenin\yii\SemanticUI\Elements;
 
 <div class="ui icon sidebar vertical menu" id="main_sidebar">
     <div class="item" id="menu_icon">
-        <?= Html::a(Elements::icon('window close outline grey large'), ['#'],
+        <?= Html::a(Elements::icon('window close outline grey', ['style' => 'margin-right: 0em;']), ['#'],
                 ['id' => 'hide_sidebar']) ?>
-        <?= Html::a(Elements::icon('thumbtack grey large'), ['#'],
-                ['id' => 'pin_sidebar', 'class' => 'right floated']) ?>
+        <?php /*= Html::a(Elements::icon('thumbtack grey'), ['#'],
+                ['id' => 'pin_sidebar', 'class' => 'right floated']) */?>
     </div>
     <?= Html::a(Elements::icon('grey globe large') . Yii::t('app', 'Home'),
                 ['/'], ['class' => 'item']) ?>

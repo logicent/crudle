@@ -46,6 +46,16 @@ abstract class BaseController extends Controller
     public $commentCount = 0;
     public $resourceName;
 
+    public function init()
+    {
+        parent::init();
+
+        $this->viewPath = dirname($this->viewPath) .'/'. Inflector::underscore(
+            Inflector::id2camel(StringHelper::basename($this->id))
+        );
+        // return;
+    }
+
     public function beforeAction($action)
     {
         // If there is no session log me out
