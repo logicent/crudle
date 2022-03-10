@@ -12,7 +12,7 @@ use app\models\auth\Assignment;
 use app\models\auth\Item;
 use app\models\auth\ItemChild;
 use app\modules\setup\models\DbBackupSettingsForm;
-use app\enums\Type_Role;
+use app\modules\setup\enums\Type_Role;
 use app\models\auth\Person;
 use app\models\auth\UserLog;
 use app\modules\setup\models\Settings;

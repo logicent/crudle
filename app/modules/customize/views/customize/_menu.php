@@ -1,10 +1,6 @@
 <?php
 
-use app\enums\Type_Permission;
-use app\enums\Type_Model;
-use app\enums\Type_Module_Sub_Module;
-use app\enums\Type_Module;
-use app\enums\Type_Role;
+use app\modules\setup\enums\Type_Role;
 
 return [
     [
@@ -13,7 +9,7 @@ return [
         'icon' => '',
         'iconPath' => null,
         'iconColor' => '',
-        'group' => Type_Module::Customize,
+        'group' => null,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
@@ -22,7 +18,7 @@ return [
         'icon' => '',
         'iconPath' => null,
         'iconColor' => '',
-        'group' => Type_Module::Customize,
+        'group' => null,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
@@ -31,7 +27,7 @@ return [
         'icon' => '',
         'iconPath' => null,
         'iconColor' => '',
-        'group' => Type_Module::Customize,
+        'group' => null,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
@@ -40,7 +36,7 @@ return [
         'icon' => '',
         'iconPath' => null,
         'iconColor' => '',
-        'group' => Type_Module::Customize,
+        'group' => null,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
@@ -49,7 +45,7 @@ return [
         'icon' => '',
         'iconPath' => null,
         'iconColor' => '',
-        'group' => Type_Module::Customize,
+        'group' => null,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
@@ -58,7 +54,7 @@ return [
         'icon' => '',
         'iconPath' => null,
         'iconColor' => '',
-        'group' => Type_Module::Customize,
+        'group' => null,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
@@ -67,7 +63,7 @@ return [
         'icon' => '',
         'iconPath' => null,
         'iconColor' => '',
-        'group' => Type_Module::Customize,
+        'group' => null,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
 ];

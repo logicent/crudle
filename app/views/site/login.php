@@ -1,6 +1,6 @@
 <?php
 
-use app\modules\setup\models\BusinessProfileForm;
+use app\modules\setup\models\OrganizationProfileForm;
 use app\modules\setup\models\Setup;
 use yii\helpers\Html;
 
@@ -10,7 +10,7 @@ use Zelenin\yii\SemanticUI\Elements;
 $this->title = Yii::t('app', 'Log in');
 $this->params['breadcrumbs'][] = $this->title;
 
-$businessProfile = Setup::getSettings( BusinessProfileForm::class );
+$businessProfile = Setup::getSettings( OrganizationProfileForm::class );
 $this->params['businessLogo'] = $businessProfile->logoPath;
 $this->params['businessName'] = $businessProfile->name;
 

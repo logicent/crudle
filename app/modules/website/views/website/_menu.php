@@ -1,6 +1,6 @@
 <?php
 
-use app\enums\Type_Role;
+use app\modules\setup\enums\Type_Role;
 use app\modules\website\enums\Type_Menu_Group;
 
 return [

@@ -2,7 +2,7 @@
 
 use app\enums\Type_Model;
 use app\enums\Type_Module;
-use app\enums\Type_Role;
+use app\modules\setup\enums\Type_Role;
 
 
 return [

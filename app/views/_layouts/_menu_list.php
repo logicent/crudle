@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\setup\enums\Type_Menu_Group;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -16,22 +17,25 @@ $menuGroups = ArrayHelper::map($menuList, 'label', 'label', 'group');
     <div class="column">
         <div class="ui card">
             <div class="content">
-                <?= Html::tag('div', $groupName, [
+                <?= Html::tag('div',
+                        // Elements::icon(Type_Menu_Group::enumIcons()[$groupName], ['class' => 'grey']) .'&nbsp;'.
+                        $groupName, [
                         'class' => 'header', 
                         'style' => 'font-family: inherit; margin-bottom: 1em; color: #36414c; font-weight: normal;'
                     ]) ?>
                 <div class="description">
                 <?php
                     foreach ( $menuList as $menu ) :
-                        if ( $menu['visible'] === false || $menu['group'] !== $groupName )
-                            continue;
-                        echo Html::tag('div',
-                                Html::a(Elements::icon('angle right') . Yii::t('app', '{menuLabel}', ['menuLabel' => $menu['label']]),
-                                        Url::to([$menu['route']]),
-                                        ['class' => 'item', 'style' => 'color: #6c7680;']
-                                ),
-                                ['class' => 'ui link selection list']
-                            );
+                        if ( (empty($menu['group']) || $menu['group'] == $groupName)
+                            && $menu['visible'] === true) :
+                            echo Html::tag('div',
+                                    Html::a(Elements::icon('angle right') . Yii::t('app', '{menuLabel}', ['menuLabel' => $menu['label']]),
+                                            Url::to([$menu['route']]),
+                                            ['class' => 'item', 'style' => 'color: #6c7680;']
+                                    ),
+                                    ['class' => 'ui link selection list']
+                                );
+                        endif;
                     endforeach; ?>
                 </div><!-- ./description -->
             </div><!-- ./content -->

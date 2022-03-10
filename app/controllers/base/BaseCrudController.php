@@ -5,7 +5,7 @@ namespace app\controllers\base;
 use app\enums\Status_Transaction;
 use app\enums\Type_Comment;
 use app\enums\Type_Form_View;
-use app\enums\Type_Permission;
+use app\modules\setup\enums\Type_Permission;
 use app\enums\Type_Relation;
 use app\models\CommentForm;
 use app\models\Model;

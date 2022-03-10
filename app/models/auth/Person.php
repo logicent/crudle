@@ -3,9 +3,7 @@
 namespace app\models\auth;
 
 use app\enums\Status_Active;
-use logicent\accounts\enums\Status_Party;
-use logicent\accounts\enums\Type_Party;
-use app\enums\Type_Role;
+use app\modules\setup\enums\Type_Role;
 use app\models\base\BaseActiveRecord;
 use app\models\UploadForm;
 use Yii;
@@ -32,7 +30,7 @@ class Person extends BaseActiveRecord
 
     public static function partyType()
     {
-        return Type_Party::Person;
+        return 'Person';
     }
 
     public static function tableName()

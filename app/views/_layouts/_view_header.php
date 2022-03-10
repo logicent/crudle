@@ -3,7 +3,7 @@
 use app\assets\DirrtyAsset;
 use app\enums\Resource_Action;
 use app\enums\Status_Transaction;
-use app\enums\Type_Permission;
+use app\modules\setup\enums\Type_Permission;
 use app\helpers\StatusMarker;
 use yii\helpers\Html;
 use yii\helpers\Url;

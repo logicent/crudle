@@ -8,22 +8,8 @@ return [
     'created_by', // varchar (140) 
     'updated_at', // i.e. last_update_at
     'updated_by', // varchar (140) -i.e. last_update_by
-    'doc_status',
-    'parent_id',
-    'parent_docfield',
-    'parent_doctype',
-    'idx', // position or serial_num
-    'lft', // left_col or left_side
-    'rgt', // right_col or right_side
-
-    '_old_field', // text or json
-
-    // Collaboration and social links
-    '_assign',
-    '_comments',
-    '_liked_by',
-    '_user_tags',
-    '_seen',
+    'status',
+    'comments',
 
     // Definition
     'dt', //  // varchar (140) - is doctype or datatype?

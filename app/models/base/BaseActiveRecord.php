@@ -2,7 +2,7 @@
 
 namespace app\models\base;
 
-use app\enums\Permission_Group;
+use app\modules\setup\enums\Permission_Group;
 use app\enums\Type_Comment;
 use app\enums\Type_Link;
 use app\enums\Type_Mixed_Value;

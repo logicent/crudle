@@ -1,6 +1,6 @@
 <?php
 
-use app\enums\Type_Role;
+use app\modules\setup\enums\Type_Role;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\helpers\Size;
 use Zelenin\yii\SemanticUI\modules\Modal;

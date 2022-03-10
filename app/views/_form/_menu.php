@@ -1,6 +1,6 @@
 <?php
 
-use app\enums\Type_Permission;
+use app\modules\setup\enums\Type_Permission;
 use app\enums\Resource_Action;
 use yii\helpers\Html;
 use yii\helpers\Url;

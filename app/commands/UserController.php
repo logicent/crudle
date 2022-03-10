@@ -1,7 +1,7 @@
 <?php
 namespace app\commands;
 
-use app\enums\Status_User;
+use app\modules\setup\enums\Status_User;
 use app\models\auth\Auth;
 use app\enums\Type_Role;
 use app\models\auth\Person;

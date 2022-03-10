@@ -1,14 +1,14 @@
 <?php
 
 use app\modules\setup\models\Setup;
-use app\modules\setup\models\BusinessProfileForm;
+use app\modules\setup\models\OrganizationProfileForm;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use Zelenin\yii\SemanticUI\Elements;
 
 $this->title = $name;
 
-$businessProfile = Setup::getSettings( BusinessProfileForm::class );
+$businessProfile = Setup::getSettings( OrganizationProfileForm::class );
 $this->params['businessLogo'] = $businessProfile->logoPath;
 $this->params['businessName'] = $businessProfile->name;
 ?>

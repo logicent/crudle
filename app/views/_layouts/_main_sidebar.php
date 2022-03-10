@@ -18,14 +18,10 @@ use Zelenin\yii\SemanticUI\Elements;
                 ['/customize'], ['class' => 'item']) ?>
     <?= Html::a(Elements::icon('grey unlink large') . Yii::t('app', 'Integration'),
                 ['/integration'], ['class' => 'item']) ?>
-    <?= Html::a(Elements::icon('grey users large') . Yii::t('app', 'People'),
-                ['/people'], ['class' => 'item']) ?>
     <?= Html::a(Elements::icon('grey line chart large') . Yii::t('app', 'Report'),
                 ['/report'], ['class' => 'item']) ?>
     <?= Html::a(Elements::icon('grey cog large') . Yii::t('app', 'Setup'),
                 ['/setup'], ['class' => 'item']) ?>
-    <?= Html::a(Elements::icon('grey wrench large') . Yii::t('app', 'Tool'),
-                ['/tool'], ['class' => 'item']) ?>
     <?= Html::a(Elements::icon('grey sitemap large') . Yii::t('app', 'Website'),
                 ['/website'], ['class' => 'item']) ?>
 </div>
