@@ -18,8 +18,9 @@ abstract class BaseSettingsController extends BaseController
     public function init()
     {
         parent::init();
-        $this->viewPath = Yii::getAlias('@app_setup/views/') . Inflector::underscore(
-            Inflector::id2camel($this->id)
+
+        $this->viewPath = dirname($this->viewPath) .'/'. Inflector::underscore(
+            Inflector::id2camel(StringHelper::basename($this->id))
         );
         // return;
     }

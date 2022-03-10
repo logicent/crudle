@@ -2,15 +2,15 @@
 
 namespace app\modules\website\controllers;
 
-use app\controllers\base\BaseController;
+use app\modules\setup\controllers\base\BaseSettingsController;
 
 /**
- * WebsiteController for the `website` module
+ * ThemeController for the `ThemeForm` model
  */
-class WebsiteController extends BaseController
+class ThemeController extends BaseSettingsController
 {
     /**
-     * Renders the default index view for the module
+     * Renders the index view for the model
      * @return string
      */
     public function actionIndex()

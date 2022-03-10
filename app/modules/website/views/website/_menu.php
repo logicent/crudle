@@ -1,53 +1,85 @@
 <?php
 
-use app\enums\Type_Module;
 use app\enums\Type_Role;
-
+use app\modules\website\enums\Type_Menu_Group;
 
 return [
     [
-        'route' => '/website/site-navigation',
-        'label' => 'Site Navigation',
-        'group' => Type_Module::Website,
+        'route' => '/website/settings',
+        'label' => 'Website Settings',
+        'group' => Type_Menu_Group::Setup,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/website/site-page',
-        'label' => 'Site Page',
-        'group' => Type_Module::Website,
+        'route' => '/website/theme',
+        'label' => 'Website Theme',
+        'group' => Type_Menu_Group::Setup,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/website/site-post',
-        'label' => 'Site Post',
-        'group' => Type_Module::Website,
+        'route' => '/website/script',
+        'label' => 'Website Script',
+        'group' => Type_Menu_Group::Setup,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/website/site-footer',
-        'label' => 'Footer Navigation',
-        'group' => Type_Module::Website,
+        'route' => '/website/about-page',
+        'label' => 'About Page',
+        'group' => Type_Menu_Group::Content,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/website/slider',
-        'label' => 'Slider',
-        'group' => Type_Module::Website,
+        'route' => '/website/contact-page',
+        'label' => 'Contact Page',
+        'group' => Type_Menu_Group::Content,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/website/testimonial',
-        'label' => 'Testimonial',
-        'group' => Type_Module::Website,
+        'route' => '/website/blog-post',
+        'label' => 'Blog Page',
+        'group' => Type_Menu_Group::Blog,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/website/featured-app',
-        'label' => 'Featured App',
-        'icon' => '',
-        'iconPath' => null,
-        'iconColor' => '',
-        'group' => Type_Module::Website,
+        'route' => '/website/blog-category',
+        'label' => 'Blog Category',
+        'group' => Type_Menu_Group::Blog,
+        'visible' => Yii::$app->user->can(Type_Role::SystemManager),
+    ],
+    [
+        'route' => '/website/blog-writer',
+        'label' => 'Blog Writer',
+        'group' => Type_Menu_Group::Blog,
+        'visible' => Yii::$app->user->can(Type_Role::SystemManager),
+    ],
+    [
+        'route' => '/website/web-page',
+        'label' => 'Web Page',
+        'group' => Type_Menu_Group::Content,
+        'visible' => Yii::$app->user->can(Type_Role::SystemManager),
+    ],
+    [
+        'route' => '/website/web-form',
+        'label' => 'Web Form',
+        'group' => Type_Menu_Group::Content,
+        'visible' => Yii::$app->user->can(Type_Role::SystemManager),
+    ],
+    [
+        'route' => '/website/sidebar',
+        'label' => 'Sidebar',
+        'group' => Type_Menu_Group::Content,
+        'visible' => Yii::$app->user->can(Type_Role::SystemManager),
+    ],
+    [
+        'route' => '/website/slideshow',
+        'label' => 'Slideshow',
+        'group' => Type_Menu_Group::Content,
+        'visible' => Yii::$app->user->can(Type_Role::SystemManager),
+    ],
+    [
+        'route' => '/website/route-meta',
+        'label' => 'Route Meta Tag',
+        'group' => Type_Menu_Group::Setup,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
 ];

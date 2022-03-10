@@ -1,7 +1,7 @@
 <?php
 
 $this->title = Yii::t('app', 'Website');
-$this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['/tool']];
+$this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['/website']];
 
 $menuList = require __DIR__ . '/_menu.php';
 
