@@ -38,17 +38,12 @@ Continue:
 - SweetAlert 2.1
 
 **Setup**
-  - Business profile
-  - Email notifications
-  - Email queue
-  - General settings
-  - Role & permissions
-
-**Tools**
-- Data import
-- Database backup
-- Report builder
-- SMTP settings
+- Core  - create or customize data models and configure main settings
+- Data  - import data, create widgets, reports and configure backups
+- Email - create email notifications, templates, check email queues
+- Layout  - customize layout menus and create menu shortcuts
+- People  - add users, groups, roles and check user logs
+- Printing- create print styles, formats and configure devices
 
 ### System Architecture
 
@@ -62,25 +57,12 @@ Yii2 Crudle (CRUD logic engine) is a meta framework for rapid application develo
 - modules   (Ext)
 
 **Components**
-- kit
-  - config
-  - enums
-  - helpers
-  - widgets
 
 **Code**
 - role/load-defaults
-- role/create
-- user/create
 - setup/init-auth
 - email/send-notification
 - site/home
-- site/login
-- site/logout
-- site/change-password
-- site/forgot-password
-- site/request-password-reset
-- site/reset-password
 
 ### Technology Stack
 **Programming Languages and Frameworks**

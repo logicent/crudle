@@ -38,7 +38,7 @@ return [
     ],
     [
         'route' => '/website/blog-post',
-        'label' => 'Blog Page',
+        'label' => 'Blog Article',
         'group' => Type_Menu_Group::Blog,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
@@ -68,13 +68,13 @@ return [
     ],
     [
         'route' => '/website/sidebar',
-        'label' => 'Sidebar',
+        'label' => 'Sidebar Menu',
         'group' => Type_Menu_Group::Content,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
         'route' => '/website/slideshow',
-        'label' => 'Slideshow',
+        'label' => 'Slide Show',
         'group' => Type_Menu_Group::Content,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
