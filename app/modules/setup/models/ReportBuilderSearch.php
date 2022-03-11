@@ -7,7 +7,7 @@ use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * ReportBuilderSearch represents the model behind the search form of `app\modules\customize\models\ReportBuilder`.
+ * ReportBuilderSearch represents the model behind the search form of `app\modules\setup\models\ReportBuilder`.
  */
 class ReportBuilderSearch extends ReportBuilder
 {

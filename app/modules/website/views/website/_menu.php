@@ -3,6 +3,8 @@
 use app\modules\setup\enums\Type_Role;
 use app\modules\website\enums\Type_Menu_Group;
 
+$this->params['menuGroupClass'] = Type_Menu_Group::class;
+
 return [
     [
         'route' => '/website/settings',

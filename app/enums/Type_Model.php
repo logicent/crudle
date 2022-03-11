@@ -10,12 +10,12 @@ use app\modules\setup\models\Setup;
 use app\models\auth\People;
 use app\modules\setup\models\EmailNotification;
 use app\modules\setup\models\EmailQueue;
-use app\modules\customize\models\ReportBuilder;
-use app\modules\customize\models\ReportBuilderItem;
+use app\modules\setup\models\ReportBuilder;
+use app\modules\setup\models\ReportBuilderItem;
 use app\modules\setup\models\PrintFormat;
 use app\modules\setup\models\PrintStyle;
 
-use app\modules\customize\models\DocType;
+use app\modules\setup\models\DocType;
 
 // Data Model
 

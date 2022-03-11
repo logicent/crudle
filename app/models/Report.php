@@ -3,7 +3,7 @@
 namespace app\models;
 
 use app\enums\Type_Permission;
-use app\modules\customize\models\ReportBuilder;
+use app\modules\setup\models\ReportBuilder;
 
 /**
  * This is the model class for page "Report".

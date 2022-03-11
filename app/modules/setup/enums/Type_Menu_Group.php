@@ -11,6 +11,7 @@ class Type_Menu_Group
     const Data = 'Data';
     const People = 'People';
     const Core = 'Core';
+    const Layout = 'Layout';
 
     public static function enums()
     {
@@ -20,6 +21,7 @@ class Type_Menu_Group
             self::Data => Yii::t('app', 'Data'),
             self::People => Yii::t('app', 'People'),
             self::Core => Yii::t('app', 'Core'),
+            self::Layout => Yii::t('app', 'Layout'),
         ];
     }
 
@@ -27,10 +29,11 @@ class Type_Menu_Group
     {
         return [
             self::Printing => 'print',
-            self::Email => 'mail outline',
-            self::Data => 'server',
+            self::Email => 'inbox', // 'mail outline',
+            self::Data => 'server', // 'disk outline',
             self::People => 'users',
             self::Core => 'toggle on',
+            self::Layout => 'window maximize outline',
         ];
     }
 }

@@ -14,10 +14,6 @@ use Zelenin\yii\SemanticUI\Elements;
     </div>
     <?= Html::a(Elements::icon('grey globe large') . Yii::t('app', 'Home'),
                 ['/'], ['class' => 'item']) ?>
-    <?= Html::a(Elements::icon('grey options large') . Yii::t('app', 'Customize'),
-                ['/customize'], ['class' => 'item']) ?>
-    <?= Html::a(Elements::icon('grey unlink large') . Yii::t('app', 'Integration'),
-                ['/integration'], ['class' => 'item']) ?>
     <?= Html::a(Elements::icon('grey line chart large') . Yii::t('app', 'Report'),
                 ['/report'], ['class' => 'item']) ?>
     <?= Html::a(Elements::icon('grey cog large') . Yii::t('app', 'Setup'),

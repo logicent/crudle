@@ -22,9 +22,9 @@ class Type_Menu_Group
     public static function enumIcons()
     {
         return [
-            self::Setup => '',
-            self::Blog => '',
-            self::Content => '',
+            self::Setup => 'cogs', // 'options'
+            self::Blog => 'edit', // outline
+            self::Content => 'file alternate outline', // 'copy outline',
         ];
     }
 }

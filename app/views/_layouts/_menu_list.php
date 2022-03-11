@@ -9,6 +9,7 @@ use Zelenin\yii\SemanticUI\Elements;
 ArrayHelper::multisort($menuList, 'label');
 ArrayHelper::multisort($menuList, 'group');
 $menuGroups = ArrayHelper::map($menuList, 'label', 'label', 'group');
+$menuGroupClass = $this->params['menuGroupClass'];
 ?>
 
 <div class="ui four column grid">
@@ -18,9 +19,10 @@ $menuGroups = ArrayHelper::map($menuList, 'label', 'label', 'group');
         <div class="ui card">
             <div class="content">
                 <?= Html::tag('div',
-                        // Elements::icon(Type_Menu_Group::enumIcons()[$groupName], ['class' => 'grey']) .'&nbsp;'.
+                        Elements::icon($menuGroupClass::enumIcons()[$groupName], ['class' => 'grey']) . //  right floated
+                        '&nbsp;'.
                         $groupName, [
-                        'class' => 'header', 
+                        'class' => 'header',
                         'style' => 'font-family: inherit; margin-bottom: 1em; color: #36414c; font-weight: normal;'
                     ]) ?>
                 <div class="description">
