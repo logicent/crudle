@@ -29,22 +29,6 @@ Continue:
 - Run `./yii user/create-superuser "my_password"` and `./yii rbac/init`
 - Run `./yii serve` in local environment or use preferred web server in production
 
-**System Requirements**
-- PHP 7.4 using Yii2 (latest) and JavaScript using jQuery (latest)
-- MySQL 5.7
-- Semantic UI 2.4
-- Datatables 1.10
-- Flatpickr 4.6
-- SweetAlert 2.1
-
-**Setup**
-- Core  - create or customize data models and configure main settings
-- Data  - import data, create widgets, reports and configure backups
-- Email - create email notifications, templates, check email queues
-- Layout  - customize layout menus and create menu shortcuts
-- People  - add users, groups, roles and check user logs
-- Printing- create print styles, formats and configure devices
-
 ### System Architecture
 
 **Context**
@@ -57,6 +41,15 @@ Yii2 Crudle (CRUD logic engine) is a meta framework for rapid application develo
 - modules   (Ext)
 
 **Components**
+
+_Setup_
+
+- Core  - create or customize data models and configure main settings
+- Data  - import data, create widgets, reports and configure backups
+- Email - create email notifications, templates, check email queues
+- Layout  - customize layout menus and create menu shortcuts
+- People  - add users, groups, roles and check user logs
+- Printing- create print styles, formats and configure devices
 
 **Code**
 - role/load-defaults
@@ -147,7 +140,7 @@ Use domain-driven project structure that maps to modified Yii2 modules and exten
 ### Roadmap
 _Now:_
 - [ ] Email sending with attachment option for documents and reports
-- [ ] Email templates and email digest of recent business activity
+- [ ] Email templates and email digest of recent user activity
 - [ ] Improve all the end-user system tools options and performance
 
 _Next:_
