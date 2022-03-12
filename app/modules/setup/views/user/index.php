@@ -1,7 +1,6 @@
 <?php
 
 use app\modules\setup\enums\Type_Role;
-use app\modules\setup\enums\User_Group;
 use app\helpers\DateTimeHelper;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -78,7 +77,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Setup'), 'url' => ['
                 'attribute' => 'user_group',
                 'filter' => [
                     ' ' => Yii::t('app', 'All'),
-                    User_Group::enums(),
+                    [], // get UserGroup::findAll()
                 ]
             ],
             [

@@ -1,6 +1,6 @@
 <?php
 
-use app\models\setup\OrganizationProfileForm;
+use app\models\setup\GeneralSettingsForm;
 use app\modules\setup\models\Setup;
 use yii\helpers\Html;
 
@@ -22,7 +22,7 @@ use yii\helpers\Html;
         <?= $content ?>
         <br>
         <p><?= Yii::t('app', 'Kind Regards,') ?></p>
-        <?php $orgProfile = Setup::getSettings( OrganizationProfileForm::class ) ?>
+        <?php $orgProfile = Setup::getSettings( GeneralSettingsForm::class ) ?>
         <p><?= $orgProfile->name ?></p>
     </div>
     <?php $this->endBody() ?>

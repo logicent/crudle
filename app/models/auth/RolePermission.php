@@ -2,7 +2,7 @@
 
 namespace app\models\auth;
 
-use app\enums\Type_Permission;
+use app\modules\setup\enums\Type_Permission;
 use app\enums\Type_Model;
 
 class RolePermission extends Item

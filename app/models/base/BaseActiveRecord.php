@@ -2,17 +2,17 @@
 
 namespace app\models\base;
 
-use app\modules\setup\enums\Permission_Group;
 use app\enums\Type_Comment;
 use app\enums\Type_Link;
 use app\enums\Type_Mixed_Value;
 use app\enums\Type_Model_Id;
-use app\enums\Type_Permission;
 use app\enums\Type_Relation;
 use app\enums\Type_View;
-use app\modules\setup\models\ListViewSettingsForm;
 use app\models\auth\Person;
+use app\modules\setup\enums\Permission_Group;
+use app\modules\setup\enums\Type_Permission;
 use app\modules\setup\models\LayoutSettingsForm;
+use app\modules\setup\models\ListViewSettingsForm;
 use app\modules\setup\models\Setup;
 use app\workflows\WorkflowInterface;
 use Yii;
@@ -458,9 +458,6 @@ abstract class BaseActiveRecord extends ActiveRecord implements ActiveRecordInte
     }
 
     public static function moduleType()
-    {}
-
-    public static function moduleSubType()
     {}
 
     // Workflow Interface

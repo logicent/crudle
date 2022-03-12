@@ -24,6 +24,8 @@ abstract class BaseController extends Controller
     public $loadModal = false;
     public $formViewType;
     public $formView;
+    public $showViewTypeSwitcher = true;
+    public $showViewFilterButton = true;
     // Layout partials (Default)
     // public $navbar      = '/_layouts/_main_navbar';
     // public $header      = '/_layouts/_view_header';

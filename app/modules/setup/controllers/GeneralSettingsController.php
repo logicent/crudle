@@ -3,13 +3,13 @@
 namespace app\modules\setup\controllers;
 
 use app\modules\setup\controllers\base\BaseSettingsController;
-use app\modules\setup\models\GlobalSettingsForm;
+use app\modules\setup\models\GeneralSettingsForm;
 
-class GlobalSettingsController extends BaseSettingsController
+class GeneralSettingsController extends BaseSettingsController
 {
     public function init()
     {
-        $this->modelClass = GlobalSettingsForm::class;
+        $this->modelClass = GeneralSettingsForm::class;
         
         return parent::init();
     }

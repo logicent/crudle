@@ -18,13 +18,6 @@ use yii\web\UploadedFile;
 
 class DataImportController extends BaseController
 {
-    public function init()
-    {
-        $this->sidebar = false;
-
-        return parent::init();
-    }
-
     public function behaviors()
     {
         return [

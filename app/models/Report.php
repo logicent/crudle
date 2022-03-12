@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use app\enums\Type_Permission;
+use app\modules\setup\enums\Type_Permission;
 use app\modules\setup\models\ReportBuilder;
 
 /**

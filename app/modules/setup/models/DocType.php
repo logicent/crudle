@@ -3,7 +3,7 @@
 namespace app\modules\setup\models;
 
 use app\enums\Status_Transaction;
-use app\enums\Type_Permission;
+use app\modules\setup\enums\Type_Permission;
 use app\models\base\BaseActiveRecord;
 use Yii;
 

@@ -6,9 +6,9 @@ use Zelenin\yii\SemanticUI\Elements;
 
 ?>
 <!-- inverted brown -->
-<div class="compact ui inline basic small dropdown button" style="padding-right: 8.75px;">
-    <div style="font-weight: normal;" class="text"><?= Yii::t('app', 'List View') ?></div>
-    &ensp;<i class="sort icon"></i>
+<div class="compact ui inline basic dropdown button" style="padding-right: 8.75px;">
+    <div style="font-weight: normal;" class="text"><?= Yii::t('app', 'List view') ?></div>
+    &ensp;<i class="angle double down icon"></i>
     <div class="menu">
     <?php
         foreach (Type_View::enums() as $viewType) :
@@ -18,7 +18,7 @@ use Zelenin\yii\SemanticUI\Elements;
                         [$viewType['link']],
                         [
                             'class' => 'item',
-                            'data' => ['text' => $viewType['label'] .' '. Yii::t('app', 'View')]
+                            'data' => ['text' => $viewType['label'] .' '. Yii::t('app', 'view')]
                         ]);
         endforeach;
     ?>

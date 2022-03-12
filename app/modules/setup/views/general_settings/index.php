@@ -17,12 +17,21 @@ $form = ActiveForm::begin([
 
     <div class="ui attached padded segment">
         <div class="two fields">
-            <?= $form->field($model, 'name')->textInput() ?>
-            <?= $form->field($model, 'shortName')->textInput() ?>
+            <?= $form->field($model, 'name', [
+                    'hintOptions' => [
+                        'class' => 'text-muted',
+                        'tag' => 'span',
+                        'style' => 'font-size: 0.95em;'
+                    ]
+                ])->textInput() ?>
+            <?= $form->field($model, 'shortName', [
+                    'hintOptions' => [
+                        'class' => 'text-muted',
+                        'tag' => 'span',
+                        'style' => 'font-size: 0.95em;'
+                    ]
+                ])->textInput() ?>
         </div>
-    </div>
-
-    <div class="ui attached padded segment">
         <div class="two fields">
             <?= $form->field($model, 'location')->textarea(['rows' => 4]) ?>
             <?= $form->field($model, 'contacts')->textarea(['rows' => 4]) ?>

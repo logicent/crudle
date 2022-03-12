@@ -34,11 +34,11 @@ $model = $this->context->model;
         <div class="six wide column right aligned">
         <?php
             if ($this->context->action->id == 'index') :
-                // echo $this->render('_Type_View');
-                // echo Html::a(Elements::icon('refresh'), ['refresh'], [
-                //     'id' => 'refresh_btn',
-                //     'class' => 'compact ui basic small icon button',
-                // ]);
+                echo $this->render('_view_type');
+                echo Html::a(Elements::icon('refresh'), ['refresh'], [
+                    'id' => 'refresh_btn',
+                    'class' => 'compact ui basic icon button',
+                ]) . Html::tag('span', '&nbsp;');
                 echo Html::a(Yii::t('app', 'Show filters'), false, [ // zoom, Elements::icon('toggle off')
                         'id' => 'show_filters',
                         'class' => 'compact ui filter button',

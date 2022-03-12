@@ -5,7 +5,7 @@ namespace app\modules\setup\models;
 use app\modules\setup\models\base\BaseSettingsForm;
 use Yii;
 
-class GlobalSettingsForm extends BaseSettingsForm
+class GeneralSettingsForm extends BaseSettingsForm
 {
     public $name;
     public $shortName;
@@ -73,8 +73,8 @@ class GlobalSettingsForm extends BaseSettingsForm
     public function attributeHints()
     {
         return [
-            'shortName' => Yii::t('app', 'Acronym or brand/trading name'),
-            'name' => Yii::t('app', 'Business or institution/organization name'),
+            'shortName' => Yii::t('app', 'Acronym, brand or trading name'),
+            'name' => Yii::t('app', 'Business, institution or organization name'),
         ];
     }
 }

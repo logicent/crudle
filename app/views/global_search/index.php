@@ -1,7 +1,7 @@
 <?php
 
 use Zelenin\yii\SemanticUI\widgets\ActiveForm;
-use app\models\setup\GlobalSettingsForm;
+use app\models\setup\GeneralSettingsForm;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;
 

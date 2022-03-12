@@ -4,7 +4,7 @@ namespace app\modules\setup\controllers;
 
 use app\controllers\base\BaseController;
 
-class UserTypeController extends BaseController
+class UserGroupController extends BaseController
 {
     public function actionIndex()
     {

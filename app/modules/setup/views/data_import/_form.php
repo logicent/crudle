@@ -11,20 +11,20 @@ use Zelenin\yii\SemanticUI\widgets\ActiveForm;
         <?= Yii::t('app', 'Export Template') ?>
     </div>
     <p class="text-muted">
-        <?= Yii::t('app', 'To import or update records you must first download the data template for importing.') ?>
+        <?= Yii::t('app', 'To create or update records you must first download the data template for importing.') ?>
     </p>
 
     <?= Html::beginForm(['export-template'], 'post', ['class' => 'ui form']); ?>
         <div class="ui one column stackable grid">
             <div class="six wide column">
-                <?= Html::label('Select data source') ?>
+                <?= Html::label('Select data model') ?>
                 <?= Html::dropDownList('source_table_name', '', $model->getListOptions(), ['required' => true]) ?>
             </div>
             <div class="column">
                 <?= Html::label(Yii::t('app', 'Export as')) . RadioList::widget([
                         'items' => [
                             Yii::t('app', 'Blank template (with headers only)'),
-                            Yii::t('app', 'Filled template (with existing data)')
+                            Yii::t('app', 'Filled template (load existing data)')
                         ],
                         'name' => 'download_option',
                     ]) ?>
@@ -43,13 +43,14 @@ use Zelenin\yii\SemanticUI\widgets\ActiveForm;
         <?= Yii::t('app', 'Import Data') ?>
     </div>
     <p class="text-muted">
-        <?= Yii::t('app', 'Fill or edit the data template and save in downloaded format before uploading it.') ?>
+        <?= Yii::t('app', 'Fill in or edit the data template and save in downloaded format before uploading it.') ?>
     </p>
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
         <div class="ui one column stackable grid">
             <div class="column">
-                <?= $form->field($model, 'dataFile')->fileInput(['style' => 'width: 100%; height: 30px;']) ?>
+                <?= $form->field($model, 'dataFile')->fileInput(['style' => 'width: 100%; height: 30px;'])
+                        ->label('Select data file') ?>
             </div>
             <div class="column">
                 <?php /*= Html::label(Yii::t('app', 'Data operation')) . CheckboxList::widget([
@@ -59,9 +60,8 @@ use Zelenin\yii\SemanticUI\widgets\ActiveForm;
                         ],
                         'name' => 'upload_option',
                     ]) */?>
-                <?= Html::label('Data operation') ?>
-                <?= $form->field($model, 'addNewRecords')->checkbox() ?>
-                <br>
+                <?= Html::label('Import to') ?>
+                <?= $form->field($model, 'addNewRecords')->checkbox(['style' => 'margin-bottom: 0.85em;']) ?>
                 <?= $form->field($model, 'updateRecords')->checkbox() ?>
             </div>
             <div class="column">

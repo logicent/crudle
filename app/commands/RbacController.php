@@ -3,8 +3,8 @@
 namespace app\commands;
 
 use app\enums\Type_Model;
-use app\enums\Type_Permission;
-use app\enums\Type_Role;
+use app\modules\setup\enums\Type_Permission;
+use app\modules\setup\enums\Type_Role;
 use Yii;
 use yii\console\Controller;
 use yii\helpers\Inflector;

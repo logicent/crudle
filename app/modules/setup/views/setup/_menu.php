@@ -68,7 +68,7 @@ return [
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/setup/global-settings',
+        'route' => '/setup/general-settings',
         'label' => 'General Settings',
         'group' => Type_Menu_Group::Core,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
