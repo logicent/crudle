@@ -13,14 +13,14 @@ use Zelenin\yii\SemanticUI\widgets\GridView;
 use Zelenin\yii\SemanticUI\widgets\Pjax;
 use Zelenin\yii\SemanticUI\Elements;
 
-$resource = $this->context->id;
 $modelClass = $this->context->modelClass;
-$searchForm = $this->context->viewPath . '/_search.php';
 $emptyText = "No {$this->context->resourceName} found.";
-$newBtnUrl = Url::to(['create']);
+$resource = $this->context->id;
 $newBtnLabel = Yii::t('app', 'New') . '&nbsp;' . Inflector::titleize($resource);
+$newBtnUrl = Url::to(['create']);
 $showListCaptions = $searchModel->getLayoutSettings('showHelpInfo');
 
+$searchForm = $this->context->viewPath . '/_search.php';
 if (file_exists($searchForm)) : ?>
     <div style="display: none;" id="list_header" class="ui basic segment filters">
         <?= $this->renderFile($searchForm, ['searchModel' => $searchModel, 'model' => $modelClass]) ?>
@@ -196,8 +196,8 @@ if (file_exists($searchForm)) : ?>
         //     // 'contentOptions' => ['width' => '80px']
         // ],
         // ],
-    ]); ?>
-    <?php Pjax::end(); ?>
+    ]) ?>
+    <?php Pjax::end() ?>
 </div>
 
 <?php
@@ -231,5 +231,5 @@ $this->registerJs(<<<JS
                 $('#create_btn').show();
             }
         }
-    });
+    })
 JS) ?>

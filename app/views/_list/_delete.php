@@ -13,7 +13,7 @@ $modal = Modal::begin([
     ',
     'size' => Size::TINY,
 ]) ?>
-    <p><?= Yii::t('app', 'Are you sure you want to perform delete operation?') ?></p>
+    <p><?= Yii::t('app', 'Are you sure you want to delete?') ?></p>
 <?php
 $modal::end();
 

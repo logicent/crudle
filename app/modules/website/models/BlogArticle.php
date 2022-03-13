@@ -4,7 +4,7 @@ namespace app\modules\website\models;
 
 use app\models\base\BaseActiveRecord;
 
-class BlogPost extends BaseActiveRecord
+class BlogArticle extends BaseActiveRecord
 {
     public static function tableName()
     {

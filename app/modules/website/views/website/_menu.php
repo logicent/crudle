@@ -37,7 +37,7 @@ return [
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/website/blog-post',
+        'route' => '/website/blog-article',
         'label' => 'Blog Article',
         'group' => Type_Menu_Group::Blog,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),

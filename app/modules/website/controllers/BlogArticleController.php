@@ -7,7 +7,7 @@ use app\controllers\base\BaseCrudController;
 /**
  * BlogPostController for the `BlogPost` model
  */
-class BlogPostController extends BaseCrudController
+class BlogArticleController extends BaseCrudController
 {
     public function actionIndex()
     {

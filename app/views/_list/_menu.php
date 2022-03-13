@@ -31,12 +31,8 @@ use Zelenin\yii\SemanticUI\modules\Modal;
 
     if ( $this->context->action->id == 'index' ) :
         echo
-            Html::a(Yii::t('app', 'Import data'), ['setup/data-import'], ['class' => 'item']) .
-            Html::a(Yii::t('app', 'User permissions'), ['setup/role/user-permissions'], ['class' => 'item']) .
-            Html::a(Yii::t('app', 'Role permissions'), ['setup/role/role-permissions'], ['class' => 'item']) .
-            // Html::a(Yii::t('app', 'Setup'), ['setup'], ['class' => 'item']) .
-            Html::a(Yii::t('app', 'Toggle sidebar'), ['user-settings/toggle-sidebar'], ['class' => 'item']) .
-            Html::a(Yii::t('app', 'List view settings'), ['user-settings/list-view-settings'], ['class' => 'item']);
+            Html::a(Yii::t('app', 'Import data'), ['/setup/data-import'], ['class' => 'item']) .
+            Html::a(Yii::t('app', 'List view settings'), ['/setup/list-view-settings'], ['class' => 'item']);
     endif ?>
     </div><!-- ./menu -->
 </div>
