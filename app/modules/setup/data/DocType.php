@@ -1,6 +1,6 @@
 <?php
 
-// file 'DocType.php'
+// file 'DataModel.php'
 
 // Naming Series for Master Data
 // Numbering Series for Transaction Data

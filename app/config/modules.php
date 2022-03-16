@@ -8,6 +8,8 @@ Yii::setAlias('@system_modules', dirname (dirname( __DIR__ )) . '/modules');
 // Yii::setAlias('@custom_modules', dirname (dirname( __DIR__ )) . '/user_modules');
 
 return [
-    'setup'         => app\modules\setup\Module::class,
+    'setup'         => [
+        'class' => app\modules\setup\Module::class,
+    ],
     'website'       => app\modules\website\Module::class,
 ];

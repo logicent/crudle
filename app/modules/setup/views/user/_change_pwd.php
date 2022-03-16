@@ -1,7 +1,5 @@
 <?php
 
-use yii\helpers\Url;
-
 use Zelenin\yii\SemanticUI\widgets\ActiveForm;
 
 $this->title = Yii::t('app', 'Change Password');
@@ -25,8 +23,3 @@ $form = ActiveForm::begin([
         // ->label(Yii::t('app', 'Send password change email notification')) 
         ?>
 </div>
-
-<?php 
-ActiveForm::end();
-$this->registerJs($this->render('/_form/_modal_submit.js')); 
-?>

@@ -2,14 +2,15 @@
 
 namespace app\modules\setup\controllers;
 
-use app\controllers\base\BaseController;
+use app\modules\setup\controllers\base\BaseSettingsController;
+use app\modules\setup\models\HelpMenuForm;
 
-class HelpMenuController extends BaseController
+class HelpMenuController extends BaseSettingsController
 {
-    public function actionIndex()
+    public function init()
     {
-        $this->sidebar = false;
-
-        return $this->render('index');
+        $this->modelClass = HelpMenuForm::class;
+        
+        return parent::init();
     }
 }

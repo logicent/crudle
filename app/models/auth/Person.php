@@ -6,6 +6,7 @@ use app\enums\Status_Active;
 use app\modules\setup\enums\Type_Role;
 use app\models\base\BaseActiveRecord;
 use app\models\UploadForm;
+use app\modules\setup\models\ListViewSettingsForm;
 use Yii;
 use yii\db\Query;
 use yii\helpers\Json;
@@ -23,9 +24,11 @@ class Person extends BaseActiveRecord
 
     public function init()
     {
+        $this->listSettings = new ListViewSettingsForm();
+        $this->listSettings->listNameAttribute = 'full_name'; // override in view index
+
         $this->uploadForm = new UploadForm();
         // $this->fileAttribute = 'avatar';
-        return parent::init();
     }
 
     public static function partyType()

@@ -5,5 +5,4 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Setup'), 'url' => ['
 
 $menuList = require __DIR__ . '/_menu.php';
 
-echo $this->render('//_layouts/_menu_list', ['menuList' => $menuList])
-?>
+echo $this->render('//_layouts/_menu_list', ['menuList' => $menuList]);

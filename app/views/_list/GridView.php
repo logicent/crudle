@@ -19,13 +19,7 @@ $resource = $this->context->id;
 $newBtnLabel = Yii::t('app', 'New') . '&nbsp;' . Inflector::titleize($resource);
 $newBtnUrl = Url::to(['create']);
 $showListCaptions = $searchModel->getLayoutSettings('showHelpInfo');
-
-$searchForm = $this->context->viewPath . '/_search.php';
-if (file_exists($searchForm)) : ?>
-    <div style="display: none;" id="list_header" class="ui basic segment filters">
-        <?= $this->renderFile($searchForm, ['searchModel' => $searchModel, 'model' => $modelClass]) ?>
-    </div>
-<?php endif ?>
+?>
 
 <div class="<?= $resource ?>-index">
     <?php Pjax::begin(); ?>

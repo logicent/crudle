@@ -1,13 +1,21 @@
 <?php
 
-$this->title = Yii::t('app', '__');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', '__'), 'url' => ['/__']];
+use yii\helpers\Inflector;
 
-// To-Do: use
-// $this->beginBlock('grid-columns');
-$columns = [
+$this->title = Yii::t('app', '{listLabel}', ['listLabel' => $this->context->resourceName]);
+$this->params['breadcrumbs'][] = [
+    'label' => Yii::t('app', '{moduleName}', ['moduleName' => Inflector::camelize($this->context->module->id)]),
+    'url' => ['/' . $this->context->module->id]
 ];
-// $this->endBlock();
+
+$searchForm = $this->context->viewPath . '/_search.php';
+if (file_exists($searchForm)) : ?>
+    <div style="display: none;" id="list_header" class="ui basic segment filters">
+        <?= $this->render('_search', ['searchModel' => $searchModel]) ?>
+    </div>
+<?php endif;
+
+$columns = require $this->context->viewPath . '/list_columns.php';
 
 echo $this->render('//_list/GridView', [
         'dataProvider'  => $dataProvider, 

@@ -3,7 +3,7 @@
 
 use yii\helpers\Html;
 
-$columns = $model::listViewColumns();
+return $model::listViewColumns();
 
 foreach ($columns as $column) :
     $filter = $model->userSortOrder[$column];

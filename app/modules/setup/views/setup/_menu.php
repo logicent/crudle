@@ -8,19 +8,15 @@ use app\modules\setup\models\Setup;
 $this->params['menuGroupClass'] = Type_Menu_Group::class;
 $deployedSettings = Setup::getSettings( DeveloperSettingsForm::class );
 
-// 'icon' => '',
-// 'iconPath' => null,
-// 'iconColor' => '',
-
 return [
     [
-        'route' => '/setup/module-def',
+        'route' => '/setup/app-module',
         'label' => 'App Module',
         'group' => Type_Menu_Group::Core,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/setup/doc-type',
+        'route' => '/setup/data-model',
         'label' => 'Data Model',
         'group' => Type_Menu_Group::Core,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
@@ -50,8 +46,8 @@ return [
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/setup/dashboard-widget',
-        'label' => 'Dashboard Widget',
+        'route' => '/setup/data-widget',
+        'label' => 'Data Widget',
         'group' => Type_Menu_Group::Data,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],

@@ -2,14 +2,15 @@
 
 namespace app\modules\setup\controllers;
 
-use app\controllers\base\BaseController;
+use app\modules\setup\controllers\base\BaseSettingsController;
+use app\modules\setup\models\CreateMenuForm;
 
-class CreateMenuController extends BaseController
+class CreateMenuController extends BaseSettingsController
 {
-    public function actionIndex()
+    public function init()
     {
-        $this->sidebar = false;
-
-        return $this->render('index');
+        $this->modelClass = CreateMenuForm::class;
+        
+        return parent::init();
     }
 }

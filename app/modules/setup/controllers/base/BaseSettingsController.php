@@ -69,7 +69,7 @@ abstract class BaseSettingsController extends BaseController
             }
         }
 
-        return $this->render('index', [
+        return $this->render('//_settings/index', [
             'model' => $model,
         ]);
     }

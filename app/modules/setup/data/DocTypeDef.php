@@ -1,6 +1,6 @@
 <?php
 
-// file 'DocTypeDef.php'
+// file 'DataModelDef.php'
 return [
     'readonly_onload',
     'document_type',

@@ -2,14 +2,17 @@
 
 namespace app\modules\setup\controllers;
 
-use app\controllers\base\BaseController;
+use app\controllers\base\BaseCrudController;
+use app\modules\setup\models\UserGroup;
+use app\modules\setup\models\UserGroupSearch;
 
-class UserGroupController extends BaseController
+class UserGroupController extends BaseCrudController
 {
-    public function actionIndex()
+    public function init()
     {
-        $this->sidebar = false;
-
-        return $this->render('index');
+        $this->modelClass = UserGroup::class;
+        $this->modelSearchClass = UserGroupSearch::class;
+        
+        return parent::init();
     }
 }

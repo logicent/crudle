@@ -2,14 +2,17 @@
 
 namespace app\modules\setup\controllers;
 
-use app\controllers\base\BaseController;
+use app\controllers\base\BaseCrudController;
+use app\modules\setup\models\UserLog;
+use app\modules\setup\models\UserLogSearch;
 
-class UserLogController extends BaseController
+class UserLogController extends BaseCrudController
 {
-    public function actionIndex()
+    public function init()
     {
-        $this->sidebar = false;
-
-        return $this->render('index');
+        $this->modelClass = UserLog::class;
+        $this->modelSearchClass = UserLogSearch::class;
+        
+        return parent::init();
     }
 }

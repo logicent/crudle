@@ -12,16 +12,14 @@ $form = ActiveForm::begin([
         'class' => 'ui form',
         // 'enctype' => 'multipart/form-data,
     ],
-]) ?>
+]);
 
-<!-- 
-    form input fields
- -->
+    echo $this->renderFile($this->context->viewPath . '/field_inputs.php', ['form' => $form, 'model' => $model]);
 
-<?php
 ActiveForm::end();
 
 echo $this->render('//_form/_footer', ['model' => $model]);
+// $this->registerJs($this->render('//_form/_modal_submit.js'));
 
 $this->registerJs(<<<JS
 //  form view javascript

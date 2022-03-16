@@ -2,14 +2,15 @@
 
 namespace app\modules\setup\controllers;
 
-use app\controllers\base\BaseController;
+use app\modules\setup\controllers\base\BaseSettingsController;
+use app\modules\setup\models\AlertMenuForm;
 
-class AlertMenuController extends BaseController
+class AlertMenuController extends BaseSettingsController
 {
-    public function actionIndex()
+    public function init()
     {
-        $this->sidebar = false;
-
-        return $this->render('index');
+        $this->modelClass = AlertMenuForm::class;
+        
+        return parent::init();
     }
 }

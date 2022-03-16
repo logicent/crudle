@@ -116,12 +116,12 @@ abstract class BaseCrudController extends BaseController
         $this->sidebar = false;
 
         if (Yii::$app->request->isAjax)
-            return $this->renderAjax('index', [
+            return $this->renderAjax('//_crud/index', [
                 'searchModel' => $searchModel,
                 'dataProvider' => $dataProvider,
             ]);
         else
-            return $this->render('index', [
+            return $this->render('//_crud/index', [
                 'searchModel' => $searchModel,
                 'dataProvider' => $dataProvider,
             ]);
@@ -356,7 +356,7 @@ abstract class BaseCrudController extends BaseController
         if ( Yii::$app->request->isAjax )
             return $this->renderAjax( $this->action->id, $data );
         // else
-        return $this->render( $this->action->id, $data );
+        return $this->render( '//_crud//' . $this->action->id, $data );
     }
 
     protected function copyModel( $id, $includeDetails = true )

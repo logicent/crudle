@@ -3,7 +3,7 @@
 
 use yii\helpers\Html;
 
-$columns = $model::filterColumns();
+return $model::filterColumns();
 
 foreach ($columns as $column) :
     $filter = $model->userFilters[$column];
