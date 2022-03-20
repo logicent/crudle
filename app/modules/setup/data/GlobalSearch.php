@@ -2,7 +2,7 @@
 
 // file 'GlobalSearch.php'
 return [
-    'doctype',
+    'datamodel',
     'name',
     'title',
     'content',

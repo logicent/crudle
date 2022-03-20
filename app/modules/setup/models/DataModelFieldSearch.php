@@ -17,7 +17,7 @@ class DataModelFieldSearch extends DataModelField
     public function rules()
     {
         return [
-            [['name', 'doc_type', 'label', 'type', 'options', 'depends_on', 'mandatory_depends_on', 'readonly_depends_on', 'default', 'description'], 'safe'],
+            [['name', 'data_model', 'label', 'type', 'options', 'depends_on', 'mandatory_depends_on', 'readonly_depends_on', 'default', 'description'], 'safe'],
             [['length', 'mandatory', 'unique', 'in_list_view', 'in_standard_filter', 'in_global_search', 'bold', 'allow_in_quick_entry', 'translatable', 'fetch_from', 'fetch_if_empty', 'ignore_user_permissions', 'allow_on_submit', 'report_hide', 'perm_level', 'hidden', 'readonly', 'in_filter', 'print_hide', 'print_width', 'width'], 'integer'],
         ];
     }
@@ -82,7 +82,7 @@ class DataModelFieldSearch extends DataModelField
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'doc_type', $this->doc_type])
+            ->andFilterWhere(['like', 'data_model', $this->data_model])
             ->andFilterWhere(['like', 'label', $this->label])
             ->andFilterWhere(['like', 'type', $this->type])
             ->andFilterWhere(['like', 'options', $this->options])

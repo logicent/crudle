@@ -10,8 +10,10 @@ class ContactPage extends BaseSettingsForm
     public $pageTitle;
     public $forwardToEmail;
     public $heading;
+    public $subheading;
     public $shortIntro;
     public $enquiryDetail;
+    public $hideContactForm;
 
     public function rules()
     {
@@ -23,6 +25,7 @@ class ContactPage extends BaseSettingsForm
                 'shortIntro',
                 'enquiryDetail',
             ], 'string'],
+            ['hideContactForm', 'boolean']
         ];
     }
 
@@ -32,8 +35,10 @@ class ContactPage extends BaseSettingsForm
             'pageTitle' => Yii::t('app', 'Page title'),
             'forwardToEmail' => Yii::t('app', 'Forward to email'),
             'heading' => Yii::t('app', 'Heading'),
-            'shortIntro' => Yii::t('app', 'Introduction'),
+            'subheading' => Yii::t('app', 'Sub-heading'),
+            'shortIntro' => Yii::t('app', 'A brief intro'),
             'enquiryDetail' => Yii::t('app', 'Enquiry detail'),
+            'hideContactForm' => Yii::t('app', 'Hide contact form'),
         ];
     }
 

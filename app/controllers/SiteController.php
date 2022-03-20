@@ -2,12 +2,14 @@
 
 namespace app\controllers;
 
+use app\enums\Status_Active;
 use app\models\auth\LoginForm;
 use app\models\auth\PasswordResetRequestForm;
 use app\models\auth\ResetPasswordForm;
 use app\models\auth\Auth;
 use app\models\auth\User;
 use app\models\auth\UserLog;
+use app\modules\setup\models\EmailQueue;
 use app\modules\setup\models\Setup;
 use app\modules\setup\models\SmtpSettingsForm;
 use Yii;
@@ -77,6 +79,7 @@ class SiteController extends Controller
             $userLog->auth_id = Yii::$app->user->id;
             $userLog->login_ip = Yii::$app->request->userIP;
             $userLog->login_at = time();
+            $userLog->status = Status_Active::Yes;
             $userLog->save(false);
 
             return $this->goBack();
@@ -95,6 +98,7 @@ class SiteController extends Controller
         $userLog->auth_id = Yii::$app->user->id;
         $userLog->logout_ip = Yii::$app->request->userIP;
         $userLog->logout_at = time();
+        $userLog->status = Status_Active::No;
         $userLog->save(false);
 
         // Yii::$app->cache->flush(); // Clear all cache here
@@ -123,7 +127,7 @@ class SiteController extends Controller
 
                 if ($user->save(false))
                 {
-                    $msg = new \app\models\setup\EmailQueue();
+                    $msg = new EmailQueue();
                     $msg->from = Yii::$app->params['supportEmail'];
                     $msg->to = $model->email;
                     $msg->subject = Yii::t('app', 'Reset Password Request');

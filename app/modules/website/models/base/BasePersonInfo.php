@@ -2,10 +2,10 @@
 
 namespace app\modules\website\models\base;
 
-use app\models\base\BaseActiveRecordDetail;
+use app\models\base\BaseActiveRecord;
 use Yii;
 
-class BasePersonInfo extends BaseActiveRecordDetail
+class BasePersonInfo extends BaseActiveRecord
 {
     public function rules()
     {

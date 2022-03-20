@@ -9,5 +9,5 @@ return [
     'write',
     'everyone',
     'user',
-    'share_doctype'
+    'share_datamodel'
 ];

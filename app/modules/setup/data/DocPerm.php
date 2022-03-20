@@ -94,7 +94,7 @@ return [
         'visible' => false // Check user permission
     ],
     [
-        'id' => 'user_perm_doctypes', // long_text
+        'id' => 'user_perm_datamodels', // long_text
         'name' => 'User Permission DataModels',
         'visible' => false // Check user permission
     ],

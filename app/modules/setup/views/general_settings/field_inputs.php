@@ -42,7 +42,7 @@ use yii\helpers\Html;
 </div>
 
 <div class="ui attached padded segment">
-    <div class="ui one column stackable grid">
+    <div class="ui two column stackable grid">
         <div class="column center aligned">
             <?= Html::activeFileInput( $model->uploadForm, 'file_upload', [
                     'accept' => 'image/*', 'style' => 'display: none'

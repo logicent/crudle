@@ -3,6 +3,7 @@
 namespace app\models\auth;
 
 use app\models\base\BaseActiveRecordDetail;
+use app\modules\setup\enums\Type_Permission;
 use Yii;
 
 /**
@@ -44,5 +45,10 @@ class UserLog extends BaseActiveRecordDetail
     public function getUser()
     {
         return $this->hasOne(User::class, ['id' => 'auth_id']);
+    }
+
+    public static function permissions()
+    {
+        return Type_Permission::enums();
     }
 }

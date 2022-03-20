@@ -2,9 +2,9 @@
 
 namespace app\modules\setup\models;
 
-use app\modules\setup\models\base\BaseMenuForm;
+use app\modules\setup\models\base\BaseAppMenu;
 
-class CreateMenuForm extends BaseMenuForm
+class CreateMenuForm extends BaseAppMenu
 {
     
 }

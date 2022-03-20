@@ -1,6 +1,5 @@
 <?php
 
-use app\enums\Type_Model;
 use app\enums\Type_Module;
 use app\modules\setup\enums\Type_Role;
 
@@ -17,7 +16,7 @@ return [
     ],
     [
         'route' => '/setup',
-        'label' => Type_Model::Setup,
+        'label' => 'Setup',
         'icon' => 'cog',
         'iconPath' => null,
         'iconColor' => 'brown',

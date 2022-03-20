@@ -711,3 +711,7 @@ body::-webkit-scrollbar-thumb {
     -webkit-box-shadow: 0px 1px 3px 0px #dee5e7, 0px 0px 0px 1px #dee5e7;
     box-shadow: 0px 1px 3px 0px #dee5e7, 0px 0px 0px 1px #dee5e7;
 }
+
+#page_head .ui.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+    font-size: 1.5em;
+}

@@ -12,7 +12,7 @@ return [
     'comments',
 
     // Definition
-    'dt', //  // varchar (140) - is doctype or datatype?
+    'dt', //  // varchar (140) - is datamodel or datatype?
     'allow_on_submit',
     'permlevel', // int 11
     'precision', // varchar (140)

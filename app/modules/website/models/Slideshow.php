@@ -8,7 +8,7 @@ class Slideshow extends BaseActiveRecord
 {
     public static function tableName()
     {
-        return 'site_slideshow';
+        return 'site_slide';
     }
 
     public function rules()

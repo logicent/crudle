@@ -12,7 +12,7 @@ return [
 
     'user_group',
     'user_type',
-    'user_settings', // i.e. preferences as user_id, doctype, data (json or text)
+    'user_settings', // i.e. preferences as user_id, datamodel, data (json or text)
 
     'role',
     'role_permission',

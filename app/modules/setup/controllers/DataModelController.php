@@ -17,6 +17,7 @@ use app\modules\setup\models\DataModelFieldSearch;
  */
 class DataModelController extends BaseCrudController
 {
+    public $fieldDataProvider;
     /**
      * {@inheritdoc}
      */
@@ -47,22 +48,21 @@ class DataModelController extends BaseCrudController
             $this->detailModels[] = $modelDetail;
         }
 
-        $dataProvider = new ActiveDataProvider([
-            'query' => DataModelField::find()->where(['doc_type' => '']),
+        $this->fieldDataProvider = new ActiveDataProvider([
+            'query' => DataModelField::find()->where(['data_model' => '']),
         ]);
 
-        $dataProvider->setModels( !empty($this->detailModels) ? $this->detailModels :  [new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION])] );
+        $this->fieldDataProvider->setModels( !empty($this->detailModels) ? $this->detailModels :  [new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION])] );
 
         // handling if the addRow button has been pressed
         if ( isset( Yii::$app->request->post()['addRow']) ) 
         {
             $this->model->load(Yii::$app->request->post());
             $this->detailModels[] = new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION]);
-            $dataProvider->setModels( $this->detailModels );
+            $this->fieldDataProvider->setModels( $this->detailModels );
 
-            return $this->render('create', [
+            return $this->render('//_crud/create', [
                 'model' => $this->model,
-                'fieldDataProvider' => $dataProvider,
             ]);
         }
 
@@ -75,7 +75,7 @@ class DataModelController extends BaseCrudController
                 {
                     foreach($this->detailModels as $modelDetail) 
                     {
-                        $modelDetail->doc_type = $this->model->name;
+                        $modelDetail->data_model = $this->model->name;
                         $modelDetail->save(false);
                     }
                     $this->model->createTable();
@@ -84,9 +84,8 @@ class DataModelController extends BaseCrudController
             }
         }
 
-        return $this->render('create', [
+        return $this->render('//_crud/create', [
             'model' => $this->model,
-            'fieldDataProvider' => $dataProvider,
         ]);
     }
 
@@ -100,7 +99,7 @@ class DataModelController extends BaseCrudController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $modelDetails = $model->docTypeFields;
+        $modelDetails = $model->dataModelFields;
 
         $formDetails = Yii::$app->request->post('DataModelField', []);
         foreach ($formDetails as $i => $formDetail) 
@@ -108,7 +107,7 @@ class DataModelController extends BaseCrudController
             //loading the models if they are not new
             if (isset($formDetail['name']) && isset($formDetail['actionType']) && $formDetail['actionType'] != DataModelField::ACTION_TYPE_CREATE) {
                 //making sure that it is actually a child of the main model
-                $modelDetail = DataModelField::findOne(['name' => $formDetail['name'], 'doc_type' => $model->name]);
+                $modelDetail = DataModelField::findOne(['name' => $formDetail['name'], 'data_model' => $model->name]);
                 $modelDetail->setScenario(DataModelField::SCENARIO_BATCH_ACTION);
                 $modelDetail->setAttributes($formDetail);
                 $modelDetails[$i] = $modelDetail;
@@ -122,8 +121,8 @@ class DataModelController extends BaseCrudController
             }
         }
 
-        $dataProvider = new ActiveDataProvider([
-            'query' => DataModelField::find()->where(['doc_type' => '']),
+        $this->fieldDataProvider = new ActiveDataProvider([
+            'query' => DataModelField::find()->where(['data_model' => '']),
         ]);
 
         //handling if the addRow button has been pressed
@@ -131,13 +130,12 @@ class DataModelController extends BaseCrudController
         {
             $model->load(Yii::$app->request->post());
             $modelDetails[] = new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION]);
-            $dataProvider->setModels( $modelDetails );
+            $this->fieldDataProvider->setModels( $modelDetails );
 
             $this->model = $model;
 
-            return $this->render('update', [
+            return $this->render('//_crud/update', [
                 'model' => $model,
-                'fieldDataProvider' => $dataProvider,
             ]);
         }
 
@@ -154,7 +152,7 @@ class DataModelController extends BaseCrudController
                             $modelDetail->delete();
                         } else {
                             //new or updated records go here
-                            $modelDetail->doc_type = $model->name;
+                            $modelDetail->data_model = $model->name;
                             $modelDetail->save(false);
                         }                        
                     }
@@ -168,24 +166,22 @@ class DataModelController extends BaseCrudController
             }
         }
 
-        $dataProvider->setModels( !empty($modelDetails) ? $modelDetails :  [new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION])] );
+        $this->fieldDataProvider->setModels( !empty($modelDetails) ? $modelDetails :  [new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION])] );
 
         $this->model = $model;
 
-        return $this->render('update', [
+        return $this->render('//_crud/update', [
             'model' => $model,
-            'fieldDataProvider' => $dataProvider,
         ]);
     }
 
     public function fieldList()
     {
         $searchModel = new DataModelFieldSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $this->fieldDataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return [
             'fieldSearchModel' => $searchModel,
-            'fieldDataProvider' => $dataProvider,
         ];
     }
 }

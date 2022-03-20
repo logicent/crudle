@@ -3,16 +3,19 @@
 namespace app\modules\website\controllers;
 
 use app\controllers\base\BaseCrudController;
+use app\modules\website\models\BlogArticle;
+use app\modules\website\models\BlogArticleSearch;
 
 /**
- * BlogPostController for the `BlogPost` model
+ * BlogArticleController for the `BlogArticle` model
  */
 class BlogArticleController extends BaseCrudController
 {
-    public function actionIndex()
+    public function init()
     {
-        $this->sidebar = false;
+        $this->modelClass = BlogArticle::class;
+        $this->modelSearchClass = BlogArticleSearch::class;
 
-        return $this->render('index');
+        return parent::init();
     }
 }

@@ -3,16 +3,17 @@
 namespace app\modules\website\controllers;
 
 use app\modules\setup\controllers\base\BaseSettingsController;
+use app\modules\website\models\WebsiteSettingsForm;
 
 /**
  * SettingsController for the `WebsiteSettings` model
  */
 class SettingsController extends BaseSettingsController
 {
-    public function actionIndex()
+    public function init()
     {
-        $this->sidebar = false;
+        $this->modelClass = WebsiteSettingsForm::class;
 
-        return $this->render('index');
+        return parent::init();
     }
 }

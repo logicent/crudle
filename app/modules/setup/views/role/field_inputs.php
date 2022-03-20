@@ -2,7 +2,6 @@
 
 use app\modules\setup\enums\Type_Role;
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\widgets\ActiveForm;
 
 ?>
 <div class="ui attached padded segment">

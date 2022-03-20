@@ -1,0 +1,8 @@
+Module:
+    - id: 'setup'
+    - label: 'Setup'
+    - route: '/setup'
+
+    - id: 'website'
+    - label: 'Website'
+    - route: '/website'

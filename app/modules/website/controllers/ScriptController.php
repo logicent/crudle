@@ -3,20 +3,17 @@
 namespace app\modules\website\controllers;
 
 use app\modules\setup\controllers\base\BaseSettingsController;
+use app\modules\website\models\WebsiteScriptForm;
 
 /**
  * ScriptController for the `WebsiteScriptForm` model
  */
 class ScriptController extends BaseSettingsController
 {
-    /**
-     * Renders the index view for the model
-     * @return string
-     */
-    public function actionIndex()
+    public function init()
     {
-        $this->sidebar = false;
+        $this->modelClass = WebsiteScriptForm::class;
 
-        return $this->render('index');
+        return parent::init();
     }
 }

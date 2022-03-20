@@ -2,11 +2,12 @@
 
 use yii\helpers\Html;
 
+$isReadonly = $this->context->isReadonly;
 ?>
 
 <div class="ui attached segment">
     <div class="two fields">
-        <?= $form->field($model, 'name')->textInput(['maxlength' => true, 'readonly' => $isReadonly]) ?>
+        <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
     </div>
 </div>
 
@@ -16,13 +17,13 @@ use yii\helpers\Html;
             <?= $form->field( $model, 'module' )->dropDownList( [
                 'Core' => 'Core'
             ] ) ?>
-            <?= $form->field( $model, 'max_attachments' )->textInput( ['readonly' => $isReadonly]) ?>
+            <?= $form->field( $model, 'max_attachments' )->textInput() ?>
             <?= $form->field($model, 'search_fields', [
                     'hintOptions' => [
                         'class' => 'text-muted',
                         'tag' => 'small'
                     ]
-                ])->textarea(['rows' => 3, 'readonly' => $isReadonly]
+                ])->textarea(['rows' => 3]
                 )->hint('Fields separated by a comma (,) will be included in the "Search by" list of the search dialog') ?>            
         </div>
         <div class="column">
@@ -40,17 +41,16 @@ use yii\helpers\Html;
     <?= Yii::t('app', 'Field') ?>
 </div>
 <div class="ui attached segment">
-    <?= $this->render('field/index', [
-            'dataProvider' => $fieldDataProvider, 
-            'isReadonly' => $isReadonly,
+    <?= $this->render('field/list_columns', [
+            'dataProvider' => $this->context->fieldDataProvider,
             'model' => $model,
         ]) ?>
 </div>
 <div class="ui attached segment">
     <div class="ui two column grid">
         <div class="column">
-            <?= $form->field( $model, 'title_field' )->textInput( ['maxlength' => true, 'readonly' => $isReadonly]) ?>
-            <?= $form->field( $model, 'image_field' )->textInput( ['maxlength' => true, 'readonly' => $isReadonly]) ?>
+            <?= $form->field( $model, 'title_field' )->textInput( ['maxlength' => true]) ?>
+            <?= $form->field( $model, 'image_field' )->textInput( ['maxlength' => true]) ?>
         </div>
     </div>
 </div>

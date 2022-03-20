@@ -81,13 +81,13 @@ use Zelenin\yii\SemanticUI\Elements;
                             [
                                 'class' => 'action-type',
                                 'data' => [
-                                    'modal-input' => 'doc_type',
+                                    'modal-input' => 'data_model',
                                     'action-create' => DataModelField::ACTION_TYPE_CREATE,
                                     'action-update' => DataModelField::ACTION_TYPE_UPDATE,
                                     'action-delete' => DataModelField::ACTION_TYPE_DELETE,
                                 ]
                             ] ) .
-                        Html::activeHiddenInput($model, "[$index]doc_type", ['data' => ['modal-input' => 'doc_type']]) .
+                        Html::activeHiddenInput($model, "[$index]data_model", ['data' => ['modal-input' => 'data_model']]) .
                         Html::activeHiddenInput($model, "[$index]length", ['data' => ['modal-input' => 'length']]) .
                         Html::activeHiddenInput($model, "[$index]unique", ['data' => ['modal-input' => 'unique']]) .
                         Html::activeHiddenInput($model, "[$index]in_list_view", ['data' => ['modal-input' => 'in_list_view']]) .
@@ -135,7 +135,7 @@ use Zelenin\yii\SemanticUI\Elements;
                     'update' => function ( $url, $model, $key ) 
                     {
                         return 
-                            Html::a(Elements::icon('pencil alternate'), ['doc-type-field/update'],
+                            Html::a(Elements::icon('pencil alternate'), ['data-model-field/update'],
                                     [
                                         'class' => 'ui button load-field-modal',
                                         'title' => Yii::t('yii', 'Update'),
@@ -146,33 +146,32 @@ use Zelenin\yii\SemanticUI\Elements;
         ],
     ]); ?>
     <br>
-    <?php
-        if ( !$isReadonly ) :
-            echo 
-                Html::button(Yii::t('app', 'Delete'), 
-                    [
-                        'class' => 'delete-button compact ui tiny red button', 
-                        'style' => 'display:none',
-                        'data' => [
-                            ''
-                        ]
-                    ]) .
-                Html::submitButton(Yii::t('app', 'Add row'), [
-                    'class' => 'compact ui tiny button',
-                    'name' => 'addRow',
-                ]);
-        endif
-    ?>
-
-<?php 
-    $modal = Modal::begin([
-        'id' => 'field_modal',
-        'size' => Size::MEDIUM,
+<?php
+$isReadonly = $this->context->isReadonly;
+if ( !$isReadonly ) :
+    echo
+    Html::button(Yii::t('app', 'Delete'), 
+        [
+            'class' => 'delete-button compact ui tiny red button', 
+            'style' => 'display:none',
+            'data' => [
+                ''
+            ]
+        ]) .
+    Html::submitButton(Yii::t('app', 'Add row'), [
+        'class' => 'compact ui tiny button',
+        'name' => 'addRow',
     ]);
-    // echo $this->render('_form', [
-    //     'model' => new DataModelField(),
-    // ]);
-    $modal::end();
+endif;
+
+$modal = Modal::begin([
+    'id' => 'field_modal',
+    'size' => Size::MEDIUM,
+]);
+// echo $this->render('_form', [
+//     'model' => new DataModelField(),
+// ]);
+$modal::end();
 
 $this->registerJs(<<<JS
     $('.load-field-modal').on('click', function(e)

@@ -19,7 +19,7 @@ class DataWidget extends BaseActiveRecord
 
     public static function tableName()
     {
-        return 'data_widget';
+        return 'app_data_widget';
     }
 
     public function rules()

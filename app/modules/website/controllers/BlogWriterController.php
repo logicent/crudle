@@ -3,16 +3,19 @@
 namespace app\modules\website\controllers;
 
 use app\controllers\base\BaseCrudController;
+use app\modules\website\models\BlogWriter;
+use app\modules\website\models\BlogWriterSearch;
 
 /**
  * BlogWriterController for the `BlogWriter` model
  */
 class BlogWriterController extends BaseCrudController
 {
-    public function actionIndex()
+    public function init()
     {
-        $this->sidebar = false;
+        $this->modelClass = BlogWriter::class;
+        $this->modelSearchClass = BlogWriterSearch::class;
 
-        return $this->render('index');
+        return parent::init();
     }
 }

@@ -7,7 +7,7 @@ use Yii;
 use yii\db\Schema;
 
 /**
- * This is the model class for table "doc_type_field".
+ * This is the model class for table "data_model_field".
  */
 class DataModelField extends BaseActiveRecordDetail
 {
@@ -50,7 +50,7 @@ class DataModelField extends BaseActiveRecordDetail
      */
     public static function tableName()
     {
-        return 'doc_type_field';
+        return 'app_data_model_field';
     }
 
     /**
@@ -65,12 +65,12 @@ class DataModelField extends BaseActiveRecordDetail
                 'range' => [self::ACTION_TYPE_CREATE, self::ACTION_TYPE_UPDATE, self::ACTION_TYPE_DELETE],
                 'on' => self::SCENARIO_BATCH_ACTION
             ],
-            ['doc_type', 'required', 'except' => self::SCENARIO_BATCH_ACTION],
-            [['name', 'label', 'type', 'doc_type'], 'required'],
+            ['data_model', 'required', 'except' => self::SCENARIO_BATCH_ACTION],
+            [['name', 'label', 'type', 'data_model'], 'required'],
             [['length', 'mandatory', 'unique', 'in_list_view', 'in_standard_filter', 'in_global_search', 'bold', 'allow_in_quick_entry', 'translatable', 'fetch_from', 'fetch_if_empty', 'ignore_user_permissions', 'allow_on_submit', 'report_hide', 'perm_level', 'hidden', 'readonly', 'in_filter', 'print_hide', 'print_width', 'width'], 'integer'],
             [['options'], 'string'],
-            [['name', 'doc_type', 'label', 'type', 'depends_on', 'mandatory_depends_on', 'readonly_depends_on', 'default', 'description'], 'string', 'max' => 140],
-            [['name', 'doc_type'], 'unique', 'targetAttribute' => ['name', 'doc_type']],
+            [['name', 'data_model', 'label', 'type', 'depends_on', 'mandatory_depends_on', 'readonly_depends_on', 'default', 'description'], 'string', 'max' => 140],
+            [['name', 'data_model'], 'unique', 'targetAttribute' => ['name', 'data_model']],
         ];
     }
 
@@ -81,7 +81,7 @@ class DataModelField extends BaseActiveRecordDetail
     {
         return [
             'name' => Yii::t('app', 'Name'),
-            'doc_type' => Yii::t('app', 'Data Model'),
+            'data_model' => Yii::t('app', 'Data Model'),
             'label' => Yii::t('app', 'Label'),
             'length' => Yii::t('app', 'Length'),
             'type' => Yii::t('app', 'Type'),

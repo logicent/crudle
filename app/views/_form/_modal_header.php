@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use app\assets\DirrtyAsset;
 use app\enums\Type_Form_View;
-use app\enums\Type_Role;
+use app\modules\setup\enums\Type_Role;
 use Zelenin\yii\SemanticUI\Elements;
 
 DirrtyAsset::register($this);

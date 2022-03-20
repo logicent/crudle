@@ -48,7 +48,7 @@ $model = $this->context->model;
                         'class' => 'compact ui filter button',
                         'style' => 'display: none'
                     ]);
-                // echo $this->render('//_list/_menu');
+                echo $this->render('//_list/_menu');
 
                 if ( Yii::$app->user->can(Type_Permission::Create .' '. $this->context->resourceName) ) :
                     echo Html::a(Yii::t('app', 'New'), ['create'], [

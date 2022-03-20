@@ -3,13 +3,14 @@
 namespace app\modules\website\controllers;
 
 use app\modules\setup\controllers\base\BaseSettingsController;
+use app\modules\website\models\ContactPage;
 
 class ContactPageController extends BaseSettingsController
 {
-    public function actionIndex()
+    public function init()
     {
-        $this->sidebar = false;
+        $this->modelClass = ContactPage::class;
 
-        return $this->render('index');
+        return parent::init();
     }
 }

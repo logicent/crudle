@@ -1,9 +1,7 @@
 <?php
 
-use app\assets\PikadayAsset;
-PikadayAsset::register($this);
-// use app\assets\FlatpickrAsset;
-// FlatpickrAsset::register($this);
+use app\assets\FlatpickrAsset;
+FlatpickrAsset::register($this);
 
 $isReadonly = $this->context->action->id == 'read' || $this->context->action->id == 'print-preview';
 

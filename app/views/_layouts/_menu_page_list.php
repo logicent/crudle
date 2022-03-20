@@ -1,6 +1,5 @@
 <?php
 
-use app\modules\setup\enums\Type_Menu_Group;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;

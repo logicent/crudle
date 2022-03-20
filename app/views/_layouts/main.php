@@ -40,34 +40,19 @@ $this->beginPage() ?>
                 <div class="computer only large screen only <?= $this->context->sidebarWidth ?> wide column">
                     <!-- <div class="ui rail"> -->
                     <div class="ui sticky">
-                        <?php
-                        // action id
-                        if (
-                            $this->context->action->id !== 'index'
-                            &&  $this->context->action->id !== 'file-upload'
-                        ) {
-                            if (file_exists($this->context->viewPath . '/_sidebar.php')) {
-                                echo $this->context->renderPartial('_sidebar', ['context' => $this->context]);
-                            } else
-                                echo $this->context->renderPartial('//_form/_sidebar', ['context' => $this->context]);
-                        }
-                        // controller id
-                        elseif (
-                            $this->context->id == 'report'
-                        ) {
-                            if (file_exists($this->context->viewPath . '/_sidebar.php')) {
-                                echo $this->context->renderPartial('_sidebar', ['context' => $this->context]);
-                            }
-                        }
-                        // else {
-                        //     echo $this->context->renderPartial('/_layouts/_sidebar', [
-                        //         'reports' => [],
-                        //         'context' => $this->context
-                        //     ]);
-                        // }
-                        ?>
+                    <?php
+                        if ($this->context->id == 'report') :
+                            echo $this->context->renderPartial('_sidebar', ['context' => $this->context]);
+                        else :
+                            if ($this->context->sidebar
+                                // || $this->context->action->id !== 'file-upload'
+                            ) :
+                                echo $this->render('//_crud/_sidebar', ['context' => $this->context]);
+                            endif;
+                        endif;
+                    ?>
                     </div>
-                    <!-- </div> -->
+                    <!-- </div>./ui rail -->
                 </div>
             <?php endif ?>
 

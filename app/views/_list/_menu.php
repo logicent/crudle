@@ -7,7 +7,7 @@ use Zelenin\yii\SemanticUI\modules\Modal;
 
 ?>
 
-<div class="compact ui floating small dropdown button" style="padding-right: 8.75px;">
+<div class="compact ui floating dropdown button" style="padding-right: 8.75px;">
     <?= Yii::t('app', 'Menu') ?>&ensp;<i class="down small chevron icon"></i>
     <div class="menu">
 <?php

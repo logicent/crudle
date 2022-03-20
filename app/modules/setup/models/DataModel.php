@@ -8,7 +8,7 @@ use app\models\base\BaseActiveRecord;
 use Yii;
 
 /**
- * This is the model class for table "doc_type".
+ * This is the model class for table "data_model".
  */
 class DataModel extends BaseActiveRecord
 {
@@ -17,7 +17,7 @@ class DataModel extends BaseActiveRecord
      */
     public static function tableName()
     {
-        return 'data_model';
+        return 'app_data_model';
     }
 
     /**
@@ -66,7 +66,7 @@ class DataModel extends BaseActiveRecord
 
     public function getDataModelFields()
     {
-        return $this->hasMany(DataModelField::class, [ 'doc_type' => 'name' ]);
+        return $this->hasMany(DataModelField::class, [ 'data_model' => 'name' ]);
     }
 
     // Workflow Interface
@@ -79,7 +79,7 @@ class DataModel extends BaseActiveRecord
     {
         return Type_Permission::enums();
     }
-    
+
     public static function enums()
     {
         return [
@@ -90,21 +90,21 @@ class DataModel extends BaseActiveRecord
     public function createTable()
     {
         $columns = [];
-        // \yii\helpers\VarDumper::dump($this->docTypeFields, 3, true);exit;
-        foreach ($this->docTypeFields as $docTypeField) {
-            $columns[$docTypeField->name] = DataModelField::getDbType()[$docTypeField->type];
+        // \yii\helpers\VarDumper::dump($this->dataModelFields, 3, true);exit;
+        foreach ($this->dataModelFields as $dataModelField) {
+            $columns[$dataModelField->name] = DataModelField::getDbType()[$dataModelField->type];
 
-            if ( !empty($docTypeField->length) ) 
-                $columns[$docTypeField->name] .= '('. $docTypeField->length . ') ';
+            if ( !empty($dataModelField->length) ) 
+                $columns[$dataModelField->name] .= '('. $dataModelField->length . ') ';
 
-            if ( (bool) $docTypeField->mandatory === true )
-                $columns[$docTypeField->name] .= DataModelField::dbColumnAttributeConstraints()['mandatory'];
+            if ( (bool) $dataModelField->mandatory === true )
+                $columns[$dataModelField->name] .= DataModelField::dbColumnAttributeConstraints()['mandatory'];
 
-            if ( (bool) $docTypeField->unique == true ) 
-                $columns[$docTypeField->name] .= DataModelField::dbColumnAttributeConstraints()['unique'];
+            if ( (bool) $dataModelField->unique == true ) 
+                $columns[$dataModelField->name] .= DataModelField::dbColumnAttributeConstraints()['unique'];
                 
-            if ( !empty($docTypeField->default ) ) 
-                $columns[$docTypeField->name] .= " DEFAULT " . " '" .$docTypeField->default . "' " ;
+            if ( !empty($dataModelField->default ) ) 
+                $columns[$dataModelField->name] .= " DEFAULT " . " '" .$dataModelField->default . "' " ;
         }       
         // $options = '';
         return Yii::$app->db->createCommand()->createTable($this->name, $columns)->execute();
@@ -113,8 +113,8 @@ class DataModel extends BaseActiveRecord
     // public function alterTable()
     // {
     //     $columns = [];
-    //     foreach ($this->docTypeFields as $docTypeField)
-    //         $columns[$docTypeField->name] = DataModelField::getDbType()[$docTypeField->type];
+    //     foreach ($this->dataModelFields as $dataModelField)
+    //         $columns[$dataModelField->name] = DataModelField::getDbType()[$dataModelField->type];
     //     // $options = '';
     //     return Yii::$app->db->createCommand()->createTable($this->name, $columns)->execute();
     // }

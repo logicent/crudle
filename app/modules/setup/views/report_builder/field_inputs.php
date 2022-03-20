@@ -4,14 +4,13 @@ use app\enums\Type_Model;
 use app\enums\Type_Module;
 use app\enums\Type_Report;
 use app\modules\setup\enums\Type_Role;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;
 use Zelenin\yii\SemanticUI\modules\Select;
 use Zelenin\yii\SemanticUI\widgets\ActiveForm;
 
-
-$modelClasses = array_merge(Type_Model::domainModelClass(), Type_Model::domainModelSubclass());
-$modelClasses = array_flip($modelClasses);
+$modelClasses = array_flip(Type_Model::modelClasses());
 ksort($modelClasses);
 $rolesCount = !empty($model->roles) ? count($model->roles) : '0';
 

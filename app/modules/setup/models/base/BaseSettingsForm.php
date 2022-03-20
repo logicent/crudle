@@ -2,6 +2,7 @@
 
 namespace app\modules\setup\models\base;
 
+use app\modules\setup\enums\Type_Permission;
 use app\modules\setup\models\Setup;
 use Yii;
 use yii\base\Model;
@@ -29,6 +30,11 @@ abstract class BaseSettingsForm extends Model
             'updatedAt' => Yii::t('app', "Updated at"),
             'updatedBy' => Yii::t('app', "Updated by"),
         ];
+    }
+
+    public static function permissions()
+    {
+        return Type_Permission::enums();
     }
 
     public function populateAttributes( $settings )

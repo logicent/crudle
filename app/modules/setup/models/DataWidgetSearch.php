@@ -2,7 +2,6 @@
 
 namespace app\modules\setup\models;
 
-use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
@@ -61,7 +60,11 @@ class DataWidgetSearch extends DataWidget
             'deleted_at' => $this->deleted_at,
         ]);
 
-        $query->andFilterWhere(['like', 'alias', $this->alias])
+        $query->andFilterWhere(['like', 'icon', $this->icon])
+            ->andFilterWhere(['like', 'icon_path', $this->icon_path])
+            ->andFilterWhere(['like', 'icon_color', $this->icon_color])
+            ->andFilterWhere(['like', 'route', $this->route])
+            ->andFilterWhere(['like', 'label', $this->label])
             ->andFilterWhere(['like', 'created_by', $this->created_by])
             ->andFilterWhere(['like', 'updated_by', $this->updated_by]);
 

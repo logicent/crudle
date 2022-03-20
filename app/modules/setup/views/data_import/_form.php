@@ -61,8 +61,10 @@ use Zelenin\yii\SemanticUI\widgets\ActiveForm;
                         'name' => 'upload_option',
                     ]) */?>
                 <?= Html::label('Import to') ?>
+                <!-- use Html::beginTag() -->
                 <?= $form->field($model, 'addNewRecords')->checkbox(['style' => 'margin-bottom: 0.85em;']) ?>
                 <?= $form->field($model, 'updateRecords')->checkbox() ?>
+                <!-- use Html::closeTag() -->
             </div>
             <div class="column">
                 <?= Html::submitButton(Yii::t('app', 'Import') , ['class' => 'compact ui primary button']) ?>

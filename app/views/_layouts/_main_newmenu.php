@@ -11,6 +11,6 @@ use Zelenin\yii\SemanticUI\Elements;
     <?= Elements::icon('down small chevron') ?>
     <div class="menu nav-menu" style="margin-top: 1em !important;">
         <?= Html::a(Elements::icon('grey file alternate outline') . Yii::t('app', 'Data Model'),
-                    ['/setup/doc-type/create'], ['class' => 'item']) ?>
+                    ['/setup/data-model/create'], ['class' => 'item']) ?>
     </div>
 </div>&ensp;

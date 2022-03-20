@@ -23,7 +23,7 @@ echo $this->render('//_form/_modal_header', ['model' => $model]) ?>
 <div class="ui attached segment">
     <div class="ui two column grid">
         <div class="column">
-            <?= Html::activeHiddenInput( $model, 'doc_type' ) ?>
+            <?= Html::activeHiddenInput( $model, 'data_model' ) ?>
             <?= $form->field( $model, 'label' )->textInput(['maxlength' => true, 'readonly' => $isReadonly]) ?>
             <?= $form->field( $model, 'type' )->dropDownList(DataModelField::getListOptions()) ?>
             <?= $form->field( $model, 'name' )->textInput(['maxlength' => true, 'readonly' => false]) ?>

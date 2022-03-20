@@ -1,0 +1,9 @@
+Menu:
+    - id: 'setup'
+    - label: 'Setup'
+    - route: '/setup'
+    - group: 
+    - icon: ''
+    - icon_path: ''
+    - icon_color: ''
+    - inactive: false
