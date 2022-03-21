@@ -21,15 +21,15 @@ class RoleController extends BaseCrudController
 
     public function actionCreate( $id = null )
     {
-        $model = new Role();
+        $this->model = new Role();
 
-        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
-            if ($model->validate()) 
+        if (Yii::$app->request->isAjax && $this->model->load(Yii::$app->request->post()))
+            if ($this->model->validate()) 
             {
                 $auth = Yii::$app->authManager;
 
-                $newRole = $auth->createRole($model->name);
-                $newRole->description = $model->description;
+                $newRole = $auth->createRole($this->model->name);
+                $newRole->description = $this->model->description;
                 $auth->add($newRole);
 
                 $permissions = Yii::$app->request->post('Permission');
@@ -42,26 +42,26 @@ class RoleController extends BaseCrudController
             }
             else {
                 $result = [];
-                foreach ($model->getErrors() as $attribute => $errors) {
-                    $result[Html::getInputId($model, $attribute)] = $errors;
+                foreach ($this->model->getErrors() as $attribute => $errors) {
+                    $result[Html::getInputId($this->model, $attribute)] = $errors;
                 }
                 return $this->asJson(['validation' => $result]);
             }
 
-        $model->loadDefaultValues();
-        $model->type = Role::TYPE_ROLE;
+        $this->model->loadDefaultValues();
+        $this->model->type = Role::TYPE_ROLE;
 
-        return $this->render('create', [
-            'model' => $model,
+        return $this->render('//_crud/create', [
+            'model' => $this->model,
         ]);
     }
 
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $this->model = $this->findModel($id);
 
-        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
-            if ($model->validate()) 
+        if (Yii::$app->request->isAjax && $this->model->load(Yii::$app->request->post()))
+            if ($this->model->validate()) 
             {
                 $auth = Yii::$app->authManager;
 
@@ -71,15 +71,15 @@ class RoleController extends BaseCrudController
                     $permissions = [];
                 }
                 // get name from oldAttributes in case it has changed
-                $role = $auth->getRole($model->oldAttributes['name']);
+                $role = $auth->getRole($this->model->oldAttributes['name']);
                 if (
-                    $model->oldAttributes['name'] != Type_Role::SystemManager && 
-                    $model->oldAttributes['name'] != Type_Role::Administrator
+                    $this->model->oldAttributes['name'] != Type_Role::SystemManager && 
+                    $this->model->oldAttributes['name'] != Type_Role::Administrator
                 )
-                    $role->name = $model->name;
+                    $role->name = $this->model->name;
 
-                $role->description = $model->description;
-                $auth->update($model->oldAttributes['name'], $role);
+                $role->description = $this->model->description;
+                $auth->update($this->model->oldAttributes['name'], $role);
 
                 $old_permissions = $auth->getPermissionsByRole($role->name);
     
@@ -103,22 +103,22 @@ class RoleController extends BaseCrudController
             }
             else {
                 $result = [];
-                foreach ($model->getErrors() as $attribute => $errors) {
-                    $result[Html::getInputId($model, $attribute)] = $errors;
+                foreach ($this->model->getErrors() as $attribute => $errors) {
+                    $result[Html::getInputId($this->model, $attribute)] = $errors;
                 }
                 return $this->asJson(['validation' => $result]);
             }
 
-        return $this->render('update', [
-            'model' => $model,
+        return $this->render('//_crud/update', [
+            'model' => $this->model,
         ]);
     }
 
     public function actionDelete($id)
     {
-        $model = $this->findModel($id);
+        $this->model = $this->findModel($id);
 
-        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()))
+        if (Yii::$app->request->isAjax && $this->model->load(Yii::$app->request->post()))
         {
             $auth = Yii::$app->authManager;
             $role = $auth->getRole($id);

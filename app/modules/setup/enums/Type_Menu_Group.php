@@ -29,10 +29,10 @@ class Type_Menu_Group
     {
         return [
             self::Printing => 'print',
-            self::Email => 'inbox', // 'mail outline',
-            self::Data => 'server', // 'disk outline',
+            self::Email => 'inbox',
+            self::Data => 'server', // 'disk',
             self::People => 'users',
-            self::Core => 'toggle on',
+            self::Core => 'cog', // 'toggle on'
             self::Layout => 'window maximize outline',
         ];
     }

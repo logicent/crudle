@@ -3,11 +3,19 @@
 namespace app\modules\website\models;
 
 use app\models\base\BaseActiveRecord;
+use app\modules\setup\models\ListViewSettingsForm;
+use app\modules\website\enums\Status_Article;
 use Yii;
 use yii\helpers\ArrayHelper;
 
 class BlogArticle extends BaseActiveRecord
 {
+    public function init()
+    {
+        $this->listSettings = new ListViewSettingsForm();
+        $this->listSettings->listNameAttribute = 'title'; // override in view index
+    }
+
     public static function tableName()
     {
         return 'site_post';
@@ -30,5 +38,12 @@ class BlogArticle extends BaseActiveRecord
         return ArrayHelper::merge(parent::attributeLabels(), [
             'date_published' => Yii::t('app', 'Date published')
         ]);
+    }
+
+    public static function enums()
+    {
+        return [
+            'status' => Status_Article::class
+        ];
     }
 }

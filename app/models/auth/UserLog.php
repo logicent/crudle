@@ -2,7 +2,7 @@
 
 namespace app\models\auth;
 
-use app\models\base\BaseActiveRecordDetail;
+use app\models\base\BaseActiveRecord;
 use app\modules\setup\enums\Type_Permission;
 use Yii;
 
@@ -11,7 +11,7 @@ use Yii;
  *
  * @property Auth $auth
  */
-class UserLog extends BaseActiveRecordDetail
+class UserLog extends BaseActiveRecord
 {
     public static function tableName()
     {
@@ -35,9 +35,10 @@ class UserLog extends BaseActiveRecordDetail
             'id' => Yii::t('app', 'ID'),
             'auth_id' => Yii::t('app', 'Auth ID'),
             'session_id' => Yii::t('app', 'Session ID'),
-            'login_ip' => Yii::t('app', 'Login IP'),
             'login_at' => Yii::t('app', 'Login at'),
+            'login_ip' => Yii::t('app', 'Login IP'),
             'logout_at' => Yii::t('app', 'Logout at'),
+            'logout_ip' => Yii::t('app', 'Logout IP'),
             'status' => Yii::t('app', 'Status'),
         ];
     }
@@ -47,8 +48,8 @@ class UserLog extends BaseActiveRecordDetail
         return $this->hasOne(User::class, ['id' => 'auth_id']);
     }
 
-    public static function permissions()
-    {
-        return Type_Permission::enums();
-    }
+    // public static function permissions()
+    // {
+    //     return Type_Permission::enums();
+    // }
 }

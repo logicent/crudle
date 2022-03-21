@@ -715,3 +715,15 @@ body::-webkit-scrollbar-thumb {
 #page_head .ui.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
     font-size: 1.5em;
 }
+
+.ui.header .icon:only-child {
+    /* display: inline-block;
+    padding: 0em; */
+    margin-right: 0.4em;
+    vertical-align: 0.1em;
+    font-size: 75%;
+}
+
+small {
+    font-size: 70%;
+}

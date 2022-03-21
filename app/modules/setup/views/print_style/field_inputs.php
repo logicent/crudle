@@ -2,8 +2,7 @@
 
 use app\enums\Type_Model;
 
-$modelClasses = array_merge(Type_Model::domainModelClass(), Type_Model::domainModelSubclass());
-$modelClasses = array_flip($modelClasses);
+$modelClasses = array_flip(Type_Model::modelClasses());
 ksort($modelClasses);
 ?>
 

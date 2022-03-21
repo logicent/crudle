@@ -1,10 +1,10 @@
 <?php
 
 use app\modules\setup\enums\Type_Role;
-use app\modules\setup\enums\User_Group;
 use app\enums\Status_Work;
 use app\models\auth\Role;
 use app\helpers\SelectableItems;
+use app\modules\setup\models\UserGroup;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\MaskedInput;
@@ -13,30 +13,20 @@ use Zelenin\yii\SemanticUI\Elements;
 use Zelenin\yii\SemanticUI\helpers\Size;
 use Zelenin\yii\SemanticUI\modules\Modal;
 
-// $rolesCount = !empty($person->user_role) ? count($person->user_role) : '0';
+// $rolesCount = !empty($model->user_role) ? count($model->user_role) : '0';
 $isReadonly = $this->context->isReadonly || $this->context->action->id == 'print-preview';
 
-$form = ActiveForm::begin([
-    'enableClientValidation' => false,
-    'options' => [
-        'enctype' => 'multipart/form-data',
-        'class' => 'ui form',
-        'autocomplete' => 'off'
-    ]
-]);
-
-echo $this->render('/_form/_header', ['model' => $person]);
-echo $this->render('_stats', ['person' => $person]) ?>
+echo $this->render('_stats', ['model' => $model]) ?>
 
 <div class="ui attached padded segment">
-<?= Html::activeFileInput( $person->uploadForm, 'file_upload', [
+<?= Html::activeFileInput( $model->uploadForm, 'file_upload', [
         'accept' => 'image/*', 'style' => 'display: none'
     ]) ?>
-<?= Html::activeHiddenInput( $person, 'avatar', ['id' => 'file_path', 'readonly' => true]) ?>
-<?= Html::activeHiddenInput( $person, 'status' ) ?>
+<?= Html::activeHiddenInput( $model, 'avatar', ['id' => 'file_path', 'readonly' => true]) ?>
+<?= Html::activeHiddenInput( $model, 'status' ) ?>
 
     <div class="two fields">
-        <?= $form->field($auth, 'status')->checkbox([
+        <?= $form->field($this->context->auth, 'status')->checkbox([
                 'class' => $isReadonly || 
                 (
                     !Yii::$app->user->can(Type_Role::SystemManager) &&
@@ -45,14 +35,14 @@ echo $this->render('_stats', ['person' => $person]) ?>
             ]) ?>
         <div class="field">
         <?php
-            if ($auth->isNewRecord) :
-                echo $form->field($auth, 'password')->passwordInput(['maxlength' => true]);
+            if ($this->context->auth->isNewRecord) :
+                echo $form->field($this->context->auth, 'password')->passwordInput(['maxlength' => true]);
             else :
                 echo Elements::button(Yii::t('app', 'Change password'), [
                         'id' => 'load-changepwd-modal', 
                         'class' => 'compact ui basic right floated small button',
                         'data' => [
-                            'url' => Url::to(['people/change-pwd', 'id' => $auth->id])
+                            'url' => Url::to(['people/change-pwd', 'id' => $this->context->auth->id])
                         ]
                     ]);
             endif ?>
@@ -60,12 +50,12 @@ echo $this->render('_stats', ['person' => $person]) ?>
     </div>
 
     <div class="two fields">
-        <?= $form->field($person, 'firstname')->textInput(['maxlength' => true, 'readonly' => $isReadonly]) ?>
-        <?= $form->field($person, 'surname')->textInput(['maxlength' => true, 'readonly' => $isReadonly]) ?>
+        <?= $form->field($model, 'firstname')->textInput(['maxlength' => true, 'readonly' => $isReadonly]) ?>
+        <?= $form->field($model, 'surname')->textInput(['maxlength' => true, 'readonly' => $isReadonly]) ?>
     </div>
 
     <div class="two fields">
-        <?= $form->field($person, 'sex')->dropDownList([
+        <?= $form->field($model, 'sex')->dropDownList([
                 'M' => Yii::t('app', 'Male'),
                 'F' => Yii::t('app', 'Female')
             ],
@@ -73,50 +63,50 @@ echo $this->render('_stats', ['person' => $person]) ?>
                 'prompt' => '',
                 'disabled' => $isReadonly
             ]) ?>
-        <?= $form->field($person, 'title_of_courtesy')->dropDownList(
+        <?= $form->field($model, 'title_of_courtesy')->dropDownList(
             [],
             ['disabled' => $isReadonly]
         ) ?>
     </div>
 
     <div class="two fields">
-        <?= $form->field($person, 'mobile_no')->widget(MaskedInput::class, [
+        <?= $form->field($model, 'mobile_no')->widget(MaskedInput::class, [
                     'mask' => ['0799 999 999', '01199 999 999'],
                     'options' => ['readonly' => $isReadonly]
             ]) ?>
-        <?= $form->field($person, 'personal_email')->textInput(['maxlength' => true, 'readonly' => $isReadonly]) ?>
+        <?= $form->field($model, 'personal_email')->textInput(['maxlength' => true, 'readonly' => $isReadonly]) ?>
     </div>
 </div>
 
 <div class="ui attached padded segment">
 <?php
-    if ($auth->isNewRecord) :
-        echo $form->field($auth, 'send_welcome_email')->checkbox();
+    if ($this->context->auth->isNewRecord) :
+        echo $form->field($this->context->auth, 'send_welcome_email')->checkbox();
     endif ?>
     <div class="two fields">
         <div class="eight wide field">
         <?php
             if (Yii::$app->user->can(Type_Role::SystemManager) || Yii::$app->user->can(Type_Role::Administrator)) :
-                echo $form->field($auth, 'username')->textInput(['maxlength' => true, 'readonly' => $isReadonly]);
+                echo $form->field($this->context->auth, 'username')->textInput(['maxlength' => true, 'readonly' => $isReadonly]);
             else :
-                echo $form->field($auth, 'username')->textInput(['readonly' => true]);
+                echo $form->field($this->context->auth, 'username')->textInput(['readonly' => true]);
             endif ?>
         </div>
         <div class="eight wide field">
-            <?= $form->field($auth, 'email')->textInput(['maxlength' => true, 'readonly' => $isReadonly]) ?>
+            <?= $form->field($this->context->auth, 'email')->textInput(['maxlength' => true, 'readonly' => $isReadonly]) ?>
         </div>
     </div><!-- ./two fields -->
 
     <div class="two fields">
         <div class="eight wide field">
-            <?= $form->field($person, 'user_group')->dropDownList(
-                User_Group::enums(), [
+            <?= $form->field($model, 'user_group')->dropDownList(
+                UserGroup::enums(), [
                     'prompt' => '',
                     'disabled' => $isReadonly || !Yii::$app->user->can(Type_Role::SystemManager)
                 ]) ?>
         </div>
         <div class="field">
-        <?= $form->field($person, 'official_status')->dropDownList(Status_Work::enums(), [
+        <?= $form->field($model, 'official_status')->dropDownList(Status_Work::enums(), [
                     'prompt' => '',
                     'disabled' => $isReadonly
                 ]) ?>
@@ -124,8 +114,8 @@ echo $this->render('_stats', ['person' => $person]) ?>
     </div><!-- ./two fields -->
 
     <div class="two fields">
-        <?= $form->field($person, 'user_role')
-                ->checkboxList(SelectableItems::get( Role::class, $person, [
+        <?= $form->field($model, 'user_role')
+                ->checkboxList(SelectableItems::get( Role::class, $model, [
                         'keyAttribute' => 'name',
                         'valueAttribute' => 'name',
                         'addEmptyFirstItem' => false,
@@ -139,7 +129,7 @@ echo $this->render('_stats', ['person' => $person]) ?>
                     ]
                 )
             // ->label(
-            //     $person->getAttributeLabel('user_role') .'&nbsp;('.
+            //     $model->getAttributeLabel('user_role') .'&nbsp;('.
             //     Html::tag('span', $rolesCount,
             //             [
             //                 'class' => 'selected-list-options',
@@ -150,17 +140,13 @@ echo $this->render('_stats', ['person' => $person]) ?>
 </div>
 
 <div class="ui attached padded segment">
-    <?= $form->field($person, 'notes')->textarea([
+    <?= $form->field($model, 'notes')->textarea([
             'rows' => 3,
             'readonly' => $isReadonly,
             'style' => 'resize: none'
         ]) ?>
 </div>
-<?php //= $this->render('_user_log', ['model' => $person->userLog]) ?>
-
-<?php ActiveForm::end(); ?>
-
-<?= $this->render('/_form/_footer', ['model' => $person]) ?>
+<?php //= $this->render('_user_log', ['model' => $model->userLog]) ?>
 
 <!-- Change pwd modal here -->
 <?php
@@ -171,7 +157,7 @@ $modal = Modal::begin([
 $modal::end();
 
 $this->registerJs(<<<JS
-    $('#person-firstname').on('change', function (e) {
+    $('#model-firstname').on('change', function (e) {
         $('#auth-username').val($(this).val())
     });
 

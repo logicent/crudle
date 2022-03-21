@@ -8,48 +8,49 @@ use app\enums\Type_Form_View;
 use app\modules\setup\enums\Status_User;
 use app\models\auth\Auth;
 use app\models\auth\Person;
-use app\models\auth\PersonSearch;
+use app\modules\setup\models\User;
+use app\modules\setup\models\UserSearch;
 use Yii;
 use yii\helpers\Html;
 use yii\helpers\Json;
 
 class UserController extends BaseCrudController
 {
+    public $auth;
+
     public function init()
     {
         parent::init();
 
-        $this->modelClass = Person::class;
-        $this->modelSearchClass = PersonSearch::class;
-
-        // return;
+        $this->modelClass = User::class;
+        $this->modelSearchClass = UserSearch::class;
     }
 
     public function actionRead($id)
     {
-        $auth = Auth::findOne(['id' => $id]);
-        $person = Person::findOne($auth->id);
+        $this->auth = Auth::findOne(['id' => $id]);
+        $person = Person::findOne($this->auth->id);
 
         $authMan = Yii::$app->authManager;
-        $roles = $authMan->getRolesByUser($auth->id);
+        $roles = $authMan->getRolesByUser($this->auth->id);
 
         // $person->user_role will be overwritten because role assignments are inherited
         foreach ($roles as $id => $role)
             $person->user_role = $role->name;
 
-        $auth->getStatusLabel();
+        $this->auth->getStatusLabel();
 
         $this->model = $person;
 
         if (Yii::$app->request->isAjax)
-            return $this->renderAjax('readonly', [
-                'auth' => $auth,
-                'person' => $person,
+            return $this->renderAjax('//_crud/read', [
+                // 'auth' => $auth,
+                'model' => $person,
             ]);
         else
-            return $this->render('readonly', [
-                'auth' => $auth,
-                'person' => $person,
+            return $this->render('//_crud/read', [
+                // 'auth' => $auth,
+                'model' => $person,
             ]);
     }
 
@@ -60,29 +61,29 @@ class UserController extends BaseCrudController
 
         if ( Yii::$app->request->post() )
         {
-            $auth->id = Yii::$app->security->generateRandomString(6);
-            $person->id = $auth->id;
+            $this->auth->id = Yii::$app->security->generateRandomString(6);
+            $person->id = $this->auth->id;
 
-            if ($auth->load( Yii::$app->request->post(), 'Auth') &&
+            if ($this->auth->load( Yii::$app->request->post(), 'Auth') &&
                 $person->load( Yii::$app->request->post(), 'Person')
             ){
                 try {
-                    if (empty($auth->password))
-                        $auth->password = Yii::$app->security->generateRandomString(10);
+                    if (empty($this->auth->password))
+                        $this->auth->password = Yii::$app->security->generateRandomString(10);
 
-                    $auth->setPassword( $auth->password );
-                    $auth->auth_key = Yii::$app->security->generateRandomString();
+                    $this->auth->setPassword( $this->auth->password );
+                    $this->auth->auth_key = Yii::$app->security->generateRandomString();
     
-                    if ($auth->validate() && $person->validate())
+                    if ($this->auth->validate() && $person->validate())
                     {
-                        if ($auth->save(false)) {
+                        if ($this->auth->save(false)) {
                             if ( !empty( $person->avatar ) )
                                 $person->avatar = $this->uploadFile( $person );
 
-                            if ($auth->status == Status_User::Active)
+                            if ($this->auth->status == Status_User::Active)
                                 $person->status = Status_Active::Yes;
 
-                            if ($auth->status == Status_User::Deleted)
+                            if ($this->auth->status == Status_User::Deleted)
                                 $person->status = Status_Active::No;
 
                             if ($person->save(false)) {
@@ -90,13 +91,13 @@ class UserController extends BaseCrudController
                                 $roles = Json::decode($person->user_role);
                                 foreach ($roles as $role_name) {
                                     $role = $authMan->getRole( $role_name );
-                                    $authMan->assign( $role, $auth->id );
+                                    $authMan->assign( $role, $this->auth->id );
                                 }
-                                if ( (bool) $auth->send_welcome_email )
+                                if ( (bool) $this->auth->send_welcome_email )
                                     $this->_sendWelcomeMail(
-                                        $auth->email,
-                                        $auth->username,
-                                        $auth->password
+                                        $this->auth->email,
+                                        $this->auth->username,
+                                        $this->auth->password
                                     );
                                 Yii::$app->session->setFlash('success', 
                                     Yii::t('app', 'New User: # ' . $person->full_name . ' was created successfully'));
@@ -113,7 +114,7 @@ class UserController extends BaseCrudController
             }
             else {
                 Yii::$app->session->setFlash('errors', 
-                    \yii\helpers\ArrayHelper::merge( $auth->errors, $person->errors ));
+                    \yii\helpers\ArrayHelper::merge( $this->auth->errors, $person->errors ));
             }
         }
 
@@ -121,44 +122,44 @@ class UserController extends BaseCrudController
 
         if (Yii::$app->request->isAjax)
             return $this->renderAjax('create', [
-                'auth' => $auth,
-                'person' => $person,
+                // 'auth' => $auth,
+                'model' => $person,
             ]);
         else
             return $this->render('create', [
-                'auth' => $auth,
-                'person' => $person,
+                // 'auth' => $auth,
+                'model' => $person,
             ]);
     }
 
     public function actionUpdate( $id )
     {
         $auth = Auth::findOne( $id );
-        $person = Person::findOne( $auth->id );
+        $person = Person::findOne( $this->auth->id );
 
-        if ($auth->load(Yii::$app->request->post(), 'Auth') && $auth->validate())
-            $auth->save(false);
+        if ($this->auth->load(Yii::$app->request->post(), 'Auth') && $this->auth->validate())
+            $this->auth->save(false);
 
         if ($person->load(Yii::$app->request->post(), 'Person') && $person->validate())
         {
             if ( !empty( $person->avatar ) )
                 $person->avatar = $this->uploadFile( $person );
 
-            if ($auth->status == Status_User::Active)
+            if ($this->auth->status == Status_User::Active)
                 $person->status = Status_Active::Yes;
 
-            if ($auth->status == Status_User::Deleted)
+            if ($this->auth->status == Status_User::Deleted)
                 $person->status = Status_Active::No;
 
             $person->save(false);
 
             $authMan = Yii::$app->authManager;
             $roles = Json::decode($person->user_role);
-            $authMan->revokeAll($auth->id);
+            $authMan->revokeAll($this->auth->id);
 
             foreach ($roles as $role_name) {
                 $role = $authMan->getRole($role_name);
-                $authMan->assign($role, $auth->id);
+                $authMan->assign($role, $this->auth->id);
             }
 
             Yii::$app->session->setFlash('success', 
@@ -171,24 +172,24 @@ class UserController extends BaseCrudController
 
         if (Yii::$app->request->isAjax)
             return $this->renderAjax('update', [
-                'auth' => $auth,
-                'person' => $person,
+                // 'auth' => $auth,
+                'model' => $person,
             ]);
         else
             return $this->render('update', [
-                'auth' => $auth,
-                'person' => $person,
+                // 'auth' => $auth,
+                'model' => $person,
             ]);
     }
 
     public function actionDelete($id)
     {
         $auth = Auth::findOne( $id );
-        $person = Person::findOne( $auth->id );
+        $person = Person::findOne( $this->auth->id );
 
         if ($auth) {
-            $auth->status = Auth::STATUS_DELETED;
-            $auth->save(false);
+            $this->auth->status = Auth::STATUS_DELETED;
+            $this->auth->save(false);
         }
 
         if ($person) {
@@ -208,11 +209,11 @@ class UserController extends BaseCrudController
         foreach ($id_list as $id)
         {
             $auth = Auth::findOne(['id' => $id]);
-            $person = Person::findOne($auth->id);
+            $person = Person::findOne($this->auth->id);
 
             if ($auth) {
-                $auth->status = Auth::STATUS_DELETED;
-                $auth->save(false);
+                $this->auth->status = Auth::STATUS_DELETED;
+                $this->auth->save(false);
             }
 
             if ($person) {
@@ -236,19 +237,19 @@ class UserController extends BaseCrudController
     {
         $auth = Auth::findOne( $id );
  
-        if (Yii::$app->request->isAjax && $auth->load(Yii::$app->request->post(), 'Auth'))
+        if (Yii::$app->request->isAjax && $this->auth->load(Yii::$app->request->post(), 'Auth'))
         {
-            if (!empty( $auth->new_password ))
+            if (!empty( $this->auth->new_password ))
             {
-                $auth->setPassword( $auth->new_password );
-                $auth->auth_key = Yii::$app->security->generateRandomString();
+                $this->auth->setPassword( $this->auth->new_password );
+                $this->auth->auth_key = Yii::$app->security->generateRandomString();
                 // Active must be a string so ignore validate step
-                if ( $auth->save(false) )
+                if ( $this->auth->save(false) )
                 {
                     $user = Person::findOne( $id );
                     $user->save(false);
 
-                    if (Yii::$app->user->id == $auth->id)
+                    if (Yii::$app->user->id == $this->auth->id)
                         Yii::$app->user->logout();
                         // Yii::$app->cache->flush(); // Clear all cache here ?
                     else

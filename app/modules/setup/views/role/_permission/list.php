@@ -15,7 +15,7 @@ DataTableAsset::register($this);
 
 <div class="ui one column grid">
     <div class="center aligned column text-muted">
-        <div class="compact ui small buttons">
+        <div class="compact ui buttons">
             <button id='select-all' class="ui button"><?= Yii::t('app', 'Select All') ?></button>
             <div class="or"></div>
             <button id='clear-all' class="ui button"><?= Yii::t('app', 'Clear All') ?></button>

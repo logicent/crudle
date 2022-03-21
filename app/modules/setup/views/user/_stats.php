@@ -1,10 +1,6 @@
 <?php
 
-use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\Elements;
-
-
-if (!$person->isNewRecord) : ?>
+if (!$model->isNewRecord) : ?>
 <div class="ui secondary attached segment">
     <div class="ui two column grid">
         <div class="center aligned column">

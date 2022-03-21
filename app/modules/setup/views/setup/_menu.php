@@ -142,10 +142,16 @@ return [
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/setup/role-permission',
-        'label' => 'Role & Permissions',
+        'route' => '/setup/role',
+        'label' => 'Role',
         'group' => Type_Menu_Group::People,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
+    ],
+    [
+        'route' => '/setup/permission',
+        'label' => 'Permission',
+        'group' => Type_Menu_Group::People,
+        'visible' => false,
     ],
     [
         'route' => '/setup/permission-manager',

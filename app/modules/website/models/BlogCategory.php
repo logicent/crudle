@@ -2,6 +2,7 @@
 
 namespace app\modules\website\models;
 
+use app\enums\Status_Active;
 use app\models\base\BaseActiveRecord;
 
 class BlogCategory extends BaseActiveRecord
@@ -17,6 +18,13 @@ class BlogCategory extends BaseActiveRecord
             [['name'], 'required'],
             [['published'], 'boolean'],
             [['description', 'route'], 'string'],
+        ];
+    }
+
+    public static function enums()
+    {
+        return [
+            'published' => Status_Active::class
         ];
     }
 }

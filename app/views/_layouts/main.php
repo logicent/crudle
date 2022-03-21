@@ -44,7 +44,7 @@ $this->beginPage() ?>
                         if ($this->context->id == 'report') :
                             echo $this->context->renderPartial('_sidebar', ['context' => $this->context]);
                         else :
-                            if ($this->context->sidebar
+                            if ($this->context->sidebar && $this->context->action->id == 'index'
                                 // || $this->context->action->id !== 'file-upload'
                             ) :
                                 echo $this->render('//_crud/_sidebar', ['context' => $this->context]);

@@ -18,8 +18,8 @@ $menuGroupClass = $this->params['menuGroupClass'];
         <div class="ui card">
             <div class="content">
                 <?= Html::tag('div',
-                        Elements::icon($menuGroupClass::enumIcons()[$groupName], ['class' => 'grey']) . //  right floated
-                        '&nbsp;'.
+                        Elements::icon($menuGroupClass::enumIcons()[$groupName], ['class' => 'grey right floated']) .
+                        '&ensp;'.
                         $groupName, [
                         'class' => 'header',
                         'style' => 'font-family: inherit; margin-bottom: 1em; color: #36414c; font-weight: normal;'

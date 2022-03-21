@@ -113,7 +113,7 @@ abstract class BaseCrudController extends BaseController
         $searchModel = new $this->modelSearchClass();
         $dataProvider = $searchModel->search($listFilters);
 
-        $this->sidebar = false;
+        // $this->sidebar = false;
 
         if (Yii::$app->request->isAjax)
             return $this->renderAjax('//_crud/index', [
