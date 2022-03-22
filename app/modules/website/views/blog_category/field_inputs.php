@@ -1,5 +1,8 @@
 <div class="ui attached padded segment">
     <div class="ui two column grid">
+        <div class="ui centered row">
+            <?= $form->field($model, 'published')->checkbox(['class' => 'toggle']) ?>
+        </div>
         <div class="column">
             <?= $form->field($model, 'name')->textInput(['maxlength' => 140]) ?>
             <?= $form->field($model, 'slug')->textInput(['maxlength' => 140]) ?>

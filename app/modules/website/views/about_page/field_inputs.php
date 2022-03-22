@@ -12,12 +12,12 @@
     </div>
     <?= $form->field($model, 'ourIntro')->textarea([
             'maxlength' => true,
-            'rows' => 3,
+            'rows' => 4,
             'style' => 'resize:none',
         ]) ?>
     <?= $form->field($model, 'ourHistory')->textarea([
             'maxlength' => true,
-            'rows' => 6,
+            'rows' => 9,
             'style' => 'resize:none',
         ]) ?>
 </div>
