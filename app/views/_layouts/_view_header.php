@@ -23,9 +23,11 @@ $model = $this->context->model;
             <div class="ui floated header">
                 <?= Html::encode($this->title) ?>
                 <?php
-                    if ($this->context->action->id == 'read' || $this->context->action->id == 'update') :
+                    if ($this->context->action->id == 'read' ||
+                        $this->context->action->id == 'update') :
+                        $status = $model->getStatusAttribute();
                         echo Html::tag('small',
-                            StatusMarker::icon('check circle', $model, 'status') . StatusMarker::label($model, 'status'), [
+                            StatusMarker::icon('check circle', $model, $status) . StatusMarker::label($model, $status), [
                                 'style' => 'font-weight: 400; margin-left: 0.75em;',
                             ]);
                     endif ?>

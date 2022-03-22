@@ -9,7 +9,7 @@ $menuList = ArrayHelper::index($menuList, 'route');
 $route = '/'. $this->context->module->id .'/'. $this->context->id;
 $menuItem = $menuList[$route];
 
-echo $this->render('//_layouts/_menu_side_list', [
+echo $this->render('//_layouts/_menu_in_side', [
         'menuList' => $menuList,
         'menuGroup' => $menuItem['group']
     ]);

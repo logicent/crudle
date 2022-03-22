@@ -19,7 +19,7 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
     <div id="site_header">
-        <?= $this->render('/_layouts/_site_navbar', ['context' => $this->context]) ?>
+        <?= $this->render('/_layouts/_navbar_site', ['context' => $this->context]) ?>
     </div>
 
     <div class="ui container">

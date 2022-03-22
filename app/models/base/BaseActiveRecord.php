@@ -226,6 +226,14 @@ abstract class BaseActiveRecord extends ActiveRecord implements ActiveRecordInte
         }
     }
 
+    public function getStatusAttribute()
+    {
+        if (is_array($this->enums()))
+            return $this->enums()['status']['attribute'];
+        // else
+        return 'status';
+    }
+
     public function getLayoutSettings($attribute)
     {
         $settings = Setup::getSettings( LayoutSettingsForm::class );
@@ -589,13 +597,21 @@ abstract class BaseActiveRecord extends ActiveRecord implements ActiveRecordInte
 
     public function statusEnums( $key )
     {
-        $statusClass = $this->enums()[$key];
+        if (is_array($this->enums())) 
+            $statusClass = $this->enums()['status']['class'];
+        else
+            $statusClass = $this->enums()[$key];
+
         return $statusClass::enums();
     }
 
     public function statusEnumsColors( $key )
     {
-        $statusClass = $this->enums()[$key];
+        if (is_array($this->enums())) 
+            $statusClass = $this->enums()['status']['class'];
+        else
+            $statusClass = $this->enums()[$key];
+
         return $statusClass::enumsColor();
     }
 

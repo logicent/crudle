@@ -27,7 +27,9 @@ class BlogArticle extends BaseActiveRecord
             [['title', 'route'], 'required'],
             [['content', 'tags'], 'string'],
             [['title', 'slug'], 'string', 'max' => 280],
-            [['layout', 'author', 'route', 'status', 'parent'], 'string', 'max' => 140],
+            [[
+                'layout', 'author', 'route', 'status', 'featured_image', 'category_id', 'parent'
+            ], 'string', 'max' => 140],
             [['published'], 'boolean'],
             [['date_published'], 'date', 'format' => 'php:Y-m-d']
         ];
@@ -36,6 +38,8 @@ class BlogArticle extends BaseActiveRecord
     public function attributeLabels()
     {
         return ArrayHelper::merge(parent::attributeLabels(), [
+            'category_id' => Yii::t('app', 'Category'),
+            'featured_image' => Yii::t('app', 'Featured image'),
             'date_published' => Yii::t('app', 'Date published')
         ]);
     }

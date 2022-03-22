@@ -4,7 +4,7 @@
 
 **Overview**
 
-A free and open-source enterprise application starter kit for web development projects.
+A free and open-source enterprise application development starter kit for web projects.
 
 **Installation**
 
@@ -49,7 +49,7 @@ _Setup_
 - Email - create email notifications, templates, check email queues
 - Layout  - customize layout menus and create menu shortcuts
 - People  - add users, groups, roles and check user logs
-- Printing- create print styles, formats and configure devices
+- Printing  - create print styles, formats and configure devices
 
 **Code**
 - role/load-defaults
@@ -113,25 +113,21 @@ Use domain-driven project structure that maps to modified Yii2 modules and exten
 
 **UI Components**
 - Forms
-- Panel (Containers)
-- Data
-- Overlay
-- Menu
+- Widgets
+- Menus
 - Charts
-- Button
-- File
-- Multimedia
+- Buttons
+- Files
 - Messages
-- Miscellaneous
 
 **Data Storage**
 - Yaml  (predefined values)
 - Json  (app/user data)
 - Csv   (import/export)
-- Md    (page content)
-- Sqlite
-- MySQL/Postgres
-- Redis
+- Md    (static content)
+- Sqlite (offline)
+- MySQL/Postgres (database)
+- Redis (caching)
 
 **Authentication**
 - Hybrid of Php Auth Manager and Db Auth Manager*
@@ -139,13 +135,12 @@ Use domain-driven project structure that maps to modified Yii2 modules and exten
 
 ### Roadmap
 _Now:_
-- [ ] Email sending with attachment option for documents and reports
-- [ ] Email templates and email digest of recent user activity
+- [ ] Email templates and email sending with attachment option for documents and reports
 - [ ] Improve all the end-user system tools options and performance
 
 _Next:_
+- [ ] Increase the UI layout width, add a pinable sidebar and editable menus
 - [ ] Upgrade to latest Yii2 using PHP 8+ and MySQL 8+ with Fomantic UI 2.8+
-- [ ] Change the UI layout to full-width with primary and secondary sidebars
 - [ ] Create Yii extensions for the tools and starter kit as composer packages
 
 _Later:_

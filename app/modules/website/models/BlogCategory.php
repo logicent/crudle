@@ -24,7 +24,10 @@ class BlogCategory extends BaseActiveRecord
     public static function enums()
     {
         return [
-            'published' => Status_Active::class
+            'status' => [
+                'class' => Status_Active::class,
+                'attribute' => 'published'
+            ]
         ];
     }
 }

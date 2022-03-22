@@ -38,7 +38,6 @@ $('.show-view').on('click', function(e)
         },
         success: function( response )
         {
-
         },
         error: function( jqXhr, textStatus, errorThrown )
         {

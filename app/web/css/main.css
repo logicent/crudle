@@ -143,10 +143,10 @@ body::-webkit-scrollbar-thumb {
 } */
 
 /* Works on Firefox */
-* {
+/* * {
     scrollbar-width: thin;
     scrollbar-color: #ebeff2 #dee5e7;
-}
+} */
 
 /* Works on Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
@@ -275,12 +275,17 @@ body::-webkit-scrollbar-thumb {
     border-bottom: 2px solid #dee5e7;
 }
 
-.ui.structured.celled.table tr th, .ui.structured.celled.table tr td {
+.ui.structured.celled.table tr th,
+.ui.structured.celled.table tr td {
     border-left: 2px solid #dee5e7;
 }
 
-.ui.form .field > label, .ui.checkbox > label, .comment-form .ui.small.header {
-    color: #6c7680;
+.ui.checkbox > label,
+.ui.form .field > label,
+.ui.toggle.checkbox label,
+.ui.toggle.checkbox input:checked ~ label,
+.comment-form .ui.small.header {
+    color: #6c7680 !important;
     font-weight: normal;
     font-size: 110%;
 }

@@ -6,18 +6,6 @@ use Zelenin\yii\SemanticUI\Elements;
 
 ?>
 
-<div class="ui dropdown item">&ensp;
-    <?= Yii::t('app', 'Help') ?>&ensp;
-    <?= Elements::icon('down small chevron') ?>
-    <div class="menu nav-menu">
-        <?= Html::a(Yii::t('app', 'User manual'), ['main/user-manual'], ['class' => 'item']) ?>
-        <?= Html::a(Yii::t('app', 'User forum'), ['main/user-forum'], ['class' => 'item']) ?>
-        <?= Html::a(Yii::t('app', 'Report an issue'), ['main/report-an-issue'], ['class' => 'item']) ?>
-        <?= Html::a(Yii::t('app', 'About'), ['main/about'], ['class' => 'item']) ?>
-        <?= Html::a(Yii::t('app', 'Keyboard shortcuts'), ['main/keyboard-shortcuts'], ['class' => 'item']) ?>
-    </div>
-</div>
-
 <div class="ui dropdown item right">
     <!-- <img class="ui mini image" src="<?= Yii::$app->urlManager->baseUrl ?>/img/photo-ph.jpg"> &ensp;-->
     <?= is_null( Yii::$app->user->identity ) ? '' : Yii::$app->user->identity->username ?>&ensp;
@@ -32,17 +20,6 @@ use Zelenin\yii\SemanticUI\Elements;
                 'data' => ['method' => 'post']
             ]) ?>
     </div><!-- ./menu -->
-</div><!-- ./dropdown item -->
-
-<div class="ui dropdown item" id="open_issues">
-    <?= Html::a(Elements::icon('bell outline orange large'), ['#'],
-            [
-                'class' => 'compact ui icon button',
-                'style' => 'background: #fafbfc'
-            ]) ?>
-    <div class="ui vertical menu nav-menu" style="margin-top: 0.8em !important;">
-        <?= $this->render('_main_navalert') ?>
-    </div><!-- ./vertical menu -->
 </div><!-- ./dropdown item -->
 
 <?php

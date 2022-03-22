@@ -18,15 +18,16 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-    <?= $this->render('/_layouts/_main_navbar', ['context' => $this->context]) ?>
+    <?= $this->render('/_layouts/_navbar_main', ['context' => $this->context]) ?>
 
-    <?= $this->render('/_layouts/_report_header', ['context' => $this->context]) ?>
+    <?= $this->render('/_layouts/_view_header', ['context' => $this->context]) ?>
 
-    <div class="main ui container">
-        <!-- <div class="ui divider hidden"></div> -->
-
-        <div class="ui stackable grid">
-            <div id="report_content" class="sixteen wide column">
+    <div class="report"><!-- ui container -->
+        <div class="ui stackable two column grid">
+            <div class="three wide column">
+                <?= $this->context->renderPartial('_sidebar', ['context' => $this->context]) ?>
+            </div>
+            <div id="content" class="thirteen wide column">
                 <?= $content ?>
             </div>
         </div>

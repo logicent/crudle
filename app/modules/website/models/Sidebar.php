@@ -2,20 +2,9 @@
 
 namespace app\modules\website\models;
 
-use app\models\base\BaseActiveRecord;
+use app\modules\setup\models\base\BaseAppMenu;
 
-class Sidebar extends BaseActiveRecord
+class Sidebar extends BaseAppMenu
 {
-    public static function tableName()
-    {
-        return 'site_sidebar';
-    }
-
-    public function rules()
-    {
-        return [
-            [['title', 'route'], 'required'],
-            [['published', 'full_width', 'show_title'], 'boolean'],
-        ];
-    }
+    
 }

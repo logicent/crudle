@@ -62,7 +62,7 @@ class LayoutSettingsForm extends BaseSettingsForm
             'homeButtonIcon'    =>  Yii::t('app', 'Home button icon'),
             'pinMainSidebar'    =>  Yii::t('app', 'Pin main sidebar'),
             'copyrightLabel'    =>  Yii::t('app', 'Copyright label'),
-            'allowUserPreference'   =>  Yii::t('app', 'Allow user preference'),
+            'allowUserPreference'   =>  Yii::t('app', 'Allow user preferences'),
             // 'flashMessagePosition'    =>  Yii::t('app', 'Flash message position'),
         ];
     }

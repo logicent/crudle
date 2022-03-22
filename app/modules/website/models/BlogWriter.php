@@ -31,7 +31,10 @@ class BlogWriter extends BasePersonInfo
     public static function enums()
     {
         return [
-            'inactive' => Status_Active::class
+            'status' => [
+                'class' => Status_Active::class,
+                'attribute' => 'inactive'
+            ]
         ];
     }
 }

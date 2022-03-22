@@ -31,9 +31,11 @@ use Zelenin\yii\SemanticUI\Elements;
         </div>
 
         <div class="computer only large screen only ten wide column item right">
-            <?= $this->render('_main_newmenu') ?>
+            <?= $this->render('_nav_new') ?>
             <?= $this->render('_global_search') ?>
-            <?= $this->render('_main_navmenu') ?>
+            <?= $this->render('_nav_help') ?>
+            <?= $this->render('_nav_user') ?>
+            <?= $this->render('_nav_alert') ?>
         </div>
     </div><!-- ./grid container -->
 </div><!-- ./attached menu text -->

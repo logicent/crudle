@@ -10,6 +10,7 @@ use yii\helpers\ArrayHelper;
 
 class ReportController extends BaseController
 {
+    public $layout = 'report';
     public $reports;
 
     public function init()

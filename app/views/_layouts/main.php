@@ -27,7 +27,7 @@ $this->beginPage() ?>
 
     <div id="header_wrapper">
     <?php
-        echo $this->render('//_layouts/_main_navbar', ['context' => $this->context]);
+        echo $this->render('//_layouts/_navbar_main', ['context' => $this->context]);
         if ($this->context->id !== 'main') :
             echo $this->render('//_layouts/_view_header', ['context' => $this->context]);
         endif ?>
@@ -36,18 +36,16 @@ $this->beginPage() ?>
 
     <div class="main ui container pusher" style="margin-top: <?= $this->context->id == 'main' ? '103px;' : '133px;' ?>">
         <div class="ui stackable grid">
-            <?php if ($this->context->id !== 'main' && $this->context->sidebar !== false) : ?>
+            <?php if ($this->context->id !== 'main' && $this->context->sidebar == true) : ?>
                 <div class="computer only large screen only <?= $this->context->sidebarWidth ?> wide column">
                     <!-- <div class="ui rail"> -->
                     <div class="ui sticky">
                     <?php
-                        if ($this->context->id == 'report') :
-                            echo $this->context->renderPartial('_sidebar', ['context' => $this->context]);
+                        if ($this->context->action->id == 'index') : // list view and single form view
+                            echo $this->render('//_crud/_sidebar');
                         else :
-                            if ($this->context->sidebar && $this->context->action->id == 'index'
-                                // || $this->context->action->id !== 'file-upload'
-                            ) :
-                                echo $this->render('//_crud/_sidebar', ['context' => $this->context]);
+                            if (file_exists($this->context->viewPath . '/_sidebar.php')) :
+                                echo $this->renderFile($this->context->viewPath . '/_sidebar.php');
                             endif;
                         endif;
                     ?>
@@ -56,7 +54,9 @@ $this->beginPage() ?>
                 </div>
             <?php endif ?>
 
-            <div id="content" class="<?= $this->context->id !== 'main' && $this->context->sidebar !== false ? $this->context->mainWidth : $this->context->fullWidth ?> wide column">
+            <div id="content"
+                class="<?= $this->context->id !== 'main' && $this->context->sidebar !== false ?
+                    $this->context->mainWidth : $this->context->fullWidth ?> wide column">
                 <?= $this->render('//_layouts/_flash_message', ['context' => $this->context]) ?>
                 <?= $content ?>
             </div>
