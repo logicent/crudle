@@ -48,8 +48,14 @@ class UserLog extends BaseActiveRecord
         return $this->hasOne(User::class, ['id' => 'auth_id']);
     }
 
-    // public static function permissions()
-    // {
-    //     return Type_Permission::enums();
-    // }
+    public function beforeSave( $insert )
+    {
+        if (! parent::beforeSave( $insert ))
+            return false;
+        // generate random Id for child tables only accessed via parent in views
+        if ( $this->isNewRecord && empty( $this->id ))
+            $this->id = uniqid();
+
+        return true;
+    }
 }

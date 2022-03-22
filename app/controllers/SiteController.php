@@ -18,6 +18,7 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 
+
 class SiteController extends Controller
 {
     public $layout = 'site';
@@ -30,7 +31,12 @@ class SiteController extends Controller
                 'only' => ['index', 'logout'],
                 'rules' => [
                     [
-                        'actions' => ['index', 'logout'],
+                        'actions' => ['index'],
+                        'allow' => true,
+                        'roles' => ['?'],
+                    ],
+                    [
+                        'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -65,8 +71,6 @@ class SiteController extends Controller
 
     public function actionLogin()
     {
-        $this->layout = 'login';
-        
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -76,7 +80,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->login())
         {
             $userLog = new UserLog();
-            $userLog->auth_id = Yii::$app->user->id;
+            $userLog->user_id = Yii::$app->user->id;
             $userLog->login_ip = Yii::$app->request->userIP;
             $userLog->login_at = time();
             $userLog->status = Status_Active::Yes;
@@ -95,7 +99,7 @@ class SiteController extends Controller
     public function actionLogout()
     {
         $userLog = new UserLog();
-        $userLog->auth_id = Yii::$app->user->id;
+        $userLog->user_id = Yii::$app->user->id;
         $userLog->logout_ip = Yii::$app->request->userIP;
         $userLog->logout_at = time();
         $userLog->status = Status_Active::No;
@@ -109,8 +113,6 @@ class SiteController extends Controller
 
     public function actionRequestPasswordReset()
     {
-        $this->layout = 'login';
-
         $model = new PasswordResetRequestForm();
 
         if ($model->load(Yii::$app->request->post()) && $model->validate())
@@ -156,8 +158,6 @@ class SiteController extends Controller
 
     public function actionResetPassword($token)
     {
-        $this->layout = 'login';
-
         try {
             $model = new ResetPasswordForm($token);
         }

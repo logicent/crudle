@@ -9,6 +9,7 @@ return [
         'logout' => 'site/logout',
         'forgot-password' => 'site/request-password-reset',
         'reset-password' => 'site/reset-password',
+
         'User Manual' => 'main/user-manual',
         'Search' => 'main/global-search',
         'About' => 'main/about',

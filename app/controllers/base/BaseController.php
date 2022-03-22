@@ -320,18 +320,6 @@ abstract class BaseController extends Controller
         SendNotification::processQueue();
     }
 
-    // protected function getUserOrganizationLinks()
-    // {
-    //     $userOrgLinks = [];
-    //     $_userOrgId = Yii::$app->user->identity->person->organization_id;
-    //     if ($_userOrgId)
-    //         $userOrgLinks = Organization::findOne($_userOrgId)
-    //                                     ->getScopes()
-    //                                     ->select('code')
-    //                                     ->column();
-    //     return $userOrgLinks;
-    // }
-
     protected function uploadFile(&$model)
     {
         $fileObj = UploadedFile::getInstance($model->uploadForm, 'file_upload');
@@ -432,19 +420,19 @@ abstract class BaseController extends Controller
     //     // resize() 	Resizes an image.
     //     // text() 	    Draws a text string on an existing image.
     //     // watermark() 	Adds a watermark to an existing image.
-    //
+
     //     if (Yii::$app->request->isAjax)
     //     {
     //         // frame()  Adds a frame around of the image. Please note that the image size will increase by $margin x 2.
     //         Image::frame(Yii::$app->request->post('img_path'), 5, '666', 0)
     //                     ->rotate(-8)
     //                     ->save('@webroot/images/' . Yii::$app->request->post('img_path'), ['jpeg_quality' => 50]);
-    //
+
     //         // thumbnail() 	Creates a thumbnail image.
     //         Image::thumbnail('@webroot/images/' . Yii::$app->request->post('img_path'), 120, 120)
     //                     ->save(Yii::getAlias('@webroot') . '_thumb', ['quality' => 50]);
     //     }
-    //
+
     // }
 
     // public function afterAction($action, $result)
@@ -461,14 +449,14 @@ abstract class BaseController extends Controller
     // {
     //     Url::remember(Yii::$app->request->getUrl(), Yii::$app->controller->id);
     // }
-    //
+
     // public function actionStoreUserPreferences()
     // {
     //     if(Yii::$app->request->isAjax)
     //     {
     //     }
     // }
-    //
+
     // public function actionRestoreDefaults()
     // {
     //     if(Yii::$app->request->isAjax)

@@ -29,14 +29,15 @@ $this->params['businessName'] = $businessProfile->name;
             Hi <?= Yii::$app->user->identity->person->firstname ?>,
         </div>
         <br>
+        <!-- ToDo: allow user to customize this message in layout settings -->
         <p class="description">
             Sorry, the above error occurred while <?= Yii::$app->params['appShortName'] ?> was processing your request.<br><br>
             Please ask a <a href="/people/index?PersonSearch&user_role=System Manager" style="text-decoration: underline">System Manager</a> to help you resolve the issue.<br>
             Thank you.
         </p>
-        <!-- TODO: Add the ability to send the error report to System Administrator/Manager -->
+        <!-- TODO: Add the ability to send the error report to support mail or System Manager/Administrator -->
         <!-- Please send this error report to your System Manager.<br> -->
-
+        <!-- ToDo: allow user to set this redirection route and whether it is automatic after mail is sent -->
         <?= Html::a('Go Home', Url::home(), ['class' => 'compact ui small primary button']) ?>
     </div>
 
