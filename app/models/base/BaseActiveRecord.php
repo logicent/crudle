@@ -228,7 +228,7 @@ abstract class BaseActiveRecord extends ActiveRecord implements ActiveRecordInte
 
     public function getStatusAttribute()
     {
-        if (is_array($this->enums()))
+        if (is_array($this->enums()['status']))
             return $this->enums()['status']['attribute'];
         // else
         return 'status';
@@ -597,7 +597,7 @@ abstract class BaseActiveRecord extends ActiveRecord implements ActiveRecordInte
 
     public function statusEnums( $key )
     {
-        if (is_array($this->enums())) 
+        if (is_array($this->enums()['status']))
             $statusClass = $this->enums()['status']['class'];
         else
             $statusClass = $this->enums()[$key];
@@ -607,7 +607,7 @@ abstract class BaseActiveRecord extends ActiveRecord implements ActiveRecordInte
 
     public function statusEnumsColors( $key )
     {
-        if (is_array($this->enums())) 
+        if (is_array($this->enums()['status']))
             $statusClass = $this->enums()['status']['class'];
         else
             $statusClass = $this->enums()[$key];
