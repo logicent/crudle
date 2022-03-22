@@ -1,6 +1,8 @@
 <?php
 
 use yii\helpers\Html;
+
+$this->title = Yii::t('app', 'Log in');
 ?>
 
 <div class="ui attached padded segment">

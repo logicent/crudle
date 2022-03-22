@@ -14,7 +14,7 @@ $modules = require __DIR__ . '/modules.php';
 
 $config = [
     'id' => 'yii2-crudle-web',
-    // 'name' => 'yii2-crudle web',
+    // 'name' => 'Yii2 Crudle Web',
     'runtimePath' => dirname( dirname( __DIR__ ) ) . '/storage/runtime',
     'vendorPath' => dirname( dirname( __DIR__ ) ) . '/vendor',
     'basePath' => dirname( __DIR__ ),

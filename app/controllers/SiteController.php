@@ -28,10 +28,10 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::class,
-                'only' => ['index', 'logout'],
+                'only' => ['index', 'login', 'logout'],
                 'rules' => [
                     [
-                        'actions' => ['index'],
+                        'actions' => ['index', 'login'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
@@ -66,7 +66,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        return $this->redirect(['login']);
     }
 
     public function actionLogin()
@@ -91,7 +91,7 @@ class SiteController extends Controller
 
         $model->password = ''; // clear the password
 
-        return $this->render('login', [
+        return $this->render('index', [
             'model' => $model,
         ]);
     }
@@ -151,7 +151,7 @@ class SiteController extends Controller
             }
         }
 
-        return $this->render('request_password_reset_token', [
+        return $this->render('index', [
             'model' => $model,
         ]);
     }
@@ -172,7 +172,7 @@ class SiteController extends Controller
             return $this->goHome();
         }
 
-        return $this->render('reset_password', [
+        return $this->render('index', [
             'model' => $model,
         ]);
     }

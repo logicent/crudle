@@ -1,7 +1,9 @@
 <?php
 
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\Elements;
+
+$this->title = Yii::t('app', 'Reset password');
+
 
 $fieldOptions = [
     'options' => ['class' => 'form-group has-feedback'],

@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;
 
+$this->title = Yii::t('app', 'Forgot password?');
+
 $fieldOptions = [
     'options' => ['class' => 'form-group has-feedback'],
     // 'inputTemplate' => "{input}<span class='fa fa-envelope form-control-feedback'></span>"
