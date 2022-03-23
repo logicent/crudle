@@ -729,6 +729,6 @@ body::-webkit-scrollbar-thumb {
     font-size: 75%;
 }
 
-small {
+.ui.header small {
     font-size: 70%;
 }

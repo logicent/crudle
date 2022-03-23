@@ -21,7 +21,8 @@ $isReadonly = $this->context->isReadonly;
             <?= $form->field($model, 'search_fields', [
                     'hintOptions' => [
                         'class' => 'text-muted',
-                        'tag' => 'small'
+                        'tag' => 'span',
+                        'style' => 'font-size: 0.95em'
                     ]
                 ])->textarea(['rows' => 3]
                 )->hint('Fields separated by a comma (,) will be included in the "Search by" list of the search dialog') ?>            

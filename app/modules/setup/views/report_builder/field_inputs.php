@@ -23,12 +23,9 @@ $form = ActiveForm::begin([
     ],
 ]) ?>
     <div class="ui attached padded segment">
-        <div class="two fields">
-            <?= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($model, 'inactive')->checkbox()->label('&nbsp;') ?>
-        </div>
         <div class="ui two column grid">
             <div class="column">
+                <?= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>
                 <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
                 <?= $form->field($model, 'subtitle')->textInput(['maxlength' => true]) ?>
                 <?= $form->field($model, 'description')->textarea([
@@ -40,9 +37,8 @@ $form = ActiveForm::begin([
                         ]) ?>
             </div>
             <div class="column">
-                <?php /*= $form->field($model, 'type')->radioList(Type_Report::enums(),
-                        ['id' => 'rb__type']
-                    ) */?>
+                <?= $form->field($model, 'inactive')->checkbox(['class' => 'toggle'])->label('&nbsp;') ?>
+                <br>
                 <?= $form->field($model, 'type')->widget(Select::class, [
                         'search' => true,
                         'items' => Type_Report::enums(),
