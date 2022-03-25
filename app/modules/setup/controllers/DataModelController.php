@@ -31,7 +31,7 @@ class DataModelController extends BaseCrudController
 
     /**
      * Creates a new DataModel model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
+     * If creation is successful, the browser will be redirected to the 'read' view.
      * @return mixed
      */
     public function actionCreate($id = null)
@@ -61,7 +61,7 @@ class DataModelController extends BaseCrudController
             $this->detailModels[] = new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION]);
             $this->fieldDataProvider->setModels( $this->detailModels );
 
-            return $this->render('//_crud/create', [
+            return $this->render('//_crud/index', [
                 'model' => $this->model,
             ]);
         }
@@ -80,18 +80,18 @@ class DataModelController extends BaseCrudController
                     }
                     $this->model->createTable();
                 }
-                return $this->redirect(['view', 'id' => $this->model->name]);
+                return $this->redirect(['update', 'id' => $this->model->name]);
             }
         }
 
-        return $this->render('//_crud/create', [
+        return $this->render('//_crud/index', [
             'model' => $this->model,
         ]);
     }
 
     /**
      * Updates an existing DataModel model.
-     * If update is successful, the browser will be redirected to the 'view' page.
+     * If update is successful, the browser will be redirected to the 'read' view.
      * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -134,7 +134,7 @@ class DataModelController extends BaseCrudController
 
             $this->model = $model;
 
-            return $this->render('//_crud/update', [
+            return $this->render('//_crud/index', [
                 'model' => $model,
             ]);
         }
@@ -158,7 +158,7 @@ class DataModelController extends BaseCrudController
                     }
                     // $model->updateTable(); // TODO: define method in model
                 }
-                return $this->redirect(['view', 'id' => $model->name]);
+                return $this->redirect(['update', 'id' => $model->name]);
             }
             else
             {
@@ -170,7 +170,7 @@ class DataModelController extends BaseCrudController
 
         $this->model = $model;
 
-        return $this->render('//_crud/update', [
+        return $this->render('//_crud/index', [
             'model' => $model,
         ]);
     }

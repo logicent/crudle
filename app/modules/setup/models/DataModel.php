@@ -5,10 +5,11 @@ namespace app\modules\setup\models;
 use app\enums\Status_Transaction;
 use app\modules\setup\enums\Type_Permission;
 use app\models\base\BaseActiveRecord;
+use app\modules\setup\enums\Permission_Group;
 use Yii;
 
 /**
- * This is the model class for table "data_model".
+ * This is the model class for table "app_data_model".
  */
 class DataModel extends BaseActiveRecord
 {
@@ -77,7 +78,10 @@ class DataModel extends BaseActiveRecord
 
     public static function permissions()
     {
-        return Type_Permission::enums();
+        return array_merge(
+            Type_Permission::enums(Permission_Group::Crud),
+            Type_Permission::enums(Permission_Group::Data),
+        );
     }
 
     public static function enums()

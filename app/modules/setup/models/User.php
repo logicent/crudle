@@ -4,6 +4,7 @@ namespace app\modules\setup\models;
 
 use app\enums\Status_Active;
 use app\models\auth\User as AuthUser;
+use app\modules\setup\enums\Permission_Group;
 use app\modules\setup\enums\Type_Permission;
 use yii\helpers\ArrayHelper;
 
@@ -44,6 +45,9 @@ class User extends AuthUser
 
     public static function permissions()
     {
-        return Type_Permission::enums();
+        return array_merge(
+            Type_Permission::enums(Permission_Group::Crud),
+            // Type_Permission::enums(Permission_Group::Data),
+        );
     }
 }

@@ -22,6 +22,39 @@ use yii\helpers\Html;
         </div>
     </div>
 </div>
+<!-- <div class="ui centered header attached segment">
+    <div class="text-muted"><?php //= Yii::t('app', 'App Sidebar') ?></div>
+</div>
+<div class="ui attached padded segment">
+    <?php //= $this->render('_menu/list_columns') ?>
+</div> -->
+<div class="ui centered header attached segment">
+    <div class="text-muted"><?= Yii::t('app', 'Dashboard Shortcut Menu') ?></div>
+</div>
+<div class="ui attached padded segment">
+    <?= $this->render('_menu/list_columns') ?>
+</div>
+<div class="ui centered header attached segment">
+    <div class="text-muted"><?= Yii::t('app', 'Create Menu') ?></div>
+</div>
+<div class="ui attached padded segment">
+    <?= $this->render('_menu/list_columns') ?>
+</div>
+<div class="ui centered header attached segment">
+    <div class="text-muted"><?= Yii::t('app', 'Help Menu') ?></div>
+</div>
+<div class="ui attached padded segment">
+    <?= $this->render('_menu/list_columns') ?>
+</div>
+<div class="ui centered header attached segment">
+    <div class="text-muted"><?= Yii::t('app', 'Alert Menu') ?></div>
+</div>
+<div class="ui attached padded segment">
+    <?= $this->render('_menu/list_columns') ?>
+</div>
+<div class="ui centered header attached segment">
+    <div class="text-muted"><?= Yii::t('app', 'Background Image') ?></div>
+</div>
 <div class="ui bottom attached padded segment">
     <div class="ui two column stackable grid">
         <div class="column center aligned">

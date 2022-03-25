@@ -6,9 +6,9 @@ use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * DataWidgetSearch represents the model behind the search form of `app\modules\setup\models\DataWidget`.
+ * DashboardWidgetSearch represents the model behind the search form of `app\modules\setup\models\DashboardWidget`.
  */
-class DataWidgetSearch extends DataWidget
+class DashboardWidgetSearch extends DashboardWidget
 {
     /**
      * {@inheritdoc}
@@ -37,7 +37,7 @@ class DataWidgetSearch extends DataWidget
      */
     public function search($params)
     {
-        $query = DataWidget::find();
+        $query = DashboardWidget::find();
 
         // add conditions that should always apply here
 
@@ -64,7 +64,7 @@ class DataWidgetSearch extends DataWidget
             ->andFilterWhere(['like', 'icon_path', $this->icon_path])
             ->andFilterWhere(['like', 'icon_color', $this->icon_color])
             ->andFilterWhere(['like', 'route', $this->route])
-            ->andFilterWhere(['like', 'label', $this->label])
+            ->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'created_by', $this->created_by])
             ->andFilterWhere(['like', 'updated_by', $this->updated_by]);
 

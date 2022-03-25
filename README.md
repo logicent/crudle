@@ -4,7 +4,7 @@
 
 **Overview**
 
-A free and open-source enterprise application development starter kit for web projects.
+A free and open-source web development starter kit for building ready to go enterprise applications.
 
 **Installation**
 
@@ -47,15 +47,19 @@ _Setup_
 - Core  - create or customize data models and configure main settings
 - Data  - import data, create widgets, reports and configure backups
 - Email - create email notifications, templates, check email queues
-- Layout  - customize layout menus and create menu shortcuts
-- People  - add users, groups, roles and check user logs
+- Layout  - create layout app menus and dashboard menu shortcuts
+- People  - add users, groups, roles & permissions and view user logs
 - Printing  - create print styles, formats and configure devices
 
 **Code**
-- role/load-defaults
-- setup/init-auth
-- email/send-notification
-- site/home
+- app/commands
+- app/controllers
+- app/enums
+- app/helpers
+- app/models
+- app/modules/setup
+- app/modules/website
+- app/views
 
 ### Technology Stack
 **Programming Languages and Frameworks**
@@ -135,21 +139,21 @@ Use domain-driven project structure that maps to modified Yii2 modules and exten
 
 ### Roadmap
 _Now:_
-- [ ] Email templates and email sending with attachment option for documents and reports
+- [ ] Increase the UI layout width, add a pinable sidebar and editable menus
 - [ ] Improve all the end-user system tools options and performance
+- [ ] Email templates and email sending with attachment option for documents and reports
 
 _Next:_
-- [ ] Increase the UI layout width, add a pinable sidebar and editable menus
 - [ ] Upgrade to latest Yii2 using PHP 8+ and MySQL 8+ with Fomantic UI 2.8+
 - [ ] Create Yii extensions for the tools and starter kit as composer packages
+- [ ] Add multi-tenant project structure and init script - _PoC done_
 
 _Later:_
 - [ ] Upgrade to Yii3 (with CycleORM datamapper) using Bulma and AlpineJS
-- [ ] Test and prefer RoadRunner over Nginx for production in Ubuntu 20.04+
-- [ ] Development via Yii2-dockerized - _PoC done_
-- [ ] Add multi-tenant project structure and init script - _PoC done_
 - [ ] Use hybrid of Php Auth Manager _(predefined)_ and Db Auth Manager _(user-defined)_
+- [ ] Test and prefer RoadRunner over Nginx for production in Ubuntu 20.04+
 - [ ] Testing - look into PestPHP but keep an open mind on the way forward
+- [ ] Development via Yii2-dockerized - _PoC done_
 - [ ] Deploying using deployer.org (optional)
 
 **Want to contribute?**

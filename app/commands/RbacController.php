@@ -81,7 +81,9 @@ class RbacController extends Controller
     private function loadDefaultPermissions()
     {
         try {
-            $createPermissions = $listPermissions = $readPermissions = $updatePermissions = $cancelPermissions = $deletePermissions = [];
+            $createPermissions = $listPermissions = $readPermissions = $updatePermissions = $deletePermissions 
+                = $exportPermissions = $importPermissions = $printPermissions = $sharePermissions = $emailPermissions 
+                = $submitPermissions = $cancelPermissions = $amendPermissions = [];
             foreach ( Type_Model::modelClasses() as $modelClass )
             {
                 $modelName = Inflector::camel2words(StringHelper::basename($modelClass));
@@ -108,11 +110,32 @@ class RbacController extends Controller
                         case Type_Permission::Update:
                             $updatePermissions[] = $permission;
                             break;
+                        case Type_Permission::Delete:
+                            $deletePermissions[] = $permission;
+                            break;
+                        case Type_Permission::Print:
+                            $printPermissions[] = $permission;
+                            break;
+                        case Type_Permission::Share:
+                            $sharePermissions[] = $permission;
+                            break;
+                        case Type_Permission::Email:
+                            $emailPermissions[] = $permission;
+                            break;
+                        case Type_Permission::Export:
+                            $exportPermissions[] = $permission;
+                            break;
+                        case Type_Permission::Import:
+                            $importPermissions[] = $permission;
+                            break;
+                        case Type_Permission::Submit:
+                            $submitPermissions[] = $permission;
+                            break;
                         case Type_Permission::Cancel:
                             $cancelPermissions[] = $permission;
                             break;
-                        case Type_Permission::Delete:
-                            $deletePermissions[] = $permission;
+                        case Type_Permission::Amend:
+                            $amendPermissions[] = $permission;
                             break;
                         default:
                     }
@@ -135,12 +158,32 @@ class RbacController extends Controller
             foreach($updatePermissions as $permission)
                 $this->_auth->addChild($systemManager, $permission);
 
-            foreach($cancelPermissions as $permission)
-                $this->_auth->addChild($systemManager, $permission);
-
             foreach($deletePermissions as $permission)
                 $this->_auth->addChild($systemManager, $permission);
 
+            foreach($exportPermissions as $permission)
+                $this->_auth->addChild($systemManager, $permission);
+
+            foreach($importPermissions as $permission)
+                $this->_auth->addChild($systemManager, $permission);
+
+            foreach($printPermissions as $permission)
+                $this->_auth->addChild($systemManager, $permission);
+
+            foreach($sharePermissions as $permission)
+                $this->_auth->addChild($systemManager, $permission);
+
+            foreach($emailPermissions as $permission)
+                $this->_auth->addChild($systemManager, $permission);
+
+            foreach($submitPermissions as $permission)
+                $this->_auth->addChild($systemManager, $permission);
+
+            foreach($cancelPermissions as $permission)
+                $this->_auth->addChild($systemManager, $permission);
+
+            foreach($amendPermissions as $permission)
+                $this->_auth->addChild($systemManager, $permission);
             // restore cached user assignments if cleared earlier
             foreach ( $this->_assignments as $roleName => $userIds )
             {

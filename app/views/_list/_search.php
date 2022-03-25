@@ -3,9 +3,10 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
+$context = $this->context;
 ?>
 
-<div class="<?= $this->context->id ?>-search">
+<div class="<?= $context->id ?>-search">
 <?php
     $form = ActiveForm::begin([
         'action' => ['index'],
@@ -17,7 +18,7 @@ use yii\widgets\ActiveForm;
     ]) ?>
 
     <!-- insert search form fields -->
-    <?= $this->renderFile($this->context->viewPath . '/_search.php', [
+    <?= $this->renderFile($context->viewPath . '/_search.php', [
             'form' => $form,
             'searchModel' => $searchModel
         ]) ?>

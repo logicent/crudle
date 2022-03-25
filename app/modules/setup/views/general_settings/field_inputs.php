@@ -52,6 +52,7 @@ use yii\helpers\Html;
             <?= $this->render( '//_form_field/file_input', [
                     'attribute' => 'logoPath',
                     'model' => $model,
+                    'placeholder' => '/img/placeholder-logo.jpg'
                 ]) ?>
         </div>
     </div>

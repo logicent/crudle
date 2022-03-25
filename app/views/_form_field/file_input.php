@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;
 
 // TODO: allow custom placeholder image (default to none)
-$imgPlaceholder = Yii::getAlias('@web') . '/img/placeholder-photo.jpg';
+$imgPlaceholder = Yii::getAlias('@web') . isset($placeholder) ? $placeholder : '/img/placeholder-image.jpg';
 $imgPath = Yii::getAlias('@web/uploads/') . $model->$attribute;
 $imgTag = Elements::image( $model->$attribute != '' ? 
             $imgPath : $imgPlaceholder,

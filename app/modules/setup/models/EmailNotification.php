@@ -4,6 +4,8 @@ namespace app\modules\setup\models;
 
 use app\enums\Status_Active;
 use app\models\base\BaseActiveRecord;
+use app\modules\setup\enums\Permission_Group;
+use app\modules\setup\enums\Type_Permission;
 use app\modules\setup\models\ListViewSettingsForm;
 use Yii;
 
@@ -59,6 +61,14 @@ class EmailNotification extends BaseActiveRecord
             }
             $this->{$setting['attribute']} = $setting['value'];
         }
+    }
+
+    public static function permissions()
+    {
+        return array_merge(
+            Type_Permission::enums(Permission_Group::Crud),
+            Type_Permission::enums(Permission_Group::Data),
+        );
     }
 
     public static function enums()

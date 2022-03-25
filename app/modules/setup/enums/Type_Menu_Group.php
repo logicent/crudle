@@ -11,17 +11,17 @@ class Type_Menu_Group
     const Data = 'Data';
     const People = 'People';
     const Core = 'Core';
-    const Layout = 'Layout';
+    // const Layout = 'Layout';
 
     public static function enums()
     {
         return [
             self::Printing => Yii::t('app', 'Printing'),
-            self::Email => Yii::t('app', 'Email'),
-            self::Data => Yii::t('app', 'Data'),
+            self::Email => Yii::t('app', 'Email Sending'),
+            self::Data => Yii::t('app', 'Data Tool'),
             self::People => Yii::t('app', 'People'),
-            self::Core => Yii::t('app', 'Core'),
-            self::Layout => Yii::t('app', 'Layout'),
+            self::Core => Yii::t('app', 'System'),
+            // self::Layout => Yii::t('app', 'Layout'),
         ];
     }
 
@@ -33,7 +33,7 @@ class Type_Menu_Group
             self::Data => 'server', // 'disk',
             self::People => 'users',
             self::Core => 'cog', // 'toggle on'
-            self::Layout => 'window maximize outline',
+            // self::Layout => 'window maximize outline',
         ];
     }
 }

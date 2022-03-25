@@ -17,7 +17,7 @@ $this->title = Yii::t('app', 'Database Backup');
                 <?= Html::a(Yii::t('app', 'Delete all data'), ['delete-all'],
                         [
                             'id' => 'delete_all_data',
-                            'class' => 'compact ui small button',
+                            'class' => 'compact ui button',
                             'data' => [
                                 'confirm' => Yii::t('app', 'Are you sure you want to delete all data?'),
                                 'method' => 'post',
@@ -30,12 +30,12 @@ $this->title = Yii::t('app', 'Database Backup');
                 <?= Html::a(Yii::t('app', 'Clear dump'), ['clear-dump'],
                         [
                             'id' => 'clear_db_dump',
-                            'class' => 'compact ui small button',
+                            'class' => 'compact ui button',
                         ]) ?>
                 <?= Html::a(Yii::t('app', 'Dump database'), ['db-dump'],
                         [
                             'id' => 'create_db_dump',
-                            'class' => 'compact ui small button',
+                            'class' => 'compact ui button',
                         ]) ?>
                 <div class="ui basic segment">
             <?php

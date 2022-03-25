@@ -2,11 +2,10 @@
 
 namespace app\modules\setup\enums;
 
-use app\modules\setup\models\AppMenuForm;
 use app\modules\setup\models\AppModule;
 use app\modules\setup\models\DataImportForm;
 use app\modules\setup\models\DataModel;
-use app\modules\setup\models\DataWidget;
+use app\modules\setup\models\DashboardWidget;
 use app\modules\setup\models\DbBackupSettingsForm;
 use app\modules\setup\models\EmailNotification;
 use app\modules\setup\models\EmailQueue;
@@ -27,11 +26,10 @@ use app\modules\setup\models\UserLog;
 
 class Type_Model
 {
-    const AppMenu           = 'App Menu';
     const AppModule         = 'App Module';
     const DataImport        = 'Data Import';
     const DataModel         = 'Data Model';
-    const DataWidget        = 'Data Widget';
+    const DashboardWidget  = 'Dashboard Widget';
     const DatabaseBackup    = 'Database Backup';
     const EmailNotification = 'Email Notification';
     const EmailQueue        = 'Email Queue';
@@ -53,11 +51,10 @@ class Type_Model
     public static function enums()
     {
         return [
-            self::AppMenu           => self::AppMenu,
             self::AppModule         => self::AppModule,
             self::DataModel         => self::DataModel,
             self::DataImport        => self::DataImport,
-            self::DataWidget        => self::DataWidget,
+            self::DashboardWidget  => self::DashboardWidget,
             self::DatabaseBackup    => self::DatabaseBackup,
             self::EmailNotification => self::EmailNotification,
             self::EmailQueue        => self::EmailQueue,
@@ -81,11 +78,10 @@ class Type_Model
     public static function modelClasses()
     {
         return [
-            self::AppMenu           => AppMenuForm::class,
             self::AppModule         => AppModule::class,
             self::DataModel         => DataModel::class,
             self::DataImport        => DataImportForm::class,
-            self::DataWidget        => DataWidget::class,
+            self::DashboardWidget  => DashboardWidget::class,
             self::DatabaseBackup    => DbBackupSettingsForm::class,
             self::EmailNotification => EmailNotification::class,
             self::EmailQueue        => EmailQueue::class,

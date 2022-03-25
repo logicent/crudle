@@ -4,6 +4,8 @@ namespace app\modules\website\models;
 
 use app\enums\Status_Active;
 use app\models\base\BaseActiveRecord;
+use app\modules\setup\enums\Permission_Group;
+use app\modules\setup\enums\Type_Permission;
 
 class BlogCategory extends BaseActiveRecord
 {
@@ -19,6 +21,14 @@ class BlogCategory extends BaseActiveRecord
             [['published'], 'boolean'],
             [['description', 'route'], 'string'],
         ];
+    }
+
+    public static function permissions()
+    {
+        return array_merge(
+            Type_Permission::enums(Permission_Group::Crud),
+            Type_Permission::enums(Permission_Group::Data),
+        );
     }
 
     public static function enums()

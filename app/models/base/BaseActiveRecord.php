@@ -380,7 +380,7 @@ abstract class BaseActiveRecord extends ActiveRecord implements ActiveRecordInte
 
     public static function permissions()
     {
-        return Type_Permission::enums(Permission_Group::Crud);
+        return Type_Permission::enums();
     }
 
     public static function authRules()

@@ -2,6 +2,7 @@
 
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
+use yii\helpers\Inflector;
 use yii\helpers\Url;
 use Zelenin\yii\SemanticUI\Elements;
 
@@ -20,7 +21,7 @@ $menuGroupClass = $this->params['menuGroupClass'];
                 <?= Html::tag('div',
                         Elements::icon($menuGroupClass::enumIcons()[$groupName], ['class' => 'grey right floated']) .
                         '&ensp;'.
-                        $groupName, [
+                        $menuGroupClass::enums()[$groupName], [
                         'class' => 'header',
                         'style' => 'font-family: inherit; margin-bottom: 1em; color: #36414c; font-weight: normal;'
                     ]) ?>

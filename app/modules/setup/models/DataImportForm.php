@@ -46,6 +46,6 @@ class DataImportForm extends Model
 
     public static function permissions()
     {
-        return Type_Permission::enums();
+        return [Type_Permission::List => Type_Permission::List];
     }
 }

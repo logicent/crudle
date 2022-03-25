@@ -5,6 +5,7 @@ namespace app\modules\setup\models;
 use app\enums\Status_Transaction;
 use app\modules\setup\enums\Type_Permission;
 use app\models\base\BaseActiveRecord;
+use app\modules\setup\enums\Permission_Group;
 use Yii;
 
 /**
@@ -46,9 +47,9 @@ class AppModule extends BaseActiveRecord
 
     public static function permissions()
     {
-        return Type_Permission::enums();
+        return Type_Permission::enums(Permission_Group::Crud);
     }
-    
+
     public static function enums()
     {
         return [

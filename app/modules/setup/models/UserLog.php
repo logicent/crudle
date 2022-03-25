@@ -4,7 +4,7 @@ namespace app\modules\setup\models;
 
 use app\enums\Status_Active;
 use app\models\auth\UserLog as AuthUserLog;
-use yii\helpers\ArrayHelper;
+use app\modules\setup\enums\Type_Permission;
 
 /**
  * This is the model class for table "user_log".
@@ -40,4 +40,13 @@ class UserLog extends AuthUserLog
             'status' => Status_Active::class,
         ];
     }
+
+    public static function permissions()
+    {
+        return [
+            Type_Permission::List => Type_Permission::List,
+            Type_Permission::Read => Type_Permission::Read,
+        ];
+    }
+
 }

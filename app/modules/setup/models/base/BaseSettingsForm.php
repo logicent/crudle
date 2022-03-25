@@ -34,7 +34,10 @@ abstract class BaseSettingsForm extends Model
 
     public static function permissions()
     {
-        return Type_Permission::enums();
+        return [
+            Type_Permission::Create => Type_Permission::Create,
+            Type_Permission::Update => Type_Permission::Update,
+        ];
     }
 
     public function populateAttributes( $settings )
