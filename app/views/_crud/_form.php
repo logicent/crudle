@@ -4,9 +4,17 @@ use Zelenin\yii\SemanticUI\widgets\ActiveForm;
 
 // $hasFileInput == isset($model->UploadForm);
 
+// $hintOptions = [
+//     'tag' => 'span',
+//     'class' => 'text-muted',
+//     'style' => 'font-size: 0.95em;'
+// ];
+
 $form = ActiveForm::begin([
     'id' => $model->formName(),
     'enableClientValidation' => true,
+    // 'fieldOptions' => [
+    // ],
     'options' => [
         'autocomplete' => 'off',
         'class' => 'ui form',

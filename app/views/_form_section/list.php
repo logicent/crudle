@@ -43,9 +43,9 @@ $modal::end();
             if ($model->isCopyRecord || !empty($model->$listModelId)) :
                 foreach ($model->copyDetailModels[$listModelId] as $id => $detailModel) :
                     echo $this->render('_form', [
-                                        'model' => $detailModel,
-                                        'rowId' => $id
-                                    ]);
+                            'model' => $detailModel,
+                            'rowId' => $id
+                        ]);
                 endforeach;
             else : // $model->isNewRecord
                 echo $this->render('../_no_data');

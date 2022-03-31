@@ -4,23 +4,25 @@ use yii\helpers\Html;
 use app\assets\AppAsset;
 
 AppAsset::register($this);
-?>
-<?php $this->beginPage() ?>
+
+$this->beginPage() ?>
+
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
-<head>
-    <meta charset="<?= Yii::$app->charset ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
-</head>
-<body>
-<?php $this->beginBody() ?>
+    <head>
+        <meta charset="<?= Yii::$app->charset ?>">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <?= Html::csrfMetaTags() ?>
+        <title><?= Html::encode($this->title) ?></title>
 
-    <?= $this->render('/_layouts/_navbar_main', ['context' => $this->context]) ?>
+        <?php $this->head() ?>
+    </head>
 
-    <?= $this->render('/_layouts/_view_header', ['context' => $this->context]) ?>
+    <body>
+    <?php $this->beginBody() ?>
+
+    <?= $this->render('//_layouts/_navbar_main', ['context' => $this->context]) ?>
+    <?= $this->render('//_layouts/_view_header', ['context' => $this->context]) ?>
 
     <div class="report"><!-- ui container -->
         <div class="ui stackable two column grid">
@@ -32,21 +34,19 @@ AppAsset::register($this);
             </div>
         </div>
     </div>
-
     <div class="ui divider hidden"></div>
+<?php
+    $this->endBody();
 
-<?php $this->registerJs(<<<JS
-    $('.ui.dropdown').dropdown();
+    $this->registerJs(<<<JS
+        $('.ui.dropdown').dropdown();
 
-    // $('.ui.accordion').accordion();
-
-    $('.ui.sticky')
-        .sticky({
-            context: '#content'
-        });
-JS); ?>
-
-<?php $this->endBody() ?>
-</body>
+        $('.ui.sticky')
+            .sticky({
+                context: '#content'
+            });
+    JS) ?>
+    </body>
 </html>
+
 <?php $this->endPage() ?>

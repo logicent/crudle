@@ -2,9 +2,6 @@
 
 use yii\helpers\Html;
 use app\assets\AppAsset;
-use Zelenin\yii\SemanticUI\Elements;
-
-// use Zelenin\yii\SemanticUI\collections\Message;
 
 AppAsset::register($this);
 
@@ -18,11 +15,11 @@ $this->beginPage() ?>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
+
         <?php $this->head() ?>
     </head>
 
     <body>
-
     <?php $this->beginBody() ?>
 
     <div id="header_wrapper">
@@ -65,16 +62,16 @@ $this->beginPage() ?>
 
     <div class="ui divider hidden"></div>
 <?php
-    $this->registerJs(<<<JS
-    // $('.ui.accordion').accordion();
+    $this->endBody();
 
+    $this->registerJs(<<<JS
     $('.ui.sticky')
         .sticky({
             context: '#content'
         });
-    JS);
-    $this->endBody() ?>
+    JS) ?>
 
     </body>
 </html>
+
 <?php $this->endPage() ?>

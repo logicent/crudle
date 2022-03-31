@@ -732,3 +732,15 @@ body::-webkit-scrollbar-thumb {
 .ui.header small {
     font-size: 70%;
 }
+
+.ui.form > .ui.segments {
+    margin-top: 0em;
+}
+
+.ui.segments > .segment {
+    border-top: none;
+}
+/* .ui.accordion .title .dropdown.icon:before,
+.ui.accordion .accordion .title .dropdown.icon:before {
+    content: "\f078";
+} */

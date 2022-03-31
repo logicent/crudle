@@ -8,18 +8,20 @@ AppAsset::register($this);
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
-<head>
-    <meta charset="<?= Yii::$app->charset ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
-</head>
-<body>
-<?php $this->beginBody() ?>
+    <head>
+        <meta charset="<?= Yii::$app->charset ?>">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <?= Html::csrfMetaTags() ?>
+        <title><?= Html::encode($this->title) ?></title>
+
+        <?php $this->head() ?>
+    </head>
+
+    <body>
+    <?php $this->beginBody() ?>
 
     <div id="site_header">
-        <?= $this->render('/_layouts/_navbar_site', ['context' => $this->context]) ?>
+        <?= $this->render('//_layouts/_navbar_site', ['context' => $this->context]) ?>
     </div>
 
     <div class="ui container">
@@ -42,18 +44,18 @@ AppAsset::register($this);
     </div>
 
 <?php
-$this->registerCssFile("@web/css/site.css");
-$this->registerJs(<<<JS
-    $('.ui.dropdown').dropdown();
+    $this->endBody();
 
-    $('.ui.sticky')
-        .sticky({
-            context: '#content'
-        });
-JS);
-?>
+    $this->registerCssFile("@web/css/site.css");
+    $this->registerJs(<<<JS
+        $('.ui.dropdown').dropdown();
 
-<?php $this->endBody() ?>
-</body>
+        $('.ui.sticky')
+            .sticky({
+                context: '#content'
+            });
+    JS) ?>
+    </body>
 </html>
+
 <?php $this->endPage() ?>

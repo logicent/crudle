@@ -1,11 +1,14 @@
 <?php
 
 use app\enums\Resource_Action;
+use app\enums\Type_Form_View;
 use yii\helpers\Html;
 
 
 if ($this->context->action->id == Resource_Action::Create ||
-    $this->context->action->id == Resource_Action::Update ) :
+    $this->context->action->id == Resource_Action::Update ||
+    $this->context->formViewType == Type_Form_View::Single
+) :
     echo Html::submitButton(Yii::t('app', 'Save'), ['class' => 'compact ui primary button', 'style' => 'display: none;']);
 endif;
 

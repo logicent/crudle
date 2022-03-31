@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = [
 <div class="<?= $this->context->id ?>-update">
 
     <?= $this->render('_form', [
-            'model' => $model,
+            // 'model' => $model,
         ]) ?>
 
 </div>

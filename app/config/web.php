@@ -23,7 +23,7 @@ $config = [
     'bootstrap' => ['log'],
 
     'timeZone' => 'Africa/Nairobi',
-    'defaultRoute' => 'main',
+    // 'defaultRoute' => 'site',
 
     'aliases' => [
         '@bower' => '@vendor/bower-asset',

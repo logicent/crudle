@@ -56,8 +56,8 @@ $isReadonly = $this->context->isReadonly;
     </div>
 </div>
 <?= $this->context->renderPartial( '//_form/_section', [
-        'sectionTitle' => Yii::t('app', 'List Settings'),
-        'sectionContent' => $this->render( '_list_settings',
+        'title' => Yii::t('app', 'List Settings'),
+        'content' => $this->render( '_list_settings',
             [
                 'form' => $form,
                 'isReadonly' => $isReadonly,
@@ -71,8 +71,3 @@ $isReadonly = $this->context->isReadonly;
     <?= Html::activeHiddenInput($model, 'created_at') ?>
     <?= Html::activeHiddenInput($model, 'updated_at') ?>
     <?= Html::activeHiddenInput($model, 'deleted_at') ?>
-
-<?php
-$this->registerJS(<<<JS
-    $('.ui.accordion').accordion();
-JS);

@@ -4,6 +4,7 @@ namespace app\modules\setup\controllers\base;
 
 use app\controllers\base\BaseController;
 use app\enums\Type_Form_View;
+use app\enums\Type_View;
 use app\modules\setup\models\Setup;
 use Yii;
 use yii\filters\AccessControl;
@@ -13,6 +14,7 @@ use yii\helpers\StringHelper;
 
 abstract class BaseSettingsController extends BaseController
 {
+    public $viewType = Type_View::Form;
     public $formViewType = Type_Form_View::Single;
 
     public function init()
@@ -44,12 +46,12 @@ abstract class BaseSettingsController extends BaseController
 
     public function actionIndex()
     {
-        $model = Setup::getSettings( $this->modelClass );
+        $this->model = Setup::getSettings( $this->modelClass );
         $modelClassname = StringHelper::basename( $this->modelClass );
 
-        if ( $model->load( Yii::$app->request->post() ))
+        if ( $this->model->load( Yii::$app->request->post() ))
         {
-            if ( $model->validate() && $model->save( $modelClassname ))
+            if ( $this->model->validate() && $this->model->save( $modelClassname ))
             {
                 Yii::$app->session->setFlash('success',
                     Yii::t('app', 'Settings were saved successfully'));
@@ -61,8 +63,8 @@ abstract class BaseSettingsController extends BaseController
             }
             else {
                 $result = [];
-                foreach ( $model->getErrors() as $attribute => $errors )
-                    $result[ Html::getInputId( $model, $attribute ) ] = $errors;
+                foreach ( $this->model->getErrors() as $attribute => $errors )
+                    $result[ Html::getInputId( $this->model, $attribute ) ] = $errors;
 
                 if ( Yii::$app->request->isAjax )
                     return $this->asJson( ['validation' => $result] );
@@ -70,7 +72,7 @@ abstract class BaseSettingsController extends BaseController
         }
 
         return $this->render('//_settings/index', [
-            'model' => $model,
+            // 'model' => $model,
         ]);
     }
 }

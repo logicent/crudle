@@ -45,6 +45,10 @@ class ContactPage extends BaseSettingsForm
     public function attributeHints()
     {
         return [
+            'forwardToEmail' => 'Send enquiries to this email address',
+            'heading' => 'Default: "Contact Us"',
+            'shortIntro' => 'Introductory information for the Contact Us Page',
+            'enquiryDetail' => 'Contact options, like "Sales Query, Support Query" etc each on a new line or separated by commas.'
         ];
     }
 }

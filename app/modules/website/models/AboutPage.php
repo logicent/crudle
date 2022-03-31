@@ -10,6 +10,7 @@ class AboutPage extends BaseSettingsForm
     public $pageTitle;
     public $ourIntro;
     public $ourHistory;
+    public $ourHistoryHeading;
     public $ourTeamHeading;
     public $ourTeamSubheading;
     public $hideTeamSection;
@@ -23,6 +24,7 @@ class AboutPage extends BaseSettingsForm
                 'pageTitle',
                 'ourIntro',
                 'ourHistory',
+                'ourHistoryHeading',
                 'ourTeamHeading',
                 'ourTeamSubheading',
                 'footer'
@@ -37,6 +39,7 @@ class AboutPage extends BaseSettingsForm
             'pageTitle' => Yii::t('app', 'Page title'),
             'ourIntro' => Yii::t('app', 'Our introduction'),
             'ourHistory' => Yii::t('app', 'Our history'),
+            'ourHistoryHeading' => Yii::t('app', 'Our history heading'),
             'ourTeamHeading' => Yii::t('app', 'Our team heading'),
             'ourTeamSubheading' => Yii::t('app', 'Our team subheading'),
             'hideTeamSection' => Yii::t('app', 'Hide team section'),
@@ -48,6 +51,10 @@ class AboutPage extends BaseSettingsForm
     public function attributeHints()
     {
         return [
+            'ourIntro' => 'Introduce your organization to the website visitor.',
+            'ourHistoryHeading' => '"Your organization history"',
+            'ourTeamHeading' => '"Team Members" or "Management"',
+            'footer' => 'More content for the bottom of the page.',
         ];
     }
 }

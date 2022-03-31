@@ -1,18 +1,26 @@
 <?php
 
+// use yii\web\GroupUrlRule;
+
+// new GroupUrlRule([
+//     'prefix' => 'app',
+//     'rules' => [
+//         'setup' => '/setup',
+//         'website' => '/website',
+//     ],
+// ]);
+
 return [
     'enablePrettyUrl' => true,
     // 'enableStrictParsing' => true,
     'showScriptName' => false,
     'rules' => [
+        // '' => 'site/index',
+        'app' => 'main/index',
         'login' => 'site/login',
         'logout' => 'site/logout',
         'forgot-password' => 'site/request-password-reset',
         'reset-password' => 'site/reset-password',
-
-        'User Manual' => 'main/user-manual',
-        'Search' => 'main/global-search',
-        'About' => 'main/about',
 
         // Match menu titles and button labels in URL stubs
         '<controller>/New' => '<controller>/create',

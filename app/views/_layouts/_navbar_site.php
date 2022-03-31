@@ -21,7 +21,7 @@ use yii\helpers\Html;
                     <!-- <img class="ui mini image" src="<?php // Yii::$app->urlManager->baseUrl ?>/img/photo-ph.jpg"> -->
                     &ensp;<?= Yii::$app->user->identity->username ?><i class="dropdown icon"></i>
                     <div class="menu">
-                        <?= Html::a(Yii::t('app', 'Switch to Dash'), ['/'], ['class' => 'item']) ?>
+                        <?= Html::a(Yii::t('app', 'Switch to Dash'), ['/app'], ['class' => 'item']) ?>
                         <?= Html::tag('div', null, ['class' => 'divider', 'style' => 'margin: 0']) ?>
                         <?= Html::a(Yii::t('app', 'Log out'), ['/logout'], [
                                 'class' => 'item',

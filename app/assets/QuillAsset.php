@@ -6,12 +6,12 @@ use yii\web\AssetBundle;
 
 class QuillAsset extends AssetBundle
 {
-    public $basePath = '@webroot';
-    public $baseUrl = '@web';
+    public $sourcePath = '@bower/quill';
+
     public $css = [
-        "css/quill/quill.snow.css",
+        "src/quill.snow.css",
     ];
     public $js = [
-        "js/quill/quill.min.js",
+        "src/quill.min.js",
     ];
 }

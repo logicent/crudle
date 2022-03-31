@@ -6,20 +6,8 @@ use yii\helpers\Html;
 
 <div class="ui attached padded segment">
     <div class="two fields">
-        <?= $form->field($model, 'name', [
-                'hintOptions' => [
-                    'class' => 'text-muted',
-                    'tag' => 'span',
-                    'style' => 'font-size: 0.95em;'
-                ]
-            ])->textInput() ?>
-        <?= $form->field($model, 'shortName', [
-                'hintOptions' => [
-                    'class' => 'text-muted',
-                    'tag' => 'span',
-                    'style' => 'font-size: 0.95em;'
-                ]
-            ])->textInput() ?>
+        <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'shortName')->textInput(['maxlength' => true]) ?>
     </div>
     <div class="two fields">
         <?= $form->field($model, 'location')->textarea(['rows' => 4]) ?>

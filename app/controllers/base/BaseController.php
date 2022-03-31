@@ -22,8 +22,9 @@ abstract class BaseController extends Controller
     public $modelClass;
     public $model;
     public $loadModal = false;
+    public $viewType;
     public $formViewType;
-    public $formView;
+    // public $formView;
     public $showViewTypeSwitcher = true;
     public $showViewFilterButton = true;
     // Layout partials (Default)

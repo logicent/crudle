@@ -3,8 +3,10 @@
 use app\assets\DirrtyAsset;
 use app\enums\Resource_Action;
 use app\enums\Status_Transaction;
+use app\enums\Type_View;
 use app\modules\setup\enums\Type_Permission;
 use app\helpers\StatusMarker;
+use app\models\base\BaseActiveRecord;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use Zelenin\yii\SemanticUI\Elements;
@@ -35,13 +37,15 @@ $model = $this->context->model;
         </div>
         <div class="six wide column right aligned">
         <?php
-            if ($this->context->action->id == 'index') :
+            // all multiple record views like list and image view
+            if ($this->context->action->id == 'index' && $this->context->viewType == Type_View::List) :
                 echo $this->render('_view_type');
                 echo Html::a(Elements::icon('refresh'), ['refresh'], [
-                    'id' => 'refresh_btn',
-                    'class' => 'compact ui basic icon button',
-                ]) . Html::tag('span', '&nbsp;');
-                echo Html::a(Yii::t('app', 'Show filters'), false, [ // zoom, Elements::icon('toggle off')
+                        'id' => 'refresh_btn',
+                        'class' => 'compact ui basic icon button',
+                    ]) .
+                    Html::tag('span', '&nbsp;') .
+                    Html::a(Yii::t('app', 'Show filters'), false, [ // zoom, Elements::icon('toggle off')
                         'id' => 'show_filters',
                         'class' => 'compact ui filter button',
                     ]) .
@@ -57,7 +61,7 @@ $model = $this->context->model;
                             'id' => 'create_btn',
                             'class' => 'compact ui primary button',
                             'data' => [
-                                'load-modal' => isset($this->context->model->source) ? 'true' : 'false'
+                                'load-modal' => isset($model->source) ? 'true' : 'false'
                             ]
                         ]);
                 endif;
@@ -74,34 +78,40 @@ $model = $this->context->model;
                         'style' => 'display: none'
                     ]);
                 endif;
-            // new record and update
-            elseif (!$this->context->isReadonly) : ?>
+            endif;
+            // form view i.e. new or update record and setting form
+            if ($this->context->viewType == Type_View::Form) : ?>
                 <!-- If form is dirty !!! then show reminder to save -->
                 <span class="app-status-label app-hidden">
                     <i class="ui mini yellow empty circular label"></i>
                     &ensp;<?= Yii::t('app', 'Not saved') ?>&ensp;
                 </span>
             <?php
-                if (!$model->isNewRecord && 
-                    $model->hasWorkflow() &&
-                    $model->status === Status_Transaction::Draft) :
-                    echo Html::button(Yii::t('app', 'Submit'), [
-                        'class' => 'compact ui primary button',
-                        'id'    => 'submit_btn',
-                        'data' => ['url' => Url::to(['submit', 'id' => $model->id])]
-                    ]);
-                endif;
-                $display = $model->isNewRecord || !$model->hasWorkflow() ? '' : 'none';
-                echo Html::button(Yii::t('app', 'Save'), [
-                    'class' => 'compact ui primary button',
-                    'style' => "display: $display",
-                    'id'    => 'save_btn',
-                ]);
-                if (!$model->isNewRecord) :
-                    echo $this->render('//_form/_menu', ['model' => $model]);
-                endif;
-            // read-only
-            elseif ( $this->context->isReadonly ) :
+                if (is_a($model, BaseActiveRecord::class)) :
+                    if (!$model->isNewRecord &&
+                        $model->hasWorkflow() &&
+                        $model->status === Status_Transaction::Draft) :
+                            echo Html::button(Yii::t('app', 'Submit'), [
+                                'class' => 'compact ui primary button',
+                                'id'    => 'submit_btn',
+                                'data' => ['url' => Url::to(['submit', 'id' => $model->id])]
+                            ]);
+                    endif;
+                    if ($model->lockUpdate() &&
+                        $model->userCan( Type_Permission::Cancel, Yii::$app->user->id ) &&
+                        $model->status == Status_Transaction::Submitted
+                    ) :
+                        echo Html::a(Yii::t('app', 'Cancel'),
+                                    ['cancel', 'id' => $model->id],
+                                    [
+                                        'class' => 'compact ui button',
+                                        'data' => [
+                                            'method' => 'post',
+                                            'confirm' => Yii::t('app', 'Are you sure you want to Cancel?')
+                                        ]
+                                    ]
+                                );
+                    endif;
                     if (! $model->isNewRecord) :
                         echo Html::a(Elements::icon('left chevron'),
                                     ['previous', 'id' => $model->id],
@@ -127,21 +137,21 @@ $model = $this->context->model;
                         endif;
                         echo $this->render('//_form/_menu', ['model' => $model]);
                     endif;
-                    if ($model->lockUpdate() &&
-                        $model->userCan( Type_Permission::Cancel, Yii::$app->user->id ) &&
-                        $model->status == Status_Transaction::Submitted
-                    ) :
-                        echo Html::a(Yii::t('app', 'Cancel'),
-                                    ['cancel', 'id' => $model->id],
-                                    [
-                                        'class' => 'compact ui button',
-                                        'data' => [
-                                            'method' => 'post',
-                                            'confirm' => Yii::t('app', 'Are you sure you want to Cancel?')
-                                        ]
-                                    ]
-                                );
+                    $display = $model->isNewRecord || !$model->hasWorkflow() ? '' : 'none';
+                    echo Html::button(Yii::t('app', 'Save'), [
+                            'class' => 'compact ui primary button',
+                            'style' => "display: $display",
+                            'id'    => 'save_btn',
+                        ]);
+                    if (!$model->isNewRecord && $model->hasWorkflow()) :
+                        echo $this->render('//_form/_menu', ['model' => $model]);
                     endif;
+                else :
+                    echo Html::button(Yii::t('app', 'Save'), [
+                            'class' => 'compact ui primary button',
+                            'id'    => 'save_btn',
+                        ]);
+                endif;
             endif ?>
         </div>
     </div>

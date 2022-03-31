@@ -4,18 +4,30 @@ use Zelenin\yii\SemanticUI\widgets\ActiveForm;
 
 // $hasFileInput == isset($model->UploadForm);
 
+$hintOptions = [
+    'tag' => 'div',
+    'class' => 'text-muted',
+    'style' => 'font-size: 0.95em;'
+];
+
+$model = $this->context->model;
+
 $form = ActiveForm::begin([
     'id' => $model->formName(),
     'enableClientValidation' => true,
+    'fieldConfig' => ['hintOptions' => $hintOptions],
     'options' => [
         'autocomplete' => 'off',
         'class' => 'ui form',
         // 'enctype' => 'multipart/form-data,
     ],
 ]);
+    echo $this->render('//_form/_header', ['model' => $model]);
 
-    echo $this->renderFile($this->context->viewPath . '/field_inputs.php', ['form' => $form, 'model' => $model]);
-
+    echo $this->renderFile($this->context->viewPath . '/field_inputs.php', [
+            'form' => $form,
+            'model' => $model
+        ]);
 ActiveForm::end();
 
 // $this->registerJs($this->render('//_form/_modal_submit.js'));

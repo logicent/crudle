@@ -3,6 +3,7 @@
 use app\assets\QuillAsset;
 QuillAsset::register($this);
 
+$context_id = $this->context->id;
 if ($this->context->action->id == 'read') :
     $script = "
         var quill_{$attribute} = new Quill('#" . $attribute . "', {
@@ -16,7 +17,7 @@ if ($this->context->action->id == 'read') :
         });
     ";
 else :
-    echo  $form->field($model, $attribute)->textarea(['rows' => 6])->hiddenInput();
+    echo  $form->field($model, $attribute)->textarea(['rows' => 9]);
     $script = "
         var delta;
         var toolbarOptions = [
@@ -53,4 +54,4 @@ endif ?>
 
 <div id="<?= $attribute?>"></div>
 
-<?php $this->registerJs($script);?>
+<?php $this->registerJs($script);
