@@ -3,6 +3,9 @@
 // disable bootstrap assets from view(s) where called
 use Zelenin\yii\SemanticUI\modules\Accordion;
 
+
+$active = isset($expanded) && $expanded === true ? 'active' : '';
+
 if ($collapsible === false) :
 ?>
     <div class="ui segments">
@@ -25,12 +28,12 @@ else : ?>
         <?= Accordion::widget([
                 // 'fluid' => true,
                 'titleOptions' => [
-                    'class' => 'ui small header',
+                    'class' => "ui small header {$active}",
                     'style' => 'margin: 0; font-weight: 500;'
                 ],
                 'contentOptions' => [
                     'encode' => false,
-                    'class' => isset($expanded) && $expanded === true ? 'active' : '',
+                    'class' => $active,
                     'style' => 'margin-top: 14px' // offset title margin
                 ],
                 'items' => [
@@ -43,3 +46,7 @@ else : ?>
     </div>
 <?php
 endif;
+
+$this->registerJs(<<<JS
+// custom code here
+JS);
