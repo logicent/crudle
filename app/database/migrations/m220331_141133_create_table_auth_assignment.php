@@ -2,9 +2,9 @@
 
 use yii\db\Migration;
 
-class m201102_044217_004_create_table_auth_assignment extends Migration
+class m220331_141133_create_table_auth_assignment extends Migration
 {
-    public function up()
+    public function safeUp()
     {
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
@@ -24,7 +24,7 @@ class m201102_044217_004_create_table_auth_assignment extends Migration
         $this->addPrimaryKey('PRIMARYKEY', '{{%auth_assignment}}', ['item_name', 'user_id']);
     }
 
-    public function down()
+    public function safeDown()
     {
         $this->dropTable('{{%auth_assignment}}');
     }

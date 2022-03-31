@@ -2,9 +2,9 @@
 
 use yii\db\Migration;
 
-class m201102_044217_006_create_table_auth_item_child extends Migration
+class m220331_141135_create_table_auth_item_child extends Migration
 {
-    public function up()
+    public function safeUp()
     {
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
@@ -25,7 +25,7 @@ class m201102_044217_006_create_table_auth_item_child extends Migration
         $this->createIndex('child', '{{%auth_item_child}}', ['child']);
     }
 
-    public function down()
+    public function safeDown()
     {
         $this->dropTable('{{%auth_item_child}}');
     }

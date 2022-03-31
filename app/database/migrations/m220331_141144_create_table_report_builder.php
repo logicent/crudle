@@ -2,9 +2,9 @@
 
 use yii\db\Migration;
 
-class m220125_054523_032_create_table_report_builder extends Migration
+class m220331_141144_create_table_report_builder extends Migration
 {
-    public function up()
+    public function safeUp()
     {
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
@@ -36,7 +36,7 @@ class m220125_054523_032_create_table_report_builder extends Migration
         );
     }
 
-    public function down()
+    public function safeDown()
     {
         $this->dropTable('{{%report_builder}}');
     }

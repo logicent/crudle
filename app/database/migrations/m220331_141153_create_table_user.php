@@ -2,9 +2,9 @@
 
 use yii\db\Migration;
 
-class m220125_054523_048_create_table_user extends Migration
+class m220331_141153_create_table_user extends Migration
 {
-    public function up()
+    public function safeUp()
     {
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
@@ -37,12 +37,12 @@ class m220125_054523_048_create_table_user extends Migration
             $tableOptions
         );
 
-        $this->createIndex('created_by', '{{%user}}', ['created_by']);
         $this->createIndex('user_group', '{{%user}}', ['user_group']);
+        $this->createIndex('created_by', '{{%user}}', ['created_by']);
         $this->createIndex('updated_by', '{{%user}}', ['updated_by']);
     }
 
-    public function down()
+    public function safeDown()
     {
         $this->dropTable('{{%user}}');
     }

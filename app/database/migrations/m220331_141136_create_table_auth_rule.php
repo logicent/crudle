@@ -2,9 +2,9 @@
 
 use yii\db\Migration;
 
-class m201102_044217_007_create_table_auth_rule extends Migration
+class m220331_141136_create_table_auth_rule extends Migration
 {
-    public function up()
+    public function safeUp()
     {
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
@@ -23,7 +23,7 @@ class m201102_044217_007_create_table_auth_rule extends Migration
         );
     }
 
-    public function down()
+    public function safeDown()
     {
         $this->dropTable('{{%auth_rule}}');
     }

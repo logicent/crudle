@@ -2,9 +2,9 @@
 
 use yii\db\Migration;
 
-class m220125_054523_050_create_table_user_settings extends Migration
+class m220331_141152_create_table_site_slide extends Migration
 {
-    public function up()
+    public function safeUp()
     {
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
@@ -12,28 +12,28 @@ class m220125_054523_050_create_table_user_settings extends Migration
         }
 
         $this->createTable(
-            '{{%user_settings}}',
+            '{{%site_slide}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
-                'auth_id' => $this->string(140)->notNull(),
-                'view_model' => $this->string(140),
-                'view_settings' => $this->text(),
+                'heading' => $this->string(140)->notNull(),
+                'description' => $this->string(280),
+                'image_path' => $this->string(140),
+                'inactive' => $this->boolean(),
                 'comments' => $this->text(),
                 'created_at' => $this->dateTime(),
                 'created_by' => $this->string(140),
                 'updated_at' => $this->dateTime(),
                 'updated_by' => $this->string(140),
+                'deleted_at' => $this->dateTime(),
             ],
             $tableOptions
         );
 
-        $this->createIndex('created_by', '{{%user_settings}}', ['created_by']);
-        $this->createIndex('auth_id', '{{%user_settings}}', ['auth_id']);
-        $this->createIndex('updated_by', '{{%user_settings}}', ['updated_by']);
+        $this->createIndex('created_by', '{{%site_slide}}', ['created_by']);
     }
 
-    public function down()
+    public function safeDown()
     {
-        $this->dropTable('{{%user_settings}}');
+        $this->dropTable('{{%site_slide}}');
     }
 }

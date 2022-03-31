@@ -2,9 +2,9 @@
 
 use yii\db\Migration;
 
-class m201102_044217_005_create_table_auth_item extends Migration
+class m220331_141134_create_table_auth_item extends Migration
 {
-    public function up()
+    public function safeUp()
     {
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
@@ -19,17 +19,22 @@ class m201102_044217_005_create_table_auth_item extends Migration
                 'description' => $this->text(),
                 'rule_name' => $this->string(64),
                 'data' => $this->binary(),
+                'inactive' => $this->string(140),
+                'comments' => $this->text(),
                 'created_at' => $this->integer(),
+                'created_by' => $this->string(140),
                 'updated_at' => $this->integer(),
+                'updated_by' => $this->string(140),
+                'deleted_at' => $this->dateTime(),
             ],
             $tableOptions
         );
 
-        $this->createIndex('rule_name', '{{%auth_item}}', ['rule_name']);
         $this->createIndex('idx-auth_item-type', '{{%auth_item}}', ['type']);
+        $this->createIndex('rule_name', '{{%auth_item}}', ['rule_name']);
     }
 
-    public function down()
+    public function safeDown()
     {
         $this->dropTable('{{%auth_item}}');
     }

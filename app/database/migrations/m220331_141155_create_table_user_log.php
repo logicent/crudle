@@ -2,9 +2,9 @@
 
 use yii\db\Migration;
 
-class m220125_054523_049_create_table_user_log extends Migration
+class m220331_141155_create_table_user_log extends Migration
 {
-    public function up()
+    public function safeUp()
     {
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
@@ -15,7 +15,7 @@ class m220125_054523_049_create_table_user_log extends Migration
             '{{%user_log}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
-                'auth_id' => $this->string(140)->notNull(),
+                'user_id' => $this->string(140)->notNull(),
                 'session_id' => $this->string(140),
                 'status' => $this->string(140),
                 'login_at' => $this->integer(),
@@ -27,16 +27,15 @@ class m220125_054523_049_create_table_user_log extends Migration
                 'created_by' => $this->string(140),
                 'updated_at' => $this->dateTime(),
                 'updated_by' => $this->string(140),
+                'deleted_at' => $this->dateTime(),
             ],
             $tableOptions
         );
 
-        $this->createIndex('created_by', '{{%user_log}}', ['created_by']);
-        $this->createIndex('auth_id', '{{%user_log}}', ['auth_id']);
-        $this->createIndex('updated_by', '{{%user_log}}', ['updated_by']);
+        $this->createIndex('user_id', '{{%user_log}}', ['user_id']);
     }
 
-    public function down()
+    public function safeDown()
     {
         $this->dropTable('{{%user_log}}');
     }

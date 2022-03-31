@@ -2,9 +2,9 @@
 
 use yii\db\Migration;
 
-class m220125_054523_043_create_table_settings extends Migration
+class m220331_141146_create_table_settings extends Migration
 {
-    public function up()
+    public function safeUp()
     {
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
@@ -37,7 +37,7 @@ class m220125_054523_043_create_table_settings extends Migration
         $this->addPrimaryKey('PRIMARYKEY', '{{%settings}}', ['model_name', 'attribute_name']);
     }
 
-    public function down()
+    public function safeDown()
     {
         $this->dropTable('{{%settings}}');
     }
