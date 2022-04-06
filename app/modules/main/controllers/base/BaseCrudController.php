@@ -86,6 +86,17 @@ abstract class BaseCrudController extends BaseController
         ];
     }
 
+    public function beforeAction($action)
+    {
+        // If there is no logged in user session
+        if (is_null(Yii::$app->user->identity)) //  && $this->module->id !== 'website'
+            $this->goHome();
+
+        Url::remember(Yii::$app->request->getUrl(), 'go back');
+
+        return parent::beforeAction($action);
+    }
+
     public function actionIndex()
     {
         $searchClassname = StringHelper::basename($this->modelSearchClass);

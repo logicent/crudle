@@ -2,12 +2,12 @@
 
 namespace website\controllers;
 
-use app\modules\main\controllers\base\BaseController;
+use app\modules\main\controllers\base\BaseCrudController;
 
 /**
  * WebsiteController for the `website` module
  */
-class WebsiteController extends BaseController
+class WebsiteController extends BaseCrudController
 {
     /**
      * Renders the default index view for the module

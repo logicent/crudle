@@ -17,8 +17,6 @@ use Yii;
 use yii\helpers\Html;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
-use yii\web\Controller;
-
 
 class SiteController extends BaseController
 {
@@ -34,7 +32,7 @@ class SiteController extends BaseController
                     [
                         'actions' => ['index', 'login'],
                         'allow' => true,
-                        // 'roles' => ['?'],
+                        'roles' => ['?'],
                     ],
                     [
                         'actions' => ['logout'],
@@ -68,6 +66,7 @@ class SiteController extends BaseController
     public function actionIndex()
     {
         return $this->redirect(['login']);
+        // return $this->render('index');
     }
 
     public function actionLogin()

@@ -53,27 +53,15 @@ abstract class BaseController extends Controller
     {
         parent::init();
 
+        // Yii::$app->language = Yii::$app->request->cookies->getValue('language', 'en');
+
         $this->viewPath = dirname($this->viewPath) .'/'. Inflector::underscore(
             Inflector::id2camel(StringHelper::basename($this->id))
         );
-        // return;
-    }
-
-    public function beforeAction($action)
-    {
-        // If there is no logged in user session
-        // if (is_null(Yii::$app->user->identity))
-        //     $this->goHome();
-
-        Yii::$app->language = Yii::$app->request->cookies->getValue('language', 'en');
 
         $this->resourceName = Inflector::camel2words(
             Inflector::id2camel(StringHelper::basename($this->id), '/')
         );
-
-        Url::remember(Yii::$app->request->getUrl(), 'go back');
-
-        return parent::beforeAction($action);
     }
 
     public function actionSwitchViewType(string $name)

@@ -2,9 +2,9 @@
 
 namespace app\modules\main\controllers;
 
-use app\modules\main\controllers\base\BaseController;
+use app\modules\main\controllers\base\BaseCrudController;
 
-class MainController extends BaseController
+class MainController extends BaseCrudController
 {
     /**
      * Renders the index view for the module

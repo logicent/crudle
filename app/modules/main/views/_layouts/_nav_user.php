@@ -13,7 +13,7 @@ use Zelenin\yii\SemanticUI\Elements;
     <div class="menu nav-menu">
         <?= Html::a(Yii::t('app', 'My preferences'), ['/setup/user/edit-preferences', 'id' => is_null( Yii::$app->user->identity ) ? '' : Yii::$app->user->id], ['class' => 'item']) ?>
         <?= Html::a(Yii::t('app', 'My account'), ['/setup/user/update', 'id' => is_null( Yii::$app->user->identity ) ? '' : Yii::$app->user->id], ['class' => 'item']) ?>
-        <?= Html::a(Yii::t('app', 'Visit website'), ['/app/site'], ['class' => 'item']) ?>
+        <?= Html::a(Yii::t('app', 'Visit website'), ['/'], ['class' => 'item']) ?>
         <?= Html::tag('div', null, ['class' => 'divider', 'style' => 'margin: 0']) ?>
         <?= Html::a(Yii::t('app', 'Log out'), ['/app/logout'], [
                 'class' => 'item',

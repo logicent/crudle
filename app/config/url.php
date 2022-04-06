@@ -7,6 +7,7 @@ return [
     // 'enableStrictParsing' => true,
     'showScriptName' => false,
     'rules' => [
+        // website routes
         // '' or '/' routes
         '/' => 'website/site/home/index',
         '/home' => 'website/site/home/index',
@@ -15,7 +16,8 @@ return [
         '/blog' => 'website/site/blog-article/index',
         '/writer' => 'website/site/blog-writer/index',
         '/category' => 'website/site/blog-category/index',
-
+        // end website
+        // app routes
         'app/site' => 'main/site/index',
         'app/login' => 'main/site/login',
         'app/logout' => 'main/site/logout',
@@ -52,5 +54,6 @@ return [
 
         // generic rule goes last
         'app/<module>/<controller>' => '<module>/<controller>/index',
+        // end app
     ],
 ];
