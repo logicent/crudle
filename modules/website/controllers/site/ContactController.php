@@ -2,6 +2,7 @@
 
 namespace website\controllers\site;
 
+use app\modules\main\controllers\SiteController;
 use website\models\ContactPage;
 
 

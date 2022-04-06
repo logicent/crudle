@@ -2,14 +2,14 @@
 
 namespace website\controllers\site;
 
-use website\models\AboutPage;
+use app\modules\main\controllers\SiteController;
 
 
 class AboutController extends SiteController
 {
     public function init()
     {
-        $this->modelClass = AboutPage::class;
+        $this->modelClass = ContactPage::class;
 
         return parent::init();
     }

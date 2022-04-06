@@ -7,8 +7,15 @@ return [
     // 'enableStrictParsing' => true,
     'showScriptName' => false,
     'rules' => [
-        // '' or '/'
-        // '/' => '/main',
+        // '' or '/' routes
+        '/' => 'website/site/home/index',
+        '/home' => 'website/site/home/index',
+        '/about' => 'website/site/about/index',
+        '/contact' => 'website/site/contact/index',
+        '/blog' => 'website/site/blog-article/index',
+        '/writer' => 'website/site/blog-writer/index',
+        '/category' => 'website/site/blog-category/index',
+
         'app/site' => 'main/site/index',
         'app/login' => 'main/site/login',
         'app/logout' => 'main/site/logout',

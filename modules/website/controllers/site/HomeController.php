@@ -2,13 +2,10 @@
 
 namespace website\controllers\site;
 
-use app\modules\main\controllers\base\BaseController;
+use app\modules\main\controllers\SiteController;
 
-
-class SiteController extends BaseController
+class HomeController extends SiteController
 {
-    public $layout = '//site';
-
     public function actionIndex()
     {
         return $this->render('index');

@@ -61,9 +61,9 @@ abstract class BaseController extends Controller
 
     public function beforeAction($action)
     {
-        // If there is no session log me out
-        if (is_null(Yii::$app->user->identity))
-            $this->goHome();
+        // If there is no logged in user session
+        // if (is_null(Yii::$app->user->identity))
+        //     $this->goHome();
 
         Yii::$app->language = Yii::$app->request->cookies->getValue('language', 'en');
 

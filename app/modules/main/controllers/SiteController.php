@@ -3,6 +3,7 @@
 namespace app\modules\main\controllers;
 
 use app\enums\Status_Active;
+use app\modules\main\controllers\base\BaseController;
 use app\modules\main\models\auth\LoginForm;
 use app\modules\main\models\auth\PasswordResetRequestForm;
 use app\modules\main\models\auth\ResetPasswordForm;
@@ -19,7 +20,7 @@ use yii\filters\VerbFilter;
 use yii\web\Controller;
 
 
-class SiteController extends Controller
+class SiteController extends BaseController
 {
     public $layout = '@app_main/views/_layouts/site';
 
@@ -33,7 +34,7 @@ class SiteController extends Controller
                     [
                         'actions' => ['index', 'login'],
                         'allow' => true,
-                        'roles' => ['?'],
+                        // 'roles' => ['?'],
                     ],
                     [
                         'actions' => ['logout'],
@@ -177,7 +178,7 @@ class SiteController extends Controller
         ]);
     }
 
-    public function sendMail($msg)
+    public function sendMail($msg, $from_support = false, $addAttachments = NULL)
     {
         $mailer = $this->getMailer();
 

@@ -2,6 +2,7 @@
 
 namespace website\controllers\site;
 
+use app\modules\main\controllers\SiteController;
 use website\models\BlogArticle;
 use website\models\BlogArticleSearch;
 
@@ -11,7 +12,7 @@ class BlogArticleController extends SiteController
     public function init()
     {
         $this->modelClass = BlogArticle::class;
-        $this->modelSearchClass = BlogArticleSearch::class;
+        // $this->modelSearchClass = BlogArticleSearch::class;
 
         return parent::init();
     }

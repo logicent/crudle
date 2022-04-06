@@ -14,7 +14,7 @@ use yii\helpers\Html;
         </div>
         <div class="right menu">
             <?php if (Yii::$app->user->isGuest) : ?>
-                <a class="item active" href="<?= Url::toRoute('/site/login') ?>"><?= Yii::t('app', 'Log in') ?></a>
+                <a class="item active" href="<?= Url::toRoute('/app/login') ?>"><?= Yii::t('app', 'Log in') ?></a>
             <?php else : ?>
                 <!-- Published menu items -->
                 <div class="ui dropdown item">
@@ -23,7 +23,7 @@ use yii\helpers\Html;
                     <div class="menu">
                         <?= Html::a(Yii::t('app', 'Switch to Dash'), ['/app'], ['class' => 'item']) ?>
                         <?= Html::tag('div', null, ['class' => 'divider', 'style' => 'margin: 0']) ?>
-                        <?= Html::a(Yii::t('app', 'Log out'), ['/logout'], [
+                        <?= Html::a(Yii::t('app', 'Log out'), ['/app/logout'], [
                                 'class' => 'item',
                                 'data' => ['method' => 'post']
                             ]) ?>
