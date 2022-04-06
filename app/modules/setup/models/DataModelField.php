@@ -2,7 +2,7 @@
 
 namespace app\modules\setup\models;
 
-use app\models\base\BaseActiveRecordDetail;
+use app\modules\main\models\base\BaseActiveRecordDetail;
 use Yii;
 use yii\db\Schema;
 

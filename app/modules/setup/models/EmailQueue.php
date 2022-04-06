@@ -3,11 +3,11 @@
 namespace app\modules\setup\models;
 
 use app\modules\setup\enums\Type_Permission;
-use app\enums\Status_Queue;
+use app\modules\main\enums\Status_Queue;
 use app\modules\setup\enums\Type_Role;
 use app\modules\setup\enums\Status_User;
-use app\models\auth\Person;
-use app\models\base\BaseActiveRecord;
+use app\modules\main\models\auth\Person;
+use app\modules\main\models\base\BaseActiveRecord;
 use app\modules\setup\models\Setup;
 use Yii;
 use yii\helpers\ArrayHelper;

@@ -1,6 +1,6 @@
 <?php
 
-use app\enums\Type_Model;
+use app\modules\main\enums\Type_Model;
 
 $modelClasses = array_flip(Type_Model::modelClasses());
 ksort($modelClasses);

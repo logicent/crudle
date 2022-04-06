@@ -2,8 +2,8 @@
 
 namespace app\modules\setup\models;
 
-use app\enums\Status_Transaction;
-use app\models\base\BaseActiveRecord;
+use app\modules\setup\enums\Status_Transaction;
+use app\modules\main\models\base\BaseActiveRecord;
 use app\modules\setup\enums\Permission_Group;
 use app\modules\setup\enums\Type_Permission;
 use app\modules\setup\models\ListViewSettingsForm;

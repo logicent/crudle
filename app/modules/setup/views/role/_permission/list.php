@@ -1,9 +1,9 @@
 <?php
 
-use app\enums\Type_Model;
+use app\modules\main\enums\Type_Model;
 use app\modules\setup\enums\Permission_Group;
 use app\modules\setup\enums\Type_Permission;
-use app\models\auth\RolePermission;
+use app\modules\main\models\auth\RolePermission;
 use yii\helpers\Html;
 use yii\helpers\Inflector;
 use app\assets\DataTableAsset;

@@ -14,7 +14,7 @@ $form = ActiveForm::begin([
         ],
     ]) ?>
 
-    <?= $this->render('//_form/_modal_header', ['model' => $model]) ?>
+    <?= $this->render('@app_main/views/_form/_modal_header', ['model' => $model]) ?>
 
     <div class="ui attached segment">
         <?= Html::activeHiddenInput($model, 'listModelClass') ?>
@@ -44,5 +44,5 @@ $form = ActiveForm::begin([
     </div>
 <?php 
 ActiveForm::end();
-$this->registerJs($this->render('//_form/_submit.js'));
+$this->registerJs($this->render('@app_main/views/_form/_submit.js'));
 ?>

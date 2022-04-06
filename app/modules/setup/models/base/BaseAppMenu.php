@@ -2,7 +2,7 @@
 
 namespace app\modules\setup\models\base;
 
-use app\models\base\BaseActiveRecord;
+use app\modules\main\models\base\BaseActiveRecord;
 use Yii;
 use yii\helpers\ArrayHelper;
 

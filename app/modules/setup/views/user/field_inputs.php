@@ -1,17 +1,18 @@
 <?php
 
 use app\modules\setup\enums\Type_Role;
-use app\enums\Status_Work;
-use app\models\auth\Role;
+use app\modules\setup\enums\Status_Work;
+use app\modules\main\models\auth\Role;
 use app\helpers\SelectableItems;
 use app\modules\setup\models\UserGroup;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\MaskedInput;
-use Zelenin\yii\SemanticUI\widgets\ActiveForm;
 use Zelenin\yii\SemanticUI\Elements;
 use Zelenin\yii\SemanticUI\helpers\Size;
 use Zelenin\yii\SemanticUI\modules\Modal;
+
+$this->title = $model->full_name;
 
 // $rolesCount = !empty($model->user_role) ? count($model->user_role) : '0';
 $isReadonly = $this->context->isReadonly || $this->context->action->id == 'print-preview';

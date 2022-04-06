@@ -3,7 +3,7 @@
 namespace app\modules\setup\models;
 
 use app\enums\Status_Active;
-use app\models\auth\Role as AuthRole;
+use app\modules\main\models\auth\Role as AuthRole;
 
 class Role extends AuthRole
 {

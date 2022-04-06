@@ -7,12 +7,12 @@ namespace app\enums;
 
 class Type_Domain
 {
-    // const Retail    = 'Retail';
+    // const Website    = 'Website';
 
     public static function enums()
     {
         return [
-            // self::Retail,
+            // self::Website,
         ];
     }
 }

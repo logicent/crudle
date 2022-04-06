@@ -7,7 +7,7 @@ use yii\data\ActiveDataProvider;
 use app\modules\setup\models\DataModelField;
 
 /**
- * DataModelFieldSearch represents the model behind the search form of `app\models\DataModelField`.
+ * DataModelFieldSearch represents the model behind the search form of `app\modules\main\models\DataModelField`.
  */
 class DataModelFieldSearch extends DataModelField
 {

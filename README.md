@@ -33,7 +33,7 @@ Continue:
 
 **Context**
 
-Yii2 Crudle (CRUD logic engine) is a meta framework for rapid application development and customization using a modified (basic) template, predefined coding conventions and fully-fledged admin backend based on Semantic UI.
+Yii2 Crudle (CRUD logic engine) is a meta framework for rapid application development and customization using a modified project template, some predefined coding conventions and a fully-fledged admin backend built with Semantic UI.
 
 **Containers**
 - backend   (App)
@@ -58,8 +58,8 @@ _Setup_
 - app/helpers
 - app/models
 - app/modules/setup
-- app/modules/website
 - app/views
+- modules/website
 
 ### Technology Stack
 **Programming Languages and Frameworks**

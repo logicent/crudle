@@ -2,7 +2,7 @@
 
 namespace app\modules\setup\controllers;
 
-use app\controllers\base\BaseCrudController;
+use app\modules\main\controllers\base\BaseCrudController;
 use app\modules\setup\enums\Type_Role;
 use app\modules\setup\models\Role;
 use app\modules\setup\models\RoleSearch;
@@ -51,7 +51,7 @@ class RoleController extends BaseCrudController
         $this->model->loadDefaultValues();
         $this->model->type = Role::TYPE_ROLE;
 
-        return $this->render('//_crud/index', [
+        return $this->render('@app_main/views/_crud/index', [
             'model' => $this->model,
         ]);
     }
@@ -109,7 +109,7 @@ class RoleController extends BaseCrudController
                 return $this->asJson(['validation' => $result]);
             }
 
-        return $this->render('//_crud/index', [
+        return $this->render('@app_main/views/_crud/index', [
             'model' => $this->model,
         ]);
     }

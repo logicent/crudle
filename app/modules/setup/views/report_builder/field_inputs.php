@@ -1,8 +1,8 @@
 <?php
 
-use app\enums\Type_Model;
-use app\enums\Type_Module;
-use app\enums\Type_Report;
+use app\modules\main\enums\Type_Model;
+use app\modules\main\enums\Type_Module;
+use app\modules\main\enums\Type_Report;
 use app\modules\setup\enums\Type_Role;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -76,8 +76,8 @@ $form = ActiveForm::begin([
     </div>
 
 <?php ActiveForm::end();
-echo $this->render('//_form/_footer', ['model' => $model]);
-$this->registerJs($this->render('//_form/_modal_submit.js'));
+echo $this->render('@app_main/views/_form/_footer', ['model' => $model]);
+$this->registerJs($this->render('@app_main/views/_form/_modal_submit.js'));
 
 $this->registerJs(<<<JS
     $('.custom-listbox').on('click', function() {

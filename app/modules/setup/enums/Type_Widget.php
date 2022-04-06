@@ -1,6 +1,6 @@
 <?php
 
-namespace app\enums;
+namespace app\modules\main\enums;
 
 use app\modules\setup\widgets\LineChart;
 use app\modules\setup\widgets\BarChart;

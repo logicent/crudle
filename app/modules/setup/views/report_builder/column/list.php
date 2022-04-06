@@ -1,6 +1,6 @@
 <?php
 
-use app\enums\Type_Model;
+use app\modules\main\enums\Type_Model;
 use app\modules\setup\models\ReportBuilderItem;
 use yii\helpers\StringHelper;
 use yii\helpers\Url;
@@ -55,7 +55,7 @@ $modal::end();
                                         'rowId' => $id
                                     ]);
             else : // $model->isNewRecord
-                echo $this->render('//_form_section/_no_data');
+                echo $this->render('@app_main/views/_form_section/_no_data');
             endif ?>
         </tbody>
     </table>

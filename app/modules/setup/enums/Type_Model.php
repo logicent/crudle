@@ -29,7 +29,7 @@ class Type_Model
     const AppModule         = 'App Module';
     const DataImport        = 'Data Import';
     const DataModel         = 'Data Model';
-    const DashboardWidget  = 'Dashboard Widget';
+    const DashboardWidget   = 'Dashboard Widget';
     const DatabaseBackup    = 'Database Backup';
     const EmailNotification = 'Email Notification';
     const EmailQueue        = 'Email Queue';
@@ -54,7 +54,7 @@ class Type_Model
             self::AppModule         => self::AppModule,
             self::DataModel         => self::DataModel,
             self::DataImport        => self::DataImport,
-            self::DashboardWidget  => self::DashboardWidget,
+            self::DashboardWidget   => self::DashboardWidget,
             self::DatabaseBackup    => self::DatabaseBackup,
             self::EmailNotification => self::EmailNotification,
             self::EmailQueue        => self::EmailQueue,
@@ -81,7 +81,7 @@ class Type_Model
             self::AppModule         => AppModule::class,
             self::DataModel         => DataModel::class,
             self::DataImport        => DataImportForm::class,
-            self::DashboardWidget  => DashboardWidget::class,
+            self::DashboardWidget   => DashboardWidget::class,
             self::DatabaseBackup    => DbBackupSettingsForm::class,
             self::EmailNotification => EmailNotification::class,
             self::EmailQueue        => EmailQueue::class,

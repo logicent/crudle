@@ -10,7 +10,7 @@ return [
         'id' => 'Role',
         'alias' => '',
         'type' => 'core', // core/standard, addon/custom
-        'namespace' => '\app\models\setup\Role',
+        'namespace' => '\app\modules\main\models\setup\Role',
         'url' => '/setup/role/index',
         'series' => '',
         'serial' => 2,

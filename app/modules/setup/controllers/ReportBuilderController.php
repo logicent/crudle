@@ -2,7 +2,7 @@
 
 namespace app\modules\setup\controllers;
 
-use app\controllers\base\BaseCrudController;
+use app\modules\main\controllers\base\BaseCrudController;
 use app\modules\setup\models\ReportBuilder;
 use app\modules\setup\models\ReportBuilderItem;
 use app\modules\setup\models\ReportBuilderSearch;

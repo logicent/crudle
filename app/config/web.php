@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../helpers/App.php';
 
 use app\helpers\App;
+use app\modules\main\models\auth\User;
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../..');
 $dotenv->load();
@@ -18,12 +19,12 @@ $config = [
     'runtimePath' => dirname( dirname( __DIR__ ) ) . '/storage/runtime',
     'vendorPath' => dirname( dirname( __DIR__ ) ) . '/vendor',
     'basePath' => dirname( __DIR__ ),
-    'layoutPath' =>  '@app/views/_layouts',
+    'layoutPath' =>  '@app_main/views/_layouts',
 
     'bootstrap' => ['log'],
 
     'timeZone' => 'Africa/Nairobi',
-    // 'defaultRoute' => 'site',
+    // 'defaultRoute' => 'main/site/index',
 
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
@@ -48,11 +49,11 @@ $config = [
             'class' => 'yii\rbac\DbManager',
         ],
         'user' => [
-            'identityClass' => 'app\models\auth\User',
+            'identityClass' => User::class,
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'main/site/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',

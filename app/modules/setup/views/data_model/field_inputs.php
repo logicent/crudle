@@ -55,7 +55,7 @@ $isReadonly = $this->context->isReadonly;
         </div>
     </div>
 </div>
-<?= $this->context->renderPartial( '//_form/_section', [
+<?= $this->context->renderPartial( '@app_main/views/_form/_section', [
         'title' => Yii::t('app', 'List Settings'),
         'content' => $this->render( '_list_settings',
             [

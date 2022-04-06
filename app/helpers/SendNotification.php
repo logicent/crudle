@@ -5,10 +5,10 @@ namespace app\helpers;
 use app\enums\Type_Comment;
 use app\enums\Status_Queue;
 use app\models\CommentForm;
-use app\models\setup\EmailNotificationSettingsForm;
-use app\models\setup\EmailQueue;
+use app\modules\setup\models\EmailNotificationSettingsForm;
+use app\modules\setup\models\EmailQueue;
 use app\modules\setup\models\Setup;
-use app\models\setup\SmtpSettingsForm;
+use app\modules\setup\models\SmtpSettingsForm;
 use Yii;
 use yii\helpers\Json;
 

@@ -2,17 +2,18 @@
 
 namespace app\modules\setup\controllers;
 
-use app\controllers\base\BaseCrudController;
+use app\modules\main\controllers\base\BaseCrudController;
 use app\enums\Status_Active;
-use app\enums\Type_Form_View;
+use app\modules\main\enums\Type_Form_View;
 use app\modules\setup\enums\Status_User;
-use app\models\auth\Auth;
-use app\models\auth\Person;
+use app\modules\main\models\auth\Auth;
+use app\modules\main\models\auth\Person;
 use app\modules\setup\models\User;
 use app\modules\setup\models\UserSearch;
 use Yii;
 use yii\helpers\Html;
 use yii\helpers\Json;
+use yii\web\NotFoundHttpException;
 
 class UserController extends BaseCrudController
 {
@@ -43,20 +44,20 @@ class UserController extends BaseCrudController
         $this->model = $person;
 
         if (Yii::$app->request->isAjax)
-            return $this->renderAjax('//_crud/index', [
-                // 'auth' => $auth,
+            return $this->renderAjax('@app_main/views/_crud/index', [
+                // 'auth' => $this->auth,
                 'model' => $person,
             ]);
         else
-            return $this->render('//_crud/index', [
-                // 'auth' => $auth,
+            return $this->render('@app_main/views/_crud/index', [
+                // 'auth' => $this->auth,
                 'model' => $person,
             ]);
     }
 
     public function actionCreate($id = null)
     {
-        $auth = new Auth();
+        $this->auth = new Auth();
         $person = new Person();
 
         if ( Yii::$app->request->post() )
@@ -122,19 +123,19 @@ class UserController extends BaseCrudController
 
         if (Yii::$app->request->isAjax)
             return $this->renderAjax('create', [
-                // 'auth' => $auth,
+                // 'auth' => $this->auth,
                 'model' => $person,
             ]);
         else
             return $this->render('create', [
-                // 'auth' => $auth,
+                // 'auth' => $this->auth,
                 'model' => $person,
             ]);
     }
 
     public function actionUpdate( $id )
     {
-        $auth = Auth::findOne( $id );
+        $this->auth = Auth::findOne( $id );
         $person = Person::findOne( $this->auth->id );
 
         if ($this->auth->load(Yii::$app->request->post(), 'Auth') && $this->auth->validate())
@@ -171,23 +172,30 @@ class UserController extends BaseCrudController
         $this->model = $person;
 
         if (Yii::$app->request->isAjax)
-            return $this->renderAjax('//crud/index', [
-                // 'auth' => $auth,
+            return $this->renderAjax('@app_main/views/_crud/index', [
+                // 'auth' => $this->auth,
                 'model' => $person,
             ]);
         else
-            return $this->render('//crud/index', [
-                // 'auth' => $auth,
+            return $this->render('@app_main/views/_crud/index', [
+                // 'auth' => $this->auth,
                 'model' => $person,
             ]);
     }
 
+    public function actionEditPreferences($id)
+    {
+        throw new NotFoundHttpException(
+            Yii::t('app', 'User preferences is not yet implemented')
+        );
+    }
+
     public function actionDelete($id)
     {
-        $auth = Auth::findOne( $id );
+        $this->auth = Auth::findOne( $id );
         $person = Person::findOne( $this->auth->id );
 
-        if ($auth) {
+        if ($this->auth) {
             $this->auth->status = Auth::STATUS_DELETED;
             $this->auth->save(false);
         }
@@ -208,10 +216,10 @@ class UserController extends BaseCrudController
 
         foreach ($id_list as $id)
         {
-            $auth = Auth::findOne(['id' => $id]);
+            $this->auth = Auth::findOne(['id' => $id]);
             $person = Person::findOne($this->auth->id);
 
-            if ($auth) {
+            if ($this->auth) {
                 $this->auth->status = Auth::STATUS_DELETED;
                 $this->auth->save(false);
             }
@@ -235,7 +243,7 @@ class UserController extends BaseCrudController
 
     public function actionChangePwd( $id )
     {
-        $auth = Auth::findOne( $id );
+        $this->auth = Auth::findOne( $id );
  
         if (Yii::$app->request->isAjax && $this->auth->load(Yii::$app->request->post(), 'Auth'))
         {
@@ -260,7 +268,7 @@ class UserController extends BaseCrudController
 
         $this->formViewType = Type_Form_View::Single;
 
-        return $this->renderAjax('_change_pwd', ['model' => $auth]);
+        return $this->renderAjax('_change_pwd', ['model' => $this->auth]);
     }
 
     private function _sendWelcomeMail( $email, $username, $password )

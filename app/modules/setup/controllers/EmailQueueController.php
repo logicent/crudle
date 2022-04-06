@@ -2,7 +2,7 @@
 
 namespace app\modules\setup\controllers;
 
-use app\controllers\base\BaseCrudController;
+use app\modules\main\controllers\base\BaseCrudController;
 use app\modules\setup\models\EmailQueue;
 use app\modules\setup\models\EmailQueueSearch;
 

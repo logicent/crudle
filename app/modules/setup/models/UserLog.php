@@ -3,7 +3,7 @@
 namespace app\modules\setup\models;
 
 use app\enums\Status_Active;
-use app\models\auth\UserLog as AuthUserLog;
+use app\modules\main\models\auth\UserLog as AuthUserLog;
 use app\modules\setup\enums\Type_Permission;
 
 /**

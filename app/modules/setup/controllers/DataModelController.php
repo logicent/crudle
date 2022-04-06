@@ -2,7 +2,7 @@
 
 namespace app\modules\setup\controllers;
 
-use app\controllers\base\BaseCrudController;
+use app\modules\main\controllers\base\BaseCrudController;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
@@ -61,7 +61,7 @@ class DataModelController extends BaseCrudController
             $this->detailModels[] = new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION]);
             $this->fieldDataProvider->setModels( $this->detailModels );
 
-            return $this->render('//_crud/index', [
+            return $this->render('@app_main/views/_crud/index', [
                 'model' => $this->model,
             ]);
         }
@@ -84,7 +84,7 @@ class DataModelController extends BaseCrudController
             }
         }
 
-        return $this->render('//_crud/index', [
+        return $this->render('@app_main/views/_crud/index', [
             'model' => $this->model,
         ]);
     }
@@ -134,7 +134,7 @@ class DataModelController extends BaseCrudController
 
             $this->model = $model;
 
-            return $this->render('//_crud/index', [
+            return $this->render('@app_main/views/_crud/index', [
                 'model' => $model,
             ]);
         }
@@ -170,7 +170,7 @@ class DataModelController extends BaseCrudController
 
         $this->model = $model;
 
-        return $this->render('//_crud/index', [
+        return $this->render('@app_main/views/_crud/index', [
             'model' => $model,
         ]);
     }

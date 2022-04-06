@@ -2,7 +2,7 @@
 
 namespace app\modules\setup\models;
 
-use app\enums\Type_Model;
+use app\modules\main\enums\Type_Model;
 use app\modules\setup\enums\Type_Permission;
 use Yii;
 use yii\base\Model;
@@ -17,7 +17,7 @@ class DataImportForm extends Model
 
     public function init()
     {
-        $this->uploadForm = new \app\models\UploadForm();
+        $this->uploadForm = new \app\modules\main\models\UploadForm();
     }
 
     public function rules()

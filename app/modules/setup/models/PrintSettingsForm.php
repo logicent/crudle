@@ -29,7 +29,7 @@ class PrintSettingsForm extends BaseSettingsForm
 
     public function init()
     {
-        $this->uploadForm = new \app\models\UploadForm();
+        $this->uploadForm = new \app\modules\main\models\UploadForm();
         $this->fileAttribute = 'bgImagePath';
     }
 

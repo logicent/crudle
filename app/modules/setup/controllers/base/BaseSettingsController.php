@@ -2,9 +2,9 @@
 
 namespace app\modules\setup\controllers\base;
 
-use app\controllers\base\BaseController;
-use app\enums\Type_Form_View;
-use app\enums\Type_View;
+use app\modules\main\controllers\base\BaseController;
+use app\modules\main\enums\Type_Form_View;
+use app\modules\main\enums\Type_View;
 use app\modules\setup\models\Setup;
 use Yii;
 use yii\filters\AccessControl;
@@ -71,7 +71,7 @@ abstract class BaseSettingsController extends BaseController
             }
         }
 
-        return $this->render('//_settings/index', [
+        return $this->render('@app_main/views/_settings/index', [
             // 'model' => $model,
         ]);
     }

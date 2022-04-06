@@ -740,7 +740,3 @@ body::-webkit-scrollbar-thumb {
 .ui.segments > .segment {
     border-top: none;
 }
-/* .ui.accordion .title .dropdown.icon:before,
-.ui.accordion .accordion .title .dropdown.icon:before {
-    content: "\f078";
-} */

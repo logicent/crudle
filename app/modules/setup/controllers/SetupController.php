@@ -2,7 +2,7 @@
 
 namespace app\modules\setup\controllers;
 
-use app\controllers\base\BaseController;
+use app\modules\main\controllers\base\BaseController;
 
 /**
  * Setup controller for the `setup` module

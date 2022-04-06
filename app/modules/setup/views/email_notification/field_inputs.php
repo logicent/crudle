@@ -1,6 +1,6 @@
 <?php
 
-use app\enums\Type_Model;
+use app\modules\main\enums\Type_Model;
 use Zelenin\yii\SemanticUI\modules\Select;
 
 ?>

@@ -32,14 +32,10 @@ use yii\helpers\Html;
 <div class="ui attached padded segment">
     <div class="ui two column stackable grid">
         <div class="column center aligned">
-            <?= Html::activeFileInput( $model->uploadForm, 'file_upload', [
-                    'accept' => 'image/*', 'style' => 'display: none'
-                ]) ?>
-            <?= Html::tag('div', Html::activeLabel($model, 'logoPath'), ['class' => 'field']) ?>
-            <?= Html::activeHiddenInput($model, 'logoPath', ['id' => 'file_path', 'readonly' => true]) ?>
-            <?= $this->render( '//_form_field/file_input', [
+            <?= $this->render( '@app_main/views/_form_field/file_input', [
                     'attribute' => 'logoPath',
                     'model' => $model,
+                    'form' => $form,
                     'placeholder' => '/img/placeholder-logo.jpg'
                 ]) ?>
         </div>

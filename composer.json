@@ -55,6 +55,11 @@
         "codeception/verify": "~0.3.1",
         "codeception/specify": "~0.4.3"
     },
+    "autoload": {
+        "psr-4": {
+            "website\\": "modules/website"
+        }
+    },
     "config": {
         "process-timeout": 1800,
         "fxp-asset": {

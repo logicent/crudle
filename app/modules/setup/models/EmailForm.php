@@ -2,7 +2,7 @@
 
 namespace app\modules\setup\models;
 
-use app\models\Model;
+use app\modules\main\models\Model;
 use Yii;
 
 class EmailForm extends Model
@@ -22,7 +22,7 @@ class EmailForm extends Model
 
     public function init()
     {
-        $this->uploadForm = new \app\models\UploadForm();
+        $this->uploadForm = new \app\modules\main\models\UploadForm();
         $this->fileAttribute = 'addAttachments';
     }
 

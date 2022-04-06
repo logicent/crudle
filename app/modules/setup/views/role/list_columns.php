@@ -2,7 +2,7 @@
 
 use app\enums\Status_Active;
 use app\modules\setup\enums\Type_Role;
-use app\models\auth\Person;
+use app\modules\main\models\auth\Person;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;
 

@@ -14,7 +14,7 @@ return [
 
     'appName' => App::env('APP_NAME'),
     'appShortName' => '',
-    'appDescription' => 'Enterprise web application development starter kit',
+    'appDescription' => 'Enterprise application web development starter kit',
     'appWebsite' => 'https://github.com/logicent/yii2-crudle',
     'appCopyright' => '&copy; 2020 Appsoft',
 

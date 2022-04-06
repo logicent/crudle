@@ -1,44 +1,49 @@
 <?php
 
-// use yii\web\GroupUrlRule;
-
-// new GroupUrlRule([
-//     'prefix' => 'app',
-//     'rules' => [
-//         'setup' => '/setup',
-//         'website' => '/website',
-//     ],
-// ]);
+use yii\web\GroupUrlRule;
 
 return [
     'enablePrettyUrl' => true,
     // 'enableStrictParsing' => true,
     'showScriptName' => false,
     'rules' => [
-        // '' => 'site/index',
-        'app' => 'main/index',
-        'login' => 'site/login',
-        'logout' => 'site/logout',
-        'forgot-password' => 'site/request-password-reset',
-        'reset-password' => 'site/reset-password',
+        // '' or '/'
+        // '/' => '/main',
+        'app/site' => 'main/site/index',
+        'app/login' => 'main/site/login',
+        'app/logout' => 'main/site/logout',
+        'app/forgot-password' => 'main/site/request-password-reset',
+        'app/reset-password' => 'main/site/reset-password',
+
+        'app' => '/main/dashboard/index', // redirect to dashboard
+        'app/dashboard' => '/main/dashboard/index',
+        'app/report' => '/main/report/index',
+        
+        // 'app/main' => '/main', // disallow
+        'app/setup' => '/setup',
+        'app/website' => '/website',
+
+        // new GroupUrlRule([
+        //     'prefix' => 'app',
+        //     'rules' => [
+        //         'main' => 'main',
+        //         'setup' => 'setup',
+        //         'website' => 'website',
+        //     ],
+        // ]),
 
         // Match menu titles and button labels in URL stubs
-        '<controller>/New' => '<controller>/create',
-        '<controller>/<id:>/Read' => '<controller>/read',
-        '<controller>/<id:\w+>/Edit' => '<controller>/update',
+        // 'app/<module>/<controller>/New' => '<module>/<controller>/create',
+        // 'app/<module>/<controller>/<id:\w+>' => '<module>/<controller>/read',
+        // 'app/<module>/<controller>/<id:\w+>' => '<module>/<controller>/update',
 
-        'My Account/<id:\w+>' => 'people/update',
-
-        // Prettify document URL here with params etc
-        // 'Report/<controller>' => '<controller>/report-builder',
+        'app/setup/user/my-account' => 'setup/user/update',
+        'app/setup/user/my-preferences' => 'setup/user/edit-preferences',
 
         // route standard and custom reports
         // 'query-report/<\w+>' => 'report/query/<\w+>',
 
         // generic rule goes last
-        '<controller>/List' => '<controller>/index',
-
-        // 'Setup' => 'setup',
-        // 'Setup/<controller>' => 'setup/<controller>/index',
+        'app/<module>/<controller>' => '<module>/<controller>/index',
     ],
 ];

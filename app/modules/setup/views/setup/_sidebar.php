@@ -12,7 +12,7 @@ $menuGroups = ArrayHelper::map($menuList, 'label', 'label', 'group');
 ?>
 
 <div class="page-sidebar">
-    <?= $this->render('//_form_field/search_input', [
+    <?= $this->render('@app_main/views/_form_field/search_input', [
                     'filterClass' => 'searchList',
                     'showSortButtons' => false,
                     'showGroupButton' => true
