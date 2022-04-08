@@ -44,22 +44,22 @@ Yii2 Crudle (CRUD logic engine) is a meta framework for rapid application develo
 
 _Setup_
 
-- Core  - create or customize data models and configure main settings
-- Data  - import data, create widgets, reports and configure backups
-- Email - create email notifications, templates, check email queues
-- Layout  - create layout app menus and dashboard menu shortcuts
-- People  - add users, groups, roles & permissions and view user logs
-- Printing  - create print styles, formats and configure devices
+- System - create/modify app modules, data models & configure core settings
+- Data tool - import data, create data widgets, reports & configure backups
+- Email sending - create email notifications, templates, check email queues
+- Layout settings - create layout navbar menus and dashboard menu shortcuts
+- People - add users, user groups, roles and permissions and view user logs
+- Printing - create print styles, print formats and configure print devices
 
 **Code**
-- app/commands
-- app/controllers
-- app/enums
-- app/helpers
-- app/models
-- app/modules/setup
-- app/views
-- modules/website
+- app/config to define app-level conventions
+- app/database to run db scripts that update db migrations published in modules
+- app/enums to define app-level enumerations
+- app/helpers to provide reusable functionality
+- app/modules to contain the core functionality
+- app/modules/main to manage the core app-level interaction like authentication
+- app/modules/setup to provide visibility and customization tools for end-users
+- modules/website to easily setup a front-end site for users to engage with you
 
 ### Technology Stack
 **Programming Languages and Frameworks**
@@ -96,46 +96,6 @@ _Setup_
 
 **Command Line**
 - _To be determined_
-
-### Domain-driven
-Use domain-driven project structure that maps to modified Yii2 modules and extensions
-
-- Domain/
-  - Actions/
-  - Enums/
-  - Exceptions/
-  - Models/
-  - Rules/
-  - Status/
-  - ValueObject/
-
-**Context**
-- Content (Input/Output)
-- Reports (Output)
-- Settings (Parameters)
-- Tools
-
-**UI Components**
-- Forms
-- Widgets
-- Menus
-- Charts
-- Buttons
-- Files
-- Messages
-
-**Data Storage**
-- Yaml  (predefined values)
-- Json  (app/user data)
-- Csv   (import/export)
-- Md    (static content)
-- Sqlite (offline)
-- MySQL/Postgres (database)
-- Redis (caching)
-
-**Authentication**
-- Hybrid of Php Auth Manager and Db Auth Manager*
-- Administrator and System manager roles are predefined
 
 ### Roadmap
 _Now:_
