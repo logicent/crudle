@@ -2,7 +2,7 @@
 
 namespace app\modules\setup\controllers;
 
-use app\modules\main\controllers\base\BaseController;
+use app\modules\main\controllers\base\BaseViewController;
 use app\modules\setup\enums\Type_Role;
 use app\modules\setup\models\DataImportForm;
 use League\Csv\Reader;
@@ -16,7 +16,7 @@ use yii\helpers\Inflector;
 use yii\helpers\StringHelper;
 use yii\web\UploadedFile;
 
-class DataImportController extends BaseController
+class DataImportController extends BaseViewController
 {
     public function behaviors()
     {

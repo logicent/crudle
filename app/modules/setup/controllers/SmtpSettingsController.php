@@ -9,11 +9,9 @@ use Yii;
 
 class SmtpSettingsController extends BaseSettingsController
 {
-    public function init()
+    public function modelClass()
     {
-        $this->modelClass = SmtpSettingsForm::class;
-
-        return parent::init();
+        return SmtpSettingsForm::class;
     }
 
     public function actionTestConnection()

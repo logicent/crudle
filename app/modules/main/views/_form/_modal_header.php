@@ -30,7 +30,7 @@ DirrtyAsset::register($this);
             endif;
             if ( $this->context->formViewType == Type_Form_View::Single
                 || ($this->context->formViewType == Type_Form_View::Multiple &&
-                    Yii::$app->user->can('Update ' . $this->context->resourceName))
+                    Yii::$app->user->can('Update ' . $this->context->viewName()))
                 || $this->context->id == 'role' && Yii::$app->user->can(Type_Role::SystemManager)
             ) :
                 echo Html::submitButton(Yii::t('app', 'Save'), ['class' => 'compact ui primary button']);

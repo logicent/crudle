@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 
-$isReadonly = $this->context->isReadonly;
+$isReadonly = $this->context->isReadonly();
 ?>
 
 <div class="ui attached segment">
@@ -15,8 +15,8 @@ $isReadonly = $this->context->isReadonly;
     <div class="ui two column grid">
         <div class="column">
             <?= $form->field( $model, 'module' )->dropDownList( [
-                'Core' => 'Core'
-            ] ) ?>
+                    'Core' => 'Core'
+                ]) ?>
             <?= $form->field( $model, 'max_attachments' )->textInput() ?>
             <?= $form->field($model, 'search_fields', [
                     'hintOptions' => [

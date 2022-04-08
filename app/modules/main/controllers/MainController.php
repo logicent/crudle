@@ -2,9 +2,9 @@
 
 namespace app\modules\main\controllers;
 
-use app\modules\main\controllers\base\BaseCrudController;
+use app\modules\main\controllers\base\BaseViewController;
 
-class MainController extends BaseCrudController
+class MainController extends BaseViewController
 {
     /**
      * Renders the index view for the module
@@ -12,8 +12,6 @@ class MainController extends BaseCrudController
      */
     public function actionIndex()
     {
-        $this->sidebar = false;
-        
         return $this->render('index');
     }
 }

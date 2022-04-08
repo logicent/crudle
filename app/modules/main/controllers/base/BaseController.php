@@ -2,72 +2,20 @@
 
 namespace app\modules\main\controllers\base;
 
-use app\modules\main\models\CommentForm;
-use app\modules\main\enums\Type_Comment;
-use app\modules\main\enums\Type_View;
 use app\helpers\PdfCreator;
 use app\helpers\PdfHelper;
 use app\helpers\SendNotification;
+use app\modules\main\enums\Type_View;
 use app\modules\setup\models\Setup;
 use app\modules\setup\models\SmtpSettingsForm;
 use Yii;
 use yii\helpers\Inflector;
-use yii\helpers\StringHelper;
-use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\UploadedFile;
 
 abstract class BaseController extends Controller
 {
-    public $modelClass;
-    public $model;
-    public $loadModal = false;
-    public $viewType;
-    public $formViewType;
-    // public $formView;
-    public $showViewTypeSwitcher = true;
-    public $showViewFilterButton = true;
-    // Layout partials (Default)
-    // public $navbar      = '/_layouts/_main_navbar';
-    // public $header      = '/_layouts/_view_header';
-    // public $sidebar     = '/_layouts/_sidebar_nav';
-    public $sharedViewPath = false;
-    public $sidebar     = true;
-    public $sidebarWidth = 'three';
-    public $mainWidth = 'thirteen';
-    public $fullWidth = 'sixteen';
-    // public $contextMenu = '/_layouts/_menu/_context_menu';
-    // public $showContextMenu = false;
-    public $statusMenu = '/_form/_status_menu';
-    // public $flashMessage    = '/_layouts/_flash_message';
-    // public $viewHeaderMenu  = '/_layouts/_view_header_menu';
-    // View Reports quick menu
-    // public $viewReportMenu = [];
-    // public $linkedData = '_linked_data';
-    // Layout partial (Form Sidebar)
-    // public $_viewSidebar = null;
-    public $commentCount = 0;
-    public $resourceName;
-
-    public function init()
-    {
-        parent::init();
-
-        // Yii::$app->language = Yii::$app->request->cookies->getValue('language', 'en');
-
-        $this->viewPath = dirname($this->viewPath) .'/'. Inflector::underscore(
-            Inflector::id2camel(StringHelper::basename($this->id))
-        );
-
-        $this->resourceName = Inflector::camel2words(
-            Inflector::id2camel(StringHelper::basename($this->id), '/')
-        );
-    }
-
-    public function actionSwitchViewType(string $name)
-    {
-        return $this->render('@app_main/views/_' . $name . '/index');
-    }
+    protected $model;
 
     public function actionDownload($res)
     {
@@ -98,7 +46,7 @@ abstract class BaseController extends Controller
             'modelDetails' => $this->detailModels
         ]);
 
-        $fileName = Inflector::camelize($this->resourceName) . '_' . $this->model->id  . '.pdf';
+        $fileName = Inflector::camelize($this->viewName()) . '_' . $this->model->id  . '.pdf';
         $file = $pdf->saveToFile($html, $fileName);
 
         header("Content-type:application/pdf");
@@ -143,7 +91,7 @@ abstract class BaseController extends Controller
             $statusLabel = '_' . $this->model->status;
         else
             $statusLabel = null;
-        $fileName = Inflector::camelize($this->resourceName) . '_' . $this->model->id  . $statusLabel . '.pdf';
+        $fileName = Inflector::camelize($this->viewName()) . '_' . $this->model->id  . $statusLabel . '.pdf';
 
         $pdf = new PdfHelper();
         $file = $pdf->writeFromHtml($html, $fileName, [
@@ -177,7 +125,7 @@ abstract class BaseController extends Controller
             $statusLabel = '_' . $this->model->status;
         else
             $statusLabel = null;
-        $fileName = Inflector::camelize($this->resourceName) . '_' . $this->model->id  . $statusLabel . '.html';
+        $fileName = Inflector::camelize($this->viewName()) . '_' . $this->model->id  . $statusLabel . '.html';
 
         header("Content-type:plain/text");
         header("Content-Disposition:attachment;filename={$fileName}");
@@ -212,47 +160,6 @@ abstract class BaseController extends Controller
             'rows' => $model->getReportData($columns),
             'totals' => []
         ]);
-    }
-
-    public function actionShowRelatedText()
-    {
-        if (Yii::$app->request->isAjax) {
-            $modelClass = Yii::$app->request->get('model_class');
-            $model = $modelClass::findOne(Yii::$app->request->get('field_id'));
-            $attribute = Yii::$app->request->get('text_col');
-            return $model->$attribute;
-        }
-        // else
-        Yii::$app->end();
-    }
-
-    public function actionShowCommentModal()
-    {
-        if (Yii::$app->request->isAjax); {
-            return $this->renderAjax('@app_main/views/_form/_comment_modal', [
-                'url'   => Yii::$app->request->get('url'),
-                'new_status' => Yii::$app->request->get('new_status'),
-                'require_comment' => Yii::$app->request->get('require_comment')
-            ]);
-        }
-        // else
-        Yii::$app->end();
-    }
-
-    public function actionSaveComment($model_id)
-    {
-        if (Yii::$app->request->isAjax); {
-            $model = $this->modelClass::findOne($model_id);
-
-            $comment = new CommentForm;
-            $comment->comment = Yii::$app->request->post('comment_text');
-            $comment->save($model, false, Type_Comment::UserNote);
-
-            $model->refresh(); // !! MUST do this to get an array in comments
-            return $this->renderPartial('@app_main/views/_layouts/_comments', ['comments' => $model->comments]);
-        }
-        // else
-        Yii::$app->end();
     }
 
     public function actionResendNotification($id)

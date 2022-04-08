@@ -2,14 +2,12 @@
 
 namespace app\modules\setup\controllers;
 
-use app\modules\main\controllers\base\BaseController;
+use app\modules\main\controllers\base\BaseViewController;
 
-class AppModuleController extends BaseController
+class AppModuleController extends BaseViewController
 {
     public function actionIndex()
     {
-        $this->sidebar = false;
-
         return $this->render('index');
     }
 }

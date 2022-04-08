@@ -11,11 +11,13 @@ use website\models\SlideshowSearch;
  */
 class SlideshowController extends BaseCrudController
 {
-    public function init()
+    public function modelClass()
     {
-        $this->modelClass = Slideshow::class;
-        $this->modelSearchClass = SlideshowSearch::class;
+        return Slideshow::class;
+    }
 
-        return parent::init();
+    public function searchModelClass()
+    {
+        return SlideshowSearch::class;
     }
 }

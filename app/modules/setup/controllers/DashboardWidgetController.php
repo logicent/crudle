@@ -8,11 +8,13 @@ use app\modules\setup\models\DashboardWidgetSearch;
 
 class DashboardWidgetController extends BaseCrudController
 {
-    public function init()
+    public function modelClass()
     {
-        $this->modelClass = DashboardWidget::class;
-        $this->modelSearchClass = DashboardWidgetSearch::class;
+        return DashboardWidget::class;
+    }
 
-        return parent::init();
+    public function searchModelClass()
+    {
+        return DashboardWidgetSearch::class;
     }
 }

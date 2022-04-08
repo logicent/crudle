@@ -3,16 +3,21 @@
 namespace website\controllers;
 
 use app\modules\main\controllers\base\BaseCrudController;
+use website\models\WebForm;
+use website\models\WebFormSearch;
 
 /**
  * WebFormController for the `WebForm` model
  */
 class WebFormController extends BaseCrudController
 {
-    public function actionIndex()
+    public function modelClass()
     {
-        $this->sidebar = false;
+        return WebForm::class;
+    }
 
-        return $this->render('index');
+    public function searchModelClass()
+    {
+        return WebFormSearch::class;
     }
 }

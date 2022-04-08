@@ -147,7 +147,7 @@ use Zelenin\yii\SemanticUI\Elements;
     ]); ?>
     <br>
 <?php
-$isReadonly = $this->context->isReadonly;
+$isReadonly = $this->context->isReadonly();
 if ( !$isReadonly ) :
     echo
     Html::button(Yii::t('app', 'Delete'), 

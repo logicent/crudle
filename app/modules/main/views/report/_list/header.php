@@ -15,7 +15,7 @@ use yii\helpers\Html;
         </div>
         <div class="three wide column right aligned">
         <?php
-            // if ( Yii::$app->user->can('Export ' . $this->context->resourceName )) :
+            // if ( Yii::$app->user->can('Export ' . $this->context->viewName() )) :
                 echo Html::a(Yii::t('app', 'Export'), ['export'], [
                     'id' => 'export_btn',
                     'class' => 'compact ui primary button show-export-form',

@@ -8,11 +8,13 @@ use app\modules\setup\models\PrintStyleSearch;
 
 class PrintStyleController extends BaseCrudController
 {
-    public function init()
+    public function modelClass()
     {
-        $this->modelClass = PrintStyle::class;
-        $this->modelSearchClass = PrintStyleSearch::class;
+        return PrintStyle::class;
+    }
 
-        return parent::init();
+    public function searchModelClass()
+    {
+        return PrintStyleSearch::class;
     }
 }

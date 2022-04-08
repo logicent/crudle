@@ -8,11 +8,13 @@ use app\modules\setup\models\EmailNotificationSearch;
 
 class EmailNotificationController extends BaseCrudController
 {
-    public function init()
+    public function modelClass()
     {
-        $this->modelClass = EmailNotification::class;
-        $this->modelSearchClass = EmailNotificationSearch::class;
-        
-        return parent::init();
+        return EmailNotification::class;
+    }
+
+    public function searchModelClass()
+    {
+        return EmailNotificationSearch::class;
     }
 }

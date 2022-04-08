@@ -15,8 +15,6 @@ class ThemeController extends BaseSettingsController
      */
     public function actionIndex()
     {
-        $this->sidebar = false;
-
         return $this->render('index');
     }
 }

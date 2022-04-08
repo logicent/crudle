@@ -8,11 +8,13 @@ use app\modules\setup\models\EmailTemplateSearch;
 
 class EmailTemplateController extends BaseCrudController
 {
-    public function init()
+    public function modelClass()
     {
-        $this->modelClass = EmailTemplate::class;
-        $this->modelSearchClass = EmailTemplateSearch::class;
+        return EmailTemplate::class;
+    }
 
-        return parent::init();
+    public function searchModelClass()
+    {
+        return EmailTemplateSearch::class;
     }
 }

@@ -12,7 +12,7 @@ $modal = Modal::begin([
 ]);
 $modal::end();
 
-$isReadonly = $this->context->isReadonly;
+$isReadonly = $this->context->isReadonly();
 
 echo $form
         ->field($model, $attribute)

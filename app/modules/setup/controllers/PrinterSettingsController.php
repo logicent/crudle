@@ -7,10 +7,8 @@ use app\modules\setup\models\PrinterSettingsForm;
 
 class PrinterSettingsController extends BaseSettingsController
 {
-    public function init()
+    public function modelClass()
     {
-        $this->modelClass = PrinterSettingsForm::class;
-
-        return parent::init();
+        return PrinterSettingsForm::class;
     }
 }

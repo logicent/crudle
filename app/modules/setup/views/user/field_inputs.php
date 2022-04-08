@@ -15,7 +15,7 @@ use Zelenin\yii\SemanticUI\modules\Modal;
 $this->title = $model->full_name;
 
 // $rolesCount = !empty($model->user_role) ? count($model->user_role) : '0';
-$isReadonly = $this->context->isReadonly || $this->context->action->id == 'print-preview';
+$isReadonly = $this->context->isReadonly() || $this->context->action->id == 'print-preview';
 
 echo $this->render('_stats', ['model' => $model]) ?>
 

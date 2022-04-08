@@ -8,7 +8,7 @@ FlatpickrAsset::register($this);
 
 <?= $form->field($model, $attribute)->textInput([
         'class' => 'selected-date pikaday',
-        'readonly' => $this->context->isReadonly,
+        'readonly' => $this->context->isReadonly(),
     ]) ?>
 
 <?php

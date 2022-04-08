@@ -2,18 +2,21 @@
 
 use yii\helpers\Inflector;
 
-$this->title = Yii::t('app', '{titleLabel}', ['titleLabel' => $this->context->resourceName]);
+$controller = $this->context;
+$module = $controller->module;
+
+$this->title = Yii::t('app', '{titleLabel}', ['titleLabel' => $controller->viewName()]);
 
 $this->params['breadcrumbs'][] = [
-    'label' => Yii::t('app', '{moduleName}', ['moduleName' => Inflector::camel2words(Inflector::id2camel($this->context->module->id))]),
-    'url' => ['/' . $this->context->module->id]
+    'label' => Yii::t('app', '{moduleName}', ['moduleName' => Inflector::camel2words(Inflector::id2camel($module->id))]),
+    'url' => ['/' . $module->id]
 ];
 // $this->params['breadcrumbs'][] = [
-//     'label' => Yii::t('app', '{contextName}', ['contextName' => Inflector::camel2words(Inflector::id2camel($this->context->id))]),
-//     'url' => ['/' . $this->context->module->id . '/' . $this->context->id]
+//     'label' => Yii::t('app', '{contextName}', ['contextName' => Inflector::camel2words(Inflector::id2camel($controller->id))]),
+//     'url' => ['/' . $module->id . '/' . $controller->id]
 // ] ?>
 
-<div class="<?= $this->context->id ?>-update">
+<div class="<?= $controller->id ?>-update">
 
     <?= $this->render('_form', [
             // 'model' => $model,

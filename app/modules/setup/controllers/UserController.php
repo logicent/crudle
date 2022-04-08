@@ -19,12 +19,14 @@ class UserController extends BaseCrudController
 {
     public $auth;
 
-    public function init()
+    public function modelClass()
     {
-        parent::init();
+        return User::class;
+    }
 
-        $this->modelClass = User::class;
-        $this->modelSearchClass = UserSearch::class;
+    public function searchModelClass()
+    {
+        return UserSearch::class;
     }
 
     public function actionRead($id)

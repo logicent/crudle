@@ -16,14 +16,14 @@ use Zelenin\yii\SemanticUI\modules\Modal;
         </div>
         <div class="three wide column right aligned">
         <?php
-            if ( Yii::$app->user->can('Create ' . $this->context->resourceName )) :
+            if ( Yii::$app->user->can('Create ' . $this->context->viewName() )) :
                 echo Html::a(Yii::t('app', 'New'), [$context_id . 'create'], [
                     'id' => 'create_btn',
                     'class' => 'compact ui primary button show-list-form',
                 ]);
             endif;
 
-            if ( Yii::$app->user->can('Delete ' . $this->context->resourceName) ) :
+            if ( Yii::$app->user->can('Delete ' . $this->context->viewName()) ) :
                 echo Html::a(Yii::t('app', 'Delete'), ['delete-multiple'], [
                     'id' => 'delete_btn',
                     'class' => 'compact ui primary button',

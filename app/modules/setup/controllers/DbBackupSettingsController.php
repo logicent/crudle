@@ -26,7 +26,6 @@ class DbBackupSettingsController extends BaseSettingsController
 
     public function init()
     {
-        $this->modelClass = DbBackupSettingsForm::class;
         $this->backups = FileHelper::findFiles(Yii::getAlias('@app/../storage/backups'));
 
         return parent::init();
@@ -146,5 +145,11 @@ class DbBackupSettingsController extends BaseSettingsController
         }
 
         return $this->redirect(['/setup']);
+    }
+
+    // Interface
+    public function modelClass()
+    {
+        return DbBackupSettingsForm::class;
     }
 }

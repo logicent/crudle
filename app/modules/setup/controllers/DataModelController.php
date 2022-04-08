@@ -18,15 +18,15 @@ use app\modules\setup\models\DataModelFieldSearch;
 class DataModelController extends BaseCrudController
 {
     public $fieldDataProvider;
-    /**
-     * {@inheritdoc}
-     */
-    public function init()
-    {
-        $this->modelClass = DataModel::class;
-        $this->modelSearchClass = DataModelSearch::class;
 
-        return parent::init();
+    public function modelClass()
+    {
+        return DataModel::class;
+    }
+
+    public function searchModelClass()
+    {
+        return DataModelSearch::class;
     }
 
     /**

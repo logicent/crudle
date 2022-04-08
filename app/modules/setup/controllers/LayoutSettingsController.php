@@ -7,10 +7,8 @@ use app\modules\setup\models\LayoutSettingsForm;
 
 class LayoutSettingsController extends BaseSettingsController
 {
-    public function init()
+    public function modelClass()
     {
-        $this->modelClass = LayoutSettingsForm::class;
-        
-        return parent::init();
+        return LayoutSettingsForm::class;
     }
 }

@@ -11,12 +11,14 @@ use yii\helpers\Html;
 
 class RoleController extends BaseCrudController
 {
-    public function init()
+    public function modelClass()
     {
-        $this->modelClass = Role::class;
-        $this->modelSearchClass = RoleSearch::class;
+        return Role::class;
+    }
 
-        return parent::init();
+    public function searchModelClass()
+    {
+        return RoleSearch::class;
     }
 
     public function actionCreate( $id = null )

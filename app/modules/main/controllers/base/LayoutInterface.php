@@ -4,11 +4,18 @@ namespace app\modules\main\controllers\base;
 
 interface LayoutInterface
 {
-    // multi(ple) tab support i.e. open several documents at the same time
-    public function showMultipleTabs();
-    public function allowThemeChange();
-    public function currentTheme();
-    public function supportedThemes();
-    public function allowThemeCustomization();
-    public function currentUserPreferences();
+    public function allowThemeChange(): bool;
+    public function currentTheme(): string; // enum
+    public function supportedThemes(): array; // enum
+    public function allowThemeCustomization(): bool;
+
+    public function actionMyLayoutSettings();
+
+    public function showMainNavbar(): bool;
+    public function showMainSidebar(): bool;
+    public function sidebarColWidth(): string;
+    public function mainColumnWidth(): string;
+    public function fullColumnWidth(): string;
+
+    public function showActiveUsers(): bool;
 }

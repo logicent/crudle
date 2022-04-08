@@ -7,10 +7,8 @@ use website\models\ContactPage;
 
 class ContactPageController extends BaseSettingsController
 {
-    public function init()
+    public function modelClass()
     {
-        $this->modelClass = ContactPage::class;
-
-        return parent::init();
+        return ContactPage::class;
     }
 }

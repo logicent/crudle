@@ -22,7 +22,7 @@ $this->beginPage() ?>
     <?php $this->beginBody() ?>
 
     <?= $this->render('@app_main/views/_layouts/_navbar_main', ['context' => $this->context]) ?>
-    <?= $this->render('@app_main/views/_layouts/_view_header', ['context' => $this->context]) ?>
+    <?php //= $this->render('@app_main/views/_layouts/_view_header', ['context' => $this->context]) ?>
 
     <div class="report"><!-- ui container -->
         <div class="ui stackable two column grid">

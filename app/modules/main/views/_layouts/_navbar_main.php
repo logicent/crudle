@@ -18,7 +18,7 @@ use Zelenin\yii\SemanticUI\Elements;
             <?= Html::a(Elements::icon('globe brown large'), ['/app'], ['class' => "compact ui icon button"]) ?>
         </div>
         <div class="computer only large screen only four wide column item">
-            <?php
+        <?php
             if ($this->context->id !== 'main') :
                 echo Breadcrumb::widget([
                         'divider' => Breadcrumb::DIVIDER_CHEVRON,

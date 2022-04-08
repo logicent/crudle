@@ -18,7 +18,7 @@ return [
         endif;
         $attribute = $column->attribute;
         $controllerId = Inflector::camel2id(
-                            StringHelper::basename( $this->context->modelClass )
+                            StringHelper::basename( $this->context->modelClass() )
                         );
         return
             Html::tag('div',

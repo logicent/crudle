@@ -13,15 +13,15 @@ use Zelenin\yii\SemanticUI\widgets\GridView;
 use Zelenin\yii\SemanticUI\widgets\Pjax;
 use Zelenin\yii\SemanticUI\Elements;
 
-$modelClass = $this->context->modelClass;
-$emptyText = "No {$this->context->resourceName} found.";
-$resource = $this->context->id;
-$newBtnLabel = Yii::t('app', 'New') . '&nbsp;' . Inflector::titleize($resource);
+$modelClass = $this->context->modelClass();
+$emptyText = "No {$this->context->viewName()} found.";
+$controllerId = $this->context->id;
+$newBtnLabel = Yii::t('app', 'New') . '&nbsp;' . Inflector::titleize($controllerId);
 $newBtnUrl = Url::to(['create']);
 $showListCaptions = $searchModel->getLayoutSettings('showHelpInfo');
 ?>
 
-<div class="<?= $resource ?>-index">
+<div class="<?= $controllerId ?>-index">
     <?php Pjax::begin(); ?>
     <?= GridView::widget([
         // 'afterRow' => function ( $model, $key, $index, $grid ) { return null; },

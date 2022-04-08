@@ -2,12 +2,13 @@
 
 namespace website\controllers;
 
-use app\modules\main\controllers\base\BaseCrudController;
+use app\modules\main\controllers\base\BaseViewController;
+use app\modules\main\enums\Type_View;
 
 /**
  * WebsiteController for the `website` module
  */
-class WebsiteController extends BaseCrudController
+class WebsiteController extends BaseViewController
 {
     /**
      * Renders the default index view for the module
@@ -15,8 +16,17 @@ class WebsiteController extends BaseCrudController
      */
     public function actionIndex()
     {
-        $this->sidebar = false;
-
         return $this->render('index');
+    }
+
+    // ViewInterface
+    public function currentViewType()
+    {
+        return Type_View::Workspace;
+    }
+
+    public function showViewSidebar(): bool
+    {
+        return false;
     }
 }

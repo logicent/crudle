@@ -3,7 +3,6 @@
 namespace app\modules\main\controllers\base;
 
 use app\modules\main\enums\Type_Comment;
-use app\modules\main\enums\Type_Form_View;
 use app\modules\main\enums\Type_Relation;
 use app\modules\main\models\CommentForm;
 use app\modules\main\models\Model;
@@ -14,21 +13,14 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
-use yii\helpers\Inflector;
 use yii\helpers\Json;
 use yii\helpers\StringHelper;
 use yii\helpers\Url;
 use yii\web\NotFoundHttpException;
 use yii\web\UploadedFile;
 
-abstract class BaseCrudController extends BaseController
+abstract class BaseCrudController extends BaseViewController implements CrudInterface
 {
-    public $modelSearchClass;
-    public $formViewType = Type_Form_View::Multiple;
-    public $detailModels = [];
-    public $detailModelsErrors = []; // public $errors = []
-    public $isReadonly = false; // use in editable data views (check permission and action)
-
     public function behaviors()
     {
         return [
@@ -39,17 +31,17 @@ abstract class BaseCrudController extends BaseController
                     [
                         'actions' => ['index', 'list'],
                         'allow' => true,
-                        // 'roles' => [ Type_Permission::List .' '. $this->resourceName ],
+                        // 'roles' => [ Type_Permission::List .' '. $this->viewName() ],
                     ],
                     [
                         'actions' => ['read'], // view
                         'allow' => true,
-                        'roles' => [ Type_Permission::Read .' '. $this->resourceName ],
+                        'roles' => [ Type_Permission::Read .' '. $this->viewName() ],
                     ],
                     [
                         'actions' => ['update'], // edit
                         'allow' => true,
-                        'roles' => [ Type_Permission::Update .' '. $this->resourceName ],
+                        'roles' => [ Type_Permission::Update .' '. $this->viewName() ],
                         // 'roleParams' => function() {
                         //     return ['model' => Person::findOne(Yii::$app->request->get('id'))];
                         // },
@@ -62,17 +54,17 @@ abstract class BaseCrudController extends BaseController
                     [
                         'actions' => ['create'], // addNew
                         'allow' => true,
-                        'roles' => [ Type_Permission::Create .' '. $this->resourceName ],
+                        'roles' => [ Type_Permission::Create .' '. $this->viewName() ],
                     ],
                     [
                         'actions' => ['delete', 'delete-multiple'],
                         'allow' => true,
-                        'roles' => [ Type_Permission::Delete .' '. $this->resourceName ],
+                        'roles' => [ Type_Permission::Delete .' '. $this->viewName() ],
                     ],
                     [
                         'actions' => ['cancel'],
                         'allow' => true,
-                        'roles' => [ Type_Permission::Cancel .' '. $this->resourceName ],
+                        'roles' => [ Type_Permission::Cancel .' '. $this->viewName() ],
                     ],
                 ],
             ],
@@ -86,20 +78,15 @@ abstract class BaseCrudController extends BaseController
         ];
     }
 
-    public function beforeAction($action)
+    public function getModel()
     {
-        // If there is no logged in user session
-        if (is_null(Yii::$app->user->identity)) //  && $this->module->id !== 'website'
-            $this->goHome();
-
-        Url::remember(Yii::$app->request->getUrl(), 'go back');
-
-        return parent::beforeAction($action);
+        return $this->model;
     }
 
     public function actionIndex()
     {
-        $searchClassname = StringHelper::basename($this->modelSearchClass);
+        $searchModelClass = $this->searchModelClass();
+        $searchClassname = StringHelper::basename($searchModelClass);
         // filter out the (soft) deleted data
         $prefilter = [
             $searchClassname => [
@@ -112,7 +99,7 @@ abstract class BaseCrudController extends BaseController
         {
             $globalSearchTerm = [
                 $searchClassname => [
-                    $this->modelSearchClass::listNameAttribute() => Yii::$app->request->get('GlobalSearch')['gs_term'],
+                    $searchModelClass::listNameAttribute() => Yii::$app->request->get('GlobalSearch')['gs_term'],
                 ],
             ];
             $userFilters = $globalSearchTerm;
@@ -121,7 +108,7 @@ abstract class BaseCrudController extends BaseController
             $userFilters = Yii::$app->request->queryParams;
 
         $listFilters = ArrayHelper::merge($prefilter, $userFilters);
-        $searchModel = new $this->modelSearchClass();
+        $searchModel = new $searchModelClass;
         $dataProvider = $searchModel->search($listFilters);
 
         // $this->sidebar = false;
@@ -145,8 +132,6 @@ abstract class BaseCrudController extends BaseController
         $this->model = $this->findModel( $id );
         // b. detail models instances
         $this->detailModels = $this->model->links();
-
-        $this->isReadonly = true;
 
         // 2. render view by request type
         if ( Yii::$app->request->isAjax )
@@ -186,7 +171,8 @@ abstract class BaseCrudController extends BaseController
         // Yii::$app->request->isPost || Yii::$app->request->isGet && !$id
         else {
             // 1a. create model instance and initialize detailModels
-            $this->model = new $this->modelClass();
+            $modelClass = $this->modelClass();
+            $this->model = new $modelClass();
             // 1b. set the FK if applicable
             if ( Yii::$app->request->isGet ) {
                 // check for additional query params via Ajax request
@@ -300,7 +286,7 @@ abstract class BaseCrudController extends BaseController
                             $this->model->sendNotificationIf( $this->model, Url::to([ 'read', 'id' => $this->model->id ], true));
 
                         // 4e. prepare the success flash message
-                        $flashMsg = $this->resourceName . ' : #' . $this->model->id .' '. 'was saved successfully';
+                        $flashMsg = $this->viewName() . ' : #' . $this->model->id .' '. 'was saved successfully';
                         $success = Yii::t( 'app', '{flashMsg}', [ 'flashMsg' => $flashMsg ]);
                         Yii::$app->session->setFlash( 'success', $success );
 
@@ -312,7 +298,7 @@ abstract class BaseCrudController extends BaseController
                     }
                     else {
                         // save error occurred - most likely in the DB
-                        $flashMsg = $this->resourceName . ' : ' . 'could not be saved';
+                        $flashMsg = $this->viewName() . ' : ' . 'could not be saved';
                         $error = Yii::t( 'app', '{flashMsg}', [ 'flashMsg' => $flashMsg ]);
                         if ( Yii::$app->request->isAjax )
                             return $this->asJson([ 'failed' => true, 'error' => $error ]);
@@ -331,14 +317,14 @@ abstract class BaseCrudController extends BaseController
                     foreach ( $this->model->getErrors() as $attribute => $errors )
                         $result[ Html::getInputId( $this->model, $attribute ) ] = $errors;
 
-                    if (!empty($this->detailModelsErrors))
-                        array_push( $result, $this->detailModelsErrors );
+                    if (!empty($this->validationErrors))
+                        array_push( $result, $this->validationErrors );
                     return $this->asJson([ 'validation' => $result ]);
                 }
                 // else
                 Yii::$app->session->setFlash( 'errors', $this->model->errors );
-                if (!empty($this->detailModelsErrors))
-                    Yii::$app->session->setFlash( 'errors', $this->detailModelsErrors );
+                if (!empty($this->validationErrors))
+                    Yii::$app->session->setFlash( 'errors', $this->validationErrors );
             }
         }
         // nothing happened go back
@@ -413,7 +399,7 @@ abstract class BaseCrudController extends BaseController
         {
             $valid = Model::validateMultiple( $detailModels ) && $valid;
             if (! $valid )
-                $this->detailModelsErrors = Model::$errors;
+                $this->validationErrors = Model::$errors;
         }
 
         return $valid;
@@ -463,12 +449,12 @@ abstract class BaseCrudController extends BaseController
         // {
         //     // $messages['success'][$this->model->id] = $this->model->id . ' has been deleted permanently';
         //     Yii::$app->session->setFlash( 'success', 
-        //         Yii::t('app', $this->resourceName .' '. $this->model->id . ' has been deleted permanently') );
+        //         Yii::t('app', $this->viewName() .' '. $this->model->id . ' has been deleted permanently') );
         // }
         // else
         //     // $messages['error'][$this->model->id] = $this->model->id . ' could not be deleted';
         //     Yii::$app->session->setFlash( 'error', 
-        //         Yii::t('app', $this->resourceName .' '. $this->model->id . ' could not be deleted') );
+        //         Yii::t('app', $this->viewName() .' '. $this->model->id . ' could not be deleted') );
     }
 
     public function actionDelete( $id )
@@ -501,11 +487,11 @@ abstract class BaseCrudController extends BaseController
 
     protected function findModel( $id )
     {
-        if (( $this->model = $this->modelClass::findOne( $id )) !== null )
+        if (( $this->model = $this->modelClass()::findOne( $id )) !== null )
             return $this->model;
 
         throw new NotFoundHttpException(
-                    Yii::t('app', $this->resourceName . ': #' . $id . ' was not found.')
+                    Yii::t('app', $this->viewName() . ': #' . $id . ' was not found.')
                 );
     }
 
@@ -520,7 +506,7 @@ abstract class BaseCrudController extends BaseController
             if ($this->model->save()) {
                 // add a comment for this status change
                 $comment = new CommentForm;
-                $comment->comment = "Changed the $this->resourceName status from <b> $oldStatus </b> to <b> {$this->model->status} </b>";
+                $comment->comment = "Changed the $this->viewName() status from <b> $oldStatus </b> to <b> {$this->model->status} </b>";
                 $comment->save($this->model, true, Type_Comment::ChangeLog);
 
                 // add message to email queue if applicable
@@ -663,4 +649,120 @@ abstract class BaseCrudController extends BaseController
 
         return false;
     }
+
+    public function actionShowRelatedText()
+    {
+        if (Yii::$app->request->isAjax) {
+            $modelClass = Yii::$app->request->get('model_class');
+            $model = $modelClass::findOne(Yii::$app->request->get('field_id'));
+            $attribute = Yii::$app->request->get('text_col');
+            return $model->$attribute;
+        }
+        // else
+        Yii::$app->end();
+    }
+
+    public function actionShowCommentModal()
+    {
+        if (Yii::$app->request->isAjax); {
+            return $this->renderAjax('@app_main/views/_form/_comment_modal', [
+                'url'   => Yii::$app->request->get('url'),
+                'new_status' => Yii::$app->request->get('new_status'),
+                'require_comment' => Yii::$app->request->get('require_comment')
+            ]);
+        }
+        // else
+        Yii::$app->end();
+    }
+
+    public function actionSaveComment($model_id)
+    {
+        if (Yii::$app->request->isAjax); {
+            $model = $this->modelClass::findOne($model_id);
+
+            $comment = new CommentForm;
+            $comment->comment = Yii::$app->request->post('comment_text');
+            $comment->save($model, false, Type_Comment::UserNote);
+
+            $model->refresh(); // !! MUST do this to get an array in comments
+            return $this->renderPartial('@app_main/views/_layouts/_comments', ['comments' => $model->comments]);
+        }
+        // else
+        Yii::$app->end();
+    }
+
+    // CrudInterface
+    public function modelClass()
+    {}
+
+    public function searchModelClass()
+    {}
+
+    public function detailModelClass(): array
+    {
+        return [];
+    }
+
+    public function redirectTo(string $action)
+    {}
+
+    public function redirectOnCreate()
+    {
+        return $this->redirect(['update']);
+    }
+
+    public function viewCreated(): bool
+    {
+        return false;
+    }
+
+    public function redirectOnUpdate()
+    {
+        return $this->redirect(['index']);
+    }
+
+    public function viewUpdated(): bool
+    {
+        return false;
+    }
+
+    public function redirectOnDelete()
+    {
+        return $this->redirect(['index']);
+    }
+
+    public function model()
+    {}
+
+    public function searchModel()
+    {}
+
+    public function linkedModels(): array
+    {
+        return [];
+    }
+
+    public function detailModels(): array
+    {
+        return [];
+    }
+
+    public function validationErrors(): array
+    {
+        return [];
+    }
+
+    public function isReadonly(): bool
+    {
+        return $this->action->id == 'read';
+    }
+
+    public function actionUpdateStatus($id)
+    {}
+
+    public function actionAmend($id)
+    {}
+
+    public function actionBatch()
+    {}
 }

@@ -2,9 +2,10 @@
 
 namespace app\modules\main\controllers;
 
-use app\modules\main\controllers\base\BaseController;
+use app\modules\main\controllers\base\BaseViewController;
+use app\modules\main\enums\Type_View;
 
-class DashboardController extends BaseController
+class DashboardController extends BaseViewController
 {
     /**
      * Renders the index view for the controller
@@ -12,12 +13,21 @@ class DashboardController extends BaseController
      */
     public function actionIndex()
     {
-        $this->sidebar = false;
-
         $stats = [];
 
         return $this->render('index', [
             'stats' => $stats
         ]);
+    }
+
+    // ViewInterface
+    public function currentViewType()
+    {
+        return Type_View::Dashboard;
+    }
+
+    public function showViewSidebar(): bool
+    {
+        return false;
     }
 }

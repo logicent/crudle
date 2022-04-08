@@ -10,10 +10,8 @@ use website\models\WebsiteSettingsForm;
  */
 class SettingsController extends BaseSettingsController
 {
-    public function init()
+    public function modelClass()
     {
-        $this->modelClass = WebsiteSettingsForm::class;
-
-        return parent::init();
+        return WebsiteSettingsForm::class;
     }
 }

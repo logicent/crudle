@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use app\assets\AppAsset;
+use app\modules\main\enums\Type_View;
 
 AppAsset::register($this);
 
@@ -24,25 +25,27 @@ $this->beginPage() ?>
 
     <div id="header_wrapper">
     <?php
-        echo $this->render('@app_main/views/_layouts/_navbar_main', ['context' => $this->context]);
-        if ($this->context->id !== 'dashboard') :
-            echo $this->render('@app_main/views/_layouts/_view_header', ['context' => $this->context]);
+        $controller = $this->context;
+        echo $this->render('@app_main/views/_layouts/_navbar_main');
+        if ($controller->id !== 'dashboard') :
+            echo $this->render('@app_main/views/_layouts/_view_header', ['context' => $controller]);
         endif ?>
     </div>
     <?= $this->render('_main_sidebar') ?>
 
-    <div class="main ui container pusher" style="margin-top: <?= $this->context->id == 'dashboard' ? '103px;' : '133px;' ?>">
+    <div class="main ui container pusher" style="margin-top: <?= $controller->id == 'dashboard' ? '103px;' : '133px;' ?>">
         <div class="ui stackable grid">
-            <?php if ($this->context->id !== 'main' && $this->context->sidebar == true) : ?>
-                <div class="computer only large screen only <?= $this->context->sidebarWidth ?> wide column">
+            <?php if ($controller->id !== 'main' && $controller->showViewSidebar()) : ?>
+                <div class="computer only large screen only <?= $controller->sidebarColWidth() ?> wide column">
                     <!-- <div class="ui rail"> -->
                     <div class="ui sticky">
                     <?php
-                        if ($this->context->action->id == 'index') : // list view and single form view
+                        if ($controller->currentViewType() == Type_View::Form ||
+                            $controller->currentViewType() == Type_View::List) :
                             echo $this->render('@app_main/views/_crud/_sidebar');
                         else :
-                            if (file_exists($this->context->viewPath . '/_sidebar.php')) :
-                                echo $this->renderFile($this->context->viewPath . '/_sidebar.php');
+                            if (file_exists($controller->viewPath . '/_sidebar.php')) :
+                                echo $this->renderFile($controller->viewPath . '/_sidebar.php');
                             endif;
                         endif;
                     ?>
@@ -52,9 +55,9 @@ $this->beginPage() ?>
             <?php endif ?>
 
             <div id="content"
-                class="<?= $this->context->id !== 'main' && $this->context->sidebar !== false ?
-                    $this->context->mainWidth : $this->context->fullWidth ?> wide column">
-                <?= $this->render('@app_main/views/_layouts/_flash_message', ['context' => $this->context]) ?>
+                class="<?= $controller->id !== 'main' && $controller->showViewSidebar() ?
+                    $controller->mainColumnWidth() : $controller->fullColumnWidth() ?> wide column">
+                <?= $this->render('@app_main/views/_layouts/_flash_message', ['context' => $controller]) ?>
                 <?= $content ?>
             </div>
         </div>

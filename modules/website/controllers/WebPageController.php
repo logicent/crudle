@@ -3,16 +3,21 @@
 namespace website\controllers;
 
 use app\modules\main\controllers\base\BaseCrudController;
+use website\models\WebPage;
+use website\models\WebPageSearch;
 
 /**
  * WebPageController for the `WebPage` model
  */
 class WebPageController extends BaseCrudController
 {
-    public function actionIndex()
+    public function modelClass()
     {
-        $this->sidebar = false;
+        return WebPage::class;
+    }
 
-        return $this->render('index');
+    public function searchModelClass()
+    {
+        return WebPageSearch::class;
     }
 }

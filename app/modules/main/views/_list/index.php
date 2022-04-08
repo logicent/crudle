@@ -5,7 +5,8 @@ use yii\helpers\Inflector;
 $context = $this->context;
 $module = $this->context->module;
 
-$this->title = Yii::t('app', '{listTitle}', ['listTitle' => $context->resourceName]);
+$this->title = Yii::t('app', '{listTitle}', ['listTitle' => $context->viewName()]);
+
 $this->params['breadcrumbs'][] = [
     'label' => Yii::t('app', '{moduleName}', ['moduleName' => Inflector::camelize($module->id)]),
     'url' => ['/' . $module->id]

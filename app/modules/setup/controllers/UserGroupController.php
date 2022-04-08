@@ -8,11 +8,13 @@ use app\modules\setup\models\UserGroupSearch;
 
 class UserGroupController extends BaseCrudController
 {
-    public function init()
+    public function modelClass()
     {
-        $this->modelClass = UserGroup::class;
-        $this->modelSearchClass = UserGroupSearch::class;
-        
-        return parent::init();
+        return UserGroup::class;
+    }
+
+    public function searchModelClass()
+    {
+        return UserGroupSearch::class;
     }
 }

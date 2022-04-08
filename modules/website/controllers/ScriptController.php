@@ -10,10 +10,8 @@ use website\models\WebsiteScriptForm;
  */
 class ScriptController extends BaseSettingsController
 {
-    public function init()
+    public function modelClass()
     {
-        $this->modelClass = WebsiteScriptForm::class;
-
-        return parent::init();
+        return WebsiteScriptForm::class;
     }
 }

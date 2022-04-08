@@ -8,11 +8,13 @@ use app\modules\setup\models\EmailQueueSearch;
 
 class EmailQueueController extends BaseCrudController
 {
-    public function init()
+    public function modelClass()
     {
-        $this->modelClass = EmailQueue::class;
-        $this->modelSearchClass = EmailQueueSearch::class;
+        return EmailQueue::class;
+    }
 
-        return parent::init();
+    public function searchModelClass()
+    {
+        return EmailQueueSearch::class;
     }
 }

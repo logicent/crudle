@@ -35,7 +35,7 @@ use Zelenin\yii\SemanticUI\modules\Modal;
             ]);
         endif;
         if ($model->userCan(Type_Permission::Create, Yii::$app->user->id)) :
-            echo Html::a(Yii::t('app', 'New') .' '. $this->context->resourceName, ["create"], 
+            echo Html::a(Yii::t('app', 'New') .' '. $this->context->viewName(), ["create"], 
                 ['class' => 'item']
             );
         endif;
@@ -43,7 +43,7 @@ use Zelenin\yii\SemanticUI\modules\Modal;
             echo Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
                 'class' => 'item user-action',
                 'data' => [
-                    'confirm' => Yii::t('app', "Confirm to delete {$this->context->resourceName}:"  . $model->id),
+                    'confirm' => Yii::t('app', "Confirm to delete {$this->context->viewName()}:"  . $model->id),
                     'method' => 'post'
                 ]
             ]);

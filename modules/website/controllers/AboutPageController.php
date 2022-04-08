@@ -7,10 +7,8 @@ use website\models\AboutPage;
 
 class AboutPageController extends BaseSettingsController
 {
-    public function init()
+    public function modelClass()
     {
-        $this->modelClass = AboutPage::class;
-
-        return parent::init();
+        return AboutPage::class;
     }
 }
