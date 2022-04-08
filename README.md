@@ -42,24 +42,24 @@ Yii2 Crudle (CRUD logic engine) is a meta framework for rapid application develo
 
 **Components**
 
-_Setup_
+_Setup module_
 
-- System - create/modify app modules, data models & configure core settings
-- Data tool - import data, create data widgets, reports & configure backups
-- Email sending - create email notifications, templates, check email queues
-- Layout settings - create layout navbar menus and dashboard menu shortcuts
-- People - add users, user groups, roles and permissions and view user logs
-- Printing - create print styles, print formats and configure print devices
+- **System** - create/modify app modules, data models & configure core settings
+- **Data Tool** - import data, create data widgets, reports & configure backups
+- **Email Sending** - create email notifications, templates, check email queues
+- **Layout Settings** - create layout navbar menus and dashboard menu shortcuts
+- **People** - add users, user groups, roles and permissions and view user logs
+- **Printing** - create print styles, print formats and configure print devices
 
 **Code**
-- app/config to define app-level conventions
-- app/database to run db scripts that update db migrations published in modules
-- app/enums to define app-level enumerations
-- app/helpers to provide reusable functionality
-- app/modules to contain the core functionality
-- app/modules/main to manage the core app-level interaction like authentication
-- app/modules/setup to provide visibility and customization tools for end-users
-- modules/website to easily setup a front-end site for users to engage with you
+- **app/config** to define app-level conventions
+- **app/database** to run db scripts that update db migrations published in modules
+- **app/enums** to define app-level enumerations
+- **app/helpers** to provide reusable functionality
+- **app/modules** to contain the core functionality
+- **app/modules/main** to manage the core app-level interaction like authentication
+- **app/modules/setup** to provide visibility and customization tools for end-users
+- **modules/website** to easily setup a front-end site for users to engage with you
 
 ### Technology Stack
 **Programming Languages and Frameworks**
