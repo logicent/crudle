@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220331_141147_create_table_site_menu extends Migration
+class m220408_103856_create_table_report_builder extends Migration
 {
     public function safeUp()
     {
@@ -12,17 +12,20 @@ class m220331_141147_create_table_site_menu extends Migration
         }
 
         $this->createTable(
-            '{{%site_menu}}',
+            '{{%report_builder}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
-                'route' => $this->string(140)->notNull(),
-                'label' => $this->string(140)->notNull(),
-                'group' => $this->string(140)->notNull(),
-                'inactive' => $this->boolean(),
-                'icon' => $this->string(140),
-                'icon_path' => $this->string(140),
-                'icon_color' => $this->string(140),
+                'title' => $this->string(140)->notNull(),
+                'subtitle' => $this->string(140),
+                'description' => $this->text(),
+                'model_name' => $this->string(140),
+                'group' => $this->string(140),
+                'type' => $this->string(140),
+                'inactive' => $this->boolean()->defaultValue('0'),
+                'query_cmd' => $this->text()->notNull(),
+                'roles' => $this->text(),
                 'comments' => $this->text(),
+                'tags' => $this->text(),
                 'created_at' => $this->dateTime(),
                 'created_by' => $this->string(140),
                 'updated_at' => $this->dateTime(),
@@ -31,12 +34,10 @@ class m220331_141147_create_table_site_menu extends Migration
             ],
             $tableOptions
         );
-
-        $this->createIndex('created_by', '{{%site_menu}}', ['created_by']);
     }
 
     public function safeDown()
     {
-        $this->dropTable('{{%site_menu}}');
+        $this->dropTable('{{%report_builder}}');
     }
 }

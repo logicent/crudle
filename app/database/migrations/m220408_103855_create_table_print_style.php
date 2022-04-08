@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220331_141142_create_table_print_format extends Migration
+class m220408_103855_create_table_print_style extends Migration
 {
     public function safeUp()
     {
@@ -12,7 +12,7 @@ class m220331_141142_create_table_print_format extends Migration
         }
 
         $this->createTable(
-            '{{%print_format}}',
+            '{{%print_style}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
                 'created_at' => $this->dateTime(),
@@ -20,13 +20,11 @@ class m220331_141142_create_table_print_format extends Migration
                 'deleted_at' => $this->dateTime(),
                 'updated_by' => $this->string(140),
                 'created_by' => $this->string(140),
-                'default_print_language' => $this->string(140),
+                'css' => $this->text(),
                 'status' => $this->string(140),
                 'inactive' => $this->boolean()->defaultValue('0'),
-                'custom_format' => $this->boolean(),
-                'model_name' => $this->string(140)->notNull(),
-                'module' => $this->string(140)->notNull(),
-                'custom_css' => $this->text(),
+                'standard' => $this->boolean(),
+                'preview' => $this->string(140)->notNull(),
                 'comments' => $this->text(),
                 'tags' => $this->text(),
             ],
@@ -36,6 +34,6 @@ class m220331_141142_create_table_print_format extends Migration
 
     public function safeDown()
     {
-        $this->dropTable('{{%print_format}}');
+        $this->dropTable('{{%print_style}}');
     }
 }

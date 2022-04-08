@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220331_141153_create_table_user extends Migration
+class m220408_103907_create_table_user extends Migration
 {
     public function safeUp()
     {
@@ -37,9 +37,9 @@ class m220331_141153_create_table_user extends Migration
             $tableOptions
         );
 
-        $this->createIndex('user_group', '{{%user}}', ['user_group']);
         $this->createIndex('created_by', '{{%user}}', ['created_by']);
         $this->createIndex('updated_by', '{{%user}}', ['updated_by']);
+        $this->createIndex('user_group', '{{%user}}', ['user_group']);
     }
 
     public function safeDown()

@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220331_141144_create_table_report_builder extends Migration
+class m220408_103857_create_table_report_builder_item extends Migration
 {
     public function safeUp()
     {
@@ -12,20 +12,18 @@ class m220331_141144_create_table_report_builder extends Migration
         }
 
         $this->createTable(
-            '{{%report_builder}}',
+            '{{%report_builder_item}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
-                'title' => $this->string(140)->notNull(),
-                'subtitle' => $this->string(140),
-                'description' => $this->text(),
-                'model_name' => $this->string(140),
-                'group' => $this->string(140),
-                'type' => $this->string(140),
-                'inactive' => $this->boolean()->defaultValue('0'),
-                'query_cmd' => $this->text()->notNull(),
-                'roles' => $this->text(),
-                'comments' => $this->text(),
-                'tags' => $this->text(),
+                'report_builder_id' => $this->string(140),
+                'attribute_name' => $this->string(140),
+                'default_value' => $this->string(140),
+                'sort_by' => $this->boolean(),
+                'sort_order' => $this->string(20),
+                'filter_by' => $this->boolean(),
+                'hidden' => $this->boolean()->defaultValue('0'),
+                'select_function' => $this->text(),
+                'select_expression' => $this->text(),
                 'created_at' => $this->dateTime(),
                 'created_by' => $this->string(140),
                 'updated_at' => $this->dateTime(),
@@ -38,6 +36,6 @@ class m220331_141144_create_table_report_builder extends Migration
 
     public function safeDown()
     {
-        $this->dropTable('{{%report_builder}}');
+        $this->dropTable('{{%report_builder_item}}');
     }
 }

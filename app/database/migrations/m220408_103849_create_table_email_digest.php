@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220331_141152_create_table_site_slide extends Migration
+class m220408_103849_create_table_email_digest extends Migration
 {
     public function safeUp()
     {
@@ -12,12 +12,13 @@ class m220331_141152_create_table_site_slide extends Migration
         }
 
         $this->createTable(
-            '{{%site_slide}}',
+            '{{%email_digest}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
-                'heading' => $this->string(140)->notNull(),
-                'description' => $this->string(280),
-                'image_path' => $this->string(140),
+                'frequency' => $this->string(140)->notNull(),
+                'recipient_list' => $this->text(),
+                'model_names' => $this->string(140),
+                'email_template' => $this->string(140)->notNull(),
                 'inactive' => $this->boolean(),
                 'comments' => $this->text(),
                 'created_at' => $this->dateTime(),
@@ -29,11 +30,12 @@ class m220331_141152_create_table_site_slide extends Migration
             $tableOptions
         );
 
-        $this->createIndex('created_by', '{{%site_slide}}', ['created_by']);
+        $this->createIndex('created_by', '{{%email_digest}}', ['created_by']);
+        $this->createIndex('updated_by', '{{%email_digest}}', ['updated_by']);
     }
 
     public function safeDown()
     {
-        $this->dropTable('{{%site_slide}}');
+        $this->dropTable('{{%email_digest}}');
     }
 }

@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220331_141137_create_table_email_digest extends Migration
+class m220408_103910_create_table_user_settings extends Migration
 {
     public function safeUp()
     {
@@ -12,14 +12,12 @@ class m220331_141137_create_table_email_digest extends Migration
         }
 
         $this->createTable(
-            '{{%email_digest}}',
+            '{{%user_settings}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
-                'frequency' => $this->string(140)->notNull(),
-                'recipient_list' => $this->text(),
-                'model_names' => $this->string(140),
-                'email_template' => $this->string(140)->notNull(),
-                'inactive' => $this->boolean(),
+                'user_id' => $this->string(140)->notNull(),
+                'view_model' => $this->string(140),
+                'view_settings' => $this->text(),
                 'comments' => $this->text(),
                 'created_at' => $this->dateTime(),
                 'created_by' => $this->string(140),
@@ -30,12 +28,11 @@ class m220331_141137_create_table_email_digest extends Migration
             $tableOptions
         );
 
-        $this->createIndex('updated_by', '{{%email_digest}}', ['updated_by']);
-        $this->createIndex('created_by', '{{%email_digest}}', ['created_by']);
+        $this->createIndex('user_id', '{{%user_settings}}', ['user_id']);
     }
 
     public function safeDown()
     {
-        $this->dropTable('{{%email_digest}}');
+        $this->dropTable('{{%user_settings}}');
     }
 }

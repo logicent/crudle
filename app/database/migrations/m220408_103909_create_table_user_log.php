@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220331_141151_create_table_site_post_category extends Migration
+class m220408_103909_create_table_user_log extends Migration
 {
     public function safeUp()
     {
@@ -12,19 +12,17 @@ class m220331_141151_create_table_site_post_category extends Migration
         }
 
         $this->createTable(
-            '{{%site_post_category}}',
+            '{{%user_log}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
-                'name' => $this->string(140)->notNull(),
-                'description' => $this->text(),
-                'slug' => $this->string(140),
-                'parent' => $this->string(140),
-                'published' => $this->boolean(),
+                'user_id' => $this->string(140)->notNull(),
+                'session_id' => $this->string(140),
+                'status' => $this->string(140),
+                'login_at' => $this->integer(),
+                'login_ip' => $this->string(128),
+                'logout_at' => $this->integer(),
+                'logout_ip' => $this->string(128),
                 'comments' => $this->text(),
-                'date_published' => $this->date(),
-                'tags' => $this->text(),
-                'layout' => $this->string(140),
-                'route' => $this->string(140),
                 'created_at' => $this->dateTime(),
                 'created_by' => $this->string(140),
                 'updated_at' => $this->dateTime(),
@@ -34,11 +32,11 @@ class m220331_141151_create_table_site_post_category extends Migration
             $tableOptions
         );
 
-        $this->createIndex('created_by', '{{%site_post_category}}', ['created_by']);
+        $this->createIndex('user_id', '{{%user_log}}', ['user_id']);
     }
 
     public function safeDown()
     {
-        $this->dropTable('{{%site_post_category}}');
+        $this->dropTable('{{%user_log}}');
     }
 }

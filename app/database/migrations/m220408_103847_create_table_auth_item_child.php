@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220331_141135_create_table_auth_item_child extends Migration
+class m220408_103847_create_table_auth_item_child extends Migration
 {
     public function safeUp()
     {

@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220331_141139_create_table_email_queue extends Migration
+class m220408_103851_create_table_email_queue extends Migration
 {
     public function safeUp()
     {

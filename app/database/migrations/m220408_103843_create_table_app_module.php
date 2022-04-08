@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220331_141130_create_table_app_menu extends Migration
+class m220408_103843_create_table_app_module extends Migration
 {
     public function safeUp()
     {
@@ -12,7 +12,7 @@ class m220331_141130_create_table_app_menu extends Migration
         }
 
         $this->createTable(
-            '{{%app_menu}}',
+            '{{%app_module}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
                 'route' => $this->string(140)->notNull(),
@@ -32,11 +32,11 @@ class m220331_141130_create_table_app_menu extends Migration
             $tableOptions
         );
 
-        $this->createIndex('created_by', '{{%app_menu}}', ['created_by']);
+        $this->createIndex('created_by', '{{%app_module}}', ['created_by']);
     }
 
     public function safeDown()
     {
-        $this->dropTable('{{%app_menu}}');
+        $this->dropTable('{{%app_module}}');
     }
 }

@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220331_141138_create_table_email_notification extends Migration
+class m220408_103850_create_table_email_notification extends Migration
 {
     public function safeUp()
     {
@@ -35,8 +35,8 @@ class m220331_141138_create_table_email_notification extends Migration
             $tableOptions
         );
 
-        $this->createIndex('updated_by', '{{%email_notification}}', ['updated_by']);
         $this->createIndex('created_by', '{{%email_notification}}', ['created_by']);
+        $this->createIndex('updated_by', '{{%email_notification}}', ['updated_by']);
     }
 
     public function safeDown()

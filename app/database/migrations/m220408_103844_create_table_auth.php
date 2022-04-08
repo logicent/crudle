@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220331_141132_create_table_auth extends Migration
+class m220408_103844_create_table_auth extends Migration
 {
     public function safeUp()
     {
@@ -29,11 +29,11 @@ class m220331_141132_create_table_auth extends Migration
             $tableOptions
         );
 
-        $this->createIndex('email', '{{%auth}}', ['email'], true);
-        $this->createIndex('updated_by', '{{%auth}}', ['updated_by']);
+        $this->createIndex('created_by', '{{%auth}}', ['created_by']);
         $this->createIndex('username', '{{%auth}}', ['username'], true);
         $this->createIndex('password_reset_token', '{{%auth}}', ['password_reset_token'], true);
-        $this->createIndex('created_by', '{{%auth}}', ['created_by']);
+        $this->createIndex('email', '{{%auth}}', ['email'], true);
+        $this->createIndex('updated_by', '{{%auth}}', ['updated_by']);
     }
 
     public function safeDown()
