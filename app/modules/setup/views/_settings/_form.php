@@ -19,7 +19,7 @@ $form = ActiveForm::begin([
     'options' => [
         'autocomplete' => 'off',
         'class' => 'ui form',
-        // 'enctype' => 'multipart/form-data,
+        'enctype' => 'multipart/form-data',
     ],
 ]);
     echo $this->render('@app_main/views/_form/_header', ['model' => $model]);

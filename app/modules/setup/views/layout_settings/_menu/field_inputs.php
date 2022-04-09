@@ -6,8 +6,8 @@
             <?= $form->field($model, 'iconColor')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="column">
-            <?= $form->field($model, 'route')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'label')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'route')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'group')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'visible')->checkbox() ?>
         </div>

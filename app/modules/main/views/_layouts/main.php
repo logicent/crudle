@@ -2,9 +2,14 @@
 
 use yii\helpers\Html;
 use app\assets\AppAsset;
+use app\modules\main\enums\Type_Form_View;
 use app\modules\main\enums\Type_View;
+use app\modules\setup\models\LayoutSettingsForm;
+use app\modules\setup\models\Setup;
 
 AppAsset::register($this);
+
+$layoutSettings = Setup::getSettings( LayoutSettingsForm::class );
 
 $this->beginPage() ?>
 
@@ -26,7 +31,7 @@ $this->beginPage() ?>
     <div id="header_wrapper">
     <?php
         $controller = $this->context;
-        echo $this->render('@app_main/views/_layouts/_navbar_main');
+        echo $this->render('@app_main/views/_layouts/_navbar_main', ['layoutSettings' => $layoutSettings]);
         if ($controller->id !== 'dashboard') :
             echo $this->render('@app_main/views/_layouts/_view_header', ['context' => $controller]);
         endif ?>
@@ -40,8 +45,8 @@ $this->beginPage() ?>
                     <!-- <div class="ui rail"> -->
                     <div class="ui sticky">
                     <?php
-                        if ($controller->currentViewType() == Type_View::Form ||
-                            $controller->currentViewType() == Type_View::List) :
+                        if ($controller->currentViewType() == Type_View::List ||
+                            $controller->formViewType() == Type_Form_View::Single) :
                             echo $this->render('@app_main/views/_crud/_sidebar');
                         else :
                             if (file_exists($controller->viewPath . '/_sidebar.php')) :

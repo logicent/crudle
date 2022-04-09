@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\main\enums\Type_Form_View;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;
 
@@ -12,34 +13,39 @@ $btnTag = Elements::button(Yii::t('app', 'Attach'), [
                 'file-path' => $imgPlaceholder
             ]
         ]);
-$imgTag = Elements::image( $model->$attribute != '' ? 
+$imgTag = Elements::image($model->$attribute != '' ? 
             $imgPath : $imgPlaceholder, [
-                'class' => 'bordered rounded', 
+                'class' => 'bordered rounded centered', 
             ]);
-if ( $this->context->action->id == 'read' ) :
-    echo $imgTag;
-else :
-    echo
-        Html::beginTag('div', ['class' => 'field']) .
-            Html::activeFileInput( $model->uploadForm, 'file_upload', [
-                'accept' => 'image/*', 'style' => 'display: none'
-            ]) .
-            $form->field($model, $attribute)->hiddenInput(['class' => 'file-path']) .
-            Html::a( $imgTag, ['#'], [
-                'class' => 'upload-preview',
-                'style' => 'display: none;'
-            ]) .
-            Html::a( $btnTag, ['#'], [
-                'class' => 'upload-btn'
-            ]) .
-            Elements::button(Yii::t('app', 'Clear'), [
-                'class' => 'compact basic del-btn',
-                'style' => 'display: none',
-                'data' => [
-                    'file-path' => $imgPlaceholder
-                ]
-            ]) .
-        Html::endTag('div');
-endif;
+echo
+    Html::beginTag('div', ['class' => 'field']) .
+        Html::activeFileInput( $model->uploadForm, 'file_upload', [
+            'accept' => 'image/*', 'style' => 'display: none'
+        ]) .
+        // $form->field($model, $attribute)->hiddenInput(['class' => 'file-path']) .
+        Html::activeHiddenInput($model, $attribute, ['class' => 'file-path']) .
+        Html::activeLabel($model, $attribute) .
+        Html::a( $imgTag, ['#'], [
+            'class' => 'upload-preview',
+            'style' => empty($imgTag) ? 'display: none' : '',
+        ]) . '<br>';
+        if ($this->context->action->id == 'read' || // isReadonly()
+            $this->context->formViewType() == Type_Form_View::Single) :
+            echo
+                Html::a($btnTag, ['#'], [
+                    'class' => 'upload-btn'
+                ]);
+            echo !empty($model->$attribute) ? '&emsp;' : '';
+            echo
+                Elements::button(Yii::t('app', 'Clear'), [
+                    'class' => 'compact basic del-btn',
+                    'style' => empty($model->$attribute) ? 'display: none' : '',
+                    'data' => [
+                        'file-path' => $imgPlaceholder
+                    ]
+                ]);
+        endif;
+echo
+    Html::endTag('div');
 $this->registerJs( $this->render('file_upload.js') );
 ?>

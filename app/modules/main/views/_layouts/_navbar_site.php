@@ -1,15 +1,19 @@
 <?php
 
+use app\modules\setup\models\GeneralSettingsForm;
+use app\modules\setup\models\Setup;
 use yii\helpers\Url;
 use yii\helpers\Html;
 
+$generalSettings = Setup::getSettings( GeneralSettingsForm::class );
 ?>
 
 <div class="ui attached menu borderless" style="padding: 1em 0em;">
     <div class="ui container">
         <div class="item">
             <div class="ui header text-muted" style="font-weight: 500;">
-                <?= !empty($this->params['businessName']) ? $this->params['businessName'] : Yii::t('app', 'Your Business Name') ?>
+                <?= $generalSettings->name ?
+                    $generalSettings->name : Yii::$app->params['appName'] ?>
             </div>
         </div>
         <div class="right menu">
@@ -18,7 +22,7 @@ use yii\helpers\Html;
             <?php else : ?>
                 <!-- Published menu items -->
                 <div class="ui dropdown item">
-                    <!-- <img class="ui mini image" src="<?php // Yii::$app->urlManager->baseUrl ?>/img/photo-ph.jpg"> -->
+                    <!-- <img class="ui mini image" src="<?= Yii::$app->urlManager->baseUrl ?>/img/placeholder-photo.jpg"> -->
                     &ensp;<?= Yii::$app->user->identity->username ?><i class="dropdown icon"></i>
                     <div class="menu">
                         <?= Html::a(Yii::t('app', 'Switch to Dash'), ['/app'], ['class' => 'item']) ?>

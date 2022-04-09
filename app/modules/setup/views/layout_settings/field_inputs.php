@@ -1,11 +1,5 @@
-<?php
-
-use yii\helpers\Html;
-
-?>
-
 <div class="ui attached padded segment">
-    <div class="ui two column grid">
+    <div class="ui two column stackable grid">
         <div class="column">
             <?= $form->field($model, 'homeButtonIcon')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'pinMainSidebar')->checkbox() ?>
@@ -66,8 +60,8 @@ use yii\helpers\Html;
         </div>
         <div class="column">
             <?= $form->field( $model, 'bgImageStyles' )->textarea([
-                    'rows' => 10,
-                    'style' => 'height: 299px !important',
+                    'rows' => 6,
+                    'style' => 'max-height: 280px !important',
                     'maxlength' => true
                 ]) ?>
         </div>

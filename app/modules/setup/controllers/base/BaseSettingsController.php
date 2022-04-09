@@ -22,8 +22,9 @@ abstract class BaseSettingsController extends BaseFormController
         {
             if ( $this->model->validate() && $this->model->save( $modelClassname ))
             {
+                $successMsg = $this->name . ' saved successfully';
                 Yii::$app->session->setFlash('success',
-                    Yii::t('app', 'Settings were saved successfully'));
+                    Yii::t('app', '{successMsg}', ['successMsg' => $successMsg]));
 
                 if ( Yii::$app->request->isAjax )
                     return $this->asJson([ 'success' => true ]);

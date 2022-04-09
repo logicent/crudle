@@ -43,6 +43,7 @@ class UserController extends Controller
             $person->user_role = Type_Role::Administrator;
             $person->firstname = 'Super';
             $person->surname = 'Man';
+            $person->status = 0; // inactive false
             // BlameableBehavior in BaseAR overwrites updated_by
             $person->updated_by = $person->created_by = $person->id;
 

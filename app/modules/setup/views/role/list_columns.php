@@ -42,15 +42,4 @@ return [
                 return $listNames;
             }
         ],
-        [
-            'header' => $dataProvider->getCount() . ' of ' . $dataProvider->getTotalCount(),
-            'headerOptions' => ['class' => 'text-muted right aligned'],
-            'format' => 'raw',
-            'value' => function () {
-                return '&nbsp;';
-            },
-            'contentOptions' => [
-                'class' => 'right aligned text-muted'
-            ]
-        ]
     ];

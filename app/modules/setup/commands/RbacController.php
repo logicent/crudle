@@ -65,6 +65,9 @@ class RbacController extends Controller
 
             $defaultUserId = \app\modules\main\models\auth\Auth::findOne(['username' => Type_Role::Administrator])->id;
             $this->_auth->assign($administrator, $defaultUserId);
+            $administrator = \app\modules\main\models\auth\Role::findOne(['name' => Type_Role::Administrator]);
+            $administrator->inactive = 0;
+            $administrator->save(false);
         }
         catch (\yii\db\IntegrityException $e) {
             echo $e->errorInfo[2]; // show the error Message

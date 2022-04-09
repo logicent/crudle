@@ -15,7 +15,7 @@ use Zelenin\yii\SemanticUI\Elements;
     </div>
     <div class="ui grid container">
         <div class="item" id="home_icon">
-            <?= Html::a(Elements::icon('globe brown large'), ['/app'], ['class' => "compact ui icon button"]) ?>
+            <?= Html::a(Elements::icon($layoutSettings->homeButtonIcon), ['/app'], ['class' => "compact ui icon button"]) ?>
         </div>
         <div class="computer only large screen only four wide column item">
         <?php
@@ -31,15 +31,24 @@ use Zelenin\yii\SemanticUI\Elements;
         </div>
 
         <div class="computer only large screen only ten wide column item right">
-            <?= $this->render('_nav_new') ?>
-            <?= $this->render('_global_search') ?>
-            <?= $this->render('_nav_help') ?>
-            <?= $this->render('_nav_user') ?>
-            <?= $this->render('_nav_alert') ?>
+        <?php
+            if ((bool) $layoutSettings->hideCreateMenu == false) :
+                echo $this->render('_nav_new');
+            endif;
+            if ((bool) $layoutSettings->hideSearchbar == false) :
+                echo $this->render('_global_search');
+            endif;
+            if ((bool) $layoutSettings->hideHelpMenu == false) :
+                echo $this->render('_nav_help');
+            endif;
+            echo $this->render('_nav_user', ['layoutSettings' => $layoutSettings]);
+            if ((bool) $layoutSettings->hideAlertMenu == false) :
+                echo $this->render('_nav_alert');
+            endif ?>
         </div>
     </div><!-- ./grid container -->
 </div><!-- ./attached menu text -->
-<?php 
-$this->registerJs(<<<JS
-    $('.ui.dropdown').dropdown();
+<?php
+    $this->registerJs(<<<JS
+        $('.ui.dropdown').dropdown();
 JS) ?>

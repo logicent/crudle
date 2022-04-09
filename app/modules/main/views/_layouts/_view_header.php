@@ -36,7 +36,7 @@ endif;
         <div class="six wide column right aligned">
         <?php
             // all multiple record views like list and image view
-            if ($context->action->id == 'index' && $context->currentViewType() == Type_View::List) :
+            if ($context->currentViewType() == Type_View::List) :
                 echo $this->render('_view_type');
                 echo Html::a(Elements::icon('refresh'), ['refresh'], [
                         'id' => 'refresh_btn',
@@ -116,14 +116,12 @@ endif;
                                     [
                                         'class' => 'compact ui basic icon button',
                                         'title' => 'Previous',
-                                        'style' => 'display: none'
                                     ]);
                         echo Html::a(Elements::icon('right chevron'),
                                     ['next', 'id' => $this->context->model->id],
                                     [
                                         'class' => 'compact ui basic icon button',
                                         'title' => 'Next',
-                                        'style' => 'display: none'
                                     ]);
                         if ($this->context->model->allowPrint()) :
                             echo Html::a(Elements::icon('print', ['class' => 'grey']),
@@ -133,7 +131,6 @@ endif;
                                             'target' => '_blank',
                                         ]);
                         endif;
-                        echo $this->render('@app_main/views/_form/_menu', ['model' => $this->context->model]);
                     endif;
                     $display = $this->context->model->isNewRecord || !$this->context->model->hasWorkflow() ? '' : 'none';
                     echo Html::button(Yii::t('app', 'Save'), [
@@ -144,7 +141,7 @@ endif;
                     if (!$this->context->model->isNewRecord && $this->context->model->hasWorkflow()) :
                         echo $this->render('@app_main/views/_form/_menu', ['model' => $this->context->model]);
                     endif;
-                else :
+                else : // non-CRUD forms
                     echo Html::button(Yii::t('app', 'Save'), [
                             'class' => 'compact ui primary button',
                             'id'    => 'save_btn',
