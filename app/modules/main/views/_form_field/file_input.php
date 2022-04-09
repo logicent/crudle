@@ -5,7 +5,7 @@ use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;
 
 // To-Do: allow custom placeholder default to none
-$imgPlaceholder = Yii::getAlias('@web') . isset($placeholder) ? $placeholder : '/img/placeholder-image.jpg';
+$imgPlaceholder = Yii::getAlias('@web') . isset($placeholder) ? $placeholder : null;
 $imgPath = Yii::getAlias('@web/uploads/') . $model->$attribute;
 $btnTag = Elements::button(Yii::t('app', 'Attach'), [
             'class' => 'compact basic attach-file',
@@ -24,11 +24,13 @@ echo
         ]) .
         // $form->field($model, $attribute)->hiddenInput(['class' => 'file-path']) .
         Html::activeHiddenInput($model, $attribute, ['class' => 'file-path']) .
-        Html::activeLabel($model, $attribute) .
-        Html::a( $imgTag, ['#'], [
-            'class' => 'upload-preview',
-            'style' => empty($imgTag) ? 'display: none' : '',
-        ]) . '<br>';
+        Html::activeLabel($model, $attribute);
+        if ($imgPlaceholder || $model->$attribute) :
+            echo Html::a( $imgTag, ['#'], [
+                    'class' => 'upload-preview',
+                    'style' => empty($imgTag) ? 'display: none' : '',
+                ]) . '<br>';
+        endif;
         if ($this->context->action->id == 'read' || // isReadonly()
             $this->context->formViewType() == Type_Form_View::Single) :
             echo
