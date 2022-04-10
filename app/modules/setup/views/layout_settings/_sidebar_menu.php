@@ -1,0 +1,1 @@
+<?= $this->render('@app_main/views/_form_section/item', ['model' => $model, 'form' => $form]) ?>

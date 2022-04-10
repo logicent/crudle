@@ -8,7 +8,7 @@ use Zelenin\yii\SemanticUI\Elements;
 <div class="ui dropdown item right">
     <!-- To-Do: find a better (smaller) placeholder image or use current user initials -->
     <!-- <img class="ui mini image" src="<?= Yii::getAlias('@web') ?>/img/photo-ph.jpg"> &ensp;-->
-    <?= Yii::$app->user->identity->username ?>&ensp;
+    <?= !is_null(Yii::$app->user->identity) ? Yii::$app->user->identity->username : '' ?>&ensp;
     <?= Elements::icon('down small chevron') ?>
     <div class="menu nav-menu">
     <?php
@@ -39,7 +39,7 @@ Menu::widget([
     'text' => true,
     'rightMenuItems' => [
         [
-            'label' => Yii::$app->user->identity->username, //  . Elements::icon('down small chevron')
+            'label' => !is_null(Yii::$app->user->identity) ? Yii::$app->user->identity->username : '', //  . Elements::icon('down small chevron')
             'items' => [
                 [
                     'label' => Yii::t('app', 'Visit website'),
