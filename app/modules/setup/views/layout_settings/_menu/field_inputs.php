@@ -1,24 +1,39 @@
 <?php
 
 use yii\helpers\Html;
+use Zelenin\yii\SemanticUI\Elements;
+use Zelenin\yii\SemanticUI\modules\Checkbox;
+
 ?>
-<td>
-    <?= Html::checkbox('menu_item') ?>
-</td>
-<td>
-    <?= Html::activeTextInput($model, 'label', ['maxlength' => true]) ?>
-</td>
-<td>
-    <?= Html::activeTextInput($model, 'route', ['maxlength' => true]) ?>
-</td>
-<td>
-    <?= Html::activeTextInput($model, 'group', ['maxlength' => true]) ?>
-</td>
-<td>
-    <?= Html::activeCheckbox($model, 'inactive') ?>
-</td>
-<td>
-    <?= Html::activeHiddenInput($model, 'icon') ?>
-    <?= Html::activeHiddenInput($model, 'icon_path') ?>
-    <?= Html::activeHiddenInput($model, 'icon_color') ?>
-</td>
+<tr>
+    <td class="center aligned">
+        <?= Checkbox::widget([
+                'name' => "[{$rowId}]menu_item",
+                'options' => ['style' => 'vertical-align: text-top']
+            ]) ?>
+    </td>
+    <td>
+        <?= Html::activeTextInput($model, "[{$rowId}]label", ['maxlength' => true]) ?>
+    </td>
+    <td>
+        <?= Html::activeTextInput($model, "[{$rowId}]route", ['maxlength' => true]) ?>
+    </td>
+    <td>
+        <?= Html::activeTextInput($model, "[{$rowId}]group", ['maxlength' => true]) ?>
+    </td>
+    <td class="center aligned">
+        <?= Checkbox::widget([
+                'name' => "[{$rowId}]inactive",
+                'options' => ['style' => 'vertical-align: text-top']
+            ]) ?>
+    </td>
+    <td class="one wide center aligned">
+        <?= Html::a(Elements::icon('grey trash alternate outline'), null, [
+                    'class' => 'del-item compact ui basic icon button',
+                    'style' => 'margin: 0em;'
+                ]) ?>
+        <?= Html::activeHiddenInput($model, "[{$rowId}]icon") ?>
+        <?= Html::activeHiddenInput($model, "[{$rowId}]icon_path") ?>
+        <?= Html::activeHiddenInput($model, "[{$rowId}]icon_color") ?>
+    </td>
+</tr>

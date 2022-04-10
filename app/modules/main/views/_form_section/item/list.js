@@ -1,4 +1,4 @@
-$(itemDoc.table).on('click', '.edit-item--btn',
+$('table.in-form').on('click', '.edit-item--btn',
     function (e) {
         el_edit_btn = $(this);
         rowInputs = $(this).parent('td').parent('tr').children('td').children('input');
@@ -19,8 +19,8 @@ $(itemDoc.table).on('click', '.edit-item--btn',
             },
             success: function( response )
             {
-                $('#item__modal .content').html( response ); // Target '.content' to keep close button in modal
-                $('#item__modal').modal({ 
+                $('.item--modal .content').html( response ); // Target '.content' to keep close button in modal
+                $('.item--modal').modal({ 
                                         centered: false,
                                         closable : false 
                                     })
@@ -35,7 +35,7 @@ $(itemDoc.table).on('click', '.edit-item--btn',
         return false;
     });
 
-$(itemDoc.table + ' tbody').on('click', 'input.pikadaytime',
+$('table.in-form tbody').on('click', 'input.pikadaytime',
     function(e) {
         $(this).flatpickr({
             // hourIncrement : 1,
@@ -44,16 +44,13 @@ $(itemDoc.table + ' tbody').on('click', 'input.pikadaytime',
         });
     });
 
-$(itemDoc.section + ' .add-row').on('click',
+$('.add-row').on('click',
     function(e) {
         e.stopPropagation(); // !! DO NOT use return false it stops execution
-        el_table_body = $(itemDoc.table + ' tbody');
-        has_no_data = el_table_body.find('tr#no_data').length == 1;
-        if (has_no_data)
-            el_table_body.find('tr#no_data').hide();
+        el_table_body = $(this).siblings('table.in-form');
 
         $.ajax({
-            url: itemDoc.addItemUrl,
+            url: itemRow.addItemUrl,
             type: 'get',
             data: {
                 'modelClass': $(this).data('model-class'),
@@ -62,6 +59,7 @@ $(itemDoc.section + ' .add-row').on('click',
                 'nextRowId': el_table_body.find('tr').not('#no_data').length + 1
             },
             success: function(response) {
+                el_table_body.find('tr#no_data').hide();
                 el_table_body.append(response);
 
                 $('#submit_btn').hide();
@@ -76,7 +74,7 @@ $(itemDoc.section + ' .add-row').on('click',
         });
     });
 
-$(itemDoc.table + ' tbody').on('change', 'select.list-option',
+$('table.in-form tbody').on('change', 'select.list-option',
     function(e) {
         e.stopPropagation(); // !! DO NOT use return false it stops execution
 
@@ -86,7 +84,7 @@ $(itemDoc.table + ' tbody').on('change', 'select.list-option',
         el_table_row = $(this).closest('tr');
 
         $.ajax({
-            url: itemDoc.getItemUrl,
+            url: itemRow.getItemUrl,
             type: 'get',
             data: {
                 'item_id': $(this).val()
@@ -100,7 +98,7 @@ $(itemDoc.table + ' tbody').on('change', 'select.list-option',
         });
     });
 
-$(itemDoc.table + ' tbody').on('change', 'td > input',
+$('table.in-form tbody').on('change', 'td > input',
     function(e) {
         e.stopPropagation(); // !! DO NOT use return false it stops execution
 
@@ -110,11 +108,11 @@ $(itemDoc.table + ' tbody').on('change', 'td > input',
         el_table_row = $(this).closest('tr');
     });
 
-$(itemDoc.table).on('click',  'th.select-all-rows > .ui.checkbox',
+$('table.in-form').on('click',  'th.select-all-rows > .ui.checkbox',
     function(e) {
         select_all_rows = $(this).find('input').is(':checked');
-        all_rows = $(itemDoc.table + ' tbody').find('td.select-row input');
-        del_row = $(itemDoc.section + ' .del-row');
+        all_rows = $(this).closest('tbody').find('td.select-row input');
+        del_row = $('.del-row');
 
         if (select_all_rows) {
             del_row.show();
@@ -134,12 +132,12 @@ $(itemDoc.table).on('click',  'th.select-all-rows > .ui.checkbox',
         }
     });
 
-$(itemDoc.table + ' tbody').on('click', 'td.select-row > .ui.checkbox',
+$('table.in-form tbody').on('click', 'td.select-row > .ui.checkbox',
     function(e) {
-        select_all_rows = $(itemDoc.table + ' thead').find('.select-all-rows > .ui.checkbox > input');
-        all_rows = $(itemDoc.table + ' tbody').find('input:checkbox').length;
-        selected_rows = $(itemDoc.table + ' tbody').find('input:checked').length;
-        del_row = $(itemDoc.section + ' .del-row');
+        select_all_rows = $(this).siblings('thead').find('.select-all-rows > .ui.checkbox > input');
+        all_rows = $(this).find('input:checkbox').length;
+        selected_rows = $(this).find('input:checked').length;
+        del_row = $('.del-row');
 
         if (selected_rows == 0) {
             select_all_rows.prop('checked', false);
@@ -154,11 +152,11 @@ $(itemDoc.table + ' tbody').on('click', 'td.select-row > .ui.checkbox',
             select_all_rows.prop('checked', true);
     });
 
-$(itemDoc.section + ' .del-row').on('click',
+$('.del-row').on('click',
     function(e) {
         $(this).css('display', 'none');
         modelClass = $(this).data('model-class');
-        selectedRows = $(itemDoc.table + ' td.select-row > .ui.checkbox > input:checked');
+        selectedRows = $(itemRow.table + ' td.select-row > .ui.checkbox > input:checked');
 
         selectedRows.each(
             function(e) {
@@ -167,7 +165,7 @@ $(itemDoc.section + ' .del-row').on('click',
 
                 if (el_id.val() !== '')
                     $.ajax({
-                        url: itemDoc.deleteItemUrl,
+                        url: itemRow.deleteItemUrl,
                         type: 'post',
                         data: {
                             _csrf: yii.getCsrfToken(),
@@ -182,10 +180,10 @@ $(itemDoc.section + ' .del-row').on('click',
                     });
                 el_table_row.remove();
             });
-        rowCount = $(itemDoc.table + ' tbody > tr').not('#no_data').length;
+        rowCount = $(itemRow.table + ' tbody > tr').not('#no_data').length;
         if (rowCount == 0) {
             $('tr#no_data').show();
-            el_checkbox_all = $(itemDoc.table + ' th.select-all-rows input');
+            el_checkbox_all = $(itemRow.table + ' th.select-all-rows input');
             el_checkbox_all.prop('checked', false);
 
             if (rowCount > 0)
@@ -198,7 +196,7 @@ $(itemDoc.section + ' .del-row').on('click',
 
 function displaySelectAllCheckboxIf(rowCount)
 {
-    el_checkbox_all = $(itemDoc.table + ' th.select-all-rows input');
+    el_checkbox_all = $(itemRow.table + ' th.select-all-rows input');
     el_checkbox_all.prop('checked', false);
 
     if (rowCount > 0)

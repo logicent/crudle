@@ -8,13 +8,13 @@ use Zelenin\yii\SemanticUI\modules\Modal;
 
 
 $modal = Modal::begin([
-    'class' => 'item__modal',
+    'class' => 'item--modal',
     'size' => Size::MEDIUM,
 ]);
 $modal::end();
 ?>
 
-<div id="_item">
+<div id="<?= $listId ?>">
     <table class="in-form ui celled table">
         <thead>
             <tr style="font-size: 110%">

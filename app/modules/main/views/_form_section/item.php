@@ -12,13 +12,13 @@ echo $this->render('item/list', [
         'form' => $form,
         'formView' => $formView,
         'columnHeaders' => $columnHeaders,
+        'listId' => $listId,
     ]);
 
 $params = [
     'formId' => strtolower($model->formName()),
-
-    'section' => '#_item',
-    'table' => '#_item table',
+    'section' => '#' . $listId,
+    'table' => '#' . $listId . ' table',
     'addItemUrl' => Url::to(['add-item']),
     'editItemUrl' => Url::to(['edit-item']),
     'getItemUrl' => Url::to(['get-item']),
@@ -26,9 +26,9 @@ $params = [
 ];
 
 $this->registerJs(
-    "var itemDoc = "  . \yii\helpers\Json::htmlEncode($params) . ";",
+    "var itemRow = "  . \yii\helpers\Json::htmlEncode($params) . ";",
     $this::POS_HEAD,
-    'itemDoc'
+    'itemRow'
 );
 
 $this->registerJs($this->render('item/list.js'));
