@@ -6,7 +6,7 @@ use Zelenin\yii\SemanticUI\modules\Checkbox;
 
 ?>
 <tr>
-    <td class="center aligned">
+    <td class="select-row center aligned">
         <?= Checkbox::widget([
                 'name' => "[{$rowId}]menu_item",
                 'options' => ['style' => 'vertical-align: text-top']
@@ -29,7 +29,7 @@ use Zelenin\yii\SemanticUI\modules\Checkbox;
     </td>
     <td class="one wide center aligned">
         <?= Html::a(Elements::icon('grey trash alternate outline'), null, [
-                    'class' => 'del-item compact ui basic icon button',
+                    'class' => 'del-row compact ui basic icon button',
                     'style' => 'margin: 0em;'
                 ]) ?>
         <?= Html::activeHiddenInput($model, "[{$rowId}]icon") ?>

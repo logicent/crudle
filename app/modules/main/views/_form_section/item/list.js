@@ -111,8 +111,8 @@ $('table.in-form tbody').on('change', 'td > input',
 $('table.in-form').on('click',  'th.select-all-rows > .ui.checkbox',
     function(e) {
         select_all_rows = $(this).find('input').is(':checked');
-        all_rows = $(this).closest('tbody').find('td.select-row input');
-        del_row = $('.del-row');
+        all_rows = $(this).parents('table').find('td.select-row input');
+        del_row = $(this).parents('table').siblings('.del-row');
 
         if (select_all_rows) {
             del_row.show();
@@ -134,10 +134,10 @@ $('table.in-form').on('click',  'th.select-all-rows > .ui.checkbox',
 
 $('table.in-form tbody').on('click', 'td.select-row > .ui.checkbox',
     function(e) {
-        select_all_rows = $(this).siblings('thead').find('.select-all-rows > .ui.checkbox > input');
-        all_rows = $(this).find('input:checkbox').length;
-        selected_rows = $(this).find('input:checked').length;
-        del_row = $('.del-row');
+        select_all_rows = $(this).parents('table').find('th.select-all-rows > .ui.checkbox > input');
+        all_rows = $(this).parents('tbody').find('.select-row input:checkbox').length;
+        selected_rows = $(this).parents('table').find('.select-row input:checked').length;
+        del_row = $(this).parents('table').siblings('.del-row');
 
         if (selected_rows == 0) {
             select_all_rows.prop('checked', false);
@@ -156,7 +156,7 @@ $('.del-row').on('click',
     function(e) {
         $(this).css('display', 'none');
         modelClass = $(this).data('model-class');
-        selectedRows = $(itemRow.table + ' td.select-row > .ui.checkbox > input:checked');
+        selectedRows = $(this).siblings('table.in-form').find('td.select-row > .ui.checkbox > input:checked');
 
         selectedRows.each(
             function(e) {
@@ -183,7 +183,7 @@ $('.del-row').on('click',
         rowCount = $(itemRow.table + ' tbody > tr').not('#no_data').length;
         if (rowCount == 0) {
             $('tr#no_data').show();
-            el_checkbox_all = $(itemRow.table + ' th.select-all-rows input');
+            el_checkbox_all = $('table.in-form th.select-all-rows input');
             el_checkbox_all.prop('checked', false);
 
             if (rowCount > 0)
@@ -196,11 +196,11 @@ $('.del-row').on('click',
 
 function displaySelectAllCheckboxIf(rowCount)
 {
-    el_checkbox_all = $(itemRow.table + ' th.select-all-rows input');
+    el_checkbox_all = $('table.in-form th.select-all-rows input');
     el_checkbox_all.prop('checked', false);
 
     if (rowCount > 0)
-        el_checkbox_all.parent('.ui.checkbox').css('display', '');
+        el_checkbox_all.parent('.select-row .ui.checkbox').css('display', '');
     else
-        el_checkbox_all.parent('.ui.checkbox').css('display', 'none');
+        el_checkbox_all.parent('.select-row .ui.checkbox').css('display', 'none');
 }
