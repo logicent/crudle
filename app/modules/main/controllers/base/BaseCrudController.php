@@ -487,7 +487,8 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
 
     protected function findModel( $id )
     {
-        if (( $this->model = $this->modelClass()::findOne( $id )) !== null )
+        $modelClass = $this->modelClass();
+        if (( $this->model = $modelClass::findOne( $id )) !== null )
             return $this->model;
 
         throw new NotFoundHttpException(
@@ -692,11 +693,15 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
     }
 
     // CrudInterface
-    public function modelClass()
-    {}
+    public function modelClass(): object
+    {
+        return $this->model::classBasename($this->model);
+    }
 
-    public function searchModelClass()
-    {}
+    public function searchModelClass(): object
+    {
+        return $this->model::classBasename($this->model);
+    }
 
     public function detailModelClass(): array
     {

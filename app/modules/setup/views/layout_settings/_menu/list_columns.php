@@ -4,5 +4,5 @@ return [
     'label',
     'route',
     'group',
-    'visible',
+    'inactive',
 ];

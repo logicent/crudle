@@ -8,7 +8,9 @@ use app\modules\main\enums\Type_View;
 use app\modules\setup\models\Setup;
 use Yii;
 use yii\filters\AccessControl;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
+use yii\helpers\Json;
 use yii\helpers\StringHelper;
 
 abstract class BaseSettingsController extends BaseFormController
@@ -42,6 +44,82 @@ abstract class BaseSettingsController extends BaseFormController
         }
 
         return $this->render('@app_setup/views/_settings/index');
+    }
+
+    public function actionAddItem()
+    {
+        if ( Yii::$app->request->isAjax )
+        {
+            $modelClass = Yii::$app->request->get('modelClass');
+            $model = new $modelClass();
+            // check for additional query params in get request
+            if ( !empty(Yii::$app->request->queryParams) )
+                $model->attributes = Yii::$app->request->queryParams;
+
+            $formView = Yii::$app->request->get('formView');
+            $itemModelClass = Yii::$app->request->get('itemModelClass');
+            return $this->renderPartial($formView, [
+                                        'itemModelClass' => !empty($itemModelClass) ? $itemModelClass : null,
+                                        'rowId' => Yii::$app->request->get('nextRowId'),
+                                        'model' => $model,
+                                        'formData' => null
+                                    ]);
+        }
+        // else
+        Yii::$app->end();
+    }
+
+    public function actionEditItem()
+    {
+        if ( Yii::$app->request->isAjax )
+        {
+            $modelClass = Yii::$app->request->get('modelClass');
+            $modelId = Yii::$app->request->get('modelId');
+            $model = $modelClass::findOne($modelId);
+            if (!$model)
+                $model = new $modelClass();
+
+            $formData = Yii::$app->request->get('formData');
+            $formData = ArrayHelper::map($formData, 'name', 'value');
+            $formView = Yii::$app->request->get('formView');
+            return $this->renderAjax($formView, [
+                        'model' => $model,
+                        'modelClass' => StringHelper::basename($modelClass),
+                        'formData' => $formData,
+                        'rowId' => trim(Yii::$app->request->get('rowId')),
+                    ]);
+        }
+        // else
+        Yii::$app->end();
+    }
+
+    public function actionDeleteItem()
+    {
+        if ( Yii::$app->request->isAjax )
+        {
+            $modelClass = $this->modelClass . Yii::$app->request->post('modelType');
+            $model = $modelClass::findOne(Yii::$app->request->post('modelId'));
+            if ( !$model )
+                return Json::encode(['exists' => false]);
+
+            if ($model->delete() > 0)
+            {
+                // if ( $model->allowFileUpload() && isset( $model->{ $model->fileAttribute } ))
+                //     $files = explode(',', $model->{ $model->fileAttribute });
+                //     if ( !empty($files) )
+                //         if ( is_array( $files ))
+                //             foreach ( $files as $file )
+                //                 FileHelper::unlink( Yii::getAlias('@webroot/uploads/') . $file );
+                //         else
+                //             FileHelper::unlink( Yii::getAlias('@webroot/uploads/') . $this->model->{ $model->fileAttribute } );
+                // Yii session success message
+                return Json::encode(['succeeded' => true]);
+            }
+            // Yii session failed message
+            return Json::encode(['failed' => true]);
+        }
+        // else
+        Yii::$app->end();
     }
 
     // LayoutInterface

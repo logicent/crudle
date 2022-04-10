@@ -23,7 +23,7 @@ class BaseAppMenu extends BaseActiveRecord
                 'icon_path',
                 'icon_color',
                 'route',
-                // 'label',
+                'label',
                 'group',
             ], 'string'],
             ['inactive', 'boolean'],
@@ -34,17 +34,16 @@ class BaseAppMenu extends BaseActiveRecord
     {
         $attributeLabels = parent::attributeLabels();
 
-        return ArrayHelper::merge($attributeLabels, [
-            [
+        return
+            ArrayHelper::merge($attributeLabels, [
                 'icon'      =>  Yii::t('app', 'Icon'),
                 'icon_path'  =>  Yii::t('app', 'Icon path'),
                 'icon_color' =>  Yii::t('app', 'Icon color'),
                 'route'     =>  Yii::t('app', 'Route'),
-                'title'     =>  Yii::t('app', 'Label'),
+                'label'     =>  Yii::t('app', 'Label'),
                 'group'     =>  Yii::t('app', 'Group'),
-                'status'   =>  Yii::t('app', 'Inactive'),
-            ]
-        ]);
+                'inactive'   =>  Yii::t('app', 'Inactive'),
+            ]);
     }
 
     public static function menuType()

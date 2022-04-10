@@ -58,6 +58,7 @@ $(itemDoc.section + ' .add-row').on('click',
             data: {
                 'modelClass': $(this).data('model-class'),
                 'formView': $(this).data('form-view'),
+                // 'formConfig': $('#' + $(this).data('form-id'),
                 'nextRowId': el_table_body.find('tr').not('#no_data').length + 1
             },
             success: function(response) {

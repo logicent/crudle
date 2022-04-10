@@ -8,7 +8,7 @@ return [
         'expanded' => true
     ], [
         'id' => 'date_time',
-        'label' => 'Date, time and language',
+        'label' => 'Language, date and time',
         'collapsible' => true,
         'expanded' => false
     ], [

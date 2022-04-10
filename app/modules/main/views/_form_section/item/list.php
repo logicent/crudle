@@ -1,7 +1,6 @@
 <?php
 
 use yii\helpers\Html;
-use yii\helpers\StringHelper;
 use Zelenin\yii\SemanticUI\Elements;
 use Zelenin\yii\SemanticUI\helpers\Size;
 use Zelenin\yii\SemanticUI\modules\Checkbox;
@@ -19,12 +18,15 @@ $modal::end();
     <table class="in-form ui celled table">
         <thead>
             <tr style="font-size: 110%">
-                <th class="select-all-rows" width="8%">
+                <th class="select-all-rows" width="10%">
                     <?= Checkbox::widget(['name' => 'select_all_rows', 'options' => ['style' => 'vertical-align: text-top']]) ?>
                     <?= Yii::t('app', 'No.') ?>
                 </th>
-                <!-- insert view columns above -->
-                <?php //= $this->render($columnHeaders, $options) ?>
+                <?php
+                    foreach ($columnHeaders as $columnHeader) :
+                        echo Html::tag('th', $modelClass::attributeLabels()[$columnHeader], ['width' => '20%']);
+                    endforeach;
+                ?>
                 <th class="one wide center aligned">
                     <?= Html::a(Elements::icon('ellipsis horizontal', ['class' => 'grey', 'style' => 'margin-right: 0em']),
                                 false,
@@ -50,15 +52,15 @@ $modal::end();
     echo Elements::button('Delete', [
             'class' => 'compact red small del-row',
             'data' => [
-                // 'modelClass' => $this->context->modelClass . 'Item'
+                'model-class' => $modelClass
             ],
             'style' => 'display : none'
         ]);
     echo Elements::button('Add Item', [
             'class' => 'compact small add-row',
             'data'  => [
-                // 'model-class' => $this->context->modelClass . 'Item',
-                'form-view' => '/_form_section/item/_form',
+                'model-class' => $modelClass,
+                'form-view' => $formView,
             ]
         ]) ?>
 </div>

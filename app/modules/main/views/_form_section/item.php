@@ -4,7 +4,15 @@
 
 use yii\helpers\Url;
 
-echo $this->render('item/list', ['model' => $model, 'form' => $form]);
+$columnHeaders = require Yii::getAlias($listColumns . '.php');
+
+echo $this->render('item/list', [
+        'model' => $model,
+        'modelClass' => $modelClass,
+        'form' => $form,
+        'formView' => $formView,
+        'columnHeaders' => $columnHeaders,
+    ]);
 
 $params = [
     'formId' => strtolower($model->formName()),
