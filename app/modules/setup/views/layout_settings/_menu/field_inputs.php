@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\setup\models\AppMenuForm;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;
 use Zelenin\yii\SemanticUI\modules\Checkbox;
@@ -28,9 +29,14 @@ use Zelenin\yii\SemanticUI\modules\Checkbox;
             ]) ?>
     </td>
     <td class="one wide center aligned">
-        <?= Html::a(Elements::icon('grey trash alternate outline'), null, [
-                    'class' => 'del-row compact ui basic icon button',
-                    'style' => 'margin: 0em;'
+        <?= Html::a(Elements::icon('grey pencil'), null, [
+                    'class' => 'edit-item--btn compact ui basic icon button',
+                    'style' => 'margin: 0em;',
+                    'data' => [
+                        'model-id' => null, // menu title
+                        'model-class' => AppMenuForm::class,
+                        'form-view' => '@app_setup/views/layout_settings/_menu/_edit_form',
+                    ]
                 ]) ?>
         <?= Html::activeHiddenInput($model, "[{$rowId}]icon") ?>
         <?= Html::activeHiddenInput($model, "[{$rowId}]icon_path") ?>

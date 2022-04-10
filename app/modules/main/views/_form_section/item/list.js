@@ -8,7 +8,7 @@ $('table.in-form').on('click', '.edit-item--btn',
         // formData = new FormData(formData);
 
         $.ajax({
-            url: 'edit-item',
+            url: itemRow.editItemUrl,
             type: 'get',
             data: {
                 'modelClass': $(this).data('model-class'),

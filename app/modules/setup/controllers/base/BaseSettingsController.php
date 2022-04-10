@@ -75,6 +75,7 @@ abstract class BaseSettingsController extends BaseFormController
         {
             $modelClass = Yii::$app->request->get('modelClass');
             $modelId = Yii::$app->request->get('modelId');
+            // find in Json and map to Model instance
             $model = $modelClass::findOne($modelId);
             if (!$model)
                 $model = new $modelClass();
