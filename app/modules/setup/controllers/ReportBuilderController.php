@@ -18,12 +18,12 @@ class ReportBuilderController extends BaseCrudController
         return parent::init();
     }
 
-    public function modelClass()
+    public function modelClass(): string
     {
         return ReportBuilder::class;
     }
 
-    public function searchModelClass()
+    public function searchModelClass(): string
     {
         return ReportBuilderSearch::class;
     }

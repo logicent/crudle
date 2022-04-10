@@ -8,12 +8,12 @@ use app\modules\setup\models\EmailTemplateSearch;
 
 class EmailTemplateController extends BaseCrudController
 {
-    public function modelClass()
+    public function modelClass(): string
     {
         return EmailTemplate::class;
     }
 
-    public function searchModelClass()
+    public function searchModelClass(): string
     {
         return EmailTemplateSearch::class;
     }

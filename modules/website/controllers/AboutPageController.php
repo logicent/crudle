@@ -7,7 +7,7 @@ use website\models\AboutPage;
 
 class AboutPageController extends BaseSettingsController
 {
-    public function modelClass()
+    public function modelClass(): string
     {
         return AboutPage::class;
     }

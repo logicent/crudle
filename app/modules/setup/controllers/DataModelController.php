@@ -19,12 +19,12 @@ class DataModelController extends BaseCrudController
 {
     public $fieldDataProvider;
 
-    public function modelClass()
+    public function modelClass(): string
     {
         return DataModel::class;
     }
 
-    public function searchModelClass()
+    public function searchModelClass(): string
     {
         return DataModelSearch::class;
     }

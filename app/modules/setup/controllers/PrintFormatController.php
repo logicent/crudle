@@ -8,12 +8,12 @@ use app\modules\setup\models\PrintFormatSearch;
 
 class PrintFormatController extends BaseCrudController
 {
-    public function modelClass()
+    public function modelClass(): string
     {
         return PrintFormat::class;
     }
 
-    public function searchModelClass()
+    public function searchModelClass(): string
     {
         return PrintFormatSearch::class;
     }

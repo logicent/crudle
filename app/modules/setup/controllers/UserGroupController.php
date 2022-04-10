@@ -8,12 +8,12 @@ use app\modules\setup\models\UserGroupSearch;
 
 class UserGroupController extends BaseCrudController
 {
-    public function modelClass()
+    public function modelClass(): string
     {
         return UserGroup::class;
     }
 
-    public function searchModelClass()
+    public function searchModelClass(): string
     {
         return UserGroupSearch::class;
     }

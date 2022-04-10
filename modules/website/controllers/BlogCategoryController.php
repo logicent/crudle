@@ -11,12 +11,12 @@ use website\models\BlogCategorySearch;
  */
 class BlogCategoryController extends BaseCrudController
 {
-    public function modelClass()
+    public function modelClass(): string
     {
         return BlogCategory::class;
     }
 
-    public function searchModelClass()
+    public function searchModelClass(): string
     {
         return BlogCategorySearch::class;
     }

@@ -8,12 +8,12 @@ use app\modules\setup\models\UserLogSearch;
 
 class UserLogController extends BaseCrudController
 {
-    public function modelClass()
+    public function modelClass(): string
     {
         return UserLog::class;
     }
 
-    public function searchModelClass()
+    public function searchModelClass(): string
     {
         return UserLogSearch::class;
     }

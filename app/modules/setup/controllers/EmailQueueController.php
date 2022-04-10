@@ -8,12 +8,12 @@ use app\modules\setup\models\EmailQueueSearch;
 
 class EmailQueueController extends BaseCrudController
 {
-    public function modelClass()
+    public function modelClass(): string
     {
         return EmailQueue::class;
     }
 
-    public function searchModelClass()
+    public function searchModelClass(): string
     {
         return EmailQueueSearch::class;
     }

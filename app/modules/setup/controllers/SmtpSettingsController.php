@@ -9,7 +9,7 @@ use Yii;
 
 class SmtpSettingsController extends BaseSettingsController
 {
-    public function modelClass()
+    public function modelClass(): string
     {
         return SmtpSettingsForm::class;
     }

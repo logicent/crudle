@@ -7,7 +7,7 @@ use app\modules\setup\models\EmailForm;
 
 class EmailController extends BaseFormController
 {
-    public function modelClass()
+    public function modelClass(): string
     {
         return EmailForm::class;
     }

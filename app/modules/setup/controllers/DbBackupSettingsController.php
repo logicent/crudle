@@ -148,7 +148,7 @@ class DbBackupSettingsController extends BaseSettingsController
     }
 
     // Interface
-    public function modelClass()
+    public function modelClass(): string
     {
         return DbBackupSettingsForm::class;
     }

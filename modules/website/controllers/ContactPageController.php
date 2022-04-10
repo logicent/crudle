@@ -7,7 +7,7 @@ use website\models\ContactPage;
 
 class ContactPageController extends BaseSettingsController
 {
-    public function modelClass()
+    public function modelClass(): string
     {
         return ContactPage::class;
     }

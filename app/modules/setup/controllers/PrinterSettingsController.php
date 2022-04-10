@@ -7,7 +7,7 @@ use app\modules\setup\models\PrinterSettingsForm;
 
 class PrinterSettingsController extends BaseSettingsController
 {
-    public function modelClass()
+    public function modelClass(): string
     {
         return PrinterSettingsForm::class;
     }

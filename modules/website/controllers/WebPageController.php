@@ -11,12 +11,12 @@ use website\models\WebPageSearch;
  */
 class WebPageController extends BaseCrudController
 {
-    public function modelClass()
+    public function modelClass(): string
     {
         return WebPage::class;
     }
 
-    public function searchModelClass()
+    public function searchModelClass(): string
     {
         return WebPageSearch::class;
     }

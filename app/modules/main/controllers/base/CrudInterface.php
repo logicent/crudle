@@ -34,8 +34,8 @@ interface CrudInterface
     // form view edit row action
     public function actionEditRow($id);
 
-    // form view get row action
-    public function actionGetRow($id);
+    // form view get item action
+    public function actionGetItem($id);
 
     // form view delete row action
     public function actionDeleteRow($id);
@@ -44,10 +44,10 @@ interface CrudInterface
     public function actionBatch();
 
     // crud view model class
-    public function modelClass(): object;
+    public function modelClass(): string;
 
     // crud view search model class
-    public function searchModelClass(): object;
+    public function searchModelClass(): string;
 
     // crud view detail model class(es)
     public function detailModelClass(): array;

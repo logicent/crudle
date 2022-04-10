@@ -7,7 +7,7 @@ use app\modules\setup\models\LayoutSettingsForm;
 
 class LayoutSettingsController extends BaseSettingsController
 {
-    public function modelClass()
+    public function modelClass(): string
     {
         return LayoutSettingsForm::class;
     }

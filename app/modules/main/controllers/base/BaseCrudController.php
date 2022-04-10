@@ -541,7 +541,7 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
         Yii::$app->end();
     }
 
-    public function actionAddItem()
+    public function actionAddRow()
     {
         if ( Yii::$app->request->isAjax )
         {
@@ -567,7 +567,23 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
         Yii::$app->end();
     }
 
-    public function actionEditItem()
+    public function actionGetItem($id)
+    {
+        if ( Yii::$app->request->isAjax )
+        {
+            $modelClass = Yii::$app->request->get('modelClass');
+            $modelId = Yii::$app->request->get('modelId');
+            $model = $modelClass::findOne($modelId);
+            if (!$model)
+                $model = new $modelClass();
+
+            return $this->asJson([]);
+        }
+        // else
+        Yii::$app->end();
+    }
+
+    public function actionEditRow($id)
     {
         if ( Yii::$app->request->isAjax )
         {
@@ -591,7 +607,7 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
         Yii::$app->end();
     }
 
-    public function actionDeleteItem()
+    public function actionDeleteRow($id)
     {
         if ( Yii::$app->request->isAjax )
         {
@@ -693,14 +709,14 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
     }
 
     // CrudInterface
-    public function modelClass(): object
+    public function modelClass(): string
     {
-        return $this->model::classBasename($this->model);
+        return '';
     }
 
-    public function searchModelClass(): object
+    public function searchModelClass(): string
     {
-        return $this->model::classBasename($this->model);
+        return '';
     }
 
     public function detailModelClass(): array

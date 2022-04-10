@@ -27,7 +27,7 @@ abstract class BaseFormController extends BaseViewController implements FormInte
     {}
 
     // FormInterface
-    public function modelClass()
+    public function modelClass(): string
     {}
 
     public function getModel()

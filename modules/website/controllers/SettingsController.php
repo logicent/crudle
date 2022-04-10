@@ -10,7 +10,7 @@ use website\models\WebsiteSettingsForm;
  */
 class SettingsController extends BaseSettingsController
 {
-    public function modelClass()
+    public function modelClass(): string
     {
         return WebsiteSettingsForm::class;
     }

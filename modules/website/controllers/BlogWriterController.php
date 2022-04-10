@@ -11,12 +11,12 @@ use website\models\BlogWriterSearch;
  */
 class BlogWriterController extends BaseCrudController
 {
-    public function modelClass()
+    public function modelClass(): string
     {
         return BlogWriter::class;
     }
 
-    public function searchModelClass()
+    public function searchModelClass(): string
     {
         return BlogWriterSearch::class;
     }

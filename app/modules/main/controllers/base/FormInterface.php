@@ -8,7 +8,7 @@ interface FormInterface
     public function actionIndex();
 
     // form view model class
-    public function modelClass();
+    public function modelClass(): string;
 
     // form view model
     public function getModel();

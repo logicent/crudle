@@ -10,7 +10,7 @@ use website\models\WebsiteScriptForm;
  */
 class ScriptController extends BaseSettingsController
 {
-    public function modelClass()
+    public function modelClass(): string
     {
         return WebsiteScriptForm::class;
     }

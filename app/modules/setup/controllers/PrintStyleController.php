@@ -8,12 +8,12 @@ use app\modules\setup\models\PrintStyleSearch;
 
 class PrintStyleController extends BaseCrudController
 {
-    public function modelClass()
+    public function modelClass(): string
     {
         return PrintStyle::class;
     }
 
-    public function searchModelClass()
+    public function searchModelClass(): string
     {
         return PrintStyleSearch::class;
     }

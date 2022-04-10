@@ -11,12 +11,12 @@ use website\models\WebFormSearch;
  */
 class WebFormController extends BaseCrudController
 {
-    public function modelClass()
+    public function modelClass(): string
     {
         return WebForm::class;
     }
 
-    public function searchModelClass()
+    public function searchModelClass(): string
     {
         return WebFormSearch::class;
     }
