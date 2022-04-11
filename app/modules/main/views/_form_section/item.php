@@ -8,7 +8,6 @@ $columnHeaders = require Yii::getAlias($listColumns . '.php');
 
 echo $this->render('item/list', [
         'model' => $model,
-        'modelClass' => $modelClass,
         'form' => $form,
         'formView' => $formView,
         'columnHeaders' => $columnHeaders,

@@ -2,6 +2,9 @@
 
 namespace app\helpers;
 
+use yii\helpers\Inflector;
+use yii\helpers\StringHelper;
+
 /**
  * App helper.
  *
@@ -20,5 +23,21 @@ class App
     public static function env(string $name)
     {
         return $_SERVER[$name] ?? getenv($name);
+    }
+
+    public static function className($object)
+    {
+        return get_class($object);
+    }
+
+    public static function classBasename($object)
+    {
+        $class = self::className($object);
+        return StringHelper::basename($class);
+    }
+
+    public function classDisplayName($object)
+    {
+        return Inflector::camel2words(self::classBasename($object));
     }
 }

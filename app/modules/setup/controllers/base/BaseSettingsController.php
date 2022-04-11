@@ -57,13 +57,12 @@ abstract class BaseSettingsController extends BaseFormController
                 $model->attributes = Yii::$app->request->queryParams;
 
             $formView = Yii::$app->request->get('formView');
-            $itemModelClass = Yii::$app->request->get('itemModelClass');
+
             return $this->renderPartial($formView, [
-                                        'itemModelClass' => !empty($itemModelClass) ? $itemModelClass : null,
-                                        'rowId' => Yii::$app->request->get('nextRowId'),
-                                        'model' => $model,
-                                        'formData' => null
-                                    ]);
+                            'rowId' => Yii::$app->request->get('nextRowId'),
+                            'model' => $model,
+                            'formData' => null
+                        ]);
         }
         // else
         Yii::$app->end();

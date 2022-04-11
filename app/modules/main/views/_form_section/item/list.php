@@ -1,5 +1,6 @@
 <?php
 
+use app\helpers\App;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;
 use Zelenin\yii\SemanticUI\helpers\Size;
@@ -24,7 +25,7 @@ $modal::end();
                 </th>
                 <?php
                     foreach ($columnHeaders as $columnHeader) :
-                        echo Html::tag('th', $modelClass::attributeLabels()[$columnHeader], ['width' => '20%']);
+                        echo Html::tag('th', $model->getAttributeLabel($columnHeader), ['width' => '20%']);
                     endforeach;
                 ?>
                 <th class="one wide center aligned">
@@ -52,14 +53,14 @@ $modal::end();
     echo Elements::button('Delete', [
             'class' => 'compact red small del-row',
             'data' => [
-                'model-class' => $modelClass
+                'model-class' => App::className($model)
             ],
             'style' => 'display : none'
         ]);
     echo Elements::button('Add Item', [
             'class' => 'compact small add-row',
             'data'  => [
-                'model-class' => $modelClass,
+                'model-class' => App::className($model),
                 'form-view' => $formView,
             ]
         ]) ?>

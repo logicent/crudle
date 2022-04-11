@@ -4,10 +4,6 @@ namespace app\modules\main\models\base;
 
 interface ActiveRecordInterface
 {
-    // model class name
-    public static function classBasename($object = null);
-    // model class display name
-    public function classDisplayName();
     // column name or expression in selectable items
     public static function selectableItemsConfig();
     // array of enum classes

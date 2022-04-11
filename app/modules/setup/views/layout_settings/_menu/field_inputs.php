@@ -39,7 +39,7 @@ use Zelenin\yii\SemanticUI\modules\Checkbox;
                     ]
                 ]) ?>
         <?= Html::activeHiddenInput($model, "[{$rowId}]icon") ?>
-        <?= Html::activeHiddenInput($model, "[{$rowId}]icon_path") ?>
-        <?= Html::activeHiddenInput($model, "[{$rowId}]icon_color") ?>
+        <?= Html::activeHiddenInput($model, "[{$rowId}]iconPath") ?>
+        <?= Html::activeHiddenInput($model, "[{$rowId}]iconColor") ?>
     </td>
 </tr>

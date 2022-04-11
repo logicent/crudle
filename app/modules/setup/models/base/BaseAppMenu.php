@@ -2,16 +2,18 @@
 
 namespace app\modules\setup\models\base;
 
-use app\modules\main\models\base\BaseActiveRecord;
+use app\modules\main\models\Model;
 use Yii;
 use yii\helpers\ArrayHelper;
 
-class BaseAppMenu extends BaseActiveRecord
+class BaseAppMenu extends Model
 {
-    public static function tableName()
-    {
-        return 'app_menu';
-    }
+    public $icon;
+    public $iconPath;
+    public $iconColor;
+    public $route;
+    public $label;
+    public $group;
 
     public function rules()
     {
@@ -20,8 +22,8 @@ class BaseAppMenu extends BaseActiveRecord
         return ArrayHelper::merge($rules, [
             [[
                 'icon',
-                'icon_path',
-                'icon_color',
+                'iconPath',
+                'iconColor',
                 'route',
                 'label',
                 'group',
@@ -37,17 +39,12 @@ class BaseAppMenu extends BaseActiveRecord
         return
             ArrayHelper::merge($attributeLabels, [
                 'icon'      =>  Yii::t('app', 'Icon'),
-                'icon_path'  =>  Yii::t('app', 'Icon path'),
-                'icon_color' =>  Yii::t('app', 'Icon color'),
+                'iconPath'  =>  Yii::t('app', 'Icon path'),
+                'iconColor' =>  Yii::t('app', 'Icon color'),
                 'route'     =>  Yii::t('app', 'Route'),
                 'label'     =>  Yii::t('app', 'Label'),
                 'group'     =>  Yii::t('app', 'Group'),
                 'inactive'   =>  Yii::t('app', 'Inactive'),
             ]);
-    }
-
-    public static function menuType()
-    {
-
     }
 }

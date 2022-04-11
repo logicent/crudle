@@ -288,17 +288,6 @@ abstract class BaseActiveRecord extends ActiveRecord implements ActiveRecordInte
     }
 
     // ActiveRecord Interface
-    public static function classBasename($object = null)
-    {
-        $class = get_class($object);
-        return StringHelper::basename($class);
-    }
-
-    public function classDisplayName()
-    {
-        return Inflector::camel2words(self::classBasename($this));
-    }
-
     public static function selectableItemsConfig()
     {
         return [
