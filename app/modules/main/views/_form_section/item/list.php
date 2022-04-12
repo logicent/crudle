@@ -9,10 +9,12 @@ use Zelenin\yii\SemanticUI\modules\Modal;
 
 
 $modal = Modal::begin([
-    'class' => 'item--modal',
+    'id' =>  $listId . '__modal',
     'size' => Size::MEDIUM,
 ]);
 $modal::end();
+
+$hideSelectAllCheckbox = empty($items) ? 'none' : '';
 ?>
 
 <div id="<?= $listId ?>">
@@ -20,7 +22,12 @@ $modal::end();
         <thead>
             <tr style="font-size: 110%">
                 <th class="select-all-rows" width="10%">
-                    <?= Checkbox::widget(['name' => 'select_all_rows', 'options' => ['style' => 'vertical-align: text-top']]) ?>
+                    <?= Checkbox::widget([
+                            'name' => 'select_all_rows',
+                            'options' => [
+                                'style' => "vertical-align: text-top; display: $hideSelectAllCheckbox"
+                            ]
+                        ]) ?>
                     <?= Yii::t('app', 'No.') ?>
                 </th>
                 <?php

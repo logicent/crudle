@@ -2,6 +2,7 @@
 
 namespace app\modules\setup\models;
 
+use app\modules\main\enums\Type_Relation;
 use app\modules\setup\models\base\BaseSettingsForm;
 use Yii;
 
@@ -32,12 +33,12 @@ class LayoutSettingsForm extends BaseSettingsForm
         $this->uploadForm = new \app\modules\main\models\UploadForm();
         $this->fileAttribute = 'bgImagePath';
 
-        $this->shortcutMenu = new AppMenuForm();
-        $this->sidebarMenu = new AppMenuForm();
-        $this->createMenu = new AppMenuForm();
-        $this->alertMenu = new AppMenuForm();
-        $this->helpMenu = new AppMenuForm();
-        $this->userMenu = new AppMenuForm();
+        $this->shortcutMenu = new AppMenuShortcut();
+        $this->createMenu = new AppMenuCreate();
+        $this->alertMenu = new AppMenuAlert();
+        $this->helpMenu = new AppMenuHelp();
+        // $this->userMenu = new AppMenuUser();
+        // $this->sidebarMenu = new AppMenuSidebar();
     }
 
     public function rules()
@@ -47,23 +48,27 @@ class LayoutSettingsForm extends BaseSettingsForm
                 'shortcutMenu',
                 'sidebarMenu',
                 'createMenu',
-                'helpMenu',
                 'alertMenu',
+                'helpMenu',
                 'userMenu',
+            ], 'string'], // To-Do: use JSONValidator and/or model Object validator
+            [[
+                'homeButtonIcon',
+                'copyrightLabel',
+                'bgImagePath',
+                'bgImageStyles',
+                // 'flashMessagePosition'
+            ], 'string'],
+            [[
+                'pinMainSidebar',
                 'hideCreateMenu',
                 'hideHelpMenu',
                 'hideAlertMenu',
                 'hideSearchbar',
                 'hideWebsiteLink',
-                'pinMainSidebar',
                 'showHelpInfo',
-                'bgImagePath',
-                'bgImageStyles',
-                'homeButtonIcon',
-                'copyrightLabel',
-                'allowUserPreference'
-                // 'flashMessagePosition'
-            ], 'safe'],
+                'allowUserPreference',
+            ], 'boolean']
         ];
     }
 
@@ -89,6 +94,36 @@ class LayoutSettingsForm extends BaseSettingsForm
             'copyrightLabel'    =>  Yii::t('app', 'Copyright label'),
             'allowUserPreference'   =>  Yii::t('app', 'Allow user preferences'),
             // 'flashMessagePosition'    =>  Yii::t('app', 'Flash message position'),
+        ];
+    }
+
+    public static function relations()
+    {
+        return [
+            'createMenu' => [
+                'class' => AppMenuCreate::class,
+                'type' => Type_Relation::InlineModel,
+            ],
+            'helpMenu' => [
+                'class' => AppMenuHelp::class,
+                'type' => Type_Relation::InlineModel,
+            ],
+            'userMenu' => [
+                'class' => AppMenuUser::class,
+                'type' => Type_Relation::InlineModel,
+            ],
+            'alertMenu' => [
+                'class' => AppMenuAlert::class,
+                'type' => Type_Relation::InlineModel,
+            ],
+            'sidebarMenu' => [
+                'class' => AppMenuSidebar::class,
+                'type' => Type_Relation::InlineModel,
+            ],
+            'shortcutMenu' => [
+                'class' => AppMenuShortcut::class,
+                'type' => Type_Relation::InlineModel,
+            ],
         ];
     }
 }

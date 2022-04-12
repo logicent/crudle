@@ -1,22 +1,33 @@
 <?php
 
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\modules\Checkbox;
+use Zelenin\yii\SemanticUI\widgets\ActiveForm;
 
-?>
-<div class="ui two column stackable grid">
-    <div class="column">
-        <?= Html::activeTextInput($model, "[{$rowId}]label", ['maxlength' => true]) ?>
-        <?= Html::activeTextInput($model, "[{$rowId}]route", ['maxlength' => true]) ?>
-        <?= Html::activeTextInput($model, "[{$rowId}]group", ['maxlength' => true]) ?>
-        <?= Checkbox::widget([
-                'name' => "[{$rowId}]inactive",
-                'options' => ['style' => 'vertical-align: text-top']
-            ]) ?>
-    </div>
-    <div class="column">
-        <?= Html::activeHiddenInput($model, "[{$rowId}]icon") ?>
-        <?= Html::activeHiddenInput($model, "[{$rowId}]icon_path") ?>
-        <?= Html::activeHiddenInput($model, "[{$rowId}]icon_color") ?>
+$form = ActiveForm::begin([
+    'id' => $model->formName(),
+    'enableClientValidation' => false,
+    'options' => [
+        'autocomplete' => 'off',
+        'class' => 'ui form',
+    ],
+]) ?>
+<div class="ui padded segment">
+    <div class="ui two column stackable grid">
+        <div class="column">
+            <?= $form->field($model, "[$rowId]label")->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, "[$rowId]route")->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, "[$rowId]group")->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, "[$rowId]inactive")->checkbox([
+                    'options' => ['style' => 'vertical-align: text-top']
+                ]) ?>
+        </div>
+        <div class="column">
+            <?= Html::activeHiddenInput($model, "[$rowId]type") ?>
+            <?= $form->field($model, "[$rowId]icon")->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, "[$rowId]iconPath")->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, "[$rowId]iconColor")->textInput(['maxlength' => true]) ?>
+        </div>
     </div>
 </div>
+<?php
+ActiveForm::end() ?>

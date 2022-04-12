@@ -73,18 +73,13 @@ abstract class BaseSettingsController extends BaseFormController
         if ( Yii::$app->request->isAjax )
         {
             $modelClass = Yii::$app->request->get('modelClass');
-            $modelId = Yii::$app->request->get('modelId');
-            // find in Json and map to Model instance
-            $model = $modelClass::findOne($modelId);
-            if (!$model)
-                $model = new $modelClass();
+            $model = new $modelClass();
 
             $formData = Yii::$app->request->get('formData');
             $formData = ArrayHelper::map($formData, 'name', 'value');
             $formView = Yii::$app->request->get('formView');
             return $this->renderAjax($formView, [
                         'model' => $model,
-                        'modelClass' => StringHelper::basename($modelClass),
                         'formData' => $formData,
                         'rowId' => trim(Yii::$app->request->get('rowId')),
                     ]);

@@ -14,12 +14,18 @@ class BaseAppMenu extends Model
     public $route;
     public $label;
     public $group;
+    public $inactive;
+    public $type;
 
     public function rules()
     {
         $rules = parent::rules();
 
         return ArrayHelper::merge($rules, [
+            [[
+                'route',
+                'label',
+            ], 'required'],
             [[
                 'icon',
                 'iconPath',
