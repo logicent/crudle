@@ -26,6 +26,11 @@ class DashboardController extends BaseViewController
         return Type_View::Dashboard;
     }
 
+    public function showViewHeader(): bool
+    {
+        return false;
+    }
+
     public function showViewSidebar(): bool
     {
         return false;

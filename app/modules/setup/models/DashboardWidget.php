@@ -3,16 +3,16 @@
 namespace app\modules\setup\models;
 
 use app\enums\Status_Active;
+use app\modules\main\models\base\BaseActiveRecord;
 use app\modules\setup\enums\Permission_Group;
 use app\modules\setup\enums\Type_Permission;
-use app\modules\setup\models\base\BaseAppMenu;
 use Yii;
 use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "app_dashboard_widget".
  */
-class DashboardWidget extends BaseAppMenu
+class DashboardWidget extends BaseActiveRecord
 {
     public function init()
     {

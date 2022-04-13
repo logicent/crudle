@@ -36,7 +36,7 @@ class App
         return StringHelper::basename($class);
     }
 
-    public function classDisplayName($object)
+    public static function classDisplayName($object)
     {
         return Inflector::camel2words(self::classBasename($object));
     }

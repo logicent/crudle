@@ -343,9 +343,9 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
             'modelDetails' => $this->detailModels,
         ];
         if ( Yii::$app->request->isAjax )
-            return $this->renderAjax( '@app_main/views/_crud//index', $data );
+            return $this->renderAjax( '@app_main/views/_crud/index', $data );
         // else
-        return $this->render( '@app_main/views/_crud//index', $data );
+        return $this->render( '@app_main/views/_crud/index', $data );
     }
 
     protected function copyModel( $id, $includeDetails = true )

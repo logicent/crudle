@@ -11,7 +11,7 @@ interface LayoutInterface
 
     public function actionMyLayoutSettings();
 
-    public function showMainNavbar(): bool;
+    public function pageNavbar(): string;
     public function showMainSidebar(): bool;
     public function sidebarColWidth(): string;
     public function mainColumnWidth(): string;

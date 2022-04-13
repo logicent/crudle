@@ -64,7 +64,7 @@ $modal::end();
             'class' => 'compact tiny add-row',
             'data'  => [
                 'url' => Url::to(['add-item']),
-                'model-class' => $this->context->modelClass . 'Item',
+                'model-class' => $this->context->modelClass() . 'Item',
                 'form-view' => 'column/_form',
             ]
         ]) ?>

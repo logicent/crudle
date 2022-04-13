@@ -104,9 +104,9 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
     {
     }
 
-    public function showMainNavbar(): bool
+    public function pageNavbar(): string
     {
-        return true;
+        return '_main_navbar';
     }
 
     public function showViewHeader(): bool

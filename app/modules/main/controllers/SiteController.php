@@ -216,4 +216,14 @@ class SiteController extends BaseViewController
 
         return Yii::createObject($config);
     }
+
+    public function pageNavbar(): string
+    {
+        return '_site_navbar';
+    }
+
+    public function showViewHeader(): bool
+    {
+        return false;
+    }
 }

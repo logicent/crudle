@@ -5,6 +5,9 @@ use Zelenin\yii\SemanticUI\collections\Breadcrumb;
 use Zelenin\yii\SemanticUI\Elements;
 
 ?>
+
+<?php $this->beginBlock('_main_navbar') ?>
+
 <div id="main_nav" class="ui attached menu text">
     <div class="item" id="menu_icon">
         <?= Html::a(Elements::icon('sidebar large'), ['#'],
@@ -35,20 +38,22 @@ use Zelenin\yii\SemanticUI\Elements;
             if ((bool) $layoutSettings->hideCreateMenu == false) :
                 echo $this->render('_nav_new');
             endif;
+
             if ((bool) $layoutSettings->hideSearchbar == false) :
                 echo $this->render('_global_search');
             endif;
+
             if ((bool) $layoutSettings->hideHelpMenu == false) :
                 echo $this->render('_nav_help');
             endif;
+
             echo $this->render('_nav_user', ['layoutSettings' => $layoutSettings]);
+
             if ((bool) $layoutSettings->hideAlertMenu == false) :
                 echo $this->render('_nav_alert');
             endif ?>
         </div>
     </div><!-- ./grid container -->
 </div><!-- ./attached menu text -->
-<?php
-    $this->registerJs(<<<JS
-        $('.ui.dropdown').dropdown();
-JS) ?>
+
+<?php $this->endBlock() ?>

@@ -2,6 +2,7 @@
 
 namespace app\modules\main\models\base;
 
+use app\helpers\App;
 use app\modules\main\enums\Type_Comment;
 use app\modules\main\enums\Type_Link;
 use app\modules\main\enums\Type_Mixed_Value;
@@ -564,7 +565,7 @@ abstract class BaseActiveRecord extends ActiveRecord implements ActiveRecordInte
 
     public function userCan($permission, $userId = null)
     {
-        $permissionName = $permission . self::SpaceChar . $this->classDisplayName();
+        $permissionName = $permission . self::SpaceChar . App::classDisplayName($this);
         $params = null;
         if (! $userId ) // assumes current user
             return Yii::$app->user->can($permissionName);

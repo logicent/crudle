@@ -1,0 +1,26 @@
+/* Reports Layout */
+
+#report_content .grid-view.ui.segment {
+    padding-left: 0.350em;
+    padding-right: 0.350em;
+}
+
+#report_content .ui.grid > .row > .column {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#report_content .grid-view.ui.segment {
+    max-width: 1155px;
+    max-height: 455px;
+    overflow-x: scroll; /* must be included */
+}
+
+#report_content .grid-view.ui.segment, #report_content .grid-view .ui.table {
+    border-radius: 0;
+}
+
+#report_content .grid-view .ui.table thead th {
+    background-color: #f5f7fa;
+    padding: 0.5em 0.350em;
+}

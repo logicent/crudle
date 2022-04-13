@@ -12,7 +12,9 @@ use yii\helpers\Url;
 use Zelenin\yii\SemanticUI\Elements;
 
 
-if ($context->layout !== 'print') :
+$controller = $this->context;
+
+if ($controller->layout !== 'print') :
     DirrtyAsset::register($this);
 endif;
 ?>
@@ -23,8 +25,8 @@ endif;
             <div class="ui floated header">
                 <?= Html::encode($this->title) ?>
                 <?php
-                    if ($context->action->id == 'read' ||
-                        $context->action->id == 'update') :
+                    if ($controller->action->id == 'read' ||
+                        $controller->action->id == 'update') :
                         $status = $this->context->model->getStatusAttribute();
                         echo Html::tag('small',
                             StatusMarker::icon('check circle', $this->context->model, $status) . StatusMarker::label($this->context->model, $status), [
@@ -36,7 +38,7 @@ endif;
         <div class="six wide column right aligned">
         <?php
             // all multiple record views like list and image view
-            if ($context->currentViewType() == Type_View::List) :
+            if ($controller->currentViewType() == Type_View::List) :
                 echo $this->render('_view_type');
                 echo Html::a(Elements::icon('refresh'), ['refresh'], [
                         'id' => 'refresh_btn',
@@ -54,7 +56,7 @@ endif;
                     ]);
                 echo $this->render('@app_main/views/_list/_menu');
 
-                if ( Yii::$app->user->can(Type_Permission::Create .' '. $context->viewName()) ) :
+                if ( Yii::$app->user->can(Type_Permission::Create .' '. $controller->viewName()) ) :
                     echo Html::a(Yii::t('app', 'New'), ['create'], [
                             'id' => 'create_btn',
                             'class' => 'compact ui primary button',
@@ -64,7 +66,7 @@ endif;
                         ]);
                 endif;
 
-                if ( Yii::$app->user->can(Type_Permission::Delete .' '. $context->viewName()) ) :
+                if ( Yii::$app->user->can(Type_Permission::Delete .' '. $controller->viewName()) ) :
                     echo Html::a(Yii::t('app', 'Delete'), ['delete-multiple'], [
                         'id' => 'delete_btn',
                         'class' => 'compact ui primary button',
@@ -78,7 +80,7 @@ endif;
                 endif;
             endif;
             // form view i.e. new or update record and setting form
-            if ($context->currentViewType() == Type_View::Form) : ?>
+            if ($controller->currentViewType() == Type_View::Form) : ?>
                 <!-- If form is dirty !!! then show reminder to save -->
                 <span class="app-status-label app-hidden">
                     <i class="ui mini yellow empty circular label"></i>
@@ -153,8 +155,8 @@ endif;
 </div>
 
 <?php
-if ($context->action->id == Resource_Action::Create ||
-    $context->action->id == Resource_Action::Update) :
+if ($controller->action->id == Resource_Action::Create ||
+    $controller->action->id == Resource_Action::Update) :
         $this->registerJs(<<<JS
             $('.ui.form').dirrty({
                 preventLeaving : false,

@@ -1,52 +1,36 @@
 <?php
 
-use yii\helpers\Html;
-use app\assets\AppAsset;
+$controller = $this->context;
+$layoutPath = '@app_main/views/_layouts/';
 
-AppAsset::register($this);
+$this->beginContent($layoutPath . 'base.php') ?>
 
-$this->beginPage() ?>
+<?= $this->render('_main_sidebar') ?>
 
-<!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
-    <head>
-        <meta charset="<?= Yii::$app->charset ?>">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <?= Html::csrfMetaTags() ?>
-        <title><?= Html::encode($this->title) ?></title>
-
-        <?php $this->head() ?>
-    </head>
-
-    <body>
-    <?php $this->beginBody() ?>
-
-    <?= $this->render('@app_main/views/_layouts/_navbar_main', ['context' => $this->context]) ?>
-    <?php //= $this->render('@app_main/views/_layouts/_view_header', ['context' => $this->context]) ?>
-
-    <div class="report"><!-- ui container -->
-        <div class="ui stackable two column grid">
-            <div class="three wide column">
-                <?= $this->context->renderPartial('_sidebar', ['context' => $this->context]) ?>
+<div class="main ui container pusher" style="margin-top: <?= $controller->id == 'dashboard' ? '103px;' : '133px;' ?>">
+    <div class="ui stackable grid">
+    <?php
+    if ($controller->showViewSidebar()) : ?>
+        <div class="computer only large screen only <?= $controller->sidebarColWidth() ?> wide column">
+            <!-- <div class="ui rail"> -->
+            <div class="ui sticky">
+            <?php
+                if (file_exists($controller->viewPath . '/_sidebar.php')) :
+                    echo $this->renderFile($controller->viewPath . '/_sidebar.php');
+                endif;
+            ?>
             </div>
-            <div id="content" class="thirteen wide column">
-                <?= $content ?>
-            </div>
+            <!-- </div>./ui rail -->
         </div>
+    <?php endif ?>
+
+    <div id="content"
+        class="<?= $controller->showViewSidebar() ?
+            $controller->mainColumnWidth() : $controller->fullColumnWidth() ?> wide column">
+        <?= $this->render($layoutPath . '_flash_message', ['context' => $controller]) ?>
+        <?= $content ?>
     </div>
-    <div class="ui divider hidden"></div>
+</div>
 <?php
-    $this->endBody();
-
-    $this->registerJs(<<<JS
-        $('.ui.dropdown').dropdown();
-
-        $('.ui.sticky')
-            .sticky({
-                context: '#content'
-            });
-    JS) ?>
-    </body>
-</html>
-
-<?php $this->endPage() ?>
+    $this->registerCssFile("@web/css/report.css");
+$this->endContent() ?>

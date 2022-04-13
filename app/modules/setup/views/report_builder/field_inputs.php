@@ -4,7 +4,6 @@ use app\modules\main\enums\Type_Model;
 use app\modules\main\enums\Type_Module;
 use app\modules\main\enums\Type_Report;
 use app\modules\setup\enums\Type_Role;
-use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;
 use Zelenin\yii\SemanticUI\modules\Select;
@@ -46,7 +45,7 @@ $form = ActiveForm::begin([
                     ]) ?>
                 <?= $form->field($model, 'group')->widget(Select::class, [
                         'search' => true,
-                        'items' => Type_Module::enums(),
+                        'items' => [], // Type_Module::enums(),
                         'options' => ['id' => 'rb__group']
                     ])->label('Module') ?>
                 <?= $form->field($model, 'roles')

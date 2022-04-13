@@ -13,6 +13,6 @@ $this->params['breadcrumbs'][] = [
     'url' => ['/app' .'/'. $module->id]
 ];
 $this->params['breadcrumbs'][] = [
-    'label' => Yii::t('app', '{modelName}', ['modelName' => Inflector::camel2words(Inflector::id2camel($context->id))]),
+    'label' => Yii::t('app', '{contextName}', ['contextName' => Inflector::camel2words(Inflector::id2camel($context->id))]),
     'url' => ['/app' .'/'. $module->id . '/' . $context->id]
 ] ?>
