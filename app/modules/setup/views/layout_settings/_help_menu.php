@@ -1,7 +1,10 @@
 <?php
 
+use app\modules\setup\models\AppMenuHelp;
+
 echo $this->render('@app_main/views/_form_section/item', [
-        'model' => $model->helpMenu,
+        'model' =>  new AppMenuHelp(),
+        'detailModels' => $this->context->detailModels()['helpMenu'],
         'form' => $form,
         'formView' => '@app_setup/views/layout_settings/_menu/field_inputs',
         'listColumns' => '@app_setup/views/layout_settings/_menu/list_columns',

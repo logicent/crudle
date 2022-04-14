@@ -1,3 +1,27 @@
+**Components**
+
+_App_
+- Auth
+- RBAC/ACL
+- API
+- CLI
+- SMS Alerts*
+- Task Scheduler*
+
+_Kit_
+- App Module
+- Dashboard
+- Dashboard Widget
+- Data Model
+- Report Builder
+
+_Ext_
+- Web CMS
+- Dashboards
+- Indicators
+- Workflows
+- Reports
+
 ### Domain-driven
 Use domain-driven project structure that maps to modified Yii2 modules and extensions
 

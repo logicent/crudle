@@ -3,6 +3,7 @@
 namespace app\helpers;
 
 use yii\helpers\Inflector;
+use yii\helpers\Json;
 use yii\helpers\StringHelper;
 
 /**
@@ -39,5 +40,28 @@ class App
     public static function classDisplayName($object)
     {
         return Inflector::camel2words(self::classBasename($object));
+    }
+
+    public static function convertArraysToModels($relationClass, $attributeValues)
+    {
+        $models = [];
+        $attributeValues = empty($attributeValues) ? [] : $attributeValues;
+        foreach ($attributeValues as $id => $attributeValue)
+        {
+            $relation = new $relationClass();
+            $relation->attributes = $attributeValue;
+            $models[] = $relation;
+        }
+
+        return $models;
+    }
+
+    public static function convertArrayToJson(&$model, $attribute)
+    {
+        if (empty($model->$attribute))
+            return null;
+
+        if ($model::hasMixedValueFields() && in_array($attribute, $model::mixedValueFields()))
+            return $model->$attribute = empty($model->$attribute) ?: Json::encode($model->$attribute);
     }
 }

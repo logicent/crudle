@@ -2,6 +2,7 @@
 
 namespace app\modules\setup\models;
 
+use app\modules\main\enums\Type_Mixed_Value;
 use app\modules\main\enums\Type_Relation;
 use app\modules\setup\models\base\BaseSettingsForm;
 use Yii;
@@ -9,11 +10,11 @@ use Yii;
 class LayoutSettingsForm extends BaseSettingsForm
 {
     public $shortcutMenu;
-    public $sidebarMenu;
     public $createMenu;
     public $alertMenu;
     public $helpMenu;
-    public $userMenu;
+    // public $sidebarMenu;
+    // public $userMenu;
     public $hideCreateMenu      = false;
     public $hideHelpMenu        = false;
     public $hideAlertMenu       = false;
@@ -44,14 +45,14 @@ class LayoutSettingsForm extends BaseSettingsForm
     public function rules()
     {
         return [
-            [[
-                'shortcutMenu',
-                'sidebarMenu',
-                'createMenu',
-                'alertMenu',
-                'helpMenu',
-                'userMenu',
-            ], 'string'], // To-Do: use JSONValidator and/or model Object validator
+            // [[
+            //     'shortcutMenu',
+            //     'sidebarMenu',
+            //     'createMenu',
+            //     'alertMenu',
+            // //     'helpMenu',
+            // //     'userMenu',
+            // ], 'string'], // To-Do: use JSONValidator and/or model Object validator
             [[
                 'homeButtonIcon',
                 'copyrightLabel',
@@ -97,7 +98,7 @@ class LayoutSettingsForm extends BaseSettingsForm
         ];
     }
 
-    public static function relations()
+    public static function relations(): array
     {
         return [
             'createMenu' => [
@@ -108,22 +109,41 @@ class LayoutSettingsForm extends BaseSettingsForm
                 'class' => AppMenuHelp::class,
                 'type' => Type_Relation::InlineModel,
             ],
-            'userMenu' => [
-                'class' => AppMenuUser::class,
-                'type' => Type_Relation::InlineModel,
-            ],
+            // 'userMenu' => [
+            //     'class' => AppMenuUser::class,
+            //     'type' => Type_Relation::InlineModel,
+            // ],
             'alertMenu' => [
                 'class' => AppMenuAlert::class,
                 'type' => Type_Relation::InlineModel,
             ],
-            'sidebarMenu' => [
-                'class' => AppMenuSidebar::class,
-                'type' => Type_Relation::InlineModel,
-            ],
+            // 'sidebarMenu' => [
+            //     'class' => AppMenuSidebar::class,
+            //     'type' => Type_Relation::InlineModel,
+            // ],
             'shortcutMenu' => [
                 'class' => AppMenuShortcut::class,
                 'type' => Type_Relation::InlineModel,
             ],
+        ];
+    }
+
+    public static function hasMixedValueFields(): bool
+    {
+        return true;
+    }
+
+    public static function mixedValueFields(): array
+    {
+        return [
+            // Type_Mixed_Value::JsonFormatted => [
+                'shortcutMenu',
+                'createMenu',
+                'alertMenu',
+                'helpMenu',
+                // 'sidebarMenu',
+                // 'userMenu',
+            // ]
         ];
     }
 }

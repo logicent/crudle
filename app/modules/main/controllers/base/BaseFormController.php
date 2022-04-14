@@ -44,7 +44,7 @@ abstract class BaseFormController extends BaseViewController implements FormInte
 
     public function detailModels(): array
     {
-        return [];
+        return $this->detailModels;
     }
 
     public function redirectTo(string $action)

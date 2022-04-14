@@ -1,13 +1,12 @@
 <?php
 
-// Item list
-
 use yii\helpers\Url;
 
 $columnHeaders = require Yii::getAlias($listColumns . '.php');
 
 echo $this->render('item/list', [
         'model' => $model,
+        'detailModels' => $detailModels,
         'form' => $form,
         'formView' => $formView,
         'columnHeaders' => $columnHeaders,

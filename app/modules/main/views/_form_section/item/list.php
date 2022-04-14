@@ -14,7 +14,7 @@ $modal = Modal::begin([
 ]);
 $modal::end();
 
-$hideSelectAllCheckbox = empty($items) ? 'none' : '';
+$hideSelectAllCheckbox = empty($this->context->detailModels()) ? 'none' : '';
 ?>
 
 <div id="<?= $listId ?>">
@@ -44,11 +44,12 @@ $hideSelectAllCheckbox = empty($items) ? 'none' : '';
         </thead>
         <tbody>
         <?php
-            if (!empty($items)) :
-                foreach ($items as $id => $item) :
-                    echo $this->render('_form', [
-                            'model' => $item,
-                            'rowId' => $id + 1
+            if (!empty($detailModels)) :
+                $rowId = 0;
+                foreach ($detailModels as $id => $detailModel) :
+                    echo $this->render($formView, [
+                            'model' => $detailModel,
+                            'rowId' => $rowId++
                         ]);
                 endforeach;
             else :

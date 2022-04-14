@@ -2,11 +2,10 @@
 
 namespace app\modules\setup\models\base;
 
-use app\modules\main\models\Model;
 use Yii;
 use yii\helpers\ArrayHelper;
 
-class BaseAppMenu extends Model
+class BaseAppMenu extends BaseSettingsForm
 {
     public $icon;
     public $iconPath;

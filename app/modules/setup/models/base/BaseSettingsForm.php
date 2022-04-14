@@ -3,12 +3,14 @@
 namespace app\modules\setup\models\base;
 
 use app\modules\setup\enums\Type_Permission;
-use app\modules\setup\models\Setup;
+use app\modules\setup\models\Settings;
 use Yii;
 use yii\base\Model;
+use yii\helpers\Json;
 use yii\web\UploadedFile;
 
-abstract class BaseSettingsForm extends Model
+
+abstract class BaseSettingsForm extends Model implements SettingsInterface
 {
     public $createdAt, $updatedAt;
     public $createdBy, $updatedBy;
@@ -43,8 +45,13 @@ abstract class BaseSettingsForm extends Model
     public function populateAttributes( $settings )
     {
         foreach ( $settings as $setting )
+        {
             if (property_exists($this, $setting['attribute_name']))
                 $this->{$setting['attribute_name']} = $setting['attribute_value'];
+
+            if ($this::hasMixedValueFields() && in_array($setting['attribute_name'], $this::mixedValueFields()))
+                $this->{$setting['attribute_name']} = Json::decode($setting['attribute_value']);
+        }
     }
 
     public function save( $modelClassname )
@@ -56,7 +63,8 @@ abstract class BaseSettingsForm extends Model
             if (!empty($fileObj))
             {
                 $this->uploadForm->file_upload = $fileObj;
-                $this->{$this->fileAttribute} = $this->uploadForm->upload(); // if saveAs succeeded file_path is returned else false
+                // if saveAs succeeded file_path is returned else false
+                $this->{$this->fileAttribute} = $this->uploadForm->upload();
             }
         }
 
@@ -64,17 +72,16 @@ abstract class BaseSettingsForm extends Model
 
         foreach ($this->attributes as $attribute => $value)
         {
-            if ($attribute == 'uploadForm')
+            if ($attribute == 'uploadForm' || is_object($value))
                 continue;
 
-            $setup = Setup::findOne(['model_name' => $modelClassname, 'attribute_name' => $attribute]);
-
-            if (is_null($setup))
+            $settings = Settings::findOne(['model_name' => $modelClassname, 'attribute_name' => $attribute]);
+            if (is_null($settings))
             {
-                $setup = new Setup();
-                $setup->id = uniqid();
-                $setup->model_name = $modelClassname;
-                $setup->attribute_name = $attribute;
+                $settings = new Settings();
+                $settings->id = uniqid();
+                $settings->model_name = $modelClassname;
+                $settings->attribute_name = $attribute;
 
                 if ($attribute == 'createdBy')
                     $value = Yii::$app->user->id;
@@ -90,14 +97,14 @@ abstract class BaseSettingsForm extends Model
                     $value = date(time());
             }
 
-            $setup->attribute_value = is_array($value) ? implode(',', $value) : $value;
-            // $setup->save(); // !!! This does NOT work reliably for comma-separated values
+            $settings->attribute_value = is_array($value) ? implode(',', $value) : $value;
 
+            // $settings->save(); // !!! This does NOT work reliably for comma-separated values
             $rowCount += Yii::$app->db
                             ->createCommand()
                             ->upsert(
-                                Setup::tableName(),
-                                $setup->attributes
+                                Settings::tableName(),
+                                $settings->attributes
                             )
                             ->execute();
         }
@@ -105,5 +112,20 @@ abstract class BaseSettingsForm extends Model
             return true;
         // else
         return false;
+    }
+
+    public static function hasMixedValueFields(): bool
+    {
+        return false;
+    }
+
+    public static function mixedValueFields(): array
+    {
+        return [];
+    }
+
+    public static function relations(): array
+    {
+        return [];
     }
 }

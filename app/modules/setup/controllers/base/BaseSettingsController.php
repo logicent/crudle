@@ -2,9 +2,11 @@
 
 namespace app\modules\setup\controllers\base;
 
+use app\helpers\App;
 use app\modules\main\controllers\base\BaseFormController;
 use app\modules\main\enums\Type_Form_View;
 use app\modules\main\enums\Type_View;
+use app\modules\setup\models\Settings;
 use app\modules\setup\models\Setup;
 use Yii;
 use yii\filters\AccessControl;
@@ -13,15 +15,30 @@ use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\helpers\StringHelper;
 
+
 abstract class BaseSettingsController extends BaseFormController
 {
     public function actionIndex()
     {
         $this->model = Setup::getSettings( $this->modelClass() );
-        $modelClassname = StringHelper::basename( $this->modelClass() );
+        // load related settings models
+        foreach ($this->model::relations() as $relationAttribute => $relationSettings)
+            $this->detailModels[$relationAttribute] = 
+            App::convertArraysToModels($relationSettings['class'], $this->model->$relationAttribute);
 
         if ( $this->model->load( Yii::$app->request->post() ))
         {
+            foreach ($this->model::relations() as $relationAttribute => $relationSettings)
+            {
+                $relationClassname = StringHelper::basename($relationSettings['class']);
+                if (isset(Yii::$app->request->post()[$relationClassname]))
+                    $this->model->$relationAttribute = Yii::$app->request->post()[$relationClassname];
+                else
+                    $this->model->$relationAttribute = null;
+
+                App::convertArrayToJson($this->model, $relationAttribute);
+            }
+            $modelClassname = StringHelper::basename( $this->modelClass() );
             if ( $this->model->validate() && $this->model->save( $modelClassname ))
             {
                 $successMsg = $this->name . ' saved successfully';
