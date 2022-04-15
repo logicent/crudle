@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use Zelenin\yii\SemanticUI\Elements;
 
 ?>
@@ -12,6 +13,13 @@ use Zelenin\yii\SemanticUI\Elements;
                 'style' => 'background: #fafbfc'
             ]) ?>
     <div class="ui vertical menu nav-menu" style="margin-top: 0.8em !important;">
-        <?= Html::a(Yii::t('app', 'Email notification') . Html::tag('div', '0', ['class' => 'ui circular label']), null, ['class' => 'item']) ?>
+    <?php
+        foreach ($menuItems as $menuItem) :
+            // echo Html::a(Elements::icon($menuItem['icon'] .' '. $menuItem['iconColor']) . Yii::t('app', '{menuItem}', ['menuItem' => $menuItem['label']]),
+            echo Html::a(Yii::t('app', '{menuItem}', ['menuItem' => $menuItem['label']]) . 
+                        Html::tag('div', '0', ['class' => 'ui circular label']),
+                        Url::to([$menuItem['route']]),
+                        ['class' => 'item']);
+        endforeach ?>
     </div><!-- ./vertical menu -->
 </div><!-- ./dropdown item -->

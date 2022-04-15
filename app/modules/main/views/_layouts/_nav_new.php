@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use Zelenin\yii\SemanticUI\Elements;
 
 ?>
@@ -10,7 +11,12 @@ use Zelenin\yii\SemanticUI\Elements;
     <span class="text"><?= Yii::t('app', 'Create') ?></span>&ensp;
     <?= Elements::icon('down small chevron') ?>
     <div class="menu nav-menu" style="margin-top: 1em !important;">
-        <?= Html::a(Elements::icon('grey file alternate outline') . Yii::t('app', 'Data Model'),
-                    ['/setup/data-model/create'], ['class' => 'item']) ?>
+    <?php
+        foreach ($menuItems as $menuItem) :
+            // echo Html::a(Elements::icon($menuItem['icon'] .' '. $menuItem['iconColor']) . Yii::t('app', '{menuItem}', ['menuItem' => $menuItem['label']]),
+            echo Html::a(Yii::t('app', '{menuItem}', ['menuItem' => $menuItem['label']]),
+                        Url::to([$menuItem['route']. '/create']),
+                        ['class' => 'item']);
+        endforeach ?>
     </div>
 </div>&ensp;
