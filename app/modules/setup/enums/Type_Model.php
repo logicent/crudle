@@ -3,6 +3,7 @@
 namespace app\modules\setup\enums;
 
 use app\modules\setup\models\AppModule;
+use app\modules\setup\models\Dashboard;
 use app\modules\setup\models\DataImportForm;
 use app\modules\setup\models\DataModel;
 use app\modules\setup\models\DashboardWidget;
@@ -29,6 +30,7 @@ class Type_Model
     const AppModule         = 'App Module';
     const DataImport        = 'Data Import';
     const DataModel         = 'Data Model';
+    const Dashboard         = 'Dashboard';
     const DashboardWidget   = 'Dashboard Widget';
     const DatabaseBackup    = 'Database Backup';
     const EmailNotification = 'Email Notification';
@@ -54,6 +56,7 @@ class Type_Model
             self::AppModule         => self::AppModule,
             self::DataModel         => self::DataModel,
             self::DataImport        => self::DataImport,
+            self::Dashboard         => self::Dashboard,
             self::DashboardWidget   => self::DashboardWidget,
             self::DatabaseBackup    => self::DatabaseBackup,
             self::EmailNotification => self::EmailNotification,
@@ -81,6 +84,7 @@ class Type_Model
             self::AppModule         => AppModule::class,
             self::DataModel         => DataModel::class,
             self::DataImport        => DataImportForm::class,
+            self::Dashboard         => Dashboard::class,
             self::DashboardWidget   => DashboardWidget::class,
             self::DatabaseBackup    => DbBackupSettingsForm::class,
             self::EmailNotification => EmailNotification::class,

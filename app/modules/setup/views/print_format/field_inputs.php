@@ -7,8 +7,18 @@ ksort($modelClasses);
 ?>
 
 <div class="ui attached padded segment">
-    <div class="two fields">
-        <?= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>
-        <?= $form->field($model, 'inactive')->checkbox()->label('&nbsp;') ?>
+    <div class="ui two column grid">
+        <div class="column">
+            <?= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'inactive')->checkbox()->label('&nbsp;') ?>
+        </div>
+        <div class="column">
+            <?= $form->field( $model, 'model_name' )->dropDownList( [
+                    'Core' => 'Core'
+                ]) ?>
+            <?= $form->field( $model, 'module' )->dropDownList( [
+                    'Core' => 'Core'
+                ]) ?>
+        </div>
     </div>
 </div>

@@ -35,6 +35,7 @@ class PrintStyle extends BaseActiveRecord
             [['id'], 'string', 'max' => 140],
             [['inactive', 'standard'], 'boolean'],
             [['css', 'preview'], 'string'],
+            [['status'], 'default', 'value' => Status_Transaction::Draft],
         ], $rules);
     }
 

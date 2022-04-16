@@ -34,6 +34,7 @@ class PrintFormat extends BaseActiveRecord
             [['id'], 'required'], // name
             [['id', 'model_name', 'module', 'default_print_language'], 'string', 'max' => 140],
             [['inactive', 'custom_format'], 'boolean'],
+            [['status'], 'default', 'value' => Status_Transaction::Draft],
             ['font', 'safe'],
             // Align Labels to the Right
             // Show Section Headings

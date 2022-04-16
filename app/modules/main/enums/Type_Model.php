@@ -15,6 +15,7 @@ class Type_Model
     // Page (non-CRUD) models
     // const Help                  = 'Help';
     const People                = 'People';
+    // const Dashboard             = 'Dashboard';
     const Report                = 'Report';
 
     public static function enums()
@@ -25,18 +26,8 @@ class Type_Model
 
     public static function modelClasses()
     {
-        $modelClasses = [];
-        // main app
-        $modelClasses = array_merge($modelClasses, self::coreModelClass());
-        // main modules
-        $modelClasses = array_merge($modelClasses, Setup_Type_Model::modelClasses());
-        $modelClasses = array_merge($modelClasses, Website_Type_Model::modelClasses());
-        return $modelClasses;
-    }
-
-    public static function coreModelClass()
-    {
         return [
+            // self::Dashboard         => Dashboard::class,
         ];
     }
 }

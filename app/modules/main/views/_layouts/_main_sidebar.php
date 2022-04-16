@@ -13,7 +13,7 @@ use Zelenin\yii\SemanticUI\Elements;
                 ['id' => 'pin_sidebar', 'class' => 'right floated']) */?>
     </div>
     <?= Html::a(Elements::icon('grey globe large') . Yii::t('app', 'Home'),
-                ['/app'], ['class' => 'item']) ?>
+                ['/app/home'], ['class' => 'item']) ?>
     <?= Html::a(Elements::icon('grey line chart large') . Yii::t('app', 'Report'),
                 ['/app/report'], ['class' => 'item']) ?>
     <?= Html::a(Elements::icon('grey cog large') . Yii::t('app', 'Setup'),

@@ -18,7 +18,7 @@ use Zelenin\yii\SemanticUI\Elements;
     </div>
     <div class="ui grid container">
         <div class="item" id="home_icon">
-            <?= Html::a(Elements::icon($layoutSettings->homeButtonIcon), ['/app'], ['class' => "compact ui icon button"]) ?>
+            <?= Html::a(Elements::icon($layoutSettings->homeButtonIcon), ['/app/home'], ['class' => "compact ui icon button"]) ?>
         </div>
         <div class="computer only large screen only four wide column item">
         <?php

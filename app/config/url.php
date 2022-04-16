@@ -7,7 +7,7 @@ return [
     // 'enableStrictParsing' => true,
     'showScriptName' => false,
     'rules' => [
-        // website routes
+        // ** website routes
         // '' or '/' routes
         '/' => 'website/site/home/index',
         '/home' => 'website/site/home/index',
@@ -16,20 +16,23 @@ return [
         '/blog' => 'website/site/blog-article/index',
         '/writer' => 'website/site/blog-writer/index',
         '/category' => 'website/site/blog-category/index',
-        // end website
-        // app routes
+        // ** end website
+        // ** app routes
         'app/site' => 'main/site/index',
         'app/login' => 'main/site/login',
         'app/logout' => 'main/site/logout',
         'app/forgot-password' => 'main/site/request-password-reset',
         'app/reset-password' => 'main/site/reset-password',
 
-        'app' => '/main/dashboard/index', // redirect to dashboard
+        // 'app' => '/main/home/index',
+        'app/home' => '/main/home/index',
         'app/dashboard' => '/main/dashboard/index',
         'app/report' => '/main/report/index',
-        
-        // 'app/main' => '/main', // disallow
+
+        // ** app modules
+        'app/main' => '/main',
         'app/setup' => '/setup',
+        // ** std modules
         'app/website' => '/website',
 
         // new GroupUrlRule([
@@ -41,19 +44,19 @@ return [
         //     ],
         // ]),
 
-        // Match menu titles and button labels in URL stubs
-        // 'app/<module>/<controller>/New' => '<module>/<controller>/create',
+        // ** Crud action routes
+        'app/<module>/<controller>/New' => '<module>/<controller>/create',
         // 'app/<module>/<controller>/<id:\w+>' => '<module>/<controller>/read',
         // 'app/<module>/<controller>/<id:\w+>' => '<module>/<controller>/update',
 
         'app/setup/user/my-account' => 'setup/user/update',
         'app/setup/user/my-preferences' => 'setup/user/edit-preferences',
 
-        // route standard and custom reports
+        // Standard/custom reports routes
         // 'query-report/<\w+>' => 'report/query/<\w+>',
 
-        // generic rule goes last
+        // Generic view-specific (generic) routes
         'app/<module>/<controller>' => '<module>/<controller>/index',
-        // end app
+        // ***end app
     ],
 ];

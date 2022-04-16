@@ -3,7 +3,7 @@
 namespace app\modules\setup\models;
 
 use app\modules\setup\enums\Type_Permission;
-use app\modules\main\enums\Status_Queue;
+use app\modules\setup\enums\Status_Queue;
 use app\modules\setup\enums\Type_Role;
 use app\modules\setup\enums\Status_User;
 use app\modules\main\models\auth\Person;
