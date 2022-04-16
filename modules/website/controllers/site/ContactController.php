@@ -2,11 +2,11 @@
 
 namespace website\controllers\site;
 
-use app\modules\main\controllers\SiteController;
+use app\modules\main\controllers\AppController;
 use website\models\ContactPage;
 
 
-class ContactController extends SiteController
+class ContactController extends AppController
 {
     public function init()
     {

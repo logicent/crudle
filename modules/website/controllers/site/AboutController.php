@@ -2,10 +2,10 @@
 
 namespace website\controllers\site;
 
-use app\modules\main\controllers\SiteController;
+use app\modules\main\controllers\AppController;
 
 
-class AboutController extends SiteController
+class AboutController extends AppController
 {
     public function init()
     {

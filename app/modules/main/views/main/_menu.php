@@ -10,15 +10,21 @@ $deployedSettings = Setup::getSettings( DeveloperSettingsForm::class );
 
 return [
     [
+        'route' => '/main/home/index',
+        'label' => 'Home',
+        'group' => Type_Menu_Group::Layout,
+        'visible' => Yii::$app->user->can(Type_Role::SystemManager),
+    ],
+    [
         'route' => '/main/dashboard/index',
         'label' => 'Dashboard',
-        'group' => Type_Menu_Group::Data,
+        'group' => Type_Menu_Group::Layout,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
         'route' => '/main/report/index',
         'label' => 'Report',
-        'group' => Type_Menu_Group::Data,
+        'group' => Type_Menu_Group::Layout,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
 ];

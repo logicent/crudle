@@ -43,7 +43,7 @@ echo $this->render('_stats', ['model' => $model]) ?>
                         'id' => 'load-changepwd-modal', 
                         'class' => 'compact ui basic right floated small button',
                         'data' => [
-                            'url' => Url::to(['people/change-pwd', 'id' => $this->context->auth->id])
+                            'url' => Url::to(['user/change-pwd', 'id' => $this->context->auth->id])
                         ]
                     ]);
             endif ?>

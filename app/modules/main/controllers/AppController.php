@@ -18,7 +18,7 @@ use yii\helpers\Html;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 
-class SiteController extends BaseViewController
+class AppController extends BaseViewController
 {
     public $layout = '@app_main/views/_layouts/site';
 
@@ -27,12 +27,11 @@ class SiteController extends BaseViewController
         return [
             'access' => [
                 'class' => AccessControl::class,
-                'only' => ['index', 'login', 'logout'],
+                'only' => ['index', 'login', 'logout', 'request-password-reset', 'reset-password'],
                 'rules' => [
                     [
-                        'actions' => ['index', 'login'],
+                        'actions' => ['index', 'login', 'request-password-reset', 'reset-password'],
                         'allow' => true,
-                        'roles' => ['?'],
                     ],
                     [
                         'actions' => ['logout'],
@@ -65,8 +64,10 @@ class SiteController extends BaseViewController
 
     public function actionIndex()
     {
-        return $this->redirect(['login']);
-        // return $this->render('index');
+        if (Yii::$app->user->isGuest)
+            return $this->redirect(['login']);
+        // else
+        return $this->render('index');
     }
 
     public function actionLogin()
@@ -92,7 +93,7 @@ class SiteController extends BaseViewController
 
         $model->password = ''; // clear the password
 
-        return $this->render('index', [
+        return $this->render('auth', [
             'model' => $model,
         ]);
     }
@@ -114,6 +115,10 @@ class SiteController extends BaseViewController
 
     public function actionRequestPasswordReset()
     {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
         $model = new PasswordResetRequestForm();
 
         if ($model->load(Yii::$app->request->post()) && $model->validate())
@@ -152,13 +157,17 @@ class SiteController extends BaseViewController
             }
         }
 
-        return $this->render('index', [
+        return $this->render('auth', [
             'model' => $model,
         ]);
     }
 
     public function actionResetPassword($token)
     {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
         try {
             $model = new ResetPasswordForm($token);
         }
@@ -173,7 +182,7 @@ class SiteController extends BaseViewController
             return $this->goHome();
         }
 
-        return $this->render('index', [
+        return $this->render('auth', [
             'model' => $model,
         ]);
     }

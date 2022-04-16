@@ -43,7 +43,7 @@ $this->params['businessName'] = $businessProfile->name;
         <!-- TODO: Add the ability to send the error report to support mail or System Manager/Administrator -->
         <!-- Please send this error report to your System Manager.<br> -->
         <!-- ToDo: allow user to set this redirection route and whether it is automatic after mail is sent -->
-        <?= Html::a('Go Home', ['/app'], ['class' => 'compact ui small primary button']) ?>
+        <?= Html::a('Go Home', ['/app/home'], ['class' => 'compact ui small primary button']) ?>
     </div>
 
 </div>

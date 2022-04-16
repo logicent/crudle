@@ -2,12 +2,12 @@
 
 namespace website\controllers\site;
 
-use app\modules\main\controllers\SiteController;
+use app\modules\main\controllers\AppController;
 use website\models\BlogWriter;
 use website\models\BlogWriterSearch;
 
 
-class BlogWriterController extends SiteController
+class BlogWriterController extends AppController
 {
     public function init()
     {

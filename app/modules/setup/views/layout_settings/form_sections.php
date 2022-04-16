@@ -8,7 +8,7 @@ return [
         'expanded' => true
     ], [
         'id' => 'shortcut_menu',
-        'label' => 'Dashboard shortcuts',
+        'label' => 'Shortcut menu',
         'collapsible' => true,
         'expanded' => false
     ], [

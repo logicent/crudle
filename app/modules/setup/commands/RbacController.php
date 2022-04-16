@@ -47,7 +47,6 @@ class RbacController extends Controller
             $systemManager = $this->_auth->createRole(Type_Role::SystemManager);
             $systemManager->description = 'System manager can perform all functions and also manage other users';
             $this->_auth->add($systemManager);
-
             // add business domain roles
             foreach ( Type_Role::domainRoles() as $roleName )
             {
@@ -56,15 +55,20 @@ class RbacController extends Controller
                 $this->_auth->add($domainRole);
                 $this->_auth->addChild($systemManager, $domainRole);
             }
+            // set role as active
+            $systemManager = \app\modules\main\models\auth\Role::findOne(['name' => Type_Role::SystemManager]);
+            $systemManager->inactive = 0;
+            $systemManager->save(false);
 
             // add "Administrator" role
             $administrator = $this->_auth->createRole(Type_Role::Administrator);
             $administrator->description = 'Administrator is the (hidden) default role for the system maintainer';
             $this->_auth->add($administrator);
             $this->_auth->addChild($administrator, $systemManager);
-
+            // set default user as Administrator
             $defaultUserId = \app\modules\main\models\auth\Auth::findOne(['username' => Type_Role::Administrator])->id;
             $this->_auth->assign($administrator, $defaultUserId);
+            // set role as active
             $administrator = \app\modules\main\models\auth\Role::findOne(['name' => Type_Role::Administrator]);
             $administrator->inactive = 0;
             $administrator->save(false);

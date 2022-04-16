@@ -33,7 +33,7 @@ return [
 
                     if (Yii::$app->user->can(Type_Role::SystemManager) || Yii::$app->user->can(Type_Role::Administrator))
                         $listNames .= Html::a($user->full_name,
-                                            ['people/read', 'id' => $user->id],
+                                            ['user/read', 'id' => $user->id],
                                             ['class' => 'ui label']);
                     else
                         $listNames .= Elements::label( $user->full_name );

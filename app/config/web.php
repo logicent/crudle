@@ -24,7 +24,7 @@ $config = [
     'bootstrap' => ['log'],
 
     'timeZone' => 'Africa/Nairobi',
-    // 'defaultRoute' => 'main/site/index',
+    // 'defaultRoute' => 'main/app/index',
 
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
@@ -54,7 +54,7 @@ $config = [
             // 'loginUrl' => 'app/login'
         ],
         'errorHandler' => [
-            'errorAction' => 'main/site/error',
+            'errorAction' => 'main/app/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',

@@ -277,7 +277,7 @@ class DataImportController extends BaseViewController
                     {
                         return 
                             $this->render(
-                                '/site/error', [
+                                '/app/error', [
                                     'name' => 'Data Import Setup',
                                     'message' => $e->errorInfo[2]
                                 ]

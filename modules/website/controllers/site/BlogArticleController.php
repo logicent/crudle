@@ -2,12 +2,12 @@
 
 namespace website\controllers\site;
 
-use app\modules\main\controllers\SiteController;
+use app\modules\main\controllers\AppController;
 use website\models\BlogArticle;
 use website\models\BlogArticleSearch;
 
 
-class BlogArticleController extends SiteController
+class BlogArticleController extends AppController
 {
     public function init()
     {

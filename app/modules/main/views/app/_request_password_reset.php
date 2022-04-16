@@ -24,6 +24,6 @@ $fieldOptions = [
 
 <div class="ui basic segment center aligned">
     <?= Html::a(Elements::icon('left arrow') .'&ensp;'. Yii::t('app', 'Back to Log in'),
-                ['site/login'],
+                ['app/login'],
                 ['class' => 'ui center aligned tiny grey forgot-pwd']) ?>
 </div>

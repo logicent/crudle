@@ -11,6 +11,7 @@ use app\modules\main\models\auth\Person;
 use app\modules\setup\models\User;
 use app\modules\setup\models\UserSearch;
 use Yii;
+use yii\filters\AccessControl;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\web\NotFoundHttpException;

@@ -33,7 +33,11 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
     public function beforeAction($action)
     {
         // If there is no logged in user session
-        if (is_null(Yii::$app->user->identity) && $this->action->id !== 'login')
+        if (is_null(Yii::$app->user->identity) &&
+            $this->action->id !== 'login' &&
+            $this->action->id !== 'request-password-reset' &&
+            $this->action->id !== 'reset-password'
+        )
             $this->redirect(['/app/login']);
 
         Url::remember(Yii::$app->request->getUrl(), 'go back');

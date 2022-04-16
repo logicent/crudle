@@ -496,51 +496,6 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
                 );
     }
 
-    public function actionChangeStatus($id)
-    {
-        $this->model = $this->findModel($id);
-
-        if (Yii::$app->request->isAjax) {
-            $oldStatus = $this->model->status;
-            $this->model->status = Yii::$app->request->post('new_status');
-
-            if ($this->model->save()) {
-                // add a comment for this status change
-                $comment = new CommentForm;
-                $comment->comment = "Changed the $this->viewName() status from <b> $oldStatus </b> to <b> {$this->model->status} </b>";
-                $comment->save($this->model, true, Type_Comment::ChangeLog);
-
-                // add message to email queue if applicable
-                if ($this->model->allowSendEmail())
-                    $this->model->sendNotificationIf($this->model, Url::to(['read', 'id' => $this->model->id]));
-
-                // add a user comment if required for this status change
-                // TODO: check from model not post ??
-                if (Yii::$app->request->post('require_comment') == 'true') {
-                    $comment = new CommentForm;
-                    $comment->comment = Yii::$app->request->post('comment_text');
-                    $comment->save($this->model, true, Type_Comment::UserNote);
-                }
-                Yii::$app->session->setFlash(
-                    'success',
-                    Yii::t('app', 'New status was changed successfully')
-                );
-                // TODO: show flash message and update sidebar via ajax - Turbolinks ?
-                return $this->redirect(['update', 'id' => $this->model->id]);
-                // It works but will not update the sidebar or show the flash message
-                // maybe use window.location.reload() after ajax succeeded?
-                $this->model->refresh();
-                // Try render and update the whole page
-                return $this->renderAjax('_form', [
-                    'model' => $this->model,
-                ]);
-            }
-            // else
-            return $this->asJson(['failed' => true, 'errors' => $this->model->errors]);
-        }
-        Yii::$app->end();
-    }
-
     public function actionAddRow()
     {
         if ( Yii::$app->request->isAjax )
@@ -779,7 +734,49 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
     }
 
     public function actionUpdateStatus($id)
-    {}
+    {
+        $this->model = $this->findModel($id);
+
+        if (Yii::$app->request->isAjax) {
+            $oldStatus = $this->model->status;
+            $this->model->status = Yii::$app->request->post('new_status');
+
+            if ($this->model->save()) {
+                // add a comment for this status change
+                $comment = new CommentForm;
+                $comment->comment = "Changed the $this->viewName() status from <b> $oldStatus </b> to <b> {$this->model->status} </b>";
+                $comment->save($this->model, true, Type_Comment::ChangeLog);
+
+                // add message to email queue if applicable
+                if ($this->model->allowSendEmail())
+                    $this->model->sendNotificationIf($this->model, Url::to(['read', 'id' => $this->model->id]));
+
+                // add a user comment if required for this status change
+                // TODO: check from model not post ??
+                if (Yii::$app->request->post('require_comment') == 'true') {
+                    $comment = new CommentForm;
+                    $comment->comment = Yii::$app->request->post('comment_text');
+                    $comment->save($this->model, true, Type_Comment::UserNote);
+                }
+                Yii::$app->session->setFlash(
+                    'success',
+                    Yii::t('app', 'New status was changed successfully')
+                );
+                // TODO: show flash message and update sidebar via ajax - Turbolinks ?
+                return $this->redirect(['update', 'id' => $this->model->id]);
+                // It works but will not update the sidebar or show the flash message
+                // maybe use window.location.reload() after ajax succeeded?
+                $this->model->refresh();
+                // Try render and update the whole page
+                return $this->renderAjax('_form', [
+                    'model' => $this->model,
+                ]);
+            }
+            // else
+            return $this->asJson(['failed' => true, 'errors' => $this->model->errors]);
+        }
+        Yii::$app->end();
+    }
 
     public function actionAmend($id)
     {}

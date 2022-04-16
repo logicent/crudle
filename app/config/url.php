@@ -18,11 +18,11 @@ return [
         '/category' => 'website/site/blog-category/index',
         // ** end website
         // ** app routes
-        'app/site' => 'main/site/index',
-        'app/login' => 'main/site/login',
-        'app/logout' => 'main/site/logout',
-        'app/forgot-password' => 'main/site/request-password-reset',
-        'app/reset-password' => 'main/site/reset-password',
+        'app' => 'main/app/index',
+        'app/login' => 'main/app/login',
+        'app/logout' => 'main/app/logout',
+        'app/forgot-password' => 'main/app/request-password-reset',
+        'app/reset-password' => 'main/app/reset-password',
 
         // 'app' => '/main/home/index',
         'app/home' => '/main/home/index',
