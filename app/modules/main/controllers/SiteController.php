@@ -87,7 +87,7 @@ class SiteController extends BaseViewController
             $userLog->save(false);
 
             // return $this->goBack();
-            return $this->redirect(['/app']);
+            return $this->redirect(['/app/home']);
         }
 
         $model->password = ''; // clear the password

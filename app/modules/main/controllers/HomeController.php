@@ -22,6 +22,11 @@ class HomeController extends BaseViewController
         return Type_View::Workspace;
     }
 
+    public function showViewHeader(): bool
+    {
+        return false;
+    }
+
     public function showViewSidebar(): bool
     {
         return false;

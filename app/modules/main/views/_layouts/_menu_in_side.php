@@ -19,7 +19,7 @@ foreach ($menuGroups as $groupName => $groupItems) :
             <?= Html::tag('div',
                     Elements::icon($menuGroupClass::enumIcons()[$groupName], ['class' => 'grey right floated']) .
                     '&ensp;'.
-                    $groupName, [
+                    $menuGroupClass::enums()[$groupName], [
                         'style' => 'font-family: inherit; margin-bottom: 1em; color: #36414c; font-weight: normal;'
                     ]) ?>
             <div class="description">

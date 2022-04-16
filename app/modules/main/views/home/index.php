@@ -5,4 +5,4 @@ $this->title = Yii::t('app', 'Home');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Home'), 'url' => ['/home']];
 ?>
 
-<!-- <div class="ui section hidden divider"></div> -->
+<?= $this->render('_menu') ?>
