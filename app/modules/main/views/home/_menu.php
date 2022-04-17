@@ -15,7 +15,7 @@ $layoutSettings = Setup::getSettings( LayoutSettingsForm::class );
     <?php
         foreach ($layoutSettings->shortcutMenu as $menuItem) :
             echo Html::tag('div',
-                    Html::a(!empty($menuItem['icon']) ? Elements::icon($menuItem['icon'] .' '. $menuItem['iconColor']) :
+                    Html::a(!empty($menuItem['icon']) ? Elements::icon($menuItem['icon']) :
                             Elements::image(Yii::getAlias('@web/') . $menuItem['iconPath'], ['style' => 'width: 48px']),
                             Url::to([$menuItem['route']]),
                             ['class' => "massive ui {$menuItem['iconColor']} icon button"]

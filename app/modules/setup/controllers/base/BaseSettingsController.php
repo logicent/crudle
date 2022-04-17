@@ -92,13 +92,16 @@ abstract class BaseSettingsController extends BaseFormController
             $modelClass = Yii::$app->request->get('modelClass');
             $model = new $modelClass();
 
-            $formData = Yii::$app->request->get('formData');
-            $formData = ArrayHelper::map($formData, 'name', 'value');
-            $formView = Yii::$app->request->get('formView');
-            return $this->renderAjax($formView, [
+            $rowData = Yii::$app->request->get('rowData');
+            $fields = ArrayHelper::map($rowData, 'name', 'value');
+            // populate model with inline field values
+            $model->attributes = $fields;
+
+            $rowId = Yii::$app->request->get('rowId');
+            $editView = Yii::$app->request->get('editView');
+            return $this->renderAjax($editView, [
                         'model' => $model,
-                        'formData' => $formData,
-                        'rowId' => trim(Yii::$app->request->get('rowId')),
+                        'rowId' => $rowId,
                     ]);
         }
         // else

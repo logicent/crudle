@@ -1,38 +1,58 @@
+$('.ui.modals').on('click', '.update-row',
+    function (e) {
+        update_btn = $(this);
+        table_row = $('#' + update_btn.data('row-id'));
+        row_inputs = table_row.children('td').children('input');
+        // row_checkbox = table_row.children('td').children('div').children('input[type="hidden"]');
+        // formData = new FormData( document.getElementById(update_btn.data('row-id') + '__modal'));
+        form_inputs = $('#' + update_btn.data('row-id') + '__modal').find('input');
+        modal_id = table_row.attr('id') + '__modal';
+
+        form_inputs.each(function(){
+            input = table_row.find('input[data-name=' + $(this).data('name') + ']');
+            input.val($(this).val());
+        });
+        // close the modal form
+        $('#' + modal_id).parents('.ui.modal').modal('hide');
+    });
+
 $('table.in-form').on('click', '.edit-item--btn',
     function (e) {
-        el_edit_btn = $(this);
-        rowInputs = $(this).parent('td').parent('tr').children('td').children('input');
-        el_table_row = $(this).closest('tr');
-        el_id = el_table_row.find('td.select-row');
-        modal_id = el_edit_btn.parents('table').parent('div').attr('id');
-        console.log(modal_id);
-        // formData = $('#content .ui.form');
-        // formData = new FormData(formData);
+        edit_btn = $(this);
+        table_row = edit_btn.closest('tr');
+        row_inputs = table_row.children('td').children('input');
+        // row_checkbox = table_row.children('td').children('div').children('input[type="hidden"]');
+        modal_id = table_row.parents('table').parent('div').attr('id') + '__modal';
+
+        row_fields = [];
+        row_inputs.each(function(){
+            field = { 'name': $(this).data('name'), 'value': $(this).val()};
+            row_fields.push(field);
+        });
 
         $.ajax({
             url: itemRow.editItemUrl,
             type: 'get',
             data: {
                 'modelClass': $(this).data('model-class'),
-                'formView': $(this).data('form-view'),
-                'formData': rowInputs.serializeArray(),
-                'rowId': el_id.text(),
+                'editView': $(this).data('form-view'),
+                'rowData': row_fields,
+                'rowId': table_row.attr('id'),
             },
             success: function( response )
             {
-                $('#' + modal_id + '__modal .content').html( response ); // Target '.content' to keep close button in modal
-                $('#' + modal_id + '__modal').modal({ 
-                                                centered: false,
-                                                closable : false 
-                                            })
-                                            .modal('show'); // !!! Use the modal#id not '.ui.modal' to avoid load issues
+                $('#' + modal_id + ' .content').html( response ); // Target '.content' to keep close button in modal
+                $('#' + modal_id).modal({
+                                    centered: false,
+                                    closable : false
+                                })
+                                .modal('show'); // !!! Use the modal#id not '.ui.modal' to avoid load issues
             },
             error: function( jqXhr, textStatus, errorThrown )
             {
                 console.log( errorThrown );
             }
         });
-
         return false;
     });
 
@@ -52,7 +72,7 @@ $('table.in-form tbody').on('change', 'select.list-option',
         if ($(this).val() == '')
             return false;
 
-        el_table_row = $(this).closest('tr');
+        table_row = $(this).closest('tr');
 
         $.ajax({
             url: itemRow.getItemUrl,
@@ -76,7 +96,7 @@ $('table.in-form tbody').on('change', 'td > input',
         if ($(this).val() == '')
             return false;
 
-        el_table_row = $(this).closest('tr');
+        table_row = $(this).closest('tr');
     });
 
 $('table.in-form').on('click',  'th.select-all-rows > .ui.checkbox',
@@ -157,8 +177,8 @@ $('.del-row').on('click',
 
         selected_rows.each(
             function(e) {
-                el_table_row = $(this).parents('tr');
-                el_table_row.remove();
+                table_row = $(this).parents('tr');
+                table_row.remove();
             });
         displaySelectAllCheckboxIf(el_table);
     });

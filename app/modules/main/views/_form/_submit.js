@@ -35,6 +35,6 @@ $('.ajax-submit').on('beforeSubmit',
             .fail(function () {
                 // request failed
             });
-    
+
     return false; // prevent default form submission
 });

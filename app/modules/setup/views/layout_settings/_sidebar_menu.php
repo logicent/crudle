@@ -1,9 +1,12 @@
 <?php
 
+use app\modules\setup\models\AppMenuSidebar;
+
 echo $this->render('@app_main/views/_form_section/item', [
-        'model' => $model->sidebarMenu,
+        'model' =>  new AppMenuSidebar(),
+        'detailModels' => $this->context->detailModels()['sidebarMenu'],
         'form' => $form,
-        'formView' => '@app_setup/views/layout_settings/_menu/field_inputs',
-        'listColumns' => '@app_setup/views/layout_settings/_menu/list_columns',
+        'formView' => '@app_setup/views/_menu/field_inputs',
+        'listColumns' => '@app_setup/views/_menu/list_columns',
         'listId' => 'sidebar_menu',
     ]) ?>
