@@ -12,9 +12,11 @@ class BaseAppMenu extends BaseSettingsForm
     public $iconColor;
     public $route;
     public $label;
-    public $group;
-    public $inactive;
+    public $group; // parent_label
+    public $inactive = false;
     public $type;
+    public $open_in_new_tab = false;
+    public $align_right = false;
 
     public function rules()
     {
@@ -33,7 +35,7 @@ class BaseAppMenu extends BaseSettingsForm
                 'label',
                 'group',
             ], 'string'],
-            ['inactive', 'boolean'],
+            [['inactive', 'open_in_new_tab', 'align_right'], 'boolean'],
         ]);
     }
 

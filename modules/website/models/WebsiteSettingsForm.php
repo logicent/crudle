@@ -15,6 +15,7 @@ class WebsiteSettingsForm extends BaseSettingsForm
     public $brandHtml = "<img src='undefined'>";
     public $setBannerFromImage;
     public $favicon;
+    public $navbarMenu;
     public $hideLogin;
     public $includeSearchInTopBar;
     public $showLanguagePicker;
@@ -22,6 +23,8 @@ class WebsiteSettingsForm extends BaseSettingsForm
     public $footerLogo;
     public $copyright;
     public $address;
+    public $footerMenu;
+    public $footerTemplate;
     public $showFooterSignup = false;
     public $enableGoogleIndexing = false;
     public $googleAnalyticsId;
@@ -112,6 +115,7 @@ class WebsiteSettingsForm extends BaseSettingsForm
             'htmlHeader' => Yii::t('app', "Added HTML in the &lt;head&gt; section of the web page, primarily used for website verification and SEO"),
             'banner' => Yii::t('app', 'Banner is above the Top Menu Bar.'),
             'address' => Yii::t('app', 'Address and other legal information you may want to put in the footer.'),
+            // 'enableGoogleIndexing' => Yii::t('app', 'To use Google Indexing, enable Google Settings.'),
         ];
     }
 }

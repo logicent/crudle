@@ -14,6 +14,7 @@ class AboutPage extends BaseSettingsForm
     public $ourTeamHeading;
     public $ourTeamSubheading;
     public $hideTeamSection;
+    public $teamMembers;
     public $showTeamMemberBio;
     public $footer;
 

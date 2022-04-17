@@ -1,3 +1,4 @@
+<!-- navbar items -->
 <div class="ui one column grid">
     <div class="column">
         <?= $form->field($model, 'hideLogin')->checkbox() ?>
