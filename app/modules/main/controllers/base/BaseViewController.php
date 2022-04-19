@@ -41,7 +41,6 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
             $this->redirect(['/app/login']);
 
         Url::remember(Yii::$app->request->getUrl(), 'go back');
-        // \yii\helpers\VarDumper::dump($this->module, 5, true);exit;
 
         return parent::beforeAction($action);
     }
