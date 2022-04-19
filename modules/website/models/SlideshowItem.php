@@ -2,7 +2,7 @@
 
 namespace website\models;
 
-use app\modules\main\models\base\BaseActiveRecordDetail;
+use crudle\main\models\base\BaseActiveRecordDetail;
 
 class SlideshowItem extends BaseActiveRecordDetail
 {

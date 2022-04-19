@@ -2,7 +2,7 @@
 
 namespace website\controllers;
 
-use app\modules\setup\controllers\base\BaseSettingsController;
+use crudle\setup\controllers\base\BaseSettingsController;
 
 /**
  * ThemeController for the `ThemeForm` model

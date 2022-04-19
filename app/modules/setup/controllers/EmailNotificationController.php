@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\setup\controllers;
+namespace crudle\setup\controllers;
 
-use app\modules\main\controllers\base\BaseCrudController;
-use app\modules\setup\models\EmailNotification;
-use app\modules\setup\models\EmailNotificationSearch;
+use crudle\main\controllers\base\BaseCrudController;
+use crudle\setup\models\EmailNotification;
+use crudle\setup\models\EmailNotificationSearch;
 
 class EmailNotificationController extends BaseCrudController
 {

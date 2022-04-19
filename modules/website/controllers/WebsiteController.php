@@ -2,8 +2,8 @@
 
 namespace website\controllers;
 
-use app\modules\main\controllers\base\BaseViewController;
-use app\modules\main\enums\Type_View;
+use crudle\main\controllers\base\BaseViewController;
+use crudle\main\enums\Type_View;
 
 /**
  * WebsiteController for the `website` module

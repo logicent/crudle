@@ -1,8 +1,8 @@
 <?php
 
-namespace app\modules\main\models;
+namespace crudle\main\models;
 
-use app\modules\main\enums\Type_Comment;
+use crudle\main\enums\Type_Comment;
 use Yii;
 use yii\base\Model;
 use yii\helpers\Json;

@@ -1,8 +1,9 @@
 <?php
 
-namespace app\modules\setup\models;
+namespace crudle\setup\models;
 
-use app\modules\main\models\Model;
+use crudle\main\models\Model;
+use crudle\main\models\UploadForm;
 use Yii;
 
 class EmailForm extends Model
@@ -22,7 +23,7 @@ class EmailForm extends Model
 
     public function init()
     {
-        $this->uploadForm = new \app\modules\main\models\UploadForm();
+        $this->uploadForm = new UploadForm();
         $this->fileAttribute = 'addAttachments';
     }
 

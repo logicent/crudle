@@ -1,9 +1,9 @@
 <?php
 
-namespace app\modules\main\models;
+namespace crudle\main\models;
 
-use app\modules\setup\enums\Type_Permission;
-use app\modules\setup\models\ReportBuilder;
+use crudle\setup\enums\Type_Permission;
+use crudle\setup\models\ReportBuilder;
 
 /**
  * This is the model class for page "Report".

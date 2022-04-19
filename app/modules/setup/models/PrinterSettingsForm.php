@@ -1,8 +1,8 @@
 <?php
 
-namespace app\modules\setup\models;
+namespace crudle\setup\models;
 
-use app\modules\setup\models\base\BaseSettingsForm;
+use crudle\setup\models\base\BaseSettingsForm;
 use Yii;
 
 class PrinterSettingsForm extends BaseSettingsForm

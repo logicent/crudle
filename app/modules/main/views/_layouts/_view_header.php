@@ -2,11 +2,11 @@
 
 use app\assets\DirrtyAsset;
 use app\helpers\StatusMarker;
-use app\modules\main\enums\Resource_Action;
-use app\modules\main\enums\Type_View;
-use app\modules\main\models\base\BaseActiveRecord;
-use app\modules\setup\enums\Status_Transaction;
-use app\modules\setup\enums\Type_Permission;
+use crudle\main\enums\Resource_Action;
+use crudle\main\enums\Type_View;
+use crudle\main\models\base\BaseActiveRecord;
+use crudle\setup\enums\Status_Transaction;
+use crudle\setup\enums\Type_Permission;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use Zelenin\yii\SemanticUI\Elements;

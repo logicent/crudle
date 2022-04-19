@@ -1,5 +1,5 @@
 <?php
-namespace app\modules\setup\commands;
+namespace crudle\setup\commands;
 
 use app\helpers\SendNotification;
 use yii\console\Controller;

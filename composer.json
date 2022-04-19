@@ -57,6 +57,7 @@
     },
     "autoload": {
         "psr-4": {
+            "crudle\\": "app/modules",
             "website\\": "modules/website"
         }
     },

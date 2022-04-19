@@ -2,7 +2,7 @@
 
 namespace website\models\base;
 
-use app\modules\main\models\base\BaseActiveRecord;
+use crudle\main\models\base\BaseActiveRecord;
 use Yii;
 
 class BaseNavItem extends BaseActiveRecord

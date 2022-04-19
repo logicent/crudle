@@ -16,7 +16,7 @@
 
 <div class="ui one column grid">
     <div class="column">
-    <!-- To-Do: use //_form_field/rich_text_editor -->
+    <!-- To-Do: use @app_main/views/rich_text_editor -->
     <?= $form->field($model, 'footer')->textarea([
             'maxlength' => true,
             'rows' => 9,

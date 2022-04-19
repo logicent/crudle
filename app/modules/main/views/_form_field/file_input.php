@@ -1,6 +1,6 @@
 <?php
 
-use app\modules\main\enums\Type_Form_View;
+use crudle\main\enums\Type_Form_View;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\main\models;
+namespace crudle\main\models;
 
 use Yii;
 use yii\base\Model;

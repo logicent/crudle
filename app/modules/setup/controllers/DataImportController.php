@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\setup\controllers;
+namespace crudle\setup\controllers;
 
-use app\modules\main\controllers\base\BaseViewController;
-use app\modules\setup\enums\Type_Role;
-use app\modules\setup\models\DataImportForm;
+use crudle\main\controllers\base\BaseViewController;
+use crudle\setup\enums\Type_Role;
+use crudle\setup\models\DataImportForm;
 use League\Csv\Reader;
 use League\Csv\Writer;
 use League\Csv\Statement;

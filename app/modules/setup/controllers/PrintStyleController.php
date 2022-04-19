@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\setup\controllers;
+namespace crudle\setup\controllers;
 
-use app\modules\main\controllers\base\BaseCrudController;
-use app\modules\setup\models\PrintStyle;
-use app\modules\setup\models\PrintStyleSearch;
+use crudle\main\controllers\base\BaseCrudController;
+use crudle\setup\models\PrintStyle;
+use crudle\setup\models\PrintStyleSearch;
 
 class PrintStyleController extends BaseCrudController
 {

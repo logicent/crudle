@@ -2,7 +2,7 @@
 
 namespace website\controllers\site;
 
-use app\modules\main\controllers\AppController;
+use crudle\main\controllers\AppController;
 use website\models\BlogArticle;
 use website\models\BlogArticleSearch;
 

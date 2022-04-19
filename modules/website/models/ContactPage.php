@@ -2,7 +2,7 @@
 
 namespace website\models;
 
-use app\modules\setup\models\base\BaseSettingsForm;
+use crudle\setup\models\base\BaseSettingsForm;
 use Yii;
 
 class ContactPage extends BaseSettingsForm

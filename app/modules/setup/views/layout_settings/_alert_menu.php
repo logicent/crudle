@@ -1,6 +1,6 @@
 <?php
 
-use app\modules\setup\models\AppMenuAlert;
+use crudle\setup\models\AppMenuAlert;
 
 echo $this->render('@app_main/views/_form_section/item', [
         'model' => new AppMenuAlert(),

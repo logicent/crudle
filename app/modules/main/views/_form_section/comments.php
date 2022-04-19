@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use Zelenin\yii\SemanticUI\Elements;
 
-use app\modules\main\models\CommentForm;
+use crudle\main\models\CommentForm;
 
 $this->params['count_comments'] = $model->commentsCount;
 

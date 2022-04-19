@@ -1,6 +1,6 @@
 <?php
 
-use app\modules\setup\enums\Type_Permission;
+use crudle\setup\enums\Type_Permission;
 use app\helpers\DateTimeHelper;
 use app\helpers\StatusMarker;
 use yii\helpers\ArrayHelper;

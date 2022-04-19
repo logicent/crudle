@@ -2,7 +2,7 @@
 
 namespace website\controllers;
 
-use app\modules\setup\controllers\base\BaseSettingsController;
+use crudle\setup\controllers\base\BaseSettingsController;
 use website\models\WebsiteSettingsForm;
 
 /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\setup\enums;
+namespace crudle\setup\enums;
 
 use Yii;
 
@@ -12,6 +12,11 @@ class Type_Menu_Group
     const People = 'People';
     const Core = 'Core';
     const Layout = 'Layout';
+    const MasterData = 'Master Data';
+    const Reports = 'Reports';
+    const Settings = 'Settings';
+    const Transactions = 'Transactions';
+
 
     public static function enums()
     {
@@ -22,6 +27,10 @@ class Type_Menu_Group
             self::People => Yii::t('app', 'People'),
             self::Core => Yii::t('app', 'System'),
             self::Layout => Yii::t('app', 'Workspace'),
+            self::MasterData => Yii::t('app', 'Master Data'),
+            self::Reports => Yii::t('app', 'Reports'),
+            self::Transactions => Yii::t('app', 'Transactions'),
+            self::Settings => Yii::t('app', 'Settings'),
         ];
     }
 
@@ -34,6 +43,10 @@ class Type_Menu_Group
             self::People => 'users',
             self::Core => 'cog', // 'toggle on'
             self::Layout => 'window maximize outline',
+            self::MasterData => 'file outline',
+            self::Reports => 'line chart',
+            self::Transactions => 'copy outline',
+            self::Settings => 'cogs',
         ];
     }
 }

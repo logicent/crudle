@@ -1,8 +1,9 @@
 <?php
 
-namespace app\modules\setup\models;
+namespace crudle\setup\models;
 
-use app\modules\setup\models\base\BaseSettingsForm;
+use crudle\main\models\UploadForm;
+use crudle\setup\models\base\BaseSettingsForm;
 use Yii;
 
 class GeneralSettingsForm extends BaseSettingsForm
@@ -24,7 +25,7 @@ class GeneralSettingsForm extends BaseSettingsForm
 
     public function init()
     {
-        $this->uploadForm = new \app\modules\main\models\UploadForm();
+        $this->uploadForm = new UploadForm();
         $this->fileAttribute = 'logoPath';
     }
 

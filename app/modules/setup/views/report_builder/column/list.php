@@ -1,7 +1,7 @@
 <?php
 
-use app\modules\main\enums\Type_Model;
-use app\modules\setup\models\ReportBuilderItem;
+use crudle\main\enums\Type_Model;
+use crudle\setup\models\ReportBuilderItem;
 use yii\helpers\StringHelper;
 use yii\helpers\Url;
 use Zelenin\yii\SemanticUI\Elements;

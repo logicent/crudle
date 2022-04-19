@@ -1,7 +1,7 @@
 <?php
 
-use app\modules\setup\models\LayoutSettingsForm;
-use app\modules\setup\models\Setup;
+use crudle\setup\models\LayoutSettingsForm;
+use crudle\setup\models\Setup;
 
 $layoutSettings = Setup::getSettings( LayoutSettingsForm::class );
 

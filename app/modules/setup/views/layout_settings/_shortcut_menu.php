@@ -1,6 +1,6 @@
 <?php
 
-use app\modules\setup\models\AppMenuShortcut;
+use crudle\setup\models\AppMenuShortcut;
 
 echo $this->render('@app_main/views/_form_section/item', [
         'model' =>  new AppMenuShortcut(),

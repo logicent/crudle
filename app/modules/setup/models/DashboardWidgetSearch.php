@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\setup\models;
+namespace crudle\setup\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;

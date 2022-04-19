@@ -1,6 +1,6 @@
 <?php
 
-use app\modules\setup\models\AppMenuHelp;
+use crudle\setup\models\AppMenuHelp;
 
 echo $this->render('@app_main/views/_form_section/item', [
         'model' =>  new AppMenuHelp(),

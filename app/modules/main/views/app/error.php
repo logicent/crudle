@@ -1,7 +1,7 @@
 <?php
 
-use app\modules\setup\models\Setup;
-use app\modules\setup\models\GeneralSettingsForm;
+use crudle\setup\models\Setup;
+use crudle\setup\models\GeneralSettingsForm;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use Zelenin\yii\SemanticUI\Elements;

@@ -2,8 +2,8 @@
 
 namespace website\models;
 
-use app\modules\main\models\UploadForm;
-use app\modules\setup\models\base\BaseSettingsForm;
+use crudle\main\models\UploadForm;
+use crudle\setup\models\base\BaseSettingsForm;
 use Yii;
 
 class WebsiteSettingsForm extends BaseSettingsForm

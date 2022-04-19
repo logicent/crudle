@@ -1,9 +1,9 @@
 <?php
 
-namespace app\modules\setup\models;
+namespace crudle\setup\models;
 
-use app\modules\setup\enums\Type_Menu;
-use app\modules\setup\models\base\BaseAppMenu;
+use crudle\setup\enums\Type_Menu;
+use crudle\setup\models\base\BaseAppMenu;
 
 class AppMenuUser extends BaseAppMenu
 {

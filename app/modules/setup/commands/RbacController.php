@@ -1,10 +1,12 @@
 <?php
 
-namespace app\modules\setup\commands;
+namespace crudle\setup\commands;
 
-use app\modules\main\enums\Type_Model;
-use app\modules\setup\enums\Type_Permission;
-use app\modules\setup\enums\Type_Role;
+use crudle\main\enums\Type_Model;
+use crudle\main\models\auth\Auth;
+use crudle\main\models\auth\Role;
+use crudle\setup\enums\Type_Permission;
+use crudle\setup\enums\Type_Role;
 use Yii;
 use yii\console\Controller;
 use yii\helpers\Inflector;
@@ -56,7 +58,7 @@ class RbacController extends Controller
                 $this->_auth->addChild($systemManager, $domainRole);
             }
             // set role as active
-            $systemManager = \app\modules\main\models\auth\Role::findOne(['name' => Type_Role::SystemManager]);
+            $systemManager = Role::findOne(['name' => Type_Role::SystemManager]);
             $systemManager->inactive = 0;
             $systemManager->save(false);
 
@@ -66,10 +68,10 @@ class RbacController extends Controller
             $this->_auth->add($administrator);
             $this->_auth->addChild($administrator, $systemManager);
             // set default user as Administrator
-            $defaultUserId = \app\modules\main\models\auth\Auth::findOne(['username' => Type_Role::Administrator])->id;
+            $defaultUserId = Auth::findOne(['username' => Type_Role::Administrator])->id;
             $this->_auth->assign($administrator, $defaultUserId);
             // set role as active
-            $administrator = \app\modules\main\models\auth\Role::findOne(['name' => Type_Role::Administrator]);
+            $administrator = Role::findOne(['name' => Type_Role::Administrator]);
             $administrator->inactive = 0;
             $administrator->save(false);
         }

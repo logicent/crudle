@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\main\controllers\base;
+namespace crudle\main\controllers\base;
 
 interface ViewInterface
 {

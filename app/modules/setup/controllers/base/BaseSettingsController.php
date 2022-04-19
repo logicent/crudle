@@ -1,13 +1,13 @@
 <?php
 
-namespace app\modules\setup\controllers\base;
+namespace crudle\setup\controllers\base;
 
 use app\helpers\App;
-use app\modules\main\controllers\base\BaseFormController;
-use app\modules\main\enums\Type_Form_View;
-use app\modules\main\enums\Type_View;
-use app\modules\setup\models\Settings;
-use app\modules\setup\models\Setup;
+use crudle\main\controllers\base\BaseFormController;
+use crudle\main\enums\Type_Form_View;
+use crudle\main\enums\Type_View;
+use crudle\setup\models\Settings;
+use crudle\setup\models\Setup;
 use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;

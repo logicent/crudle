@@ -1,7 +1,7 @@
 <?php
 
-use app\modules\main\enums\Resource_Action;
-use app\modules\main\enums\Type_Form_View;
+use crudle\main\enums\Resource_Action;
+use crudle\main\enums\Type_Form_View;
 use yii\helpers\Html;
 
 

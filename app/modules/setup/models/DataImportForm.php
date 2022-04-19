@@ -1,9 +1,10 @@
 <?php
 
-namespace app\modules\setup\models;
+namespace crudle\setup\models;
 
-use app\modules\main\enums\Type_Model;
-use app\modules\setup\enums\Type_Permission;
+use crudle\main\enums\Type_Model;
+use crudle\main\models\UploadForm;
+use crudle\setup\enums\Type_Permission;
 use Yii;
 use yii\base\Model;
 
@@ -17,7 +18,7 @@ class DataImportForm extends Model
 
     public function init()
     {
-        $this->uploadForm = new \app\modules\main\models\UploadForm();
+        $this->uploadForm = new UploadForm();
     }
 
     public function rules()

@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\widgets\ActiveForm;
 use Zelenin\yii\SemanticUI\Elements;
 
-use app\modules\main\models\GlobalSearch;
+use crudle\main\models\GlobalSearch;
 
 $model = new GlobalSearch;
 ?>

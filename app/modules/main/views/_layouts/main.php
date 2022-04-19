@@ -1,7 +1,7 @@
 <?php
 
-use app\modules\main\enums\Type_Form_View;
-use app\modules\main\enums\Type_View;
+use crudle\main\enums\Type_Form_View;
+use crudle\main\enums\Type_View;
 
 
 $controller = $this->context;

@@ -1,12 +1,12 @@
 <?php
 
-use app\modules\setup\enums\Type_Role;
+use crudle\setup\enums\Type_Role;
 use app\helpers\DateTimeHelper;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\widgets\GridView;
 use Zelenin\yii\SemanticUI\Elements;
-use app\modules\main\models\auth\Person;
+use crudle\main\models\auth\Person;
 use app\helpers\StatusMarker;
 
 $this->title = Yii::t('app', 'User');

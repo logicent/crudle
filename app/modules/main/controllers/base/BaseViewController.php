@@ -1,9 +1,9 @@
 <?php
 
-namespace app\modules\main\controllers\base;
+namespace crudle\main\controllers\base;
 
-use app\modules\main\enums\Resource_Action;
-use app\modules\main\enums\Type_View;
+use crudle\main\enums\Resource_Action;
+use crudle\main\enums\Type_View;
 use Yii;
 use yii\helpers\Inflector;
 use yii\helpers\StringHelper;
@@ -41,6 +41,7 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
             $this->redirect(['/app/login']);
 
         Url::remember(Yii::$app->request->getUrl(), 'go back');
+        // \yii\helpers\VarDumper::dump($this->module, 5, true);exit;
 
         return parent::beforeAction($action);
     }

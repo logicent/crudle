@@ -2,7 +2,7 @@
 
 namespace app\enums;
 
-use app\modules\setup\enums\Type_Model as Setup_Type_Model;
+use crudle\setup\enums\Type_Model as Setup_Type_Model;
 use website\enums\Type_Model as Website_Type_Model;
 
 class Type_Model

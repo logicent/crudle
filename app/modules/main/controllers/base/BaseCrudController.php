@@ -1,13 +1,13 @@
 <?php
 
-namespace app\modules\main\controllers\base;
+namespace crudle\main\controllers\base;
 
-use app\modules\main\enums\Type_Comment;
-use app\modules\main\enums\Type_Relation;
-use app\modules\main\models\CommentForm;
-use app\modules\main\models\Model;
-use app\modules\setup\enums\Status_Transaction;
-use app\modules\setup\enums\Type_Permission;
+use crudle\main\enums\Type_Comment;
+use crudle\main\enums\Type_Relation;
+use crudle\main\models\CommentForm;
+use crudle\main\models\Model;
+use crudle\setup\enums\Status_Transaction;
+use crudle\setup\enums\Type_Permission;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;

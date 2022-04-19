@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\setup\models\base;
+namespace crudle\setup\models\base;
 
 interface SettingsInterface
 {

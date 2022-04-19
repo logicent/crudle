@@ -2,7 +2,7 @@
 
 namespace website\controllers;
 
-use app\modules\main\controllers\base\BaseCrudController;
+use crudle\main\controllers\base\BaseCrudController;
 use website\models\WebPage;
 use website\models\WebPageSearch;
 

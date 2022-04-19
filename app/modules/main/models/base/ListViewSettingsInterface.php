@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\main\models\base;
+namespace crudle\main\models\base;
 
 interface ListViewSettingsInterface
 {

@@ -2,8 +2,8 @@
 
 namespace website\models;
 
-use app\modules\main\models\base\BaseActiveRecord;
-use app\modules\setup\models\ListViewSettingsForm;
+use crudle\main\models\base\BaseActiveRecord;
+use crudle\setup\models\ListViewSettingsForm;
 use website\enums\Status_Article;
 use Yii;
 use yii\helpers\ArrayHelper;

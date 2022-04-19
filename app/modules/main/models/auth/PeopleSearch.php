@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\main\models\auth;
+namespace crudle\main\models\auth;
 
 use app\enums\Type_Role;
 use Yii;
