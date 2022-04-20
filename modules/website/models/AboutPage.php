@@ -2,6 +2,7 @@
 
 namespace website\models;
 
+use crudle\main\enums\Type_Relation;
 use crudle\setup\models\base\BaseSettingsForm;
 use Yii;
 
@@ -14,7 +15,8 @@ class AboutPage extends BaseSettingsForm
     public $ourTeamHeading;
     public $ourTeamSubheading;
     public $hideTeamSection;
-    public $showTeamMemberBio;
+    public $teamMember;
+    public $showTeamMemberBio = true;
     public $footer;
 
     public function rules()
@@ -55,6 +57,31 @@ class AboutPage extends BaseSettingsForm
             'ourHistoryHeading' => '"Your organization history"',
             'ourTeamHeading' => '"Team Members" or "Management"',
             'footer' => 'More content for the bottom of the page.',
+        ];
+    }
+
+
+    public static function relations(): array
+    {
+        return [
+            'teamMember' => [
+                'class' => AboutTeamMember::class,
+                'type' => Type_Relation::InlineModel,
+            ],
+        ];
+    }
+
+    public static function hasMixedValueFields(): bool
+    {
+        return true;
+    }
+
+    public static function mixedValueFields(): array
+    {
+        return [
+            // Type_Mixed_Value::JsonFormatted => [
+                'teamMember',
+            // ]
         ];
     }
 }

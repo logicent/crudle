@@ -1,3 +1,7 @@
+<?php
+
+use website\models\AboutTeamMember;
+?>
 <div class="ui two column grid">
     <div class="column">
         <?= $form->field($model, 'ourTeamHeading')->textInput(['maxlength' => 140]) ?>
@@ -13,6 +17,19 @@
         <?= $form->field($model, 'showTeamMemberBio')->checkbox() ?>
     </div>
 </div>
+
+<div class="ui hidden divider"></div>
+
+<?= $this->render('@app_main/views/_form_section/item', [
+        'model' => new AboutTeamMember(),
+        'detailModels' => $this->context->detailModels()['teamMember'],
+        'form' => $form,
+        'formView' => '@app_website/views/about_page/team_member/field_inputs',
+        'listColumns' => '@app_website/views/about_page/team_member/list_columns',
+        'listId' => 'footer_nav',
+    ]) ?>
+
+<div class="ui hidden divider"></div>
 
 <div class="ui one column grid">
     <div class="column">
