@@ -2,10 +2,10 @@
 
 namespace website\controllers;
 
-use crudle\setup\controllers\base\BaseSettingsController;
+use website\controllers\base\BaseWebSettingsController;
 use website\models\AboutPage;
 
-class AboutPageController extends BaseSettingsController
+class AboutPageController extends BaseWebSettingsController
 {
     public function modelClass(): string
     {

@@ -20,7 +20,7 @@ interface FormInterface
     public function detailModels(): array;
 
     // redirect to (url) after action
-    public function redirectTo(string $action);
+    public function redirectTo(string $action = null);
 
     // model validation errors
     public function validationErrors(): array;

@@ -48,7 +48,7 @@ abstract class BaseSettingsController extends BaseFormController
                 if ( Yii::$app->request->isAjax )
                     return $this->asJson([ 'success' => true ]);
                 else
-                    return $this->redirect([ '/setup' ]);
+                    return $this->redirectTo();
             }
             else {
                 $result = [];
@@ -135,6 +135,12 @@ abstract class BaseSettingsController extends BaseFormController
         }
         // else
         Yii::$app->end();
+    }
+
+    // FormInterface
+    public function redirectTo(string $action = null)
+    {
+        return $this->redirect([ '/setup' ]);
     }
 
     // LayoutInterface

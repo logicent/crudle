@@ -2,13 +2,13 @@
 
 namespace website\controllers;
 
-use crudle\setup\controllers\base\BaseSettingsController;
+use website\controllers\base\BaseWebSettingsController;
 use website\models\WebsiteScriptForm;
 
 /**
  * ScriptController for the `WebsiteScriptForm` model
  */
-class ScriptController extends BaseSettingsController
+class ScriptController extends BaseWebSettingsController
 {
     public function modelClass(): string
     {

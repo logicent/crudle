@@ -26,9 +26,9 @@ use Zelenin\yii\SemanticUI\modules\Checkbox;
             ]) ?>
     </td>
     <td>
-        <?= Html::activeTextInput($model, "[$rowId]group", [
+        <?= Html::activeTextInput($model, "[$rowId]icon", [
                 'maxlength' => true,
-                'data' => ['name' => 'group']
+                'data' => ['name' => 'icon']
             ]) ?>
     </td>
     <td class="center aligned">
@@ -51,7 +51,10 @@ use Zelenin\yii\SemanticUI\modules\Checkbox;
                         'form-view' => '@app_setup/views/_menu/_edit_form',
                     ]
                 ]) ?>
+        <?= Html::activeHiddenInput($model, "[$rowId]openInNewTab", ['data' => ['name' => 'openInNewTab']]) ?>
+        <?= Html::activeHiddenInput($model, "[$rowId]alignRight", ['data' => ['name' => 'alignRight']]) ?>
         <?= Html::activeHiddenInput($model, "[$rowId]type", ['data' => ['name' => 'type']]) ?>
+        <?= Html::activeHiddenInput($model, "[$rowId]parentLabel", ['data' => ['name' => 'parentLabel']]) ?>
         <?= Html::activeHiddenInput($model, "[$rowId]icon", ['data' => ['name' => 'icon']]) ?>
         <?= Html::activeHiddenInput($model, "[$rowId]iconPath", ['data' => ['name' => 'iconPath']]) ?>
         <?= Html::activeHiddenInput($model, "[$rowId]iconColor", ['data' => ['name' => 'iconColor']]) ?>

@@ -2,6 +2,7 @@
 
 namespace website\models;
 
+use crudle\main\enums\Type_Relation;
 use crudle\main\models\UploadForm;
 use crudle\setup\models\base\BaseSettingsForm;
 use Yii;
@@ -18,8 +19,10 @@ class WebsiteSettingsForm extends BaseSettingsForm
     public $hideLogin;
     public $includeSearchInTopBar;
     public $showLanguagePicker;
+    public $headerNav;
     public $banner; // Banner is above the Top Menu Bar.
     public $footerLogo;
+    public $footerNav;
     public $copyright;
     public $address;
     public $showFooterSignup = false;
@@ -80,8 +83,10 @@ class WebsiteSettingsForm extends BaseSettingsForm
             'brandImage' => Yii::t('app', 'Brand image'),
             'brandHtml' => Yii::t('app', 'Brand HTML'),
             'favicon' => Yii::t('app', 'Favicon'),
+            'headerNav'    =>  Yii::t('app', 'Header nav'),
             'banner' => Yii::t('app', 'Banner HTML'),
             'footerLogo' => Yii::t('app', 'Footer logo'),
+            'footerNav'    =>  Yii::t('app', 'Footer nav'),
             'copyright' => Yii::t('app', 'Copyright'),
             'address' => Yii::t('app', 'Address'),
             'googleAnalyticsId' => Yii::t('app', 'Google Analytics ID'),
@@ -112,6 +117,35 @@ class WebsiteSettingsForm extends BaseSettingsForm
             'htmlHeader' => Yii::t('app', "Added HTML in the &lt;head&gt; section of the web page, primarily used for website verification and SEO"),
             'banner' => Yii::t('app', 'Banner is above the Top Menu Bar.'),
             'address' => Yii::t('app', 'Address and other legal information you may want to put in the footer.'),
+        ];
+    }
+
+    public static function relations(): array
+    {
+        return [
+            'headerNav' => [
+                'class' => SiteNavHeader::class,
+                'type' => Type_Relation::InlineModel,
+            ],
+            'footerNav' => [
+                'class' => SiteNavFooter::class,
+                'type' => Type_Relation::InlineModel,
+            ],
+        ];
+    }
+
+    public static function hasMixedValueFields(): bool
+    {
+        return true;
+    }
+
+    public static function mixedValueFields(): array
+    {
+        return [
+            // Type_Mixed_Value::JsonFormatted => [
+                'footerNav',
+                'headerNav',
+            // ]
         ];
     }
 }
