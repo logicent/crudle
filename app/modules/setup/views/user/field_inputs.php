@@ -1,10 +1,10 @@
 <?php
 
-use app\modules\setup\enums\Type_Role;
-use app\modules\setup\enums\Status_Work;
-use app\modules\main\models\auth\Role;
+use crudle\setup\enums\Type_Role;
+use crudle\setup\enums\Status_Work;
+use crudle\main\models\auth\Role;
 use app\helpers\SelectableItems;
-use app\modules\setup\models\UserGroup;
+use crudle\setup\models\UserGroup;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\MaskedInput;

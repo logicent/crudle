@@ -1,9 +1,9 @@
 <?php
 
-namespace app\modules\setup\controllers;
+namespace crudle\setup\controllers;
 
-use app\modules\main\controllers\base\BaseFormController;
-use app\modules\setup\models\EmailForm;
+use crudle\main\controllers\base\BaseFormController;
+use crudle\setup\models\EmailForm;
 
 class EmailController extends BaseFormController
 {

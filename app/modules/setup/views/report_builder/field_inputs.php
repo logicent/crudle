@@ -1,9 +1,9 @@
 <?php
 
-use app\modules\main\enums\Type_Model;
-use app\modules\main\enums\Type_Module;
-use app\modules\main\enums\Type_Report;
-use app\modules\setup\enums\Type_Role;
+use crudle\main\enums\Type_Model;
+use crudle\main\enums\Type_Module;
+use crudle\main\enums\Type_Report;
+use crudle\setup\enums\Type_Role;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;
 use Zelenin\yii\SemanticUI\modules\Select;
@@ -12,15 +12,7 @@ use Zelenin\yii\SemanticUI\widgets\ActiveForm;
 $modelClasses = array_flip(Type_Model::modelClasses());
 ksort($modelClasses);
 $rolesCount = !empty($model->roles) ? count($model->roles) : '0';
-
-$form = ActiveForm::begin([
-    'id' => $model->formName(),
-    'enableClientValidation' => true,
-    'options' => [
-        'autocomplete' => 'off',
-        'class' => 'ui form modal-form',
-    ],
-]) ?>
+?>
     <div class="ui attached padded segment">
         <div class="ui two column grid">
             <div class="column">
@@ -73,11 +65,7 @@ $form = ActiveForm::begin([
                 'data' => ['url' => 'test-query']
             ]) ?>
     </div>
-
-<?php ActiveForm::end();
-echo $this->render('@app_main/views/_form/_footer', ['model' => $model]);
-$this->registerJs($this->render('@app_main/views/_form/_modal_submit.js'));
-
+<?php
 $this->registerJs(<<<JS
     $('.custom-listbox').on('click', function() {
         count = 0;
@@ -90,5 +78,4 @@ $this->registerJs(<<<JS
         selectedCount = $(this).siblings('label').children('span.selected-list-options');
         selectedCount.text(count);
     });
-JS
-);
+JS);

@@ -1,8 +1,8 @@
 <?php
 
-namespace app\modules\setup\models;
+namespace crudle\setup\models;
 
-use app\modules\setup\enums\Type_Permission;
+use crudle\setup\enums\Type_Permission;
 
 /**
  * This is the model class for page "Setup".

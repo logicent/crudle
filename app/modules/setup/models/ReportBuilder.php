@@ -1,13 +1,13 @@
 <?php
 
-namespace app\modules\setup\models;
+namespace crudle\setup\models;
 
 use app\enums\Status_Active;
-use app\modules\main\enums\Type_Relation;
-use app\modules\main\models\base\BaseActiveRecord;
-use app\modules\setup\enums\Permission_Group;
-use app\modules\setup\enums\Type_Permission;
-use app\modules\setup\models\ListViewSettingsForm;
+use crudle\main\enums\Type_Relation;
+use crudle\main\models\base\BaseActiveRecord;
+use crudle\setup\enums\Permission_Group;
+use crudle\setup\enums\Type_Permission;
+use crudle\setup\models\ListViewSettingsForm;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
@@ -73,7 +73,10 @@ class ReportBuilder extends BaseActiveRecord
     public static function enums()
     {
         return [
-            'inactive' => Status_Active::class
+            'status' => [
+                'class' => Status_Active::class,
+                'attribute' => 'inactive'
+            ]
         ];
     }
 

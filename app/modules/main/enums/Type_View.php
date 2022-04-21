@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\main\enums;
+namespace crudle\main\enums;
 
 class Type_View
 {

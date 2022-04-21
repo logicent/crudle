@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\main\controllers\base;
+namespace crudle\main\controllers\base;
 
 use yii\filters\AccessControl;
 
-abstract class BaseFormController extends BaseViewController implements FormInterface
+abstract class BaseFormController extends BaseViewController
 {
     public function behaviors()
     {
@@ -21,37 +21,5 @@ abstract class BaseFormController extends BaseViewController implements FormInte
                 ],
             ],
         ];
-    }
-
-    public function actionIndex()
-    {}
-
-    // FormInterface
-    public function modelClass(): string
-    {
-        return '';
-    }
-
-    public function getModel()
-    {
-        return $this->model;
-    }
-
-    public function detailModelClass(): array
-    {
-        return [];
-    }
-
-    public function detailModels(): array
-    {
-        return $this->detailModels;
-    }
-
-    public function redirectTo(string $action)
-    {}
-
-    public function validationErrors(): array
-    {
-        return [];
     }
 }

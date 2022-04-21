@@ -1,10 +1,11 @@
 <?php
 
-namespace app\modules\setup\models;
+namespace crudle\setup\models;
 
-use app\modules\main\enums\Type_Mixed_Value;
-use app\modules\main\enums\Type_Relation;
-use app\modules\setup\models\base\BaseSettingsForm;
+use crudle\main\enums\Type_Mixed_Value;
+use crudle\main\enums\Type_Relation;
+use crudle\main\models\UploadForm;
+use crudle\setup\models\base\BaseSettingsForm;
 use Yii;
 
 class LayoutSettingsForm extends BaseSettingsForm
@@ -31,7 +32,7 @@ class LayoutSettingsForm extends BaseSettingsForm
 
     public function init()
     {
-        $this->uploadForm = new \app\modules\main\models\UploadForm();
+        $this->uploadForm = new UploadForm();
         $this->fileAttribute = 'bgImagePath';
 
         $this->shortcutMenu = new AppMenuShortcut();

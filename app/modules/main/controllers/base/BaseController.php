@@ -1,13 +1,13 @@
 <?php
 
-namespace app\modules\main\controllers\base;
+namespace crudle\main\controllers\base;
 
 use app\helpers\PdfCreator;
 use app\helpers\PdfHelper;
 use app\helpers\SendNotification;
-use app\modules\main\enums\Type_View;
-use app\modules\setup\models\Setup;
-use app\modules\setup\models\SmtpSettingsForm;
+use crudle\main\enums\Type_View;
+use crudle\setup\models\Setup;
+use crudle\setup\models\SmtpSettingsForm;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Inflector;

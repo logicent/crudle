@@ -1,9 +1,9 @@
 <?php
 
-namespace app\modules\main\controllers;
+namespace crudle\main\controllers;
 
-use app\modules\main\controllers\base\BaseViewController;
-use app\modules\main\enums\Type_View;
+use crudle\main\controllers\base\BaseViewController;
+use crudle\main\enums\Type_View;
 
 class HomeController extends BaseViewController
 {
@@ -17,7 +17,7 @@ class HomeController extends BaseViewController
     }
 
     // ViewInterface
-    public function currentViewType()
+    public function defaultViewType()
     {
         return Type_View::Workspace;
     }

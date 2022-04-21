@@ -26,5 +26,5 @@ echo $this->render('GridView', [
         'dataProvider'  => $dataProvider, 
         'searchModel'   => $searchModel,
         'columns'       => $columns,
-        'linkColumn'       => $linkColumn,
+        'linkColumn'    => $linkColumn,
     ]) ?>

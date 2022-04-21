@@ -1,8 +1,8 @@
 <?php
 
 use app\enums\Status_Active;
-use app\modules\setup\enums\Type_Role;
-use app\modules\main\models\auth\Person;
+use crudle\setup\enums\Type_Role;
+use crudle\main\models\auth\Person;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;
 

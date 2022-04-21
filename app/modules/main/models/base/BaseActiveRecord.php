@@ -1,20 +1,20 @@
 <?php
 
-namespace app\modules\main\models\base;
+namespace crudle\main\models\base;
 
 use app\helpers\App;
-use app\modules\main\enums\Type_Comment;
-use app\modules\main\enums\Type_Link;
-use app\modules\main\enums\Type_Mixed_Value;
-use app\modules\main\enums\Type_Model_Id;
-use app\modules\main\enums\Type_Relation;
-use app\modules\main\enums\Type_View;
-use app\modules\main\models\auth\Person;
-use app\modules\setup\enums\Permission_Group;
-use app\modules\setup\enums\Type_Permission;
-use app\modules\setup\models\LayoutSettingsForm;
-use app\modules\setup\models\ListViewSettingsForm;
-use app\modules\setup\models\Setup;
+use crudle\main\enums\Type_Comment;
+use crudle\main\enums\Type_Link;
+use crudle\main\enums\Type_Mixed_Value;
+use crudle\main\enums\Type_Model_Id;
+use crudle\main\enums\Type_Relation;
+use crudle\main\enums\Type_View;
+use crudle\main\models\auth\Person;
+use crudle\setup\enums\Permission_Group;
+use crudle\setup\enums\Type_Permission;
+use crudle\setup\models\LayoutSettingsForm;
+use crudle\setup\models\ListViewSettingsForm;
+use crudle\setup\models\Setup;
 use app\workflows\WorkflowInterface;
 use Yii;
 use yii\db\ActiveRecord;

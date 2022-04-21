@@ -1,9 +1,9 @@
 <?php
 
-namespace app\modules\main\controllers;
+namespace crudle\main\controllers;
 
-use app\modules\main\controllers\base\BaseController;
-use app\modules\main\models\GlobalSearch;
+use crudle\main\controllers\base\BaseController;
+use crudle\main\models\GlobalSearch;
 use Yii;
 
 class GlobalSearchController extends BaseController

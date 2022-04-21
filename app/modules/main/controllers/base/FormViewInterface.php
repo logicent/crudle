@@ -1,16 +1,9 @@
 <?php
 
-namespace app\modules\main\controllers\base;
+namespace crudle\main\controllers\base;
 
 interface FormViewInterface
 {
-    public function formViewType(); // enum
-
-    public function showLinkedData(): bool;
-
-    public function showComments(): bool;
-
-    // public function showQuickEntry(): bool;
     // public function hasDetailForms(): bool;
     // public function detailForms(): array;
     // public function hasSections(): bool;

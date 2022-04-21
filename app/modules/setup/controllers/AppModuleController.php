@@ -1,8 +1,8 @@
 <?php
 
-namespace app\modules\setup\controllers;
+namespace crudle\setup\controllers;
 
-use app\modules\main\controllers\base\BaseViewController;
+use crudle\main\controllers\base\BaseViewController;
 
 class AppModuleController extends BaseViewController
 {

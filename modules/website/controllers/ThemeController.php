@@ -2,12 +2,12 @@
 
 namespace website\controllers;
 
-use app\modules\setup\controllers\base\BaseSettingsController;
+use website\controllers\base\BaseWebSettingsController;
 
 /**
  * ThemeController for the `ThemeForm` model
  */
-class ThemeController extends BaseSettingsController
+class ThemeController extends BaseWebSettingsController
 {
     /**
      * Renders the index view for the model

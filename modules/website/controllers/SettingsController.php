@@ -2,13 +2,13 @@
 
 namespace website\controllers;
 
-use app\modules\setup\controllers\base\BaseSettingsController;
+use website\controllers\base\BaseWebSettingsController;
 use website\models\WebsiteSettingsForm;
 
 /**
  * SettingsController for the `WebsiteSettings` model
  */
-class SettingsController extends BaseSettingsController
+class SettingsController extends BaseWebSettingsController
 {
     public function modelClass(): string
     {

@@ -1,8 +1,8 @@
 <?php
 
-namespace app\modules\main\models;
+namespace crudle\main\models;
 
-use app\modules\main\models\base\BaseActiveRecord;
+use crudle\main\models\base\BaseActiveRecord;
 
 /**
  * This is the model class for all other ActiveRecord models.

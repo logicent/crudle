@@ -1,9 +1,10 @@
 <?php
 
-namespace app\modules\main\controllers\base;
+namespace crudle\main\controllers\base;
 
-use app\modules\main\enums\Resource_Action;
-use app\modules\main\enums\Type_View;
+use crudle\main\enums\Resource_Action;
+use crudle\main\enums\Type_Form_View;
+use crudle\main\enums\Type_View;
 use Yii;
 use yii\helpers\Inflector;
 use yii\helpers\StringHelper;
@@ -74,7 +75,7 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
         return $this->render('@app_main/views/_' . $name . '/index');
     }
 
-    public function currentViewType()
+    public function defaultViewType()
     {
         switch ($this->action->id)
         {
@@ -86,9 +87,6 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
             default:
         }
     }
-
-    public function formViewType()
-    {}
 
     public function showViewTypeSwitcher(): bool
     {
@@ -130,8 +128,8 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
         switch ($this->action->id)
         {
             case 'index':
-                if ($this->currentViewType() == Type_View::Form ||
-                    $this->currentViewType() == Type_View::List)
+                if ($this->formViewType() == Type_Form_View::Single ||
+                    $this->defaultViewType() == Type_View::List)
                     return true;
             case 'create':
             case 'read':
@@ -180,5 +178,33 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
     public function showTabbedViews(): bool
     {
         return false;
+    }
+
+    public function modelClass(): string
+    {
+        return '';
+    }
+
+    public function getModel()
+    {
+        return $this->model;
+    }
+
+    public function detailModelClass(): array
+    {
+        return [];
+    }
+
+    public function redirectTo(string $action = null)
+    {}
+
+    public function getDetailModels(): array
+    {
+        return $this->detailModels;
+    }
+
+    public function validationErrors(): array
+    {
+        return [];
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-use app\modules\setup\models\DataModelField;
+use crudle\setup\models\DataModelField;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\GridView;

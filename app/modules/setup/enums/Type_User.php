@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\setup\enums;
+namespace crudle\setup\enums;
 
 class Type_User
 {

@@ -1,9 +1,9 @@
 <?php
 
-use app\modules\main\enums\Type_Model;
-use app\modules\setup\enums\Permission_Group;
-use app\modules\setup\enums\Type_Permission;
-use app\modules\main\models\auth\RolePermission;
+use crudle\main\enums\Type_Model;
+use crudle\setup\enums\Permission_Group;
+use crudle\setup\enums\Type_Permission;
+use crudle\main\models\auth\RolePermission;
 use yii\helpers\Html;
 use yii\helpers\Inflector;
 use app\assets\DataTableAsset;

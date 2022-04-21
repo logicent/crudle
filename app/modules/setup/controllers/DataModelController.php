@@ -1,16 +1,16 @@
 <?php
 
-namespace app\modules\setup\controllers;
+namespace crudle\setup\controllers;
 
-use app\modules\main\controllers\base\BaseCrudController;
+use crudle\main\controllers\base\BaseCrudController;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
-use app\modules\setup\models\DataModel;
-use app\modules\setup\models\DataModelSearch;
-use app\modules\setup\models\DataModelField;
-use app\modules\setup\models\DataModelFieldSearch;
+use crudle\setup\models\DataModel;
+use crudle\setup\models\DataModelSearch;
+use crudle\setup\models\DataModelField;
+use crudle\setup\models\DataModelFieldSearch;
 
 /**
  * DataModelController implements the CRUD actions for DataModel model.

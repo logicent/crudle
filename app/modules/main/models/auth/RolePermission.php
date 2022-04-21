@@ -1,8 +1,8 @@
 <?php
 
-namespace app\modules\main\models\auth;
+namespace crudle\main\models\auth;
 
-use app\modules\setup\enums\Type_Permission;
+use crudle\setup\enums\Type_Permission;
 use app\enums\Type_Model;
 
 class RolePermission extends Item

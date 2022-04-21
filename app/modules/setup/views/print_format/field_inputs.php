@@ -1,6 +1,6 @@
 <?php
 
-use app\modules\main\enums\Type_Model;
+use crudle\main\enums\Type_Model;
 
 $modelClasses = array_flip(Type_Model::modelClasses());
 ksort($modelClasses);

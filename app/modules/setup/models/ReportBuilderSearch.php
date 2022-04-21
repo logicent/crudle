@@ -1,8 +1,8 @@
 <?php
 
-namespace app\modules\setup\models;
+namespace crudle\setup\models;
 
-use app\modules\setup\models\ReportBuilder;
+use crudle\setup\models\ReportBuilder;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 

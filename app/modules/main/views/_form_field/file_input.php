@@ -1,6 +1,6 @@
 <?php
 
-use app\modules\main\enums\Type_Form_View;
+use crudle\main\enums\Type_Form_View;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;
 
@@ -23,13 +23,17 @@ echo
             'accept' => 'image/*', 'style' => 'display: none'
         ]) .
         // $form->field($model, $attribute)->hiddenInput(['class' => 'file-path']) .
-        Html::activeHiddenInput($model, $attribute, ['class' => 'file-path']) .
-        Html::activeLabel($model, $attribute);
+        Html::activeHiddenInput($model, $attribute, [
+            'class' => 'file-path',
+            'data' => ['name' => $attribute]
+        ]) .
+        Html::activeLabel($model, $attribute) .
+        Html::a( $imgTag, ['#'], [
+            'class' => 'upload-preview',
+            'style' => empty($imgTag) ? 'display: none' : '',
+        ]);
         if ($imgPlaceholder || $model->$attribute) :
-            echo Html::a( $imgTag, ['#'], [
-                    'class' => 'upload-preview',
-                    'style' => empty($imgTag) ? 'display: none' : '',
-                ]) . '<br>';
+            echo Html::tag('br');
         endif;
         if ($this->context->action->id == 'read' || // isReadonly()
             $this->context->formViewType() == Type_Form_View::Single) :

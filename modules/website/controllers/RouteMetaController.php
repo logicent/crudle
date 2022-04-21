@@ -2,7 +2,7 @@
 
 namespace website\controllers;
 
-use app\modules\main\controllers\base\BaseCrudController;
+use crudle\main\controllers\base\BaseCrudController;
 
 class RouteMetaController extends BaseCrudController
 {

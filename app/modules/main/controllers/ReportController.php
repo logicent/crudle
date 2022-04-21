@@ -1,9 +1,9 @@
 <?php
 
-namespace app\modules\main\controllers;
+namespace crudle\main\controllers;
 
-use app\modules\main\controllers\base\BaseViewController;
-use app\modules\setup\models\ReportBuilder;
+use crudle\main\controllers\base\BaseViewController;
+use crudle\setup\models\ReportBuilder;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\helpers\ArrayHelper;

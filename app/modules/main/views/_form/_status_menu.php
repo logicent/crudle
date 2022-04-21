@@ -1,7 +1,7 @@
 <?php
 
-use app\modules\setup\enums\Type_Permission;
-use app\modules\setup\enums\Type_Role;
+use crudle\setup\enums\Type_Permission;
+use crudle\setup\enums\Type_Role;
 use app\helpers\StatusMarker;
 use yii\helpers\Html;
 use yii\helpers\Url;

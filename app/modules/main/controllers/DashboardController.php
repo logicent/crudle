@@ -1,9 +1,9 @@
 <?php
 
-namespace app\modules\main\controllers;
+namespace crudle\main\controllers;
 
-use app\modules\main\controllers\base\BaseViewController;
-use app\modules\main\enums\Type_View;
+use crudle\main\controllers\base\BaseViewController;
+use crudle\main\enums\Type_View;
 
 class DashboardController extends BaseViewController
 {
@@ -21,7 +21,7 @@ class DashboardController extends BaseViewController
     }
 
     // ViewInterface
-    public function currentViewType()
+    public function defaultViewType()
     {
         return Type_View::Dashboard;
     }

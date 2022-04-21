@@ -2,7 +2,7 @@
 
 namespace website\models;
 
-use app\modules\setup\models\base\BaseAppMenu;
+use crudle\setup\models\base\BaseAppMenu;
 
 class Sidebar extends BaseAppMenu
 {

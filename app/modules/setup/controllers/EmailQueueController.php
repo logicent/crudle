@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\setup\controllers;
+namespace crudle\setup\controllers;
 
-use app\modules\main\controllers\base\BaseCrudController;
-use app\modules\setup\models\EmailQueue;
-use app\modules\setup\models\EmailQueueSearch;
+use crudle\main\controllers\base\BaseCrudController;
+use crudle\setup\models\EmailQueue;
+use crudle\setup\models\EmailQueueSearch;
 
 class EmailQueueController extends BaseCrudController
 {

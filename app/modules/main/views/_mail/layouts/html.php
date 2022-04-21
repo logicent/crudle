@@ -1,7 +1,7 @@
 <?php
 
-use app\modules\main\models\setup\GeneralSettingsForm;
-use app\modules\setup\models\Setup;
+use crudle\main\models\setup\GeneralSettingsForm;
+use crudle\setup\models\Setup;
 use yii\helpers\Html;
 
 /* @var $this \yii\web\View view component instance */

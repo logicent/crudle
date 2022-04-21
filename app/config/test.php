@@ -25,7 +25,7 @@ return [
             'showScriptName' => true,
         ],
         'user' => [
-            'identityClass' => 'app\modules\main\models\auth\User',
+            'identityClass' => 'crudle\main\models\auth\User',
         ],
         'request' => [
             'cookieValidationKey' => 'test',

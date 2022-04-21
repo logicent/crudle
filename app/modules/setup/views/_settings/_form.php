@@ -7,10 +7,10 @@ use Zelenin\yii\SemanticUI\widgets\ActiveForm;
 $hintOptions = [
     'tag' => 'div',
     'class' => 'text-muted',
-    'style' => 'font-size: 0.95em;'
+    'style' => 'font-size: 0.95em; padding-left: 0.25em'
 ];
 
-$model = $this->context->model;
+$model = $this->context->getModel();
 
 $form = ActiveForm::begin([
     'id' => $model->formName(),
@@ -19,7 +19,7 @@ $form = ActiveForm::begin([
     'options' => [
         'autocomplete' => 'off',
         'class' => 'ui form',
-        'enctype' => 'multipart/form-data',
+        'enctype' => isset($model->uploadForm) ? 'multipart/form-data' : false,
     ],
 ]);
     echo $this->render('@app_main/views/_form/_header', ['model' => $model]);

@@ -1,13 +1,13 @@
 <?php
 
-namespace app\modules\main\models\auth;
+namespace crudle\main\models\auth;
 
 use app\enums\Status_Active;
-use app\modules\main\models\base\BaseActiveRecord;
-use app\modules\setup\enums\Type_Role;
-use app\modules\main\models\UploadForm;
-// use app\modules\main\models\UploadForm;
-use app\modules\setup\models\ListViewSettingsForm;
+use crudle\main\models\base\BaseActiveRecord;
+use crudle\setup\enums\Type_Role;
+use crudle\main\models\UploadForm;
+// use crudle\main\models\UploadForm;
+use crudle\setup\models\ListViewSettingsForm;
 use Yii;
 use yii\db\Query;
 use yii\helpers\Json;

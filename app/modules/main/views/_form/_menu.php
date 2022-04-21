@@ -1,7 +1,7 @@
 <?php
 
-use app\modules\setup\enums\Type_Permission;
-use app\modules\main\enums\Resource_Action;
+use crudle\setup\enums\Type_Permission;
+use crudle\main\enums\Resource_Action;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use Zelenin\yii\SemanticUI\helpers\Size;

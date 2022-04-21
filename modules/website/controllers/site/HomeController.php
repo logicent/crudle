@@ -2,8 +2,8 @@
 
 namespace website\controllers\site;
 
-use app\modules\main\controllers\base\BaseController;
-use app\modules\main\controllers\AppController;
+use crudle\main\controllers\base\BaseController;
+use crudle\main\controllers\AppController;
 
 class HomeController extends AppController
 {

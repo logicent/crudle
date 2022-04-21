@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\main\models\auth;
+namespace crudle\main\models\auth;
 
 use Yii;
 use yii\helpers\Html;
@@ -22,7 +22,7 @@ class PasswordResetRequestForm extends \yii\base\Model
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'exist',
-                'targetClass' => '\app\modules\main\models\auth\User',
+                'targetClass' => User::class,
                 'filter' => ['status' => User::STATUS_ACTIVE],
                 'message' => 'There is no user with such email.'
             ],

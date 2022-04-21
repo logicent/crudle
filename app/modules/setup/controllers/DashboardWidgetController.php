@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\setup\controllers;
+namespace crudle\setup\controllers;
 
-use app\modules\main\controllers\base\BaseCrudController;
-use app\modules\setup\models\DashboardWidget;
-use app\modules\setup\models\DashboardWidgetSearch;
+use crudle\main\controllers\base\BaseCrudController;
+use crudle\setup\models\DashboardWidget;
+use crudle\setup\models\DashboardWidgetSearch;
 
 class DashboardWidgetController extends BaseCrudController
 {

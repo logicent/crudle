@@ -1,8 +1,8 @@
 <?php
 
 use yii\helpers\Url;
-use app\modules\main\models\auth\User;
-use app\modules\main\models\auth\Person;
+use crudle\main\models\auth\User;
+use crudle\main\models\auth\Person;
 
 $model = $this->context->model;
 

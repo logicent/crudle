@@ -2,7 +2,7 @@
 
 namespace website\models;
 
-use app\modules\main\models\base\BaseActiveRecord;
+use crudle\main\models\base\BaseActiveRecord;
 
 class Slideshow extends BaseActiveRecord
 {

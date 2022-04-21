@@ -1,7 +1,7 @@
 <?php
 
-use app\modules\main\enums\Type_Form_View;
-use app\modules\main\enums\Type_View;
+use crudle\main\enums\Type_Form_View;
+use crudle\main\enums\Type_View;
 
 
 $controller = $this->context;
@@ -20,7 +20,7 @@ $this->beginContent($layoutPath . 'base.php') ?>
                 <!-- <div class="ui rail"> -->
                 <div class="ui sticky">
                 <?php
-                    if ($controller->currentViewType() == Type_View::List ||
+                    if ($controller->defaultViewType() == Type_View::List ||
                         $controller->formViewType() == Type_Form_View::Single) :
                         echo $this->render('@app_main/views/_crud/_sidebar');
                     else :

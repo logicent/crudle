@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../helpers/App.php';
 
 use app\helpers\App;
-use app\modules\main\models\auth\User;
+use crudle\main\models\auth\User;
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../..');
 $dotenv->load();
@@ -15,7 +15,7 @@ $modules = require __DIR__ . '/modules.php';
 
 $config = [
     'id' => 'yii2-crudle-web',
-    // 'name' => 'Yii2 Crudle Web',
+    'name' => App::env('APP_NAME'),
     'runtimePath' => dirname( dirname( __DIR__ ) ) . '/storage/runtime',
     'vendorPath' => dirname( dirname( __DIR__ ) ) . '/vendor',
     'basePath' => dirname( __DIR__ ),
@@ -24,7 +24,7 @@ $config = [
     'bootstrap' => ['log'],
 
     'timeZone' => 'Africa/Nairobi',
-    // 'defaultRoute' => 'main/app/index',
+    'defaultRoute' => 'main/app/index',
 
     'aliases' => [
         '@bower' => '@vendor/bower-asset',

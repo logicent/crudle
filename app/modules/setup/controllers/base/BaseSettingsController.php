@@ -1,15 +1,14 @@
 <?php
 
-namespace app\modules\setup\controllers\base;
+namespace crudle\setup\controllers\base;
 
 use app\helpers\App;
-use app\modules\main\controllers\base\BaseFormController;
-use app\modules\main\enums\Type_Form_View;
-use app\modules\main\enums\Type_View;
-use app\modules\setup\models\Settings;
-use app\modules\setup\models\Setup;
+use crudle\main\controllers\base\BaseFormController;
+use crudle\main\enums\Type_Form_View;
+use crudle\main\enums\Type_View;
+use crudle\setup\models\Settings;
+use crudle\setup\models\Setup;
 use Yii;
-use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Json;
@@ -48,7 +47,7 @@ abstract class BaseSettingsController extends BaseFormController
                 if ( Yii::$app->request->isAjax )
                     return $this->asJson([ 'success' => true ]);
                 else
-                    return $this->redirect([ '/setup' ]);
+                    return $this->redirectTo();
             }
             else {
                 $result = [];
@@ -76,10 +75,10 @@ abstract class BaseSettingsController extends BaseFormController
             $formView = Yii::$app->request->get('formView');
 
             return $this->renderPartial($formView, [
-                            'rowId' => Yii::$app->request->get('nextRowId'),
-                            'model' => $model,
-                            'formData' => null
-                        ]);
+                        'rowId' => Yii::$app->request->get('nextRowId'),
+                        'model' => $model,
+                        'formData' => null
+                    ]);
         }
         // else
         Yii::$app->end();
@@ -137,8 +136,13 @@ abstract class BaseSettingsController extends BaseFormController
         Yii::$app->end();
     }
 
-    // LayoutInterface
-    public function currentViewType()
+    // ViewInterface
+    public function redirectTo(string $action = null)
+    {
+        return $this->redirect([ '/setup' ]);
+    }
+
+    public function defaultViewType()
     {
         return Type_View::Form;
     }

@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\setup\models;
+namespace crudle\setup\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\modules\setup\models\DataModel;
+use crudle\setup\models\DataModel;
 
 /**
  * DataModelSearch represents the model behind the search form of `app\modules\main\models\DataModel`.

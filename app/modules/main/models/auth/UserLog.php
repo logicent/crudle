@@ -1,9 +1,9 @@
 <?php
 
-namespace app\modules\main\models\auth;
+namespace crudle\main\models\auth;
 
-use app\modules\main\models\base\BaseActiveRecord;
-use app\modules\setup\enums\Type_Permission;
+use crudle\main\models\base\BaseActiveRecord;
+use crudle\setup\enums\Type_Permission;
 use Yii;
 
 /**

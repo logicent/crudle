@@ -3,9 +3,9 @@
 namespace website\models;
 
 use app\enums\Status_Active;
-use app\modules\setup\enums\Permission_Group;
-use app\modules\setup\enums\Type_Permission;
-use app\modules\setup\models\ListViewSettingsForm;
+use crudle\setup\enums\Permission_Group;
+use crudle\setup\enums\Type_Permission;
+use crudle\setup\models\ListViewSettingsForm;
 use website\models\base\BasePersonInfo;
 use Yii;
 use yii\helpers\ArrayHelper;

@@ -1,7 +1,15 @@
 <?php
 
-use yii\web\GroupUrlRule;
+// use yii\web\GroupUrlRule;
 
+// new GroupUrlRule([
+//     'prefix' => 'app',
+//     'rules' => [
+//         'main' => 'main',
+//         'setup' => 'setup',
+//         'website' => 'website',
+//     ],
+// ]),
 return [
     'enablePrettyUrl' => true,
     // 'enableStrictParsing' => true,
@@ -18,31 +26,18 @@ return [
         '/category' => 'website/site/blog-category/index',
         // ** end website
         // ** app routes
-        'app' => 'main/app/index',
+        'app' => 'main/app/index', // defaultRoute requires this rule
         'app/login' => 'main/app/login',
         'app/logout' => 'main/app/logout',
         'app/forgot-password' => 'main/app/request-password-reset',
         'app/reset-password' => 'main/app/reset-password',
 
-        // 'app' => '/main/home/index',
         'app/home' => '/main/home/index',
         'app/dashboard' => '/main/dashboard/index',
         'app/report' => '/main/report/index',
 
-        // ** app modules
-        'app/main' => '/main',
-        'app/setup' => '/setup',
-        // ** std modules
-        'app/website' => '/website',
-
-        // new GroupUrlRule([
-        //     'prefix' => 'app',
-        //     'rules' => [
-        //         'main' => 'main',
-        //         'setup' => 'setup',
-        //         'website' => 'website',
-        //     ],
-        // ]),
+        // ** app modules, std modules
+        'app/<module>' => '/<module>',
 
         // ** Crud action routes
         'app/<module>/<controller>/New' => '<module>/<controller>/create',

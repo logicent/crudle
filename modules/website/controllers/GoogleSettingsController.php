@@ -2,12 +2,12 @@
 
 namespace website\controllers;
 
-use app\modules\setup\controllers\base\BaseSettingsController;
+use website\controllers\base\BaseWebSettingsController;
 
 /**
  * GoogleSettingsController for the `GoogleSettingsForm` model
  */
-class GoogleSettingsController extends BaseSettingsController
+class GoogleSettingsController extends BaseWebSettingsController
 {
     /**
      * Renders the index view for the form model

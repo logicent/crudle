@@ -2,10 +2,10 @@
 
 namespace website\controllers;
 
-use app\modules\setup\controllers\base\BaseSettingsController;
+use website\controllers\base\BaseWebSettingsController;
 use website\models\AboutPage;
 
-class AboutPageController extends BaseSettingsController
+class AboutPageController extends BaseWebSettingsController
 {
     public function modelClass(): string
     {

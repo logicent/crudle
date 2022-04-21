@@ -1,9 +1,9 @@
 <?php
 
-namespace app\modules\setup\controllers;
+namespace crudle\setup\controllers;
 
-use app\modules\main\controllers\base\BaseViewController;
-use app\modules\main\enums\Type_View;
+use crudle\main\controllers\base\BaseViewController;
+use crudle\main\enums\Type_View;
 
 /**
  * Setup controller for the `setup` module
@@ -20,7 +20,7 @@ class SetupController extends BaseViewController
     }
 
     // ViewInterface
-    public function currentViewType()
+    public function defaultViewType()
     {
         return Type_View::Workspace;
     }

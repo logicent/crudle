@@ -9,9 +9,9 @@ Yii::setAlias('@app_website', '@system_modules/website');
 // Yii::setAlias('@custom_modules', dirname (__DIR__, 2) . '/user_modules');
 
 return [
-    'main'      => app\modules\main\Module::class,
-    'setup'     => [
-        'class' => app\modules\setup\Module::class,
-    ],
+    // core modules
+    'main'      => crudle\main\Module::class,
+    'setup'     => crudle\setup\Module::class,
     'website'   => website\Module::class,
+    // custom modules
 ];

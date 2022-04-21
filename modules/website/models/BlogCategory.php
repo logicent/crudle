@@ -3,9 +3,9 @@
 namespace website\models;
 
 use app\enums\Status_Active;
-use app\modules\main\models\base\BaseActiveRecord;
-use app\modules\setup\enums\Permission_Group;
-use app\modules\setup\enums\Type_Permission;
+use crudle\main\models\base\BaseActiveRecord;
+use crudle\setup\enums\Permission_Group;
+use crudle\setup\enums\Type_Permission;
 
 class BlogCategory extends BaseActiveRecord
 {

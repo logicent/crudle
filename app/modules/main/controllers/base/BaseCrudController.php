@@ -1,13 +1,14 @@
 <?php
 
-namespace app\modules\main\controllers\base;
+namespace crudle\main\controllers\base;
 
-use app\modules\main\enums\Type_Comment;
-use app\modules\main\enums\Type_Relation;
-use app\modules\main\models\CommentForm;
-use app\modules\main\models\Model;
-use app\modules\setup\enums\Status_Transaction;
-use app\modules\setup\enums\Type_Permission;
+use crudle\main\enums\Type_Comment;
+use crudle\main\enums\Type_Form_View;
+use crudle\main\enums\Type_Relation;
+use crudle\main\models\CommentForm;
+use crudle\main\models\Model;
+use crudle\setup\enums\Status_Transaction;
+use crudle\setup\enums\Type_Permission;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -78,9 +79,24 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
         ];
     }
 
-    public function getModel()
+    public function showQuickEntry(): bool
     {
-        return $this->model;
+        return false;
+    }
+
+    public function formViewType()
+    {
+        return Type_Form_View::Multiple;
+    }
+
+    public function showLinkedData(): bool
+    {
+        return true;
+    }
+
+    public function showComments(): bool
+    {
+        return true;
     }
 
     public function actionIndex()
@@ -135,9 +151,9 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
 
         // 2. render view by request type
         if ( Yii::$app->request->isAjax )
-            return $this->renderAjax('@app_main/views/_crud/index');
+            return $this->renderAjax($this->formView());
 
-        return $this->render('@app_main/views/_crud/index', [
+        return $this->render($this->formView(), [
                 'model' => $this->model
             ]);
     }
@@ -343,9 +359,9 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
             'modelDetails' => $this->detailModels,
         ];
         if ( Yii::$app->request->isAjax )
-            return $this->renderAjax( '@app_main/views/_crud/index', $data );
+            return $this->renderAjax( $this->formView(), $data );
         // else
-        return $this->render( '@app_main/views/_crud/index', $data );
+        return $this->render( $this->formView(), $data );
     }
 
     protected function copyModel( $id, $includeDetails = true )
@@ -657,30 +673,17 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
             $comment->save($model, false, Type_Comment::UserNote);
 
             $model->refresh(); // !! MUST do this to get an array in comments
-            return $this->renderPartial('@app_main/views/_layouts/_comments', ['comments' => $model->comments]);
+            return $this->renderPartial( $this->commentView(), ['comments' => $model->comments]);
         }
         // else
         Yii::$app->end();
     }
 
     // CrudInterface
-    public function modelClass(): string
-    {
-        return '';
-    }
-
     public function searchModelClass(): string
     {
         return '';
     }
-
-    public function detailModelClass(): array
-    {
-        return [];
-    }
-
-    public function redirectTo(string $action)
-    {}
 
     public function redirectOnCreate()
     {
@@ -707,23 +710,10 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
         return $this->redirect(['index']);
     }
 
-    public function model()
-    {}
-
     public function searchModel()
     {}
 
     public function linkedModels(): array
-    {
-        return [];
-    }
-
-    public function detailModels(): array
-    {
-        return [];
-    }
-
-    public function validationErrors(): array
     {
         return [];
     }
@@ -783,4 +773,14 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
 
     public function actionBatch()
     {}
+
+    public function formView(string $action = null, string $path = null)
+    {
+        return '@app_main/views/_crud/index';
+    }
+
+    public function commentView(): string
+    {
+        return '@app_main/views/_layouts/_comments';
+    }
 }
