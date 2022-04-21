@@ -27,10 +27,16 @@ $form = ActiveForm::begin([
     <div class="ui divider"></div>
     <div class="ui two column stackable grid">
         <div class="column">
-            <?= $form->field($model, 'fullName')->textInput(['maxlength' => true, 'data' => ['name' => 'fullName']]) ?>
-            <?= $form->field($model, 'designation')->textInput(['maxlength' => true, 'data' => ['name' => 'designation']]) ?>
-            <?= $this->render('@app_main/views/_form_field/file_input', ['attribute' => 'imageLink',
-                    'form' => $form,
+            <?= $form->field($model, 'fullName')->textInput([
+                    'maxlength' => true,
+                    'data' => ['name' => 'fullName']
+                ]) ?>
+            <?= $form->field($model, 'designation')->textInput([
+                    'maxlength' => true,
+                    'data' => ['name' => 'designation']
+                ]) ?>
+            <?= $this->render('@app_main/views/_form_field/file_input', [
+                    'attribute' => 'imageLink',
                     'model' => $model,
                 ]) ?>
         </div>

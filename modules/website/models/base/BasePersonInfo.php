@@ -17,7 +17,7 @@ class BasePersonInfo extends BaseSettingsForm
     public function init()
     {
         $this->uploadForm = new UploadForm();
-        $this->fileAttribute = 'brandImage';
+        $this->fileAttribute = 'imageLink';
     }
 
     public function rules()

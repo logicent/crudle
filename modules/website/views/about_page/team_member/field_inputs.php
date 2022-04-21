@@ -43,6 +43,7 @@ use Zelenin\yii\SemanticUI\modules\Checkbox;
                     'data' => [
                         'model-class' => App::className($model),
                         'form-view' => '@app_website/views/about_page/team_member/_edit_form',
+                        // 'row-id' => $rowId,
                     ]
                 ]) ?>
         <?= Html::activeHiddenInput($model, "[$rowId]bio", ['data' => ['name' => 'bio']]) ?>

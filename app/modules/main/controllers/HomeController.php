@@ -17,7 +17,7 @@ class HomeController extends BaseViewController
     }
 
     // ViewInterface
-    public function currentViewType()
+    public function defaultViewType()
     {
         return Type_View::Workspace;
     }

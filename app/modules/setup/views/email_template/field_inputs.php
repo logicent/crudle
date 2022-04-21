@@ -1,9 +1,3 @@
-<?php
-
-use yii\helpers\Html;
-
-?>
-
 <div class="ui attached padded segment">
     <?= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'subject')->textInput(['maxlength' => true]) ?>

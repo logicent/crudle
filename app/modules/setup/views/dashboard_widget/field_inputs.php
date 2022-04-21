@@ -1,10 +1,3 @@
-<?php
-
-use crudle\main\enums\Type_Model;
-use Zelenin\yii\SemanticUI\modules\Select;
-
-?>
-
 <div class="ui attached padded segment">
     <div class="ui two column grid">
         <div class="column">
@@ -20,8 +13,6 @@ use Zelenin\yii\SemanticUI\modules\Select;
             <?= $form->field($model, 'show_filtered_data')->checkbox(['class' => 'toggle'])->label('&nbsp;') ?>
             <br>
             <?= $form->field($model, 'column_width')->dropDownList([]) ?>
-        </div>
-
         </div>
     </div>
 </div>

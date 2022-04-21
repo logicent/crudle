@@ -3,6 +3,7 @@
 namespace website\models;
 
 use crudle\main\models\base\BaseActiveRecord;
+use crudle\setup\enums\Status_Transaction;
 use crudle\setup\models\ListViewSettingsForm;
 use website\enums\Status_Article;
 use Yii;
@@ -27,6 +28,7 @@ class BlogArticle extends BaseActiveRecord
             [['title', 'route'], 'required'],
             [['content', 'tags'], 'string'],
             [['title', 'slug'], 'string', 'max' => 280],
+            [['status'], 'default', 'value' => Status_Transaction::Draft],
             [[
                 'layout', 'author', 'route', 'status', 'featured_image', 'category_id', 'parent'
             ], 'string', 'max' => 140],

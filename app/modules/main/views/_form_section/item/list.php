@@ -14,7 +14,7 @@ $modal = Modal::begin([
 ]);
 $modal::end();
 
-$hideSelectAllCheckbox = empty($this->context->detailModels()) ? 'none' : '';
+$hideSelectAllCheckbox = empty($this->context->getDetailModels()) ? 'none' : '';
 ?>
 
 <div id="<?= $listId ?>">

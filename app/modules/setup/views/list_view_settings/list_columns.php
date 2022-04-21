@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\widgets\ActiveForm;
-use Zelenin\yii\SemanticUI\modules\Select;
 
 $this->title = Yii::t('app', 'List View Settings');
 

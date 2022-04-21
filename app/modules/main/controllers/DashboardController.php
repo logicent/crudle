@@ -21,7 +21,7 @@ class DashboardController extends BaseViewController
     }
 
     // ViewInterface
-    public function currentViewType()
+    public function defaultViewType()
     {
         return Type_View::Dashboard;
     }

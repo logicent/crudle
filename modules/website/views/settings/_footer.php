@@ -22,11 +22,11 @@ use website\models\SiteNavFooter;
     </div>
 </div>
 
-<div class="ui hidden divider"></div>
+<br>
 
 <?= $this->render('@app_main/views/_form_section/item', [
         'model' => new SiteNavFooter(),
-        'detailModels' => $this->context->detailModels()['footerNav'],
+        'detailModels' => $this->context->getDetailModels()['footerNav'],
         'form' => $form,
         'formView' => '@app_setup/views/_menu/field_inputs',
         'listColumns' => '@app_setup/views/_menu/list_columns',

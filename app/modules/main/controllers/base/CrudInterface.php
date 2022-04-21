@@ -4,8 +4,19 @@ namespace crudle\main\controllers\base;
 
 interface CrudInterface
 {
-    // view default action
-    public function actionIndex();
+    public function showQuickEntry(): bool;
+
+    public function formViewType();
+
+    // render form view in path
+    public function formView(string $action = null, string $path = null);
+
+    public function showLinkedData(): bool;
+
+    public function showComments(): bool;
+
+    // render comment view
+    public function commentView(): string;
 
     // form view create action
     public function actionCreate($id = null);
@@ -43,29 +54,14 @@ interface CrudInterface
     // list view batch action via ajax
     public function actionBatch();
 
-    // crud view model class
-    public function modelClass(): string;
-
     // crud view search model class
     public function searchModelClass(): string;
-
-    // crud view detail model class(es)
-    public function detailModelClass(): array;
-
-    // crud view model
-    public function getModel();
 
     // view search model
     public function searchModel();
 
     // linked or parent models
     public function linkedModels(): array;
-
-    // related child or sibling models
-    public function detailModels(): array;
-
-    // redirect to (url) after action
-    public function redirectTo(string $action);
 
     // redirect to (url) after create
     public function redirectOnCreate();
@@ -81,9 +77,6 @@ interface CrudInterface
 
     // redirect to (url) after delete
     public function redirectOnDelete();
-
-    // detail model validation errors
-    public function validationErrors(): array;
 
     // view is readonly
     public function isReadonly(): bool;

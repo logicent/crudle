@@ -6,42 +6,42 @@ use Zelenin\yii\SemanticUI\modules\Select;
 $this->title = Yii::t('app', 'SMTP Settings');
 ?>
 
-    <div class="ui attached padded segment">
-        <div class="two fields">
-            <?= $form->field( $model, 'smtp_host' )->textInput( ['maxlength' => true] ) ?>
-            <?= $form->field( $model, 'smtp_port' )->textInput( ['maxlength' => true] ) ?>
-        </div>
-        <div class="two fields">
-            <?= $form->field( $model, 'smtp_username' )->textInput( ['maxlength' => true] ) ?>
-            <?= $form->field( $model, 'smtp_password' )->passwordInput( ['maxlength' => true] ) ?>
-        </div>
-        <div class="two fields">
-            <?= $form->field ( $model, 'smtp_encryption' )->widget( Select::class, [
-                        'search' => true,
-                        'items' => [
-                            ' ' => '(None)',
-                            'ssl' => 'SSL',
-                            'tls' => 'TLS/STARTTLS'
-                        ]
-                    ]) ?>
-            <?= $form->field( $model, 'smtp_timeout' )->textInput( ['maxlength' => true] ) ?>
-        </div>
+<div class="ui attached padded segment">
+    <div class="two fields">
+        <?= $form->field( $model, 'smtp_host' )->textInput( ['maxlength' => true] ) ?>
+        <?= $form->field( $model, 'smtp_port' )->textInput( ['maxlength' => true] ) ?>
     </div>
-    
-    <div class="ui attached padded segment">
-        <div class="two fields">
-            <?= $form->field( $model, 'from_address' )->textInput( ['maxlength' => true] ) ?>
-            <?= $form->field( $model, 'from_name' )->textInput( ['maxlength' => true] ) ?>
-        </div>
-        <div class="field">
-            <?= Html::a(Yii::t('app', 'Test connection'), ['test-connection'],
-                    [
-                        'id' => 'test_connection', 
-                        'class' => 'compact ui small button',
-                    ]) ?>
-        </div>
+    <div class="two fields">
+        <?= $form->field( $model, 'smtp_username' )->textInput( ['maxlength' => true] ) ?>
+        <?= $form->field( $model, 'smtp_password' )->passwordInput( ['maxlength' => true] ) ?>
     </div>
-<?php 
+    <div class="two fields">
+        <?= $form->field ( $model, 'smtp_encryption' )->widget( Select::class, [
+                    'search' => true,
+                    'items' => [
+                        ' ' => '(None)',
+                        'ssl' => 'SSL',
+                        'tls' => 'TLS/STARTTLS'
+                    ]
+                ]) ?>
+        <?= $form->field( $model, 'smtp_timeout' )->textInput( ['maxlength' => true] ) ?>
+    </div>
+</div>
+
+<div class="ui attached padded segment">
+    <div class="two fields">
+        <?= $form->field( $model, 'from_address' )->textInput( ['maxlength' => true] ) ?>
+        <?= $form->field( $model, 'from_name' )->textInput( ['maxlength' => true] ) ?>
+    </div>
+    <div class="field">
+        <?= Html::a(Yii::t('app', 'Test connection'), ['test-connection'],
+                [
+                    'id' => 'test_connection', 
+                    'class' => 'compact ui small button',
+                ]) ?>
+    </div>
+</div>
+<?php
 $this->registerJs(<<<JS
     function emailIsValid (email) {
         return /\S+@\S+\.\S+/.test(email)
