@@ -19,12 +19,12 @@ class AboutPage extends BaseSettingsForm
     public $teamMember;
     public $showTeamMemberBio = true;
     public $footer;
-    public $imageLink;
+    public $photoImage;
 
     public function init()
     {
         $this->uploadForm = new UploadForm();
-        $this->fileAttribute = 'imageLink';
+        $this->fileAttribute = 'photoImage';
     }
 
     public function rules()

@@ -31,7 +31,7 @@ use yii\helpers\Html;
         'listId' => 'team_member',
     ]) ?>
 
-<?= Html::activeHiddenInput($model, "imageLink", ['data' => ['name' => 'imageLink']]) ?>
+<?= Html::activeHiddenInput($model, "photoImage", ['data' => ['name' => 'photoImage']]) ?>
 
 <div class="ui hidden divider"></div>
 

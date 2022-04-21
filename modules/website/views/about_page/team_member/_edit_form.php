@@ -35,12 +35,6 @@ $form = ActiveForm::begin([
                     'maxlength' => true,
                     'data' => ['name' => 'designation']
                 ]) ?>
-            <?= $this->render('@app_main/views/_form_field/file_input', [
-                    'attribute' => 'imageLink',
-                    'model' => $model,
-                ]) ?>
-        </div>
-        <div class="column">
             <?= $form->field($model, 'bio')->textArea([
                     'maxlength' => true,
                     'rows' => 9,
@@ -49,6 +43,12 @@ $form = ActiveForm::begin([
             <?= $form->field($model, "inactive")->checkbox([
                     'data' => ['name' => 'inactive'],
                     'options' => ['style' => 'vertical-align: text-top']
+                ]) ?>
+        </div>
+        <div class="column">
+            <?= $this->render('@app_main/views/_form_field/file_input', [
+                    'attribute' => 'photoImage',
+                    'model' => $model,
                 ]) ?>
         </div>
     </div>

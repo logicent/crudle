@@ -47,6 +47,6 @@ use Zelenin\yii\SemanticUI\modules\Checkbox;
                     ]
                 ]) ?>
         <?= Html::activeHiddenInput($model, "[$rowId]bio", ['data' => ['name' => 'bio']]) ?>
-        <?= Html::activeHiddenInput($model, "[$rowId]imageLink", ['data' => ['name' => 'imageLink']]) ?>
+        <?= Html::activeHiddenInput($model, "[$rowId]photoImage", ['data' => ['name' => 'photoImage']]) ?>
     </td>
 </tr>
