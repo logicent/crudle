@@ -47,12 +47,12 @@ class UserController extends BaseCrudController
         $this->model = $person;
 
         if (Yii::$app->request->isAjax)
-            return $this->renderAjax('@app_main/views/_crud/index', [
+            return $this->renderAjax('@app_main/views/crud/index', [
                 // 'auth' => $this->auth,
                 'model' => $person,
             ]);
         else
-            return $this->render('@app_main/views/_crud/index', [
+            return $this->render('@app_main/views/crud/index', [
                 // 'auth' => $this->auth,
                 'model' => $person,
             ]);
@@ -125,12 +125,12 @@ class UserController extends BaseCrudController
         $this->model = $person;
 
         if (Yii::$app->request->isAjax)
-            return $this->renderAjax('@app_main/views/_crud/index', [
+            return $this->renderAjax('@app_main/views/crud/index', [
                 // 'auth' => $this->auth,
                 'model' => $person,
             ]);
         else
-            return $this->render('@app_main/views/_crud/index', [
+            return $this->render('@app_main/views/crud/index', [
                 // 'auth' => $this->auth,
                 'model' => $person,
             ]);
@@ -175,12 +175,12 @@ class UserController extends BaseCrudController
         $this->model = $person;
 
         if (Yii::$app->request->isAjax)
-            return $this->renderAjax('@app_main/views/_crud/index', [
+            return $this->renderAjax('@app_main/views/crud/index', [
                 // 'auth' => $this->auth,
                 'model' => $person,
             ]);
         else
-            return $this->render('@app_main/views/_crud/index', [
+            return $this->render('@app_main/views/crud/index', [
                 // 'auth' => $this->auth,
                 'model' => $person,
             ]);

@@ -2,7 +2,6 @@
 
 use crudle\main\enums\Type_Model;
 use Zelenin\yii\SemanticUI\modules\Select;
-
 ?>
 
 <div class="ui attached padded segment">

@@ -10,7 +10,7 @@ $hintOptions = [
     'style' => 'font-size: 0.95em; padding-left: 0.25em'
 ];
 
-$model = $this->context->model;
+$model = $this->context->getModel();
 
 $form = ActiveForm::begin([
     'id' => $model->formName(),

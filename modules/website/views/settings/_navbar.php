@@ -11,11 +11,11 @@ use website\models\SiteNavHeader;
     </div>
 </div>
 
-<div class="ui hidden divider"></div>
+<br>
 
 <?= $this->render('@app_main/views/_form_section/item', [
         'model' => new SiteNavHeader(),
-        'detailModels' => $this->context->detailModels()['headerNav'],
+        'detailModels' => $this->context->getDetailModels()['headerNav'],
         'form' => $form,
         'formView' => '@app_setup/views/_menu/field_inputs',
         'listColumns' => '@app_setup/views/_menu/list_columns',

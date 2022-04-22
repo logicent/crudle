@@ -3,6 +3,7 @@
 namespace website\models;
 
 use crudle\main\enums\Type_Relation;
+use crudle\main\models\UploadForm;
 use crudle\setup\models\base\BaseSettingsForm;
 use Yii;
 
@@ -18,6 +19,13 @@ class AboutPage extends BaseSettingsForm
     public $teamMember;
     public $showTeamMemberBio = true;
     public $footer;
+    public $photoImage;
+
+    public function init()
+    {
+        $this->uploadForm = new UploadForm();
+        $this->fileAttribute = 'photoImage';
+    }
 
     public function rules()
     {

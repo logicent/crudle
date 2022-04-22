@@ -4,7 +4,7 @@ namespace website\enums;
 
 use Yii;
 
-class Type_Menu_Group
+class Type_Menu_Sub_Group
 {
     const Setup = 'Setup';
     const Blog = 'Blog';

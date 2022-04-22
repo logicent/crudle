@@ -2,6 +2,7 @@
 
 namespace crudle\main\enums;
 
+
 class Type_Model_Id
 {
     const AutoIncrementedInteger    = 1;

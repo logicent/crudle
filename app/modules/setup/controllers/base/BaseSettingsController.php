@@ -9,7 +9,6 @@ use crudle\main\enums\Type_View;
 use crudle\setup\models\Settings;
 use crudle\setup\models\Setup;
 use Yii;
-use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Json;
@@ -76,10 +75,10 @@ abstract class BaseSettingsController extends BaseFormController
             $formView = Yii::$app->request->get('formView');
 
             return $this->renderPartial($formView, [
-                            'rowId' => Yii::$app->request->get('nextRowId'),
-                            'model' => $model,
-                            'formData' => null
-                        ]);
+                        'rowId' => Yii::$app->request->get('nextRowId'),
+                        'model' => $model,
+                        'formData' => null
+                    ]);
         }
         // else
         Yii::$app->end();
@@ -137,14 +136,13 @@ abstract class BaseSettingsController extends BaseFormController
         Yii::$app->end();
     }
 
-    // FormInterface
+    // ViewInterface
     public function redirectTo(string $action = null)
     {
         return $this->redirect([ '/setup' ]);
     }
 
-    // LayoutInterface
-    public function currentViewType()
+    public function defaultViewType()
     {
         return Type_View::Form;
     }

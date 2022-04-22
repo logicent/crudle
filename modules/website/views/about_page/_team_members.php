@@ -1,6 +1,8 @@
 <?php
 
 use website\models\AboutTeamMember;
+use yii\helpers\Html;
+
 ?>
 <div class="ui two column grid">
     <div class="column">
@@ -22,12 +24,14 @@ use website\models\AboutTeamMember;
 
 <?= $this->render('@app_main/views/_form_section/item', [
         'model' => new AboutTeamMember(),
-        'detailModels' => $this->context->detailModels()['teamMember'],
+        'detailModels' => $this->context->getDetailModels()['teamMember'],
         'form' => $form,
         'formView' => '@app_website/views/about_page/team_member/field_inputs',
         'listColumns' => '@app_website/views/about_page/team_member/list_columns',
-        'listId' => 'footer_nav',
+        'listId' => 'team_member',
     ]) ?>
+
+<?= Html::activeHiddenInput($model, "photoImage", ['data' => ['name' => 'photoImage']]) ?>
 
 <div class="ui hidden divider"></div>
 

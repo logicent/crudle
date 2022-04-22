@@ -61,7 +61,7 @@ class DataModelController extends BaseCrudController
             $this->detailModels[] = new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION]);
             $this->fieldDataProvider->setModels( $this->detailModels );
 
-            return $this->render('@app_main/views/_crud/index', [
+            return $this->render('@app_main/views/crud/index', [
                 'model' => $this->model,
             ]);
         }
@@ -84,7 +84,7 @@ class DataModelController extends BaseCrudController
             }
         }
 
-        return $this->render('@app_main/views/_crud/index', [
+        return $this->render('@app_main/views/crud/index', [
             'model' => $this->model,
         ]);
     }
@@ -134,7 +134,7 @@ class DataModelController extends BaseCrudController
 
             $this->model = $model;
 
-            return $this->render('@app_main/views/_crud/index', [
+            return $this->render('@app_main/views/crud/index', [
                 'model' => $model,
             ]);
         }
@@ -170,7 +170,7 @@ class DataModelController extends BaseCrudController
 
         $this->model = $model;
 
-        return $this->render('@app_main/views/_crud/index', [
+        return $this->render('@app_main/views/crud/index', [
             'model' => $model,
         ]);
     }

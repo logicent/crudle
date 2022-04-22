@@ -20,9 +20,9 @@ $this->beginContent($layoutPath . 'base.php') ?>
                 <!-- <div class="ui rail"> -->
                 <div class="ui sticky">
                 <?php
-                    if ($controller->currentViewType() == Type_View::List ||
+                    if ($controller->defaultViewType() == Type_View::List ||
                         $controller->formViewType() == Type_Form_View::Single) :
-                        echo $this->render('@app_main/views/_crud/_sidebar');
+                        echo $this->render('@app_main/views/crud/_sidebar');
                     else :
                         if (file_exists($controller->viewPath . '/_sidebar.php')) :
                             echo $this->renderFile($controller->viewPath . '/_sidebar.php');

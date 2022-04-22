@@ -27,14 +27,14 @@ $form = ActiveForm::begin([
     <div class="ui divider"></div>
     <div class="ui two column stackable grid">
         <div class="column">
-            <?= $form->field($model, 'fullName')->textInput(['maxlength' => true, 'data' => ['name' => 'fullName']]) ?>
-            <?= $form->field($model, 'designation')->textInput(['maxlength' => true, 'data' => ['name' => 'designation']]) ?>
-            <?= $this->render('@app_main/views/_form_field/file_input', ['attribute' => 'imageLink',
-                    'form' => $form,
-                    'model' => $model,
+            <?= $form->field($model, 'fullName')->textInput([
+                    'maxlength' => true,
+                    'data' => ['name' => 'fullName']
                 ]) ?>
-        </div>
-        <div class="column">
+            <?= $form->field($model, 'designation')->textInput([
+                    'maxlength' => true,
+                    'data' => ['name' => 'designation']
+                ]) ?>
             <?= $form->field($model, 'bio')->textArea([
                     'maxlength' => true,
                     'rows' => 9,
@@ -43,6 +43,12 @@ $form = ActiveForm::begin([
             <?= $form->field($model, "inactive")->checkbox([
                     'data' => ['name' => 'inactive'],
                     'options' => ['style' => 'vertical-align: text-top']
+                ]) ?>
+        </div>
+        <div class="column">
+            <?= $this->render('@app_main/views/_form_field/file_input', [
+                    'attribute' => 'photoImage',
+                    'model' => $model,
                 ]) ?>
         </div>
     </div>

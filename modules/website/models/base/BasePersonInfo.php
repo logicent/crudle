@@ -10,14 +10,14 @@ class BasePersonInfo extends BaseSettingsForm
 {
     public $fullName;
     public $designation;
-    public $imageLink;
+    public $photoImage;
     public $bio;
     public $inactive;
 
     public function init()
     {
         $this->uploadForm = new UploadForm();
-        $this->fileAttribute = 'brandImage';
+        $this->fileAttribute = 'photoImage';
     }
 
     public function rules()
@@ -25,7 +25,7 @@ class BasePersonInfo extends BaseSettingsForm
         return [
             [['fullName'], 'required'],
             [['inactive'], 'boolean'],
-            [['fullName', 'designation', 'imageLink'], 'string', 'max' => 140],
+            [['fullName', 'designation', 'photoImage'], 'string', 'max' => 140],
             [['bio'], 'string'],
         ];
     }
@@ -35,7 +35,7 @@ class BasePersonInfo extends BaseSettingsForm
         return [
             'fullName' => Yii::t('app', 'Full name'),
             'designation' => Yii::t('app', 'Designation'),
-            'imageLink' => Yii::t('app', 'Image link'),
+            'photoImage' => Yii::t('app', 'Photo image'),
             'bio' => Yii::t('app', 'Bio'),
             'inactive' => Yii::t('app', 'Inactive'),
         ];

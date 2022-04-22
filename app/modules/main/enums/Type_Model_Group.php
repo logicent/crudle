@@ -3,19 +3,21 @@
 namespace crudle\main\enums;
 
 
-class Type_Model_Data
+class Type_Model_Group
 {
     const Entity    = 'Entity'; // Master
-    const Transaction   = 'Transaction';
-    const Settings  = 'Settings';
+    const Event     = 'Event'; // Transaction
+    const Params    = 'Params'; // Settings
+    const Form      = 'Form';
     const Page      = 'Page';
 
     public static function enums()
     {
         return [
             self::Entity,
-            self::Transaction,
-            self::Settings,
+            self::Event,
+            self::Params,
+            self::Form,
             self::Page,
         ];
     }
