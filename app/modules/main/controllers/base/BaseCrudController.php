@@ -130,12 +130,12 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
         // $this->sidebar = false;
 
         if (Yii::$app->request->isAjax)
-            return $this->renderAjax('@app_main/views/_list/index', [
+            return $this->renderAjax('@app_main/views/list/index', [
                 'searchModel' => $searchModel,
                 'dataProvider' => $dataProvider,
             ]);
         else
-            return $this->render('@app_main/views/_list/index', [
+            return $this->render('@app_main/views/list/index', [
                 'searchModel' => $searchModel,
                 'dataProvider' => $dataProvider,
             ]);
@@ -776,7 +776,7 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
 
     public function formView(string $action = null, string $path = null)
     {
-        return '@app_main/views/_crud/index';
+        return '@app_main/views/crud/index';
     }
 
     public function commentView(): string

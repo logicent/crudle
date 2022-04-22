@@ -55,7 +55,7 @@ endif;
                         'class' => 'compact ui filter button',
                         'style' => 'display: none'
                     ]);
-                echo $this->render('@app_main/views/_list/_menu');
+                echo $this->render('@app_main/views/list/_menu');
                 // Note: list view does not have a model instance
                 if ( Yii::$app->user->can(Type_Permission::Create .' '. $controller->viewName()) ) :
                     echo Html::a(Yii::t('app', 'New'), ['create'], [
@@ -181,8 +181,8 @@ if ($controller->action->id == Resource_Action::Create ||
             });
         JS);
 endif;
-echo $this->render('@app_main/views/_form/_confirm', ['action' => Status_Transaction::Submit]);
-echo $this->render('@app_main/views/_list/_delete');
+echo $this->render('@app_main/views/_modal/confirm_action', ['action' => Status_Transaction::Submit]);
+echo $this->render('@app_main/views/list/_delete');
 
 $this->registerJs(<<<JS
     $('.ui.dropdown').dropdown();

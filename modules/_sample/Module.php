@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\_sample;
+namespace _sample;
 
 use Yii;
 
@@ -12,7 +12,7 @@ class Module extends \yii\base\Module
     /**
      * {@inheritdoc}
      */
-    public $controllerNamespace = 'app\modules\_sample\controllers';
+    public $controllerNamespace = '_sample\controllers';
 
     /**
      * {@inheritdoc}

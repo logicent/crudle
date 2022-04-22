@@ -1,13 +1,14 @@
 <?php
 
-namespace app\modules\_sample\controllers;
+namespace website\controllers;
 
-use app\controllers\base\BaseController;
+use crudle\main\controllers\base\BaseViewController;
+use crudle\main\enums\Type_View;
 
 /**
- * _SampleController for the `_sample` module
+ * _SampleController for the `website` module
  */
-class _SampleController extends BaseController
+class _SampleController extends BaseViewController
 {
     /**
      * Renders the default index view for the module
@@ -15,8 +16,17 @@ class _SampleController extends BaseController
      */
     public function actionIndex()
     {
-        $this->sidebar = false;
-
         return $this->render('index');
+    }
+
+    // ViewInterface
+    public function defaultViewType()
+    {
+        return Type_View::Workspace;
+    }
+
+    public function showViewSidebar(): bool
+    {
+        return false;
     }
 }

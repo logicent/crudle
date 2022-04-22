@@ -2,6 +2,7 @@
 
 namespace crudle\main\enums;
 
+
 class Type_Mixed_Value
 {
     const CommaSeparated    = ','; // use explode & implode to convert
