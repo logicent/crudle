@@ -7,7 +7,7 @@ return [
     'icon',
     'tag_fields', // varchar (255)
     'subject', // varchar (255)
-    '_last_update',
+    'last_update',
     'engine', // InnoDB
     'default_print_format', // varchar (255)
     'is_submittable', // NULL
@@ -23,7 +23,7 @@ return [
     'quick_entry', // int [1]
     'search_fields',
     'issingle',
-    'istable',
+    'is_table',
     'editable_grid',
     'track_changes',
     'module',

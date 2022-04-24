@@ -12,6 +12,7 @@ return [
     // core modules
     'main'      => crudle\main\Module::class,
     'setup'     => crudle\setup\Module::class,
+    // std modules
     'website'   => website\Module::class,
     // custom modules
 ];

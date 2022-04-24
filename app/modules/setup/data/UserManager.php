@@ -18,7 +18,6 @@ return [
     'role_permission',
     'role_permission_rule',
     'role_profile',
-
 ];
 
 // Role Type

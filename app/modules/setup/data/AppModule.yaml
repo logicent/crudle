@@ -1,8 +1,7 @@
 Module:
-    - id: 'setup'
-    - label: 'Setup'
-    - route: '/setup'
-
-    - id: 'website'
-    - label: 'Website'
-    - route: '/website'
+    - controllerNamespace:
+    - params:
+    - id:
+    - layout:
+    - controllerMap:
+    - defaultRoute:

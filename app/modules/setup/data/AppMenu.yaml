@@ -1,9 +1,11 @@
 Menu:
-    - id: 'setup'
-    - label: 'Setup'
+    - icon: 
+    - iconPath: 
+    - iconColor: 
     - route: '/setup'
-    - group: 
-    - icon: ''
-    - icon_path: ''
-    - icon_color: ''
+    - label: 'Setup'
+    - openInNewTab: 
+    - parentLabel: 
+    - alignRight: 
     - inactive: false
+    - type: 

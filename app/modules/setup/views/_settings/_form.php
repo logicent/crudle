@@ -2,13 +2,12 @@
 
 use Zelenin\yii\SemanticUI\widgets\ActiveForm;
 
-// $hasFileInput == isset($model->UploadForm);
-
 $hintOptions = [
     'tag' => 'div',
     'class' => 'text-muted',
     'style' => 'font-size: 0.95em; padding-left: 0.25em'
 ];
+$hasFileInput = isset($model->uploadForm);
 
 $model = $this->context->getModel();
 
@@ -19,7 +18,7 @@ $form = ActiveForm::begin([
     'options' => [
         'autocomplete' => 'off',
         'class' => 'ui form',
-        'enctype' => isset($model->uploadForm) ? 'multipart/form-data' : false,
+        'enctype' => $hasFileInput ? 'multipart/form-data' : false,
     ],
 ]);
     echo $this->render('@app_main/views/_form/_header', ['model' => $model]);

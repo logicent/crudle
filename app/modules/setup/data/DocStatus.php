@@ -34,7 +34,7 @@ return [
         'name' => 'Unpaid',
         'description' => 'Transaction is already posted, but has no payment made to it',
         'color' => 'orange',
-        'rule' => '{$model->doc_status == "Submitted" && $model->hasPayment == false}',
+        'rule' => '{$model->status == "Submitted" && $model->hasPayment == false}',
     ],
     [
         'id' => 5,
