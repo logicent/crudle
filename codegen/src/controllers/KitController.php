@@ -27,7 +27,7 @@ class KitController extends BaseViewController
      */
     public $module;
     /**
-     * @var \yii\gii\Generator
+     * @var \crudle\kit\Generator
      */
     public $generator;
 
@@ -44,8 +44,6 @@ class KitController extends BaseViewController
 
     public function actionIndex()
     {
-        // $this->layout = 'main';
-
         return $this->render('index');
     }
 
@@ -129,7 +127,7 @@ class KitController extends BaseViewController
     /**
      * Loads the generator with the specified ID.
      * @param string $id the ID of the generator to be loaded.
-     * @return \yii\gii\Generator the loaded generator
+     * @return \crudle\kit\Generator the loaded generator
      * @throws NotFoundHttpException
      */
     protected function loadGenerator($id)
@@ -157,6 +155,7 @@ class KitController extends BaseViewController
 
     public function showViewSidebar(): bool
     {
+        // Todo: Fix clashes with crud sidebar
         return true;
     }
 }

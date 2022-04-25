@@ -1,3 +1,10 @@
+<?php
+
+$context = $this->context;
+$model = $this->context->model;
+
+$this->title = $model->isNewRecord ? Yii::t('app', '{formTitle}', ['formTitle' => 'New ' . $context->viewName()]) : $model->id;
+?>
 
 <?= $this->render('_breadcrumb') ?>
 

@@ -2,9 +2,11 @@
 
 use yii\helpers\Html;
 use crudle\kit\CodeFile;
+use Zelenin\yii\SemanticUI\Elements;
+use Zelenin\yii\SemanticUI\modules\Checkbox;
 
 /* @var $this \yii\web\View */
-/* @var $generator \yii\gii\Generator */
+/* @var $generator \crudle\kit\Generator */
 /* @var $files CodeFile[] */
 /* @var $answers array */
 /* @var $id string panel ID */
@@ -15,24 +17,48 @@ use crudle\kit\CodeFile;
 
     <div class="ui two column grid">
         <div class="column">
-            <input id="filter-input" class="form-control" placeholder="Type to filter">
+            <?= Html::beginForm('#', 'get', [
+                        'class' => 'ui form',
+                        'autocomplete' => 'off'
+                    ]) ?>
+                <div class="ui icon large input">
+                    <?= Html::textInput('filter_input', '', ['placeholder' => Yii::t('app', 'Type a filter')]) ?>
+                    <?= Elements::icon('search small link') ?>
+                </div>
+            <?= Html::endForm() ?>
         </div>
         <div class="column right aligned">
-            <div id="action-toggle" class="btn-group btn-group-xs"">
-                <label class="ui success button active" title="Filter files that are created">
-                    <input type="checkbox" value="<?= CodeFile::OP_CREATE ?>" checked> Create
+            <div class="ui small buttons">
+                <label class="ui positive button" title="Filter created files">
+                    <?= Checkbox::widget([
+                            'name' => 'create__btn',
+                            'inputOptions' => ['value' => CodeFile::OP_CREATE],
+                            'checked' => true,
+                            'label' => 'Create',
+                            'labelOptions' => ['style' => 'color: white !important;']
+                        ]) ?>
                 </label>
-                <label class="ui button active" title="Filter files that are unchanged.">
-                    <input type="checkbox" value="<?= CodeFile::OP_SKIP ?>" checked> Unchanged
+                <label class="ui button" title="Filter unchanged files">
+                    <?= Checkbox::widget([
+                            'name' => 'unchanged__btn',
+                            'inputOptions' => ['value' => CodeFile::OP_SKIP],
+                            'checked' => true,
+                            'label' => 'Unchanged'
+                        ]) ?>
                 </label>
-                <label class="ui button active" title="Filter files that are overwritten">
-                    <input type="checkbox" value="<?= CodeFile::OP_OVERWRITE ?>" checked> Overwrite
+                <label class="ui button" title="Filter overwritten files">
+                    <?= Checkbox::widget([
+                            'name' => 'overwrite__btn',
+                            'inputOptions' => ['value' => CodeFile::OP_OVERWRITE],
+                            'checked' => true,
+                            'label' => 'Overwrite'
+                        ]) ?>
                 </label>
             </div>
         </div>
     </div>
 
-    <table class="table table-bordered table-striped table-condensed">
+    <table class="ui celled striped table">
         <thead>
             <tr>
                 <th class="file">Code File</th>
@@ -42,7 +68,13 @@ use crudle\kit\CodeFile;
                 foreach ($files as $file) {
                     if ($file->operation !== CodeFile::OP_SKIP) {
                         $fileChangeExists = true;
-                        echo '<th><input type="checkbox" id="check-all"></th>';
+                        echo Html::beginTag('th', ['class' => 'center aligned']);
+                        echo Checkbox::widget([
+                                'name' => 'check_all__btn',
+                                'inputOptions' => ['id' => 'check-all'],
+                                'labelOptions' => ['label' => false]
+                        ]);
+                        echo Html::endTag('th');
                         break;
                     }
                 }
@@ -50,17 +82,17 @@ use crudle\kit\CodeFile;
             </tr>
         </thead>
         <tbody id="files-body">
-            <?php foreach ($files as $file): ?>
-            <?php
-            if ($file->operation === CodeFile::OP_OVERWRITE) {
-                $trClass = 'warning';
-            } elseif ($file->operation === CodeFile::OP_SKIP) {
-                $trClass = 'active';
-            } elseif ($file->operation === CodeFile::OP_CREATE) {
-                $trClass = 'success';
-            } else {
-                $trClass = '';
-            }
+        <?php
+            foreach ($files as $file):
+                if ($file->operation === CodeFile::OP_OVERWRITE) :
+                    $trClass = 'warning';
+                elseif ($file->operation === CodeFile::OP_SKIP) :
+                    $trClass = 'active';
+                elseif ($file->operation === CodeFile::OP_CREATE) :
+                    $trClass = 'success';
+                else :
+                    $trClass = '';
+                endif;
             ?>
             <tr class="<?= "$file->operation $trClass" ?>">
                 <td class="file">
@@ -79,22 +111,25 @@ use crudle\kit\CodeFile;
                     ?>
                 </td>
                 <?php if ($fileChangeExists): ?>
-                <td class="check">
-                    <?php
-                    if ($file->operation === CodeFile::OP_SKIP) {
+                <td class="check center aligned">
+                <?php
+                    if ($file->operation === CodeFile::OP_SKIP) :
                         echo '&nbsp;';
-                    } else {
-                        echo Html::checkBox("answers[{$file->id}]", isset($answers) ? isset($answers[$file->id]) : ($file->operation === CodeFile::OP_CREATE));
-                    }
-                    ?>
+                    else :
+                        echo Checkbox::widget([
+                                'name' => "answers[{$file->id}]",
+                                'checked' => isset($answers) ? isset($answers[$file->id]) : ($file->operation === CodeFile::OP_CREATE),
+                                'labelOptions' => ['label' => false]
+                        ]);
+                    endif ?>
                 </td>
-                <?php endif; ?>
+                <?php endif ?>
             </tr>
-            <?php endforeach; ?>
+            <?php endforeach ?>
         </tbody>
     </table>
 
-    <div class="modal fade" id="preview-modal" tabindex="-1" role="dialog">
+    <div class="ui modal fade" id="preview-modal" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">

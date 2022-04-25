@@ -6,7 +6,7 @@
 ?>
 <div class="module-form">
 <?php
-    echo $form->field($generator, 'moduleClass');
-    echo $form->field($generator, 'moduleID');
+    echo $form->field($generator, 'moduleID')->textInput(['placeholder' => 'e.g. main']);
+    echo $form->field($generator, 'moduleClass')->textInput(['placeholder' => 'e.g. crudle\main\Module']);
 ?>
 </div>

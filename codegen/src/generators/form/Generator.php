@@ -19,10 +19,10 @@ use crudle\kit\CodeFile;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class Generator extends \yii\gii\Generator
+class Generator extends \crudle\kit\Generator
 {
     public $modelClass;
-    public $viewPath = '@app/views';
+    public $viewPath = '@app_main/views';
     public $viewName;
     public $scenarioName;
 
@@ -32,7 +32,7 @@ class Generator extends \yii\gii\Generator
      */
     public function getName()
     {
-        return 'Form Generator';
+        return 'Form View';
     }
 
     /**
@@ -111,10 +111,17 @@ class Generator extends \yii\gii\Generator
     public function hints()
     {
         return array_merge(parent::hints(), [
-            'modelClass' => 'e.g. <code>app\models\Post</code>. This is a base model class for collecting the form input. It is a fully qualified class name.',
-            'viewName' => 'e.g. <code>site/index</code> would generate a <code>site/index.php</code> view file under the view path. This is the view name with respect to the view path.',
-            'viewPath' => 'e.g., <code>@app/views</code>. This is the root view path to store the view files when generated. Use a directory or a path alias.',
-            'scenarioName' => 'This is the scenario to be used by the model when collecting the form input. If empty, the default scenario will be used.',
+            'modelClass' =>
+                'This is a form model class for collecting the form input. It is a fully qualified class name.',
+            'viewName' =>
+                'A <code>main/index.php</code> view file will be generated under the view path corrensponding 
+                to the view name.',
+            'viewPath' =>
+                'This is the root view path to store the view files when generated. Use a directory or 
+                a path alias.',
+            'scenarioName' => 
+                'This is the scenario to be used by the model when collecting the form input. 
+                If empty, the default scenario will be used.',
         ]);
     }
 

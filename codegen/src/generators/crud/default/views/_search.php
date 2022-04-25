@@ -10,11 +10,11 @@ echo "<?php\n";
 ?>
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use Zelenin\yii\SemanticUI\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model <?= ltrim($generator->searchModelClass, '\\') ?> */
-/* @var $form yii\widgets\ActiveForm */
+/* @var $form Zelenin\yii\SemanticUI\widgets\ActiveForm */
 ?>
 
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-search">
@@ -24,6 +24,7 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
 <?php if ($generator->enablePjax): ?>
         'options' => [
+            <!-- 'class' => 'ui form', -->
             'data-pjax' => 1
         ],
 <?php endif; ?>
@@ -40,8 +41,8 @@ foreach ($generator->getColumnNames() as $attribute) {
 }
 ?>
     <div class="form-group">
-        <?= "<?= " ?>Html::submitButton(<?= $generator->generateString('Search') ?>, ['class' => 'btn btn-primary']) ?>
-        <?= "<?= " ?>Html::resetButton(<?= $generator->generateString('Reset') ?>, ['class' => 'btn btn-default']) ?>
+        <?= "<?= " ?>Html::submitButton(<?= $generator->generateString('Search') ?>, ['class' => 'ui primary button']) ?>
+        <?= "<?= " ?>Html::resetButton(<?= $generator->generateString('Reset') ?>, ['class' => 'ui button']) ?>
     </div>
 
     <?= "<?php " ?>ActiveForm::end(); ?>

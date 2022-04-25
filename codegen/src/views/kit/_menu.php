@@ -11,36 +11,42 @@ $deployedSettings = Setup::getSettings( DeveloperSettingsForm::class );
 return [
     [
         'route' => '/kit/kit/index',
+        'label' => 'Crudle Kit',
+        'group' => Type_Menu_Sub_Group::Code,
+        'visible' => Yii::$app->user->can(Type_Role::SystemManager),
+    ],
+    [
+        'route' => '/kit/model',
         'label' => 'Data Model',
         'group' => Type_Menu_Sub_Group::Code,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/kit/crud/index',
+        'route' => '/kit/crud',
         'label' => 'CRUD',
         'group' => Type_Menu_Sub_Group::Code,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/kit/controller/index',
+        'route' => '/kit/controller',
         'label' => 'Controller',
         'group' => Type_Menu_Sub_Group::Code,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/kit/form/index',
+        'route' => '/kit/form',
         'label' => 'Form View',
         'group' => Type_Menu_Sub_Group::Code,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/kit/module/index',
+        'route' => '/kit/module',
         'label' => 'App Module',
         'group' => Type_Menu_Sub_Group::Code,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/kit/extension/index',
+        'route' => '/kit/extension',
         'label' => 'Extension',
         'group' => Type_Menu_Sub_Group::Code,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),

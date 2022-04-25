@@ -30,12 +30,12 @@ use yii\web\Controller;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class Generator extends \yii\gii\Generator
+class Generator extends \crudle\kit\Generator
 {
     public $modelClass;
     public $controllerClass;
     public $viewPath;
-    public $baseControllerClass = 'yii\web\Controller';
+    public $baseControllerClass = 'crudle\main\controllers\base\BaseViewController';
     public $indexWidgetType = 'grid';
     public $searchModelClass = '';
     /**
@@ -50,7 +50,7 @@ class Generator extends \yii\gii\Generator
      */
     public function getName()
     {
-        return 'CRUD Generator';
+        return 'CRUD';
     }
 
     /**
@@ -58,7 +58,7 @@ class Generator extends \yii\gii\Generator
      */
     public function getDescription()
     {
-        return 'This generates a controller and view(s) to implement CRUD operations for the specified model.';
+        return 'This generates a controller class and view(s) to implement CRUD operations for the specified model.';
     }
 
     /**
@@ -106,21 +106,28 @@ class Generator extends \yii\gii\Generator
     public function hints()
     {
         return array_merge(parent::hints(), [
-            'modelClass' => 'e.g. <code>app\models\Post</code><br>This is a ActiveRecord class associated with the DB table that CRUD is built upon.
+            'modelClass' =>
+                'This is a ActiveRecord class associated with the DB table that CRUD is built upon. 
                 It is a fully qualified class name.',
-            'controllerClass' => 'e.g. <code>app\controllers\PostController</code><br>This is a controller class name that should be in CamelCase. The class
-                namespace must be as specified by your application\'s controllerNamespace property.',
-            'viewPath' => 'e.g. <code>/var/www/basic/controllers/views/post</code> &nbsp;or&nbsp; <code>@app/views/post</code>. 
-            <br>The directory or path alias for the view scripts of the controller. If not set, it will default to <code>@app/views/ControllerID</code>',
-            'baseControllerClass' => 'e.g. <code>yii\web\Controller</code><br>This is a fully qualified class name that the new controller class will extend 
-                from. Please make sure the class exists and can be autoloaded.',
-            'indexWidgetType' => 'This is the widget type to be used in the index page to display list of the models.
-                You may choose either <code>GridView</code> or <code>ListView</code>',
-            'searchModelClass' => 'e.g. <code>app\models\PostSearch</code><br>This is a ActiveRecord search model class to be used by a DataProvider in GridView. It is a fully
-                qualified class name.',
-            'enablePjax' => 'This indicates whether the generator should wrap the <code>GridView</code> or <code>ListView</code>
-                widget on the index page with <code>yii\widgets\Pjax</code> widget. <br>Set this to <code>true</code> if you want to get
-                sorting, filtering and pagination without page refreshing.',
+            'controllerClass' =>
+                'This is a controller class name that should be in CamelCase. The class namespace
+                must be as specified by your application\'s controllerNamespace property.',
+            'viewPath' =>
+                'The directory or path alias for the view scripts of the controller. If not set, 
+                it will default to <code>@app_main/views/ControllerID</code>',
+            'baseControllerClass' =>
+                'This is a fully qualified class name that the new controller class will extend from. 
+                Please make sure the class exists and can be autoloaded.',
+            'indexWidgetType' =>
+                'This is the widget type to be used in the index page to display list of the models.
+                You may choose either <code>GridView</code> &nbsp;or&nbsp; <code>ListView</code>',
+            'searchModelClass' =>
+                'This is a ActiveRecord search model class to be used by a DataProvider in GridView. 
+                It is a fully qualified class name.',
+            'enablePjax' =>
+                'This indicates whether to wrap the <code>GridView</code> &nbsp;or&nbsp; <code>ListView</code>
+                widget on the index page with <code>yii\widgets\Pjax</code> widget.<br>
+                Select this, if you want to get sorting, filtering and pagination without refreshing the page.',
         ]);
     }
 

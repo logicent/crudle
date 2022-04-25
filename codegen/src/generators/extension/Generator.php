@@ -20,7 +20,7 @@ use crudle\kit\CodeFile;
  * @author Tobias Munk <schmunk@usrbin.de>
  * @since 2.0
  */
-class Generator extends \yii\gii\Generator
+class Generator extends \crudle\kit\Generator
 {
     public $vendorName;
     public $packageName = "yii2-";
@@ -40,7 +40,7 @@ class Generator extends \yii\gii\Generator
      */
     public function getName()
     {
-        return 'Extension Generator';
+        return 'Extension';
     }
 
     /**
@@ -111,13 +111,21 @@ class Generator extends \yii\gii\Generator
     public function hints()
     {
         return [
-            'vendorName'  => 'e.g. <code>myself</code><br>This is the name of the publisher. Your GitHub user name is usually a good choice.',
-            'packageName' => 'e.g. <code>yii2-foobar</code><br>This is the name of the extension on packagist.',
-            'namespace'   => 'PSR-4, e.g. <code>myself\foobar\</code><br>This will be added to your autoloading by composer. Do not use <code>yii</code>, <code>yii2</code> or <code>yiisoft</code> in the namespace.',
-            'keywords'    => 'Comma separated keywords for this extension.',
-            'outputPath'  => 'The temporary location of the generated files.',
-            'title'       => 'A more descriptive name of your application for the README file.',
-            'description' => 'A sentence or subline describing the main purpose of the extension.',
+            'vendorName'  =>
+                'This is the name of the publisher. Your GitHub user name is usually a good choice.',
+            'packageName' =>
+                'This is the name of the extension on packagist.',
+            'namespace'   =>
+                'This will be added to your autoloading by composer. Do not use <code>yii</code>, 
+                <code>yii2</code> or <code>yiisoft</code> in the namespace.',
+            'keywords'    =>
+                'Comma separated keywords for this extension.',
+            'outputPath'  =>
+                'The temporary location of the generated files.',
+            'title'       =>
+                'A more descriptive name of your application for the README file.',
+            'description' =>
+                'A sentence or subline describing the main purpose of the extension.',
         ];
     }
 

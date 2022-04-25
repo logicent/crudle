@@ -21,7 +21,7 @@ use yii\helpers\StringHelper;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class Generator extends \yii\gii\Generator
+class Generator extends \crudle\kit\Generator
 {
     public $moduleClass;
     public $moduleID;
@@ -32,7 +32,7 @@ class Generator extends \yii\gii\Generator
      */
     public function getName()
     {
-        return 'Module Generator';
+        return 'App Module';
     }
 
     /**
@@ -74,8 +74,8 @@ class Generator extends \yii\gii\Generator
     public function hints()
     {
         return [
-            'moduleID' => 'This is the unique ID of the module, e.g. <code>admin</code>.',
-            'moduleClass' => 'This is a fully qualified class name, e.g. <code>app\modules\admin\Module</code>.',
+            'moduleID' => 'This is the unique ID of the module.',
+            'moduleClass' => 'This is a fully qualified class name.',
         ];
     }
 

@@ -16,7 +16,7 @@ use yii\helpers\Console;
 class GenerateAction extends \yii\base\Action
 {
     /**
-     * @var \yii\gii\Generator
+     * @var \crudle\kit\Generator
      */
     public $generator;
     /**

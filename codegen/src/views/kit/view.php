@@ -15,13 +15,16 @@ use Zelenin\yii\SemanticUI\widgets\ActiveForm;
 /* @var $answers array */
 
 $this->title = $generator->getName();
+echo $this->render('_breadcrumb');
+
 $templates = [];
 foreach ($generator->templates as $name => $path) :
     $templates[$name] = "$name ($path)";
 endforeach;
 ?>
 <div class="ui top attached padded segment">
-    <div class="ui header" style="font-weight: normal;"><?= $generator->getDescription() ?></div>
+    <div class="ui header" style="color: ##36414c; font-weight: normal;"><?= $generator->getDescription() ?></div>
+    <div class="ui divider"></div>
 <?php
     $hintOptions = [
         'tag' => 'div',
@@ -44,7 +47,7 @@ endforeach;
                     ->field($generator, 'template')->sticky()
                     ->label('Code Template')
                     ->dropDownList($templates)->hint('
-                        Please select which set of the templates should be used to generated the code.')
+                        Please select a set of the templates to be used to generate the code.')
                 ?>
         </div>
     </div>

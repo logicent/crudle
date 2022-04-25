@@ -6,7 +6,7 @@ use yii\helpers\Html;
 // SweetAlertAsset::register($this);
 
 if (Yii::$app->session->hasFlash('warning')) : ?>
-  <div class="ui warning message">
+  <div class="ui warning message disappear">
     <i class="close icon"></i>
     <div class="header">
       <?= Yii::$app->session->getFlash('warning') ?>
@@ -17,7 +17,7 @@ if (Yii::$app->session->hasFlash('warning')) : ?>
 endif;
 
 if (Yii::$app->session->hasFlash('info')) : ?>
-  <div class="ui info message">
+  <div class="ui info message disappear">
     <i class="close icon"></i>
     <div class="header">
       <?= Yii::$app->session->getFlash('info') ?>
@@ -31,7 +31,7 @@ if (Yii::$app->session->hasFlash('info')) : ?>
 endif;
 
 if (Yii::$app->session->hasFlash('success')) : ?>
-  <div class="ui positive message">
+  <div class="ui positive message disappear">
     <!-- <i class="check icon"></i> -->
     <div class="header">
       <?= Yii::$app->session->getFlash('success') ?>
@@ -42,7 +42,7 @@ if (Yii::$app->session->hasFlash('success')) : ?>
 endif;
 
 if (Yii::$app->session->hasFlash('error')) : ?>
-  <div class="ui negative message">
+  <div class="ui negative message disappear">
     <!-- <i class="check icon"></i> -->
     <div class="header">
       <?= Yii::$app->session->getFlash('error') ?>
@@ -53,7 +53,7 @@ if (Yii::$app->session->hasFlash('error')) : ?>
 endif;
 
 if (Yii::$app->session->hasFlash('errors')) : ?>
-  <div class="ui negative message">
+  <div class="ui negative message disappear">
     <!-- <i class="close icon"></i> -->
     <div class="content">
       <div class="header">
@@ -83,7 +83,7 @@ $this->registerJs(<<<JS
       .on('click', function() {
           $(this).closest('.message').transition('fade');
   });
-  $('.message').transition('fade', '8000ms');
+  $('.message.disappear').transition('fade', '8000ms');
 
   // yii.confirm = function (message, ok, cancel)
   // {

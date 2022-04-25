@@ -24,17 +24,17 @@ use yii\base\NotSupportedException;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class Generator extends \yii\gii\Generator
+class Generator extends \crudle\kit\Generator
 {
     const RELATIONS_NONE = 'none';
     const RELATIONS_ALL = 'all';
     const RELATIONS_ALL_INVERSE = 'all-inverse';
 
     public $db = 'db';
-    public $ns = 'app\models';
+    public $ns = 'crudle\main\models';
     public $tableName;
     public $modelClass;
-    public $baseClass = 'yii\db\ActiveRecord';
+    public $baseClass = 'crudle\main\models\base\BaseActiveRecord';
     public $generateRelations = self::RELATIONS_ALL;
     public $generateRelationsFromCurrentSchema = true;
     public $generateLabelsFromComments = false;
@@ -42,7 +42,7 @@ class Generator extends \yii\gii\Generator
     public $standardizeCapitals = false;
     public $useSchemaName = true;
     public $generateQuery = false;
-    public $queryNs = 'app\models';
+    public $queryNs = 'crudle\main\models\query';
     public $queryClass;
     public $queryBaseClass = 'yii\db\ActiveQuery';
 
@@ -52,7 +52,7 @@ class Generator extends \yii\gii\Generator
      */
     public function getName()
     {
-        return 'Model Generator';
+        return 'Data Model';
     }
 
     /**
@@ -60,7 +60,7 @@ class Generator extends \yii\gii\Generator
      */
     public function getDescription()
     {
-        return 'This generator generates an ActiveRecord class for the specified database table.';
+        return 'This generates an ActiveRecord class for the specified database table.';
     }
 
     /**
@@ -99,8 +99,8 @@ class Generator extends \yii\gii\Generator
             'db' => 'Database Connection ID',
             'tableName' => 'Table Name',
             'standardizeCapitals' => 'Standardize Capitals',
-            'modelClass' => 'Model Class Name',
-            'baseClass' => 'Base Class',
+            'modelClass' => 'Model Class',
+            'baseClass' => 'Base Model Class',
             'generateRelations' => 'Generate Relations',
             'generateRelationsFromCurrentSchema' => 'Generate Relations from Current Schema',
             'generateLabelsFromComments' => 'Generate Labels from DB Comments',
@@ -124,13 +124,13 @@ class Generator extends \yii\gii\Generator
                 'This is the ID of the DB application component.',
             'tableName' => 
                 'This is the name of the DB table that the new ActiveRecord class is associated with, 
-                e.g. <code>post</code>
-                <br>The table name may consist of the DB schema part if needed, e.g. <code>public.post</code>
+                e.g. <code>todo</code>
+                <br>The table name may consist of the DB schema part if needed, e.g. <code>public.todo</code>
                 <br>The table name may end with asterisk to match multiple table names, e.g. <code>tbl_*</code>
                 will match tables who name starts with <code>tbl_</code>. 
                 <br>In this case, multiple ActiveRecord classes will be generated, one for each matching table name;
                 and the class names will be generated from the matching characters.
-                <br>For example, table <code>tbl_post</code> will generate <code>Post</code> class.',
+                <br>For example, table <code>tbl_todo</code> will generate <code>Post</code> class.',
             'modelClass' => 
                 'This is the name of the ActiveRecord class to be generated. The class name should not contain
                 the namespace part as it is specified in "Namespace". 
@@ -152,13 +152,13 @@ class Generator extends \yii\gii\Generator
             'generateRelationsFromCurrentSchema' => 
                 'This indicates whether relations from current schema or from all available schemas should be generated.',
             'generateLabelsFromComments' => 
-                'This indicates whether the generator should generate attribute labels
-                by using the comments of the corresponding DB columns.',
-            'useTablePrefix' => 'This indicates whether the table name returned by the generated ActiveRecord class
+                'This indicates whether to generate attribute labels by using the comments of the corresponding DB columns.',
+            'useTablePrefix' =>
+                'This indicates whether the table name returned by the generated ActiveRecord class
                 should consider the <code>tablePrefix</code> setting of the DB connection.
                 <br>For example, if the
-                table name is <code>tbl_post</code> and <code>tablePrefix=tbl_</code>, the ActiveRecord class
-                will return the table name as <code>{{%post}}</code>.',
+                table name is <code>tbl_todo</code> and <code>tablePrefix=tbl_</code>, the ActiveRecord class
+                will return the table name as <code>{{%todo}}</code>.',
             'useSchemaName' => 
                 'This indicates whether to include the schema name in the ActiveRecord class
                 when it\'s auto generated. Only non default schema would be used.',

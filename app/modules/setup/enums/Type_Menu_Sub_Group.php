@@ -26,7 +26,7 @@ class Type_Menu_Sub_Group
                 self::Data => Yii::t('app', 'Data Tool'),
                 self::People => Yii::t('app', 'People'),
                 self::Core => Yii::t('app', 'System'),
-                self::Code => Yii::t('app', 'Customize'),
+                self::Code => Yii::t('app', 'Code Generator'),
                 self::Layout => Yii::t('app', 'Workspace'),
             ], Type_Menu_Group::enums());
     }

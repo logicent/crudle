@@ -16,8 +16,8 @@ $modules = require __DIR__ . '/modules.php';
 $config = [
     'id' => 'yii2-crudle-web',
     'name' => App::env('APP_NAME'),
-    'runtimePath' => dirname( dirname( __DIR__ ) ) . '/storage/runtime',
-    'vendorPath' => dirname( dirname( __DIR__ ) ) . '/vendor',
+    'runtimePath' => dirname( __DIR__, 2 ) . '/storage/runtime',
+    'vendorPath' => dirname( __DIR__, 2 ) . '/vendor',
     'basePath' => dirname( __DIR__ ),
     'layoutPath' =>  '@app_main/views/_layouts',
 

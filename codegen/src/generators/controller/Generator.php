@@ -25,7 +25,7 @@ use yii\helpers\StringHelper;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class Generator extends \yii\gii\Generator
+class Generator extends \crudle\kit\Generator
 {
     /**
      * @var string the controller class name
@@ -38,7 +38,7 @@ class Generator extends \yii\gii\Generator
     /**
      * @var string the base class of the controller
      */
-    public $baseClass = 'yii\web\Controller';
+    public $baseClass = 'crudle\main\controllers\base\BaseViewController';
     /**
      * @var string list of action IDs separated by commas or spaces
      */
@@ -50,7 +50,7 @@ class Generator extends \yii\gii\Generator
      */
     public function getName()
     {
-        return 'Controller Generator';
+        return 'Controller';
     }
 
     /**
@@ -58,7 +58,7 @@ class Generator extends \yii\gii\Generator
      */
     public function getDescription()
     {
-        return 'This generates a new controller class with one or more controller action methods and their corresponding views.';
+        return 'This generates a new controller class with one or more action methods and their corresponding views.';
     }
 
     /**
@@ -115,14 +115,20 @@ class Generator extends \yii\gii\Generator
     public function hints()
     {
         return [
-            'controllerClass' => 'e.g. <code>app\controllers\PostController</code><br>This is a fully qualified
-                class name in CamelCase ending with <code>Controller</code>. The namespace is as 
-                specified by the application\'s controllerNamespace property.',
-            'actions' => 'e.g. <code>index, create-order</code> &nbsp;IDs to generate&nbsp; <code>actionIndex()</code> &nbsp;and&nbsp; <code>actionCreateOrder()</code> methods.
-                <br>Enter one or more action IDs in lower case (separated with a comma or space) to generate a corresponding empty action method in the controller.',
-            'viewPath' => 'e.g. <code>/var/www/basic/controllers/views/post</code> &nbsp;or&nbsp; <code>@app/views/post</code>. 
-                <br>The directory or path alias for the view scripts of the controller. If not set, it will default to <code>@app/views/ControllerID</code>',
-            'baseClass' => 'e.g. <code>yii\web\Controller</code><br>This is a fully qualified class name that the new controller class will extend from. Please make sure the class exists and can be autoloaded.',
+            'controllerClass' =>
+                'This is a fully qualified class name in CamelCase ending with <code>Controller</code>. 
+                The namespace is as specified by the application\'s controllerNamespace property.',
+            'actions' =>
+                'e.g. <code>index, create-todo</code> &nbsp;IDs to generate&nbsp; <code>actionIndex()</code> 
+                &nbsp;and&nbsp; <code>actionCreateTodo()</code> methods. 
+                <br>Enter one or more action IDs in lower case (separated with a comma or space) to generate 
+                a corresponding empty action method in the controller.',
+            'viewPath' =>
+                'The directory or path alias for the view scripts of the controller. 
+                If not set, it will default to <code>@app_main/views/ControllerID</code>',
+            'baseClass' =>
+                'This is a fully qualified class name that the new controller class will extend from. 
+                Please make sure the class exists and can be autoloaded.',
         ];
     }
 

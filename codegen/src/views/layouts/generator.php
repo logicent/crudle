@@ -2,8 +2,8 @@
 use yii\helpers\Html;
 
 /* @var $this \yii\web\View */
-/* @var $generators \yii\gii\Generator[] */
-/* @var $activeGenerator \yii\gii\Generator */
+/* @var $generators \crudle\kit\Generator[] */
+/* @var $activeGenerator \crudle\kit\Generator */
 /* @var $content string */
 
 $generators = Yii::$app->controller->module->generators;

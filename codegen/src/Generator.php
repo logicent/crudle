@@ -129,9 +129,11 @@ abstract class Generator extends Model
     public function hints()
     {
         return [
-            'enableI18N' => 'This indicates whether the generator should generate strings using <code>Yii::t()</code> method.
-                Set this to <code>true</code> if you are planning to make your application translatable.',
-            'messageCategory' => 'This is the category used by <code>Yii::t()</code> in case you enable I18N.',
+            'enableI18N' =>
+                'This indicates whether to generate strings using <code>Yii::t()</code> method.
+                <br>Select this, if you are planning to make your application translatable.',
+            'messageCategory' => 
+                'This is the category used by <code>Yii::t()</code> in case you enable I18N.',
         ];
     }
 
