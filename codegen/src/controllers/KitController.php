@@ -11,6 +11,7 @@ use crudle\main\controllers\base\BaseViewController;
 use crudle\main\enums\Type_Form_View;
 use crudle\main\enums\Type_View;
 use Yii;
+use yii\helpers\Html;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -21,9 +22,8 @@ use yii\web\Response;
  */
 class KitController extends BaseViewController
 {
-    // public $layout = 'generator';
     /**
-     * @var \yii\gii\Module
+     * @var \crudle\kit\Module
      */
     public $module;
     /**
@@ -52,20 +52,23 @@ class KitController extends BaseViewController
         $generator = $this->loadGenerator($id);
         $params = ['generator' => $generator, 'id' => $id];
 
-        $preview = Yii::$app->request->post('preview');
-        $generate = Yii::$app->request->post('generate');
-        $answers = Yii::$app->request->post('answers');
+        $generateFiles = Yii::$app->request->post('generateFiles');
+        $saveFiles = Yii::$app->request->post('saveFiles');
+        $selectedFiles = Yii::$app->request->post('selectedFiles');
 
-        if ($preview !== null || $generate !== null) {
-            if ($generator->validate()) {
+        if ($generateFiles !== null || $saveFiles !== null)
+        {
+            if ($generator->validate())
+            {
                 $generator->saveStickyAttributes();
                 $files = $generator->generate();
-                if ($generate !== null && !empty($answers)) {
-                    $params['hasError'] = !$generator->save($files, (array) $answers, $results);
+                if ($saveFiles !== null && !empty($selectedFiles))
+                {
+                    $params['hasError'] = !$generator->save($files, (array) $selectedFiles, $results);
                     $params['results'] = $results;
                 } else {
                     $params['files'] = $files;
-                    $params['answers'] = $answers;
+                    $params['selectedFiles'] = $selectedFiles;
                 }
             }
         }
@@ -81,9 +84,11 @@ class KitController extends BaseViewController
                 if ($f->id === $file) {
                     $content = $f->preview();
                     if ($content !== false) {
-                        return  '<div class="content">' . $content . '</div>';
+                        return Html::tag('div', $content, ['class' => 'content']);
                     }
-                    return '<div class="error">Preview is not available for this file type.</div>';
+                    return <<<HTML
+                        <div class="error"><?= Yii::t('app', 'Preview is not available for this file type.') ?></div>
+                    HTML;
                 }
             }
         }

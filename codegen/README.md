@@ -1,38 +1,38 @@
 <p align="center">
-    <a href="https://github.com/yiisoft" target="_blank">
-        <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
+    <a href="https://github.com/logicent" target="_blank">
+        <img src="https://placeholder.it" height="100px">
     </a>
-    <h1 align="center">Gii Extension for Yii 2</h1>
+    <h1 align="center">Kit Module for Crudle</h1>
     <br>
 </p>
 
-This extension provides a Web-based code generator, called Gii, for [Yii framework 2.0](http://www.yiiframework.com) applications.
-You can use Gii to quickly generate models, forms, modules, CRUD, etc.
+This module provides a builtin code generator, called Kit, for [Crudle 1.0](https://github.com/logicent/yii2-crudle) application starter kit.
+You can use Kit to quickly generate models, forms, modules, CRUD, etc.
 
 For license information check the [LICENSE](LICENSE.md)-file.
 
 Documentation is at [docs/guide/README.md](docs/guide/README.md).
 
-[![Latest Stable Version](https://poser.pugx.org/yiisoft/yii2-gii/v/stable.png)](https://packagist.org/packages/yiisoft/yii2-gii)
-[![Total Downloads](https://poser.pugx.org/yiisoft/yii2-gii/downloads.png)](https://packagist.org/packages/yiisoft/yii2-gii)
-[![Build Status](https://travis-ci.org/yiisoft/yii2-gii.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-gii)
+[![Latest Stable Version](https://poser.pugx.org/logicent/yii2-kit/v/stable.png)](https://packagist.org/packages/logicent/yii2-kit)
+[![Total Downloads](https://poser.pugx.org/logicent/yii2-kit/downloads.png)](https://packagist.org/packages/logicent/yii2-kit)
+[![Build Status](https://travis-ci.org/logicent/yii2-kit.svg?branch=master)](https://travis-ci.org/logicent/yii2-kit)
 
 
 Installation
 ------------
 
-The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
+The preferred way to install this module is through [composer](http://getcomposer.org/download/).
 
 Either run
 
 ```
-php composer.phar require --dev --prefer-dist yiisoft/yii2-gii
+php composer.phar require --dev --prefer-dist logicent/yii2-kit
 ```
 
 or add
 
 ```
-"yiisoft/yii2-gii": "~2.0.0"
+"logicent/yii2-kit": "~2.0.0"
 ```
 
 to the require-dev section of your `composer.json` file.
@@ -41,13 +41,13 @@ to the require-dev section of your `composer.json` file.
 Usage
 -----
 
-Once the extension is installed, simply modify your application configuration as follows:
+Once the module is installed, simply modify your application configuration as follows:
 
 ```php
 return [
-    'bootstrap' => ['gii'],
+    'bootstrap' => ['kit'],
     'modules' => [
-        'gii' => [
+        'kit' => [
             'class' => 'crudle\kit\Module',
         ],
         // ...
@@ -56,31 +56,31 @@ return [
 ];
 ```
 
-You can then access Gii through the following URL:
+You can then access Kit through the following URL:
 
 ```
-http://localhost/path/to/index.php?r=gii
+http://localhost/path/to/index.php?r=kit
 ```
 
 or if you have enabled pretty URLs, you may use the following URL:
 
 ```
-http://localhost/path/to/index.php/gii
+http://localhost/path/to/index.php/kit
 ```
 
-Using the same configuration for your console application, you will also be able to access Gii via
+Using the same configuration for your console application, you will also be able to access Kit via
 command line as follows,
 
 ```
 # change path to your application's base path
 cd path/to/AppBasePath
 
-# show help information about Gii
-yii help gii
+# show help information about Kit
+yii help kit
 
-# show help information about the model generator in Gii
-yii help gii/model
+# show help information about the model generator in Kit
+yii help kit/model
 
 # generate City model from city table
-yii gii/model --tableName=city --modelClass=City
+yii kit/model --tableName=city --modelClass=City
 ```

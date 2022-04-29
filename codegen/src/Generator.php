@@ -1,8 +1,8 @@
 <?php
 /**
- * @link http://www.yiiframework.com/
- * @copyright Copyright (c) 2008 Yii Software LLC
- * @license http://www.yiiframework.com/license/
+ * @link https://github.com/logicent/yii2-crudle
+ * @copyright Copyright (c) 2022 Appsoft
+ * @license http://github.com/logicent/yii2-crudle/LICENSE.md
  */
 
 namespace crudle\kit;
@@ -66,7 +66,7 @@ abstract class Generator extends Model
     /**
      * Generates the code based on the current user input and the specified code template files.
      * This is the main method that child classes should implement.
-     * Please refer to [[\yii\gii\generators\controller\Generator::generate()]] as an example
+     * Please refer to [[\crudle\kit\generators\controller\Generator::generate()]] as an example
      * on how to implement this method.
      * @return CodeFile[] a list of code files to be created.
      */
@@ -255,7 +255,7 @@ abstract class Generator extends Model
      */
     public function getStickyDataFile()
     {
-        return Yii::$app->getRuntimePath() . '/gii-' . Yii::getVersion() . '/' . str_replace('\\', '-', get_class($this)) . '.json';
+        return Yii::$app->getRuntimePath() . '/kit-' . Yii::getVersion() . '/' . str_replace('\\', '-', get_class($this)) . '.json';
     }
 
     /**

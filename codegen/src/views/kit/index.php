@@ -1,30 +1,36 @@
 <?php
+
 use yii\helpers\Html;
 
 /* @var $this \yii\web\View */
 /* @var $generators \crudle\kit\Generator[] */
 /* @var $content string */
 
-$generators = Yii::$app->controller->module->generators;
-$this->title = 'Crudle Kit';
+$this->title = Yii::t('app', 'Crudle Kit');
 echo $this->render('_breadcrumb');
+
+$generators = Yii::$app->controller->module->generators;
 ?>
 <div class="ui padded segment">
-    <div class="ui header text-muted" style="font-weight: 500;">Start the fun with the following code generators:</div>
-    <div class="ui divider"></div>
-    <div class="ui two column grid">
-        <?php foreach ($generators as $id => $generator): ?>
-        <div class="generator column">
-            <h3 class="ui small header" style="color: #555"><?= Html::encode($generator->getName()) ?></h3>
-            <p style="color: #6c7680;"><?= $generator->getDescription() ?></p>
-            <p><?= Html::a('View', ['kit/view', 'id' => $id], ['class' => 'ui basic small button']) ?></p>
-        </div>
-        <?php endforeach; ?>
+    <div class="ui header" style="color: #36414c; font-weight: normal;">
+        <?= Yii::t('app', 'Start coding easy with these quick CRUD application logic generators:') ?>
     </div>
-
     <div class="ui divider"></div>
 
+    <div class="ui two column grid">
+        <?php
+            foreach ($generators as $id => $generator) : ?>
+        <div class="generator column">
+            <h3 class="ui small header" style="color: #6c7680"><?= Html::encode($generator->getName()) ?></h3>
+            <p style="color: #6c7680;"><?= $generator->getDescription() ?></p>
+            <p><?= Html::a('View', ['kit/view', 'id' => $id], ['class' => 'ui small button']) ?></p>
+        </div>
+        <?php
+            endforeach ?>
+    </div>
+    <div class="ui divider"></div>
     <div>
-        <a class="ui primary button" href="http://www.yiiframework.com/extensions/?tag=gii">Get more</a>
+        <!-- https://github.com/logicent/kit-generators -->
+        <?= Html::a(Yii::t('app', 'Get more'), '#', ['class' => 'ui primary button']) ?>
     </div>
 </div>

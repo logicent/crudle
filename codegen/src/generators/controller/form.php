@@ -1,7 +1,7 @@
 <?php
 /* @var $this yii\web\View */
 /* @var $form yii\widgets\ActiveForm */
-/* @var $generator yii\gii\generators\controller\Generator */
+/* @var $generator crudle\kit\generators\controller\Generator */
 
 echo $form->field($generator, 'baseClass');
 echo $form->field($generator, 'controllerClass')->textInput(['placeholder' => 'e.g. crudle\main\controllers\TodoController']);

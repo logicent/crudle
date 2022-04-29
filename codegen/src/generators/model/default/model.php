@@ -4,7 +4,7 @@
  */
 
 /* @var $this yii\web\View */
-/* @var $generator yii\gii\generators\model\Generator */
+/* @var $generator crudle\kit\generators\model\Generator */
 /* @var $tableName string full table name */
 /* @var $className string class name */
 /* @var $queryClassName string query class name */

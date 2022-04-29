@@ -1,8 +1,8 @@
 <?php
 /**
- * @link http://www.yiiframework.com/
- * @copyright Copyright (c) 2008 Yii Software LLC
- * @license http://www.yiiframework.com/license/
+ * @link https://github.com/logicent/yii2-crudle
+ * @copyright Copyright (c) 2022 Appsoft
+ * @license http://github.com/logicent/yii2-crudle/LICENSE.md
  */
 
 namespace crudle\kit;
@@ -13,29 +13,29 @@ use yii\helpers\Json;
 use yii\web\ForbiddenHttpException;
 
 /**
- * This is the main module class for the Gii module.
+ * This is the main module class for the Kit module.
  *
- * To use Gii, include it as a module in the application configuration like the following:
+ * To use Kit, include it as a module in the application configuration like the following:
  *
  * ~~~
  * return [
- *     'bootstrap' => ['gii'],
+ *     'bootstrap' => ['kit'],
  *     'modules' => [
- *         'gii' => ['class' => 'crudle\kit\Module'],
+ *         'kit' => ['class' => 'crudle\kit\Module'],
  *     ],
  * ]
  * ~~~
  *
- * Because Gii generates new code files on the server, you should only use it on your own
- * development machine. To prevent other people from using this module, by default, Gii
+ * Because Kit generates new code files on the server, you should only use it on your own
+ * development machine. To prevent other people from using this module, by default, Kit
  * can only be accessed by localhost. You may configure its [[allowedIPs]] property if
  * you want to make it accessible on other machines.
  *
- * With the above configuration, you will be able to access GiiModule in your browser using
- * the URL `http://localhost/path/to/index.php?r=gii`
+ * With the above configuration, you will be able to access KitModule in your browser using
+ * the URL `http://localhost/path/to/index.php?r=kit`
  *
  * If your application enables [[\yii\web\UrlManager::enablePrettyUrl|pretty URLs]],
- * you can then access Gii via URL: `http://localhost/path/to/index.php/gii`
+ * you can then access Kit via URL: `http://localhost/path/to/index.php/kit`
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
@@ -147,7 +147,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
                 return true;
             }
         }
-        Yii::warning('Access to Gii is denied due to IP address restriction. The requested IP is ' . $ip, __METHOD__);
+        Yii::warning('Access to Kit is denied due to IP address restriction. The requested IP is ' . $ip, __METHOD__);
 
         return false;
     }

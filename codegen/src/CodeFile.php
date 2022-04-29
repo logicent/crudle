@@ -1,8 +1,8 @@
 <?php
 /**
- * @link http://www.yiiframework.com/
- * @copyright Copyright (c) 2008 Yii Software LLC
- * @license http://www.yiiframework.com/license/
+ * @link https://github.com/logicent/yii2-crudle
+ * @copyright Copyright (c) 2022 Appsoft
+ * @license http://github.com/logicent/yii2-crudle/LICENSE.md
  */
 
 namespace crudle\kit;

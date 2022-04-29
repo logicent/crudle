@@ -58,7 +58,7 @@ class Generator extends \crudle\kit\Generator
      */
     public function getDescription()
     {
-        return 'This generates a new controller class with one or more action methods and their corresponding views.';
+        return 'This generator creates a controller class with one or more action methods and their views.';
     }
 
     /**

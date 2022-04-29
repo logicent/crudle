@@ -10,6 +10,7 @@ namespace crudle\kit\generators\module;
 use crudle\kit\CodeFile;
 use yii\helpers\Html;
 use Yii;
+use yii\helpers\Inflector;
 use yii\helpers\StringHelper;
 
 /**
@@ -40,7 +41,7 @@ class Generator extends \crudle\kit\Generator
      */
     public function getDescription()
     {
-        return 'This generator helps you to generate the skeleton code needed by a Yii module.';
+        return 'This generator helps you create the skeleton code needed by a Crudle module.';
     }
 
     /**
@@ -104,7 +105,6 @@ EOD;
     ],
     ......
 EOD;
-
         return $output . '<pre>' . highlight_string($code, true) . '</pre>';
     }
 
@@ -113,7 +113,12 @@ EOD;
      */
     public function requiredTemplates()
     {
-        return ['module.php', 'controller.php', 'view.php'];
+        return [
+            // 'config.php',
+            'Module.php',
+            'controllers/Controller.php',
+            'views/index.php'
+        ];
     }
 
     /**
@@ -123,17 +128,18 @@ EOD;
     {
         $files = [];
         $modulePath = $this->getModulePath();
+
         $files[] = new CodeFile(
             $modulePath . '/' . StringHelper::basename($this->moduleClass) . '.php',
-            $this->render("module.php")
+            $this->render("Module.php")
         );
         $files[] = new CodeFile(
-            $modulePath . '/controllers/DefaultController.php',
-            $this->render("controller.php")
+            $modulePath . "/controllers/{$this->getModuleClass()}Controller.php",
+            $this->render("controllers/Controller.php")
         );
         $files[] = new CodeFile(
-            $modulePath . '/views/default/index.php',
-            $this->render("view.php")
+            $modulePath . "/views/$this->moduleID/index.php",
+            $this->render("views/index.php")
         );
 
         return $files;
@@ -148,8 +154,16 @@ EOD;
             $this->addError('moduleClass', 'Module class must be properly namespaced.');
         }
         if (empty($this->moduleClass) || substr_compare($this->moduleClass, '\\', -1, 1) === 0) {
-            $this->addError('moduleClass', 'Module class name must not be empty. Please enter a fully qualified class name. e.g. "app\\modules\\admin\\Module".');
+            $this->addError('moduleClass', 'Module class name must not be empty. Please enter a fully qualified class name. e.g. "app\\modules\\main\\Module".');
         }
+    }
+
+    /**
+     * @return bool the directory that contains the module class
+     */
+    public function getModuleClass()
+    {
+        return Inflector::id2camel($this->moduleID);
     }
 
     /**

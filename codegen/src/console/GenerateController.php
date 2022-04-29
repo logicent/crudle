@@ -28,7 +28,7 @@ use yii\console\Controller;
 class GenerateController extends Controller
 {
     /**
-     * @var \yii\gii\Module
+     * @var \crudle\kit\Module
      */
     public $module;
     /**

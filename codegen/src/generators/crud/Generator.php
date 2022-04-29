@@ -58,7 +58,7 @@ class Generator extends \crudle\kit\Generator
      */
     public function getDescription()
     {
-        return 'This generates a controller class and view(s) to implement CRUD operations for the specified model.';
+        return 'This generator creates a controller class and views for CRUD operations of the specified model.';
     }
 
     /**

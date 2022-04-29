@@ -1,7 +1,7 @@
 <?php
 /* @var $this yii\web\View */
 /* @var $form yii\widgets\ActiveForm */
-/* @var $generator yii\gii\generators\crud\Generator */
+/* @var $generator crudle\kit\generators\crud\Generator */
 
 echo $form->field($generator, 'modelClass')->textInput(['placeholder' => 'e.g. crudle\main\models\Todo']);
 echo $form->field($generator, 'searchModelClass')->textInput(['placeholder' => 'e.g. crudle\main\models\TodoSearch']);

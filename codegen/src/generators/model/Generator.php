@@ -14,7 +14,7 @@ use yii\db\ActiveRecord;
 use yii\db\Connection;
 use yii\db\Schema;
 use yii\db\TableSchema;
-use yii\gii\CodeFile;
+use crudle\kit\CodeFile;
 use yii\helpers\Inflector;
 use yii\base\NotSupportedException;
 
@@ -60,7 +60,7 @@ class Generator extends \crudle\kit\Generator
      */
     public function getDescription()
     {
-        return 'This generates an ActiveRecord class for the specified database table.';
+        return 'This generator creates a ActiveRecord class for one or more database tables as specified.';
     }
 
     /**

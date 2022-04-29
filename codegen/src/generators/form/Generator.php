@@ -40,7 +40,7 @@ class Generator extends \crudle\kit\Generator
      */
     public function getDescription()
     {
-        return 'This generates a view script file that displays a form to collect input for the specified model class.';
+        return 'This generator creates a view script file that displays a form to collect input for the specified model.';
     }
 
     /**

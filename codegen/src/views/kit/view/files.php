@@ -8,34 +8,30 @@ use Zelenin\yii\SemanticUI\modules\Checkbox;
 /* @var $this \yii\web\View */
 /* @var $generator \crudle\kit\Generator */
 /* @var $files CodeFile[] */
-/* @var $answers array */
+/* @var $selectedFiles array */
 /* @var $id string panel ID */
-
 ?>
-<div class="default-view-files">
-    <p>Click on the above <code>Generate</code> button to generate the files selected below:</p>
 
+<div class="default-view-files">
+    <?= Html::tag('p',
+            Yii::t('app', 'Click on the <code>Save File(s)</code> button above to write the selected code file(s) to disk:'),
+            ['class' => 'text-muted']
+        ) ?>
     <div class="ui two column grid">
         <div class="column">
-            <?= Html::beginForm('#', 'get', [
-                        'class' => 'ui form',
-                        'autocomplete' => 'off'
-                    ]) ?>
-                <div class="ui icon large input">
-                    <?= Html::textInput('filter_input', '', ['placeholder' => Yii::t('app', 'Type a filter')]) ?>
-                    <?= Elements::icon('search small link') ?>
-                </div>
-            <?= Html::endForm() ?>
+            <div class="ui icon large input">
+                <?= Html::textInput('filter_input', '', ['placeholder' => Yii::t('app', 'Type to filter')]) ?>
+                <?= Elements::icon('search small link') ?>
+            </div>
         </div>
         <div class="column right aligned">
             <div class="ui small buttons">
-                <label class="ui positive button" title="Filter created files">
+                <label class="ui button" title="Filter created files">
                     <?= Checkbox::widget([
                             'name' => 'create__btn',
                             'inputOptions' => ['value' => CodeFile::OP_CREATE],
                             'checked' => true,
-                            'label' => 'Create',
-                            'labelOptions' => ['style' => 'color: white !important;']
+                            'label' => Yii::t('app', 'Create'),
                         ]) ?>
                 </label>
                 <label class="ui button" title="Filter unchanged files">
@@ -43,7 +39,7 @@ use Zelenin\yii\SemanticUI\modules\Checkbox;
                             'name' => 'unchanged__btn',
                             'inputOptions' => ['value' => CodeFile::OP_SKIP],
                             'checked' => true,
-                            'label' => 'Unchanged'
+                            'label' => Yii::t('app', 'Unchanged'),
                         ]) ?>
                 </label>
                 <label class="ui button" title="Filter overwritten files">
@@ -51,34 +47,34 @@ use Zelenin\yii\SemanticUI\modules\Checkbox;
                             'name' => 'overwrite__btn',
                             'inputOptions' => ['value' => CodeFile::OP_OVERWRITE],
                             'checked' => true,
-                            'label' => 'Overwrite'
+                            'label' => Yii::t('app', 'Overwrite'),
                         ]) ?>
                 </label>
             </div>
         </div>
     </div>
 
-    <table class="ui celled striped table">
+    <table class="ui celled striped teal table">
         <thead>
             <tr>
-                <th class="file">Code File</th>
-                <th class="action">Action</th>
-                <?php
+                <th class="file"><?= Yii::t('app', 'Code File') ?></th>
+                <th class="action"><?= Yii::t('app', 'Action') ?></th>
+            <?php
                 $fileChangeExists = false;
-                foreach ($files as $file) {
-                    if ($file->operation !== CodeFile::OP_SKIP) {
+                foreach ($files as $file) :
+                    if ($file->operation !== CodeFile::OP_SKIP) :
                         $fileChangeExists = true;
                         echo Html::beginTag('th', ['class' => 'center aligned']);
-                        echo Checkbox::widget([
-                                'name' => 'check_all__btn',
-                                'inputOptions' => ['id' => 'check-all'],
-                                'labelOptions' => ['label' => false]
-                        ]);
+                            echo Checkbox::widget([
+                                    'name' => 'check_all__btn',
+                                    'checked' => true,
+                                    'inputOptions' => ['id' => 'check-all'],
+                                    'labelOptions' => ['label' => false]
+                                ]);
                         echo Html::endTag('th');
                         break;
-                    }
-                }
-                ?>
+                    endif;
+                endforeach ?>
             </tr>
         </thead>
         <tbody id="files-body">
@@ -92,35 +88,41 @@ use Zelenin\yii\SemanticUI\modules\Checkbox;
                     $trClass = 'success';
                 else :
                     $trClass = '';
-                endif;
-            ?>
+                endif ?>
             <tr class="<?= "$file->operation $trClass" ?>">
                 <td class="file">
-                    <?= Html::a(Html::encode($file->getRelativePath()), ['preview', 'id' => $id, 'file' => $file->id], ['class' => 'preview-code', 'data-title' => $file->getRelativePath()]) ?>
-                    <?php if ($file->operation === CodeFile::OP_OVERWRITE): ?>
-                        <?= Html::a('diff', ['diff', 'id' => $id, 'file' => $file->id], ['class' => 'diff-code label label-warning', 'data-title' => $file->getRelativePath()]) ?>
-                    <?php endif; ?>
+                    <?= Html::a(Html::encode($file->getRelativePath()),
+                                ['preview', 'id' => $id, 'file' => $file->id],
+                                ['class' => 'preview-code', 'data-title' => $file->getRelativePath()]) ?>
+                    <?php
+                    if ($file->operation === CodeFile::OP_OVERWRITE):
+                        echo Html::a('diff',
+                                    ['diff', 'id' => $id, 'file' => $file->id],
+                                    [
+                                        'class' => 'diff-code label label-warning',
+                                        'data-title' => $file->getRelativePath()
+                                    ]);
+                    endif ?>
                 </td>
                 <td class="action">
-                    <?php
-                    if ($file->operation === CodeFile::OP_SKIP) {
+                <?php
+                    if ($file->operation === CodeFile::OP_SKIP) :
                         echo 'unchanged';
-                    } else {
+                    else :
                         echo $file->operation;
-                    }
-                    ?>
+                    endif ?>
                 </td>
-                <?php if ($fileChangeExists): ?>
+                <?php if ($fileChangeExists) : ?>
                 <td class="check center aligned">
                 <?php
                     if ($file->operation === CodeFile::OP_SKIP) :
                         echo '&nbsp;';
                     else :
                         echo Checkbox::widget([
-                                'name' => "answers[{$file->id}]",
-                                'checked' => isset($answers) ? isset($answers[$file->id]) : ($file->operation === CodeFile::OP_CREATE),
+                                'name' => "selectedFiles[{$file->id}]",
+                                'checked' => isset($selectedFiles) ? isset($selectedFiles[$file->id]) : ($file->operation === CodeFile::OP_CREATE),
                                 'labelOptions' => ['label' => false]
-                        ]);
+                            ]);
                     endif ?>
                 </td>
                 <?php endif ?>
@@ -129,27 +131,40 @@ use Zelenin\yii\SemanticUI\modules\Checkbox;
         </tbody>
     </table>
 
-    <div class="ui modal fade" id="preview-modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <div class="btn-group pull-left">
-                        <a class="modal-previous btn btn-xs btn-default" href="#" title="Previous File (Left Arrow)"><span class="glyphicon glyphicon-arrow-left"></span></a>
-                        <a class="modal-next btn btn-xs btn-default" href="#" title="Next File (Right Arrow)"><span class="glyphicon glyphicon-arrow-right"></span></a>
-                        <a class="modal-refresh btn btn-xs btn-default" href="#" title="Refresh File (R)"><span class="glyphicon glyphicon-refresh"></span></a>
-                        <a class="modal-checkbox btn btn-xs btn-default" href="#" title="Check This File (Space)"><span class="glyphicon"></span></a>
-                        &nbsp;
-                    </div>
-                    <strong class="modal-title pull-left">Modal title</strong>
-                    <span class="modal-copy-hint pull-right"><kbd>CTRL</kbd>+<kbd>C</kbd> to copy</span>
-                    <div id="clipboard-container"><textarea id="clipboard"></textarea></div>
-                    <div class="clearfix"></div>
+    <?= $this->render('@app_main/views/_modal/modal', [
+            'modalId' => 'preview--modal',
+            'modalTitle' => 'Code File Preview',
+            'positiveLabel' => 'OK',
+            'negativeLabel' => 'Cancel',
+            // 'closeButton' => '',
+            'header' => <<<HTML
+                <div class="ui buttons">
+                    <a class="modal--previous compact ui mini icon button" title="Previous File (Left Arrow)">
+                        <i class="arrow left"></i>
+                    </a>
+                    <a class="modal--next compact ui mini icon button" title="Next File (Right Arrow)">
+                        <i class="arrow right"></i>
+                    </a>
+                    <a class="modal--refresh compact ui mini icon button" title="Refresh File (R)">
+                        <i class="refresh"></i>
+                    </a>
+                    <a class="modal--checkbox compact ui mini icon button" title="Check This File (Space)">
+                        <i class="check"></i>
+                    </a>
                 </div>
-                <div class="modal-body">
-                    <p>Please wait ...</p>
+                <strong class="modal--title left floated">Modal title</strong>
+                <span class="modal--copy-hint right floated"><kbd>CTRL</kbd>+<kbd>C</kbd> to copy</span>
+                <div id="clipboard-container">
+                    <textarea id="clipboard"></textarea>
                 </div>
-            </div>
-        </div>
-    </div>
+            HTML,
+            'headerOptions' => [],
+            'content' => '',
+            'contentOptions' => [],
+            'actions' => '',
+            'actionsOptions' => [],
+            // 'type' => '',
+            // 'fullscreen' => '',
+            // 'size' => '',
+        ]) ?>
 </div>

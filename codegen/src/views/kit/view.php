@@ -6,15 +6,16 @@ use crudle\kit\CodeFile;
 use Zelenin\yii\SemanticUI\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $generator yii\gii\Generator */
+/* @var $generator crudle\kit\Generator */
 /* @var $id string panel ID */
 /* @var $form yii\widgets\ActiveForm */
 /* @var $results string */
 /* @var $hasError bool */
 /* @var $files CodeFile[] */
-/* @var $answers array */
+/* @var $selectedFiles array */
 
-$this->title = $generator->getName();
+$title = $generator->getName() . ' Generate';
+$this->title = Yii::t('app', '{title}', ['title' => $title]);
 echo $this->render('_breadcrumb');
 
 $templates = [];
@@ -23,7 +24,9 @@ foreach ($generator->templates as $name => $path) :
 endforeach;
 ?>
 <div class="ui top attached padded segment">
-    <div class="ui header" style="color: ##36414c; font-weight: normal;"><?= $generator->getDescription() ?></div>
+    <div class="ui header" style="color: #36414c; font-weight: normal;">
+        <?= Yii::t('app', '{description}', ['description' => $generator->getDescription()]) ?>
+    </div>
     <div class="ui divider"></div>
 <?php
     $hintOptions = [
@@ -44,24 +47,25 @@ endforeach;
                 ]) ?>
             <br>
             <?= $form
-                    ->field($generator, 'template')->sticky()
-                    ->label('Code Template')
-                    ->dropDownList($templates)->hint('
-                        Please select a set of the templates to be used to generate the code.')
+                    ->field($generator, 'template')
+                    ->sticky()
+                    ->label(Yii::t('app', 'Code Template'))
+                    ->dropDownList($templates)
+                    ->hint(Yii::t('app', 'This is a set of code templates to be used to generate the specific code file(s).'))
                 ?>
         </div>
     </div>
     <div class="ui column grid">
         <div class="column">
-            <?= Html::submitButton('Preview', ['name' => 'preview', 'class' => 'ui primary button']) ?>
+            <?= Html::submitButton(Yii::t('app', 'Generate'), ['name' => 'generateFiles', 'class' => 'ui basic primary button']) ?>
             <?php
-                if (isset($files)):
-                    echo Html::submitButton('Generate', ['name' => 'generate', 'class' => 'ui success button']);
+                if (isset($files)) :
+                    echo Html::submitButton(Yii::t('app', 'Save File(s)'), ['name' => 'saveFiles', 'class' => 'ui primary button']);
                 endif ?>
         </div>
     </div>
 </div>
-<div class="ui bottom attached padded segment">
+<div class="ui bottom secondary attached padded segment">
     <?php
         if (isset($results)) :
             echo $this->render('view/results', [
@@ -74,8 +78,13 @@ endforeach;
                     'id' => $id,
                     'generator' => $generator,
                     'files' => $files,
-                    'answers' => $answers,
+                    'selectedFiles' => $selectedFiles,
                 ]);
+        else :
+            echo Html::tag('p',
+                    Yii::t('app', 'Click on the <code>Generate</code> button above to preview the generated code file(s) here:'),
+                    ['class' => 'text-muted']
+                );
         endif;
     ActiveForm::end() ?>
 </div>
