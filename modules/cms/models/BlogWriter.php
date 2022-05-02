@@ -3,6 +3,7 @@
 namespace logicent\cms\models;
 
 use app\enums\Status_Active;
+use crudle\main\models\base\BaseActiveRecord;
 use crudle\setup\enums\Permission_Group;
 use crudle\setup\enums\Type_Permission;
 use crudle\setup\models\ListViewSettingsForm;
@@ -10,7 +11,7 @@ use logicent\cms\models\base\BasePersonInfo;
 use Yii;
 use yii\helpers\ArrayHelper;
 
-class BlogWriter extends BasePersonInfo
+class BlogWriter extends BaseActiveRecord
 {
     public function init()
     {
@@ -21,6 +22,19 @@ class BlogWriter extends BasePersonInfo
     public static function tableName()
     {
         return 'site_post_author';
+    }
+
+    public function rules()
+    {
+        return [
+            ['full_name', 'required'],
+            [[
+                'designation', 'image_link', 'route'
+            ], 'string', 'max' => 140],
+            ['bio', 'string', 'max' => 280],
+            ['inactive', 'boolean'],
+            ['date_published', 'date', 'format' => 'yyyy-mm-dd'],
+        ];
     }
 
     public function attributeLabels()

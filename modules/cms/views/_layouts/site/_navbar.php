@@ -2,13 +2,15 @@
 
 use crudle\setup\models\GeneralSettingsForm;
 use crudle\setup\models\Setup;
+use logicent\cms\models\WebsiteSettingsForm;
 use yii\helpers\Url;
 use yii\helpers\Html;
 
 $generalSettings = Setup::getSettings( GeneralSettingsForm::class );
+$webSettings = Setup::getSettings( WebsiteSettingsForm::class );
 ?>
 
-<?php $this->beginBlock('_site_navbar') ?>
+<?php $this->beginBlock('@app_cms/views/_layouts/site/_navbar') ?>
 
 <div id="site_header">
     <div class="ui attached menu borderless" style="padding: 1em 0em;">
@@ -19,6 +21,15 @@ $generalSettings = Setup::getSettings( GeneralSettingsForm::class );
                         $generalSettings->name : Yii::$app->params['appName'] ?>
                 </div>
             </div>
+        <?php
+            foreach ($webSettings->headerNav as $navItem) :
+                $route = 'site' . $navItem['route'];
+                if ($route == $this->context->id) :
+                    $active = 'active';
+                else : $active = '';
+                endif;
+                echo Html::a($navItem['label'], $navItem['route'], ['class' => "{$active} item"]);
+            endforeach ?>
             <div class="right menu">
                 <?php if (Yii::$app->user->isGuest) : ?>
                     <a class="item active" href="<?= Url::toRoute('/app/login') ?>"><?= Yii::t('app', 'Log in') ?></a>

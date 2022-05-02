@@ -130,7 +130,7 @@ class Generator extends \crudle\kit\Generator
                 will match tables who name starts with <code>tbl_</code>. 
                 <br>In this case, multiple ActiveRecord classes will be generated, one for each matching table name;
                 and the class names will be generated from the matching characters.
-                <br>For example, table <code>tbl_todo</code> will generate <code>Post</code> class.',
+                <br>For example, table <code>tbl_todo</code> will generate <code>Todo</code> class.',
             'modelClass' => 
                 'This is the name of the ActiveRecord class to be generated. The class name should not contain
                 the namespace part as it is specified in "Namespace". 

@@ -13,6 +13,7 @@ return [
     // core modules
     'main'  => crudle\main\Module::class,
     'setup' => crudle\setup\Module::class,
+    'kit' => crudle\kit\Module::class,
     // std modules
     'cms'   => logicent\cms\Module::class,
     // custom modules

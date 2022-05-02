@@ -23,8 +23,10 @@ use Zelenin\yii\SemanticUI\Elements;
                 ['/main'], ['class' => 'item']) ?>
     <?= Html::a(Elements::icon('grey cog large') . Yii::t('app', 'Setup'),
                 ['/setup'], ['class' => 'item']) ?>
-    <?= Html::a(Elements::icon('grey sitemap large') . Yii::t('app', 'Website'),
-                ['/website'], ['class' => 'item']) ?>
+    <?= Html::a(Elements::icon('grey sitemap large') . Yii::t('app', 'CMS'),
+                ['/cms'], ['class' => 'item']) ?>
+    <?= Html::a(Elements::icon('grey code large') . Yii::t('app', 'Kit'),
+                '/kit', ['class' => 'item']) ?>
 </div>
 
 <?php

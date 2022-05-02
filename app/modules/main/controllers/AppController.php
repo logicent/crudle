@@ -226,10 +226,10 @@ class AppController extends BaseViewController
         return Yii::createObject($config);
     }
 
-    public function pageNavbar(): string
-    {
-        return '_site_navbar';
-    }
+    // public function pageNavbar(): string
+    // {
+    //     return $this->layout . '/_navbar';
+    // }
 
     public function showViewHeader(): bool
     {

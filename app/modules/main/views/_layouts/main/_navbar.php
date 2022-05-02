@@ -6,7 +6,7 @@ use Zelenin\yii\SemanticUI\Elements;
 
 ?>
 
-<?php $this->beginBlock('_main_navbar') ?>
+<?php $this->beginBlock('@app_main/views/_layouts/main/_navbar') ?>
 
 <div id="main_nav" class="ui attached menu text">
     <div class="item" id="menu_icon">
@@ -36,21 +36,21 @@ use Zelenin\yii\SemanticUI\Elements;
         <div class="computer only large screen only ten wide column item right">
         <?php
             if ((bool) $layoutSettings->hideCreateMenu == false) :
-                echo $this->render('_nav_new', ['menuItems' => $layoutSettings->createMenu]);
+                echo $this->render('../_nav_new', ['menuItems' => $layoutSettings->createMenu]);
             endif;
 
             if ((bool) $layoutSettings->hideSearchbar == false) :
-                echo $this->render('_global_search');
+                echo $this->render('../_global_search');
             endif;
 
             if ((bool) $layoutSettings->hideHelpMenu == false) :
-                echo $this->render('_nav_help', ['menuItems' => $layoutSettings->helpMenu]);
+                echo $this->render('../_nav_help', ['menuItems' => $layoutSettings->helpMenu]);
             endif;
 
-            echo $this->render('_nav_user', ['layoutSettings' => $layoutSettings]);
+            echo $this->render('../_nav_user', ['layoutSettings' => $layoutSettings]);
 
             if ((bool) $layoutSettings->hideAlertMenu == false) :
-                echo $this->render('_nav_alert', ['menuItems' => $layoutSettings->alertMenu]);
+                echo $this->render('../_nav_alert', ['menuItems' => $layoutSettings->alertMenu]);
             endif ?>
         </div>
     </div><!-- ./grid container -->

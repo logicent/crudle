@@ -3,7 +3,6 @@
 use crudle\main\enums\Type_Form_View;
 use crudle\main\enums\Type_View;
 
-
 $controller = $this->context;
 $layoutPath = '@app_main/views/_layouts/';
 
@@ -43,4 +42,6 @@ $this->beginContent($layoutPath . 'base.php') ?>
     </div>
 </div>
 
-<?php $this->endContent() ?>
+<?php
+    $this->registerCssFile("@web/css/main.css");
+$this->endContent() ?>

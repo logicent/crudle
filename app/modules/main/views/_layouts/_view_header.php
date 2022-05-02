@@ -40,7 +40,8 @@ endif;
         <?php
             // all multiple record views like list and image view
             if ($controller->defaultViewType() == Type_View::List) :
-                echo $this->render('_view_type');
+                if ($controller->showViewTypeSwitcher())
+                    echo $this->render('_view_type');
                 echo $this->render('@app_main/views/list/_view_header');
             endif;
             // form view i.e. new or update record and setting form

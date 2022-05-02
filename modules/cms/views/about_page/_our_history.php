@@ -5,7 +5,7 @@
     <div class="column">
         <?= $form->field($model, 'ourHistory')->textarea([
                 'maxlength' => true,
-                'rows' => 9,
+                'rows' => 10,
                 'style' => 'resize:none',
             ]) ?>
     </div>

@@ -2,15 +2,26 @@
 
 namespace logicent\cms\controllers\site;
 
-use crudle\main\controllers\base\BaseController;
-use crudle\main\controllers\AppController;
+use app\helpers\App;
+use crudle\setup\models\Setup;
+use logicent\cms\models\WebsiteSettingsForm;
 
-class HomeController extends AppController
+class HomeController extends SiteController
 {
-    public $layout = '@app_main/views/_layouts/site';
-
     public function actionIndex()
     {
+        $this->model = Setup::getSettings( $this->modelClass() );
+        // load related settings models
+        foreach ($this->model::relations() as $relationAttribute => $relationSettings)
+            $this->detailModels[$relationAttribute] = 
+            App::convertArraysToModels($relationSettings['class'], $this->model->$relationAttribute);
+
+        // slideshow
         return $this->render('index');
+    }
+
+    public function modelClass(): string
+    {
+        return WebsiteSettingsForm::class;
     }
 }

@@ -31,7 +31,6 @@ class KitController extends BaseViewController
      */
     public $generator;
 
-
     /**
      * {@inheritdoc}
      */
@@ -40,7 +39,6 @@ class KitController extends BaseViewController
         Yii::$app->response->format = Response::FORMAT_HTML;
         return parent::beforeAction($action);
     }
-
 
     public function actionIndex()
     {

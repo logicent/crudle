@@ -58,7 +58,7 @@
     "autoload": {
         "psr-4": {
             "crudle\\": "app/modules",
-            "crudle\\kit\\": "codegen/src",
+            "crudle\\kit\\": "codegen",
             "logicent\\": "modules"
         }
     },

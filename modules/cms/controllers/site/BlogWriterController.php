@@ -2,23 +2,35 @@
 
 namespace logicent\cms\controllers\site;
 
-use crudle\main\controllers\AppController;
 use logicent\cms\models\BlogWriter;
-use logicent\cms\models\BlogWriterSearch;
+// use logicent\cms\models\BlogWriterSearch;
 
 
-class BlogWriterController extends AppController
+class BlogWriterController extends SiteController
 {
-    public function init()
-    {
-        $this->modelClass = BlogWriter::class;
-        // $this->modelSearchClass = BlogWriterSearch::class;
-
-        return parent::init();
-    }
-
     public function actionIndex()
     {
-        return $this->render('index');
+        $authors = BlogWriter::find()->all();
+
+        return $this->render('index', [
+                'authors' => $authors
+            ]);
+    }
+
+    public function actionRead($id)
+    {
+        $author = BlogWriter::findOne($id);
+
+        if (!$author)
+            return $this->render('/site/index');
+
+        return $this->render('read', [
+                'author' => $author
+            ]);
+    }
+
+    public function modelClass(): string
+    {
+        return BlogWriter::class;
     }
 }

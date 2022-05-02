@@ -2,23 +2,35 @@
 
 namespace logicent\cms\controllers\site;
 
-use crudle\main\controllers\AppController;
 use logicent\cms\models\BlogCategory;
-use logicent\cms\models\BlogCategorySearch;
+// use logicent\cms\models\BlogCategorySearch;
 
 
-class BlogCategoryController extends AppController
+class BlogCategoryController extends SiteController
 {
-    public function init()
-    {
-        $this->modelClass = BlogCategory::class;
-        // $this->modelSearchClass = BlogCategorySearch::class;
-
-        return parent::init();
-    }
-
     public function actionIndex()
     {
-        return $this->render('index');
+        $categories = BlogCategory::find()->all();
+
+        return $this->render('index', [
+                'categories' => $categories
+            ]);
+    }
+
+    public function actionRead($id)
+    {
+        $category = BlogCategory::findOne($id);
+
+        if (!$category)
+            return $this->render('/site/index');
+
+        return $this->render('read', [
+                'category' => $category
+            ]);
+    }
+
+    public function modelClass(): string
+    {
+        return BlogCategory::class;
     }
 }

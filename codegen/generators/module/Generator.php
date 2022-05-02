@@ -114,7 +114,7 @@ EOD;
     public function requiredTemplates()
     {
         return [
-            // 'config.php',
+            'config.php',
             'Module.php',
             'controllers/Controller.php',
             'views/index.php'
@@ -130,8 +130,24 @@ EOD;
         $modulePath = $this->getModulePath();
 
         $files[] = new CodeFile(
+            $modulePath . '/config.php',
+            $this->render("config.php")
+        );
+        $files[] = new CodeFile(
             $modulePath . '/' . StringHelper::basename($this->moduleClass) . '.php',
             $this->render("Module.php")
+        );
+        $files[] = new CodeFile(
+            $modulePath . '/enums/Type_Menu_Sub_Group.php',
+            $this->render("enums/Type_Menu_Sub_Group.php")
+        );
+        $files[] = new CodeFile(
+            $modulePath . '/enums/Type_Model.php',
+            $this->render("enums/Type_Model.php")
+        );
+        $files[] = new CodeFile(
+            $modulePath . '/enums/Type_Sub_Module.php',
+            $this->render("enums/Type_Sub_Module.php")
         );
         $files[] = new CodeFile(
             $modulePath . "/controllers/{$this->getModuleClass()}Controller.php",

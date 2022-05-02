@@ -1,8 +1,0 @@
-#site_header .ui.attached.menu:not(.tabular) {
-    border: none;
-}
-
-#site_header .ui.attached.menu .item {
-    font-size: 14px;
-    line-height: 20px;
-}

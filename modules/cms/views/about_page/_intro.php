@@ -5,7 +5,7 @@
     <div class="column">
         <?= $form->field($model, 'ourIntro')->textarea([
                 'maxlength' => true,
-                'rows' => 4,
+                'rows' => 6,
                 'style' => 'resize:none',
             ]) ?>
     </div>

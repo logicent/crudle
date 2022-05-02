@@ -15,6 +15,9 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
     protected $name; // view name
     protected $detailModels = [];
     protected $validationErrors = [];
+    protected $supportedViewTypes = [];
+
+    public $layout = '@app_main/views/_layouts/main';
 
     public function init()
     {
@@ -90,7 +93,7 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
 
     public function showViewTypeSwitcher(): bool
     {
-        return true;
+        return false;
     }
 
     public function showViewFilterButton(): bool
@@ -108,7 +111,7 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
 
     public function pageNavbar(): string
     {
-        return '_main_navbar';
+        return $this->layout . '/_navbar';
     }
 
     public function showViewHeader(): bool
