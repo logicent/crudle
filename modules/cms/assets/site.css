@@ -1,0 +1,21 @@
+body {
+    background-color: #fff !important;
+}
+
+main #content .ui.header {
+    color: cadetblue !important;
+}
+
+main #content .ui.segment {
+    font-size: 1.75rem !important;
+    /* text-align: justify; */
+    color: slategrey;
+}
+
+main #content .ui.segment > .ui.header {
+    margin-bottom: 1em !important;
+}
+
+main #content .ui.segment p {
+    line-height: 1.65em !important;
+}

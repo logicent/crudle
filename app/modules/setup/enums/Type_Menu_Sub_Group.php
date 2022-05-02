@@ -13,6 +13,7 @@ class Type_Menu_Sub_Group
     const Data = 'Data';
     const People = 'People';
     const Core = 'Core';
+    const Code = 'Code';
     const Layout = 'Layout';
 
 
@@ -25,6 +26,7 @@ class Type_Menu_Sub_Group
                 self::Data => Yii::t('app', 'Data Tool'),
                 self::People => Yii::t('app', 'People'),
                 self::Core => Yii::t('app', 'System'),
+                self::Code => Yii::t('app', 'Code Generator'),
                 self::Layout => Yii::t('app', 'Workspace'),
             ], Type_Menu_Group::enums());
     }
@@ -38,6 +40,7 @@ class Type_Menu_Sub_Group
                 self::Data => 'server', // 'disk',
                 self::People => 'users',
                 self::Core => 'cog', // 'toggle on'
+                self::Code => 'code',
                 self::Layout => 'window maximize outline',
             ], Type_Menu_Group::enumIcons());
     }

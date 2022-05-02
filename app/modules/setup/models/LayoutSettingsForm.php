@@ -30,6 +30,13 @@ class LayoutSettingsForm extends BaseSettingsForm
     public $copyrightLabel      = null;
     // public $flashMessagePosition; // Top/Bottom:Left/Center/Right
 
+    // public $hideBreadcrumbs = false;
+    // public $userNavTemplate = '{createMenu},{searchInput},{helpMenu}';
+    // public $hideMainSidebar = false;
+    // public $mainSidebarView = MainSidebar::Collapsed/MainSidebar::Expanded // (stretched);
+    // public $mainSidebarShowStatLabel = false;
+    // public $mainSidebarShowIconsOnly; // (if collapsed)
+
     public function init()
     {
         $this->uploadForm = new UploadForm();

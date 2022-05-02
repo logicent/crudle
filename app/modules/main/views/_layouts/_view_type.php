@@ -24,25 +24,27 @@ use Zelenin\yii\SemanticUI\Elements;
     ?>
     </div><!-- ./menu -->
 </div>
+
 <?php
 $this->registerJs(<<<JS
+    $('.ui.dropdown').dropdown();
 
-$('.show-view').on('click', function(e) 
-{
-    e.preventDefault();
+    $('.show-view').on('click', function(e) 
+    {
+        e.preventDefault();
 
-    $.ajax({
-        url: $(this).attr('href'),
-        type: 'get',
-        data: {
-        },
-        success: function( response )
-        {
-        },
-        error: function( jqXhr, textStatus, errorThrown )
-        {
-            console.log( errorThrown );
-        }
+        $.ajax({
+            url: $(this).attr('href'),
+            type: 'get',
+            data: {
+            },
+            success: function( response )
+            {
+            },
+            error: function( jqXhr, textStatus, errorThrown )
+            {
+                console.log( errorThrown );
+            }
+        });
     });
-});
 JS) ?>

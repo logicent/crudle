@@ -48,4 +48,9 @@ class ReportController extends BaseViewController
 
         return $this->render('index', []);
     }
+
+    public function pageNavbar(): string
+    {
+        return '@app_main/views/_layouts/main/_navbar';
+    }
 }

@@ -1,24 +1,25 @@
 <?php
 
+use yii\helpers\Url;
 use Zelenin\yii\SemanticUI\widgets\ActiveForm;
 
-// $hasFileInput == isset($model->UploadForm);
-
-// $hintOptions = [
-//     'tag' => 'span',
-//     'class' => 'text-muted',
-//     'style' => 'font-size: 0.95em;'
-// ];
+$hintOptions = [
+    'tag' => 'div',
+    'class' => 'text-muted',
+    'style' => 'font-size: 0.95em; padding-left: 0.25em'
+];
+$hasFileInput = isset($model->uploadForm);
+// $isReadonly = $this->context->isReadonly();
 
 $form = ActiveForm::begin([
     'id' => $model->formName(),
+    // 'action' => $isReadonly ? false : Url::to([$this->context->action->id]),
     'enableClientValidation' => true,
-    // 'fieldOptions' => [
-    // ],
+    'fieldConfig' => ['hintOptions' => $hintOptions],
     'options' => [
         'autocomplete' => 'off',
         'class' => 'ui form',
-        // 'enctype' => 'multipart/form-data,
+        'enctype' => $hasFileInput ? 'multipart/form-data' : false,
     ],
 ]);
     echo $this->render('@app_main/views/_form/_header', ['model' => $model]);

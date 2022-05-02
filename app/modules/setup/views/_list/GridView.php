@@ -25,7 +25,10 @@ $this->title = Yii::t('app', '{listTitle}', ['listTitle' => $listTitle])
             'class' => 'ui very basic table'
         ],
         'caption' => isset($caption) ? $caption : null,
-        'captionOptions' => ['class' => 'ui left aligned small secondary header basic segment text-muted', 'style' => 'font-weight: 500'],
+        'captionOptions' => [
+            'class' => 'ui left aligned small secondary header basic segment text-muted',
+            'style' => 'font-weight: 500'
+        ],
         'dataProvider' => $dataProvider,
         'columns'  => ArrayHelper::merge(
             [

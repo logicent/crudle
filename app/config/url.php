@@ -15,16 +15,20 @@ return [
     // 'enableStrictParsing' => true,
     'showScriptName' => false,
     'rules' => [
-        // ** website routes
-        // '' or '/' routes
-        '/' => 'website/site/home/index',
-        '/home' => 'website/site/home/index',
-        '/about' => 'website/site/about/index',
-        '/contact' => 'website/site/contact/index',
-        '/blog' => 'website/site/blog-article/index',
-        '/writer' => 'website/site/blog-writer/index',
-        '/category' => 'website/site/blog-category/index',
-        // ** end website
+
+
+        '/' => 'cms/site/home/index',
+        '/home' => 'cms/site/home/index',
+        '/about' => 'cms/site/about/index',
+        '/contact' => 'cms/site/contact/index',
+        '/blog/category/<id:\w+>' => 'cms/site/blog-category/read',
+        '/blog/category' => 'cms/site/blog-category/index',
+        '/blog/writer/<id:\w+>' => 'cms/site/blog-writer/read',
+        '/blog/writer' => 'cms/site/blog-writer/index',
+        '/blog/<id:\w+>' => 'cms/site/blog-article/read',
+        '/blog' => 'cms/site/blog-article/index',
+
+
         // ** app routes
         'app' => 'main/app/index', // defaultRoute requires this rule
         'app/login' => 'main/app/login',
