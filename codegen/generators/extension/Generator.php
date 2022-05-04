@@ -48,7 +48,7 @@ class Generator extends \crudle\kit\Generator
      */
     public function getDescription()
     {
-        return 'This generator helps you create the initial files needed by a Yii extension.';
+        return 'This generator helps you create the initial project files needed by a Yii extension.';
     }
 
     /**

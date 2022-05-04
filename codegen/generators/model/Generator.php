@@ -26,7 +26,7 @@ use yii\base\NotSupportedException;
  */
 class Generator extends \crudle\kit\Generator
 {
-    const RELATIONS_NONE = 'none';
+    // const RELATIONS_NONE = 'none';
     const RELATIONS_ALL = 'all';
     const RELATIONS_ALL_INVERSE = 'all-inverse';
 
@@ -35,7 +35,8 @@ class Generator extends \crudle\kit\Generator
     public $tableName;
     public $modelClass;
     public $baseClass = 'crudle\main\models\base\BaseActiveRecord';
-    public $generateRelations = self::RELATIONS_ALL;
+    public $generateRelations = true;
+    public $relations = self::RELATIONS_ALL;
     public $generateRelationsFromCurrentSchema = true;
     public $generateLabelsFromComments = false;
     public $useTablePrefix = false;
@@ -82,7 +83,7 @@ class Generator extends \crudle\kit\Generator
             [['modelClass'], 'validateModelClass', 'skipOnEmpty' => false],
             [['baseClass'], 'validateClass', 'params' => ['extends' => ActiveRecord::class]],
             [['queryBaseClass'], 'validateClass', 'params' => ['extends' => ActiveQuery::class]],
-            [['generateRelations'], 'in', 'range' => [self::RELATIONS_NONE, self::RELATIONS_ALL, self::RELATIONS_ALL_INVERSE]],
+            [['relations'], 'in', 'range' => [self::RELATIONS_ALL, self::RELATIONS_ALL_INVERSE]],
             [['generateLabelsFromComments', 'useTablePrefix', 'useSchemaName', 'generateQuery', 'generateRelationsFromCurrentSchema'], 'boolean'],
             [['enableI18N', 'standardizeCapitals'], 'boolean'],
             [['messageCategory'], 'validateMessageCategory', 'skipOnEmpty' => false],
@@ -102,6 +103,7 @@ class Generator extends \crudle\kit\Generator
             'modelClass' => 'Model Class',
             'baseClass' => 'Base Model Class',
             'generateRelations' => 'Generate Relations',
+            'relations' => 'All Relations',
             'generateRelationsFromCurrentSchema' => 'Generate Relations from Current Schema',
             'generateLabelsFromComments' => 'Generate Labels from DB Comments',
             'generateQuery' => 'Generate ActiveQuery',
@@ -117,6 +119,7 @@ class Generator extends \crudle\kit\Generator
      */
     public function hints()
     {
+        return [];
         return array_merge(parent::hints(), [
             'ns' => 
                 'This is the namespace of the ActiveRecord class to be generated, e.g., <code>app\models</code>',
@@ -515,7 +518,7 @@ class Generator extends \crudle\kit\Generator
      */
     protected function generateRelations()
     {
-        if ($this->generateRelations === self::RELATIONS_NONE) {
+        if (! (bool) $this->generateRelations) {
             return [];
         }
 
@@ -720,12 +723,12 @@ class Generator extends \crudle\kit\Generator
             if ($baseClassReflector->isAbstract()) {
                 $baseClassWrapper =
                     'namespace ' . __NAMESPACE__ . ';'.
-                    'class GiiBaseClassWrapper extends \\' . $baseClass . ' {' .
+                    'class KitBaseClassWrapper extends \\' . $baseClass . ' {' .
                         'public static function tableName(){' .
                             'return "' . addslashes($table->fullName) . '";' .
                         '}' .
                     '};' .
-                    'return new GiiBaseClassWrapper();';
+                    'return new KitBaseClassWrapper();';
                 $baseModel = eval($baseClassWrapper);
             } else {
                 $baseModel = new $baseClass();

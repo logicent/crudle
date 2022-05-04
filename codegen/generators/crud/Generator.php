@@ -105,6 +105,7 @@ class Generator extends \crudle\kit\Generator
      */
     public function hints()
     {
+        return [];
         return array_merge(parent::hints(), [
             'modelClass' =>
                 'This is a ActiveRecord class associated with the DB table that CRUD is built upon. 

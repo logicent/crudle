@@ -23,49 +23,42 @@ foreach ($generator->templates as $name => $path) :
     $templates[$name] = "$name ($path)";
 endforeach;
 ?>
-<div class="ui top attached padded segment">
+<div class="ui secondary top attached padded segment">
     <div class="ui header" style="color: #36414c; font-weight: normal;">
         <?= Yii::t('app', '{description}', ['description' => $generator->getDescription()]) ?>
     </div>
-    <div class="ui divider"></div>
-<?php
-    $hintOptions = [
-        'tag' => 'div',
-        'class' => 'text-muted',
-        'style' => 'font-size: 0.95em; padding-left: 0.25em'
-    ];
-    $form = ActiveForm::begin([
-        'id' => "$id-generator",
-        'successCssClass' => '',
-        'fieldConfig' => ['class' => ActiveField::class, 'hintOptions' => $hintOptions],
-    ]) ?>
-    <div class="ui column grid">
-        <div class="column" id="form-fields">
-            <?= $this->renderFile($generator->formView(), [
-                    'generator' => $generator,
-                    'form' => $form,
-                ]) ?>
-            <br>
-            <?= $form
-                    ->field($generator, 'template')
-                    ->sticky()
-                    ->label(Yii::t('app', 'Code Template'))
-                    ->dropDownList($templates)
-                    ->hint(Yii::t('app', 'This is a set of code templates to be used to generate the specific code file(s).'))
-                ?>
-        </div>
-    </div>
-    <div class="ui column grid">
-        <div class="column">
-            <?= Html::submitButton(Yii::t('app', 'Generate'), ['name' => 'generateFiles', 'class' => 'ui basic primary button']) ?>
-            <?php
-                if (isset($files)) :
-                    echo Html::submitButton(Yii::t('app', 'Save File(s)'), ['name' => 'saveFiles', 'class' => 'ui primary button']);
-                endif ?>
-        </div>
-    </div>
 </div>
-<div class="ui bottom secondary attached padded segment">
+
+<?php
+$hintOptions = [
+    'tag' => 'div',
+    'class' => 'text-muted',
+    'style' => 'font-size: 0.95em; padding-left: 0.25em'
+];
+$form = ActiveForm::begin([
+    'id' => "$id-generator",
+    'successCssClass' => '',
+    'fieldConfig' => ['class' => ActiveField::class, 'hintOptions' => $hintOptions],
+]) ?>
+    <?= $this->renderFile($generator->formView(), [
+            'generator' => $generator,
+            'form' => $form,
+        ]) ?>
+    <div class="ui attached padded segment">
+        <?= $form
+                ->field($generator, 'template')
+                ->sticky()
+                ->label(Yii::t('app', 'Code Template'))
+                ->dropDownList($templates)
+                ->hint(Yii::t('app', 'This is a set of code templates to be used to generate the specific code file(s).'))
+            ?>
+        <?= Html::submitButton(Yii::t('app', 'Generate'), ['name' => 'generateFiles', 'class' => 'ui basic primary button']) ?>
+        <?php
+            if (isset($files)) :
+                echo Html::submitButton(Yii::t('app', 'Save File(s)'), ['name' => 'saveFiles', 'class' => 'ui primary button']);
+            endif ?>
+    </div>
+    <div class="ui secondary bottom attached padded segment">
     <?php
         if (isset($results)) :
             echo $this->render('view/results', [
@@ -85,6 +78,7 @@ endforeach;
                     Yii::t('app', 'Click on the <code>Generate</code> button above to preview the generated code file(s) here:'),
                     ['class' => 'text-muted']
                 );
-        endif;
+        endif ?>
+    </div>
+<?php
     ActiveForm::end() ?>
-</div>

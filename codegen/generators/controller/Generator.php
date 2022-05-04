@@ -119,9 +119,7 @@ class Generator extends \crudle\kit\Generator
                 'This is a fully qualified class name in CamelCase ending with <code>Controller</code>. 
                 The namespace is as specified by the application\'s controllerNamespace property.',
             'actions' =>
-                'e.g. <code>index, create-todo</code> &nbsp;IDs to generate&nbsp; <code>actionIndex()</code> 
-                &nbsp;and&nbsp; <code>actionCreateTodo()</code> methods. 
-                <br>Enter one or more action IDs in lower case (separated with a comma or space) to generate 
+                'Enter one or more action IDs in lower case (separated with a comma or space) to generate 
                 a corresponding empty action method in the controller.',
             'viewPath' =>
                 'The directory or path alias for the view scripts of the controller. 

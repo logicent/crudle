@@ -5,16 +5,12 @@
 
 ?>
 
-<!-- <div class="module-form"> -->
-    <div class="ui info message">
+<div class="ui attached padded segment">
+    <div class="ui info message" style="position: unset !important">
         Please read the
-        <?= \yii\helpers\Html::a('Extension Guidelines', 'http://www.yiiframework.com/doc-2.0/guide-structure-extensions.html', ['target'=>'new']) ?>
+        <?= \yii\helpers\Html::a('Extension Guidelines', 'http://www.yiiframework.com/doc-2.0/guide-structure-extensions.html', ['target' => 'new']) ?>
         before creating an extension.
     </div>
-    <!-- why is the spacing here not working as it should? -->
-    <div class="ui hidden divider"></div>
-    <div class="ui hidden divider"></div>
-    <div class="ui hidden divider"></div>
 <?php
     echo $form->field($generator, 'vendorName');
     echo $form->field($generator, 'packageName');
@@ -28,4 +24,4 @@
     echo $form->field($generator, 'authorEmail');
     echo $form->field($generator, 'outputPath');
 ?>
-<!-- </div> -->
+</div>

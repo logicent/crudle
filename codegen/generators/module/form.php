@@ -4,9 +4,15 @@
 /* @var $generator crudle\kit\generators\module\Generator */
 
 ?>
-<div class="module-form">
-<?php
-    echo $form->field($generator, 'moduleID')->textInput(['placeholder' => 'e.g. main']);
-    echo $form->field($generator, 'moduleClass')->textInput(['placeholder' => 'e.g. crudle\main\Module']);
-?>
+
+<div class="ui attached padded segment">
+    <div class="ui small header" style="font-weight: 500;">
+        <?= Yii::t('app', 'Module') ?>
+    </div>
+    <div class="ui two column grid">
+        <div class="column">
+            <?= $form->field($generator, 'moduleID')->textInput(['placeholder' => 'e.g. main']) ?>
+            <?= $form->field($generator, 'moduleClass')->textInput(['placeholder' => 'e.g. crudle\main\Module']) ?>
+        </div>
+    </div>
 </div>
