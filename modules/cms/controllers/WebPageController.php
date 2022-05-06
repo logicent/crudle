@@ -1,10 +1,10 @@
 <?php
 
-namespace logicent\cms\controllers;
+namespace crudle\ext\cms\controllers;
 
-use crudle\main\controllers\base\BaseCrudController;
-use logicent\cms\models\WebPage;
-use logicent\cms\models\WebPageSearch;
+use crudle\app\main\controllers\base\BaseCrudController;
+use crudle\ext\cms\models\WebPage;
+use crudle\ext\cms\models\WebPageSearch;
 
 /**
  * WebPageController for the `WebPage` model

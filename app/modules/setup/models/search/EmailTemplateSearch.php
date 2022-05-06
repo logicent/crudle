@@ -1,15 +1,16 @@
 <?php
 
-namespace crudle\setup\models;
+namespace crudle\app\setup\models\search;
 
+use crudle\app\setup\models\EmailTemplate;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * UserGroupSearch represents the model behind the search form of `app\modules\setup\models\UserGroup`.
+ * EmailTemplateSearch represents the model behind the search form of `app\modules\setup\models\EmailTemplate`.
  */
-class UserGroupSearch extends UserGroup
+class EmailTemplateSearch extends EmailTemplate
 {
     /**
      * {@inheritdoc}
@@ -38,7 +39,7 @@ class UserGroupSearch extends UserGroup
      */
     public function search($params)
     {
-        $query = UserGroup::find();
+        $query = EmailTemplate::find();
 
         // add conditions that should always apply here
 
@@ -56,12 +57,13 @@ class UserGroupSearch extends UserGroup
 
         // grid filtering conditions
         $query->andFilterWhere([
+            'inactive' => $this->inactive,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'deleted_at' => $this->deleted_at,
         ]);
 
-        $query->andFilterWhere(['like', 'alias', $this->alias])
+        $query
             ->andFilterWhere(['like', 'created_by', $this->created_by])
             ->andFilterWhere(['like', 'updated_by', $this->updated_by]);
 

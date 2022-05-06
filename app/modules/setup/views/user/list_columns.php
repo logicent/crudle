@@ -1,13 +1,13 @@
 <?php
 
-use crudle\setup\enums\Type_Role;
-use app\helpers\DateTimeHelper;
+use crudle\app\setup\enums\Type_Role;
+use crudle\app\helpers\DateTimeHelper;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\widgets\GridView;
 use Zelenin\yii\SemanticUI\Elements;
-use crudle\main\models\auth\Person;
-use app\helpers\StatusMarker;
+use crudle\app\main\models\auth\Person;
+use crudle\app\helpers\StatusMarker;
 
 $this->title = Yii::t('app', 'User');
 // $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Setup'), 'url' => ['/setup']];

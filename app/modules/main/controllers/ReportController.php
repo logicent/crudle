@@ -1,9 +1,9 @@
 <?php
 
-namespace crudle\main\controllers;
+namespace crudle\app\main\controllers;
 
-use crudle\main\controllers\base\BaseViewController;
-use crudle\setup\models\ReportBuilder;
+use crudle\app\main\controllers\base\BaseViewController;
+use crudle\app\setup\models\ReportBuilder;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\helpers\ArrayHelper;
@@ -20,6 +20,12 @@ class ReportController extends BaseViewController
 
         $this->viewPath = Yii::getAlias('@app_main/views/report');
         // return;
+    }
+
+    public function actions()
+    {
+        return [
+        ];
     }
 
     public function actionIndex($id = null)
@@ -47,6 +53,22 @@ class ReportController extends BaseViewController
         $this->reports = ReportBuilder::find()->asArray()->all();
 
         return $this->render('index', []);
+
+        // $model = new $this->modelClass();
+
+        // $columns = array_diff_key($model->attributeLabels(), $model->skip_in_report);
+
+        // return $this->renderAjax('/report/index', [
+        //     'title' =>  Inflector::titleize($this->id),
+        //     // 'module' => Inflector::titleize(Inflector::pluralize($this->id)),
+        //     'showFilters' => true,
+        //     'pickColumns' => [], // Add column and drag to change position
+        //     'sortBy' => [],
+        //     'showTotals' => false,
+        //     'columns' => $columns, // headers
+        //     'rows' => $model->getReportData($columns),
+        //     'totals' => []
+        // ]);
     }
 
     public function pageNavbar(): string

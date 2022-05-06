@@ -1,9 +1,9 @@
 <?php
 
-namespace logicent\cms\controllers;
+namespace crudle\ext\cms\controllers;
 
-use logicent\cms\controllers\base\BaseWebSettingsController;
-use logicent\cms\models\WebsiteScriptForm;
+use crudle\ext\cms\controllers\base\BaseWebSettingsController;
+use crudle\ext\cms\models\WebsiteScriptForm;
 
 /**
  * ScriptController for the `WebsiteScriptForm` model

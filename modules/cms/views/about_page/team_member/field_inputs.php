@@ -1,6 +1,6 @@
 <?php
 
-use app\helpers\App;
+use crudle\app\helpers\AppHelper;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;
 use Zelenin\yii\SemanticUI\modules\Checkbox;
@@ -41,7 +41,7 @@ use Zelenin\yii\SemanticUI\modules\Checkbox;
                     'class' => 'edit-item--btn compact ui small basic icon button',
                     'style' => 'margin: 0em;',
                     'data' => [
-                        'model-class' => App::className($model),
+                        'model-class' => AppHelper::className($model),
                         'form-view' => '@app_cms/views/about_page/team_member/_edit_form',
                         // 'row-id' => $rowId,
                     ]

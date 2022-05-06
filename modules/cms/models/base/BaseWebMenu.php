@@ -1,8 +1,8 @@
 <?php
 
-namespace logicent\cms\models\base;
+namespace crudle\ext\cms\models\base;
 
-use crudle\setup\models\base\BaseMenu;
+use crudle\app\setup\models\base\BaseMenu;
 use Yii;
 use yii\helpers\ArrayHelper;
 

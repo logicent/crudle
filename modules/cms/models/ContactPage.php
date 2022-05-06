@@ -1,8 +1,8 @@
 <?php
 
-namespace logicent\cms\models;
+namespace crudle\ext\cms\models;
 
-use crudle\setup\models\base\BaseSettingsForm;
+use crudle\app\setup\models\base\BaseSettingsForm;
 use Yii;
 
 class ContactPage extends BaseSettingsForm

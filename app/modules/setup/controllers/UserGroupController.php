@@ -1,10 +1,10 @@
 <?php
 
-namespace crudle\setup\controllers;
+namespace crudle\app\setup\controllers;
 
-use crudle\main\controllers\base\BaseCrudController;
-use crudle\setup\models\UserGroup;
-use crudle\setup\models\UserGroupSearch;
+use crudle\app\main\controllers\base\BaseCrudController;
+use crudle\app\setup\models\UserGroup;
+use crudle\app\setup\models\search\UserGroupSearch;
 
 class UserGroupController extends BaseCrudController
 {

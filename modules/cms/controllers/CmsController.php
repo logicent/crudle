@@ -1,15 +1,21 @@
 <?php
 
-namespace logicent\cms\controllers;
+namespace crudle\ext\cms\controllers;
 
-use crudle\main\controllers\base\BaseViewController;
-use crudle\main\enums\Type_View;
+use crudle\app\main\controllers\base\BaseViewController;
+use crudle\app\main\enums\Type_View;
 
 /**
  * CmsController for the `cms` module
  */
 class CmsController extends BaseViewController
 {
+    public function actions()
+    {
+        return [
+        ];
+    }
+
     /**
      * Renders the default index view for the module
      * @return string

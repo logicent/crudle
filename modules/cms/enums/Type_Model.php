@@ -1,15 +1,15 @@
 <?php
 
-namespace logicent\cms\enums;
+namespace crudle\ext\cms\enums;
 
-use logicent\cms\models\AboutPage;
-use logicent\cms\models\ContactPage;
-use logicent\cms\models\WebForm;
-use logicent\cms\models\WebPage;
-use logicent\cms\models\WebsiteSettingsForm;
-use logicent\cms\models\BlogArticle;
-use logicent\cms\models\BlogCategory;
-use logicent\cms\models\BlogWriter;
+use crudle\ext\cms\models\AboutPage;
+use crudle\ext\cms\models\ContactPage;
+use crudle\ext\cms\models\WebForm;
+use crudle\ext\cms\models\WebPage;
+use crudle\ext\cms\models\WebsiteSettingsForm;
+use crudle\ext\cms\models\BlogArticle;
+use crudle\ext\cms\models\BlogCategory;
+use crudle\ext\cms\models\BlogWriter;
 
 class Type_Model
 {

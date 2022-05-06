@@ -1,16 +1,16 @@
 <?php
 
-namespace crudle\setup\models;
+namespace crudle\app\setup\models\search;
 
-use crudle\setup\enums\Type_Role;
+use crudle\app\setup\models\EmailQueue;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * RoleSearch represents the model behind the search form of `app\modules\setup\models\Role`.
+ * EmailQueueSearch represents the model behind the search form of `app\modules\setup\models\EmailQueue`.
  */
-class RoleSearch extends Role
+class EmailQueueSearch extends EmailQueue
 {
     /**
      * {@inheritdoc}
@@ -39,19 +39,8 @@ class RoleSearch extends Role
      */
     public function search($params)
     {
-        $roles_filter = '';
-        if (!Yii::$app->user->can(Type_Role::SystemManager) &&
-            !Yii::$app->user->can(Type_Role::Administrator))
-            $roles_filter = ['not in', 'name', [
-                Type_Role::Administrator,
-                Type_Role::SystemManager
-            ]];
+        $query = EmailQueue::find();
 
-        if (Yii::$app->user->can(Type_Role::SystemManager))
-            $roles_filter = ['not in', 'name', [Type_Role::Administrator]];
-
-        $query = Role::find()->where(['type' => Role::TYPE_ROLE])
-                            ->andWhere($roles_filter);
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
@@ -68,16 +57,18 @@ class RoleSearch extends Role
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'type' => $this->type,
+            'status' => $this->status,
+            'sent_at' => $this->sent_at,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'deleted_at' => $this->deleted_at,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'rule_name', $this->rule_name])
-            ->andFilterWhere(['like', 'data', $this->data])
+        $query->andFilterWhere(['like', 'subject', $this->subject])
+            ->andFilterWhere(['like', 'from', $this->from])
+            ->andFilterWhere(['like', 'to', $this->to])
+            ->andFilterWhere(['like', 'cc', $this->cc])
+            ->andFilterWhere(['like', 'message', $this->message])
             ->andFilterWhere(['like', 'created_by', $this->created_by])
             ->andFilterWhere(['like', 'updated_by', $this->updated_by]);
 

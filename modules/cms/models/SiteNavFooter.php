@@ -1,9 +1,9 @@
 <?php
 
-namespace logicent\cms\models;
+namespace crudle\ext\cms\models;
 
-use logicent\cms\enums\Type_Menu;
-use logicent\cms\models\base\BaseWebMenu;
+use crudle\ext\cms\enums\Type_Menu;
+use crudle\ext\cms\models\base\BaseWebMenu;
 
 class SiteNavFooter extends BaseWebMenu
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace crudle\setup\models\base;
+namespace crudle\app\setup\models\base;
 
-use crudle\setup\enums\Type_Permission;
-use crudle\setup\models\Settings;
+use crudle\app\setup\enums\Type_Permission;
+use crudle\app\setup\models\Settings;
 use Yii;
 use yii\base\Model;
 use yii\helpers\Json;

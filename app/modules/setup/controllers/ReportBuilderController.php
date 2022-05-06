@@ -1,11 +1,11 @@
 <?php
 
-namespace crudle\setup\controllers;
+namespace crudle\app\setup\controllers;
 
-use crudle\main\controllers\base\BaseCrudController;
-use crudle\setup\models\ReportBuilder;
-use crudle\setup\models\ReportBuilderItem;
-use crudle\setup\models\ReportBuilderSearch;
+use crudle\app\main\controllers\base\BaseCrudController;
+use crudle\app\setup\models\ReportBuilder;
+use crudle\app\setup\models\ReportBuilderItem;
+use crudle\app\setup\models\search\ReportBuilderSearch;
 
 class ReportBuilderController extends BaseCrudController
 {

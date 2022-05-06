@@ -1,9 +1,9 @@
 <?php
 
-namespace logicent\cms\models\base;
+namespace crudle\ext\cms\models\base;
 
-use crudle\main\models\UploadForm;
-use crudle\setup\models\base\BaseSettingsForm;
+use crudle\app\main\models\UploadForm;
+use crudle\app\setup\models\base\BaseSettingsForm;
 use Yii;
 
 class BasePersonInfo extends BaseSettingsForm

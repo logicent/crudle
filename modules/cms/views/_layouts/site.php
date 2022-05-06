@@ -1,7 +1,7 @@
 <?php
 
-use crudle\setup\models\Setup;
-use logicent\cms\models\WebsiteSettingsForm;
+use crudle\app\setup\models\Setup;
+use crudle\ext\cms\models\WebsiteSettingsForm;
 
 $webSettings = Setup::getSettings( WebsiteSettingsForm::class );
 

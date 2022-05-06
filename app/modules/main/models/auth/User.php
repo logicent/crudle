@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\main\models\auth;
+namespace crudle\app\main\models\auth;
 
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;

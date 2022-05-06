@@ -1,15 +1,15 @@
 <?php
 
-namespace crudle\setup\models;
+namespace crudle\app\setup\models\search;
 
-use Yii;
+use crudle\app\setup\models\DashboardWidget;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * PrintStyleSearch represents the model behind the search form of `app\modules\setup\models\PrintStyle`.
+ * DashboardWidgetSearch represents the model behind the search form of `app\modules\setup\models\DashboardWidget`.
  */
-class PrintStyleSearch extends PrintStyle
+class DashboardWidgetSearch extends DashboardWidget
 {
     /**
      * {@inheritdoc}
@@ -38,7 +38,7 @@ class PrintStyleSearch extends PrintStyle
      */
     public function search($params)
     {
-        $query = PrintStyle::find();
+        $query = DashboardWidget::find();
 
         // add conditions that should always apply here
 
@@ -61,7 +61,11 @@ class PrintStyleSearch extends PrintStyle
             'deleted_at' => $this->deleted_at,
         ]);
 
-        $query->andFilterWhere(['like', 'id', $this->id])
+        $query->andFilterWhere(['like', 'icon', $this->icon])
+            ->andFilterWhere(['like', 'icon_path', $this->icon_path])
+            ->andFilterWhere(['like', 'icon_color', $this->icon_color])
+            ->andFilterWhere(['like', 'route', $this->route])
+            ->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'created_by', $this->created_by])
             ->andFilterWhere(['like', 'updated_by', $this->updated_by]);
 

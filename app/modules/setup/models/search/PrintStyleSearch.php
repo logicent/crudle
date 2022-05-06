@@ -1,15 +1,16 @@
 <?php
 
-namespace crudle\setup\models;
+namespace crudle\app\setup\models\search;
 
+use crudle\app\setup\models\PrintStyle;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * UserLogSearch represents the model behind the search form of `app\modules\setup\models\UserLog`.
+ * PrintStyleSearch represents the model behind the search form of `app\modules\setup\models\PrintStyle`.
  */
-class UserLogSearch extends UserLog
+class PrintStyleSearch extends PrintStyle
 {
     /**
      * {@inheritdoc}
@@ -38,7 +39,7 @@ class UserLogSearch extends UserLog
      */
     public function search($params)
     {
-        $query = UserLog::find();
+        $query = PrintStyle::find();
 
         // add conditions that should always apply here
 
@@ -61,7 +62,7 @@ class UserLogSearch extends UserLog
             'deleted_at' => $this->deleted_at,
         ]);
 
-        $query
+        $query->andFilterWhere(['like', 'id', $this->id])
             ->andFilterWhere(['like', 'created_by', $this->created_by])
             ->andFilterWhere(['like', 'updated_by', $this->updated_by]);
 

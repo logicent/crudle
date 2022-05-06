@@ -1,8 +1,8 @@
 <?php
 
 use yii\helpers\Html;
-use app\assets\AppAsset;
-use app\assets\PrintAsset;
+use crudle\app\assets\AppAsset;
+use crudle\app\assets\PrintAsset;
 
 AppAsset::register($this);
 PrintAsset::register($this);

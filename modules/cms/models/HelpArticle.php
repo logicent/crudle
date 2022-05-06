@@ -1,6 +1,6 @@
 <?php
 
-namespace logicent\cms\models;
+namespace crudle\ext\cms\models;
 
 class HelpArticle
 {

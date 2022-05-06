@@ -1,10 +1,10 @@
 <?php
 
-namespace logicent\cms\models;
+namespace crudle\ext\cms\models;
 
-use crudle\main\enums\Type_Relation;
-use crudle\main\models\UploadForm;
-use crudle\setup\models\base\BaseSettingsForm;
+use crudle\app\main\enums\Type_Relation;
+use crudle\app\main\models\UploadForm;
+use crudle\app\setup\models\base\BaseSettingsForm;
 use Yii;
 
 class WebsiteSettingsForm extends BaseSettingsForm

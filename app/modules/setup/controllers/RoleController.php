@@ -1,11 +1,11 @@
 <?php
 
-namespace crudle\setup\controllers;
+namespace crudle\app\setup\controllers;
 
-use crudle\main\controllers\base\BaseCrudController;
-use crudle\setup\enums\Type_Role;
-use crudle\setup\models\Role;
-use crudle\setup\models\RoleSearch;
+use crudle\app\main\controllers\base\BaseCrudController;
+use crudle\app\setup\enums\Type_Role;
+use crudle\app\setup\models\Role;
+use crudle\app\setup\models\search\RoleSearch;
 use Yii;
 use yii\helpers\Html;
 

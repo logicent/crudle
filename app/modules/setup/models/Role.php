@@ -1,9 +1,9 @@
 <?php
 
-namespace crudle\setup\models;
+namespace crudle\app\setup\models;
 
-use app\enums\Status_Active;
-use crudle\main\models\auth\Role as AuthRole;
+use crudle\app\enums\Status_Active;
+use crudle\app\main\models\auth\Role as AuthRole;
 
 class Role extends AuthRole
 {

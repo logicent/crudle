@@ -1,7 +1,7 @@
 <?php
 
-use crudle\setup\models\LayoutSettingsForm;
-use crudle\setup\models\Setup;
+use crudle\app\setup\models\LayoutSettingsForm;
+use crudle\app\setup\models\Setup;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use Zelenin\yii\SemanticUI\Elements;

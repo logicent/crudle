@@ -1,21 +1,21 @@
 <?php
 
-namespace crudle\main\models\base;
+namespace crudle\app\main\models\base;
 
-use app\helpers\App;
-use crudle\main\enums\Type_Comment;
-use crudle\main\enums\Type_Link;
-use crudle\main\enums\Type_Mixed_Value;
-use crudle\main\enums\Type_Model_Id;
-use crudle\main\enums\Type_Relation;
-use crudle\main\enums\Type_View;
-use crudle\main\models\auth\Person;
-use crudle\setup\enums\Permission_Group;
-use crudle\setup\enums\Type_Permission;
-use crudle\setup\models\LayoutSettingsForm;
-use crudle\setup\models\ListViewSettingsForm;
-use crudle\setup\models\Setup;
-use app\workflows\WorkflowInterface;
+use crudle\app\helpers\AppHelper;
+use crudle\app\main\enums\Type_Comment;
+use crudle\app\main\enums\Type_Link;
+use crudle\app\main\enums\Type_Mixed_Value;
+use crudle\app\main\enums\Type_Model_Id;
+use crudle\app\main\enums\Type_Relation;
+use crudle\app\main\enums\Type_View;
+use crudle\app\main\models\auth\Person;
+use crudle\app\setup\enums\Permission_Group;
+use crudle\app\setup\enums\Type_Permission;
+use crudle\app\setup\models\LayoutSettingsForm;
+use crudle\app\setup\models\ListViewSettingsForm;
+use crudle\app\setup\models\Setup;
+use crudle\app\workflows\WorkflowInterface;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\behaviors\BlameableBehavior;

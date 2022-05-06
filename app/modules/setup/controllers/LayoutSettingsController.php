@@ -1,9 +1,9 @@
 <?php
 
-namespace crudle\setup\controllers;
+namespace crudle\app\setup\controllers;
 
-use crudle\setup\controllers\base\BaseSettingsController;
-use crudle\setup\models\LayoutSettingsForm;
+use crudle\app\setup\controllers\base\BaseSettingsController;
+use crudle\app\setup\models\LayoutSettingsForm;
 
 class LayoutSettingsController extends BaseSettingsController
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace crudle\main\models;
+namespace crudle\app\main\models;
 
-use crudle\main\models\base\BaseModel;
+use crudle\app\main\models\base\BaseModel;
 
 abstract class Model extends BaseModel
 {

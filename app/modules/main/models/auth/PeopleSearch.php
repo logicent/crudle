@@ -1,8 +1,8 @@
 <?php
 
-namespace crudle\main\models\auth;
+namespace crudle\app\main\models\auth;
 
-use app\enums\Type_Role;
+use crudle\app\enums\Type_Role;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;

@@ -1,12 +1,12 @@
 <?php
 
-namespace crudle\setup\commands;
+namespace crudle\app\setup\commands;
 
-use crudle\main\enums\Type_Model;
-use crudle\main\models\auth\Auth;
-use crudle\main\models\auth\Role;
-use crudle\setup\enums\Type_Permission;
-use crudle\setup\enums\Type_Role;
+use crudle\app\main\enums\Type_Model;
+use crudle\app\main\models\auth\Auth;
+use crudle\app\main\models\auth\Role;
+use crudle\app\setup\enums\Type_Permission;
+use crudle\app\setup\enums\Type_Role;
 use Yii;
 use yii\console\Controller;
 use yii\helpers\Inflector;

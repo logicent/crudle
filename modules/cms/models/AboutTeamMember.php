@@ -1,8 +1,8 @@
 <?php
 
-namespace logicent\cms\models;
+namespace crudle\ext\cms\models;
 
-use logicent\cms\models\base\BasePersonInfo;
+use crudle\ext\cms\models\base\BasePersonInfo;
 
 class AboutTeamMember extends BasePersonInfo
 {

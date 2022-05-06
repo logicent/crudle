@@ -1,6 +1,6 @@
 <?php
 
-use crudle\setup\enums\Type_Role;
+use crudle\app\setup\enums\Type_Role;
 use yii\helpers\Html;
 
 ?>

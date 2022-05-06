@@ -1,5 +1,5 @@
 <?php
-namespace crudle\setup\commands;
+namespace crudle\app\setup\commands;
 
 use yii\console\Controller;
 

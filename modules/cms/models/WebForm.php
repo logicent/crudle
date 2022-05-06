@@ -1,10 +1,10 @@
 <?php
 
-namespace logicent\cms\models;
+namespace crudle\ext\cms\models;
 
-use crudle\main\models\base\BaseActiveRecord;
-use crudle\setup\models\ListViewSettingsForm;
-use logicent\cms\enums\Status_Article;
+use crudle\app\main\models\base\BaseActiveRecord;
+use crudle\app\setup\models\ListViewSettingsForm;
+use crudle\ext\cms\enums\Status_Article;
 
 class WebForm extends BaseActiveRecord
 {

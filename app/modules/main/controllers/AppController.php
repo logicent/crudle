@@ -1,18 +1,18 @@
 <?php
 
-namespace crudle\main\controllers;
+namespace crudle\app\main\controllers;
 
-use app\enums\Status_Active;
-use crudle\main\controllers\base\BaseViewController;
-use crudle\main\models\auth\LoginForm;
-use crudle\main\models\auth\PasswordResetRequestForm;
-use crudle\main\models\auth\ResetPasswordForm;
-use crudle\main\models\auth\Auth;
-use crudle\main\models\auth\User;
-use crudle\main\models\auth\UserLog;
-use crudle\setup\models\EmailQueue;
-use crudle\setup\models\Setup;
-use crudle\setup\models\SmtpSettingsForm;
+use crudle\app\enums\Status_Active;
+use crudle\app\main\controllers\base\BaseViewController;
+use crudle\app\main\models\auth\LoginForm;
+use crudle\app\main\models\auth\PasswordResetRequestForm;
+use crudle\app\main\models\auth\ResetPasswordForm;
+use crudle\app\main\models\auth\Auth;
+use crudle\app\main\models\auth\User;
+use crudle\app\main\models\auth\UserLog;
+use crudle\app\setup\models\EmailQueue;
+use crudle\app\setup\models\Setup;
+use crudle\app\setup\models\SmtpSettingsForm;
 use Yii;
 use yii\helpers\Html;
 use yii\filters\AccessControl;

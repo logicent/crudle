@@ -1,9 +1,9 @@
 <?php
 
-namespace crudle\setup\controllers;
+namespace crudle\app\setup\controllers;
 
-use crudle\setup\controllers\base\BaseSettingsController;
-use crudle\setup\models\PrinterSettingsForm;
+use crudle\app\setup\controllers\base\BaseSettingsController;
+use crudle\app\setup\models\PrinterSettingsForm;
 
 class PrinterSettingsController extends BaseSettingsController
 {

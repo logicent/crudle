@@ -1,9 +1,9 @@
 <?php
 
-namespace crudle\setup\models;
+namespace crudle\app\setup\models\search;
 
-use crudle\main\models\auth\PersonSearch;
-use crudle\setup\enums\Type_Role;
+use crudle\app\main\models\auth\PersonSearch;
+use crudle\app\setup\enums\Type_Role;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;

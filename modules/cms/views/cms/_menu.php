@@ -1,7 +1,7 @@
 <?php
 
-use crudle\setup\enums\Type_Role;
-use logicent\cms\enums\Type_Menu_Sub_Group;
+use crudle\app\setup\enums\Type_Role;
+use crudle\ext\cms\enums\Type_Menu_Sub_Group;
 
 $this->params['menuGroupClass'] = Type_Menu_Sub_Group::class;
 

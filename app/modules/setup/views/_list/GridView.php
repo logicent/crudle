@@ -1,12 +1,12 @@
 <?php
 
-use app\helpers\DateTimeHelper;
+use crudle\app\helpers\DateTimeHelper;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\widgets\GridView;
 use Zelenin\yii\SemanticUI\Elements;
-use app\assets\DataTableAsset;
-use app\helpers\StatusMarker;
+use crudle\app\assets\DataTableAsset;
+use crudle\app\helpers\StatusMarker;
 use yii\helpers\Json;
 use Zelenin\yii\SemanticUI\modules\Checkbox;
 

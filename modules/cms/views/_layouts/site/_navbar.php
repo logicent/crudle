@@ -1,8 +1,8 @@
 <?php
 
-use crudle\setup\models\GeneralSettingsForm;
-use crudle\setup\models\Setup;
-use logicent\cms\models\WebsiteSettingsForm;
+use crudle\app\setup\models\GeneralSettingsForm;
+use crudle\app\setup\models\Setup;
+use crudle\ext\cms\models\WebsiteSettingsForm;
 use yii\helpers\Url;
 use yii\helpers\Html;
 

@@ -1,9 +1,9 @@
 <?php
 
-require_once __DIR__ . '/../helpers/App.php';
+require_once __DIR__ . '/../helpers/AppHelper.php';
 
-use app\helpers\App;
-use crudle\main\models\auth\User;
+use crudle\app\helpers\AppHelper;
+use crudle\app\main\models\auth\User;
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../..');
 $dotenv->load();
@@ -15,7 +15,7 @@ $modules = require __DIR__ . '/modules.php';
 
 $config = [
     'id' => 'yii2-crudle-web',
-    'name' => App::env('APP_NAME'),
+    'name' => AppHelper::env('APP_NAME'),
     'runtimePath' => dirname( __DIR__, 2 ) . '/storage/runtime',
     'vendorPath' => dirname( __DIR__, 2 ) . '/vendor',
     'basePath' => dirname( __DIR__ ),
@@ -61,11 +61,11 @@ $config = [
             'useFileTransport' => false, // set true if testing or debugging to send locally to file
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
-                'host' => App::env('MAIL_HOST'),
-                'port' => App::env('MAIL_PORT'),
-                'encryption' => App::env('MAIL_ENCRYPTION'),
-                'username' => App::env('MAIL_USERNAME'),
-                'password' => App::env('MAIL_PASSWORD'),
+                'host' => AppHelper::env('MAIL_HOST'),
+                'port' => AppHelper::env('MAIL_PORT'),
+                'encryption' => AppHelper::env('MAIL_ENCRYPTION'),
+                'username' => AppHelper::env('MAIL_USERNAME'),
+                'password' => AppHelper::env('MAIL_PASSWORD'),
             ],
         ],
         'log' => [

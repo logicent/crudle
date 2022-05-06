@@ -1,13 +1,13 @@
 <?php
 
-namespace crudle\setup\controllers\base;
+namespace crudle\app\setup\controllers\base;
 
-use app\helpers\App;
-use crudle\main\controllers\base\BaseFormController;
-use crudle\main\enums\Type_Form_View;
-use crudle\main\enums\Type_View;
-use crudle\setup\models\Settings;
-use crudle\setup\models\Setup;
+use crudle\app\helpers\AppHelper;
+use crudle\app\main\controllers\base\BaseFormController;
+use crudle\app\main\enums\Type_Form_View;
+use crudle\app\main\enums\Type_View;
+use crudle\app\setup\models\Settings;
+use crudle\app\setup\models\Setup;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -17,13 +17,19 @@ use yii\helpers\StringHelper;
 
 abstract class BaseSettingsController extends BaseFormController
 {
+    public function actions()
+    {
+        return [
+        ];
+    }
+
     public function actionIndex()
     {
         $this->model = Setup::getSettings( $this->modelClass() );
         // load related settings models
         foreach ($this->model::relations() as $relationAttribute => $relationSettings)
             $this->detailModels[$relationAttribute] = 
-            App::convertArraysToModels($relationSettings['class'], $this->model->$relationAttribute);
+            AppHelper::convertArraysToModels($relationSettings['class'], $this->model->$relationAttribute);
 
         if ( $this->model->load( Yii::$app->request->post() ))
         {
@@ -35,7 +41,7 @@ abstract class BaseSettingsController extends BaseFormController
                 else
                     $this->model->$relationAttribute = null;
 
-                App::convertArrayToJson($this->model, $relationAttribute);
+                AppHelper::convertArrayToJson($this->model, $relationAttribute);
             }
             $modelClassname = StringHelper::basename( $this->modelClass() );
             if ( $this->model->validate() && $this->model->save( $modelClassname ))

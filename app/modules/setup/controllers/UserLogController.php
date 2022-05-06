@@ -1,10 +1,10 @@
 <?php
 
-namespace crudle\setup\controllers;
+namespace crudle\app\setup\controllers;
 
-use crudle\main\controllers\base\BaseCrudController;
-use crudle\setup\models\UserLog;
-use crudle\setup\models\UserLogSearch;
+use crudle\app\main\controllers\base\BaseCrudController;
+use crudle\app\setup\models\UserLog;
+use crudle\app\setup\models\search\UserLogSearch;
 
 class UserLogController extends BaseCrudController
 {

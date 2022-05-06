@@ -1,6 +1,6 @@
 <?php
 
-namespace app\enums;
+namespace crudle\app\enums;
 
 // Core Modules
 class Type_Module

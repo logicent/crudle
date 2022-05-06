@@ -1,6 +1,6 @@
 <?php
 
-namespace app\workflows;
+namespace crudle\app\workflows;
 
 class Sharing
 {

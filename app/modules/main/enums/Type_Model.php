@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\main\enums;
+namespace crudle\app\main\enums;
 
 
 class Type_Model

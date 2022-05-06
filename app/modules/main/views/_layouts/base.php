@@ -1,9 +1,9 @@
 <?php
 
 use yii\helpers\Html;
-use app\assets\AppAsset;
-use crudle\setup\models\LayoutSettingsForm;
-use crudle\setup\models\Setup;
+use crudle\app\assets\AppAsset;
+use crudle\app\setup\models\LayoutSettingsForm;
+use crudle\app\setup\models\Setup;
 
 AppAsset::register($this);
 

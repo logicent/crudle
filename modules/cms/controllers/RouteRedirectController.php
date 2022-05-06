@@ -1,8 +1,8 @@
 <?php
 
-namespace logicent\cms\controllers;
+namespace crudle\ext\cms\controllers;
 
-use crudle\main\controllers\base\BaseCrudController;
+use crudle\app\main\controllers\base\BaseCrudController;
 
 class RouteRedirectController extends BaseCrudController
 {

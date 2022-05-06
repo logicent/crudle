@@ -1,11 +1,11 @@
 <?php
 
-namespace crudle\setup\models;
+namespace crudle\app\setup\models;
 
-use crudle\setup\enums\Status_Transaction;
-use crudle\setup\enums\Type_Permission;
-use crudle\main\models\base\BaseActiveRecord;
-use crudle\setup\enums\Permission_Group;
+use crudle\app\setup\enums\Status_Transaction;
+use crudle\app\setup\enums\Type_Permission;
+use crudle\app\main\models\base\BaseActiveRecord;
+use crudle\app\setup\enums\Permission_Group;
 use Yii;
 
 /**

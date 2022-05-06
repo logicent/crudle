@@ -1,6 +1,6 @@
 <?php
 
-use app\helpers\SelectableItems;
+use crudle\app\helpers\SelectableItems;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\helpers\Size;
 use Zelenin\yii\SemanticUI\modules\Modal;

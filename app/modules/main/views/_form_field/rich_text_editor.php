@@ -1,6 +1,6 @@
 <?php
 
-use app\assets\QuillAsset;
+use crudle\app\assets\QuillAsset;
 QuillAsset::register($this);
 
 $context_id = $this->context->id;

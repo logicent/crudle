@@ -1,8 +1,8 @@
 <?php
 
-namespace crudle\setup\enums;
+namespace crudle\app\setup\enums;
 
-use crudle\main\enums\Type_Menu_Group;
+use crudle\app\main\enums\Type_Menu_Group;
 use Yii;
 use yii\helpers\ArrayHelper;
 

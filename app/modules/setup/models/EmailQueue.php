@@ -1,14 +1,14 @@
 <?php
 
-namespace crudle\setup\models;
+namespace crudle\app\setup\models;
 
-use crudle\setup\enums\Type_Permission;
-use crudle\setup\enums\Status_Queue;
-use crudle\setup\enums\Type_Role;
-use crudle\setup\enums\Status_User;
-use crudle\main\models\auth\Person;
-use crudle\main\models\base\BaseActiveRecord;
-use crudle\setup\models\Setup;
+use crudle\app\setup\enums\Type_Permission;
+use crudle\app\setup\enums\Status_Queue;
+use crudle\app\setup\enums\Type_Role;
+use crudle\app\setup\enums\Status_User;
+use crudle\app\main\models\auth\Person;
+use crudle\app\main\models\base\BaseActiveRecord;
+use crudle\app\setup\models\Setup;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Json;

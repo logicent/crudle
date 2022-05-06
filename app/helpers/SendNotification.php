@@ -1,10 +1,10 @@
 <?php
 
-namespace app\helpers;
+namespace crudle\app\helpers;
 
-use app\enums\Type_Comment;
-use app\enums\Status_Queue;
-use app\models\CommentForm;
+use crudle\app\enums\Type_Comment;
+use crudle\app\enums\Status_Queue;
+use crudle\app\models\CommentForm;
 use crudle\setup\models\EmailNotificationSettingsForm;
 use crudle\setup\models\EmailQueue;
 use crudle\setup\models\Setup;

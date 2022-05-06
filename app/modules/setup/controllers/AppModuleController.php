@@ -1,12 +1,18 @@
 <?php
 
-namespace crudle\setup\controllers;
+namespace crudle\app\setup\controllers;
 
-use crudle\main\controllers\base\BaseViewController;
+use crudle\app\main\controllers\base\BaseViewController;
 use Yii;
 
 class AppModuleController extends BaseViewController
 {
+    public function actions()
+    {
+        return [
+        ];
+    }
+
     public function actionIndex()
     {
         $modules = Yii::$app->getModules();

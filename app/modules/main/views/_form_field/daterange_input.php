@@ -1,6 +1,6 @@
 <?php
 
-use app\assets\FlatpickrAsset;
+use crudle\app\assets\FlatpickrAsset;
 FlatpickrAsset::register($this);
 
 $isReadonly = $this->context->action->id == 'read' || $this->context->action->id == 'print-preview';

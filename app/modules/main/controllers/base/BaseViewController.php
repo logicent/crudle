@@ -1,11 +1,25 @@
 <?php
 
-namespace crudle\main\controllers\base;
+namespace crudle\app\main\controllers\base;
 
-use crudle\main\enums\Resource_Action;
-use crudle\main\enums\Type_Form_View;
-use crudle\main\enums\Type_View;
+use crudle\app\main\controllers\action\BatchAction;
+use crudle\app\main\controllers\action\DownloadAction;
+use crudle\app\main\controllers\action\ExportPdfAction;
+use crudle\app\main\controllers\action\ExportTextAction;
+use crudle\app\main\controllers\action\ImageUploadAction;
+use crudle\app\main\controllers\action\IndexAction;
+use crudle\app\main\controllers\action\MyLayoutSettingsAction;
+use crudle\app\main\controllers\action\MyListViewSettingsAction;
+use crudle\app\main\controllers\action\MyReportSettingsAction;
+use crudle\app\main\controllers\action\PrintAction;
+use crudle\app\main\controllers\action\PrintPdfAction;
+use crudle\app\main\controllers\action\PrintPreviewAction;
+use crudle\app\main\controllers\action\RestoreDefaultsAction;
+use crudle\app\main\controllers\action\SwitchViewTypeAction;
+use crudle\app\main\enums\Type_Form_View;
+use crudle\app\main\enums\Type_View;
 use Yii;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Inflector;
 use yii\helpers\StringHelper;
 use yii\helpers\Url;
@@ -49,6 +63,26 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
         return parent::beforeAction($action);
     }
 
+    public function actions()
+    {
+        return ArrayHelper::merge(parent::actions(), [
+            'index'         => IndexAction::class,
+            'batch-action'      => BatchAction::class,
+            'my-layout-settings'    => MyLayoutSettingsAction::class,
+            'my-list-view-settings' => MyListViewSettingsAction::class,
+            'my-report-settings'    => MyReportSettingsAction::class,
+            'switch-view-type'      => SwitchViewTypeAction::class,
+            'download'              => DownloadAction::class,
+            'export-pdf'            => ExportPdfAction::class,
+            'export-text'           => ExportTextAction::class,
+            'image-upload'          => ImageUploadAction::class,
+            'print'                 => PrintAction::class, // PrintTo device
+            'print-pdf'             => PrintPdfAction::class, // GeneratePdf
+            'print-preview'         => PrintPreviewAction::class, // PrintView
+            'restore-defaults'          => RestoreDefaultsAction::class,
+        ]);
+    }
+
     // LayoutInterface
     public function allowThemeChange(): bool
     {
@@ -68,14 +102,6 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
     public function allowThemeCustomization(): bool
     {
         return false;
-    }
-
-    public function actionMyLayoutSettings()
-    {}
-
-    public function actionSwitchViewType(string $name)
-    {
-        return $this->render('@app_main/views/_' . $name . '/index');
     }
 
     public function defaultViewType()
@@ -183,14 +209,27 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
         return false;
     }
 
+    public function searchModelClass(): string
+    {
+        return '';
+    }
+
+    public function searchModel()
+    {}
+
     public function modelClass(): string
     {
         return '';
     }
 
-    public function getModel()
+    public function getModel($id = null)
     {
-        return $this->model;
+        return $this->model ??= $this->findModel($id);
+    }
+
+    public function setModel($model)
+    {
+        $this->model = $model;
     }
 
     public function detailModelClass(): array
@@ -203,7 +242,7 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
 
     public function getDetailModels(): array
     {
-        return $this->detailModels;
+        return $this->detailModels ??= $this->model->links();
     }
 
     public function validationErrors(): array

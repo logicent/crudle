@@ -1,8 +1,8 @@
 <?php
 
-namespace crudle\setup\controllers;
+namespace crudle\app\setup\controllers;
 
-use crudle\main\controllers\base\BaseController;
+use crudle\app\main\controllers\base\BaseController;
 
 class PermissionManagerController extends BaseController
 {

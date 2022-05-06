@@ -1,10 +1,10 @@
 <?php
 
-namespace crudle\setup\models;
+namespace crudle\app\setup\models;
 
-use app\enums\Status_Active;
-use crudle\main\models\auth\UserLog as AuthUserLog;
-use crudle\setup\enums\Type_Permission;
+use crudle\app\enums\Status_Active;
+use crudle\app\main\models\auth\UserLog as AuthUserLog;
+use crudle\app\setup\enums\Type_Permission;
 
 /**
  * This is the model class for table "user_log".

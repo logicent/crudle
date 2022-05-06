@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;
-use app\assets\SweetAlertAsset;
+use crudle\app\assets\SweetAlertAsset;
 
 SweetAlertAsset::register($this);
 

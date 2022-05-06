@@ -1,8 +1,8 @@
 <?php
 
-namespace crudle\setup\models;
+namespace crudle\app\setup\models;
 
-use crudle\setup\models\base\BaseSettingsForm;
+use crudle\app\setup\models\base\BaseSettingsForm;
 use Yii;
 
 class DeveloperSettingsForm extends BaseSettingsForm

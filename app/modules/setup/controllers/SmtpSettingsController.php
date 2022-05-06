@@ -1,10 +1,10 @@
 <?php
 
-namespace crudle\setup\controllers;
+namespace crudle\app\setup\controllers;
 
-use crudle\setup\controllers\base\BaseSettingsController;
-use crudle\setup\models\Setup;
-use crudle\setup\models\SmtpSettingsForm;
+use crudle\app\setup\controllers\base\BaseSettingsController;
+use crudle\app\setup\models\Setup;
+use crudle\app\setup\models\SmtpSettingsForm;
 use Yii;
 
 class SmtpSettingsController extends BaseSettingsController

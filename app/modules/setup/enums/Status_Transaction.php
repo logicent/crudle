@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\setup\enums;
+namespace crudle\app\setup\enums;
 
 class Status_Transaction
 {

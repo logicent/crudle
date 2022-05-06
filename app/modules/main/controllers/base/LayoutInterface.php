@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\main\controllers\base;
+namespace crudle\app\main\controllers\base;
 
 interface LayoutInterface
 {
@@ -8,8 +8,6 @@ interface LayoutInterface
     public function currentTheme(): string; // enum
     public function supportedThemes(): array; // enum
     public function allowThemeCustomization(): bool;
-
-    public function actionMyLayoutSettings();
 
     public function pageNavbar(): string;
     public function showMainSidebar(): bool;

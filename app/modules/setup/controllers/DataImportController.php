@@ -1,10 +1,10 @@
 <?php
 
-namespace crudle\setup\controllers;
+namespace crudle\app\setup\controllers;
 
-use crudle\main\controllers\base\BaseViewController;
-use crudle\setup\enums\Type_Role;
-use crudle\setup\models\DataImportForm;
+use crudle\app\main\controllers\base\BaseViewController;
+use crudle\app\setup\enums\Type_Role;
+use crudle\app\setup\models\DataImportForm;
 use League\Csv\Reader;
 use League\Csv\Writer;
 use League\Csv\Statement;
@@ -43,6 +43,12 @@ class DataImportController extends BaseViewController
                     'delete' => ['POST'],
                 ],
             ],
+        ];
+    }
+
+    public function actions()
+    {
+        return [
         ];
     }
 

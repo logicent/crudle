@@ -1,6 +1,6 @@
 <?php
 
-namespace app\helpers;
+namespace crudle\app\helpers;
 
 use yii\helpers\Inflector;
 use yii\helpers\Json;
@@ -12,7 +12,7 @@ use yii\helpers\StringHelper;
  * @author Logicent Ltd. <support@logicent.co>
  * @since 1.0.0
  */
-class App
+class AppHelper
 {
     /**
      * Returns an environment variable, checking for it in `$_SERVER` and calling `getenv()` as a fallback.

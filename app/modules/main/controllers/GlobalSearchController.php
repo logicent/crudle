@@ -1,13 +1,19 @@
 <?php
 
-namespace crudle\main\controllers;
+namespace crudle\app\main\controllers;
 
-use crudle\main\controllers\base\BaseController;
-use crudle\main\models\GlobalSearch;
+use crudle\app\main\controllers\base\BaseController;
+use crudle\app\main\models\GlobalSearch;
 use Yii;
 
 class GlobalSearchController extends BaseController
 {
+    public function actions()
+    {
+        return [
+        ];
+    }
+
     public function actionIndex()
     {
         $model = new GlobalSearch();

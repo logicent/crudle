@@ -1,14 +1,16 @@
 <?php
 
-namespace crudle\setup\models;
+namespace crudle\app\setup\models\search;
 
+use crudle\app\setup\models\UserGroup;
+use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * DashboardWidgetSearch represents the model behind the search form of `app\modules\setup\models\DashboardWidget`.
+ * UserGroupSearch represents the model behind the search form of `app\modules\setup\models\UserGroup`.
  */
-class DashboardWidgetSearch extends DashboardWidget
+class UserGroupSearch extends UserGroup
 {
     /**
      * {@inheritdoc}
@@ -37,7 +39,7 @@ class DashboardWidgetSearch extends DashboardWidget
      */
     public function search($params)
     {
-        $query = DashboardWidget::find();
+        $query = UserGroup::find();
 
         // add conditions that should always apply here
 
@@ -60,11 +62,7 @@ class DashboardWidgetSearch extends DashboardWidget
             'deleted_at' => $this->deleted_at,
         ]);
 
-        $query->andFilterWhere(['like', 'icon', $this->icon])
-            ->andFilterWhere(['like', 'icon_path', $this->icon_path])
-            ->andFilterWhere(['like', 'icon_color', $this->icon_color])
-            ->andFilterWhere(['like', 'route', $this->route])
-            ->andFilterWhere(['like', 'title', $this->title])
+        $query->andFilterWhere(['like', 'alias', $this->alias])
             ->andFilterWhere(['like', 'created_by', $this->created_by])
             ->andFilterWhere(['like', 'updated_by', $this->updated_by]);
 

@@ -1,9 +1,9 @@
 <?php
 
-use crudle\main\enums\Type_Model;
-use crudle\main\enums\Type_Module;
-use crudle\main\enums\Type_Report;
-use crudle\setup\enums\Type_Role;
+use crudle\app\main\enums\Type_Model;
+use crudle\app\main\enums\Type_Module;
+use crudle\app\main\enums\Type_Report;
+use crudle\app\setup\enums\Type_Role;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;
 use Zelenin\yii\SemanticUI\modules\Select;

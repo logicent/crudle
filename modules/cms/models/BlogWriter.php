@@ -1,13 +1,13 @@
 <?php
 
-namespace logicent\cms\models;
+namespace crudle\ext\cms\models;
 
 use app\enums\Status_Active;
-use crudle\main\models\base\BaseActiveRecord;
-use crudle\setup\enums\Permission_Group;
-use crudle\setup\enums\Type_Permission;
-use crudle\setup\models\ListViewSettingsForm;
-use logicent\cms\models\base\BasePersonInfo;
+use crudle\app\main\models\base\BaseActiveRecord;
+use crudle\app\setup\enums\Permission_Group;
+use crudle\app\setup\enums\Type_Permission;
+use crudle\app\setup\models\ListViewSettingsForm;
+use crudle\ext\cms\models\base\BasePersonInfo;
 use Yii;
 use yii\helpers\ArrayHelper;
 

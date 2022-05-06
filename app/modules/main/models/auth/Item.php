@@ -1,8 +1,8 @@
 <?php
 
-namespace crudle\main\models\auth;
+namespace crudle\app\main\models\auth;
 
-use crudle\main\models\base\BaseActiveRecord;
+use crudle\app\main\models\base\BaseActiveRecord;
 use Yii;
 use yii\db\ActiveRecord;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\main\controllers\base;
+namespace crudle\app\main\controllers\base;
 
 interface CrudInterface
 {
@@ -17,48 +17,6 @@ interface CrudInterface
 
     // render comment view
     public function commentView(): string;
-
-    // form view create action
-    public function actionCreate($id = null);
-
-    // form view update action
-    public function actionUpdate($id);
-
-    // form view update status action
-    public function actionUpdateStatus($id);
-
-    // form view submit action
-    public function actionSubmit($id);
-
-    // form view cancel action
-    public function actionCancel($id);
-
-    // form view amend action
-    public function actionAmend($id);
-
-    // form view delete action
-    public function actionDelete($id);
-
-    // form view add row action
-    public function actionAddRow();
-
-    // form view edit row action
-    public function actionEditRow($id);
-
-    // form view get item action
-    public function actionGetItem($id);
-
-    // form view delete row action
-    public function actionDeleteRow($id);
-
-    // list view batch action via ajax
-    public function actionBatch();
-
-    // crud view search model class
-    public function searchModelClass(): string;
-
-    // view search model
-    public function searchModel();
 
     // linked or parent models
     public function linkedModels(): array;

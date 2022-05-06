@@ -1,10 +1,10 @@
 <?php
 
-namespace crudle\setup\models;
+namespace crudle\app\setup\models;
 
-use crudle\main\enums\Type_Model;
-use crudle\main\models\UploadForm;
-use crudle\setup\enums\Type_Permission;
+use crudle\app\main\enums\Type_Model;
+use crudle\app\main\models\UploadForm;
+use crudle\app\setup\enums\Type_Permission;
 use Yii;
 use yii\base\Model;
 

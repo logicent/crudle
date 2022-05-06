@@ -1,8 +1,8 @@
 <?php
 
-namespace crudle\setup\models;
+namespace crudle\app\setup\models;
 
-use crudle\main\models\base\BaseActiveRecord;
+use crudle\app\main\models\base\BaseActiveRecord;
 use Yii;
 use yii\helpers\StringHelper;
 

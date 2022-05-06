@@ -1,6 +1,6 @@
 <?php
 
-namespace logicent\cms;
+namespace crudle\ext\cms;
 
 use Yii;
 
@@ -12,7 +12,7 @@ class Module extends \yii\base\Module
     /**
      * {@inheritdoc}
      */
-    public $controllerNamespace = 'logicent\cms\controllers';
+    public $controllerNamespace = 'crudle\ext\cms\controllers';
 
     /**
      * {@inheritdoc}

@@ -1,8 +1,8 @@
 <?php
 
-namespace logicent\cms\controllers\base;
+namespace crudle\ext\cms\controllers\base;
 
-use crudle\setup\controllers\base\BaseSettingsController;
+use crudle\app\setup\controllers\base\BaseSettingsController;
 
 class BaseWebSettingsController extends BaseSettingsController
 {

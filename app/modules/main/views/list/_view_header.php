@@ -1,7 +1,7 @@
 <?php
 
-use crudle\setup\enums\Status_Transaction;
-use crudle\setup\enums\Type_Permission;
+use crudle\app\setup\enums\Status_Transaction;
+use crudle\app\setup\enums\Type_Permission;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;
 

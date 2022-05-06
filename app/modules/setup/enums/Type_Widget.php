@@ -1,12 +1,12 @@
 <?php
 
-namespace crudle\main\enums;
+namespace crudle\app\main\enums;
 
-use crudle\setup\widgets\LineChart;
-use crudle\setup\widgets\BarChart;
-use crudle\setup\widgets\PieChart;
-use crudle\setup\widgets\NumberBlock;
-use crudle\setup\widgets\LatestEntries;
+use crudle\app\setup\widgets\LineChart;
+use crudle\app\setup\widgets\BarChart;
+use crudle\app\setup\widgets\PieChart;
+use crudle\app\setup\widgets\NumberBlock;
+use crudle\app\setup\widgets\LatestEntries;
 
 class Type_Widget
 {

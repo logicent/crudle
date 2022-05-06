@@ -1,10 +1,10 @@
 <?php
-namespace crudle\setup\commands;
+namespace crudle\app\setup\commands;
 
-use crudle\setup\enums\Status_User;
-use crudle\main\models\auth\Auth;
-use crudle\setup\enums\Type_Role;
-use crudle\main\models\auth\Person;
+use crudle\app\setup\enums\Status_User;
+use crudle\app\main\models\auth\Auth;
+use crudle\app\setup\enums\Type_Role;
+use crudle\app\main\models\auth\Person;
 use Yii;
 use yii\console\Controller;
 use yii\helpers\Inflector;

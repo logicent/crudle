@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\main\enums;
+namespace crudle\app\main\enums;
 
 
 class Layout_Theme

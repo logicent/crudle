@@ -1,6 +1,6 @@
 <?php
 
-use app\helpers\StatusMarker;
+use crudle\app\helpers\StatusMarker;
 use yii\helpers\Html;
 use yii\helpers\Json;
 

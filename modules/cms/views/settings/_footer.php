@@ -1,6 +1,6 @@
 <?php
 
-use logicent\cms\models\SiteNavFooter;
+use crudle\ext\cms\models\SiteNavFooter;
 ?>
 
 <div class="ui one column grid">

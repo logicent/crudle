@@ -1,9 +1,9 @@
 <?php
 
-namespace crudle\setup\models;
+namespace crudle\app\setup\models;
 
-use crudle\main\models\UploadForm;
-use crudle\setup\models\base\BaseSettingsForm;
+use crudle\app\main\models\UploadForm;
+use crudle\app\setup\models\base\BaseSettingsForm;
 use Yii;
 
 class PrintSettingsForm extends BaseSettingsForm

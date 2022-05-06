@@ -1,6 +1,6 @@
 <?php
 
-use logicent\cms\models\AboutTeamMember;
+use crudle\ext\cms\models\AboutTeamMember;
 use yii\helpers\Html;
 
 ?>

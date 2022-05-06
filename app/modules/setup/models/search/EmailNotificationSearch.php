@@ -1,15 +1,16 @@
 <?php
 
-namespace crudle\setup\models;
+namespace crudle\app\setup\models\search;
 
+use crudle\app\setup\models\EmailNotification;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * EmailQueueSearch represents the model behind the search form of `app\modules\setup\models\EmailQueue`.
+ * EmailNotificationSearch represents the model behind the search form of `app\modules\setup\models\EmailNotification`.
  */
-class EmailQueueSearch extends EmailQueue
+class EmailNotificationSearch extends EmailNotification
 {
     /**
      * {@inheritdoc}
@@ -38,7 +39,7 @@ class EmailQueueSearch extends EmailQueue
      */
     public function search($params)
     {
-        $query = EmailQueue::find();
+        $query = EmailNotification::find();
 
         // add conditions that should always apply here
 
@@ -56,18 +57,12 @@ class EmailQueueSearch extends EmailQueue
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'status' => $this->status,
-            'sent_at' => $this->sent_at,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'deleted_at' => $this->deleted_at,
         ]);
 
-        $query->andFilterWhere(['like', 'subject', $this->subject])
-            ->andFilterWhere(['like', 'from', $this->from])
-            ->andFilterWhere(['like', 'to', $this->to])
-            ->andFilterWhere(['like', 'cc', $this->cc])
-            ->andFilterWhere(['like', 'message', $this->message])
+        $query->andFilterWhere(['like', 'data_model', $this->data_model])
             ->andFilterWhere(['like', 'created_by', $this->created_by])
             ->andFilterWhere(['like', 'updated_by', $this->updated_by]);
 

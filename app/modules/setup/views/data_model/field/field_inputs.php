@@ -1,6 +1,6 @@
 <?php
 
-use crudle\setup\models\DataModelField;
+use crudle\app\setup\models\DataModelField;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\widgets\ActiveForm;
 

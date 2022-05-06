@@ -1,11 +1,9 @@
 <?php
 
-namespace crudle\main\controllers\base;
+namespace crudle\app\main\controllers\base;
 
 interface ListViewInterface
 {
-    public function actionMyListviewSettings();
-
     public function listviewType(); // enum
 
     public function showBatchActions(): bool;

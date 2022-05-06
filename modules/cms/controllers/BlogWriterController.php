@@ -1,10 +1,10 @@
 <?php
 
-namespace logicent\cms\controllers;
+namespace crudle\ext\cms\controllers;
 
-use crudle\main\controllers\base\BaseCrudController;
-use logicent\cms\models\BlogWriter;
-use logicent\cms\models\BlogWriterSearch;
+use crudle\app\main\controllers\base\BaseCrudController;
+use crudle\ext\cms\models\BlogWriter;
+use crudle\ext\cms\models\BlogWriterSearch;
 
 /**
  * BlogWriterController for the `BlogWriter` model

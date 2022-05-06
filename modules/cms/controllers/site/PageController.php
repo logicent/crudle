@@ -1,8 +1,8 @@
 <?php
 
-namespace logicent\cms\controllers\site;
+namespace crudle\ext\cms\controllers\site;
 
-use logicent\cms\models\WebPage;
+use crudle\ext\cms\models\WebPage;
 
 
 class PageController extends SiteController

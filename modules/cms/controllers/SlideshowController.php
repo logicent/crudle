@@ -1,10 +1,10 @@
 <?php
 
-namespace logicent\cms\controllers;
+namespace crudle\ext\cms\controllers;
 
-use crudle\main\controllers\base\BaseCrudController;
-use logicent\cms\models\Slideshow;
-use logicent\cms\models\SlideshowSearch;
+use crudle\app\main\controllers\base\BaseCrudController;
+use crudle\ext\cms\models\Slideshow;
+use crudle\ext\cms\models\SlideshowSearch;
 
 /**
  * SlideshowController for the `Slideshow` model

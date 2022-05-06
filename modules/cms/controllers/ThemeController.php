@@ -1,20 +1,17 @@
 <?php
 
-namespace logicent\cms\controllers;
+namespace crudle\ext\cms\controllers;
 
-use logicent\cms\controllers\base\BaseWebSettingsController;
+use crudle\ext\cms\controllers\base\BaseWebSettingsController;
+use crudle\ext\cms\models\ThemeForm;
 
 /**
  * ThemeController for the `ThemeForm` model
  */
 class ThemeController extends BaseWebSettingsController
 {
-    /**
-     * Renders the index view for the model
-     * @return string
-     */
-    public function actionIndex()
+    public function modelClass(): string
     {
-        return $this->render('index');
+        return ThemeForm::class;
     }
 }

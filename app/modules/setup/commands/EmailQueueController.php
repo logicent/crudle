@@ -1,7 +1,7 @@
 <?php
-namespace crudle\setup\commands;
+namespace crudle\app\setup\commands;
 
-use app\helpers\SendNotification;
+use crudle\app\helpers\SendNotification;
 use yii\console\Controller;
 
 class EmailQueueController extends Controller

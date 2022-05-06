@@ -1,21 +1,21 @@
 <?php
 
-namespace crudle\setup\controllers;
+namespace crudle\app\setup\controllers;
 
-use crudle\setup\controllers\base\BaseSettingsController;
-use crudle\main\enums\Type_Model;
-use crudle\main\enums\Type_Relation;
-use app\helpers\DbDumper;
-// use app\helpers\DbRestore;
-use crudle\main\models\auth\Auth;
-use crudle\main\models\auth\Assignment;
-use crudle\main\models\auth\Item;
-use crudle\main\models\auth\ItemChild;
-use crudle\setup\models\DbBackupSettingsForm;
-use crudle\setup\enums\Type_Role;
-use crudle\main\models\auth\Person;
-use crudle\main\models\auth\UserLog;
-use crudle\setup\models\Settings;
+use crudle\app\setup\controllers\base\BaseSettingsController;
+use crudle\app\main\enums\Type_Model;
+use crudle\app\main\enums\Type_Relation;
+use crudle\app\helpers\DbDumper;
+// use crudle\app\helpers\DbRestore;
+use crudle\app\main\models\auth\Auth;
+use crudle\app\main\models\auth\Assignment;
+use crudle\app\main\models\auth\Item;
+use crudle\app\main\models\auth\ItemChild;
+use crudle\app\setup\models\DbBackupSettingsForm;
+use crudle\app\setup\enums\Type_Role;
+use crudle\app\main\models\auth\Person;
+use crudle\app\main\models\auth\UserLog;
+use crudle\app\setup\models\Settings;
 use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\FileHelper;

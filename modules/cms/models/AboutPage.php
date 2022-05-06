@@ -1,9 +1,9 @@
 <?php
 
-namespace logicent\cms\models;
+namespace crudle\ext\cms\models;
 
-use crudle\main\enums\Type_Relation;
-use crudle\setup\models\base\BaseSettingsForm;
+use crudle\app\main\enums\Type_Relation;
+use crudle\app\setup\models\base\BaseSettingsForm;
 use Yii;
 
 class AboutPage extends BaseSettingsForm

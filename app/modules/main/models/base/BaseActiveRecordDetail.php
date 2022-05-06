@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\main\models\base;
+namespace crudle\app\main\models\base;
 
 use yii\db\ActiveRecord;
 use yii\helpers\Json;

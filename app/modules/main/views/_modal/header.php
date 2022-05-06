@@ -1,9 +1,9 @@
 <?php
 
 use yii\helpers\Html;
-use app\assets\DirrtyAsset;
-use crudle\main\enums\Type_Form_View;
-use crudle\setup\enums\Type_Role;
+use crudle\app\assets\DirrtyAsset;
+use crudle\app\main\enums\Type_Form_View;
+use crudle\app\setup\enums\Type_Role;
 use Zelenin\yii\SemanticUI\Elements;
 
 DirrtyAsset::register($this);

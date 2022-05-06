@@ -1,10 +1,10 @@
 <?php
 
-namespace logicent\cms\controllers;
+namespace crudle\ext\cms\controllers;
 
-use crudle\main\controllers\base\BaseCrudController;
-use logicent\cms\models\WebForm;
-use logicent\cms\models\WebFormSearch;
+use crudle\app\main\controllers\base\BaseCrudController;
+use crudle\ext\cms\models\WebForm;
+use crudle\ext\cms\models\WebFormSearch;
 
 /**
  * WebFormController for the `WebForm` model

@@ -1,8 +1,8 @@
 <?php
 
-namespace logicent\cms\models;
+namespace crudle\ext\cms\models;
 
-use crudle\main\models\base\BaseActiveRecordDetail;
+use crudle\app\main\models\base\BaseActiveRecordDetail;
 
 class SlideshowItem extends BaseActiveRecordDetail
 {

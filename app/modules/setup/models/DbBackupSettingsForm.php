@@ -1,9 +1,9 @@
 <?php
 
-namespace crudle\setup\models;
+namespace crudle\app\setup\models;
 
-use crudle\setup\enums\Type_Permission;
-use crudle\setup\models\base\BaseSettingsForm;
+use crudle\app\setup\enums\Type_Permission;
+use crudle\app\setup\models\base\BaseSettingsForm;
 use Yii;
 
 class DbBackupSettingsForm extends BaseSettingsForm

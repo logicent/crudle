@@ -1,6 +1,6 @@
 <?php
 
-namespace app\enums;
+namespace crudle\app\enums;
 
 class Status_Active
 {

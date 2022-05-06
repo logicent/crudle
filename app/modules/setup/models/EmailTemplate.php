@@ -1,11 +1,11 @@
 <?php
 
-namespace crudle\setup\models;
+namespace crudle\app\setup\models;
 
-use app\enums\Status_Active;
-use crudle\main\models\base\BaseActiveRecord;
-use crudle\setup\enums\Permission_Group;
-use crudle\setup\enums\Type_Permission;
+use crudle\app\enums\Status_Active;
+use crudle\app\main\models\base\BaseActiveRecord;
+use crudle\app\setup\enums\Permission_Group;
+use crudle\app\setup\enums\Type_Permission;
 use yii\helpers\ArrayHelper;
 
 /**

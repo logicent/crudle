@@ -1,19 +1,18 @@
 <?php
 
-use app\assets\DirrtyAsset;
-use app\helpers\StatusMarker;
-use crudle\main\enums\Resource_Action;
-use crudle\main\enums\Type_View;
-use crudle\main\models\base\BaseActiveRecord;
-use crudle\setup\enums\Status_Transaction;
-use crudle\setup\enums\Type_Permission;
+use crudle\app\assets\DirrtyAsset;
+use crudle\app\helpers\StatusMarker;
+use crudle\app\main\enums\Resource_Action;
+use crudle\app\main\enums\Type_View;
+use crudle\app\main\models\base\BaseActiveRecord;
+use crudle\app\setup\enums\Status_Transaction;
+use crudle\app\setup\enums\Type_Permission;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use Zelenin\yii\SemanticUI\Elements;
 
 
 $controller = $this->context;
-$model = $this->context->getModel();
 
 if ($controller->layout !== 'print') :
     DirrtyAsset::register($this);
@@ -28,6 +27,7 @@ endif;
                 <?php
                     if ($controller->action->id == 'read' ||
                         $controller->action->id == 'update') :
+                        $model = $this->context->getModel();
                         $status = $model->getStatusAttribute();
                         echo Html::tag('small',
                             StatusMarker::icon('check circle', $model, $status) . StatusMarker::label($model, $status), [

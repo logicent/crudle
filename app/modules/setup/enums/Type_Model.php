@@ -1,29 +1,29 @@
 <?php
 
-namespace crudle\setup\enums;
+namespace crudle\app\setup\enums;
 
-use crudle\setup\models\AppModule;
-use crudle\setup\models\Dashboard;
-use crudle\setup\models\DataImportForm;
-use crudle\setup\models\DataModel;
-use crudle\setup\models\DashboardWidget;
-use crudle\setup\models\DbBackupSettingsForm;
-use crudle\setup\models\EmailNotification;
-use crudle\setup\models\EmailQueue;
-use crudle\setup\models\EmailTemplate;
-use crudle\setup\models\GeneralSettingsForm;
-use crudle\setup\models\LayoutSettingsForm;
-use crudle\setup\models\PrinterSettingsForm;
-use crudle\setup\models\PrintFormat;
-use crudle\setup\models\PrintSettingsForm;
-use crudle\setup\models\PrintStyle;
-use crudle\setup\models\ReportBuilder;
-use crudle\setup\models\Role;
-use crudle\setup\models\Setup;
-use crudle\setup\models\SmtpSettingsForm;
-use crudle\setup\models\User;
-use crudle\setup\models\UserGroup;
-use crudle\setup\models\UserLog;
+use crudle\app\setup\models\AppModule;
+use crudle\app\setup\models\Dashboard;
+use crudle\app\setup\models\DataImportForm;
+use crudle\app\setup\models\DataModel;
+use crudle\app\setup\models\DashboardWidget;
+use crudle\app\setup\models\DbBackupSettingsForm;
+use crudle\app\setup\models\EmailNotification;
+use crudle\app\setup\models\EmailQueue;
+use crudle\app\setup\models\EmailTemplate;
+use crudle\app\setup\models\GeneralSettingsForm;
+use crudle\app\setup\models\LayoutSettingsForm;
+use crudle\app\setup\models\PrinterSettingsForm;
+use crudle\app\setup\models\PrintFormat;
+use crudle\app\setup\models\PrintSettingsForm;
+use crudle\app\setup\models\PrintStyle;
+use crudle\app\setup\models\ReportBuilder;
+use crudle\app\setup\models\Role;
+use crudle\app\setup\models\Setup;
+use crudle\app\setup\models\SmtpSettingsForm;
+use crudle\app\setup\models\User;
+use crudle\app\setup\models\UserGroup;
+use crudle\app\setup\models\UserLog;
 
 class Type_Model
 {

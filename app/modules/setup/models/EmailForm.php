@@ -1,9 +1,9 @@
 <?php
 
-namespace crudle\setup\models;
+namespace crudle\app\setup\models;
 
-use crudle\main\models\Model;
-use crudle\main\models\UploadForm;
+use crudle\app\main\models\Model;
+use crudle\app\main\models\UploadForm;
 use Yii;
 
 class EmailForm extends Model

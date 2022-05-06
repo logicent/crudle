@@ -1,9 +1,9 @@
 <?php
 
-namespace logicent\cms\controllers;
+namespace crudle\ext\cms\controllers;
 
-use logicent\cms\controllers\base\BaseWebSettingsController;
-use logicent\cms\models\ContactPage;
+use crudle\ext\cms\controllers\base\BaseWebSettingsController;
+use crudle\ext\cms\models\ContactPage;
 
 class ContactPageController extends BaseWebSettingsController
 {

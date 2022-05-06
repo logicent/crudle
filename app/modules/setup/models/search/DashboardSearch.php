@@ -1,15 +1,15 @@
 <?php
 
-namespace crudle\setup\models;
+namespace crudle\app\setup\models\search;
 
-use crudle\setup\models\ReportBuilder;
+use crudle\app\setup\models\Dashboard;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * ReportBuilderSearch represents the model behind the search form of `app\modules\setup\models\ReportBuilder`.
+ * DashboardSearch represents the model behind the search form of `app\modules\setup\models\Dashboard`.
  */
-class ReportBuilderSearch extends ReportBuilder
+class DashboardSearch extends Dashboard
 {
     /**
      * {@inheritdoc}
@@ -38,7 +38,7 @@ class ReportBuilderSearch extends ReportBuilder
      */
     public function search($params)
     {
-        $query = ReportBuilder::find();
+        $query = Dashboard::find();
 
         // add conditions that should always apply here
 
@@ -56,12 +56,16 @@ class ReportBuilderSearch extends ReportBuilder
 
         // grid filtering conditions
         $query->andFilterWhere([
+            'inactive' => $this->inactive,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'deleted_at' => $this->deleted_at,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'description', $this->description])
+            ->andFilterWhere(['like', 'module', $this->module])
+            ->andFilterWhere(['like', 'roles', $this->roles])
             ->andFilterWhere(['like', 'created_by', $this->created_by])
             ->andFilterWhere(['like', 'updated_by', $this->updated_by]);
 

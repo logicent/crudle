@@ -1,15 +1,15 @@
 <?php
 
-namespace crudle\setup\models;
+namespace crudle\app\setup\models\search;
 
-use Yii;
+use crudle\app\setup\models\ReportBuilder;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * EmailNotificationSearch represents the model behind the search form of `app\modules\setup\models\EmailNotification`.
+ * ReportBuilderSearch represents the model behind the search form of `app\modules\setup\models\ReportBuilder`.
  */
-class EmailNotificationSearch extends EmailNotification
+class ReportBuilderSearch extends ReportBuilder
 {
     /**
      * {@inheritdoc}
@@ -38,7 +38,7 @@ class EmailNotificationSearch extends EmailNotification
      */
     public function search($params)
     {
-        $query = EmailNotification::find();
+        $query = ReportBuilder::find();
 
         // add conditions that should always apply here
 
@@ -61,7 +61,7 @@ class EmailNotificationSearch extends EmailNotification
             'deleted_at' => $this->deleted_at,
         ]);
 
-        $query->andFilterWhere(['like', 'data_model', $this->data_model])
+        $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'created_by', $this->created_by])
             ->andFilterWhere(['like', 'updated_by', $this->updated_by]);
 

@@ -7,9 +7,9 @@
 
 namespace crudle\kit\controllers;
 
-use crudle\main\controllers\base\BaseViewController;
-use crudle\main\enums\Type_Form_View;
-use crudle\main\enums\Type_View;
+use crudle\app\main\controllers\base\BaseViewController;
+use crudle\app\main\enums\Type_Form_View;
+use crudle\app\main\enums\Type_View;
 use Yii;
 use yii\helpers\Html;
 use yii\web\Controller;
@@ -38,6 +38,12 @@ class KitController extends BaseViewController
     {
         Yii::$app->response->format = Response::FORMAT_HTML;
         return parent::beforeAction($action);
+    }
+
+    public function actions()
+    {
+        return [
+        ];
     }
 
     public function actionIndex()

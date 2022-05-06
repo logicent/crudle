@@ -1,10 +1,10 @@
 <?php
 
-namespace logicent\cms\controllers;
+namespace crudle\ext\cms\controllers;
 
-use crudle\main\controllers\base\BaseCrudController;
-use logicent\cms\models\BlogCategory;
-use logicent\cms\models\BlogCategorySearch;
+use crudle\app\main\controllers\base\BaseCrudController;
+use crudle\ext\cms\models\BlogCategory;
+use crudle\ext\cms\models\BlogCategorySearch;
 
 /**
  * BlogCategoryController for the `BlogCategory` model

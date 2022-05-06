@@ -1,10 +1,10 @@
 <?php
 
-namespace crudle\setup\controllers;
+namespace crudle\app\setup\controllers;
 
-use crudle\main\controllers\base\BaseCrudController;
-use crudle\setup\models\EmailTemplate;
-use crudle\setup\models\EmailTemplateSearch;
+use crudle\app\main\controllers\base\BaseCrudController;
+use crudle\app\setup\models\EmailTemplate;
+use crudle\app\setup\models\search\EmailTemplateSearch;
 
 class EmailTemplateController extends BaseCrudController
 {

@@ -1,6 +1,6 @@
 <?php
 
-use crudle\setup\models\AppMenuSidebar;
+use crudle\app\setup\models\AppMenuSidebar;
 
 echo $this->render('@app_main/views/_form_section/item', [
         'model' =>  new AppMenuSidebar(),

@@ -1,8 +1,8 @@
 <?php
 
-namespace logicent\cms\controllers\site;
+namespace crudle\ext\cms\controllers\site;
 
-use crudle\main\controllers\AppController;
+use crudle\app\main\controllers\AppController;
 use crudle\models\ContactForm;
 use Yii;
 

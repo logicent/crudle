@@ -1,6 +1,6 @@
 <?php
 
-namespace logicent\cms\enums;
+namespace crudle\ext\cms\enums;
 
 class Status_Article
 {

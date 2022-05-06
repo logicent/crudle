@@ -1,6 +1,6 @@
 <?php
 
-namespace app\enums;
+namespace crudle\app\enums;
 
 use crudle\setup\enums\Type_Model as Setup_Type_Model;
 use website\enums\Type_Model as Website_Type_Model;

@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\main\controllers\base;
+namespace crudle\app\main\controllers\base;
 
 interface FormViewInterface
 {

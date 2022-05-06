@@ -1,15 +1,15 @@
 <?php
 
-namespace crudle\setup\controllers;
+namespace crudle\app\setup\controllers;
 
-use crudle\main\controllers\base\BaseCrudController;
-use app\enums\Status_Active;
-use crudle\main\enums\Type_Form_View;
-use crudle\setup\enums\Status_User;
-use crudle\main\models\auth\Auth;
-use crudle\main\models\auth\Person;
-use crudle\setup\models\User;
-use crudle\setup\models\UserSearch;
+use crudle\app\main\controllers\base\BaseCrudController;
+use crudle\app\enums\Status_Active;
+use crudle\app\main\enums\Type_Form_View;
+use crudle\app\setup\enums\Status_User;
+use crudle\app\main\models\auth\Auth;
+use crudle\app\main\models\auth\Person;
+use crudle\app\setup\models\User;
+use crudle\app\setup\models\search\UserSearch;
 use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\Html;

@@ -3,7 +3,7 @@
 // <div class="ui threaded comments"> in _form/_footer
 // sort comments by timestamps of most recent first
 
-use crudle\main\enums\Type_Comment;
+use crudle\app\main\enums\Type_Comment;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;

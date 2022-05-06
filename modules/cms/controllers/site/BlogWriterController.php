@@ -1,9 +1,9 @@
 <?php
 
-namespace logicent\cms\controllers\site;
+namespace crudle\ext\cms\controllers\site;
 
-use logicent\cms\models\BlogWriter;
-// use logicent\cms\models\BlogWriterSearch;
+use crudle\ext\cms\models\BlogWriter;
+// use crudle\ext\cms\models\BlogWriterSearch;
 
 
 class BlogWriterController extends SiteController

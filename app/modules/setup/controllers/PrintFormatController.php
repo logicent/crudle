@@ -1,10 +1,10 @@
 <?php
 
-namespace crudle\setup\controllers;
+namespace crudle\app\setup\controllers;
 
-use crudle\main\controllers\base\BaseCrudController;
-use crudle\setup\models\PrintFormat;
-use crudle\setup\models\PrintFormatSearch;
+use crudle\app\main\controllers\base\BaseCrudController;
+use crudle\app\setup\models\PrintFormat;
+use crudle\app\setup\models\search\PrintFormatSearch;
 
 class PrintFormatController extends BaseCrudController
 {

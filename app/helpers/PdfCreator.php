@@ -1,6 +1,6 @@
 <?php
 
-namespace app\helpers;
+namespace crudle\app\helpers;
 
 use mikehaertl\wkhtmlto\Pdf;
 use Yii;

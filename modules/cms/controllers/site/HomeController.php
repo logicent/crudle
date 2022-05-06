@@ -1,10 +1,10 @@
 <?php
 
-namespace logicent\cms\controllers\site;
+namespace crudle\ext\cms\controllers\site;
 
-use app\helpers\App;
-use crudle\setup\models\Setup;
-use logicent\cms\models\WebsiteSettingsForm;
+use crudle\app\helpers\AppHelper;
+use crudle\app\setup\models\Setup;
+use crudle\ext\cms\models\WebsiteSettingsForm;
 
 class HomeController extends SiteController
 {

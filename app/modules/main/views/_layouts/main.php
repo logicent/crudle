@@ -1,7 +1,7 @@
 <?php
 
-use crudle\main\enums\Type_Form_View;
-use crudle\main\enums\Type_View;
+use crudle\app\main\enums\Type_Form_View;
+use crudle\app\main\enums\Type_View;
 
 $controller = $this->context;
 $layoutPath = '@app_main/views/_layouts/';

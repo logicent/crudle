@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eb634039d3dfde96de09b52dd13f85c9",
+    "content-hash": "606ed2bae7c375026771b587cf8b26ce",
     "packages": [
         {
             "name": "bizley/migration",
@@ -3686,6 +3686,49 @@
                 }
             ],
             "time": "2021-12-12T23:22:04+00:00"
+        },
+        {
+            "name": "yidas/phpspreadsheet-helper",
+            "version": "1.3.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yidas/phpspreadsheet-helper.git",
+                "reference": "25a1f439a8d0ce9d79674c3f76d3f09c37088604"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yidas/phpspreadsheet-helper/zipball/25a1f439a8d0ce9d79674c3f76d3f09c37088604",
+                "reference": "25a1f439a8d0ce9d79674c3f76d3f09c37088604",
+                "shasum": ""
+            },
+            "require": {
+                "phpoffice/phpspreadsheet": "^1.1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/phpSpreadsheet"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP Excel Helper - Write and read Spreadsheet with easy way based on PhpSpreadsheet",
+            "homepage": "https://github.com/yidas/phpspreadsheet-helper",
+            "keywords": [
+                "PHPExcel",
+                "PhpSpreadsheet helper",
+                "excel",
+                "php",
+                "phpspreadsheet",
+                "sheet"
+            ],
+            "support": {
+                "issues": "https://github.com/yidas/phpspreadsheet-helper/issues",
+                "source": "https://github.com/yidas/phpspreadsheet-helper"
+            },
+            "time": "2019-06-03T10:50:39+00:00"
         },
         {
             "name": "yii2mod/yii2-enum",

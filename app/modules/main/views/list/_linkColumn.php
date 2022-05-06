@@ -1,6 +1,6 @@
 <?php
 
-use crudle\setup\enums\Type_Permission;
+use crudle\app\setup\enums\Type_Permission;
 use yii\helpers\Html;
 use yii\helpers\Inflector;
 use yii\helpers\StringHelper;

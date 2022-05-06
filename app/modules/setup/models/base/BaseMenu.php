@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\setup\models\base;
+namespace crudle\app\setup\models\base;
 
 use Yii;
 use yii\helpers\ArrayHelper;

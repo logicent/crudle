@@ -1,5 +1,5 @@
 <?php
-namespace app\widgets;
+namespace crudle\app\widgets;
 
 use Yii;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\setup;
+namespace crudle\app\setup;
 
 use Yii;
 
@@ -12,7 +12,7 @@ class Module extends \yii\base\Module
     /**
      * {@inheritdoc}
      */
-    public $controllerNamespace = 'crudle\setup\controllers';
+    public $controllerNamespace = 'crudle\app\setup\controllers';
 
     /**
      * {@inheritdoc}

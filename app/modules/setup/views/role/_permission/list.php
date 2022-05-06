@@ -1,12 +1,12 @@
 <?php
 
-use crudle\main\enums\Type_Model;
-use crudle\setup\enums\Permission_Group;
-use crudle\setup\enums\Type_Permission;
-use crudle\main\models\auth\RolePermission;
+use crudle\app\main\enums\Type_Model;
+use crudle\app\setup\enums\Permission_Group;
+use crudle\app\setup\enums\Type_Permission;
+use crudle\app\main\models\auth\RolePermission;
 use yii\helpers\Html;
 use yii\helpers\Inflector;
-use app\assets\DataTableAsset;
+use crudle\app\assets\DataTableAsset;
 use yii\helpers\StringHelper;
 use Zelenin\yii\SemanticUI\modules\Checkbox;
 

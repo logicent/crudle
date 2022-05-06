@@ -1,14 +1,16 @@
 <?php
 
-namespace crudle\setup\models;
+namespace crudle\app\setup\models\search;
 
+use crudle\app\setup\models\UserLog;
+use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * DashboardSearch represents the model behind the search form of `app\modules\setup\models\Dashboard`.
+ * UserLogSearch represents the model behind the search form of `app\modules\setup\models\UserLog`.
  */
-class DashboardSearch extends Dashboard
+class UserLogSearch extends UserLog
 {
     /**
      * {@inheritdoc}
@@ -37,7 +39,7 @@ class DashboardSearch extends Dashboard
      */
     public function search($params)
     {
-        $query = Dashboard::find();
+        $query = UserLog::find();
 
         // add conditions that should always apply here
 
@@ -55,16 +57,12 @@ class DashboardSearch extends Dashboard
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'inactive' => $this->inactive,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'deleted_at' => $this->deleted_at,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'module', $this->module])
-            ->andFilterWhere(['like', 'roles', $this->roles])
+        $query
             ->andFilterWhere(['like', 'created_by', $this->created_by])
             ->andFilterWhere(['like', 'updated_by', $this->updated_by]);
 

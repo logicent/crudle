@@ -1,7 +1,8 @@
 <?php
 
-namespace crudle\setup\models;
+namespace crudle\app\setup\models\search;
 
+use crudle\app\setup\models\PrintFormat;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
