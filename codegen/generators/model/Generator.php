@@ -34,7 +34,7 @@ class Generator extends \crudle\kit\Generator
     public $ns = 'crudle\main\models';
     public $tableName;
     public $modelClass;
-    public $baseClass = 'crudle\main\models\base\BaseActiveRecord';
+    public $baseModelClass = 'crudle\main\models\base\BaseActiveRecord';
     public $generateRelations = true;
     public $relations = self::RELATIONS_ALL;
     public $generateRelationsFromCurrentSchema = true;
@@ -70,18 +70,18 @@ class Generator extends \crudle\kit\Generator
     public function rules()
     {
         return array_merge(parent::rules(), [
-            [['db', 'ns', 'tableName', 'modelClass', 'baseClass', 'queryNs', 'queryClass', 'queryBaseClass'], 'filter', 'filter' => 'trim'],
+            [['db', 'ns', 'tableName', 'modelClass', 'baseModelClass', 'queryNs', 'queryClass', 'queryBaseClass'], 'filter', 'filter' => 'trim'],
             [['ns', 'queryNs'], 'filter', 'filter' => function ($value) { return trim($value, '\\'); }],
 
-            [['db', 'ns', 'tableName', 'baseClass', 'queryNs', 'queryBaseClass'], 'required'],
+            [['db', 'ns', 'tableName', 'baseModelClass', 'queryNs', 'queryBaseClass'], 'required'],
             [['db', 'modelClass', 'queryClass'], 'match', 'pattern' => '/^\w+$/', 'message' => 'Only word characters are allowed.'],
-            [['ns', 'baseClass', 'queryNs', 'queryBaseClass'], 'match', 'pattern' => '/^[\w\\\\]+$/', 'message' => 'Only word characters and backslashes are allowed.'],
+            [['ns', 'baseModelClass', 'queryNs', 'queryBaseClass'], 'match', 'pattern' => '/^[\w\\\\]+$/', 'message' => 'Only word characters and backslashes are allowed.'],
             [['tableName'], 'match', 'pattern' => '/^([\w ]+\.)?([\w\* ]+)$/', 'message' => 'Only word characters, and optionally spaces, an asterisk and/or a dot are allowed.'],
             [['db'], 'validateDb'],
             [['ns', 'queryNs'], 'validateNamespace'],
             [['tableName'], 'validateTableName'],
             [['modelClass'], 'validateModelClass', 'skipOnEmpty' => false],
-            [['baseClass'], 'validateClass', 'params' => ['extends' => ActiveRecord::class]],
+            [['baseModelClass'], 'validateClass', 'params' => ['extends' => ActiveRecord::class]],
             [['queryBaseClass'], 'validateClass', 'params' => ['extends' => ActiveQuery::class]],
             [['relations'], 'in', 'range' => [self::RELATIONS_ALL, self::RELATIONS_ALL_INVERSE]],
             [['generateLabelsFromComments', 'useTablePrefix', 'useSchemaName', 'generateQuery', 'generateRelationsFromCurrentSchema'], 'boolean'],
@@ -101,9 +101,9 @@ class Generator extends \crudle\kit\Generator
             'tableName' => 'Table Name',
             'standardizeCapitals' => 'Standardize Capitals',
             'modelClass' => 'Model Class',
-            'baseClass' => 'Base Model Class',
+            'baseModelClass' => 'Base Model Class',
             'generateRelations' => 'Generate Relations',
-            'relations' => 'All Relations',
+            'relations' => 'Relations',
             'generateRelationsFromCurrentSchema' => 'Generate Relations from Current Schema',
             'generateLabelsFromComments' => 'Generate Labels from DB Comments',
             'generateQuery' => 'Generate ActiveQuery',
@@ -145,7 +145,7 @@ class Generator extends \crudle\kit\Generator
                 will have class names <code>SomeTable</code> and <code>OtherTable</code>, respectively.
                 <br>If not checked, the same tables will have class names <code>SOMETABLE</code> 
                 and <code>OtherTable</code> instead.',
-            'baseClass' => 
+            'baseModelClass' => 
                 'This is the base class of the new ActiveRecord class. It is a fully qualified namespaced class name.',
             'generateRelations' => 
                 'This indicates whether the generator should generate relations based on
@@ -210,7 +210,7 @@ class Generator extends \crudle\kit\Generator
      */
     public function stickyAttributes()
     {
-        return array_merge(parent::stickyAttributes(), ['ns', 'db', 'baseClass', 'generateRelations', 'generateLabelsFromComments', 'queryNs', 'queryBaseClass', 'useTablePrefix', 'generateQuery']);
+        return array_merge(parent::stickyAttributes(), ['ns', 'db', 'baseModelClass', 'generateRelations', 'generateLabelsFromComments', 'queryNs', 'queryBaseClass', 'useTablePrefix', 'generateQuery']);
     }
 
     /**
@@ -718,20 +718,20 @@ class Generator extends \crudle\kit\Generator
         static $baseModel;
         /* @var $baseModel \yii\db\ActiveRecord */
         if ($baseModel === null) {
-            $baseClass = $this->baseClass;
-            $baseClassReflector = new \ReflectionClass($baseClass);
-            if ($baseClassReflector->isAbstract()) {
-                $baseClassWrapper =
+            $baseModelClass = $this->baseModelClass;
+            $baseModelClassReflector = new \ReflectionClass($baseModelClass);
+            if ($baseModelClassReflector->isAbstract()) {
+                $baseModelClassWrapper =
                     'namespace ' . __NAMESPACE__ . ';'.
-                    'class KitBaseClassWrapper extends \\' . $baseClass . ' {' .
+                    'class KitBaseClassWrapper extends \\' . $baseModelClass . ' {' .
                         'public static function tableName(){' .
                             'return "' . addslashes($table->fullName) . '";' .
                         '}' .
                     '};' .
                     'return new KitBaseClassWrapper();';
-                $baseModel = eval($baseClassWrapper);
+                $baseModel = eval($baseModelClassWrapper);
             } else {
-                $baseModel = new $baseClass();
+                $baseModel = new $baseModelClass();
             }
             $baseModel->setAttributes([]);
         }

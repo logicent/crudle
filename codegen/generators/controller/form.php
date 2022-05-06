@@ -10,7 +10,7 @@
     </div>
     <div class="ui one column grid">
         <div class="column">
-            <?= $form->field($generator, 'baseClass')->textInput(['placeholder' => 'e.g. crudle\main\controllers\base\BaseViewController']) ?>
+            <?= $form->field($generator, 'baseControllerClass')->textInput(['placeholder' => 'e.g. crudle\main\controllers\base\BaseViewController']) ?>
             <?= $form->field($generator, 'controllerClass')->textInput(['placeholder' => 'e.g. crudle\main\controllers\TodoController']) ?>
             <?= $form->field($generator, 'actions')->textInput(['placeholder' => 'e.g. index, create-todo']) ?>
             <?= $form->field($generator, 'viewPath')->textInput(['placeholder' => 'e.g. /home/logicent/yii2-crudle/controllers/views/todo -or- @app_main/views/todo']) ?>

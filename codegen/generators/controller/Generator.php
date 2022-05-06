@@ -38,7 +38,7 @@ class Generator extends \crudle\kit\Generator
     /**
      * @var string the base class of the controller
      */
-    public $baseClass = 'crudle\main\controllers\base\BaseViewController';
+    public $baseControllerClass = 'crudle\main\controllers\base\BaseViewController';
     /**
      * @var string list of action IDs separated by commas or spaces
      */
@@ -67,11 +67,11 @@ class Generator extends \crudle\kit\Generator
     public function rules()
     {
         return array_merge(parent::rules(), [
-            [['controllerClass', 'actions', 'baseClass'], 'filter', 'filter' => 'trim'],
-            [['controllerClass', 'baseClass'], 'required'],
+            [['controllerClass', 'actions', 'baseControllerClass'], 'filter', 'filter' => 'trim'],
+            [['controllerClass', 'baseControllerClass'], 'required'],
             ['controllerClass', 'match', 'pattern' => '/^[\w\\\\]*Controller$/', 'message' => 'Only word characters and backslashes are allowed, and the class name must end with "Controller".'],
             ['controllerClass', 'validateNewClass'],
-            ['baseClass', 'match', 'pattern' => '/^[\w\\\\]*$/', 'message' => 'Only word characters and backslashes are allowed.'],
+            ['baseControllerClass', 'match', 'pattern' => '/^[\w\\\\]*$/', 'message' => 'Only word characters and backslashes are allowed.'],
             ['actions', 'match', 'pattern' => '/^[a-z][a-z0-9\\-,\\s]*$/', 'message' => 'Only a-z, 0-9, dashes (-), spaces and commas are allowed.'],
             ['viewPath', 'safe'],
         ]);
@@ -83,9 +83,6 @@ class Generator extends \crudle\kit\Generator
     public function attributeLabels()
     {
         return [
-            'baseClass' => 'Base Controller Class',
-            'controllerClass' => 'Controller Class',
-            'viewPath' => 'View Path',
             'actions' => 'Action IDs',
         ];
     }
@@ -106,7 +103,7 @@ class Generator extends \crudle\kit\Generator
      */
     public function stickyAttributes()
     {
-        return ['baseClass'];
+        return ['baseControllerClass'];
     }
 
     /**
@@ -124,7 +121,7 @@ class Generator extends \crudle\kit\Generator
             'viewPath' =>
                 'The directory or path alias for the view scripts of the controller. 
                 If not set, it will default to <code>@app_main/views/ControllerID</code>',
-            'baseClass' =>
+            'baseControllerClass' =>
                 'This is a fully qualified class name that the new controller class will extend from. 
                 Please make sure the class exists and can be autoloaded.',
         ];

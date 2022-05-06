@@ -92,6 +92,10 @@ abstract class Generator extends Model
     public function attributeLabels()
     {
         return [
+            'modelClass' => 'Model Class',
+            'controllerClass' => 'Controller Class',
+            'viewPath' => 'View Path',
+            'baseControllerClass' => 'Base Controller Class',
             'enableI18N' => 'Enable I18N',
             'messageCategory' => 'Message Category',
         ];
@@ -181,7 +185,7 @@ abstract class Generator extends Model
     {
         $class = new ReflectionClass($this);
 
-        return dirname($class->getFileName()) . '/default';
+        return dirname($class->getFileName()) . '/_default';
     }
 
     /**

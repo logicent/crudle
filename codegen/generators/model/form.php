@@ -35,7 +35,7 @@ use Zelenin\yii\SemanticUI\Elements;
         </div>
         <div class="column">
             <?= $form->field($generator, 'ns') ?>
-            <?= $form->field($generator, 'baseClass') ?>
+            <?= $form->field($generator, 'baseModelClass') ?>
         </div>
     </div>
 </div>
