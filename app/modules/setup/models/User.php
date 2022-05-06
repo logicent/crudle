@@ -13,11 +13,13 @@ use yii\helpers\ArrayHelper;
  */
 class User extends AuthUser
 {
-    public function init()
-    {
-        $this->listSettings = new ListViewSettingsForm();
-        $this->listSettings->listNameAttribute = 'id'; // override in view index
-    }
+    // public $full_name;
+
+    // public function init()
+    // {
+    //     $this->listSettings = new ListViewSettingsForm();
+    //     $this->listSettings->listNameAttribute = 'id'; // override in view index
+    // }
 
     // public function rules()
     // {
@@ -50,4 +52,13 @@ class User extends AuthUser
             // Type_Permission::enums(Permission_Group::Data),
         );
     }
+
+    // public function fields()
+    // {
+    //     return [
+    //         'full_name' => function () {
+    //             return $this->first_name .' '. $this->last_name;
+    //         }
+    //     ];
+    // }
 }

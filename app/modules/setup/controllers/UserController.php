@@ -8,7 +8,7 @@ use crudle\app\main\enums\Type_Form_View;
 use crudle\app\setup\enums\Status_User;
 use crudle\app\main\models\auth\Auth;
 use crudle\app\main\models\auth\Person;
-use crudle\app\setup\models\User;
+// use crudle\app\setup\models\User;
 use crudle\app\setup\models\search\UserSearch;
 use Yii;
 use yii\filters\AccessControl;
@@ -22,12 +22,17 @@ class UserController extends BaseCrudController
 
     public function modelClass(): string
     {
-        return User::class;
+        return Person::class;
     }
 
     public function searchModelClass(): string
     {
         return UserSearch::class;
+    }
+
+    public function actions()
+    {
+        return [];
     }
 
     public function actionRead($id)

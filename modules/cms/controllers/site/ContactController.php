@@ -14,7 +14,7 @@ class ContactController extends SiteController
         // load related settings models
         foreach ($this->model::relations() as $relationAttribute => $relationSettings)
             $this->detailModels[$relationAttribute] = 
-            App::convertArraysToModels($relationSettings['class'], $this->model->$relationAttribute);
+            AppHelper::convertArraysToModels($relationSettings['class'], $this->model->$relationAttribute);
 
         return $this->render('index');
     }

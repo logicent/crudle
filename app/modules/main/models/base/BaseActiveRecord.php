@@ -565,7 +565,7 @@ abstract class BaseActiveRecord extends ActiveRecord implements ActiveRecordInte
 
     public function userCan($permission, $userId = null)
     {
-        $permissionName = $permission . self::SpaceChar . App::classDisplayName($this);
+        $permissionName = $permission . self::SpaceChar . AppHelper::classDisplayName($this);
         $params = null;
         if (! $userId ) // assumes current user
             return Yii::$app->user->can($permissionName);
