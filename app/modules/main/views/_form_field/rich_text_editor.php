@@ -17,7 +17,14 @@ if ($this->context->action->id == 'read') :
         });
     ";
 else :
-    echo  $form->field($model, $attribute)->textarea(['rows' => 9]);
+    echo  $form->field($model, $attribute)->textarea([
+                'rows' => 9,
+                'id' => 'quill_rte__' . $attribute,
+                'class' => 'quill-rte',
+                'data' => [
+                    'formName' => $model->formName()
+                ]
+            ]);
     $script = "
         var delta;
         var toolbarOptions = [
@@ -29,26 +36,27 @@ else :
             ['link'],
             [{'color' : []}, {'background' : []}],
             [{'align' : []}],
-
         ];
 
-        var quill_{$attribute} = new Quill('#" . $attribute . "', {
-            // modules: {
-                //     toolbar: toolbarOptions
-                // },
+        var quill_rte = new Quill('#quill_rte__{$attribute}', {
+                modules: {
+                    toolbar: toolbarOptions
+                },
                 theme: 'snow'
             });
 
-        $('form#{$model->formName()}').on('beforeValidate', function(e)
+        $('form#'{$model->formName()}).on('beforeValidate', function(e)
         {
-            if (quill_{$attribute}.getLength() > 1){
-                $('#{$context_id}-{$attribute}').val(JSON.stringify(quill_{$attribute}.getContents()));
+            if (quill_rte.getLength() > 1) {
+                // $('#quill_rte__{$attribute}').val(JSON.stringify(quill_rte.getContents()));
+                $('#quill_rte__{$attribute}').val(quill.root.innerHTML);
             }
         });
 
-        $( document ).ready(function() {
-            quill_{$attribute}.setContents({$model->$attribute});
-        });
+        $( document ).ready(
+            function() {
+                quill_rte.setContents(value);
+            });
     ";
 endif ?>
 

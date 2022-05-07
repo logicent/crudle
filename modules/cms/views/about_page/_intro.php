@@ -3,10 +3,15 @@
         <?= $form->field($model, 'pageTitle')->textInput(['maxlength' => 140]) ?>
     </div>
     <div class="column">
-        <?= $form->field($model, 'ourIntro')->textarea([
+        <?= $this->render('@app_main/views/_form_field/rich_text_editor', [
+                'model' => $model,
+                'form' => $form,
+                'attribute' => 'ourIntro',
+            ]) ?>
+        <?php /*= $form->field($model, 'ourIntro')->textarea([
                 'maxlength' => true,
                 'rows' => 6,
                 'style' => 'resize:none',
-            ]) ?>
+            ]) */?>
     </div>
 </div>
