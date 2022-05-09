@@ -11,8 +11,8 @@ echo "<?php\n";
 
 namespace <?= $generator->getControllerNamespace() ?>;
 
-use crudle\main\controllers\base\BaseViewController;
-use crudle\main\enums\Type_View;
+use crudle\app\main\controllers\base\BaseViewController;
+use crudle\app\main\enums\Type_View;
 
 /**
  * <?= $generator->getModuleClass() ?> controller for the `<?= $generator->moduleID ?>` module

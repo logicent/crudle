@@ -10,7 +10,7 @@ foreach ($sections as $section) :
     //     continue;
     // endif;
     echo 
-        $this->render('@app_main/views/_form/_section', [
+        $this->render('@appMain/views/_form/_section', [
             'title'         => $section['label'],
             'content'       => $this->render('_' . $section['id'], [
                                     'form' => $form,

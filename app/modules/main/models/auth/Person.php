@@ -26,10 +26,10 @@ class Person extends BaseActiveRecord
     public function init()
     {
         $this->listSettings = new ListViewSettingsForm();
-        $this->listSettings->listNameAttribute = 'full_name'; // override in view index
+        $this->listSettings->listNameAttribute = 'full_name';
 
         $this->uploadForm = new UploadForm();
-        // $this->fileAttribute = 'avatar';
+        $this->fileAttribute = 'avatar';
     }
 
     public static function partyType()

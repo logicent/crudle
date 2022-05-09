@@ -65,7 +65,7 @@ abstract class BaseSettingsController extends BaseFormController
             }
         }
 
-        return $this->render('@app_setup/views/_settings/index');
+        return $this->render('@appSetup/views/_settings/index');
     }
 
     public function actionAddItem()

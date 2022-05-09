@@ -1,6 +1,6 @@
 <div class="ui two column stackable grid">
     <div class="column center aligned">
-        <?= $this->render( '@app_main/views/_form_field/file_input', [
+        <?= $this->render( '@appMain/views/_form_field/file_input', [
                 'attribute' => 'bgImagePath',
                 'model' => $model,
                 'form' => $form,

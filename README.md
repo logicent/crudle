@@ -59,7 +59,7 @@ _Setup module_
 - **app/modules** to contain the core functionality
 - **app/modules/main** to manage the core app-level interaction like authentication
 - **app/modules/setup** to provide visibility and customization tools for end-users
-- **modules/website** to easily setup a front-end site for users to engage with you
+- **modules/web-cms** to easily setup a front-end site for users to engage with you
 
 ### Technology Stack
 **Programming Languages and Frameworks**

@@ -45,6 +45,7 @@ abstract class BaseActiveRecord extends ActiveRecord implements ActiveRecordInte
     public function init()
     {
         $this->listSettings = new ListViewSettingsForm();
+        $this->listSettings->listIdAttribute = 'id';
 
         return parent::init();
     }

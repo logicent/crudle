@@ -10,8 +10,8 @@
     </div>
     <div class="ui one column grid">
         <div class="column">
-            <?= $form->field($generator, 'modelClass')->textInput(['placeholder' => 'e.g. crudle\main\models\Todo']) ?>
-            <?= $form->field($generator, 'searchModelClass')->textInput(['placeholder' => 'e.g. crudle\main\models\TodoSearch']) ?>
+            <?= $form->field($generator, 'modelClass')->textInput(['placeholder' => 'e.g. crudle\app\main\models\Todo']) ?>
+            <?= $form->field($generator, 'searchModelClass')->textInput(['placeholder' => 'e.g. crudle\app\main\models\TodoSearch']) ?>
         </div>
     </div>
 </div>
@@ -22,7 +22,7 @@
     <div class="ui one column grid">
         <div class="column">
             <?= $form->field($generator, 'baseControllerClass') ?>
-            <?= $form->field($generator, 'controllerClass')->textInput(['placeholder' => 'e.g. crudle\main\controllers\TodoController']) ?>
+            <?= $form->field($generator, 'controllerClass')->textInput(['placeholder' => 'e.g. crudle\app\main\controllers\TodoController']) ?>
         </div>
     </div>
 </div>
@@ -30,7 +30,7 @@
     <div class="ui small header" style="font-weight: 500;">
         <?= Yii::t('app', 'Views') ?>
     </div>
-    <?= $form->field($generator, 'viewPath')->textInput(['placeholder' => 'e.g. /home/logicent/yii2-crudle/app/modules/main/controllers/views/todo -or- @app_main/views/todo']) ?>
+    <?= $form->field($generator, 'viewPath')->textInput(['placeholder' => 'e.g. /home/logicent/yii2-crudle/app/modules/main/controllers/views/todo -or- @appMain/views/todo']) ?>
     <div class="ui two column grid">
         <div class="column">
             <?= $form->field($generator, 'enablePjax')->checkbox() ?>

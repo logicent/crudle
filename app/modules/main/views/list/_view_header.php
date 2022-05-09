@@ -22,7 +22,7 @@ echo Html::a(Yii::t('app', 'Hide filters'), false, [ // zoom out, Elements::icon
         'class' => 'compact ui filter button',
         'style' => 'display: none'
     ]);
-echo $this->render('@app_main/views/list/_menu');
+echo $this->render('@appMain/views/list/_menu');
 // Note: list view does not have a model instance
 if ( Yii::$app->user->can(Type_Permission::Create .' '. $controller->viewName()) ) :
     echo Html::a(Yii::t('app', 'New'), ['create'], [
@@ -47,8 +47,8 @@ if ( Yii::$app->user->can( Type_Permission::Delete .' '. $controller->viewName()
         'style' => 'display: none'
     ]);
 endif;
-echo $this->render('@app_main/views/_modal/confirm_action', ['action' => Status_Transaction::Submit]);
-echo $this->render('@app_main/views/list/_delete');
+echo $this->render('@appMain/views/_modal/confirm_action', ['action' => Status_Transaction::Submit]);
+echo $this->render('@appMain/views/list/_delete');
 
 $this->registerJs(<<<JS
     $('#delete_btn').on('click', function(e) {

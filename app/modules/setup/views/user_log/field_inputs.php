@@ -1,7 +1,7 @@
 <div class="ui attached padded segment">
     <div class="two fields">
         <?= $form->field($model, 'id')->textInput(['readonly' => true]) ?>
-        <?= $form->field($model, 'status')->textInput(['readonly' => true]) ?>
+        <?= $form->field($model, 'status')->checkbox(['class' => 'read-only'])->label('&nbsp;') ?>
     </div>
 </div>
 <div class="ui attached padded segment">
@@ -14,7 +14,7 @@
         <?= $form->field($model, 'logout_ip')->textInput(['readonly' => true]) ?>
     </div>
     <div class="two fields">
-        <?= $form->field($model, 'user_id')->textInput(['readonly' => true]) ?>
+        <?= $form->field($model->user, 'username')->textInput(['readonly' => true]) ?>
         <?= $form->field($model, 'session_id')->textInput(['readonly' => true]) ?>
     </div>
     <?php //= $form->field($model, 'created_at')->textInput(['readonly' => true]) ?>

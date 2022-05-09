@@ -5,7 +5,7 @@ use crudle\app\setup\models\Setup;
 
 $layoutSettings = Setup::getSettings( LayoutSettingsForm::class );
 
-$this->beginContent('@app_main/views/_layouts/base.php') ?>
+$this->beginContent('@appMain/views/_layouts/base.php') ?>
 
     <div class="ui container">
         <div class="ui stackable grid">

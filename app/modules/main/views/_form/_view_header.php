@@ -73,7 +73,7 @@ if (is_a($model, BaseActiveRecord::class)) :
             'id'    => 'save_btn',
         ]);
     if (!$model->isNewRecord && $model->hasWorkflow()) :
-        echo $this->render('@app_main/views/_form/_menu', ['model' => $model]);
+        echo $this->render('@appMain/views/_form/_menu', ['model' => $model]);
     endif;
 else : // non-CRUD forms
     echo Html::button(Yii::t('app', 'Save'), [

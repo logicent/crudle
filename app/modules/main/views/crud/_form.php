@@ -22,17 +22,17 @@ $form = ActiveForm::begin([
         'enctype' => $hasFileInput ? 'multipart/form-data' : false,
     ],
 ]);
-    echo $this->render('@app_main/views/_form/_header', ['model' => $model]);
+    echo $this->render('@appMain/views/_form/_header', ['model' => $model]);
     // insert page/route-specific form view input fields
     echo $this->renderFile($this->context->viewPath . '/field_inputs.php', [
             'form' => $form,
             'model' => $model
         ]);
 ActiveForm::end();
-echo $this->render('@app_main/views/_form/_footer', ['model' => $model]);
+echo $this->render('@appMain/views/_form/_footer', ['model' => $model]);
 
 // insert the ajax script if applicable
-// $this->registerJs($this->render('@app_main/views/_form/_modal_submit.js'));
+// $this->registerJs($this->render('@appMain/views/_form/_modal_submit.js'));
 
 // additional form view js scripts
 $this->registerJs(<<<JS

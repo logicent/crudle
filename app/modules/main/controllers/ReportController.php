@@ -10,7 +10,7 @@ use yii\helpers\ArrayHelper;
 
 class ReportController extends BaseViewController
 {
-    public $layout = '@app_main/views/_layouts/report';
+    public $layout = '@appMain/views/_layouts/report';
 
     public $reports;
 
@@ -18,7 +18,7 @@ class ReportController extends BaseViewController
     {
         parent::init();
 
-        $this->viewPath = Yii::getAlias('@app_main/views/report');
+        $this->viewPath = Yii::getAlias('@appMain/views/report');
         // return;
     }
 
@@ -73,6 +73,6 @@ class ReportController extends BaseViewController
 
     public function pageNavbar(): string
     {
-        return '@app_main/views/_layouts/main/_navbar';
+        return '@appMain/views/_layouts/main/_navbar';
     }
 }

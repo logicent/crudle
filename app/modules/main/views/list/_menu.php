@@ -31,8 +31,15 @@ use Zelenin\yii\SemanticUI\modules\Modal;
 
     if ( $this->context->action->id == 'index' ) :
         echo
-            Html::a(Yii::t('app', 'Import data'), ['/setup/data-import'], ['class' => 'item']) .
-            Html::a(Yii::t('app', 'List view settings'), ['/setup/list-view-settings'], ['class' => 'item']);
+            Html::a(Yii::t('app', 'Import data'), ['import-data'], ['class' => 'item']) .
+            Html::a(Yii::t('app', 'List view settings'), ['my-list-view-settings'],
+                    [
+                        'class' => 'item',
+                        'data' => [
+                            'method' => 'post'
+                        ]
+                    ]
+                );
     endif ?>
     </div><!-- ./menu -->
 </div>

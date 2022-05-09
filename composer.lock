@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "606ed2bae7c375026771b587cf8b26ce",
+    "content-hash": "9d35b0bc599f0b825ca95393f63c1372",
     "packages": [
         {
             "name": "bizley/migration",
@@ -68,6 +68,76 @@
                 }
             ],
             "time": "2022-02-20T10:07:47+00:00"
+        },
+        {
+            "name": "bizley/quill",
+            "version": "3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bizley/yii2-quill.git",
+                "reference": "4e81fe1d746c114420e7f7b2b7c60d8c6e434301"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bizley/yii2-quill/zipball/4e81fe1d746c114420e7f7b2b7c60d8c6e434301",
+                "reference": "4e81fe1d746c114420e7f7b2b7c60d8c6e434301",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "yiisoft/yii2": "^2.0.0"
+            },
+            "require-dev": {
+                "npm-asset/highlight.js": "^11.0",
+                "npm-asset/katex": "^0.12",
+                "npm-asset/quill": "^1.3",
+                "npm-asset/quill-smart-break": "^0.2",
+                "phpunit/phpunit": ">=7.5",
+                "roave/security-advisories": "dev-latest"
+            },
+            "suggest": {
+                "npm-asset/highlight.js": "For local highlight.js assets",
+                "npm-asset/katex": "For local KaTeX assets",
+                "npm-asset/quill": "For local Quill assets",
+                "npm-asset/quill-smart-break": "For 'SHIFT + Enter' newline support"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "bizley\\quill\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Paweł Bizley Brzozowski",
+                    "email": "pawel@positive.codes"
+                }
+            ],
+            "description": "Quill editor implementation for Yii 2.",
+            "keywords": [
+                "editor",
+                "highlight.js",
+                "katex",
+                "quill",
+                "widget",
+                "wysiwyg",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/bizley/yii2-quill/issues",
+                "source": "https://github.com/bizley/yii2-quill"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/bizley",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-03-07T08:28:03+00:00"
         },
         {
             "name": "bower-asset/bootstrap",
@@ -383,6 +453,59 @@
             "time": "2021-12-25T01:21:49+00:00"
         },
         {
+            "name": "fomantic/ui",
+            "version": "2.8.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fomantic/Fomantic-UI.git",
+                "reference": "e39a0ae5183c12808ba1eee82082efbb15f4d450"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fomantic/Fomantic-UI/zipball/e39a0ae5183c12808ba1eee82082efbb15f4d450",
+                "reference": "e39a0ae5183c12808ba1eee82082efbb15f4d450",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jack Lukic",
+                    "email": "jacklukic@gmail.com",
+                    "homepage": "http://www.jacklukic.com",
+                    "role": "Creator"
+                }
+            ],
+            "description": "Fomantic empowers designers and developers by creating a shared vocabulary for UI.",
+            "homepage": "https://fomantic-ui.com",
+            "keywords": [
+                "css",
+                "fomantic",
+                "fomantic-ui",
+                "framework",
+                "semantic",
+                "ui"
+            ],
+            "support": {
+                "issues": "https://github.com/fomantic/Fomantic-UI/issues",
+                "source": "https://github.com/fomantic/Fomantic-UI"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/hammy2899",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/lubber-de",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-06-24T15:20:31+00:00"
+        },
+        {
             "name": "graham-campbell/result-type",
             "version": "v1.0.4",
             "source": {
@@ -443,6 +566,60 @@
                 }
             ],
             "time": "2021-11-21T21:41:47+00:00"
+        },
+        {
+            "name": "imaginary/yii2-fomantic-ui",
+            "version": "2.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/seaeagle1/yii2-fomantic-ui.git",
+                "reference": "ea0555542131cfff1e98a8093accb7c37ea50250"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/seaeagle1/yii2-fomantic-ui/zipball/ea0555542131cfff1e98a8093accb7c37ea50250",
+                "reference": "ea0555542131cfff1e98a8093accb7c37ea50250",
+                "shasum": ""
+            },
+            "require": {
+                "fomantic/ui": "~2",
+                "yiisoft/yii2": "~2"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "icms\\FomanticUI\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ilmar Kruis",
+                    "email": "seaeagle1@users.sourceforge.net",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Aleksandr Zelenin",
+                    "email": "aleksandr@zelenin.me",
+                    "homepage": "http://zelenin.me",
+                    "role": "Original Developer"
+                }
+            ],
+            "description": "Fomantic UI extension for Yii2",
+            "homepage": "https://github.com/seaeagle1/yii2-fomantic-ui",
+            "keywords": [
+                "fomantic ui",
+                "widgets",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/seaeagle1/yii2-fomantic-ui/issues",
+                "source": "https://github.com/seaeagle1/yii2-fomantic-ui"
+            },
+            "time": "2020-09-10T21:23:59+00:00"
         },
         {
             "name": "imagine/imagine",

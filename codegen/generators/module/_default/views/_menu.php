@@ -3,7 +3,7 @@
 echo "<?php\n";
 ?>
 
-use crudle\setup\enums\Type_Role;
+use crudle\app\setup\enums\Type_Role;
 use <?= $generator->moduleID ?>\enums\Type_Menu_Sub_Group;
 
 $this->params['menuGroupClass'] = Type_Menu_Sub_Group::class;

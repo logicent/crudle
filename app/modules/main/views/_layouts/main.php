@@ -4,7 +4,7 @@ use crudle\app\main\enums\Type_Form_View;
 use crudle\app\main\enums\Type_View;
 
 $controller = $this->context;
-$layoutPath = '@app_main/views/_layouts/';
+$layoutPath = '@appMain/views/_layouts/';
 
 $this->beginContent($layoutPath . 'base.php') ?>
 
@@ -21,7 +21,7 @@ $this->beginContent($layoutPath . 'base.php') ?>
                 <?php
                     if ($controller->defaultViewType() == Type_View::List ||
                         $controller->formViewType() == Type_Form_View::Single) :
-                        echo $this->render('@app_main/views/crud/_sidebar');
+                        echo $this->render('@appMain/views/crud/_sidebar');
                     else :
                         if (file_exists($controller->viewPath . '/_sidebar.php')) :
                             echo $this->renderFile($controller->viewPath . '/_sidebar.php');

@@ -1,5 +1,5 @@
 
-<?= $this->render('@app_main/views/_modal/modal', [
+<?= $this->render('@appMain/views/_modal/modal', [
         'modalId' => 'confirm_action__modal',
         'modalTitle' => 'Confirm ' . $action,
         'positiveLabel' => 'Yes',

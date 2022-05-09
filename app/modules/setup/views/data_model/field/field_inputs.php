@@ -18,7 +18,7 @@ $form = ActiveForm::begin([
     ],
 ]);
 
-echo $this->render('@app_main/views/_form/_modal_header', ['model' => $model]) ?>
+echo $this->render('@appMain/views/_form/_modal_header', ['model' => $model]) ?>
 
 <div class="ui attached segment">
     <div class="ui two column grid">
@@ -68,5 +68,5 @@ echo $this->render('@app_main/views/_form/_modal_header', ['model' => $model]) ?
 </div>
 
 <?php ActiveForm::end();
-$this->registerJs($this->render('@app_main/views/_form/_modal_submit.js')) ?>
+$this->registerJs($this->render('@appMain/views/_form/_modal_submit.js')) ?>
 

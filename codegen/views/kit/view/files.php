@@ -131,7 +131,7 @@ use Zelenin\yii\SemanticUI\modules\Checkbox;
         </tbody>
     </table>
 
-    <?= $this->render('@app_main/views/_modal/modal', [
+    <?= $this->render('@appMain/views/_modal/modal', [
             'modalId' => 'preview--modal',
             'modalTitle' => 'Code File Preview',
             'positiveLabel' => 'OK',

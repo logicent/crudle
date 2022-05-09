@@ -8,6 +8,6 @@ class SwitchViewTypeAction extends Action
 {
     public function run($name)
     {
-        return $this->controller->render('@app_main/views/_' . $name . '/index');
+        return $this->controller->render('@appMain/views/_' . $name . '/index');
     }
 }

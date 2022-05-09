@@ -8,7 +8,7 @@ use yii\helpers\Html;
 $generalSettings = Setup::getSettings( GeneralSettingsForm::class );
 ?>
 
-<?php $this->beginBlock('@app_main/views/_layouts/site/_navbar') ?>
+<?php $this->beginBlock('@appMain/views/_layouts/site/_navbar') ?>
 
 <div id="site_header">
     <div class="ui attached menu borderless" style="padding: 1em 0em;">

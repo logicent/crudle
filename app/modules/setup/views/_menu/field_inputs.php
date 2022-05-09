@@ -48,7 +48,7 @@ use Zelenin\yii\SemanticUI\modules\Checkbox;
                     'style' => 'margin: 0em;',
                     'data' => [
                         'model-class' => AppHelper::className($model),
-                        'form-view' => '@app_setup/views/_menu/_edit_form',
+                        'form-view' => '@appSetup/views/_menu/_edit_form',
                     ]
                 ]) ?>
         <?= Html::activeHiddenInput($model, "[$rowId]openInNewTab", ['data' => ['name' => 'openInNewTab']]) ?>

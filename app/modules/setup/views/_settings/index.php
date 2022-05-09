@@ -8,7 +8,11 @@ $module = $controller->module;
 $this->title = Yii::t('app', '{titleLabel}', ['titleLabel' => $controller->viewName()]);
 
 $this->params['breadcrumbs'][] = [
-    'label' => Yii::t('app', '{moduleName}', ['moduleName' => Inflector::camel2words(Inflector::id2camel($module->id))]),
+    'label' => Yii::t('app', '{moduleName}', [
+        'moduleName' => Inflector::camel2words(
+            Inflector::id2camel($module->id)
+        )
+    ]),
     'url' => ['/' . $module->id]
 ];
 // $this->params['breadcrumbs'][] = [

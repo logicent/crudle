@@ -30,7 +30,7 @@ $this->beginPage() ?>
     <div id="header_wrapper">
     <?php
         $controller = $this->context;
-        // $layoutPath = '@app_main/views/_layouts/';
+        // $layoutPath = '@appMain/views/_layouts/';
         // $navbarView = $layoutPath . $controller->pageNavbar();
         $navbarView = $controller->pageNavbar();
         // load navbar in memory
@@ -40,7 +40,7 @@ $this->beginPage() ?>
         // load view header if used
         if ($controller->showViewHeader()) :
             // echo $this->render($layoutPath . '_view_header');
-            echo $this->render('@app_main/views/_layouts/_view_header');
+            echo $this->render('@appMain/views/_layouts/_view_header');
         endif ?>
     </div>
 

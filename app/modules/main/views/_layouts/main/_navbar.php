@@ -6,7 +6,7 @@ use Zelenin\yii\SemanticUI\Elements;
 
 ?>
 
-<?php $this->beginBlock('@app_main/views/_layouts/main/_navbar') ?>
+<?php $this->beginBlock('@appMain/views/_layouts/main/_navbar') ?>
 
 <div id="main_nav" class="ui attached menu text">
     <div class="item" id="menu_icon">

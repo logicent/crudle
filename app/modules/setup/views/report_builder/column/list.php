@@ -55,7 +55,7 @@ $modal::end();
                                         'rowId' => $id
                                     ]);
             else : // $model->isNewRecord
-                echo $this->render('@app_main/views/_form_section/_no_data');
+                echo $this->render('@appMain/views/_form_section/_no_data');
             endif ?>
         </tbody>
     </table>

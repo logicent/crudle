@@ -9,7 +9,7 @@ class ListViewSettingsForm extends BaseSettingsForm
 {
     public $listModelClass;
     public $listNameAttribute = 'name';
-    public $listIdAttribute;
+    public $listIdAttribute = false;
     public $listStatusAttribute;
     public $defaultListViewColumns;
     public $userListViewColumns;

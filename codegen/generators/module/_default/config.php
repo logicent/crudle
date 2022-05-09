@@ -17,5 +17,5 @@ return [
     // 'basePath' => '@system_modules/<?= $generator->moduleID ?>',
     // 'controllerPath' => '@system_modules/<?= $generator->moduleID ?>/controllers'
     // 'viewPath' => '@system_modules/<?= $generator->moduleID ?>/views',
-    // 'layoutPath' => '@app_main/views/_layouts',
+    // 'layoutPath' => '@appMain/views/_layouts',
 ];

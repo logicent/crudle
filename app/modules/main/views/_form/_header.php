@@ -12,7 +12,7 @@ if ($this->context->action->id == Resource_Action::Create ||
     echo Html::submitButton(Yii::t('app', 'Save'), ['class' => 'compact ui primary button', 'style' => 'display: none;']);
 endif;
 
-$this->render('@app_main/views/_layouts/_flash_message', ['context' => $this->context]);
+$this->render('@appMain/views/_layouts/_flash_message', ['context' => $this->context]);
 
 $this->registerJs(<<<JS
     $('.ui.dropdown').dropdown({

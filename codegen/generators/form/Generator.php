@@ -22,7 +22,7 @@ use crudle\kit\CodeFile;
 class Generator extends \crudle\kit\Generator
 {
     public $modelClass;
-    public $viewPath = '@app_main/views';
+    public $viewPath = '@appMain/views';
     public $viewName;
     public $scenarioName;
 

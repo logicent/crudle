@@ -43,12 +43,12 @@ class IndexAction extends Action
         // $this->sidebar = false;
 
         if (Yii::$app->request->isAjax)
-            return $this->controller->renderAjax('@app_main/views/list/index', [
+            return $this->controller->renderAjax('@appMain/views/list/index', [
                 'searchModel' => $searchModel,
                 'dataProvider' => $dataProvider,
             ]);
         else
-            return $this->controller->render('@app_main/views/list/index', [
+            return $this->controller->render('@appMain/views/list/index', [
                 'searchModel' => $searchModel,
                 'dataProvider' => $dataProvider,
             ]);

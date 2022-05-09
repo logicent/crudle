@@ -2,6 +2,7 @@
 
 namespace crudle\app\setup\controllers;
 
+use crudle\app\main\controllers\action\IndexAction;
 use crudle\app\main\controllers\base\BaseCrudController;
 use Yii;
 use yii\base\Model;
@@ -27,6 +28,13 @@ class DataModelController extends BaseCrudController
     public function searchModelClass(): string
     {
         return DataModelSearch::class;
+    }
+
+    public function actions()
+    {
+        return [
+            'index' => IndexAction::class,
+        ];
     }
 
     /**
@@ -61,7 +69,7 @@ class DataModelController extends BaseCrudController
             $this->detailModels[] = new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION]);
             $this->fieldDataProvider->setModels( $this->detailModels );
 
-            return $this->render('@app_main/views/crud/index', [
+            return $this->render('@appMain/views/crud/index', [
                 'model' => $this->model,
             ]);
         }
@@ -84,7 +92,7 @@ class DataModelController extends BaseCrudController
             }
         }
 
-        return $this->render('@app_main/views/crud/index', [
+        return $this->render('@appMain/views/crud/index', [
             'model' => $this->model,
         ]);
     }
@@ -134,7 +142,7 @@ class DataModelController extends BaseCrudController
 
             $this->model = $model;
 
-            return $this->render('@app_main/views/crud/index', [
+            return $this->render('@appMain/views/crud/index', [
                 'model' => $model,
             ]);
         }
@@ -170,7 +178,7 @@ class DataModelController extends BaseCrudController
 
         $this->model = $model;
 
-        return $this->render('@app_main/views/crud/index', [
+        return $this->render('@appMain/views/crud/index', [
             'model' => $model,
         ]);
     }

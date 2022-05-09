@@ -42,11 +42,11 @@ endif;
             if ($controller->defaultViewType() == Type_View::List) :
                 if ($controller->showViewTypeSwitcher())
                     echo $this->render('_view_type');
-                echo $this->render('@app_main/views/list/_view_header');
+                echo $this->render('@appMain/views/list/_view_header');
             endif;
             // form view i.e. new or update record and setting form
             if ($controller->defaultViewType() == Type_View::Form) :
-                echo $this->render('@app_main/views/_form/_view_header');
+                echo $this->render('@appMain/views/_form/_view_header');
             endif ?>
         </div>
     </div>

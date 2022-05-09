@@ -2,7 +2,7 @@
 
 namespace tests\models;
 
-use app\modules\main\models\auth\LoginForm;
+use crudle\app\modules\main\models\auth\LoginForm;
 
 class LoginFormTest extends \Codeception\Test\Unit
 {

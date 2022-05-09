@@ -25,7 +25,7 @@ if ($this->context->action->id == 'index') : ?>
 endif;
 
 if ( $this->context->action->id !== 'index' ) :
-    // echo $this->render('@app_main/views/_form_field/file_input', [
+    // echo $this->render('@appMain/views/_form_field/file_input', [
     //             'attribute' => 'avatar',
     //             'model' => $model,
     //         ]);
@@ -38,7 +38,7 @@ if ( $this->context->action->id != 'create' ) :
 <div class="ui hidden divider"></div>
 
 <div id="sidebar">
-    <?= $this->render('@app_main/views/_form/_sidebar_links') ?>
+    <?= $this->render('@appMain/views/_form/_sidebar_links') ?>
 </div>
 <?php
 endif ?>

@@ -35,7 +35,7 @@ class Generator extends \crudle\kit\Generator
     public $modelClass;
     public $controllerClass;
     public $viewPath;
-    public $baseControllerClass = 'crudle\main\controllers\base\BaseViewController';
+    public $baseControllerClass = 'crudle\app\main\controllers\base\BaseViewController';
     public $indexWidgetType = 'grid';
     public $searchModelClass = '';
     /**
@@ -111,7 +111,7 @@ class Generator extends \crudle\kit\Generator
                 must be as specified by your application\'s controllerNamespace property.',
             'viewPath' =>
                 'The directory or path alias for the view scripts of the controller. If not set, 
-                it will default to <code>@app_main/views/ControllerID</code>',
+                it will default to <code>@appMain/views/ControllerID</code>',
             'baseControllerClass' =>
                 'This is a fully qualified class name that the new controller class will extend from. 
                 Please make sure the class exists and can be autoloaded.',

@@ -2,7 +2,7 @@
 
 namespace tests\models;
 
-use app\modules\main\models\auth\User;
+use crudle\app\modules\main\models\auth\User;
 
 class UserTest extends \Codeception\Test\Unit
 {

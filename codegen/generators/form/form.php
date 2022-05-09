@@ -10,7 +10,7 @@
     </div>
     <div class="ui one column grid">
         <div class="column">
-            <?= $form->field($generator, 'modelClass')->textInput(['placeholder' => 'e.g. crudle\main\models\Todo']) ?>
+            <?= $form->field($generator, 'modelClass')->textInput(['placeholder' => 'e.g. crudle\app\main\models\Todo']) ?>
             <?= $form->field($generator, 'scenarioName') ?>
         </div>
     </div>

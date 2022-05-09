@@ -38,7 +38,7 @@ class Generator extends \crudle\kit\Generator
     /**
      * @var string the base class of the controller
      */
-    public $baseControllerClass = 'crudle\main\controllers\base\BaseViewController';
+    public $baseControllerClass = 'crudle\app\main\controllers\base\BaseViewController';
     /**
      * @var string list of action IDs separated by commas or spaces
      */
@@ -120,7 +120,7 @@ class Generator extends \crudle\kit\Generator
                 a corresponding empty action method in the controller.',
             'viewPath' =>
                 'The directory or path alias for the view scripts of the controller. 
-                If not set, it will default to <code>@app_main/views/ControllerID</code>',
+                If not set, it will default to <code>@appMain/views/ControllerID</code>',
             'baseControllerClass' =>
                 'This is a fully qualified class name that the new controller class will extend from. 
                 Please make sure the class exists and can be autoloaded.',

@@ -31,10 +31,10 @@ class Generator extends \crudle\kit\Generator
     const RELATIONS_ALL_INVERSE = 'all-inverse';
 
     public $db = 'db';
-    public $ns = 'crudle\main\models';
+    public $ns = 'crudle\app\main\models';
     public $tableName;
     public $modelClass;
-    public $baseModelClass = 'crudle\main\models\base\BaseActiveRecord';
+    public $baseModelClass = 'crudle\app\main\models\base\BaseActiveRecord';
     public $generateRelations = true;
     public $relations = self::RELATIONS_ALL;
     public $generateRelationsFromCurrentSchema = true;
@@ -43,7 +43,7 @@ class Generator extends \crudle\kit\Generator
     public $standardizeCapitals = false;
     public $useSchemaName = true;
     public $generateQuery = false;
-    public $queryNs = 'crudle\main\models\query';
+    public $queryNs = 'crudle\app\main\models\query';
     public $queryClass;
     public $queryBaseClass = 'yii\db\ActiveQuery';
 

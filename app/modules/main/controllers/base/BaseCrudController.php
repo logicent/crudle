@@ -260,7 +260,7 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
     {
         // 1. load default values for form
         $this->model->loadDefaultValues();
-        // $this->loadDetailModelsDefaultValues();
+        // !! To-Do: implement $this->loadDetailModelsDefaultValues();
 
         // 2. render view by request type and action id
         $data = [
@@ -386,11 +386,11 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
 
     public function formView(string $action = null, string $path = null)
     {
-        return '@app_main/views/crud/index';
+        return '@appMain/views/crud/index';
     }
 
     public function commentView(): string
     {
-        return '@app_main/views/_layouts/_comments';
+        return '@appMain/views/_layouts/_comments';
     }
 }

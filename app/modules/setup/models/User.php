@@ -15,12 +15,6 @@ class User extends AuthUser
 {
     // public $full_name;
 
-    // public function init()
-    // {
-    //     $this->listSettings = new ListViewSettingsForm();
-    //     $this->listSettings->listNameAttribute = 'id'; // override in view index
-    // }
-
     // public function rules()
     // {
     //     $rules = parent::rules();

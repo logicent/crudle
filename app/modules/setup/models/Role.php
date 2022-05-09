@@ -10,6 +10,11 @@ class Role extends AuthRole
     public $id;
     public $status;
 
+    public function init()
+    {
+        $this->listSettings = new ListViewSettingsForm();
+    }
+
     public function afterFind()
     {
         $this->id = $this->name;

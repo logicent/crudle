@@ -1,7 +1,7 @@
 <?php
 
 $controller = $this->context;
-$layoutPath = '@app_main/views/_layouts/';
+$layoutPath = '@appMain/views/_layouts/';
 
 $this->beginContent($layoutPath . 'base.php') ?>
 

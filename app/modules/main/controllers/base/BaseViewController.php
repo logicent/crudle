@@ -31,7 +31,7 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
     protected $validationErrors = [];
     protected $supportedViewTypes = [];
 
-    public $layout = '@app_main/views/_layouts/main';
+    public $layout = '@appMain/views/_layouts/main';
 
     public function init()
     {

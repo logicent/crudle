@@ -10,7 +10,7 @@ return [
         'id' => 'Role',
         'alias' => '',
         'type' => 'core', // core/standard, addon/custom
-        'namespace' => 'crudle\setup\models\auth\Role',
+        'namespace' => 'crudle\app\setup\models\auth\Role',
         'url' => '/setup/role/index',
         'series' => '',
         'serial' => 2,

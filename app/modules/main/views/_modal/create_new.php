@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 ?>
 
-<?= $this->render('@app_main/views/_modal/modal', [
+<?= $this->render('@appMain/views/_modal/modal', [
         'modalId' => 'create__modal',
         'modalTitle' => 'New ' . $this->title,
         'positiveLabel' => 'OK',

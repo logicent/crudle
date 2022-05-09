@@ -19,7 +19,7 @@ $config = [
     'runtimePath' => dirname( __DIR__, 2 ) . '/storage/runtime',
     'vendorPath' => dirname( __DIR__, 2 ) . '/vendor',
     'basePath' => dirname( __DIR__ ),
-    'layoutPath' =>  '@app_main/views/_layouts',
+    'layoutPath' =>  '@appMain/views/_layouts',
 
     'bootstrap' => ['log'],
 

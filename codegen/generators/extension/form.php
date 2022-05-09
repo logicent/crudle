@@ -14,7 +14,7 @@
 <?php
     echo $form->field($generator, 'vendorName');
     echo $form->field($generator, 'packageName');
-    echo $form->field($generator, 'namespace')->textInput(['placeholder' => 'crudle\main\\']);
+    echo $form->field($generator, 'namespace')->textInput(['placeholder' => 'crudle\app\main\\']);
     echo $form->field($generator, 'type')->dropDownList($generator->optsType());
     echo $form->field($generator, 'keywords');
     echo $form->field($generator, 'license')->dropDownList($generator->optsLicense(), ['prompt'=>'Choose...']);

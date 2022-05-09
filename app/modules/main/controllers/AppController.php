@@ -20,7 +20,7 @@ use yii\filters\VerbFilter;
 
 class AppController extends BaseViewController
 {
-    public $layout = '@app_main/views/_layouts/site';
+    public $layout = '@appMain/views/_layouts/site';
 
     public function behaviors()
     {
@@ -211,7 +211,7 @@ class AppController extends BaseViewController
 
         $config = [
                     'class' => 'yii\swiftmailer\Mailer',
-                    'viewPath' => '@app_main/views/_mail',
+                    'viewPath' => '@appMain/views/_mail',
                     'useFileTransport' => false,
                     'transport' => [
                         'class' => 'Swift_SmtpTransport',

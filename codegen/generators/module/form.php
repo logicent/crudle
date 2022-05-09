@@ -12,7 +12,7 @@
     <div class="ui two column grid">
         <div class="column">
             <?= $form->field($generator, 'moduleID')->textInput(['placeholder' => 'e.g. main']) ?>
-            <?= $form->field($generator, 'moduleClass')->textInput(['placeholder' => 'e.g. crudle\main\Module']) ?>
+            <?= $form->field($generator, 'moduleClass')->textInput(['placeholder' => 'e.g. crudle\app\main\Module']) ?>
         </div>
     </div>
 </div>

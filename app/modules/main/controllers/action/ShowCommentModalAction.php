@@ -10,7 +10,7 @@ class ShowCommentModalAction extends Action
     public function run()
     {
         if (Yii::$app->request->isAjax); {
-            return $this->controller->renderAjax('@app_main/views/_form/_comment_modal', [
+            return $this->controller->renderAjax('@appMain/views/_form/_comment_modal', [
                 'url'   => Yii::$app->request->get('url'),
                 'new_status' => Yii::$app->request->get('new_status'),
                 'require_comment' => Yii::$app->request->get('require_comment')

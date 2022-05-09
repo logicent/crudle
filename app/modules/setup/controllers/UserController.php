@@ -4,12 +4,14 @@ namespace crudle\app\setup\controllers;
 
 use crudle\app\main\controllers\base\BaseCrudController;
 use crudle\app\enums\Status_Active;
+use crudle\app\main\controllers\action\IndexAction;
 use crudle\app\main\enums\Type_Form_View;
 use crudle\app\setup\enums\Status_User;
 use crudle\app\main\models\auth\Auth;
 use crudle\app\main\models\auth\Person;
 // use crudle\app\setup\models\User;
 use crudle\app\setup\models\search\UserSearch;
+// use crudle\app\setup\models\User;
 use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\Html;
@@ -32,7 +34,9 @@ class UserController extends BaseCrudController
 
     public function actions()
     {
-        return [];
+        return [
+            'index' => IndexAction::class,
+        ];
     }
 
     public function actionRead($id)
@@ -52,12 +56,12 @@ class UserController extends BaseCrudController
         $this->model = $person;
 
         if (Yii::$app->request->isAjax)
-            return $this->renderAjax('@app_main/views/crud/index', [
+            return $this->renderAjax('@appMain/views/crud/index', [
                 // 'auth' => $this->auth,
                 'model' => $person,
             ]);
         else
-            return $this->render('@app_main/views/crud/index', [
+            return $this->render('@appMain/views/crud/index', [
                 // 'auth' => $this->auth,
                 'model' => $person,
             ]);
@@ -130,12 +134,12 @@ class UserController extends BaseCrudController
         $this->model = $person;
 
         if (Yii::$app->request->isAjax)
-            return $this->renderAjax('@app_main/views/crud/index', [
+            return $this->renderAjax('@appMain/views/crud/index', [
                 // 'auth' => $this->auth,
                 'model' => $person,
             ]);
         else
-            return $this->render('@app_main/views/crud/index', [
+            return $this->render('@appMain/views/crud/index', [
                 // 'auth' => $this->auth,
                 'model' => $person,
             ]);
@@ -180,12 +184,12 @@ class UserController extends BaseCrudController
         $this->model = $person;
 
         if (Yii::$app->request->isAjax)
-            return $this->renderAjax('@app_main/views/crud/index', [
+            return $this->renderAjax('@appMain/views/crud/index', [
                 // 'auth' => $this->auth,
                 'model' => $person,
             ]);
         else
-            return $this->render('@app_main/views/crud/index', [
+            return $this->render('@appMain/views/crud/index', [
                 // 'auth' => $this->auth,
                 'model' => $person,
             ]);

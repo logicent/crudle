@@ -22,7 +22,7 @@ class ReportBuilder extends BaseActiveRecord
     public function init()
     {
         $this->listSettings = new ListViewSettingsForm();
-        $this->listSettings->listNameAttribute = 'id'; // override in view index
+        $this->listSettings->listNameAttribute = 'id';
     }
 
     public static function tableName()

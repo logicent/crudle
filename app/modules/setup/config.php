@@ -1,7 +1,7 @@
 <?php
 
 return [
-    // 'controllerNamespace' => 'crudle\setup\controllers',
+    // 'controllerNamespace' => 'crudle\app\setup\controllers',
     // 'params' => [],
     // 'id' => 'setup',
     // 'layout' => 'main',
@@ -11,5 +11,5 @@ return [
     // 'basePath' => '@app_setup',
     // 'controllerPath' => '@app_setup/controllers'
     // 'viewPath' => '@app_setup/views',
-    // 'layoutPath' => '@app_main/views/_layouts',
+    // 'layoutPath' => '@appMain/views/_layouts',
 ];
