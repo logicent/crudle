@@ -14,10 +14,10 @@
     </div>
     <div class="ui one column grid">
         <div class="column">
-            <?= $form->field($model, 'content')->textarea([
-                    'maxlength' => true,
-                    'rows' => 13,
-                    'style' => 'resize:none',
+            <?= $this->render('@appMain/views/_form_field/rich_text_editor', [
+                    'model' => $model,
+                    'form' => $form,
+                    'attribute' => 'content',
                 ]) ?>
         </div>
     </div>

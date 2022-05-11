@@ -3,10 +3,10 @@
         <?= $form->field($model, 'ourHistoryHeading')->textInput(['maxlength' => 140]) ?>
     </div>
     <div class="column">
-        <?= $form->field($model, 'ourHistory')->textarea([
-                'maxlength' => true,
-                'rows' => 10,
-                'style' => 'resize:none',
+        <?= $this->render('@appMain/views/_form_field/rich_text_editor', [
+                'model' => $model,
+                'form' => $form,
+                'attribute' => 'ourHistory',
             ]) ?>
     </div>
 </div>

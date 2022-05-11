@@ -8,6 +8,6 @@ class BaseWebSettingsController extends BaseSettingsController
 {
     public function redirectTo(string $action = null)
     {
-        return $this->redirect(['/cms']);
+        return $this->redirect(['/web-cms']);
     }
 }

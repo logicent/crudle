@@ -12,9 +12,9 @@ $detailModels = $this->context->getDetailModels();
 ?>
 
 <?= Elements::header($model->heading, ['class' => 'huge', 'style' => 'font-weight: 500']) ?>
-<?= Html::tag('p', Html::encode($model->shortIntro)) ?>
+<?= $model->shortIntro ?>
 
-<?= Html::tag('p', Html::encode($model->enquiryDetail)) ?>
+<?= $model->enquiryDetail ?>
 
 <?php
 if (! (bool) $model->hideContactForm) :

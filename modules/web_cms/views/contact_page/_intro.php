@@ -11,10 +11,10 @@
 </div>
 <div class="ui one column grid">
     <div class="column">
-        <?= $form->field($model, 'shortIntro')->textarea([
-                'maxlength' => true,
-                'rows' => 6,
-                'style' => 'resize:none',
+        <?= $this->render('@appMain/views/_form_field/rich_text_editor', [
+                'model' => $model,
+                'form' => $form,
+                'attribute' => 'shortIntro',
             ]) ?>
     </div>
 </div>

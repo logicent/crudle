@@ -12,12 +12,10 @@ $detailModels = $this->context->getDetailModels();
 ?>
 
 <?= Elements::header($model->pageTitle, ['class' => 'huge centered', 'style' => 'font-weight: 500']) ?>
-<?= Html::tag('p', Html::encode($model->ourIntro)) ?>
+<?= $model->ourIntro ?>
 
 <?= Elements::header($model->ourHistoryHeading, ['class' => 'centered', 'style' => 'font-weight: 500']) ?>
-<?= Html::tag('p', Html::encode($model->ourHistory)) ?>
-
-<!-- <div class="ui divider"></div> -->
+<?= $model->ourHistory ?>
 
 <?php
 if (!$model->hideTeamSection) :

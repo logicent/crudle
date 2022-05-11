@@ -49,7 +49,8 @@
         "vlucas/phpdotenv": "^5.3",
         "yidas/phpspreadsheet-helper": "^1.3",
         "bizley/quill": "^3.3",
-        "imaginary/yii2-fomantic-ui": "~2"
+        "imaginary/yii2-fomantic-ui": "~2",
+        "schmunk42/yii2-giiant": "@stable"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

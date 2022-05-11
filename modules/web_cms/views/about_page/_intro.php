@@ -8,10 +8,5 @@
                 'form' => $form,
                 'attribute' => 'ourIntro',
             ]) ?>
-        <?php /*= $form->field($model, 'ourIntro')->textarea([
-                'maxlength' => true,
-                'rows' => 6,
-                'style' => 'resize:none',
-            ]) */?>
     </div>
 </div>

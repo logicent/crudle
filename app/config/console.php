@@ -18,6 +18,14 @@ $config = [
     'bootstrap' => ['log'],
     'timeZone' => 'Africa/Nairobi',
     'controllerNamespace' => 'crudle\app\setup\commands',
+    // 'controllerMap' => [
+    //     'batch' => [
+    //         'class' => 'schmunk42\giiant\commands\BatchController',
+    //         'overwrite' => true,
+    //         'modelNamespace' => 'app\\modules\\crud\\models',
+    //         'crudTidyOutput' => true,
+    //     ]
+    // ],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
