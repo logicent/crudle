@@ -22,7 +22,7 @@
         "source": "https://github.com/logicent/yii2-crudle",
         "docs": "https://github.com/logicent/yii2-crudle/wiki/1.x/"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "beta",
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": "~2.0.14",
