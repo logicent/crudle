@@ -5,7 +5,7 @@ namespace crudle\app\main\controllers\action;
 use Yii;
 use yii\helpers\Json;
 
-class DeleteManyAction extends DeleteAction
+class DeleteManyAction extends Delete
 {
     public function run($id)
     {
