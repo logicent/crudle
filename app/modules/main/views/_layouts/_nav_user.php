@@ -23,16 +23,14 @@ use Zelenin\yii\SemanticUI\Elements;
         <?php
             if ((bool) $layoutSettings->hideWebsiteLink === false) :
                 echo Html::a(Yii::t('app', 'Visit website'),
-                            ['/'],
-                            [
+                            ['/'], [
                                 'class' => 'item',
                                 'target' => '_blank'
                             ]);
             endif ?>
         <?= Html::tag('div', null, ['class' => 'divider', 'style' => 'margin: 0']) ?>
         <?= Html::a(Yii::t('app', 'Log out'),
-                    ['/app/logout'],
-                    [
+                    ['/app/logout'], [
                         'class' => 'item',
                         'data' => ['method' => 'post']
                     ]) ?>

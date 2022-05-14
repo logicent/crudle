@@ -2,14 +2,8 @@
 
 use crudle\app\assets\DirrtyAsset;
 use crudle\app\helpers\StatusMarker;
-use crudle\app\main\enums\Resource_Action;
 use crudle\app\main\enums\Type_View;
-use crudle\app\main\models\base\BaseActiveRecord;
-use crudle\app\setup\enums\Status_Transaction;
-use crudle\app\setup\enums\Type_Permission;
 use yii\helpers\Html;
-use yii\helpers\Url;
-use Zelenin\yii\SemanticUI\Elements;
 
 
 $controller = $this->context;

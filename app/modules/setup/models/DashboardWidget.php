@@ -14,6 +14,24 @@ use yii\helpers\ArrayHelper;
  */
 class DashboardWidget extends BaseActiveRecord
 {
+    // id
+    // label/name
+    // description
+    // displayHeader
+    // cols = 4/8
+    // rows
+    // initialRange/defaultRange
+    // valueRange
+    // refreshInterval
+    // decoratePrefix
+    // decorateSuffix
+    // type
+    // options
+    // Flush?
+    // legend
+    // legendAlign
+    // scale
+
     public function init()
     {
         $this->listSettings = new ListViewSettingsForm();

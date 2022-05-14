@@ -18,8 +18,7 @@ use Zelenin\yii\SemanticUI\Elements;
             endif;
             // echo Html::a(Elements::icon($menuItem['icon'] .' '. $menuItem['iconColor']) . Yii::t('app', '{menuItem}', ['menuItem' => $menuItem['label']]),
             echo Html::a(Yii::t('app', '{menuItem}', ['menuItem' => $menuItem['label']]),
-                        Url::to($menuItem['route'], true),
-                        [
+                        Url::to($menuItem['route'], true), [
                             'class' => 'item',
                             'target' => (bool) $menuItem['openInNewTab'] ? '_blank' : false
                         ]);
