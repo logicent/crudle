@@ -2,7 +2,7 @@
 
 namespace crudle\app\main\models\base;
 
-use crudle\app\helpers\AppHelper;
+use crudle\app\helpers\App;
 use crudle\app\main\enums\Type_Comment;
 use crudle\app\main\enums\Type_Link;
 use crudle\app\main\enums\Type_Mixed_Value;
@@ -566,7 +566,7 @@ abstract class BaseActiveRecord extends ActiveRecord implements ActiveRecordInte
 
     public function userCan($permission, $userId = null)
     {
-        $permissionName = $permission . self::SpaceChar . AppHelper::classDisplayName($this);
+        $permissionName = $permission . self::SpaceChar . App::classDisplayName($this);
         $params = null;
         if (! $userId ) // assumes current user
             return Yii::$app->user->can($permissionName);

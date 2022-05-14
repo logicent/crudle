@@ -2,7 +2,7 @@
 
 namespace crudle\app\setup\controllers\base;
 
-use crudle\app\helpers\AppHelper;
+use crudle\app\helpers\App;
 use crudle\app\main\controllers\base\BaseFormController;
 use crudle\app\main\enums\Type_Form_View;
 use crudle\app\main\enums\Type_View;
@@ -29,7 +29,7 @@ abstract class BaseSettingsController extends BaseFormController
         // load related settings models
         foreach ($this->model::relations() as $relationAttribute => $relationSettings)
             $this->detailModels[$relationAttribute] = 
-            AppHelper::convertArraysToModels($relationSettings['class'], $this->model->$relationAttribute);
+            App::convertArraysToModels($relationSettings['class'], $this->model->$relationAttribute);
 
         if ( $this->model->load( Yii::$app->request->post() ))
         {
@@ -41,7 +41,7 @@ abstract class BaseSettingsController extends BaseFormController
                 else
                     $this->model->$relationAttribute = null;
 
-                AppHelper::convertArrayToJson($this->model, $relationAttribute);
+                App::convertArrayToJson($this->model, $relationAttribute);
             }
             $modelClassname = StringHelper::basename( $this->modelClass() );
             if ( $this->model->validate() && $this->model->save( $modelClassname ))

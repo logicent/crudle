@@ -1,6 +1,6 @@
 <?php
 
-use crudle\app\helpers\AppHelper;
+use crudle\app\helpers\App;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;
 use Zelenin\yii\SemanticUI\helpers\Size;
@@ -61,14 +61,14 @@ $hideSelectAllCheckbox = empty($this->context->getDetailModels()) ? 'none' : '';
     echo Elements::button('Delete', [
             'class' => 'compact red small del-row',
             'data' => [
-                'model-class' => AppHelper::className($model)
+                'model-class' => App::className($model)
             ],
             'style' => 'display : none'
         ]);
     echo Elements::button('Add Item', [
             'class' => 'compact small add-row',
             'data'  => [
-                'model-class' => AppHelper::className($model),
+                'model-class' => App::className($model),
                 'form-view' => $formView,
             ]
         ]) ?>

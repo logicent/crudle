@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+/**
+ * Crudle console bootstrap file
+ */
+
+// Load shared bootstrap
+require __DIR__ . '/bootstrap.php';
+
+require CRUDLE_VENDOR_PATH . '/yiisoft/yii2/Yii.php';
+
+require CRUDLE_BASE_PATH . '/app/config/bootstrap.php';
+$config = require CRUDLE_BASE_PATH . '/app/config/console.php';
+
+// Load and run Crudle
+// /** @var crudle\console\Application $app */
+$app = new yii\console\Application($config);
+$exitCode = $app->run();
+exit($exitCode);

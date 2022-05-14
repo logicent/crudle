@@ -3,8 +3,8 @@
     "description": "Yii2 Crudle",
     "version": "1.0.0-beta",
     "keywords": [
-        "enterprise",
-        "starter-kit",
+        "crud",
+        "starter kit",
         "yii2"
     ],
     "homepage": "https://github.com/logicent/yii2-crudle",
@@ -17,14 +17,14 @@
         }
     ],
     "support": {
-        "email": "logicent.africa@gmail.com",
+        "email": "mwaigichuhi@gmail.com",
         "issues": "https://github.com/logicent/yii2-crudle/issues?state=open",
         "source": "https://github.com/logicent/yii2-crudle",
         "docs": "https://github.com/logicent/yii2-crudle/wiki/1.x/"
     },
     "minimum-stability": "beta",
     "require": {
-        "php": ">=5.4.0",
+        "php": "^7.4.0",
         "yiisoft/yii2": "~2.0.14",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",

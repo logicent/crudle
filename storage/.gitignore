@@ -1,0 +1,9 @@
+backups
+composer-backups
+config-backups
+
+# logs dir for local instance
+logs
+
+# runtime dir for local instance
+runtime

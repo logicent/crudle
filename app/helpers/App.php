@@ -12,7 +12,7 @@ use yii\helpers\StringHelper;
  * @author Logicent Ltd. <support@logicent.co>
  * @since 1.0.0
  */
-class AppHelper
+class App
 {
     /**
      * Returns an environment variable, checking for it in `$_SERVER` and calling `getenv()` as a fallback.

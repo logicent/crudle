@@ -1,49 +1,38 @@
 # phpstorm project files
-.idea
+/.idea
 
 # netbeans project files
-nbproject
+/nbproject
+
+# Mac DS_Store Files
+.DS_Store
 
 # zend studio for eclipse project files
-.buildpath
-.project
-.settings
-.vscode
+/.buildpath
+/.project
+/.settings
+/.vscode
 
 # vagrant files
 /.vagrant
 
 # windows thumbnail cache
-Thumbs.db
+/Thumbs.db
 
 # local settings variables
-.env
+/.env
 
 # assets dir for local instance
-app/web/assets
+web/assets
 
-# backups dir for db dumps
-storage/backups
-app/web/dbdump
-
-# downloads dir for files
-storage/downloads
-app/web/downloads
-
-# logs dir for local instance
-storage/logs
+# file uploads dir from users
+web/uploads
 
 # rebrand dir for local instance
 storage/rebrand
 
-# runtime dir for local instance
-storage/runtime
-
 # composer vendor dir
 /vendor
-
-# database settings
-app/config/db.php
 
 # composer itself is not needed
 composer.phar
@@ -53,15 +42,6 @@ messages
 
 # language config
 language
-
-# file uploads dir from users
-app/web/uploads
-
-# debug-local
-debug-local.php
-
-# Mac DS_Store Files
-.DS_Store
 
 # phpunit itself is not needed
 phpunit.phar

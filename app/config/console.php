@@ -1,19 +1,14 @@
 <?php
 
-require_once __DIR__ . '/../helpers/AppHelper.php';
-
-use crudle\app\helpers\AppHelper;
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../..');
-$dotenv->load();
+use crudle\app\helpers\App;
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'yii2-crudle-cli',
-    'runtimePath' => dirname( dirname( __DIR__ ) ) . '/storage/runtime',
-    'vendorPath' => dirname( dirname( __DIR__ ) ) . '/vendor',
+    'runtimePath' => '@storage/runtime',
+    'vendorPath' => '@crudle/vendor',
     'basePath' => dirname( __DIR__ ),
     'bootstrap' => ['log'],
     'timeZone' => 'Africa/Nairobi',
@@ -47,11 +42,11 @@ $config = [
             'useFileTransport' => false, // set true if testing or debugging to send locally to file
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
-                'host' => AppHelper::env('MAIL_HOST'),
-                'port' => AppHelper::env('MAIL_PORT'),
-                'encryption' => AppHelper::env('MAIL_ENCRYPTION'),
-                'username' => AppHelper::env('MAIL_USERNAME'),
-                'password' => AppHelper::env('MAIL_PASSWORD'),
+                'host' => App::env('CRUDLE_MAIL_HOST'),
+                'port' => App::env('CRUDLE_MAIL_PORT'),
+                'encryption' => App::env('CRUDLE_MAIL_ENCRYPTION'),
+                'username' => App::env('CRUDLE_MAIL_USERNAME'),
+                'password' => App::env('CRUDLE_MAIL_PASSWORD'),
             ],
         ],
         'authManager' => [
@@ -76,6 +71,13 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
+        'allowedIPs' => ['192.168.*.*', '172.16.*.*', '10.*.*.*', '127.0.0.1', '::1'],
+    ];
+
+    $config['bootstrap'][] = 'kit';
+    $config['modules']['kit'] = [
+        'class' => 'crudle\kit\Module',
+        'allowedIPs' => ['192.168.*.*', '172.16.*.*', '10.*.*.*', '127.0.0.1', '::1'],
     ];
 }
 
