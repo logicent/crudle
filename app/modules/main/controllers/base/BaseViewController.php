@@ -2,20 +2,20 @@
 
 namespace crudle\app\main\controllers\base;
 
-use crudle\app\main\controllers\action\BatchAction;
-use crudle\app\main\controllers\action\DownloadAction;
-use crudle\app\main\controllers\action\ExportPdfAction;
-use crudle\app\main\controllers\action\ExportTextAction;
-use crudle\app\main\controllers\action\ImageUploadAction;
-use crudle\app\main\controllers\action\IndexAction;
-use crudle\app\main\controllers\action\MyLayoutSettingsAction;
-use crudle\app\main\controllers\action\MyListViewSettingsAction;
-use crudle\app\main\controllers\action\MyReportSettingsAction;
-use crudle\app\main\controllers\action\PrintAction;
-use crudle\app\main\controllers\action\PrintPdfAction;
-use crudle\app\main\controllers\action\PrintPreviewAction;
-use crudle\app\main\controllers\action\RestoreDefaultsAction;
-use crudle\app\main\controllers\action\SwitchViewTypeAction;
+use crudle\app\main\controllers\action\Batch;
+use crudle\app\main\controllers\action\Download;
+use crudle\app\main\controllers\action\ExportPdf;
+use crudle\app\main\controllers\action\ExportText;
+use crudle\app\main\controllers\action\ImageUpload;
+use crudle\app\main\controllers\action\Index;
+use crudle\app\main\controllers\action\MyLayoutSettings;
+use crudle\app\main\controllers\action\MyListViewSettings;
+use crudle\app\main\controllers\action\MyReportSettings;
+use crudle\app\main\controllers\action\PrintTo;
+use crudle\app\main\controllers\action\PrintPdf;
+use crudle\app\main\controllers\action\PrintPreview;
+use crudle\app\main\controllers\action\RestoreDefaults;
+use crudle\app\main\controllers\action\SwitchViewType;
 use crudle\app\main\enums\Type_Form_View;
 use crudle\app\main\enums\Type_View;
 use Yii;
@@ -66,20 +66,20 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
     public function actions()
     {
         return ArrayHelper::merge(parent::actions(), [
-            'index'         => IndexAction::class,
-            'batch-action'      => BatchAction::class,
-            'my-layout-settings'    => MyLayoutSettingsAction::class,
-            'my-list-view-settings' => MyListViewSettingsAction::class,
-            'my-report-settings'    => MyReportSettingsAction::class,
-            'switch-view-type'      => SwitchViewTypeAction::class,
-            'download'              => DownloadAction::class,
-            'export-pdf'            => ExportPdfAction::class,
-            'export-text'           => ExportTextAction::class,
-            'image-upload'          => ImageUploadAction::class,
-            'print'                 => PrintAction::class, // PrintTo device
-            'print-pdf'             => PrintPdfAction::class, // GeneratePdf
-            'print-preview'         => PrintPreviewAction::class, // PrintView
-            'restore-defaults'          => RestoreDefaultsAction::class,
+            'index'                 => Index::class,
+            'batch'                 => Batch::class,
+            'my-layout-settings'    => MyLayoutSettings::class,
+            'my-list-view-settings' => MyListViewSettings::class,
+            'my-report-settings'    => MyReportSettings::class,
+            'switch-view-type'      => SwitchViewType::class,
+            'download'              => Download::class,
+            'export-pdf'            => ExportPdf::class,
+            'export-text'           => ExportText::class,
+            'image-upload'          => ImageUpload::class,
+            'print-to'              => PrintTo::class,
+            'print-pdf'             => PrintPdf::class, // GeneratePdf
+            'print-preview'         => PrintPreview::class, // PrintView
+            'restore-defaults'      => RestoreDefaults::class,
         ]);
     }
 

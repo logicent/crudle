@@ -2,7 +2,7 @@
 
 namespace crudle\app\setup\controllers;
 
-use crudle\app\main\controllers\action\IndexAction;
+use crudle\app\main\controllers\action\Index;
 use crudle\app\main\controllers\base\BaseCrudController;
 use Yii;
 use yii\base\Model;
@@ -33,7 +33,7 @@ class DataModelController extends BaseCrudController
     public function actions()
     {
         return [
-            'index' => IndexAction::class,
+            'index' => Index::class,
         ];
     }
 

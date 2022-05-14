@@ -2,9 +2,9 @@
 
 namespace crudle\app\main\controllers\base;
 
-use crudle\app\main\controllers\action\ResendNotificationAction;
-use crudle\app\main\controllers\action\ResendNotificationsAction;
-use crudle\app\main\controllers\action\StoreUserPreferencesAction;
+use crudle\app\main\controllers\action\ResendNotification;
+use crudle\app\main\controllers\action\ResendNotifications;
+use crudle\app\main\controllers\action\StoreUserPreferences;
 use crudle\app\setup\models\Setup;
 use crudle\app\setup\models\SmtpSettingsForm;
 use Yii;
@@ -18,9 +18,9 @@ abstract class BaseController extends Controller
     public function actions()
     {
         return [
-            'resend-notification'   => ResendNotificationAction::class,
-            'resend-notifications'  => ResendNotificationsAction::class,
-            'store-user-preferences'    => StoreUserPreferencesAction::class,
+            'resend-notification'   => ResendNotification::class,
+            'resend-notifications'  => ResendNotifications::class,
+            'store-user-preferences'    => StoreUserPreferences::class,
         ];
     }
 

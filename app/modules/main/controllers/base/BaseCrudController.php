@@ -2,23 +2,23 @@
 
 namespace crudle\app\main\controllers\base;
 
-use crudle\app\main\controllers\action\AddRowAction;
-use crudle\app\main\controllers\action\AmendAction;
-use crudle\app\main\controllers\action\AutoSuggestIdAction;
-use crudle\app\main\controllers\action\CancelAction;
-use crudle\app\main\controllers\action\CreateAction;
-use crudle\app\main\controllers\action\DeleteManyAction;
-use crudle\app\main\controllers\action\DeleteRowAction;
-use crudle\app\main\controllers\action\EditRowAction;
-use crudle\app\main\controllers\action\GetItemAction;
-use crudle\app\main\controllers\action\IndexAction;
-use crudle\app\main\controllers\action\ReadAction;
-use crudle\app\main\controllers\action\SaveCommentAction;
-use crudle\app\main\controllers\action\ShowCommentModalAction;
-use crudle\app\main\controllers\action\ShowRelatedTextAction;
-use crudle\app\main\controllers\action\SubmitAction;
-use crudle\app\main\controllers\action\UpdateAction;
-use crudle\app\main\controllers\action\UpdateStatusAction;
+use crudle\app\main\controllers\action\AddRow;
+use crudle\app\main\controllers\action\Amend;
+use crudle\app\main\controllers\action\AutoSuggestId;
+use crudle\app\main\controllers\action\Cancel;
+use crudle\app\main\controllers\action\Create;
+use crudle\app\main\controllers\action\DeleteMany;
+use crudle\app\main\controllers\action\DeleteRow;
+use crudle\app\main\controllers\action\EditRow;
+use crudle\app\main\controllers\action\FindItem;
+use crudle\app\main\controllers\action\Index;
+use crudle\app\main\controllers\action\Read;
+use crudle\app\main\controllers\action\SaveComment;
+use crudle\app\main\controllers\action\ShowCommentModal;
+use crudle\app\main\controllers\action\ShowRelatedText;
+use crudle\app\main\controllers\action\Submit;
+use crudle\app\main\controllers\action\Update;
+use crudle\app\main\controllers\action\UpdateStatus;
 use crudle\app\main\enums\Type_Comment;
 use crudle\app\main\enums\Type_Form_View;
 use crudle\app\main\enums\Type_Relation;
@@ -117,23 +117,23 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
     public function actions()
     {
         return ArrayHelper::merge(parent::actions(), [
-            'read'          => ReadAction::class,
-            'create'        => CreateAction::class,
-            'update'        => UpdateAction::class,
-            'submit'        => SubmitAction::class,
-            'cancel'        => CancelAction::class,
-            'amend'         => AmendAction::class,
-            'delete'        => DeleteAction::class,
-            'add-row'       => AddRowAction::class,
-            'edit-row'      => EditRowAction::class,
-            'get-item'      => GetItemAction::class,
-            'delete-row'        => DeleteRowAction::class,
-            'auto-suggest-id'   => AutoSuggestIdAction::class,
-            'delete-many'           => DeleteManyAction::class,
-            'save-comment'          => SaveCommentAction::class,
-            'show-comment-modal'    => ShowCommentModalAction::class,
-            'show-related-text'     => ShowRelatedTextAction::class,
-            'update-status'         => UpdateStatusAction::class,
+            'read'          => Read::class,
+            'create'        => Create::class,
+            'update'        => Update::class,
+            'submit'        => Submit::class,
+            'cancel'        => Cancel::class,
+            'amend'         => Amend::class,
+            'delete'        => Delete::class,
+            'add-row'       => AddRow::class,
+            'edit-row'      => EditRow::class,
+            'find-item'      => FindItem::class,
+            'delete-row'        => DeleteRow::class,
+            'auto-suggest-id'   => AutoSuggestId::class,
+            'delete-many'           => DeleteMany::class,
+            'save-comment'          => SaveComment::class,
+            'show-comment-modal'    => ShowCommentModal::class,
+            'show-related-text'     => ShowRelatedText::class,
+            'update-status'         => UpdateStatus::class,
         ]);
     }
 

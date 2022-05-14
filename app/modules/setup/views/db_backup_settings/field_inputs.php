@@ -2,9 +2,9 @@
 
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;
-use crudle\app\assets\SweetAlertAsset;
+use crudle\app\assets\SweetAlert;
 
-SweetAlertAsset::register($this);
+SweetAlert::register($this);
 
 $this->title = Yii::t('app', 'Database Backup');
 ?>

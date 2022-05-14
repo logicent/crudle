@@ -1,7 +1,8 @@
 <?php
 
-use crudle\app\assets\FlatpickrAsset;
-FlatpickrAsset::register($this);
+use crudle\app\assets\Flatpickr;
+
+Flatpickr::register($this);
 
 $isReadonly = $this->context->action->id == 'read' || $this->context->action->id == 'print-preview';
 

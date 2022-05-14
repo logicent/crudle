@@ -1,6 +1,6 @@
 <?php
 
-use crudle\app\assets\DirrtyAsset;
+use crudle\app\assets\Dirrty;
 use crudle\app\helpers\StatusMarker;
 use crudle\app\main\enums\Type_View;
 use yii\helpers\Html;
@@ -9,7 +9,7 @@ use yii\helpers\Html;
 $controller = $this->context;
 
 if ($controller->layout !== 'print') :
-    DirrtyAsset::register($this);
+    Dirrty::register($this);
 endif;
 ?>
 

@@ -1,9 +1,9 @@
 <?php
 
 use yii\helpers\Html;
-// use crudle\app\assets\SweetAlertAsset;
+// use crudle\app\assets\SweetAlert;
 
-// SweetAlertAsset::register($this);
+// SweetAlert::register($this);
 
 if (Yii::$app->session->hasFlash('warning')) : ?>
   <div class="ui warning message disappear">

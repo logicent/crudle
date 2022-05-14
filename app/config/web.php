@@ -5,12 +5,12 @@ use crudle\app\main\models\auth\User;
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
-$url = require __DIR__ . '/url.php';
+$routes = require __DIR__ . '/web/routes.php';
 $modules = require __DIR__ . '/modules.php';
 
 $config = [
     'id' => 'yii2-crudle-web',
-    'name' => App::env('APP_NAME'),
+    'name' => App::env('CRUDLE_APP_NAME'),
     'runtimePath' => '@storage/runtime',
     'vendorPath' => '@crudle/vendor',
     'basePath' => dirname( __DIR__ ),
@@ -73,7 +73,12 @@ $config = [
             ],
         ],
         'db' => $db,
-        'urlManager' => $url,
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            // 'enableStrictParsing' => true,
+            'showScriptName' => false,
+            'rules' => $routes,
+        ],
         'formatter' => [
             'defaultTimeZone' => 'Africa/Nairobi',
         ],
