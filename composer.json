@@ -90,9 +90,9 @@
         "yii\\composer\\Installer::postCreateProject": {
             "setPermission": [
                 {
-                    "runtime": "0777",
+                    "storage/runtime": "0777",
                     "web/assets": "0777",
-                    "yii": "0755"
+                    "crudle": "0755"
                 }
             ]
         },
