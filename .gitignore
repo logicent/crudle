@@ -22,15 +22,6 @@
 # local settings variables
 /.env
 
-# assets dir for local instance
-web/assets
-
-# file uploads dir from users
-web/uploads
-
-# rebrand dir for local instance
-storage/rebrand
-
 # composer vendor dir
 /vendor
 

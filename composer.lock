@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6d8a76de7c62112cb2b03208e7482a43",
+    "content-hash": "cc2a37f464cf1713fd7aaf6fbaa22fdd",
     "packages": [
         {
             "name": "bizley/migration",
@@ -2334,6 +2334,18 @@
             "type": "npm-asset",
             "license": [
                 "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/highlight.js",
+            "version": "11.5.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/highlight.js/-/highlight.js-11.5.1.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "BSD-3-Clause"
             ]
         },
         {
