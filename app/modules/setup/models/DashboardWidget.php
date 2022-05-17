@@ -64,6 +64,7 @@ class DashboardWidget extends BaseActiveRecord
         $attributeLabels = parent::attributeLabels();
 
         return ArrayHelper::merge($attributeLabels, [
+                'id'  => Yii::t('app', 'Title'),
                 'type'  => Yii::t('app', 'Type'),
                 'data_model'    => Yii::t('app', 'Data model'),
                 'data_aggregate_function'   => Yii::t('app', 'Data aggregate function'),
@@ -85,5 +86,10 @@ class DashboardWidget extends BaseActiveRecord
         return [
             'status' => Status_Active::class,
         ];
+    }
+
+    public static function autoSuggestIdValue()
+    {
+        return false;
     }
 }

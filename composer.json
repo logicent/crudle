@@ -28,29 +28,29 @@
         "yiisoft/yii2": "~2.0.14",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
-        "zelenin/yii2-semantic-ui": "~2",
         "yiisoft/yii2-redis": "^2.0",
         "yiisoft/yii2-imagine": "^2.3",
         "yiisoft/yii2-shell": "^2.0",
-        "league/flysystem": "^1.0",
-        "mikehaertl/phpwkhtmltopdf": "^2.2",
         "yiisoft/yii2-jui": "^2.0",
-        "kint-php/kint": "^1.1",
-        "bizley/migration": "^4.1",
-        "spatie/db-dumper": "^2.21",
+        "vlucas/phpdotenv": "^5.3",
+        "zelenin/yii2-semantic-ui": "~2",
+        "imaginary/yii2-fomantic-ui": "~2",
         "thamtech/yii2-yaml": "^0.3.2",
         "thamtech/yii2-uuid": "^1.2",
-        "yii2mod/yii2-enum": "*",
-        "league/csv": "^9.7",
         "myclabs/php-enum": "^1.8",
+        "yii2mod/yii2-enum": "*",
+        "schmunk42/yii2-giiant": "@stable",
+        "bizley/migration": "^4.1",
+        "spatie/db-dumper": "^2.21",
+        "league/flysystem": "^1.0",
+        "mikehaertl/phpwkhtmltopdf": "^2.2",
+        "league/csv": "^9.7",
         "knplabs/knp-snappy": "^1.2",
-        "phpoffice/phpspreadsheet": "^1.17",
         "phpoffice/phpword": "^0.18.1",
-        "vlucas/phpdotenv": "^5.3",
+        "phpoffice/phpspreadsheet": "^1.17",
         "yidas/phpspreadsheet-helper": "^1.3",
         "bizley/quill": "^3.3",
-        "imaginary/yii2-fomantic-ui": "~2",
-        "schmunk42/yii2-giiant": "@stable",
+        "npm-asset/quill": "^1.3",
         "npm-asset/quill-smart-break": "^0.2"
     },
     "require-dev": {
@@ -58,15 +58,16 @@
         "yiisoft/yii2-gii": "~2.0.0",
         "yiisoft/yii2-faker": "~2.0.0",
         "codeception/verify": "~0.3.1",
-        "codeception/specify": "~0.4.3"
+        "codeception/specify": "~0.4.3",
+        "kint-php/kint": "^4.1"
     },
     "autoload": {
         "psr-4": {
             "crudle\\app\\": "app",
             "crudle\\app\\main\\": "app/modules/main",
             "crudle\\app\\setup\\": "app/modules/setup",
-            "crudle\\ext\\": "modules",
-            "crudle\\kit\\": "codegen"
+            "crudle\\kit\\": "codegen",
+            "crudle\\ext\\": "modules"
         }
     },
     "config": {
@@ -91,8 +92,12 @@
         "yii\\composer\\Installer::postCreateProject": {
             "setPermission": [
                 {
+                    "storage/backups": "0777",
+                    "storage/logs": "0777",
+                    "storage/rebrand": "0777",
                     "storage/runtime": "0777",
                     "web/assets": "0777",
+                    "web/uploads": "0777",
                     "crudle": "0755"
                 }
             ]

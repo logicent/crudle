@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\app\main\enums;
+namespace crudle\app\setup\enums;
 
 use crudle\app\setup\widgets\LineChart;
 use crudle\app\setup\widgets\BarChart;

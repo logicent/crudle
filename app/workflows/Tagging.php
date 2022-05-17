@@ -7,15 +7,15 @@ class Tagging
     const TypePredefined = 'Predefined';
     const TypeUserDefined = 'User-defined';
 
-    private $_tags;
-    private $_tagged;
+    private $_tags = [];
+    private $_tagged = false;
 
     public function isTagged()
     {
         return $this->_tagged;
     }
 
-    public function tags()
+    public function getTags()
     {
         return $this->_tags;
     }

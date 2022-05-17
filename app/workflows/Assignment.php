@@ -4,14 +4,16 @@ namespace crudle\app\workflows;
 
 class Assignment
 {
-    // Single vs Multiple based on user/role/unit
+    // type enums
     const TypeSingle = 'Single';
     const TypeMultiple = 'Multiple';
 
+    // Single sub type enums
     const SingleUser = 'Single User';
     const SingleRole = 'Single Role';
     const SingleUnit = 'Single Unit';
 
+    // Multiple sub type enums
     const MultipleUsers = 'Multiple Users';
     const MultipleRoles = 'Multiple Roles';
     const MultipleUnits = 'Multiple Units';

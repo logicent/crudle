@@ -57,6 +57,12 @@ $rolesCount = !empty($model->roles) ? count($model->roles) : '0';
     <?= $this->render('column/list', ['model' => $model, 'form' => $form]) ?>
 
     <div class="ui attached padded segment">
+        <!-- [
+        'modules' => [
+            'syntax' => true, // Include syntax module
+        ],
+            'toolbarOptions' => [['code-block']] // Include button in toolbar
+        ] -->
         <?= $form->field($model, 'query_cmd')->textarea(['rows' => 8]) ?>
 
         <?= Elements::button(Yii::t('app', 'Test query'), [

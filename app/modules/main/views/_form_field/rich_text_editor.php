@@ -5,10 +5,11 @@ if ($this->context->action->id == 'read') :
     echo $form->field($model, $attribute)->textarea();
 else :
     echo $form->field($model, $attribute)->widget(\bizley\quill\Quill::class, [
-            // 'modules' => [
-            //     'smart-breaker' => true,
-            // ],
-            // 'localAssets' => true,
+            'modules' => [
+                'smart-breaker' => true,
+            ],
+            'localAssets' => true,
+            // 'js' => '{quill}.enable(false);',
             // 'toolbarOptions' => [['bold', 'italic', 'underline'], [['color' => []]]],
         ]);
 endif ?>

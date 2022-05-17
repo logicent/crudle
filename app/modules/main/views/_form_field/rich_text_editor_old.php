@@ -17,15 +17,14 @@ if ($this->context->action->id == 'read') :
         });
     ";
 else :
-    echo $form->field($model, $attribute)->widget(\bizley\quill\Quill::class, []);
-    // echo  $form->field($model, $attribute)->textarea([
-    //             'rows' => 9,
-    //             'id' => 'quill_rte__' . $attribute,
-    //             'class' => 'quill-rte',
-    //             'data' => [
-    //                 'formName' => $model->formName()
-    //             ]
-    //         ]);
+    echo  $form->field($model, $attribute)->textarea([
+                'rows' => 9,
+                'id' => 'quill_rte__' . $attribute,
+                'class' => 'quill-rte',
+                'data' => [
+                    'formName' => $model->formName()
+                ]
+            ]);
     $script = "
         var delta;
         var toolbarOptions = [
@@ -61,6 +60,6 @@ else :
     ";
 endif ?>
 
-<!-- <div id="<?= $attribute?>"></div> -->
+<div id="<?= $attribute?>"></div>
 
 <?php $this->registerJs($script);

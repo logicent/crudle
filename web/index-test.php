@@ -6,7 +6,7 @@
 // Load shared bootstrap
 require dirname(__DIR__) . '/bootstrap.php';
 
-// NOTE: Make sure this file is not accessible when deployed to production
+// NOTE: Disallow access to this file when running in production
 if (!in_array(@$_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1'])) {
     die('You are not allowed to access this file.');
 }
