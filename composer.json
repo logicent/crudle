@@ -86,7 +86,8 @@
             "yii\\composer\\Installer::postInstall"
         ],
         "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "ln -sf bower-asset vendor/bower"
         ]
     },
     "extra": {

@@ -18,9 +18,9 @@ Option 1: via Composer
 
 Option 2: via CLI
 - Run `git clone git@github.com:logicent/yii2-crudle.git && cd logicent`
+- Run `composer install`
 
 Continue:
-- Run `composer install`
 - Run `npm install -g bower && npm install -g bower-npm-resolver`
 - Run `bower install`
 - Create a database and update your `.env` settings
