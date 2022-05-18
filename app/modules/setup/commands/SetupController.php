@@ -16,6 +16,8 @@ class SetupController extends Controller
 
         // - Run `composer install`
 
+        // "ln -sf bower-asset vendor/bower"
+
         // - Run `npm install -g bower && npm install -g bower-npm-resolver`
 
         // - Run `bower install`
