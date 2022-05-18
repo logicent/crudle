@@ -81,13 +81,13 @@
         "post-install-cmd": [
             "yii\\composer\\Installer::postInstall"
         ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
         "post-create-project-cmd": [
             "yii\\composer\\Installer::postCreateProject",
             "yii\\composer\\Installer::postInstall",
             "@php -r \"exec('ln -sf bower-asset vendor/bower');\""
-        ],
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ]
     },
     "extra": {
