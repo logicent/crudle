@@ -14,7 +14,7 @@ $detailModels = $this->context->getDetailModels();
 <?= Elements::header($model->heading, ['class' => 'huge', 'style' => 'font-weight: 500']) ?>
 <?= $model->shortIntro ?>
 
-<?= $model->enquiryDetail ?>
+<div style="font-family: Ubuntu mono, Monospace"><?= $model->enquiryDetail ?></div>
 
 <?php
 if (! (bool) $model->hideContactForm) :
