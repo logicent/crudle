@@ -63,9 +63,9 @@ $modal::end();
     <?= Elements::button('Add Row', [
             'class' => 'compact tiny add-row',
             'data'  => [
-                'url' => Url::to(['add-item']),
+                'url' => Url::to(['add-row']),
                 'model-class' => $this->context->modelClass() . 'Item',
-                'form-view' => 'column/_form',
+                'form-view' => 'column/field_inputs',
             ]
         ]) ?>
 </div>

@@ -38,7 +38,7 @@ class Item extends BaseActiveRecord
     public function rules()
     {
         return [
-            [['name', 'type'], 'required'],
+            [['name', 'type', 'inactive'], 'required'],
             // [['name'], 'trim'], // TODO: Check if this messes up existing assignments
             ['name', 'unique', 'message' => Yii::t('app', 'This role already exists') ],
             [['type', 'created_at', 'updated_at'], 'integer'],

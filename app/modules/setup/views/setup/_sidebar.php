@@ -1,12 +1,13 @@
 <?php
 
+use Kint\Kint;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-$menuList = require __DIR__ . '/_list/_menu.php';
-ArrayHelper::multisort($menuList, 'label');
-ArrayHelper::multisort($menuList, 'group');
+$menuList = require __DIR__ . '/_list/_menu.php';Kint::dump($menuList);
+// ArrayHelper::multisort($menuList, 'label');
+// ArrayHelper::multisort($menuList, 'group');
 $menuGroups = ArrayHelper::map($menuList, 'label', 'label', 'group');
 
 ?>

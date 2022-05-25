@@ -20,7 +20,10 @@ $rolesCount = !empty($model->roles) ? count($model->roles) : '0';
                 <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
                 <?= $form->field($model, 'subtitle')->textInput(['maxlength' => true]) ?>
                 <?= $form->field($model, 'description')->textarea([
-                        'rows' => 4, 'maxlength' => true, 'style' => 'resize: none; max-height: 7.875em;']) ?>
+                        'rows' => 4,
+                        'maxlength' => true,
+                        'style' => 'resize: none; max-height: 7.875em;'
+                    ]) ?>
                 <?= $form->field($model, 'model_name')->widget(Select::class, [
                             'search' => true,
                             'items' => $modelClasses,

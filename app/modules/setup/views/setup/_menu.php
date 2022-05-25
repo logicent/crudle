@@ -22,8 +22,14 @@ return [
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/setup/dashboard-widget/index',
-        'label' => 'Dashboard Widget',
+        'route' => '/setup/dashboard/index',
+        'label' => 'Dashboard',
+        'group' => Type_Menu_Sub_Group::Data,
+        'visible' => Yii::$app->user->can(Type_Role::SystemManager),
+    ],
+    [
+        'route' => '/setup/data-widget/index',
+        'label' => 'Data Widget',
         'group' => Type_Menu_Sub_Group::Data,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],

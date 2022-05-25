@@ -3,6 +3,7 @@
 namespace crudle\app\setup\models;
 
 use crudle\app\enums\Status_Active;
+use crudle\app\main\enums\Type_Relation;
 use crudle\app\main\models\base\BaseActiveRecord;
 use crudle\app\setup\enums\Permission_Group;
 use crudle\app\setup\enums\Status_Transaction;
@@ -23,7 +24,7 @@ class Dashboard extends BaseActiveRecord
 
     public static function tableName()
     {
-        return 'app_dashboard';
+        return 'dashboard';
     }
 
     public function rules()
@@ -31,13 +32,15 @@ class Dashboard extends BaseActiveRecord
         $rules = parent::rules();
 
         return ArrayHelper::merge($rules, [
+            [['inactive'], 'default', 'value' => Status_Active::No],
+            [['description', 'roles'], 'string'],
             [[
-                'name',
-                'description',
+                'route',
+                'heading',
                 'module',
-                'roles',
+                'icon',
             ], 'string', 'max' => 140 ],
-            [['inactive', 'boolean']]
+            ['inactive', 'boolean']
         ]);
     }
 
@@ -46,7 +49,8 @@ class Dashboard extends BaseActiveRecord
         $attributeLabels = parent::attributeLabels();
 
         return ArrayHelper::merge($attributeLabels, [
-                'name'  => Yii::t('app', 'Name'),
+                'id'  => Yii::t('app', 'Name'),
+                'heading'  => Yii::t('app', 'Heading'),
                 'description'    => Yii::t('app', 'Description'),
                 'module'    => Yii::t('app', 'Module'),
                 'roles'   => Yii::t('app', 'Roles'),
@@ -64,8 +68,30 @@ class Dashboard extends BaseActiveRecord
     public static function enums()
     {
         return [
-            'status' => Status_Transaction::class,
-            // 'inactive' => Status_Active::class,
+            'status' => [
+                'class' => Status_Active::class,
+                'attribute' => 'inactive'
+            ],
         ];
+    }
+
+    public static function autoSuggestIdValue()
+    {
+        return false;
+    }
+
+    public static function relations()
+    {
+        return [
+            'widgets'   => [
+                'class' => DashboardWidget::class,
+                'type' => Type_Relation::ChildModel
+            ],
+        ];
+    }
+
+    public function getWidgets()
+    {
+        return $this->hasMany(DashboardWidget::class, ['dashboard_id' => 'id']);
     }
 }

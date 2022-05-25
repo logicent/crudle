@@ -101,16 +101,16 @@ echo $this->render('_stats', ['model' => $model]) ?>
     <div class="two fields">
         <div class="eight wide field">
             <?= $form->field($model, 'user_group')->dropDownList(
-                UserGroup::enums(), [
-                    'prompt' => '',
-                    'disabled' => $isReadonly || !Yii::$app->user->can(Type_Role::SystemManager)
-                ]) ?>
+                    UserGroup::enums(), [
+                        'prompt' => '',
+                        'disabled' => $isReadonly || !Yii::$app->user->can(Type_Role::SystemManager)
+                    ]) ?>
         </div>
         <div class="field">
         <?= $form->field($model, 'official_status')->dropDownList(Status_Work::enums(), [
-                    'prompt' => '',
-                    'disabled' => $isReadonly
-                ]) ?>
+                'prompt' => '',
+                'disabled' => $isReadonly
+            ]) ?>
         </div>
     </div><!-- ./two fields -->
 

@@ -27,13 +27,24 @@ class Type_Widget
         ];
     }
 
+    public static function enumIcons()
+    {
+        return [
+            self::LineChart     => 'line chart',
+            self::BarChart      => 'bar chart',
+            self::PieChart      => 'pie chart',
+            self::NumberBlock   => 'calculator',
+            self::LatestEntries => 'list',
+        ];
+    }
+
     public static function modelClasses()
     {
         return [
             self::LineChart     => LineChart::class,
             self::BarChart      => BarChart::class,
+            self::PieChart      => PieChart::class,
             self::NumberBlock   => NumberBlock::class,
-            self::PieChart      => PieChartForm::class,
             self::LatestEntries => LatestEntries::class,
         ];
     }

@@ -73,7 +73,7 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
                         'roles' => [ Type_Permission::Create .' '. $this->viewName() ],
                     ],
                     [
-                        'actions' => ['delete', 'delete-multiple'],
+                        'actions' => ['delete', 'delete-many'],
                         'allow' => true,
                         'roles' => [ Type_Permission::Delete .' '. $this->viewName() ],
                     ],
@@ -88,6 +88,7 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
                 'class' => VerbFilter::class,
                 'actions' => [
                     'delete' => ['POST'],
+                    'delete-many' => ['POST'],
                     'cancel' => ['POST'],
                 ],
             ],
@@ -124,6 +125,7 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
             'cancel'        => Cancel::class,
             'amend'         => Amend::class,
             'delete'        => Delete::class,
+            'delete-many'   => DeleteMany::class,
             'add-row'       => AddRow::class,
             'edit-row'      => EditRow::class,
             'find-item'      => FindItem::class,

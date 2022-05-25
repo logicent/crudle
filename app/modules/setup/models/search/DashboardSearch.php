@@ -62,7 +62,7 @@ class DashboardSearch extends Dashboard
             'deleted_at' => $this->deleted_at,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
+        $query->andFilterWhere(['like', 'heading', $this->heading])
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'module', $this->module])
             ->andFilterWhere(['like', 'roles', $this->roles])

@@ -2,9 +2,9 @@
 
 namespace crudle\app\setup\commands;
 
-use crudle\app\main\enums\Type_Model;
 use crudle\app\main\models\auth\Auth;
 use crudle\app\main\models\auth\Role;
+use crudle\app\setup\enums\Type_Model;
 use crudle\app\setup\enums\Type_Permission;
 use crudle\app\setup\enums\Type_Role;
 use Yii;

@@ -17,16 +17,16 @@ $params = [
     'formId' => strtolower($model->formName()),
     'section' => '#' . $listId,
     'table' => '#' . $listId . ' table',
-    'addItemUrl' => Url::to(['add-item']),
-    'editItemUrl' => Url::to(['edit-item']),
-    'getItemUrl' => Url::to(['get-item']),
-    'deleteItemUrl' => Url::to(['delete-item']),
+    'addUrl' => Url::to(['add-row']),
+    'editUrl' => Url::to(['edit-row']),
+    'getUrl' => Url::to(['get-row']),
+    'deleteUrl' => Url::to(['delete-row']),
 ];
 
 $this->registerJs(
-    "var itemRow = "  . \yii\helpers\Json::htmlEncode($params) . ";",
+    "var tableRow = "  . \yii\helpers\Json::htmlEncode($params) . ";",
     $this::POS_HEAD,
-    'itemRow'
+    'tableRow'
 );
 
 $this->registerJs($this->render('item/list.js'));

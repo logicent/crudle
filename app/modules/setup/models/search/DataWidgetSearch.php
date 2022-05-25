@@ -2,14 +2,14 @@
 
 namespace crudle\app\setup\models\search;
 
-use crudle\app\setup\models\DashboardWidget;
+use crudle\app\setup\models\DataWidget;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * DashboardWidgetSearch represents the model behind the search form of `app\modules\setup\models\DashboardWidget`.
+ * DataWidgetSearch represents the model behind the search form of `app\modules\setup\models\DataWidget`.
  */
-class DashboardWidgetSearch extends DashboardWidget
+class DataWidgetSearch extends DataWidget
 {
     /**
      * {@inheritdoc}
@@ -38,7 +38,7 @@ class DashboardWidgetSearch extends DashboardWidget
      */
     public function search($params)
     {
-        $query = DashboardWidget::find();
+        $query = DataWidget::find();
 
         // add conditions that should always apply here
 
@@ -64,7 +64,7 @@ class DashboardWidgetSearch extends DashboardWidget
         $query->andFilterWhere(['like', 'icon', $this->icon])
             ->andFilterWhere(['like', 'icon_path', $this->icon_path])
             ->andFilterWhere(['like', 'icon_color', $this->icon_color])
-            ->andFilterWhere(['like', 'route', $this->route])
+            ->andFilterWhere(['like', 'id', $this->id])
             ->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'created_by', $this->created_by])
             ->andFilterWhere(['like', 'updated_by', $this->updated_by]);

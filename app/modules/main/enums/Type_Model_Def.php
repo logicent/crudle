@@ -10,11 +10,9 @@ return [
     // 'idType' => Type_Model_Id::,
     // 'module' => Type_Module::,
     // 'subModule' => Type_Module_Sub_Module::, // null
-    // 'type'  => Type_Model_Type::, // Master/Transaction etc.
+    // 'group'  => Type_Model_Group::, // Master/Transaction etc.
     'roles' => [],
     // TBD
     'import' => false,
     'export' => true,
 ];
-
-// Check if captured in notes GiftVoucher

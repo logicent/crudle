@@ -24,7 +24,7 @@ use Zelenin\yii\SemanticUI\modules\Modal;
             endif;
 
             if ( Yii::$app->user->can('Delete ' . $this->context->viewName()) ) :
-                echo Html::a(Yii::t('app', 'Delete'), ['delete-multiple'], [
+                echo Html::a(Yii::t('app', 'Delete'), ['delete-many'], [
                     'id' => 'delete_btn',
                     'class' => 'compact ui primary button',
                     'data' => [

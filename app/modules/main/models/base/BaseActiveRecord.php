@@ -345,9 +345,9 @@ abstract class BaseActiveRecord extends ActiveRecord implements ActiveRecordInte
                     $link = $relationId;
                     $models = $this->$link;
             }
-            $formName = StringHelper::basename($relationDetail['class']);
+            // $formName = StringHelper::basename($relationDetail['class']);
             if (!empty($models) || (empty($models) && $includeEmpty))
-                $relations[$formName] = $models;
+                $relations[$relationId] = $models;
         }
 
         return $relations;

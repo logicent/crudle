@@ -68,7 +68,7 @@ abstract class BaseSettingsController extends BaseFormController
         return $this->render('@appSetup/views/_settings/index');
     }
 
-    public function actionAddItem()
+    public function actionAddRow()
     {
         if ( Yii::$app->request->isAjax )
         {
@@ -90,7 +90,7 @@ abstract class BaseSettingsController extends BaseFormController
         Yii::$app->end();
     }
 
-    public function actionEditItem()
+    public function actionEditRow()
     {
         if ( Yii::$app->request->isAjax )
         {
@@ -113,7 +113,7 @@ abstract class BaseSettingsController extends BaseFormController
         Yii::$app->end();
     }
 
-    public function actionDeleteItem()
+    public function actionDeleteRow()
     {
         if ( Yii::$app->request->isAjax )
         {

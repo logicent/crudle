@@ -2,45 +2,19 @@
 
 namespace crudle\app\setup\models;
 
-use crudle\app\enums\Status_Active;
+use crudle\app\main\enums\Type_Relation;
 use crudle\app\main\models\base\BaseActiveRecord;
-use crudle\app\setup\enums\Permission_Group;
-use crudle\app\setup\enums\Type_Permission;
 use Yii;
 use yii\helpers\ArrayHelper;
 
 /**
- * This is the model class for table "app_dashboard_widget".
+ * This is the model class for table "dashboard_widget".
  */
-class DashboardWidget extends BaseActiveRecord
+class DashboardWidget extends DataWidget
 {
-    // id
-    // label/name
-    // description
-    // displayHeader
-    // cols = 4/8
-    // rows
-    // initialRange/defaultRange
-    // valueRange
-    // refreshInterval
-    // decoratePrefix
-    // decorateSuffix
-    // type
-    // options
-    // Flush?
-    // legend
-    // legendAlign
-    // scale
-
-    public function init()
-    {
-        $this->listSettings = new ListViewSettingsForm();
-        $this->listSettings->listNameAttribute = 'id';
-    }
-
     public static function tableName()
     {
-        return 'app_dashboard_widget';
+        return 'dashboard_widget';
     }
 
     public function rules()
@@ -49,13 +23,8 @@ class DashboardWidget extends BaseActiveRecord
 
         return ArrayHelper::merge($rules, [
             [[
-                'type',
-                'data_model',
-                'data_aggregate_function',
-                'group_by_column',
-                'show_filtered_data',
-                'column_width'
-            ], 'string', 'max' => 140 ]
+                'dashboard_id',
+            ], 'required'],
         ]);
     }
 
@@ -64,32 +33,22 @@ class DashboardWidget extends BaseActiveRecord
         $attributeLabels = parent::attributeLabels();
 
         return ArrayHelper::merge($attributeLabels, [
-                'id'  => Yii::t('app', 'Title'),
-                'type'  => Yii::t('app', 'Type'),
-                'data_model'    => Yii::t('app', 'Data model'),
-                'data_aggregate_function'   => Yii::t('app', 'Data aggregate function'),
-                'group_by_column'   => Yii::t('app', 'Group by column'),
-                'show_filtered_data'    => Yii::t('app', 'Show filtered data'),
-                'column_width'  => Yii::t('app', 'Column width'),
+                'dashboard_id'  => Yii::t('app', 'Dashboard'),
         ]);
     }
 
-    // Workflow Interface
-    public static function permissions()
-    {
-        return Type_Permission::enums(Permission_Group::Crud);
-    }
-
-    // ActiveRecord Interface
-    public static function enums()
+    public static function relations()
     {
         return [
-            'status' => Status_Active::class,
+            'dashboard'   => [
+                'class' => Dashboard::class,
+                'type' => Type_Relation::ParentModel
+            ],
         ];
     }
 
-    public static function autoSuggestIdValue()
+    public function getDashboard()
     {
-        return false;
+        return $this->hasOne(Dashboard::class, ['id' => 'dashboard_id']);
     }
 }

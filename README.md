@@ -24,10 +24,10 @@ Continue:
 - Run `npm install -g bower && npm install -g bower-npm-resolver`
 - Run `bower install`
 - Create a database and update your `.env` settings
-- Run `./yii migrate --migration-path 'app/database/migrations'`
+- Run `./crudle migrate --migration-path 'app/database/migrations'`
 - Run `cat app/database/seeds/people.sql | mysql -u your_root_user -p your_db_name`
-- Run `./yii user/create-superuser "my_password"` and `./yii rbac/init`
-- Run `./yii serve` in local environment or use preferred web server in production
+- Run `./crudle user/create-superuser "my_password"` and `./crudle rbac/init`
+- Run `./crudle serve -t web` in local environment or use preferred web server in production
 
 ### System Architecture
 
@@ -37,10 +37,16 @@ Yii2 Crudle (CRUD logic engine) is a meta framework for rapid application develo
 
 **Containers**
 - backend   (App)
-- builder   (Kit)
+- codegen   (Kit)
 - modules   (Ext)
 
 **Components**
+
+_Main module_
+
+- **Dashboard** - view the dashboards created using the dashboard + data widget tools in setup
+- **Home** - view the default workspace customized in setup to show shortcuts and data widgets
+- **Report** - view the reports created using the report builder to show filtered query result
 
 _Setup module_
 
@@ -59,40 +65,42 @@ _Setup module_
 - **app/modules** to contain the core functionality
 - **app/modules/main** to manage the core app-level interaction like authentication
 - **app/modules/setup** to provide visibility and customization tools for end-users
-- **modules/web-cms** to easily setup a front-end site for users to engage with you
+- **modules/web_cms** to easily setup a front-end site for users to engage with you
 
 ### Technology Stack
 **Programming Languages and Frameworks**
-- PHP 7.4 using Yii2 (latest) and JavaScript using jQuery (latest)
-- Yii2-dockerized (optional)
+- PHP 7.4 using Yii2 _(latest)_ and JavaScript using jQuery _(latest)_
+- Yii2-dockerized _(optional)_
 
 **Templating**
-- Twig
+- Twig _(to consider)_
 
 **Databases Supported**
 - MySQL 5.7
-- SQLite
+- SQLite (offline) _(todo later)_
 
 **UI Frameworks, Components and Libraries**
-- jQuery and Htmx 2
-- Fullcalendar 5.3
+- jQuery
+- HTMX 2  _(todo later)_
+- Fullcalendar 5.3  _(todo next)_
+- LeafletJS 1.8  _(todo next)_
 
 **Web Servers**
-- PHP built-in web server via `./yii serve` or Caddy 2 (Development)
-- Nginx or RoadRunner 2 (Production)
+- PHP built-in web server via `./crudle serve -t web` (Development)
+- Nginx (Production)
 
-**Process Manager**
+**Process Manager**  _(to consider)_
 - Development
 - Production
 
 **Job Queues**
-- Redis
+- Redis _(todo later)_
 
 **Caching**
-- Redis
+- Redis _(todo later)_
 
 **Realtime**
-- Web sockets
+- Web sockets using HTMX 2 _(todo later)_
 
 **Command Line**
 - _To be determined_
@@ -109,9 +117,9 @@ _Next:_
 - [ ] Add multi-tenant project structure and init script - _PoC done_
 
 _Later:_
-- [ ] Upgrade to Yii3 (with CycleORM datamapper) using Bulma and AlpineJS
+- [ ] Upgrade to Yii3 (with CycleORM datamapper) using Bulma and HTMX/AlpineJS
 - [ ] Use hybrid of Php Auth Manager _(predefined)_ and Db Auth Manager _(user-defined)_
-- [ ] Test and prefer RoadRunner over Nginx for production in Ubuntu 20.04+
+- [ ] Test and prefer RoadRunner 2 over Nginx for production in Ubuntu 20.04+
 - [ ] Testing - look into PestPHP but keep an open mind on the way forward
 - [ ] Development via Yii2-dockerized - _PoC done_
 - [ ] Deploying using deployer.org (optional)

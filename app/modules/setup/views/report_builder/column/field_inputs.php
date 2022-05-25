@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use Zelenin\yii\SemanticUI\Elements;
-
+use Zelenin\yii\SemanticUI\modules\Checkbox;
 
 $attributes = [];
 if ($itemModelClass) :
@@ -17,13 +17,16 @@ endif;
 $isReadonly = 
     $this->context->action->id == 'create' || 
     $this->context->action->id == 'update' ||
-    $this->context->action->id == 'add-item';
+    $this->context->action->id == 'add-row';
 ?>
 <tr id="<?= $model->formName() ?>_<?= $rowId ?>">
     <td class="center aligned select-row">
         <?= Html::activeHiddenInput($model, "[{$rowId}]id") ?>
         <?= Html::activeHiddenInput($model, "[{$rowId}]report_builder_id") ?>
-        <?= Html::checkbox("[{$rowId}]id", false, ['label' => false]) ?>
+        <?= Checkbox::widget([
+                'name' => "[$rowId]id",
+                'options' => ['style' => 'vertical-align: text-top']
+            ]) ?>
     </td>
     <td>
         <?= Html::activeDropDownList($model, "[{$rowId}]attribute_name", 
@@ -32,7 +35,15 @@ $isReadonly =
             ) ?>
     </td>
     <td class="center aligned sort-by">
-        <?= Html::activeCheckbox($model, "[{$rowId}]sort_by", ['label' => false]) ?>
+        <?= Checkbox::widget([
+                'model' => $model,
+                'attribute' => "[$rowId]sort_by",
+                'labelOptions' => ['label' => false],
+                'options' => [
+                    'data' => ['name' => 'sort_by'],
+                    'style' => 'vertical-align: text-top'
+                ]
+            ]) ?>
     </td>
     <td class="sort-order">
         <?= Html::activeDropDownList($model, "[{$rowId}]sort_order", [
@@ -42,14 +53,22 @@ $isReadonly =
         ]) ?>
     </td>
     <td class="center aligned filter-by">
-        <?= Html::activeCheckbox($model, "[{$rowId}]filter_by", ['label' => false]) ?>
+        <?= Checkbox::widget([
+                'model' => $model,
+                'attribute' => "[$rowId]filter_by",
+                'labelOptions' => ['label' => false],
+                'options' => [
+                    'data' => ['name' => 'filter_by'],
+                    'style' => 'vertical-align: text-top'
+                ]
+            ]) ?>
     </td>
     <td class="center aligned">
         <?= Elements::button(Elements::icon('horizontal ellipsis'),
                     [
                         'class' => 'compact ui basic icon button edit-column--btn',
                         'data' => [
-                            'url' => Url::to(['setup/report-builder/edit-item', 'id' => $model->id]),
+                            'url' => Url::to(['setup/report-builder/edit-row', 'id' => $model->id]),
                             'model-class' => get_class($model),
                             'model-id' => $model->id,
                             'form-view' => 'column/edit',

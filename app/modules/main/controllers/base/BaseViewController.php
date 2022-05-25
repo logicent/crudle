@@ -17,6 +17,7 @@ use crudle\app\main\controllers\action\PrintPreview;
 use crudle\app\main\controllers\action\RestoreDefaults;
 use crudle\app\main\controllers\action\SwitchViewType;
 use crudle\app\main\enums\Type_Form_View;
+use crudle\app\main\enums\Type_Link;
 use crudle\app\main\enums\Type_View;
 use Yii;
 use yii\helpers\ArrayHelper;
@@ -242,7 +243,7 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
 
     public function getDetailModels(): array
     {
-        return $this->detailModels ??= $this->model->links();
+        return !empty($this->detailModels) ? $this->detailModels : $this->model->links(Type_Link::Model, $includeEmpty = true);
     }
 
     public function validationErrors(): array

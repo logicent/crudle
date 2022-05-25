@@ -1,16 +1,15 @@
 <?php
 
-use crudle\app\main\enums\Type_Model;
-use crudle\app\setup\enums\Permission_Group;
+use crudle\app\setup\enums\Type_Model;
 use crudle\app\setup\enums\Type_Permission;
 use crudle\app\main\models\auth\RolePermission;
 use yii\helpers\Html;
 use yii\helpers\Inflector;
-use crudle\app\assets\DataTableAsset;
+use crudle\app\assets\DataTable;
 use yii\helpers\StringHelper;
 use Zelenin\yii\SemanticUI\modules\Checkbox;
 
-DataTableAsset::register($this);
+DataTable::register($this);
 ?>
 
 <div class="ui one column grid">

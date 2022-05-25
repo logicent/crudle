@@ -36,7 +36,7 @@ if ( Yii::$app->user->can(Type_Permission::Create .' '. $controller->viewName())
 endif;
 // Note: list view does not have a model instance
 if ( Yii::$app->user->can( Type_Permission::Delete .' '. $controller->viewName() ) ) :
-    echo Html::a(Yii::t('app', 'Delete'), ['delete-multiple'], [
+    echo Html::a(Yii::t('app', 'Delete'), ['delete-many'], [
         'id' => 'delete_btn',
         'class' => 'compact ui primary button',
         'data' => [

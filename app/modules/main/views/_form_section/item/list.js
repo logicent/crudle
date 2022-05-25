@@ -31,7 +31,7 @@ $('table.in-form').on('click', '.edit-item--btn',
         });
 
         $.ajax({
-            url: itemRow.editItemUrl,
+            url: tableRow.editUrl,
             type: 'get',
             data: {
                 'modelClass': $(this).data('model-class'),
@@ -75,7 +75,7 @@ $('table.in-form tbody').on('change', 'select.list-option',
         table_row = $(this).closest('tr');
 
         $.ajax({
-            url: itemRow.getItemUrl,
+            url: tableRow.getUrl,
             type: 'get',
             data: {
                 'item_id': $(this).val()
@@ -130,7 +130,7 @@ $('.add-row').on('click',
         el_table_body = el_table.find('tbody');
 
         $.ajax({
-            url: itemRow.addItemUrl,
+            url: tableRow.addUrl,
             type: 'get',
             data: {
                 'modelClass': $(this).data('model-class'),

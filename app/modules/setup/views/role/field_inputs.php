@@ -5,7 +5,8 @@ use yii\helpers\Html;
 
 ?>
 <div class="ui attached padded segment">
-    <?= Html::activeHiddenInput($model, 'type') ?>
+    <?= Html::activeHiddenInput($model, 'type', ['value' => '1']) ?>
+    <?= Html::activeHiddenInput($model, 'inactive', ['value' => '0']) ?>
     <div class="two fields">
         <div class="field">
             <?= $form->field($model, 'name')->textarea([

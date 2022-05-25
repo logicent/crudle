@@ -4,11 +4,11 @@ use crudle\app\helpers\DateTimeHelper;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\widgets\GridView;
-use crudle\app\assets\DataTableAsset;
+use crudle\app\assets\DataTable;
 use yii\helpers\Json;
 use Zelenin\yii\SemanticUI\modules\Checkbox;
 
-DataTableAsset::register($this);
+DataTable::register($this);
 
 $this->title = Yii::t('app', '{reportTitle}', ['reportTitle' => $reportTitle])
 ?>

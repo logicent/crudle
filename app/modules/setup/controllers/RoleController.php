@@ -144,4 +144,9 @@ class RoleController extends BaseCrudController
         }
         $this->redirect(['/']);
     }
+
+    public function actionDeleteMany()
+    {
+        return;
+    }
 }

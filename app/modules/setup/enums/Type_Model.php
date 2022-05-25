@@ -6,7 +6,7 @@ use crudle\app\setup\models\AppModule;
 use crudle\app\setup\models\Dashboard;
 use crudle\app\setup\models\DataImportForm;
 use crudle\app\setup\models\DataModel;
-use crudle\app\setup\models\DashboardWidget;
+use crudle\app\setup\models\DataWidget;
 use crudle\app\setup\models\DbBackupSettingsForm;
 use crudle\app\setup\models\EmailNotification;
 use crudle\app\setup\models\EmailQueue;
@@ -31,7 +31,7 @@ class Type_Model
     const DataImport        = 'Data Import';
     const DataModel         = 'Data Model';
     const Dashboard         = 'Dashboard';
-    const DashboardWidget   = 'Dashboard Widget';
+    const DataWidget        = 'Data Widget';
     const DatabaseBackup    = 'Database Backup';
     const EmailNotification = 'Email Notification';
     const EmailQueue        = 'Email Queue';
@@ -57,7 +57,7 @@ class Type_Model
             self::DataModel         => self::DataModel,
             self::DataImport        => self::DataImport,
             self::Dashboard         => self::Dashboard,
-            self::DashboardWidget   => self::DashboardWidget,
+            self::DataWidget   => self::DataWidget,
             self::DatabaseBackup    => self::DatabaseBackup,
             self::EmailNotification => self::EmailNotification,
             self::EmailQueue        => self::EmailQueue,
@@ -85,7 +85,7 @@ class Type_Model
             self::DataModel         => DataModel::class,
             self::DataImport        => DataImportForm::class,
             self::Dashboard         => Dashboard::class,
-            self::DashboardWidget   => DashboardWidget::class,
+            self::DataWidget   => DataWidget::class,
             self::DatabaseBackup    => DbBackupSettingsForm::class,
             self::EmailNotification => EmailNotification::class,
             self::EmailQueue        => EmailQueue::class,
