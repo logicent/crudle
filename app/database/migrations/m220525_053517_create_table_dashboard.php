@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220408_103839_create_table_app_dashboard_widget extends Migration
+class m220525_053517_create_table_dashboard extends Migration
 {
     public function safeUp()
     {
@@ -12,19 +12,15 @@ class m220408_103839_create_table_app_dashboard_widget extends Migration
         }
 
         $this->createTable(
-            '{{%app_dashboard_widget}}',
+            '{{%dashboard}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
-                'route' => $this->string(140)->notNull(),
-                'title' => $this->string(140)->notNull(),
-                'group' => $this->string(140),
-                'type' => $this->string(140),
-                'data_model' => $this->string(140),
-                'data_aggregate_function' => $this->string(140),
-                'group_by_column' => $this->string(140),
-                'show_filtered_data' => $this->string(140),
-                'column_width' => $this->string(140),
-                'status' => $this->boolean(),
+                'route' => $this->string(140),
+                'heading' => $this->string(140)->notNull(),
+                'description' => $this->text(),
+                'module' => $this->string(140),
+                'inactive' => $this->boolean(),
+                'roles' => $this->text(),
                 'icon' => $this->string(140),
                 'icon_path' => $this->string(140),
                 'icon_color' => $this->string(140),
@@ -39,11 +35,11 @@ class m220408_103839_create_table_app_dashboard_widget extends Migration
             $tableOptions
         );
 
-        $this->createIndex('created_by', '{{%app_dashboard_widget}}', ['created_by']);
+        $this->createIndex('created_by', '{{%dashboard}}', ['created_by']);
     }
 
     public function safeDown()
     {
-        $this->dropTable('{{%app_dashboard_widget}}');
+        $this->dropTable('{{%dashboard}}');
     }
 }

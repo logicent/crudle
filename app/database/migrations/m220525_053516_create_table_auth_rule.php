@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220408_103845_create_table_auth_assignment extends Migration
+class m220525_053516_create_table_auth_rule extends Migration
 {
     public function safeUp()
     {
@@ -12,20 +12,19 @@ class m220408_103845_create_table_auth_assignment extends Migration
         }
 
         $this->createTable(
-            '{{%auth_assignment}}',
+            '{{%auth_rule}}',
             [
-                'item_name' => $this->string(64)->notNull(),
-                'user_id' => $this->string(64)->notNull(),
+                'name' => $this->string(64)->notNull()->append('PRIMARY KEY'),
+                'data' => $this->binary(),
                 'created_at' => $this->integer(),
+                'updated_at' => $this->integer(),
             ],
             $tableOptions
         );
-
-        $this->addPrimaryKey('PRIMARYKEY', '{{%auth_assignment}}', ['item_name', 'user_id']);
     }
 
     public function safeDown()
     {
-        $this->dropTable('{{%auth_assignment}}');
+        $this->dropTable('{{%auth_rule}}');
     }
 }

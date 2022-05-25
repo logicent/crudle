@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220408_103841_create_table_app_data_model_field extends Migration
+class m220525_053520_create_table_data_model_field extends Migration
 {
     public function safeUp()
     {
@@ -12,7 +12,7 @@ class m220408_103841_create_table_app_data_model_field extends Migration
         }
 
         $this->createTable(
-            '{{%app_data_model_field}}',
+            '{{%data_model_field}}',
             [
                 'name' => $this->string(140)->notNull(),
                 'data_model' => $this->string(140)->notNull(),
@@ -49,11 +49,11 @@ class m220408_103841_create_table_app_data_model_field extends Migration
             $tableOptions
         );
 
-        $this->addPrimaryKey('PRIMARYKEY', '{{%app_data_model_field}}', ['name', 'data_model']);
+        $this->addPrimaryKey('PRIMARYKEY', '{{%data_model_field}}', ['name', 'data_model']);
     }
 
     public function safeDown()
     {
-        $this->dropTable('{{%app_data_model_field}}');
+        $this->dropTable('{{%data_model_field}}');
     }
 }

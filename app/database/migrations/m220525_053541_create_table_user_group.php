@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220408_103900_create_table_site_form_field extends Migration
+class m220525_053541_create_table_user_group extends Migration
 {
     public function safeUp()
     {
@@ -12,16 +12,16 @@ class m220408_103900_create_table_site_form_field extends Migration
         }
 
         $this->createTable(
-            '{{%site_form_field}}',
+            '{{%user_group}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
-                'site_form_id' => $this->string(140)->notNull(),
-                'label' => $this->string(280)->notNull(),
-                'attribute' => $this->string(140),
-                'is_required' => $this->boolean(),
-                'default' => $this->string(140),
-                'is_readonly' => $this->boolean(),
-                'value' => $this->string(140),
+                'alias' => $this->string(140),
+                'group_email' => $this->string(140),
+                'status' => $this->string(140),
+                'notes' => $this->text(),
+                'user_role' => $this->string(140),
+                'parent_group' => $this->string(140),
+                'comments' => $this->text(),
                 'created_at' => $this->dateTime(),
                 'created_by' => $this->string(140),
                 'updated_at' => $this->dateTime(),
@@ -31,11 +31,13 @@ class m220408_103900_create_table_site_form_field extends Migration
             $tableOptions
         );
 
-        $this->createIndex('created_by', '{{%site_form_field}}', ['created_by']);
+        $this->createIndex('updated_by', '{{%user_group}}', ['updated_by']);
+        $this->createIndex('created_by', '{{%user_group}}', ['created_by']);
+        $this->createIndex('user_group', '{{%user_group}}', ['parent_group']);
     }
 
     public function safeDown()
     {
-        $this->dropTable('{{%site_form_field}}');
+        $this->dropTable('{{%user_group}}');
     }
 }

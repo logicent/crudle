@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220408_103846_create_table_auth_item extends Migration
+class m220525_053514_create_table_auth_item extends Migration
 {
     public function safeUp()
     {
@@ -30,8 +30,8 @@ class m220408_103846_create_table_auth_item extends Migration
             $tableOptions
         );
 
-        $this->createIndex('rule_name', '{{%auth_item}}', ['rule_name']);
         $this->createIndex('idx-auth_item-type', '{{%auth_item}}', ['type']);
+        $this->createIndex('rule_name', '{{%auth_item}}', ['rule_name']);
     }
 
     public function safeDown()

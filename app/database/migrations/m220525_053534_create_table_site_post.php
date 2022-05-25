@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220408_103904_create_table_site_post_author extends Migration
+class m220525_053534_create_table_site_post extends Migration
 {
     public function safeUp()
     {
@@ -12,17 +12,23 @@ class m220408_103904_create_table_site_post_author extends Migration
         }
 
         $this->createTable(
-            '{{%site_post_author}}',
+            '{{%site_post}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
-                'full_name' => $this->string(140)->notNull(),
-                'designation' => $this->text(),
-                'image_link' => $this->string(140),
-                'bio' => $this->string(280),
-                'inactive' => $this->boolean(),
-                'date_published' => $this->date(),
-                'route' => $this->string(140),
+                'title' => $this->string(280)->notNull(),
+                'content' => $this->text(),
+                'featured_image' => $this->string(140),
+                'category_id' => $this->string(140),
+                'author' => $this->string(140),
+                'slug' => $this->string(280)->notNull(),
+                'parent' => $this->string(140),
+                'status' => $this->string(140),
                 'comments' => $this->text(),
+                'published' => $this->boolean(),
+                'date_published' => $this->date(),
+                'tags' => $this->text(),
+                'layout' => $this->string(140),
+                'route' => $this->string(140),
                 'created_at' => $this->dateTime(),
                 'created_by' => $this->string(140),
                 'updated_at' => $this->dateTime(),
@@ -32,11 +38,11 @@ class m220408_103904_create_table_site_post_author extends Migration
             $tableOptions
         );
 
-        $this->createIndex('created_by', '{{%site_post_author}}', ['created_by']);
+        $this->createIndex('created_by', '{{%site_post}}', ['created_by']);
     }
 
     public function safeDown()
     {
-        $this->dropTable('{{%site_post_author}}');
+        $this->dropTable('{{%site_post}}');
     }
 }

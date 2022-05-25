@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220408_103842_create_table_app_menu extends Migration
+class m220525_053537_create_table_site_sidebar extends Migration
 {
     public function safeUp()
     {
@@ -12,16 +12,13 @@ class m220408_103842_create_table_app_menu extends Migration
         }
 
         $this->createTable(
-            '{{%app_menu}}',
+            '{{%site_sidebar}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
+                'parent_label' => $this->string(140)->notNull(),
                 'route' => $this->string(140)->notNull(),
-                'label' => $this->string(140)->notNull(),
-                'group' => $this->string(140)->notNull(),
-                'inactive' => $this->boolean(),
                 'icon' => $this->string(140),
-                'icon_path' => $this->string(140),
-                'icon_color' => $this->string(140),
+                'inactive' => $this->boolean(),
                 'comments' => $this->text(),
                 'created_at' => $this->dateTime(),
                 'created_by' => $this->string(140),
@@ -32,11 +29,11 @@ class m220408_103842_create_table_app_menu extends Migration
             $tableOptions
         );
 
-        $this->createIndex('created_by', '{{%app_menu}}', ['created_by']);
+        $this->createIndex('created_by', '{{%site_sidebar}}', ['created_by']);
     }
 
     public function safeDown()
     {
-        $this->dropTable('{{%app_menu}}');
+        $this->dropTable('{{%site_sidebar}}');
     }
 }

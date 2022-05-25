@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220408_103856_create_table_report_builder extends Migration
+class m220525_053532_create_table_site_form_field extends Migration
 {
     public function safeUp()
     {
@@ -12,20 +12,16 @@ class m220408_103856_create_table_report_builder extends Migration
         }
 
         $this->createTable(
-            '{{%report_builder}}',
+            '{{%site_form_field}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
-                'title' => $this->string(140)->notNull(),
-                'subtitle' => $this->string(140),
-                'description' => $this->text(),
-                'model_name' => $this->string(140),
-                'group' => $this->string(140),
-                'type' => $this->string(140),
-                'inactive' => $this->boolean()->defaultValue('0'),
-                'query_cmd' => $this->text()->notNull(),
-                'roles' => $this->text(),
-                'comments' => $this->text(),
-                'tags' => $this->text(),
+                'site_form_id' => $this->string(140)->notNull(),
+                'label' => $this->string(280)->notNull(),
+                'attribute' => $this->string(140),
+                'is_required' => $this->boolean(),
+                'default' => $this->string(140),
+                'is_readonly' => $this->boolean(),
+                'value' => $this->string(140),
                 'created_at' => $this->dateTime(),
                 'created_by' => $this->string(140),
                 'updated_at' => $this->dateTime(),
@@ -34,10 +30,12 @@ class m220408_103856_create_table_report_builder extends Migration
             ],
             $tableOptions
         );
+
+        $this->createIndex('created_by', '{{%site_form_field}}', ['created_by']);
     }
 
     public function safeDown()
     {
-        $this->dropTable('{{%report_builder}}');
+        $this->dropTable('{{%site_form_field}}');
     }
 }

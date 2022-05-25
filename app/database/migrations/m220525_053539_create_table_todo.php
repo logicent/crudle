@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220408_103859_create_table_site_form extends Migration
+class m220525_053539_create_table_todo extends Migration
 {
     public function safeUp()
     {
@@ -12,17 +12,15 @@ class m220408_103859_create_table_site_form extends Migration
         }
 
         $this->createTable(
-            '{{%site_form}}',
+            '{{%todo}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
-                'title' => $this->string(280)->notNull(),
+                'name' => $this->string(140)->notNull(),
+                'description' => $this->string(140),
                 'status' => $this->string(140),
+                'inactive' => $this->boolean(),
                 'comments' => $this->text(),
-                'published' => $this->boolean(),
-                'date_published' => $this->date(),
                 'tags' => $this->text(),
-                'layout' => $this->string(140),
-                'route' => $this->string(140),
                 'created_at' => $this->dateTime(),
                 'created_by' => $this->string(140),
                 'updated_at' => $this->dateTime(),
@@ -32,11 +30,11 @@ class m220408_103859_create_table_site_form extends Migration
             $tableOptions
         );
 
-        $this->createIndex('created_by', '{{%site_form}}', ['created_by']);
+        $this->createIndex('created_by', '{{%todo}}', ['created_by']);
     }
 
     public function safeDown()
     {
-        $this->dropTable('{{%site_form}}');
+        $this->dropTable('{{%todo}}');
     }
 }

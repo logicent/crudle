@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220408_103857_create_table_report_builder_item extends Migration
+class m220525_053522_create_table_email_digest extends Migration
 {
     public function safeUp()
     {
@@ -12,18 +12,15 @@ class m220408_103857_create_table_report_builder_item extends Migration
         }
 
         $this->createTable(
-            '{{%report_builder_item}}',
+            '{{%email_digest}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
-                'report_builder_id' => $this->string(140),
-                'attribute_name' => $this->string(140),
-                'default_value' => $this->string(140),
-                'sort_by' => $this->boolean(),
-                'sort_order' => $this->string(20),
-                'filter_by' => $this->boolean(),
-                'hidden' => $this->boolean()->defaultValue('0'),
-                'select_function' => $this->text(),
-                'select_expression' => $this->text(),
+                'frequency' => $this->string(140)->notNull(),
+                'recipient_list' => $this->text(),
+                'model_names' => $this->string(140),
+                'email_template' => $this->string(140)->notNull(),
+                'inactive' => $this->boolean(),
+                'comments' => $this->text(),
                 'created_at' => $this->dateTime(),
                 'created_by' => $this->string(140),
                 'updated_at' => $this->dateTime(),
@@ -32,10 +29,13 @@ class m220408_103857_create_table_report_builder_item extends Migration
             ],
             $tableOptions
         );
+
+        $this->createIndex('updated_by', '{{%email_digest}}', ['updated_by']);
+        $this->createIndex('created_by', '{{%email_digest}}', ['created_by']);
     }
 
     public function safeDown()
     {
-        $this->dropTable('{{%report_builder_item}}');
+        $this->dropTable('{{%email_digest}}');
     }
 }

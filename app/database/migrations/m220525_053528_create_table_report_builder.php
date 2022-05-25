@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220408_103902_create_table_site_page extends Migration
+class m220525_053528_create_table_report_builder extends Migration
 {
     public function safeUp()
     {
@@ -12,20 +12,20 @@ class m220408_103902_create_table_site_page extends Migration
         }
 
         $this->createTable(
-            '{{%site_page}}',
+            '{{%report_builder}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
-                'title' => $this->string(280)->notNull(),
-                'content' => $this->text(),
-                'author' => $this->string(140),
-                'slug' => $this->string(280)->notNull(),
-                'parent' => $this->string(140),
-                'status' => $this->string(140),
-                'published' => $this->boolean(),
-                'date_published' => $this->date(),
+                'title' => $this->string(140)->notNull(),
+                'subtitle' => $this->string(140),
+                'description' => $this->text(),
+                'model_name' => $this->string(140),
+                'group' => $this->string(140),
+                'type' => $this->string(140),
+                'inactive' => $this->boolean()->defaultValue('0'),
+                'query_cmd' => $this->text()->notNull(),
+                'roles' => $this->text(),
+                'comments' => $this->text(),
                 'tags' => $this->text(),
-                'layout' => $this->string(140),
-                'route' => $this->string(140),
                 'created_at' => $this->dateTime(),
                 'created_by' => $this->string(140),
                 'updated_at' => $this->dateTime(),
@@ -34,12 +34,10 @@ class m220408_103902_create_table_site_page extends Migration
             ],
             $tableOptions
         );
-
-        $this->createIndex('created_by', '{{%site_page}}', ['created_by']);
     }
 
     public function safeDown()
     {
-        $this->dropTable('{{%site_page}}');
+        $this->dropTable('{{%report_builder}}');
     }
 }

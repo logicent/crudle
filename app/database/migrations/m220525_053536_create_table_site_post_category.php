@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220408_103905_create_table_site_post_category extends Migration
+class m220525_053536_create_table_site_post_category extends Migration
 {
     public function safeUp()
     {

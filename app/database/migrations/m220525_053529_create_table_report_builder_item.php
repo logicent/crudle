@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220408_103909_create_table_user_log extends Migration
+class m220525_053529_create_table_report_builder_item extends Migration
 {
     public function safeUp()
     {
@@ -12,17 +12,18 @@ class m220408_103909_create_table_user_log extends Migration
         }
 
         $this->createTable(
-            '{{%user_log}}',
+            '{{%report_builder_item}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
-                'user_id' => $this->string(140)->notNull(),
-                'session_id' => $this->string(140),
-                'status' => $this->string(140),
-                'login_at' => $this->integer(),
-                'login_ip' => $this->string(128),
-                'logout_at' => $this->integer(),
-                'logout_ip' => $this->string(128),
-                'comments' => $this->text(),
+                'report_builder_id' => $this->string(140),
+                'attribute_name' => $this->string(140),
+                'default_value' => $this->string(140),
+                'sort_by' => $this->boolean(),
+                'sort_order' => $this->string(20),
+                'filter_by' => $this->boolean(),
+                'hidden' => $this->boolean()->defaultValue('0'),
+                'select_function' => $this->text(),
+                'select_expression' => $this->text(),
                 'created_at' => $this->dateTime(),
                 'created_by' => $this->string(140),
                 'updated_at' => $this->dateTime(),
@@ -31,12 +32,10 @@ class m220408_103909_create_table_user_log extends Migration
             ],
             $tableOptions
         );
-
-        $this->createIndex('user_id', '{{%user_log}}', ['user_id']);
     }
 
     public function safeDown()
     {
-        $this->dropTable('{{%user_log}}');
+        $this->dropTable('{{%report_builder_item}}');
     }
 }

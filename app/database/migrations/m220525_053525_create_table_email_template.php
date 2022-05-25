@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220408_103906_create_table_site_slide extends Migration
+class m220525_053525_create_table_email_template extends Migration
 {
     public function safeUp()
     {
@@ -12,28 +12,27 @@ class m220408_103906_create_table_site_slide extends Migration
         }
 
         $this->createTable(
-            '{{%site_slide}}',
+            '{{%email_template}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
-                'heading' => $this->string(140)->notNull(),
-                'description' => $this->string(280),
-                'image_path' => $this->string(140),
+                'subject' => $this->text(),
+                'message' => $this->text(),
                 'inactive' => $this->boolean(),
                 'comments' => $this->text(),
-                'created_at' => $this->dateTime(),
-                'created_by' => $this->string(140),
-                'updated_at' => $this->dateTime(),
-                'updated_by' => $this->string(140),
+                'created_at' => $this->dateTime()->notNull(),
+                'created_by' => $this->string(140)->notNull(),
+                'updated_at' => $this->dateTime()->notNull(),
+                'updated_by' => $this->string(140)->notNull(),
                 'deleted_at' => $this->dateTime(),
             ],
             $tableOptions
         );
 
-        $this->createIndex('created_by', '{{%site_slide}}', ['created_by']);
+        $this->createIndex('created_by', '{{%email_template}}', ['created_by']);
     }
 
     public function safeDown()
     {
-        $this->dropTable('{{%site_slide}}');
+        $this->dropTable('{{%email_template}}');
     }
 }

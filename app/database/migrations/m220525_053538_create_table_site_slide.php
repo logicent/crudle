@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220408_103908_create_table_user_group extends Migration
+class m220525_053538_create_table_site_slide extends Migration
 {
     public function safeUp()
     {
@@ -12,15 +12,13 @@ class m220408_103908_create_table_user_group extends Migration
         }
 
         $this->createTable(
-            '{{%user_group}}',
+            '{{%site_slide}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
-                'alias' => $this->string(140),
-                'group_email' => $this->string(140),
-                'status' => $this->string(140),
-                'notes' => $this->text(),
-                'user_role' => $this->string(140),
-                'parent_group' => $this->string(140),
+                'heading' => $this->string(140)->notNull(),
+                'description' => $this->string(280),
+                'image_path' => $this->string(140),
+                'inactive' => $this->boolean(),
                 'comments' => $this->text(),
                 'created_at' => $this->dateTime(),
                 'created_by' => $this->string(140),
@@ -31,13 +29,11 @@ class m220408_103908_create_table_user_group extends Migration
             $tableOptions
         );
 
-        $this->createIndex('created_by', '{{%user_group}}', ['created_by']);
-        $this->createIndex('updated_by', '{{%user_group}}', ['updated_by']);
-        $this->createIndex('user_group', '{{%user_group}}', ['parent_group']);
+        $this->createIndex('created_by', '{{%site_slide}}', ['created_by']);
     }
 
     public function safeDown()
     {
-        $this->dropTable('{{%user_group}}');
+        $this->dropTable('{{%site_slide}}');
     }
 }

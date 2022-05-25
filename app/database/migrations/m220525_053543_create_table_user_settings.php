@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220408_103843_create_table_app_module extends Migration
+class m220525_053543_create_table_user_settings extends Migration
 {
     public function safeUp()
     {
@@ -12,16 +12,12 @@ class m220408_103843_create_table_app_module extends Migration
         }
 
         $this->createTable(
-            '{{%app_module}}',
+            '{{%user_settings}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
-                'route' => $this->string(140)->notNull(),
-                'label' => $this->string(140)->notNull(),
-                'group' => $this->string(140)->notNull(),
-                'inactive' => $this->boolean(),
-                'icon' => $this->string(140),
-                'icon_path' => $this->string(140),
-                'icon_color' => $this->string(140),
+                'user_id' => $this->string(140)->notNull(),
+                'view_model' => $this->string(140),
+                'view_settings' => $this->text(),
                 'comments' => $this->text(),
                 'created_at' => $this->dateTime(),
                 'created_by' => $this->string(140),
@@ -32,11 +28,11 @@ class m220408_103843_create_table_app_module extends Migration
             $tableOptions
         );
 
-        $this->createIndex('created_by', '{{%app_module}}', ['created_by']);
+        $this->createIndex('user_id', '{{%user_settings}}', ['user_id']);
     }
 
     public function safeDown()
     {
-        $this->dropTable('{{%app_module}}');
+        $this->dropTable('{{%user_settings}}');
     }
 }

@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220408_103903_create_table_site_post extends Migration
+class m220525_053533_create_table_site_page extends Migration
 {
     public function safeUp()
     {
@@ -12,18 +12,15 @@ class m220408_103903_create_table_site_post extends Migration
         }
 
         $this->createTable(
-            '{{%site_post}}',
+            '{{%site_page}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
                 'title' => $this->string(280)->notNull(),
                 'content' => $this->text(),
-                'featured_image' => $this->string(140),
-                'category_id' => $this->string(140),
                 'author' => $this->string(140),
                 'slug' => $this->string(280)->notNull(),
                 'parent' => $this->string(140),
                 'status' => $this->string(140),
-                'comments' => $this->text(),
                 'published' => $this->boolean(),
                 'date_published' => $this->date(),
                 'tags' => $this->text(),
@@ -38,11 +35,11 @@ class m220408_103903_create_table_site_post extends Migration
             $tableOptions
         );
 
-        $this->createIndex('created_by', '{{%site_post}}', ['created_by']);
+        $this->createIndex('created_by', '{{%site_page}}', ['created_by']);
     }
 
     public function safeDown()
     {
-        $this->dropTable('{{%site_post}}');
+        $this->dropTable('{{%site_page}}');
     }
 }

@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m220408_103910_create_table_user_settings extends Migration
+class m220525_053527_create_table_print_style extends Migration
 {
     public function safeUp()
     {
@@ -12,27 +12,28 @@ class m220408_103910_create_table_user_settings extends Migration
         }
 
         $this->createTable(
-            '{{%user_settings}}',
+            '{{%print_style}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
-                'user_id' => $this->string(140)->notNull(),
-                'view_model' => $this->string(140),
-                'view_settings' => $this->text(),
-                'comments' => $this->text(),
                 'created_at' => $this->dateTime(),
-                'created_by' => $this->string(140),
                 'updated_at' => $this->dateTime(),
-                'updated_by' => $this->string(140),
                 'deleted_at' => $this->dateTime(),
+                'updated_by' => $this->string(140),
+                'created_by' => $this->string(140),
+                'css' => $this->text(),
+                'status' => $this->string(140),
+                'inactive' => $this->boolean()->defaultValue('0'),
+                'standard' => $this->boolean(),
+                'preview' => $this->string(140),
+                'comments' => $this->text(),
+                'tags' => $this->text(),
             ],
             $tableOptions
         );
-
-        $this->createIndex('user_id', '{{%user_settings}}', ['user_id']);
     }
 
     public function safeDown()
     {
-        $this->dropTable('{{%user_settings}}');
+        $this->dropTable('{{%print_style}}');
     }
 }
