@@ -4,7 +4,7 @@
 
 **Overview**
 
-A free and open-source web development starter kit for building ready to go enterprise applications.
+A free and open source web development starter kit for building ready to go enterprise applications.
 
 **Installation**
 
@@ -14,10 +14,10 @@ Prerequisites
 - NPM
 
 Option 1: via Composer
-- Run `composer create-project logicent/yii2-crudle:dev-main && cd logicent`
+- Run `composer create-project logicent/yii2-crudle:dev-main && cd yii2-crudle`
 
 Option 2: via CLI
-- Run `git clone git@github.com:logicent/yii2-crudle.git && cd logicent`
+- Run `git clone git@github.com:logicent/yii2-crudle.git && cd yii2-crudle`
 - Run `composer install`
 
 Continue:
@@ -25,8 +25,8 @@ Continue:
 - Run `bower install`
 - Create a database and update your `.env` settings
 - Run `./crudle migrate --migration-path 'app/database/migrations'`
-- Run `cat app/database/seeds/people.sql | mysql -u your_root_user -p your_db_name`
-- Run `./crudle user/create-superuser "my_password"` and `./crudle rbac/init`
+- Run `cat app/database/seeds/people.sql | mysql -u <my_root_user> -p <my_db_name>`
+- Run `./crudle user/create-superuser 'my_password'` and `./crudle rbac/init`
 - Run `./crudle serve -t web` in local environment or use preferred web server in production
 
 ### System Architecture
@@ -44,9 +44,9 @@ Yii2 Crudle (CRUD logic engine) is a meta framework for rapid application develo
 
 _Main module_
 
-- **Dashboard** - view the dashboards created using the dashboard + data widget tools in setup
 - **Home** - view the default workspace customized in setup to show shortcuts and data widgets
-- **Report** - view the reports created using the report builder to show filtered query result
+- **Dashboard** - view the dashboards created using the dashboard + data widget tools in setup
+- **Report** - view the reports created using the report builder to show filtered/full query result
 
 _Setup module_
 
