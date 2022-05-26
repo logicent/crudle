@@ -50,7 +50,7 @@ class DataModelField extends BaseActiveRecordDetail
      */
     public static function tableName()
     {
-        return 'app_data_model_field';
+        return 'data_model_field';
     }
 
     /**

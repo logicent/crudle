@@ -42,12 +42,12 @@ class LayoutSettingsForm extends BaseSettingsForm
         $this->uploadForm = new UploadForm();
         $this->fileAttribute = 'bgImagePath';
 
-        $this->shortcutMenu = new AppMenuShortcut();
-        $this->createMenu = new AppMenuCreate();
-        $this->alertMenu = new AppMenuAlert();
-        $this->helpMenu = new AppMenuHelp();
-        // $this->userMenu = new AppMenuUser();
-        // $this->sidebarMenu = new AppMenuSidebar();
+        $this->shortcutMenu = new AppShortcutMenu();
+        $this->createMenu = new AppCreateMenu();
+        $this->alertMenu = new AppAlertMenu();
+        $this->helpMenu = new AppHelpMenu();
+        // $this->userMenu = new AppUserMenu();
+        // $this->sidebarMenu = new AppSidebarMenu();
     }
 
     public function rules()
@@ -110,27 +110,27 @@ class LayoutSettingsForm extends BaseSettingsForm
     {
         return [
             'createMenu' => [
-                'class' => AppMenuCreate::class,
+                'class' => AppCreateMenu::class,
                 'type' => Type_Relation::InlineModel,
             ],
             'helpMenu' => [
-                'class' => AppMenuHelp::class,
+                'class' => AppHelpMenu::class,
                 'type' => Type_Relation::InlineModel,
             ],
             // 'userMenu' => [
-            //     'class' => AppMenuUser::class,
+            //     'class' => AppUserMenu::class,
             //     'type' => Type_Relation::InlineModel,
             // ],
             'alertMenu' => [
-                'class' => AppMenuAlert::class,
+                'class' => AppAlertMenu::class,
                 'type' => Type_Relation::InlineModel,
             ],
             // 'sidebarMenu' => [
-            //     'class' => AppMenuSidebar::class,
+            //     'class' => AppSidebarMenu::class,
             //     'type' => Type_Relation::InlineModel,
             // ],
             'shortcutMenu' => [
-                'class' => AppMenuShortcut::class,
+                'class' => AppShortcutMenu::class,
                 'type' => Type_Relation::InlineModel,
             ],
         ];

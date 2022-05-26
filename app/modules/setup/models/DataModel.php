@@ -18,7 +18,7 @@ class DataModel extends BaseActiveRecord
      */
     public static function tableName()
     {
-        return 'app_data_model';
+        return 'data_model';
     }
 
     /**
