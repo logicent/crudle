@@ -6,7 +6,7 @@ use crudle\app\main\enums\Type_Menu_Group;
 use Yii;
 use yii\helpers\ArrayHelper;
 
-class Type_Menu_Sub_Group
+class Type_Menu_Sub_Group extends Type_Menu_Group
 {
     const Printing = 'Printing';
     const Email = 'Email';
@@ -28,7 +28,7 @@ class Type_Menu_Sub_Group
                 self::Core => Yii::t('app', 'System'),
                 self::Code => Yii::t('app', 'Code Generator'),
                 self::Layout => Yii::t('app', 'Workspace'),
-            ], Type_Menu_Group::enums());
+            ], parent::enums());
     }
 
     public static function enumIcons()
@@ -42,6 +42,6 @@ class Type_Menu_Sub_Group
                 self::Core => 'cog', // 'toggle on'
                 self::Code => 'code',
                 self::Layout => 'window maximize outline',
-            ], Type_Menu_Group::enumIcons());
+            ], parent::enumIcons());
     }
 }
