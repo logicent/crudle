@@ -1,9 +1,9 @@
 <?php
 
-use yii\helpers\FileHelper;
-use yii\helpers\StringHelper;
+use crudle\app\helpers\App;
+use yii\helpers\ArrayHelper;
 
-$modules = [
+$coreModules = [
     // core modules
     'main'  => crudle\app\main\Module::class,
     'setup' => crudle\app\setup\Module::class,
@@ -12,17 +12,6 @@ $modules = [
 ];
 
 // user modules
-$extPath = Yii::getAlias(('@extModules'));
-$extDirs = FileHelper::findDirectories($extPath, ['recursive' => false]);
+$userModules = App::getExtModules();
 
-foreach ($extDirs as $extDir) {
-    // check if sub dir is a module dir
-    if (!file_exists($extDir . '/Module.php'))
-        continue;
-    $moduleDirname = StringHelper::basename($extDir);
-    $config = require $extDir . '/config.php';
-    // dynamically append module found in extPath
-    $modules[$config['id']] = "crudle\\ext\\{$moduleDirname}\\Module";
-}
-
-return $modules;
+return ArrayHelper::merge($coreModules, $userModules);
