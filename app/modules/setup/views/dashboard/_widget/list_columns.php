@@ -2,6 +2,6 @@
 
 return [
     ['name' => 'id', 'width' => 'three'],
-    ['name' => 'type', 'width' => 'three'],
-    ['name' => 'inactive', 'width' => 'two'],
+    ['name' => 'type', 'width' => 'two'],
+    ['name' => 'data_model', 'width' => 'three'],
 ];

@@ -1,15 +1,13 @@
 <?php
 
+use crudle\app\helpers\App;
 use crudle\app\helpers\SelectableItems;
-use crudle\app\main\enums\Column_Width;
-use crudle\app\setup\enums\Data_Aggregate_Function;
-use crudle\app\setup\enums\Type_Model;
 use crudle\app\setup\enums\Type_Widget;
+use crudle\app\setup\models\DashboardWidget;
 use crudle\app\setup\models\DataWidget;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;
 use Zelenin\yii\SemanticUI\modules\Checkbox;
-use Zelenin\yii\SemanticUI\modules\Radio;
 
 ?>
 <tr>
@@ -21,27 +19,39 @@ use Zelenin\yii\SemanticUI\modules\Radio;
             ]) ?>
     </td>
     <td>
-        <?= Html::activeDropDownList($model, "[$rowId]id", 
+        <?= Html::activeDropDownList($model, "[$rowId]id",
                 SelectableItems::get( DataWidget::class, $model, [
                     'valueAttribute' => 'id',
-                    // 'addEmptyFirstItem' => false,
                     'filters' => [
                         'status' => false,
                     ]
-                ])) ?>
+                ]),
+                ['data' => ['name' => 'id']]) ?>
     </td>
     <td>
-        <?= Html::activeTextInput($model, "[$rowId]type") ?>
+        <?= Html::activeDropDownList($model, "[$rowId]type",
+                Type_Widget::enums(),
+                ['data' => ['name' => 'type']]
+            ) ?>
     </td>
     <td class="center aligned">
-        <?= Checkbox::widget([
-                'model' => $model,
-                'attribute' => "[$rowId]status",
-                'labelOptions' => ['label' => false],
-                'options' => [
-                    'data' => ['name' => 'status'],
-                    'style' => 'vertical-align: text-top'
-                ]
-            ]) ?>
+        <?= Html::activeDropDownList($model, "[$rowId]data_model",
+                App::getModelsFromExtModules(),
+                ['data' => ['name' => 'data_model']]) ?>
+    </td>
+    <td class="one wide center aligned">
+        <?= Html::a(Elements::icon('grey pencil'), null, [
+                    'class' => 'edit-item--btn compact ui small basic icon button',
+                    'style' => 'margin: 0em;',
+                    'data' => [
+                        'model-class' => DashboardWidget::class,
+                        'form-view' => '@appSetup/views/dashboard/_widget/_edit_form',
+                    ]
+                ]) ?>
+        <?= Html::activeHiddenInput($model, "[$rowId]status", ['data' => ['name' => 'status']]) ?>
+        <?= Html::activeHiddenInput($model, "[$rowId]data_aggregate_function", ['data' => ['name' => 'data_aggregate_function']]) ?>
+        <?= Html::activeHiddenInput($model, "[$rowId]group_by_column", ['data' => ['name' => 'group_by_column']]) ?>
+        <?= Html::activeHiddenInput($model, "[$rowId]show_filtered_data", ['data' => ['name' => 'show_filtered_data']]) ?>
+        <?= Html::activeHiddenInput($model, "[$rowId]column_width", ['data' => ['name' => 'column_width']]) ?>
     </td>
 </tr>

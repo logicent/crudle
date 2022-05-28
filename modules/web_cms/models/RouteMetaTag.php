@@ -2,9 +2,9 @@
 
 namespace crudle\ext\web_cms\models;
 
-use crudle\app\main\models\base\BaseActiveRecordDetail;
+use crudle\app\main\models\ActiveRecordDetail;
 
-class RouteMetaTag extends BaseActiveRecordDetail
+class RouteMetaTag extends ActiveRecordDetail
 {
     public static function tableName()
     {

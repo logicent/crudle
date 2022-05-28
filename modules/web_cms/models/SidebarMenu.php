@@ -2,11 +2,11 @@
 
 namespace crudle\ext\web_cms\models;
 
-use crudle\app\main\models\base\BaseActiveRecord;
+use crudle\app\main\models\ActiveRecord;
 use Yii;
 use yii\helpers\ArrayHelper;
 
-class SidebarMenu extends BaseActiveRecord
+class SidebarMenu extends ActiveRecord
 {
     public static function tableName()
     {

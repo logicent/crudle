@@ -3,6 +3,11 @@
 use crudle\app\enums\Type_Module;
 use crudle\app\setup\models\DashboardWidget;
 
+
+if (isset($this->context->getDetailModels()['widgets']))
+    $modelsId = 'widgets';
+else // id changes on validation
+    $modelsId = 'DashboardWidget';
 ?>
 <div class="ui padded segment">
     <div class="ui two column grid">
@@ -33,7 +38,7 @@ use crudle\app\setup\models\DashboardWidget;
         'content'       => $this->render('@appMain/views/_form_section/item', [
                                 'form' => $form,
                                 'model' => new DashboardWidget(),
-                                'detailModels' => $this->context->getDetailModels()['widgets'],
+                                'detailModels' => $this->context->getDetailModels()[$modelsId],
                                 'formView' => '@appSetup/views/dashboard/_widget/field_inputs',
                                 'listColumns' => '@appSetup/views/dashboard/_widget/list_columns',
                                 'listId' => 'dashboard_widget',

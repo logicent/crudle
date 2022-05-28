@@ -5,6 +5,7 @@ namespace crudle\app\helpers;
 use crudle\app\main\models\ActiveRecord;
 use crudle\app\main\models\Model;
 use Yii;
+use yii\helpers\ArrayHelper;
 use yii\helpers\FileHelper;
 use yii\helpers\Inflector;
 use yii\helpers\Json;
@@ -89,23 +90,63 @@ class App
         return $modules;
     }
 
-    public static function getExtModuleModels($moduleDir)
+    public static function getExtModulePaths($pathAlias = '@extModules')
     {
-        $files = FileHelper::findFiles($moduleDir);
+        $extPath = Yii::getAlias($pathAlias);
+        return FileHelper::findDirectories($extPath, ['recursive' => false]);
+    }
+
+    public static function getModelsFromExtModules($pathAlias = '@extModules')
+    {
+        $modules = self::getExtModulePaths($pathAlias);
+
+        $models = [];
+        foreach ($modules as $module) {
+            $moduleName = StringHelper::basename($module);
+            $models[$moduleName] = self::getModelsFromExtModule($module);
+        }
+
+        return self::arrayFlatten($models);
+    }
+
+    public static function getModelsFromExtModule($moduleDir)
+    {
+        $files = FileHelper::findFiles($moduleDir . '/models', ['recursive' => false]);
+        sort($files);
+        $moduleId = StringHelper::basename($moduleDir);
 
         $models = [];
         foreach ($files as $file)
         {
-            // check if file is a model or AR file
-            if (! $file InstanceOf ActiveRecord && ! $file InstanceOf Model)
+            $modelClassname = StringHelper::basename($file, '.php');
+            $modelClass = "crudle\\ext\\{$moduleId}\\models\\{$modelClassname}";
+            $model = new $modelClass();
+            // check if model is a AR class
+            if (! $model InstanceOf ActiveRecord)
                 continue;
-            $moduleDirname = StringHelper::basename($moduleDir);
-            $modelClass = get_called_class($file);
-            // dynamically append model found in moduleDir
-            // $models[] = "crudle\\ext\\{$moduleDirname}\\{$modelClass}";
-            $models[] = $modelClass;
+
+            $models[$modelClass] = Inflector::camel2words($modelClassname);
         }
 
         return $models;
+    }
+
+    public static function arrayFlatten($array = null)
+    {
+        $result = [];
+
+        if (!is_array($array)) {
+            $array = func_get_args();
+        }
+
+        foreach ($array as $key => $value) {
+            if (is_array($value)) {
+                $result = array_merge($result, self::arrayFlatten($value));
+            } else {
+                $result = array_merge($result, [$key => $value]);
+            }
+        }
+
+        return $result;
     }
 }

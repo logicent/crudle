@@ -2,11 +2,11 @@
 
 namespace crudle\ext\web_cms\models;
 
-use crudle\app\main\models\base\BaseActiveRecord;
+use crudle\app\main\models\ActiveRecord;
 use crudle\app\setup\models\ListViewSettingsForm;
 use crudle\ext\web_cms\enums\Status_Article;
 
-class WebForm extends BaseActiveRecord
+class WebForm extends ActiveRecord
 {
     public function init()
     {

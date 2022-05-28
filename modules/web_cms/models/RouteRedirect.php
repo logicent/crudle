@@ -2,9 +2,9 @@
 
 namespace crudle\ext\web_cms\models;
 
-use crudle\app\main\models\base\BaseActiveRecord;
+use crudle\app\main\models\ActiveRecord;
 
-class RouteRedirect extends BaseActiveRecord
+class RouteRedirect extends ActiveRecord
 {
     public static function tableName()
     {

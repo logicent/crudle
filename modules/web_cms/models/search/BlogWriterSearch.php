@@ -1,7 +1,8 @@
 <?php
 
-namespace crudle\ext\web_cms\models;
+namespace crudle\ext\web_cms\models\search;
 
+use crudle\ext\web_cms\models\BlogWriter;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 

@@ -2,9 +2,9 @@
 
 namespace crudle\ext\web_cms\models;
 
-use crudle\app\main\models\base\BaseActiveRecordDetail;
+use crudle\app\main\models\ActiveRecordDetail;
 
-class SlideshowItem extends BaseActiveRecordDetail
+class SlideshowItem extends ActiveRecordDetail
 {
     public static function tableName()
     {

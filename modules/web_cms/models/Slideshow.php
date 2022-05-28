@@ -2,9 +2,9 @@
 
 namespace crudle\ext\web_cms\models;
 
-use crudle\app\main\models\base\BaseActiveRecord;
+use crudle\app\main\models\ActiveRecord;
 
-class Slideshow extends BaseActiveRecord
+class Slideshow extends ActiveRecord
 {
     public static function tableName()
     {

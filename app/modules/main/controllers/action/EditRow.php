@@ -19,13 +19,13 @@ class EditRow extends Action
             if (!$model)
                 $model = new $modelClass();
 
-            $formData = Yii::$app->request->get('formData');
-            $formData = ArrayHelper::map($formData, 'name', 'value');
-            $formView = Yii::$app->request->get('formView');
-            return $this->renderAjax($formView, [
+            $rowData = Yii::$app->request->get('rowData');
+            $rowData = ArrayHelper::map($rowData, 'name', 'value');
+            $editView = Yii::$app->request->get('editView');
+            return $this->controller->renderAjax($editView, [
                         'model' => $model,
                         'modelClass' => StringHelper::basename($modelClass),
-                        'formData' => $formData,
+                        'rowData' => $rowData,
                         'rowId' => trim(Yii::$app->request->get('rowId')),
                     ]);
         }

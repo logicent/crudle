@@ -21,11 +21,16 @@ $('table.in-form').on('click', '.edit-item--btn',
         edit_btn = $(this);
         table_row = edit_btn.closest('tr');
         row_inputs = table_row.children('td').children('input');
-        // row_checkbox = table_row.children('td').children('div').children('input[type="hidden"]');
+        row_selects = table_row.children('td').children('select');
+
         modal_id = table_row.parents('table').parent('div').attr('id') + '__modal';
 
         row_fields = [];
         row_inputs.each(function(){
+            field = { 'name': $(this).data('name'), 'value': $(this).val()};
+            row_fields.push(field);
+        });
+        row_selects.each(function(){
             field = { 'name': $(this).data('name'), 'value': $(this).val()};
             row_fields.push(field);
         });

@@ -1,11 +1,12 @@
 <?php
 
-namespace crudle\ext\web_cms\models;
+namespace crudle\ext\web_cms\models\search;
 
+use crudle\ext\web_cms\models\WebPage;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
-class BlogArticleSearch extends BlogArticle
+class WebPageSearch extends WebPage
 {
     /**
      * {@inheritdoc}
@@ -34,7 +35,7 @@ class BlogArticleSearch extends BlogArticle
      */
     public function search($params)
     {
-        $query = BlogArticle::find();
+        $query = WebPage::find();
 
         // add conditions that should always apply here
 

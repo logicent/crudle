@@ -1,11 +1,12 @@
 <?php
 
-namespace crudle\ext\web_cms\models;
+namespace crudle\ext\web_cms\models\search;
 
+use crudle\ext\web_cms\models\BlogArticle;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
-class SlideshowSearch extends Slideshow
+class BlogArticleSearch extends BlogArticle
 {
     /**
      * {@inheritdoc}
@@ -34,7 +35,7 @@ class SlideshowSearch extends Slideshow
      */
     public function search($params)
     {
-        $query = Slideshow::find();
+        $query = BlogArticle::find();
 
         // add conditions that should always apply here
 
@@ -57,8 +58,8 @@ class SlideshowSearch extends Slideshow
             'deleted_at' => $this->deleted_at,
         ]);
 
-        $query->andFilterWhere(['like', 'heading', $this->heading])
-            ->andFilterWhere(['like', 'description', $this->description])
+        $query->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'content', $this->content])
             ->andFilterWhere(['like', 'created_by', $this->created_by])
             ->andFilterWhere(['like', 'updated_by', $this->updated_by]);
 

@@ -1,5 +1,6 @@
 <?php
-namespace app\models\forms;
+
+namespace crudle\ext\web_cms\models;
 
 use Yii;
 use yii\base\Model;
