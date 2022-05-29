@@ -4,6 +4,7 @@ namespace crudle\app\main\controllers;
 
 use crudle\app\main\controllers\base\BaseViewController;
 use crudle\app\main\enums\Type_View;
+use crudle\app\setup\models\Dashboard;
 
 class DashboardController extends BaseViewController
 {
@@ -17,12 +18,15 @@ class DashboardController extends BaseViewController
      * Renders the index view for the controller
      * @return string
      */
-    public function actionIndex()
+    public function actionIndex($id = null)
     {
-        $stats = [];
+        $model = Dashboard::findOne(['route' => $id]);
+
+        if (!$model)
+            $model = new Dashboard();
 
         return $this->render('index', [
-            'stats' => $stats
+            'model' => $model
         ]);
     }
 

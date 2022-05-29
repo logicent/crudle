@@ -4,9 +4,7 @@ namespace crudle\app\main\controllers;
 
 use crudle\app\main\controllers\base\BaseViewController;
 use crudle\app\setup\models\ReportBuilder;
-use Yii;
-use yii\data\ActiveDataProvider;
-use yii\helpers\ArrayHelper;
+
 
 class ReportController extends BaseViewController
 {
@@ -17,9 +15,7 @@ class ReportController extends BaseViewController
     public function init()
     {
         parent::init();
-
-        $this->viewPath = Yii::getAlias('@appMain/views/report');
-        // return;
+        $this->reports = ReportBuilder::find()->where(['inactive' => false])->asArray()->all();
     }
 
     public function actions()
@@ -30,32 +26,11 @@ class ReportController extends BaseViewController
 
     public function actionIndex($id = null)
     {
-        if ($id) {
-            $rptModel = ReportBuilder::findOne($id);
-            $this->modelClass = $rptModel->model_name;
-            // apply soft delete filter
-            $query = $this->modelClass::find()->where(['deleted_at' => null]);
+        $model = ReportBuilder::findOne(['route' => $id]);
 
-            $dataProvider = new ActiveDataProvider([
-                'query' => $query,
-                // 'sort' => false,
-                // 'pagination' => false
-            ]);
-
-            return $this->renderAjax('_list/list', [
-                'dataProvider' => $dataProvider,
-                'reportTitle' => $rptModel->title,
-                'hideId' => true,
-                'columns' => ArrayHelper::map($rptModel->reportBuilderItems, 'attribute_name', 'attribute_name')
-            ]);
-        }
-
-        $this->reports = ReportBuilder::find()->asArray()->all();
-
-        return $this->render('index', []);
-
-        // $model = new $this->modelClass();
-
+        return $this->render('index', [
+            'model' => $model
+        ]);
         // $columns = array_diff_key($model->attributeLabels(), $model->skip_in_report);
 
         // return $this->renderAjax('/report/index', [

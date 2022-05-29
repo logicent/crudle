@@ -12,6 +12,8 @@ use crudle\app\main\controllers\action\DeleteRow;
 use crudle\app\main\controllers\action\EditRow;
 use crudle\app\main\controllers\action\FindItem;
 use crudle\app\main\controllers\action\Index;
+use crudle\app\main\controllers\action\LoadAttributesByModel;
+use crudle\app\main\controllers\action\LoadModelsByModule;
 use crudle\app\main\controllers\action\Read;
 use crudle\app\main\controllers\action\SaveComment;
 use crudle\app\main\controllers\action\ShowCommentModal;
@@ -135,6 +137,8 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
             'save-comment'          => SaveComment::class,
             'show-comment-modal'    => ShowCommentModal::class,
             'show-related-text'     => ShowRelatedText::class,
+            'load-models-by-module'     => LoadModelsByModule::class,
+            'load-attributes-by-model'  => LoadAttributesByModel::class,
             'update-status'         => UpdateStatus::class,
         ]);
     }

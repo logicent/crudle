@@ -1,10 +1,10 @@
 <?php
 
 use crudle\app\helpers\SelectableItems;
-use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\helpers\Size;
 use Zelenin\yii\SemanticUI\modules\Modal;
 use Zelenin\yii\SemanticUI\modules\Select;
+
 
 $modal = Modal::begin([
     'id' => 'dropdown_modal',
@@ -21,7 +21,9 @@ echo $form
             'items' => SelectableItems::get(
                             $listModelClass,
                             $model, [
-                                'valueAttribute' => $valueAttribute
+                                'keyAttribute' => $keyAttribute,
+                                'valueAttribute' => $valueAttribute,
+                                'filters' => $filters
                             ]),
             'disabled' => $isReadonly
         ]);

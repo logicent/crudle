@@ -6,13 +6,13 @@ use Zelenin\yii\SemanticUI\Elements;
 use Zelenin\yii\SemanticUI\modules\Checkbox;
 
 $attributes = [];
-if ($itemModelClass) :
-    $fieldModel = new $itemModelClass();
-    foreach ($fieldModel::attributes() as $attribute) :
-        $attributes[$attribute] = $fieldModel->getAttributeLabel($attribute);
-    endforeach;
-    array_multisort($attributes);
-endif;
+// if ($itemModelClass) :
+//     $fieldModel = new $itemModelClass();
+//     foreach ($fieldModel::attributes() as $attribute) :
+//         $attributes[$attribute] = $fieldModel->getAttributeLabel($attribute);
+//     endforeach;
+//     array_multisort($attributes);
+// endif;
 
 $isReadonly = 
     $this->context->action->id == 'create' || 
@@ -31,7 +31,7 @@ $isReadonly =
     <td>
         <?= Html::activeDropDownList($model, "[{$rowId}]attribute_name", 
                 $attributes,
-                ['class' => 'list-option']
+                ['class' => 'rb--attribute-name']
             ) ?>
     </td>
     <td class="center aligned sort-by">

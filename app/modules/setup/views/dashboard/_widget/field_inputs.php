@@ -5,6 +5,7 @@ use crudle\app\helpers\SelectableItems;
 use crudle\app\setup\enums\Type_Widget;
 use crudle\app\setup\models\DashboardWidget;
 use crudle\app\setup\models\DataWidget;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\Elements;
 use Zelenin\yii\SemanticUI\modules\Checkbox;
@@ -36,8 +37,11 @@ use Zelenin\yii\SemanticUI\modules\Checkbox;
     </td>
     <td class="center aligned">
         <?= Html::activeDropDownList($model, "[$rowId]data_model",
-                App::getModelsFromExtModules(),
-                ['data' => ['name' => 'data_model']]) ?>
+                ArrayHelper::merge([' ' => ''], App::getModelsFromExtModules()),
+                [
+                    'class' => 'rb--model-name',
+                    'data' => ['name' => 'data_model']
+                ]) ?>
     </td>
     <td class="one wide center aligned">
         <?= Html::a(Elements::icon('grey pencil'), null, [

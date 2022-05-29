@@ -1,8 +1,8 @@
 <?php
 
-namespace crudle\app\setup\widgets;
+namespace crudle\app\widgets;
 
-class PieChart extends \Zelenin\yii\SemanticUI\Widget
+class LineChart extends \Zelenin\yii\SemanticUI\Widget
 {
     /**
      * {@inheritdoc}

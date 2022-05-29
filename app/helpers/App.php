@@ -90,6 +90,26 @@ class App
         return $modules;
     }
 
+    public static function getExtModuleList($pathAlias = '@extModules')
+    {
+        $extPath = Yii::getAlias($pathAlias);
+        $extDirs = FileHelper::findDirectories($extPath, ['recursive' => false]);
+
+        $modules = [];
+        foreach ($extDirs as $extDir)
+        {
+            // check if sub dir is a module dir
+            if (!file_exists($extDir . '/Module.php'))
+                continue;
+            $moduleDirname = StringHelper::basename($extDir);
+            $config = require $extDir . '/config.php';
+            // dynamically append module found in extPath
+            $modules[$config['id']] = Inflector::camel2words(Inflector::id2camel($config['id']));
+        }
+
+        return $modules;
+    }
+
     public static function getExtModulePaths($pathAlias = '@extModules')
     {
         $extPath = Yii::getAlias($pathAlias);

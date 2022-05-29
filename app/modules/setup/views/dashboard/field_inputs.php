@@ -1,8 +1,11 @@
 <?php
 
 use crudle\app\enums\Type_Module;
+use crudle\app\helpers\App;
 use crudle\app\setup\models\DashboardWidget;
-
+use yii\helpers\ArrayHelper;
+use yii\helpers\Url;
+use Zelenin\yii\SemanticUI\modules\Select;
 
 if (isset($this->context->getDetailModels()['widgets']))
     $modelsId = 'widgets';
@@ -13,7 +16,19 @@ else // id changes on validation
     <div class="ui two column grid">
         <div class="column">
             <?= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($model, 'module')->dropDownList(Type_Module::enums()) ?>
+            <?= $form->field($model, 'module')->widget(Select::class, [
+                    'search' => true,
+                    'items' => ArrayHelper::merge([' ' => ''], App::getExtModuleList()),
+                    'options' => [
+                        'id' => 'rb__module',
+                        'class' => 'load-related-list-options',
+                        'data' => [
+                            'url' => Url::to(['load-models-by-module']),
+                            'dependent_field_count' => 'many',
+                            'dependent_field_ref' => 'rb--model-name',
+                        ]
+                    ]
+                ]) ?>
         </div>
         <div class="column">
             <?= $form->field($model, 'inactive')->checkbox(['class' => 'toggle'])->label('&nbsp;') ?><br>
@@ -46,3 +61,5 @@ else // id changes on validation
         'collapsible'   => false,
         'expanded'      => true,
     ]) ?>
+<?php
+$this->registerJs($this->render('@appMain/views/_form_field/load_related_list_options.js'));

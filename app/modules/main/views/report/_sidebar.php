@@ -6,6 +6,7 @@ use yii\helpers\Url;
 
 
 $reports = $this->context->reports;
+
 ArrayHelper::multisort($reports, 'id');
 ArrayHelper::multisort($reports, 'group');
 $reportGroups = ArrayHelper::map($reports, 'id', 'id', 'group');

@@ -25,7 +25,7 @@ $workspaceMenus[] = [
 
 foreach ($dashboards as $dashboard) :
     $dashboardMenus[] = [
-        'route' => "/main{$dashboard->route}/index",
+        'route' => "/main/dashboard/index?id={$dashboard->route}",
         'label' => $dashboard->id,
         'group' => Type_Menu_Sub_Group::Dashboard,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
@@ -34,7 +34,7 @@ endforeach;
 
 foreach ($reports as $report) :
     $reportMenus[] = [
-        'route' =>  "/main{$report->route}/index",
+        'route' =>  "/main/report/index?id={$report->route}",
         'label' => $report->id,
         'group' => Type_Menu_Sub_Group::Reports,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),

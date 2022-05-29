@@ -1,22 +1,28 @@
 <?php
 
-use crudle\app\main\enums\Type_Model;
-use crudle\app\main\enums\Type_Module;
+use crudle\app\helpers\App;
+use crudle\app\helpers\SelectableItems;
 use crudle\app\main\enums\Type_Report;
-use crudle\app\setup\enums\Type_Role;
+use crudle\app\setup\models\Role;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\Elements;
+use yii\helpers\Url;
 use Zelenin\yii\SemanticUI\modules\Select;
-use Zelenin\yii\SemanticUI\widgets\ActiveForm;
 
-$modelClasses = array_flip(Type_Model::modelClasses());
-ksort($modelClasses);
+
 $rolesCount = !empty($model->roles) ? count($model->roles) : '0';
 ?>
-    <div class="ui attached padded segment">
+    <div class="ui padded segment">
         <div class="ui two column grid">
             <div class="column">
                 <?= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>
+            </div>
+            <div class="column">
+                <?= $form->field($model, 'inactive')->checkbox(['class' => 'toggle'])->label('&nbsp;') ?>
+            </div>
+        </div>
+        <div class="ui one column grid">
+            <div class="column">
                 <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
                 <?= $form->field($model, 'subtitle')->textInput(['maxlength' => true]) ?>
                 <?= $form->field($model, 'description')->textarea([
@@ -24,57 +30,71 @@ $rolesCount = !empty($model->roles) ? count($model->roles) : '0';
                         'maxlength' => true,
                         'style' => 'resize: none; max-height: 7.875em;'
                     ]) ?>
-                <?= $form->field($model, 'model_name')->widget(Select::class, [
-                            'search' => true,
-                            'items' => $modelClasses,
-                            'options' => ['id' => 'rb__model_name']
-                        ]) ?>
             </div>
+        </div>
+    </div>
+
+    <div class="ui padded segment">
+        <div class="ui two column grid">
             <div class="column">
-                <?= $form->field($model, 'inactive')->checkbox(['class' => 'toggle'])->label('&nbsp;') ?>
-                <br>
+                <?= $form->field($model, 'group')->widget(Select::class, [
+                        'search' => true,
+                        'items' => ArrayHelper::merge([' ' => ''], App::getExtModuleList()),
+                        'options' => [
+                            'id' => 'rb__group',
+                            'class' => 'load-related-list-options',
+                            'data' => [
+                                'url' => Url::to(['load-models-by-module']),
+                                'dependent_field_count' => 'one',
+                                'dependent_field_ref' => 'rb__model_name',
+                            ]
+                        ]
+                    ])->label('Module') ?>
+                <?= $form->field($model, 'model_name')->widget(Select::class, [
+                        'search' => true,
+                        'items' => ArrayHelper::merge([' ' => ''], App::getModelsFromExtModules()),
+                        'options' => [
+                            'id' => 'rb__model_name',
+                            'class' => 'load-related-list-options',
+                            'data' => [
+                                'url' => Url::to(['load-attributes-by-model']),
+                                'dependent_field_count' => 'many',
+                                'dependent_field_ref' => 'rb--attribute-name',
+                            ]
+                        ]
+                    ])->label('Data model') ?>
                 <?= $form->field($model, 'type')->widget(Select::class, [
                         'search' => true,
                         'items' => Type_Report::enums(),
                         'options' => ['id' => 'rb__type']
                     ]) ?>
-                <?= $form->field($model, 'group')->widget(Select::class, [
-                        'search' => true,
-                        'items' => [], // Type_Module::enums(),
-                        'options' => ['id' => 'rb__group']
-                    ])->label('Module') ?>
+            </div>
+            <div class="column">
                 <?= $form->field($model, 'roles')
-                        ->checkboxList(Type_Role::domainRoles(), ['class' => 'custom-listbox report-role'])
+                        ->checkboxList(
+                            SelectableItems::get(Role::class, $model, [
+                                'keyAttribute' => 'name',
+                                'valueAttribute' => 'name',
+                                'addEmptyFirstItem' => false,
+                                'filters' => ['type' => 1, ['<>', 'name', 'Administrator']]
+                            ]),
+                            ['class' => 'custom-listbox report-role'])
                         ->label(
                             $model->getAttributeLabel('roles') .'&nbsp;('.
-                            Html::tag('span', $rolesCount,
-                                    [
-                                        'class' => 'selected-list-options',
-                                        'data' => ['count' => $rolesCount]
-                                    ]) . ')'
+                            Html::tag('span', $rolesCount, [
+                                'class' => 'selected-list-options',
+                                'data' => ['count' => $rolesCount]
+                            ]) . ')'
                         ) ?>
             </div>
         </div>
     </div>
 
-    <?= $this->render('column/list', ['model' => $model, 'form' => $form]) ?>
-
-    <div class="ui attached padded segment">
-        <!-- [
-        'modules' => [
-            'syntax' => true, // Include syntax module
-        ],
-            'toolbarOptions' => [['code-block']] // Include button in toolbar
-        ] -->
-        <?= $form->field($model, 'query_cmd')->textarea(['rows' => 8]) ?>
-
-        <?= Elements::button(Yii::t('app', 'Test query'), [
-                'id' => 'test_connection',
-                'class' => 'compact ui small button',
-                'data' => ['url' => 'test-query']
-            ]) ?>
-    </div>
+    <?= $this->render('_columns/index', ['model' => $model, 'form' => $form]) ?>
+    <?= $this->render('_query_cmd', ['model' => $model, 'form' => $form]) ?>
 <?php
+$this->registerJs($this->render('@appMain/views/_form_field/load_related_list_options.js'));
+
 $this->registerJs(<<<JS
     $('.custom-listbox').on('click', function() {
         count = 0;

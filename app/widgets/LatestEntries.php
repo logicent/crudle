@@ -1,8 +1,8 @@
 <?php
 
-namespace crudle\app\setup\widgets;
+namespace crudle\app\widgets;
 
-class LineChart extends \Zelenin\yii\SemanticUI\Widget
+class LatestEntries extends \Zelenin\yii\SemanticUI\Widget
 {
     /**
      * {@inheritdoc}

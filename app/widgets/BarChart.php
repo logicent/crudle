@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\app\setup\widgets;
+namespace crudle\app\widgets;
 
 class BarChart extends \Zelenin\yii\SemanticUI\Widget
 {
