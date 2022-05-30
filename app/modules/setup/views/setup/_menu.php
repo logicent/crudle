@@ -105,12 +105,12 @@ return [
         'group' => Type_Menu_Sub_Group::Data,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
-    [
-        'route' => '/setup/db-backup-settings/index',
-        'label' => 'Database Backup',
-        'group' => Type_Menu_Sub_Group::Data,
-        'visible' => Yii::$app->user->can(Type_Role::SystemManager),
-    ],
+    // [
+    //     'route' => '/setup/db-backup-settings/index',
+    //     'label' => 'Database Backup',
+    //     'group' => Type_Menu_Sub_Group::Data,
+    //     'visible' => Yii::$app->user->can(Type_Role::SystemManager),
+    // ],
     [
         'route' => '/setup/user/index',
         'label' => 'User & Preferences',

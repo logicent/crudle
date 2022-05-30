@@ -4,7 +4,7 @@ namespace crudle\app\main\controllers;
 
 use crudle\app\main\controllers\base\BaseViewController;
 use crudle\app\setup\models\ReportBuilder;
-
+use Yii;
 
 class ReportController extends BaseViewController
 {
@@ -28,6 +28,11 @@ class ReportController extends BaseViewController
     {
         $model = ReportBuilder::findOne(['route' => $id]);
 
+        if (Yii::$app->request->isAjax)
+            return $this->renderAjax('index', [
+                'model' => $model
+            ]);
+        // else
         return $this->render('index', [
             'model' => $model
         ]);
