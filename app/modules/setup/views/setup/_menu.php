@@ -105,12 +105,30 @@ return [
         'group' => Type_Menu_Sub_Group::Data,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
-    // [
-    //     'route' => '/setup/db-backup-settings/index',
-    //     'label' => 'Database Backup',
-    //     'group' => Type_Menu_Sub_Group::Data,
-    //     'visible' => Yii::$app->user->can(Type_Role::SystemManager),
-    // ],
+    [
+        'route' => '/setup/system-cache/index',
+        'label' => 'System Cache',
+        'group' => Type_Menu_Sub_Group::Storage,
+        'visible' => Yii::$app->user->can(Type_Role::SystemManager),
+    ],
+    [
+        'route' => '/setup/file-storage/index',
+        'label' => 'File Storage',
+        'group' => Type_Menu_Sub_Group::Storage,
+        'visible' => Yii::$app->user->can(Type_Role::SystemManager),
+    ],
+    [
+        'route' => '/setup/db-migration/index',
+        'label' => 'Table Migration',
+        'group' => Type_Menu_Sub_Group::Storage,
+        'visible' => Yii::$app->user->can(Type_Role::SystemManager),
+    ],
+    [
+        'route' => '/setup/db-backup-settings/index',
+        'label' => 'Backup & Restore',
+        'group' => Type_Menu_Sub_Group::Storage,
+        'visible' => Yii::$app->user->can(Type_Role::SystemManager),
+    ],
     [
         'route' => '/setup/user/index',
         'label' => 'User & Preferences',

@@ -10,7 +10,7 @@ class Type_Menu_Sub_Group extends Type_Menu_Group
 {
     const Dashboard = 'Dashboard';
     const Workspace = 'Workspace';
-
+    const Module = 'Module';
 
     public static function enums()
     {
@@ -18,6 +18,7 @@ class Type_Menu_Sub_Group extends Type_Menu_Group
             ArrayHelper::merge([
                 self::Dashboard => Yii::t('app', 'Dashboard'),
                 self::Workspace => Yii::t('app', 'Workspace'),
+                self::Module => Yii::t('app', 'Module'),
             ], parent::enums());
     }
 
@@ -25,8 +26,9 @@ class Type_Menu_Sub_Group extends Type_Menu_Group
     {
         return 
             ArrayHelper::merge([
-                self::Dashboard => 'window',
-                self::Workspace => 'window',
+                self::Dashboard => 'dashboard',
+                self::Workspace => 'windows outline',
+                self::Module => 'columns',
             ], parent::enumIcons());
     }
 }

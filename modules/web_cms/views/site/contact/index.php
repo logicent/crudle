@@ -8,7 +8,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Contact'), 'url' => 
 
 
 $model = $this->context->getModel();
-$detailModels = $this->context->getDetailModels();
+// $detailModels = $this->context->getDetailModels();
 ?>
 
 <?= Elements::header($model->heading, ['class' => 'huge', 'style' => 'font-weight: 500']) ?>

@@ -55,7 +55,7 @@ class DbBackupSettingsController extends BaseSettingsController
 
     public function actionDbDump()
     {
-        $result = \app\helpers\DbDumper::createDbDump();
+        $result = DbDumper::createDbDump();
 
         if ($result === true) // dump succeeded
             return Yii::t('app', 'Database backup was created successfully');

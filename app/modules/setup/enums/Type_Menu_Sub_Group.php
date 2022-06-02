@@ -8,18 +8,19 @@ use yii\helpers\ArrayHelper;
 
 class Type_Menu_Sub_Group extends Type_Menu_Group
 {
-    const Printing = 'Printing';
-    const Email = 'Email';
-    const Data = 'Data';
-    const People = 'People';
-    const Core = 'Core';
     const Code = 'Code';
+    const Core = 'Core';
+    const Data = 'Data';
+    const Email = 'Email';
     const Layout = 'Layout';
+    const People = 'People';
+    const Printing = 'Printing';
+    const Storage = 'Storage';
 
 
     public static function enums()
     {
-    return 
+        return 
             ArrayHelper::merge([
                 self::Printing => Yii::t('app', 'Printing'),
                 self::Email => Yii::t('app', 'Email Sending'),
@@ -28,6 +29,7 @@ class Type_Menu_Sub_Group extends Type_Menu_Group
                 self::Core => Yii::t('app', 'System'),
                 self::Code => Yii::t('app', 'Code Generator'),
                 self::Layout => Yii::t('app', 'Workspace'),
+                self::Storage => Yii::t('app', 'Data Storage'),
             ], parent::enums());
     }
 
@@ -37,11 +39,12 @@ class Type_Menu_Sub_Group extends Type_Menu_Group
             ArrayHelper::merge([
                 self::Printing => 'print',
                 self::Email => 'inbox',
-                self::Data => 'server', // 'disk',
+                self::Data => 'server',
                 self::People => 'users',
-                self::Core => 'cog', // 'toggle on'
                 self::Code => 'code',
+                self::Core => 'cog', // 'toggle on'
                 self::Layout => 'window maximize outline',
+                self::Storage => 'disk',
             ], parent::enumIcons());
     }
 }

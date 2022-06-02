@@ -684,6 +684,10 @@ body::-webkit-scrollbar-thumb {
     border-radius: 0rem !important;
 }
 
+.ui.sticky .ui.cards > .card, .ui.sticky .ui.card {
+    background: ghostwhite !important;
+}
+
 .ui.cards > .card, .ui.card {
     border-radius: 0.15rem;
     -webkit-box-shadow: 0px 1px 3px 0px #dee5e7, 0px 0px 0px 1px #dee5e7;

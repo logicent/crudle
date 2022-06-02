@@ -4,7 +4,7 @@ namespace crudle\ext\web_cms\controllers;
 
 use crudle\app\main\controllers\base\BaseCrudController;
 use crudle\ext\web_cms\models\BlogWriter;
-use crudle\ext\web_cms\models\BlogWriterSearch;
+use crudle\ext\web_cms\models\search\BlogWriterSearch;
 
 /**
  * BlogWriterController for the `BlogWriter` model
