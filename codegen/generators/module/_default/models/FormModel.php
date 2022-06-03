@@ -3,7 +3,7 @@
 echo "<?php\n";
 ?>
 
-namespace <?= $generator->moduleID ?>\models;
+namespace crudle\ext\<?= $generator->moduleID ?>\models;
 
 use crudle\app\main\enums\Type_Relation;
 use crudle\app\main\models\UploadForm;

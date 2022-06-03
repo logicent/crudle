@@ -154,10 +154,13 @@ EOD;
             $this->render("controllers/Controller.php")
         );
         $files[] = new CodeFile(
+            $modulePath . "/views/$this->moduleID/_menu.php",
+            $this->render("views/_menu.php")
+        );
+        $files[] = new CodeFile(
             $modulePath . "/views/$this->moduleID/index.php",
             $this->render("views/index.php")
         );
-
         return $files;
     }
 

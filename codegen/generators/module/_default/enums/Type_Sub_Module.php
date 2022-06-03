@@ -3,7 +3,7 @@
 echo "<?php\n";
 ?>
 
-namespace crudle\enums;
+namespace crudle\ext\<?= $generator->moduleID ?>\enums;
 
 use Yii;
 

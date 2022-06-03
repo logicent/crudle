@@ -9,7 +9,7 @@ echo "<?php\n";
 return [
     // 'controllerNamespace' => 'modules\<?= $generator->moduleID ?>\controllers',
     // 'params' => [],
-    // 'id' => '<?= $generator->moduleID ?>',
+    'id' => '<?= $generator->moduleID ?>',
     // 'layout' => 'main',
     // 'controllerMap' => [],
     'defaultRoute' => '<?= $generator->moduleID ?>', // !! MUST be set

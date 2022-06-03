@@ -3,9 +3,9 @@
 echo "<?php\n";
 ?>
 
-namespace crudle\enums;
+namespace crudle\ext\<?= $generator->moduleID ?>\enums;
 
-// use crudle\enums\models\<?= $generator->getModuleClass() ?>;
+// use crudle\ext\<?= $generator->moduleID ?>\models\<?= $generator->getModuleClass() ?>;
 
 class Type_Model
 {
