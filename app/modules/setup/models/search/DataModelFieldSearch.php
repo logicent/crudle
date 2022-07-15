@@ -17,8 +17,17 @@ class DataModelFieldSearch extends DataModelField
     public function rules()
     {
         return [
-            [['name', 'data_model', 'label', 'type', 'options', 'depends_on', 'mandatory_depends_on', 'readonly_depends_on', 'default', 'description'], 'safe'],
-            [['length', 'mandatory', 'unique', 'in_list_view', 'in_standard_filter', 'in_global_search', 'bold', 'allow_in_quick_entry', 'translatable', 'fetch_from', 'fetch_if_empty', 'ignore_user_permissions', 'allow_on_submit', 'report_hide', 'perm_level', 'hidden', 'readonly', 'in_filter', 'print_hide', 'print_width', 'width'], 'integer'],
+            [[
+                'id', 'field_name', 'model_name', 'label', 'field_type', 'db_type', 'options', 
+                'depends_on', 'mandatory_depends_on', 'readonly_depends_on', 
+                'default', 'description'
+            ], 'safe'],
+            [[
+                'length', 'mandatory', 'unique', 'in_list_view', 'in_standard_filter', 'in_global_search',
+                'bold', 'allow_in_quick_entry', 'translatable', 'fetch_from', 'fetch_if_empty', 
+                'ignore_user_permissions', 'allow_on_submit', 'report_hide', 'perm_level', 'hidden',
+                'readonly', 'in_filter', 'print_hide', 'print_width', 'width'
+            ], 'integer'],
         ];
     }
 
@@ -58,9 +67,10 @@ class DataModelFieldSearch extends DataModelField
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'length' => $this->length,
+            // 'id' => $this->id,
             'mandatory' => $this->mandatory,
             'unique' => $this->unique,
+            'length' => $this->length,
             'in_list_view' => $this->in_list_view,
             'in_standard_filter' => $this->in_standard_filter,
             'in_global_search' => $this->in_global_search,
@@ -81,10 +91,11 @@ class DataModelFieldSearch extends DataModelField
             'width' => $this->width,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'data_model', $this->data_model])
-            ->andFilterWhere(['like', 'label', $this->label])
-            ->andFilterWhere(['like', 'type', $this->type])
+        $query->andFilterWhere(['like', 'label', $this->label])
+            ->andFilterWhere(['like', 'model_name', $this->model_name])
+            ->andFilterWhere(['like', 'field_name', $this->field_name])
+            ->andFilterWhere(['like', 'field_type', $this->field_type])
+            ->andFilterWhere(['like', 'db_type', $this->db_type])
             ->andFilterWhere(['like', 'options', $this->options])
             ->andFilterWhere(['like', 'depends_on', $this->depends_on])
             ->andFilterWhere(['like', 'mandatory_depends_on', $this->mandatory_depends_on])

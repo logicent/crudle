@@ -69,6 +69,7 @@
             "crudle\\app\\": "app",
             "crudle\\app\\main\\": "app/modules/main",
             "crudle\\app\\setup\\": "app/modules/setup",
+            "crudle\\app\\web_cms\\": "app/modules/web_cms",
             "crudle\\kit\\": "codegen",
             "crudle\\ext\\": "modules"
         }

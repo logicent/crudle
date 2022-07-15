@@ -21,7 +21,7 @@ class ReportBuilder extends BaseActiveRecord
 {
     public function init()
     {
-        $this->listSettings = new ListViewSettingsForm();
+        parent::init();
         $this->listSettings->listNameAttribute = 'id';
     }
 

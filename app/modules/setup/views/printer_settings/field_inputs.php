@@ -1,4 +1,4 @@
-<div class="ui attached padded segment">
+<div class="ui padded segment">
     <div class="two fields">
         <?= $form->field($model, 'name')->textInput() ?>
         <?= $form->field($model, 'printerName')->textInput() ?>

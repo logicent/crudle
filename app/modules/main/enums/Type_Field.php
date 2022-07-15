@@ -2,93 +2,75 @@
 
 namespace crudle\app\main\enums;
 
+use Yii;
 use yii\db\Schema;
+use yii\helpers\ArrayHelper;
 
 class Type_Field
 {
-    const Attach = 'Attach';
-    const AttachImage = 'Attach Image';
+    const TextInput = 'text';
+    const DateInput = 'date';
+    const TimeInput = 'time';
+    const DateTimeInput = 'datetime';
+    const DateRange = 'daterange';
+    const Checkbox = 'checkbox';
+    const CheckboxList = 'checkboxList';
+    const Radio = 'radio';
+    const RadioList = 'radioList';
+    const Select = 'select';
+    const Dropdown = 'dropdown';
+    const Textarea = 'textarea';
+    const TextEditor = 'textEditor';
 
-    const Barcode = 'Barcode';
-    const Button = 'Button';
-    const Check = 'Check';
-    const Code = 'Code';
-    const Color = 'Color';
-    const Currency = 'Currency';
-    const Data = 'Data';
-    const Date = 'Date';
-    const Datetime = 'Datetime';
-    const Time = 'Time';
+    const Table = 'table';
+    const Image = 'image';
+    const Button = 'button';
+    // const Heading = 'heading';
+    // const Signature = 'signature';
+    const ColumnBreak = 'column_break';
+    const SectionBreak = 'section_break';
 
-    const Link = 'Link';
-    const DynamicLink = 'Dynamic Link';
-    const Image = 'Image';
-    const Number = 'Int';
-    const RealNumber = 'Float';
-    const LongText = 'Long Text';
-    const Password = 'Password';
-    const Percent = 'Percent';
-    const Rating = 'Rating';
-    const ReadOnly = 'Read Only';
-
-    const Geolocation = 'Geolocation';
-    const Heading = 'Heading';
-    const HTML = 'HTML';
-    const HTMLEditor = 'HTML Editor';
-    const Fold = 'Fold';
-    const ColumnBreak = 'Column Break';
-    const SectionBreak = 'Section Break';
-    const MarkdownEditor = 'Markdown Editor';
-    const TextEditor = 'Text Editor';
-    const Select = 'Select';
-    const Signature = 'Signature';
-    const SmallText = 'Small Text';
-    const Table = 'Table';
-    const TableMultiSelect = 'Table MultiSelect';
-    const Text = 'Text';
 
     public static function enums()
     {
         return [
-
+            self::TextInput => Yii::t('app', 'Text'),
+            self::DateInput => Yii::t('app', 'Date'),
+            self::TimeInput => Yii::t('app', 'Time'),
+            self::DateTimeInput => Yii::t('app', 'Date time'),
+            self::DateRange => Yii::t('app', 'Date range'),
+            self::Checkbox => Yii::t('app', 'Checkbox'),
+            self::CheckboxList => Yii::t('app', 'Checkbox list'),
+            self::Radio => Yii::t('app', 'Radio'),
+            self::RadioList => Yii::t('app', 'Radio list'),
+            self::Select => Yii::t('app', 'Select'),
+            self::Dropdown => Yii::t('app', 'Dropdown'),
+            self::Textarea => Yii::t('app', 'Text box'),
+            self::TextEditor => Yii::t('app', 'Text editor'),
+            self::Table => Yii::t('app', 'Table'),
+            self::Image => Yii::t('app', 'Image'),
+            self::Button => Yii::t('app', 'Button'),
+            self::ColumnBreak => Yii::t('app', 'Column break'),
+            self::SectionBreak => Yii::t('app', 'Section break'),
         ];
     }
 
     public static function dbTypes()
     {
         return [
-            self::Attach => Schema::TYPE_STRING,
-            self::AttachImage => Schema::TYPE_STRING,
-            self::Barcode => Schema::TYPE_STRING,
-            self::Check => Schema::TYPE_TINYINT,
-            self::Code => Schema::TYPE_STRING,
-            self::Color => Schema::TYPE_STRING,
-            self::Currency => Schema::TYPE_MONEY,
-            self::Data => Schema::TYPE_STRING,
-            self::Date => Schema::TYPE_DATE,
-            self::Datetime => Schema::TYPE_DATETIME,
-            self::Number => Schema::TYPE_INTEGER,
-            self::Geolocation => Schema::TYPE_JSON,
-            self::Heading => Schema::TYPE_STRING,
-            self::HTML => Schema::TYPE_TEXT,
-            self::HTMLEditor => Schema::TYPE_TEXT,
-            self::Image => Schema::TYPE_STRING,
-            self::RealNumber => Schema::TYPE_DECIMAL,
-            self::Link => Schema::TYPE_STRING,
-            self::LongText => Schema::TYPE_TEXT,
-            self::MarkdownEditor => Schema::TYPE_TEXT,
-            self::Password => Schema::TYPE_STRING,
-            self::Percent => Schema::TYPE_DOUBLE,
-            self::Rating => Schema::TYPE_STRING,
-            self::ReadOnly => Schema::TYPE_BOOLEAN,
+            self::TextInput => Schema::TYPE_STRING,
+            self::DateInput => Schema::TYPE_DATE,
+            self::TimeInput => Schema::TYPE_TIME,
+            self::DateTimeInput => Schema::TYPE_DATETIME,
+            self::DateRange => Schema::TYPE_STRING,
+            self::Checkbox => Schema::TYPE_TINYINT,
+            self::CheckboxList => Schema::TYPE_STRING,
+            self::Radio => Schema::TYPE_TINYINT,
+            self::RadioList => Schema::TYPE_STRING,
             self::Select => Schema::TYPE_STRING,
-            self::Signature => Schema::TYPE_TEXT,
-            self::SmallText => Schema::TYPE_TEXT,
-            self::Table => Schema::TYPE_JSON,
-            self::TableMultiSelect => Schema::TYPE_JSON,
-            self::Text => Schema::TYPE_TEXT,
+            self::Dropdown => Schema::TYPE_STRING,
+            self::Textarea => Schema::TYPE_TEXT,
             self::TextEditor => Schema::TYPE_TEXT,
-            self::Time => Schema::TYPE_TIME
         ];
     }
 }

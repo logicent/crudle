@@ -3,10 +3,11 @@
 use Zelenin\yii\SemanticUI\modules\Checkbox;
 ?>
 
+<br>
 <?= Checkbox::widget([
         'model' => $model,
         'attribute' => $attribute,
-        'labelOptions' => ['label' => false],
+        'labelOptions' => isset($labelOptions) ? $labelOptions : [],
         'inputOptions' => ['data' => ['name' => $attribute]],
         'options' => [
             'style' => 'vertical-align: text-top'

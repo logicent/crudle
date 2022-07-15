@@ -34,7 +34,7 @@ class Create extends Action
         }
         // 1c. autosuggest id value if applicable
         if ( $model->autoSuggestIdValue() )
-            $model->{$model->autoSuggestAttribute()} = $model->autoSuggestId();
+            $model->{$model::autoSuggestAttribute()} = $model->autoSuggestId();
 
         // 2. save if request is via post
         if ( Yii::$app->request->isPost )

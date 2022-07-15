@@ -152,7 +152,7 @@ class KitController extends BaseViewController
     }
 
     // ViewInterface
-    public function defaultViewType()
+    public function defaultActionViewType()
     {
         return Type_View::Workspace;
     }

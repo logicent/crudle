@@ -1,4 +1,4 @@
-<div class="ui attached padded segment">
+<div class="ui padded segment">
     <?= $form->field($model, 'sendPrintAsPdf')->checkbox() ?>
     <?= $form->field($model, 'repeatHeaderAndFooterInPdf')->checkbox() ?>
     <div class="two fields">

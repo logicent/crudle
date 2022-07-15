@@ -1,13 +1,13 @@
-<div class="ui attached padded segment">
+<div class="ui padded segment">
     <div class="ui two column stackable grid">
         <div class="column">
             <!-- import field inputs -->
-            <?= $this->render('_import_data', ['model' => $model]) ?>
+            <?= $this->render('_import_data', ['model' => $this->context->model]) ?>
         </div>
         <!-- <div class="ui vertical divider">or</div> -->
         <div class="column">
             <!-- export field inputs -->
-            <?= $this->render('_export_template', ['model' => $model]) ?>
+            <?= $this->render('_export_template', ['model' => $this->context->model]) ?>
         </div>
     </div>
 </div>

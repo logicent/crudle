@@ -83,6 +83,16 @@ class Module extends \yii\base\Module implements BootstrapInterface
     /**
      * {@inheritdoc}
      */
+    public function init()
+    {
+        parent::init();
+        // custom initialization code goes here
+        Yii::configure($this, require __DIR__ . '/config.php');
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function bootstrap($app)
     {
         if ($app instanceof \yii\web\Application) {

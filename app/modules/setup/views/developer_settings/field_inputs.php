@@ -7,10 +7,10 @@ use crudle\app\setup\enums\Type_Role;
 
 $this->title = Yii::t('app', 'Developer');
 ?>
-    <div class="ui attached segment">
+    <div class="ui padded segment">
         <div class="two fields">
             <?= $form->field( $model, 'endUserLicense' )->textInput( ['maxlength' => true, 'readonly' => !Yii::$app->user->can(Type_Role::Administrator)] ) ?>
-            <?= $form->field( $model, 'endUserRef', ['hintOptions' => ['tag' => 'small', 'class' => 'text-muted']] )->textInput( ['maxlength' => true, 'readonly' => !Yii::$app->user->can(Type_Role::Administrator)] ) ?>
+            <?= $form->field( $model, 'endUserReference', ['hintOptions' => ['tag' => 'small', 'class' => 'text-muted']] )->textInput( ['maxlength' => true, 'readonly' => !Yii::$app->user->can(Type_Role::Administrator)] ) ?>
         </div>
         <div class="two fields">
             <?= $form->field( $model, 'licenseValidFrom' )
@@ -29,10 +29,10 @@ $this->title = Yii::t('app', 'Developer');
     </div>
 <?php
     if ( Yii::$app->user->can(Type_Role::Administrator) ) : ?>
-        <div class="ui secondary attached centered header segment text-muted">
+        <div class="ui small header">
             <?= Yii::t('app', 'Integrations') ?>
         </div>
-        <div class="ui attached segment">
+        <div class="ui padded segment">
             <?= $form->field( $model, 'enableSocialAuth', [
                         'hintOptions' => [
                             'tag' => 'div',
@@ -44,10 +44,10 @@ $this->title = Yii::t('app', 'Developer');
                         'class' => !Yii::$app->user->can(Type_Role::Administrator) ? 'disabled' : ''
                     ]) ?>
         </div>
-        <div class="ui secondary attached centered header segment text-muted">
+        <div class="ui small header">
             <?= Yii::t('app', 'Additional Modules') ?>
         </div>
-        <div class="ui attached segment">
+        <div class="ui padded segment">
             <?= $form->field( $model, 'enableUserModules', [
                         'hintOptions' => [
                             'tag' => 'div',

@@ -278,7 +278,7 @@ class UserController extends BaseCrudController
             }
         }
 
-        $this->formViewType = Type_Form_View::Single;
+        // $this->formViewType = Type_Form_View::Single;
 
         return $this->renderAjax('_change_pwd', ['model' => $this->auth]);
     }

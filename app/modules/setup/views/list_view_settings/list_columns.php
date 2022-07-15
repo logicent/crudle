@@ -15,7 +15,7 @@ $form = ActiveForm::begin([
 
     <?= $this->render('@appMain/views/_form/_modal_header', ['model' => $model]) ?>
 
-    <div class="ui attached segment">
+    <div class="ui segment">
         <?= Html::activeHiddenInput($model, 'listModelClass') ?>
         <?= Html::activeHiddenInput($model, 'listNameAttribute') ?>
         <?= Html::activeHiddenInput($model, 'listIdAttribute') ?>

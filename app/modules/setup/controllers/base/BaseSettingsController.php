@@ -148,7 +148,7 @@ abstract class BaseSettingsController extends BaseFormController
         return $this->redirect([ '/setup' ]);
     }
 
-    public function defaultViewType()
+    public function defaultActionViewType()
     {
         return Type_View::Form;
     }

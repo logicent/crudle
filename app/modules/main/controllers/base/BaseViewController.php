@@ -105,16 +105,32 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
         return false;
     }
 
-    public function defaultViewType()
+    public function mapActionViewType()
     {
         switch ($this->action->id)
         {
-            case 'index':
+            case 'view-list':
                 return Type_View::List;
+            case 'view-calendar':
+                return Type_View::Calendar;
+            case 'view-dashboard':
+                return Type_View::Dashboard;
+            case 'view-image':
+                return Type_View::Image;
+            case 'view-map':
+                return Type_View::Map;
+            case 'view-report':
+                return Type_View::Report;
+            case 'view-tree':
+                return Type_View::Tree;
+            case 'view-workspace':
+                return Type_View::Workspace;
             case 'create':
+            case 'read':
             case 'update':
                 return Type_View::Form;
-            default:
+            default: // index or other
+                return $this->defaultActionViewType();
         }
     }
 
@@ -159,7 +175,7 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
         {
             case 'index':
                 if ($this->formViewType() == Type_Form_View::Single ||
-                    $this->defaultViewType() == Type_View::List)
+                    $this->defaultActionViewType() == Type_View::List)
                     return true;
             case 'create':
             case 'read':

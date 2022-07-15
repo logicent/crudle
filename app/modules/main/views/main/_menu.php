@@ -14,7 +14,7 @@ $deployedSettings = Setup::getSettings( DeveloperSettingsForm::class );
 $dashboards = $reports = $modules = $workspaces = [];
 $dashboards = Dashboard::find()->where(['inactive' => false])->all();
 $reports = ReportBuilder::find()->where(['inactive' => false])->all();
-$modules = App::getExtModuleList();
+$modules = App::getModuleList();
 // $workspaces = Workspace::find()->where(['inactive' => false])->all();
 $dashboardMenus = $reportMenus = $moduleMenus = $workspaceMenus = [];
 

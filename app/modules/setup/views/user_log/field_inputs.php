@@ -1,10 +1,10 @@
-<div class="ui attached padded segment">
+<div class="ui padded segment">
     <div class="two fields">
         <?= $form->field($model, 'id')->textInput(['readonly' => true]) ?>
         <?= $form->field($model, 'status')->checkbox(['class' => 'read-only'])->label('&nbsp;') ?>
     </div>
 </div>
-<div class="ui attached padded segment">
+<div class="ui padded segment">
     <div class="two fields">
         <?= $form->field($model, 'login_at')->textInput(['readonly' => true]) ?>
         <?= $form->field($model, 'login_ip')->textInput(['readonly' => true]) ?>

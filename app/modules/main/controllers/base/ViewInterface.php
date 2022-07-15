@@ -9,7 +9,8 @@ interface ViewInterface
     // tabs support - multiple views of type
     public function showTabbedViews(): bool;
 
-    public function defaultViewType(); // : use enum class in v8.1
+    public function mapActionViewType();
+    public function defaultActionViewType();
 
     public function showViewTypeSwitcher(): bool;
     public function showViewFilterButton(): bool;

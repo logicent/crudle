@@ -33,7 +33,7 @@ $form = ActiveForm::begin([
 <?php
     if (!empty($this->params['businessLogo'])) : ?>
     <div class="ui centered row logo">
-        <img class="ui small image" src="<?= Yii::getAlias('@web/uploads/') . $this->params['businessLogo']?>">
+        <img class="ui image" src="<?= Yii::getAlias('@web/uploads/') . $this->params['businessLogo']?>">
     </div>
 <?php
     endif ?>

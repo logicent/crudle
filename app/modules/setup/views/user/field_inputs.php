@@ -19,7 +19,7 @@ $isReadonly = $this->context->isReadonly() || $this->context->action->id == 'pri
 
 echo $this->render('_stats', ['model' => $model]) ?>
 
-<div class="ui attached padded segment">
+<div class="ui padded segment">
 <?= Html::activeFileInput( $model->uploadForm, 'file_upload', [
         'accept' => 'image/*', 'style' => 'display: none'
     ]) ?>
@@ -79,7 +79,7 @@ echo $this->render('_stats', ['model' => $model]) ?>
     </div>
 </div>
 
-<div class="ui attached padded segment">
+<div class="ui padded segment">
 <?php
     if ($this->context->auth->isNewRecord) :
         echo $form->field($this->context->auth, 'send_welcome_email')->checkbox();
@@ -140,7 +140,7 @@ echo $this->render('_stats', ['model' => $model]) ?>
     </div>
 </div>
 
-<div class="ui attached padded segment">
+<div class="ui padded segment">
     <?= $form->field($model, 'notes')->textarea([
             'rows' => 3,
             'readonly' => $isReadonly,

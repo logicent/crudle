@@ -11,11 +11,11 @@ $form = ActiveForm::begin([
                 'class' => 'ui form modal-form',
                 'data' => ['modal_id' => 'change_pwd']
         ],
-]); ?>
+]) ?>
 
-<?= $this->render('/_form/_modal_header', ['model' => $model]) ?>
+<?= $this->render('@appMain/views/_modal/header', ['model' => $model]) ?>
 
-<div class="ui attached padded segment">
+<div class="ui padded segment">
         <?= $form->field($model, 'password')->passwordInput(['maxlength' => true])->label(Yii::t('app', 'Current Password')) ?>
         <?= $form->field($model, 'new_password')->passwordInput(['maxlength' => true]) ?>
         <?= $form->field($model, 'send_password_update_notification')

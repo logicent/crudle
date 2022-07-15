@@ -7,9 +7,9 @@ $hintOptions = [
     'class' => 'text-muted',
     'style' => 'font-size: 0.95em; padding-left: 0.25em'
 ];
-$hasFileInput = isset($model->uploadForm);
-
 $model = $this->context->getModel();
+
+$hasFileInput = isset($model->uploadForm);
 
 $form = ActiveForm::begin([
     'id' => $model->formName(),

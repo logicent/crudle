@@ -171,15 +171,29 @@ $this->registerJs(<<<JS
         // $('#loading').hide()
     })
 
+    $('.grid-view').on('click', '.ui.checkbox',  function(e) 
+    {
+        el_select_all_rows = $(this).find('.select-on-check-all');
+        if (el_select_all_rows.prop('checked'))
+        {
+            $('.ui.table > tbody > tr').css('background', 'aliceblue');
+        }
+        else {
+            $('.ui.table > tbody > tr').css('background', 'none');
+        }
+    });
+
     $('.grid-view').on('click', '.ui.checkbox', function(e) 
     {
         el_select_row = $(this).find('input');
         if (el_select_row.prop('checked'))
         {
+            $(this).parent('td').parent('tr').css('background', 'aliceblue');
             $('#delete_btn').show();
             $('#create_btn').hide();
         }
         else {
+            $(this).parent('td').parent('tr').css('background', 'none');
             // check for count of other selected rows
             if ($('.ui.checkbox.checked').length == 0)
             {

@@ -3,6 +3,7 @@
 namespace crudle\app\main\controllers;
 
 use crudle\app\main\controllers\base\BaseViewController;
+use crudle\app\main\enums\Type_View;
 use crudle\app\setup\models\ReportBuilder;
 use Yii;
 
@@ -54,5 +55,11 @@ class ReportController extends BaseViewController
     public function pageNavbar(): string
     {
         return '@appMain/views/_layouts/main/_navbar';
+    }
+
+    // ViewInterface
+    public function defaultActionViewType()
+    {
+        return Type_View::List;
     }
 }

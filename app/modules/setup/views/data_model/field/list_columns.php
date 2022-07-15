@@ -1,12 +1,16 @@
 <?php
 
+use crudle\app\main\enums\Type_Field_Input;
 use crudle\app\setup\models\DataModelField;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\GridView;
+use yii\helpers\Json;
 use Zelenin\yii\SemanticUI\helpers\Size;
 use Zelenin\yii\SemanticUI\modules\Modal;
 use Zelenin\yii\SemanticUI\Elements;
+use Zelenin\yii\SemanticUI\modules\Checkbox;
+use Zelenin\yii\SemanticUI\modules\Select;
 
 ?>
 
@@ -20,10 +24,17 @@ use Zelenin\yii\SemanticUI\Elements;
         'emptyText' => Yii::t('app', "No fields defined."),
         'emptyTextOptions' => ['class' => 'ui small header center aligned text-muted'], 
         'columns' => [
-            ['class' => 'yii\grid\CheckboxColumn'],
-            // ['class' => 'Zelenin\yii\SemanticUI\widgets\CheckboxColumn'],
+            [
+                'class' => 'Zelenin\yii\SemanticUI\widgets\CheckboxColumn',
+                'checkboxOptions' => function ($model, $key, $index, $column) {
+                    return [
+                        'class' => 'select-row',
+                        'id' => $index,
+                        'value' => Json::encode($key),
+                    ];
+                },
+            ],
             ['class' => 'yii\grid\SerialColumn'],
-
             [
                 'attribute' => 'label',
                 'value' => function($model, $key, $index, $column){
@@ -37,28 +48,47 @@ use Zelenin\yii\SemanticUI\Elements;
                 'format' => 'raw'
             ],
             [
-                'attribute' => 'type',
+                'attribute' => 'field_type',
                 'value' => function($model, $key, $index, $column){
-                            return Html::tag('div',
-                                        Html::activeDropDownList($model, "[$index]type", DataModelField::getListOptions()  , ['data' => ['modal-input' => 'type']]),
-                                    ['class' => 'ui transparent input']);
-                        },
+                    return Html::tag('div',
+                        Select::widget(
+                            [
+                                'model' => $model,
+                                'attribute' => "[$index]field_type",
+                                'items' => Type_Field_Input::enums(),
+                                'search' => true,
+                            ]
+                        ),
+                        ['class' => 'ui transparent input']
+                    );
+                },
                 'format' => 'raw'
             ],
             [
-                'attribute' => 'name',
+                'attribute' => 'field_name',
                 'value' => function($model, $key, $index, $column){
-                            return Html::tag('div',
-                                        Html::activeTextInput($model, "[$index]name", ['style' => 'font-weight: 500;', 'data' => ['modal-input' => 'name']]),
-                                    ['class' => 'ui transparent input']);
-                        },
+                        return Html::tag('div',
+                                Html::activeTextInput($model, "[$index]field_name", [
+                                    'style' => 'font-weight: 500;',
+                                    'data' => ['modal-input' => 'name']
+                                ]),
+                            ['class' => 'ui transparent input']);
+                    },
                 'format' => 'raw',
             ],
             [
                 'attribute' => 'mandatory',
-                'value' => function($model, $key, $index, $column){
-                            return Html::activeCheckbox($model, "[$index]mandatory", ['label' => false, 'data' => ['modal-input' => 'mandatory']]);
-                        },
+                'value' => function($model, $key, $index, $column) {
+                    return 
+                        Checkbox::widget([
+                            'model' => $model,
+                            'attribute' => "[$index]mandatory",
+                            'labelOptions' => ['label' => false],
+                            'options' => [
+                                'style' => 'vertical-align: text-top'
+                            ]
+                        ]);
+                },
                 'format' => 'raw',
                 'contentOptions' => [
                     'class' => 'center aligned'
@@ -81,13 +111,14 @@ use Zelenin\yii\SemanticUI\Elements;
                             [
                                 'class' => 'action-type',
                                 'data' => [
-                                    'modal-input' => 'data_model',
+                                    'modal-input' => 'model_name',
                                     'action-create' => DataModelField::ACTION_TYPE_CREATE,
                                     'action-update' => DataModelField::ACTION_TYPE_UPDATE,
                                     'action-delete' => DataModelField::ACTION_TYPE_DELETE,
                                 ]
                             ] ) .
-                        Html::activeHiddenInput($model, "[$index]data_model", ['data' => ['modal-input' => 'data_model']]) .
+                        Html::activeHiddenInput($model, "[$index]id", ['data' => ['modal-input' => 'id']]) .
+                        Html::activeHiddenInput($model, "[$index]model_name", ['data' => ['modal-input' => 'model_name']]) .
                         Html::activeHiddenInput($model, "[$index]length", ['data' => ['modal-input' => 'length']]) .
                         Html::activeHiddenInput($model, "[$index]unique", ['data' => ['modal-input' => 'unique']]) .
                         Html::activeHiddenInput($model, "[$index]in_list_view", ['data' => ['modal-input' => 'in_list_view']]) .

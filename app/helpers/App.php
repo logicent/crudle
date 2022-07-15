@@ -2,6 +2,7 @@
 
 namespace crudle\app\helpers;
 
+use crudle\app\enums\Module_Alias;
 use crudle\app\main\models\ActiveRecord;
 use crudle\app\main\models\Model;
 use Yii;
@@ -19,6 +20,9 @@ use yii\helpers\StringHelper;
  */
 class App
 {
+    public static $modules = [];
+    public static $models = [];
+
     /**
      * Returns an environment variable, checking for it in `$_SERVER` and calling `getenv()` as a fallback.
      *
@@ -70,88 +74,116 @@ class App
             return $model->$attribute = empty($model->$attribute) ?: Json::encode($model->$attribute);
     }
 
-    public static function getExtModules($pathAlias = '@extModules')
+    public static function getModuleList($pathAlias = Module_Alias::Ext)
     {
-        $extPath = Yii::getAlias($pathAlias);
-        $extDirs = FileHelper::findDirectories($extPath, ['recursive' => false]);
+        $path = Yii::getAlias($pathAlias);
+        $dirs = FileHelper::findDirectories($path, ['recursive' => false]);
 
         $modules = [];
-        foreach ($extDirs as $extDir)
+        foreach ($dirs as $dir)
         {
-            // check if sub dir is a module dir
-            if (!file_exists($extDir . '/Module.php'))
+            if (!file_exists($dir . '/Module.php'))
                 continue;
-            $moduleDirname = StringHelper::basename($extDir);
-            $config = require $extDir . '/config.php';
-            // dynamically append module found in extPath
-            $modules[$config['id']] = "crudle\\ext\\{$moduleDirname}\\Module";
-        }
-
-        return $modules;
-    }
-
-    public static function getExtModuleList($pathAlias = '@extModules')
-    {
-        $extPath = Yii::getAlias($pathAlias);
-        $extDirs = FileHelper::findDirectories($extPath, ['recursive' => false]);
-
-        $modules = [];
-        foreach ($extDirs as $extDir)
-        {
-            // check if sub dir is a module dir
-            if (!file_exists($extDir . '/Module.php'))
-                continue;
-            $moduleDirname = StringHelper::basename($extDir);
-            $config = require $extDir . '/config.php';
-            // dynamically append module found in extPath
+            $moduleDirname = StringHelper::basename($dir);
+            $config = require $dir . '/config.php';
             $modules[$config['id']] = Inflector::camel2words(Inflector::id2camel($config['id']));
         }
-
         return $modules;
     }
 
-    public static function getExtModulePaths($pathAlias = '@extModules')
+    public static function getModules($pathAlias = Module_Alias::Ext)
     {
-        $extPath = Yii::getAlias($pathAlias);
-        return FileHelper::findDirectories($extPath, ['recursive' => false]);
-    }
+        self::$modules = [];
 
-    public static function getModelsFromExtModules($pathAlias = '@extModules')
-    {
-        $modules = self::getExtModulePaths($pathAlias);
+        $path = Yii::getAlias($pathAlias);
+        $dirs = FileHelper::findDirectories($path, ['recursive' => false]);
 
-        $models = [];
-        foreach ($modules as $module) {
-            $moduleName = StringHelper::basename($module);
-            $models[$moduleName] = self::getModelsFromExtModule($module);
-        }
-
-        return self::arrayFlatten($models);
-    }
-
-    public static function getModelsFromExtModule($moduleDir)
-    {
-        $files = FileHelper::findFiles($moduleDir . '/models', ['recursive' => false]);
-        sort($files);
-        $moduleId = StringHelper::basename($moduleDir);
-
-        $models = [];
-        foreach ($files as $file)
-        {
-            $modelClassname = StringHelper::basename($file, '.php');
-            $modelClass = "crudle\\ext\\{$moduleId}\\models\\{$modelClassname}";
-            $model = new $modelClass();
-            // check if model is a AR class
-            if (! $model InstanceOf ActiveRecord)
+        foreach ($dirs as $dir) {
+            if (!file_exists($dir . '/Module.php'))
                 continue;
-
-            $models[$modelClass] = Inflector::camel2words($modelClassname);
+            $moduleDirname = StringHelper::basename($dir);
+            $modulePath = $path . '/' . $moduleDirname;
+            $ns = "crudle\\" . Module_Alias::nsPathname()[$pathAlias] . "\\" . $moduleDirname;
+            $class = $ns . "\\Module";
+            $config = require $dir . '/config.php';
+            self::$modules[] = [
+                'id' => $config['id'],
+                'ns' => $ns,
+                'class' => $class,
+                'path' => $modulePath,
+            ];
         }
-
-        return $models;
+        return new self;
     }
 
-    public static function arrayFlatten($array = null)
+    public static function getModule($moduleId, $pathAlias = Module_Alias::Ext)
+    {
+        self::$modules = [];
+
+        $path = Yii::getAlias($pathAlias . '/' . $moduleId);
+        if (!file_exists($path . '/Module.php'))
+            return new self;
+
+        $dirname = StringHelper::basename($path);
+        $pathname = Module_Alias::nsPathname()[$pathAlias];
+        $ns = "crudle\\" . $pathname . "\\" . $dirname;
+        $class = $ns . "\\Module";
+        $config = require $path . '/config.php';
+
+        self::$modules[] = [
+            'id' => $config['id'],
+            'ns' => $ns,
+            'class' => $class,
+            'path' => $path,
+        ];
+        return new self;
+    }
+
+    public static function getModulePaths($pathAlias = Module_Alias::Ext)
+    {
+        $path = Yii::getAlias($pathAlias);
+        return FileHelper::findDirectories($path, ['recursive' => false]);
+    }
+
+    public static function getModuleOf($modelName)
+    {
+        $groupedModels = self::getModules(Module_Alias::Ext)->getModels();
+
+        foreach ($groupedModels as $moduleId => $models)
+            $groupedModels[$moduleId] = array_flip($models);
+
+        foreach ($groupedModels as $moduleId => $models) {
+            if (isset($models[Inflector::camel2words($modelName)]))
+                return $moduleId;
+        }
+        return false;
+    }
+
+    public static function getModels($flattenArray = false)
+    {
+        foreach (self::$modules as $id => $module) 
+        {
+            $dir = $module['path'] . '/models';
+            if (!is_dir($dir))
+                continue;
+            $files = FileHelper::findFiles($dir, ['recursive' => false]);
+            sort($files);
+            foreach ($files as $file)
+            {
+                $modelClassname = StringHelper::basename($file, '.php');
+                $modelClass = $module['ns'] . "\\models\\" . $modelClassname;
+                // check if modelClass is a AR class
+                $model = new $modelClass();
+                if (! $model InstanceOf ActiveRecord)
+                    continue;
+
+                self::$models[$module['id']][$modelClass] = Inflector::camel2words($modelClassname);
+            }
+        }
+        return $flattenArray ? self::flattenArray(self::$models) : self::$models;
+    }
+
+    public static function flattenArray($array = null)
     {
         $result = [];
 
@@ -161,12 +193,11 @@ class App
 
         foreach ($array as $key => $value) {
             if (is_array($value)) {
-                $result = array_merge($result, self::arrayFlatten($value));
+                $result = array_merge($result, self::flattenArray($value));
             } else {
                 $result = array_merge($result, [$key => $value]);
             }
         }
-
         return $result;
     }
 }

@@ -8,7 +8,7 @@ use Zelenin\yii\SemanticUI\Elements;
 use Zelenin\yii\SemanticUI\modules\Radio;
 
 ?>
-<div class="ui attached padded segment">
+<div class="ui padded segment">
     <div class="ui two column grid">
         <div class="column">
             <?= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>
@@ -35,7 +35,7 @@ use Zelenin\yii\SemanticUI\modules\Radio;
         </div>
     </div>
 </div>
-<div class="ui attached padded segment">
+<div class="ui padded segment">
     <div class="ui two column grid">
         <div class="column">
             <?= $form->field($model, 'data_model')->dropDownList(Type_Model::enums()) ?>

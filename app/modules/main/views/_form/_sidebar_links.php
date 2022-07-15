@@ -4,8 +4,8 @@ use crudle\app\main\models\auth\People;
 
 $model = $this->context->model;
 
-$createdBy = People::findOne(['user_id' => $model->created_by]);
-$updatedBy = People::findOne(['user_id' => $model->updated_by]);
+$createdBy = People::findOne(['id' => $model->created_by]);
+$updatedBy = People::findOne(['id' => $model->updated_by]);
 ?>
 <div class="ui vertical text menu">
     <a href="#comment_timeline" class="item">
@@ -20,7 +20,7 @@ $updatedBy = People::findOne(['user_id' => $model->updated_by]);
     <?php if (!is_null($updatedBy)) : ?>
     <div class="item">
         <strong>
-            <?= $updatedBy->user_id == Yii::$app->user->id ? Yii::t('app', 'You') : $updatedBy->full_name ?>
+            <?= $updatedBy->id == Yii::$app->user->id ? Yii::t('app', 'You') : $updatedBy->full_name ?>
         </strong>
         <span>
             <?= Yii::t('app', 'edited this') ?><br><?= Yii::$app->formatter->asRelativeTime($model->updated_at) ?>
@@ -33,7 +33,7 @@ $updatedBy = People::findOne(['user_id' => $model->updated_by]);
     <?php if (!is_null($createdBy)) : ?>
     <div class="item">
         <strong>
-            <?= $createdBy->user_id == Yii::$app->user->id ? Yii::t('app', 'You') : $createdBy->full_name ?>
+            <?= $createdBy->id == Yii::$app->user->id ? Yii::t('app', 'You') : $createdBy->full_name ?>
         </strong>
         <span>
             <?= Yii::t('app', 'created this') ?><br><?= Yii::$app->formatter->asRelativeTime($model->created_at) ?>

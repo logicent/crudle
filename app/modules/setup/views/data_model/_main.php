@@ -1,5 +1,6 @@
 <?php
 
+use crudle\app\helpers\App;
 use yii\helpers\Html;
 ?>
 
@@ -11,9 +12,7 @@ use yii\helpers\Html;
 
 <div class="ui two column grid">
     <div class="column">
-        <?= $form->field( $model, 'module' )->dropDownList( [
-                'Core' => 'Core'
-            ]) ?>
+        <?= $form->field( $model, 'module' )->dropDownList(App::getModuleList()) ?>
         <?= $form->field( $model, 'max_attachments' )->textInput() ?>
         <?= $form->field($model, 'search_fields', [
                 'hintOptions' => [

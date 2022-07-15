@@ -11,7 +11,7 @@ $layoutSettings = Setup::getSettings( LayoutSettingsForm::class );
 ?>
 
 <div id="dash" class="ui stackable grid main-index">
-    <div class="doubling six column row">
+    <div class="doubling eight column row">
     <?php
         foreach ($layoutSettings->shortcutMenu as $menuItem) :
             echo Html::tag('div',

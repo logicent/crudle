@@ -3,10 +3,9 @@
 namespace crudle\app\main\models\auth;
 
 use crudle\app\enums\Status_Active;
-use crudle\app\main\models\base\BaseActiveRecord;
+use crudle\app\main\models\ActiveRecord;
 use crudle\app\setup\enums\Type_Role;
 use crudle\app\main\models\UploadForm;
-// use crudle\app\main\models\UploadForm;
 use crudle\app\setup\models\ListViewSettingsForm;
 use Yii;
 use yii\db\Query;
@@ -17,7 +16,7 @@ use yii\helpers\Json;
  *
  * @property Auth $auth
  */
-class Person extends BaseActiveRecord
+class Person extends ActiveRecord
 {
     public $full_name;
     public $old_role;
@@ -146,15 +145,15 @@ class Person extends BaseActiveRecord
         return self::findOne($id)->full_name;
     }
 
-    public function getTeammateIds()
+    public static function getTeammateIds($model)
     {
         $teammateIds = [];
         
-        if (!empty($this->reports_to))
+        if (!empty($model->reports_to))
         {
-            $teammateIds = self::find()->where(['in', 'reports_to', $this->reports_to])->column();
+            $teammateIds = self::find()->where(['in', 'reports_to', $model->reports_to])->column();
 
-            array_push($teammateIds, $this->reports_to);
+            array_push($teammateIds, $model->reports_to);
         }
 
         return $teammateIds;
@@ -182,9 +181,9 @@ class Person extends BaseActiveRecord
         if (empty($this->user_role))
             $this->user_role = [];
         else
-            $this->user_role = Json::decode($this->user_role);
+            $this->user_role = is_array($this->user_role) ? Json::decode($this->user_role) : $this->user_role;
 
-        $this->full_name = $this->firstname .BaseActiveRecord::SpaceChar. $this->surname;
+        $this->full_name = $this->firstname . ActiveRecord::SpaceChar . $this->surname;
 
         return parent::afterFind();
     }

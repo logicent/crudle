@@ -1,7 +1,7 @@
 @import url('site.css');
 
 .login-wrapper {
-    padding: 80px 0;
+    margin-top: 160px;
     border-top: 1px solid #ebeff2;
     border-bottom: 1px solid #ebeff2;
 }

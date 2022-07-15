@@ -3,6 +3,8 @@
 namespace crudle\app\setup\controllers;
 
 use crudle\app\main\controllers\base\BaseViewController;
+use crudle\app\main\enums\Type_Form_View;
+use crudle\app\main\enums\Type_View;
 use crudle\app\setup\enums\Type_Role;
 use crudle\app\setup\models\DataImportForm;
 use League\Csv\Reader;
@@ -46,6 +48,11 @@ class DataImportController extends BaseViewController
         ];
     }
 
+    public function modelClass(): string
+    {
+        return DataImportForm::class;
+    }
+
     public function actions()
     {
         return [
@@ -54,7 +61,7 @@ class DataImportController extends BaseViewController
 
     public function actionExportTemplate()
     {
-        $model = new DataImportForm();
+        $this->model = new DataImportForm();
 
         if (Yii::$app->request->post())
         {
@@ -293,13 +300,31 @@ class DataImportController extends BaseViewController
             }
         }
 
+        $this->model = $dt_model;
+
         return 
             $this->render('index', [
-                    'model' => $dt_model,
+                    // 'model' => $dt_model,
                     'import_errors' => $import_errors,
                     // 'import_results' => $import_results
                 ]
         );
     }
 
+    // ViewInterface
+    public function defaultActionViewType()
+    {
+        return Type_View::Form;
+    }
+
+    public function formViewType()
+    {
+        return Type_Form_View::Single;
+    }
+
+    public function showViewSidebar(): bool
+    {
+        // Todo: Fix clashes with crud sidebar
+        return true;
+    }
 }

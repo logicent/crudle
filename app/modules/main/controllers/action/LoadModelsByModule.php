@@ -18,7 +18,7 @@ class LoadModelsByModule extends Action
                 Inflector::id2camel(Yii::$app->request->get('list_item'))
             );
             $moduleDir = Yii::getAlias('@extModules/' . $moduleDirname);
-            $models = App::getModelsFromExtModule($moduleDir);
+            $models = App::getModels($moduleDir);
 
             $selectOptions = Html::tag('option', '', ['value' => ' ']);;
             foreach ($models as $modelClass => $modelName)

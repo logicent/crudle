@@ -3,6 +3,7 @@
 namespace crudle\app\setup\controllers;
 
 use crudle\app\main\controllers\action\Index;
+use crudle\app\main\controllers\action\Read;
 use crudle\app\main\controllers\base\BaseCrudController;
 use Yii;
 use yii\base\Model;
@@ -45,7 +46,7 @@ class DataModelController extends BaseCrudController
     public function actionCreate($id = null)
     {
         $this->model = new DataModel();
-        $this->detailModels = [];
+        $this->getDetailModels();
 
         $formDetails = Yii::$app->request->post('DataModelField', []);
         foreach ($formDetails as $i => $formDetail) 
@@ -107,7 +108,7 @@ class DataModelController extends BaseCrudController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $modelDetails = $model->dataModelFields;
+        $modelDetails = $this->getDetailModels();
 
         $formDetails = Yii::$app->request->post('DataModelField', []);
         foreach ($formDetails as $i => $formDetail) 
@@ -162,7 +163,7 @@ class DataModelController extends BaseCrudController
                             //new or updated records go here
                             $modelDetail->data_model = $model->name;
                             $modelDetail->save(false);
-                        }                        
+                        }
                     }
                     // $model->updateTable(); // TODO: define method in model
                 }
@@ -176,6 +177,32 @@ class DataModelController extends BaseCrudController
 
         $this->fieldDataProvider->setModels( !empty($modelDetails) ? $modelDetails :  [new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION])] );
 
+        $this->model = $model;
+
+        return $this->render('@appMain/views/crud/index', [
+            'model' => $model,
+        ]);
+    }
+
+    /**
+     * Reads an existing DataModel model.
+     * @param string $id
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    public function actionRead($id)
+    {
+        $model = $this->findModel($id);
+        $modelDetails = $this->getDetailModels();
+
+        $this->fieldDataProvider = new ActiveDataProvider([
+            'query' => DataModelField::find()->where(['data_model' => $id]),
+        ]);
+
+        $this->fieldDataProvider->setModels(
+            !empty($modelDetails['dataModelFields']) ?
+                $modelDetails['dataModelFields'] :
+                [new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION])] );
         $this->model = $model;
 
         return $this->render('@appMain/views/crud/index', [

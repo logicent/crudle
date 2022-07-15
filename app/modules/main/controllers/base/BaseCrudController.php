@@ -24,6 +24,7 @@ use crudle\app\main\controllers\action\UpdateStatus;
 use crudle\app\main\enums\Type_Comment;
 use crudle\app\main\enums\Type_Form_View;
 use crudle\app\main\enums\Type_Relation;
+use crudle\app\main\enums\Type_View;
 use crudle\app\main\models\CommentForm;
 use crudle\app\main\models\Model;
 use crudle\app\setup\enums\Type_Permission;
@@ -54,12 +55,12 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
                     [
                         'actions' => ['read'], // view
                         'allow' => true,
-                        'roles' => [ Type_Permission::Read .' '. $this->viewName() ],
+                        // 'roles' => [ Type_Permission::Read .' '. $this->viewName() ],
                     ],
                     [
                         'actions' => ['update'], // edit
                         'allow' => true,
-                        'roles' => [ Type_Permission::Update .' '. $this->viewName() ],
+                        // 'roles' => [ Type_Permission::Update .' '. $this->viewName() ],
                         // 'roleParams' => function() {
                         //     return ['model' => Person::findOne(Yii::$app->request->get('id'))];
                         // },
@@ -72,17 +73,17 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
                     [
                         'actions' => ['create'], // addNew
                         'allow' => true,
-                        'roles' => [ Type_Permission::Create .' '. $this->viewName() ],
+                        // 'roles' => [ Type_Permission::Create .' '. $this->viewName() ],
                     ],
                     [
                         'actions' => ['delete', 'delete-many'],
                         'allow' => true,
-                        'roles' => [ Type_Permission::Delete .' '. $this->viewName() ],
+                        // 'roles' => [ Type_Permission::Delete .' '. $this->viewName() ],
                     ],
                     [
                         'actions' => ['cancel'],
                         'allow' => true,
-                        'roles' => [ Type_Permission::Cancel .' '. $this->viewName() ],
+                        // 'roles' => [ Type_Permission::Cancel .' '. $this->viewName() ],
                     ],
                 ],
             ],
@@ -352,6 +353,12 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
             return $model->uploadForm->uploads(); // fileNames
 
         return false;
+    }
+
+    // ViewInterface
+    public function defaultActionViewType()
+    {
+        return Type_View::List;
     }
 
     // CrudInterface

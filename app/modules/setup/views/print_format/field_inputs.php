@@ -6,7 +6,7 @@ $modelClasses = array_flip(Type_Model::modelClasses());
 ksort($modelClasses);
 ?>
 
-<div class="ui attached padded segment">
+<div class="ui padded segment">
     <div class="ui two column grid">
         <div class="column">
             <?= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>

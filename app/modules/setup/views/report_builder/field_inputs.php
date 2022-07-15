@@ -39,7 +39,7 @@ $rolesCount = !empty($model->roles) ? count($model->roles) : '0';
             <div class="column">
                 <?= $form->field($model, 'group')->widget(Select::class, [
                         'search' => true,
-                        'items' => ArrayHelper::merge([' ' => ''], App::getExtModuleList()),
+                        'items' => ArrayHelper::merge([' ' => ''], App::getModuleList()),
                         'options' => [
                             'id' => 'rb__group',
                             'class' => 'load-related-list-options',
@@ -52,7 +52,7 @@ $rolesCount = !empty($model->roles) ? count($model->roles) : '0';
                     ])->label('Module') ?>
                 <?= $form->field($model, 'model_name')->widget(Select::class, [
                         'search' => true,
-                        'items' => ArrayHelper::merge([' ' => ''], App::getModelsFromExtModules()),
+                        'items' => ArrayHelper::merge([' ' => ''], App::getModels()),
                         'options' => [
                             'id' => 'rb__model_name',
                             'class' => 'load-related-list-options',

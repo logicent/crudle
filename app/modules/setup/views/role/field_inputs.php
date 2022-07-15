@@ -4,7 +4,7 @@ use crudle\app\setup\enums\Type_Role;
 use yii\helpers\Html;
 
 ?>
-<div class="ui attached padded segment">
+<div class="ui padded segment">
     <?= Html::activeHiddenInput($model, 'type', ['value' => '1']) ?>
     <?= Html::activeHiddenInput($model, 'inactive', ['value' => '0']) ?>
     <div class="two fields">
@@ -22,11 +22,11 @@ use yii\helpers\Html;
     </div>
 </div>
 
-<div class="ui attached secondary segment sub header center aligned text-muted">
+<div class="ui small header center aligned">
     <?= Yii::t('app', 'Permissions') ?>
 </div>
 
-<div id="permissions" class="ui bottom attached padded segment">
+<div id="permissions" class="ui padded segment">
     <?= $this->render( '_permission/list', ['model' => $model] ) ?>
 </div>
 <?php $this->registerJs(

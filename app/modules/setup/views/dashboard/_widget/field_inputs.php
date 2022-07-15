@@ -37,7 +37,7 @@ use Zelenin\yii\SemanticUI\modules\Checkbox;
     </td>
     <td class="center aligned">
         <?= Html::activeDropDownList($model, "[$rowId]data_model",
-                ArrayHelper::merge([' ' => ''], App::getModelsFromExtModules()),
+                ArrayHelper::merge([' ' => ''], App::getModels()),
                 [
                     'class' => 'rb--model-name',
                     'data' => ['name' => 'data_model']

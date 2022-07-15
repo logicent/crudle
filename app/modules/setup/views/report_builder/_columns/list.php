@@ -20,7 +20,7 @@ $modal::end();
 <div class="ui secondary attached segment centered sub header">
     <?= Yii::t('app', 'Column Attributes') ?>
 </div>
-<div class="ui attached padded segment">
+<div class="ui padded segment">
     <table id="_column" class="in-form ui celled table">
         <thead>
             <tr>

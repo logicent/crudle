@@ -76,6 +76,8 @@ $config = [
             'enablePrettyUrl' => true,
             // 'enableStrictParsing' => true,
             'showScriptName' => false,
+            // scriptUrl?
+            // baseUrl?
             'rules' => $routes,
         ],
         // 'formatter' => [

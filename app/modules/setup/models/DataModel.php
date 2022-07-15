@@ -2,16 +2,18 @@
 
 namespace crudle\app\setup\models;
 
-use crudle\app\setup\enums\Status_Transaction;
+use crudle\app\enums\Status_Active;
+use crudle\app\main\enums\Type_Field_Input;
+use crudle\app\main\enums\Type_Relation;
+use crudle\app\main\models\ActiveRecord;
 use crudle\app\setup\enums\Type_Permission;
-use crudle\app\main\models\base\BaseActiveRecord;
 use crudle\app\setup\enums\Permission_Group;
 use Yii;
 
 /**
- * This is the model class for table "app_data_model".
+ * This is the model class for table "data_model".
  */
-class DataModel extends BaseActiveRecord
+class DataModel extends ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -65,9 +67,19 @@ class DataModel extends BaseActiveRecord
         ];
     }
 
+    public static function relations()
+    {
+        return [
+            'dataModelFields'     => [
+                'class' => DataModelField::class,
+                'type' => Type_Relation::ChildModel
+            ],
+        ];
+    }
+
     public function getDataModelFields()
     {
-        return $this->hasMany(DataModelField::class, [ 'data_model' => 'name' ]);
+        return $this->hasMany(DataModelField::class, [ 'model_name' => 'id' ]);
     }
 
     // Workflow Interface
@@ -87,7 +99,10 @@ class DataModel extends BaseActiveRecord
     public static function enums()
     {
         return [
-            'status' => Status_Transaction::class
+            'status' => [
+                'class' =>Status_Active::class,
+                'attribute' => 'status'
+            ]
         ];
     }
 
@@ -96,7 +111,7 @@ class DataModel extends BaseActiveRecord
         $columns = [];
         // \yii\helpers\VarDumper::dump($this->dataModelFields, 3, true);exit;
         foreach ($this->dataModelFields as $dataModelField) {
-            $columns[$dataModelField->name] = DataModelField::getDbType()[$dataModelField->type];
+            $columns[$dataModelField->name] = Type_Field_Input::dbTypes()[$dataModelField->db_type];
 
             if ( !empty($dataModelField->length) ) 
                 $columns[$dataModelField->name] .= '('. $dataModelField->length . ') ';

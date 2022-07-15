@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 ?>
 
-<div class="ui attached padded segment">
+<div class="ui padded segment">
     <div class="two fields">
         <?= $form->field($model, 'id')->textInput(['readonly' => true]) ?>
     </div>
@@ -30,7 +30,7 @@ use yii\helpers\Html;
         </div>
     </div>
 </div>
-<div class="ui attached padded segment">
+<div class="ui padded segment">
     <?= $form->field($model, 'from')->textInput(['readonly' => true]) ?>
     <?= $form->field($model, 'to')->textInput(['readonly' => true]) ?>
     <?= $form->field($model, 'cc')->textarea(['readonly' => true, 'rows' => 4]) ?>

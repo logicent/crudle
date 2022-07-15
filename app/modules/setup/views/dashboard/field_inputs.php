@@ -18,7 +18,7 @@ else // id changes on validation
             <?= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'module')->widget(Select::class, [
                     'search' => true,
-                    'items' => ArrayHelper::merge([' ' => ''], App::getExtModuleList()),
+                    'items' => ArrayHelper::merge([' ' => ''], App::getModuleList()),
                     'options' => [
                         'id' => 'rb__module',
                         'class' => 'load-related-list-options',

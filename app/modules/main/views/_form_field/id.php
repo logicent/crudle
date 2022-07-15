@@ -8,7 +8,7 @@ use Zelenin\yii\SemanticUI\Elements;
 $isReadonly = $this->context->action->id == 'read' || $this->context->action->id == 'print-preview';
 ?>
 
-<div class="eight wide field required">
+<div class="field required">
 <?php
 if ($isReadonly) :
     echo $form->field ( $model, 'id' )->textInput( ['maxlength' => true, 'readonly' => true] );

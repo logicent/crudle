@@ -1,4 +1,5 @@
-<?= $this->render('field/list_columns', [
-        'dataProvider' => $this->context->fieldDataProvider,
-        'model' => $model,
-    ]) ?>
+<?php
+echo $this->render('field/list_columns', [
+    'dataProvider' => $this->context->fieldDataProvider,
+    'model' => $model,
+]) ?>

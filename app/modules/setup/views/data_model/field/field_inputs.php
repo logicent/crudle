@@ -1,5 +1,6 @@
 <?php
 
+use crudle\app\main\enums\Type_Field_Input;
 use crudle\app\setup\models\DataModelField;
 use yii\helpers\Html;
 use Zelenin\yii\SemanticUI\widgets\ActiveForm;
@@ -20,13 +21,15 @@ $form = ActiveForm::begin([
 
 echo $this->render('@appMain/views/_form/_modal_header', ['model' => $model]) ?>
 
-<div class="ui attached segment">
+<div class="ui segment">
     <div class="ui two column grid">
         <div class="column">
-            <?= Html::activeHiddenInput( $model, 'data_model' ) ?>
+            <?= Html::activeHiddenInput( $model, 'id' ) ?>
             <?= $form->field( $model, 'label' )->textInput(['maxlength' => true, 'readonly' => $isReadonly]) ?>
-            <?= $form->field( $model, 'type' )->dropDownList(DataModelField::getListOptions()) ?>
-            <?= $form->field( $model, 'name' )->textInput(['maxlength' => true, 'readonly' => false]) ?>
+            <?= Html::activeHiddenInput( $model, 'model_name' ) ?>
+            <?= $form->field( $model, 'field_name' )->textInput(['maxlength' => true, 'readonly' => false]) ?>
+            <?= $form->field( $model, 'field_type' )->dropDownList(Type_Field_Input::enums()) ?>
+            <?= $form->field( $model, 'db_type' )->dropDownList(Type_Field_Input::enums()) ?>
 
             <?= $form->field( $model, 'mandatory' )->checkbox() ?>
             <?= $form->field( $model, 'unique' )->checkbox() ?>

@@ -82,7 +82,7 @@ else : // non-CRUD forms
         ]);
 endif;
 
-if ($controller->defaultViewType() == Type_View::Form) :
+if ($controller->defaultActionViewType() == Type_View::Form) :
     $this->registerJs(<<<JS
         $('.ui.form').dirrty({
             preventLeaving : false,

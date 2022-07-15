@@ -19,13 +19,6 @@ use crudle\app\main\enums\Type_View;
  */
 class <?= $generator->getModuleClass() ?>Controller extends BaseViewController
 {
-    // override base action classes
-    public function actions()
-    {
-        return [
-        ];
-    }
-
     /**
      * Renders the index view for the module
      * @return string

@@ -3,10 +3,10 @@
 use yii\helpers\ArrayHelper;
 use yii\helpers\Inflector;
 
-$viewPath = $this->context->module->viewPath . '/' .
-            Inflector::underscore(
-                Inflector::id2camel($this->context->module->id)
-            );
+$menuView = Inflector::underscore(
+    Inflector::id2camel($this->context->module->defaultRoute)
+);
+$viewPath = $this->context->module->viewPath . '/' . $menuView;
 $menuList = require $viewPath . '/_menu.php';
 $menuList = ArrayHelper::index($menuList, 'route');
 

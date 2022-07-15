@@ -65,7 +65,7 @@ $hideSelectAllCheckbox = empty($this->context->getDetailModels()) ? 'none' : '';
             ],
             'style' => 'display : none'
         ]);
-    echo Elements::button('Add Item', [
+    echo Elements::button('Add row', [
             'class' => 'compact small add-row',
             'data'  => [
                 'model-class' => App::className($model),

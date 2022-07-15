@@ -12,7 +12,7 @@ if (isset($collapsible) && $collapsible === false) :
     <?php
         if ($title) : ?>
         <div class="ui padded segment" style="padding-bottom: 0.5em;">
-            <div class="ui small header" style="font-weight: 500;">
+            <div class="ui small header">
                 <?= Yii::t('app', '{sectionTitle}', ['sectionTitle' => $title]) ?>
             </div>
         </div>
@@ -29,7 +29,7 @@ else : ?>
                 // 'fluid' => true,
                 'titleOptions' => [
                     'class' => "ui small header {$active}",
-                    'style' => 'margin: 0; font-weight: 500;'
+                    'style' => 'margin: 0;'
                 ],
                 'contentOptions' => [
                     'encode' => false,

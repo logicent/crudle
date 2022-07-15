@@ -21,9 +21,9 @@ $form = ActiveForm::begin([
     ],
 ]) ?>
 
-<div class="ui top attached padded segment" style="margin-top: 0em">
-    <div class="ui small header"><?= Yii::t('app', 'Edit item') ?></div>
-</div>
+    <div class="ui small header" style="margin-top: 0em">
+        <?= Yii::t('app', 'Edit row') ?>
+    </div>
 
     <?= $this->render('@appSetup/views/data_widget/field_inputs', [
             'model' => $model,
@@ -31,13 +31,12 @@ $form = ActiveForm::begin([
             'rowId' => $rowId
         ]) ?>
 
-<div class="ui bottom attached padded segment" style="margin-top: 0em">
-    <?= Elements::button('Update Item', [
+    <?= Elements::button('Update row', [
             'class' => 'compact small update-row',
             'data'  => [
                 'row-id' => $rowId
-            ]
+            ],
+            // 'style' => 'margin-top: 0em'
         ]) ?>
-</div>
 <?php
 ActiveForm::end() ?>

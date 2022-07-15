@@ -24,10 +24,14 @@ $form = ActiveForm::begin([
 ]);
     echo $this->render('@appMain/views/_form/_header', ['model' => $model]);
     // insert page/route-specific form view input fields
-    echo $this->renderFile($this->context->viewPath . '/field_inputs.php', [
-            'form' => $form,
-            'model' => $model
-        ]);
+    if (method_exists($model, 'fieldInputs')) :
+        echo $this->render('_field_inputs', ['model' => $model, 'form' => $form]);
+    else:
+        echo $this->renderFile($this->context->viewPath . '/field_inputs.php', [
+                'form' => $form,
+                'model' => $model
+            ]);
+    endif;
 ActiveForm::end();
 echo $this->render('@appMain/views/_form/_footer', ['model' => $model]);
 

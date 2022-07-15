@@ -6,6 +6,7 @@ use crudle\app\main\models\auth\RolePermission;
 use yii\helpers\Html;
 use yii\helpers\Inflector;
 use crudle\app\assets\DataTable;
+use crudle\app\helpers\App;
 use yii\helpers\StringHelper;
 use Zelenin\yii\SemanticUI\modules\Checkbox;
 
@@ -36,18 +37,17 @@ DataTable::register($this);
     </thead>
     <tbody>
     <?php
-        foreach ( Type_Model::modelClasses() as $modelClass ) :
-            $resource = Inflector::camel2words(StringHelper::basename( $modelClass ));
-        ?>
+        $models = App::getModels('@extModules', true);
+        foreach ( $models as $modelClass => $modelName ) : ?>
             <tr>
-                <td style="background: #f5f7fa;"><?= $resource ?></td>
+                <td style="background: #f5f7fa;"><?= $modelName ?></td>
             <?php
                 foreach ( Type_Permission::enums() as $operation ) :
                     if (! in_array( $operation, $modelClass::permissions() )) :
                         echo Html::tag( 'td', null, ['style' => 'background: #f9fafb;'] );
                         continue;
                     endif;
-                    $permission = $operation . ' ' . $resource;
+                    $permission = $operation . ' ' . $modelName;
                     echo Html::tag( 'td',
                             Checkbox::widget([
                                 'name' => 'Permission[' . $permission . ']',

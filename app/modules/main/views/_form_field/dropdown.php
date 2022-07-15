@@ -19,11 +19,11 @@ echo $form
         ->widget(Select::class, [
             'search' => true,
             'items' => SelectableItems::get(
-                            $listModelClass,
+                            $list['modelClass'],
                             $model, [
-                                'keyAttribute' => $keyAttribute,
-                                'valueAttribute' => $valueAttribute,
-                                'filters' => $filters
+                                'keyAttribute' => $list['keyAttribute'],
+                                'valueAttribute' => $list['valueAttribute'],
+                                'filters' => $list['filters']
                             ]),
             'disabled' => $isReadonly
         ]);

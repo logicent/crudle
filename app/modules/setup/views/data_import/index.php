@@ -8,7 +8,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Setup'), 'url' => ['
 <div class="data-import-index">
 
     <?= $this->render('_form', [
-        'model' => $model,
+        // 'model' => $model,
         'import_errors' => $import_errors,
     ]) ?>
 

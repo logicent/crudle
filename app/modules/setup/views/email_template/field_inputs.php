@@ -1,4 +1,4 @@
-<div class="ui attached padded segment">
+<div class="ui padded segment">
     <?= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'subject')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'message')->textarea([

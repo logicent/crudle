@@ -20,29 +20,30 @@ return [
         $controllerId = Inflector::camel2id(
                             StringHelper::basename( $this->context->modelClass() )
                         );
-        return
-            Html::tag('div',
-                Html::tag('div',
-                    Html::a( $model->$attribute,
+        $linkColumn = Html::a( $model->$attribute,
                             Url::to(['/'. $this->context->module->id .'/'. $controllerId .'/'. $action, 'id' => $model->id]), // ActionUrl::get()
                             [
                                 'style' => 'font-weight: 500',
                                 'data' => [
                                     'pjax' => '0'
                                 ]
-                            ]
-                        ),
-                    ['class' => 'twelve wide column']
-                ) .
-                Html::tag('div',
-                        $model->listSettings->listIdAttribute === false ? null : $model->{$model->listSettings->listIdAttribute},
-                        [
-                            'class' => 'right aligned four wide column text-muted',
-                            'style' => 'font-size: 97.5%; font-weight: 500'
-                        ]
-                    ),
-                ['class' => 'ui two column stackable grid']
-            );
+                            ]);
+        return $linkColumn;
+        // return
+        //     Html::tag('div',
+        //         Html::tag('div',
+        //             $linkColumn,
+        //             ['class' => 'twelve wide column']
+        //         ) .
+        //         Html::tag('div',
+        //                 $model->listSettings->listIdAttribute === false ? null : $model->{$model->listSettings->listIdAttribute},
+        //                 [
+        //                     'class' => 'right aligned four wide column text-muted',
+        //                     'style' => 'font-size: 97.5%; font-weight: 500'
+        //                 ]
+        //             ),
+        //         ['class' => 'ui two column stackable grid']
+        //     );
     },
     'contentOptions' => [
         'style' => 'white-space: normal; width: 40%',

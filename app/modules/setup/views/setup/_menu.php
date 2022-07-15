@@ -70,6 +70,12 @@ return [
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
+        'route' => '/setup/report-template/index',
+        'label' => 'Report Template',
+        'group' => Type_Menu_Sub_Group::Data,
+        'visible' => Yii::$app->user->can(Type_Role::SystemManager),
+    ],
+    [
         'route' => '/setup/email-template/index',
         'label' => 'Email Template',
         'group' => Type_Menu_Sub_Group::Email,
@@ -171,5 +177,11 @@ return [
         'group' => Type_Menu_Sub_Group::People,
         'visible' => false,
     ],
+    // [
+    //     'route' => '/setup/developer-settings/index',
+    //     'label' => 'Developer Settings',
+    //     'group' => Type_Menu_Sub_Group::Core,
+    //     'visible' => Yii::$app->user->can(Type_Role::SystemManager),
+    // ],
 ];
 ?>

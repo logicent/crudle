@@ -2,6 +2,7 @@
 
 namespace crudle\app\setup\commands;
 
+use crudle\app\helpers\App;
 use crudle\app\main\models\auth\Auth;
 use crudle\app\main\models\auth\Role;
 use crudle\app\setup\enums\Type_Model;
@@ -90,12 +91,14 @@ class RbacController extends Controller
     private function loadDefaultPermissions()
     {
         try {
-            $createPermissions = $listPermissions = $readPermissions = $updatePermissions = $deletePermissions 
-                = $exportPermissions = $importPermissions = $printPermissions = $sharePermissions = $emailPermissions 
-                = $submitPermissions = $cancelPermissions = $amendPermissions = [];
-            foreach ( Type_Model::modelClasses() as $modelClass )
+            $createPermissions = $listPermissions = $readPermissions = $updatePermissions = 
+            $deletePermissions = $exportPermissions = $importPermissions = $printPermissions = 
+            $sharePermissions = $emailPermissions = $submitPermissions = $cancelPermissions = 
+            $amendPermissions = [];
+
+            $models = App::getModules()->getModels();
+            foreach ( $models as $modelClass => $modelName )
             {
-                $modelName = Inflector::camel2words(StringHelper::basename($modelClass));
                 foreach ( $modelClass::permissions() as $operation )
                 {
                     // add "Resource Name" item permission

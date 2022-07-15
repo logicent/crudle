@@ -9,7 +9,7 @@ SweetAlert::register($this);
 $this->title = Yii::t('app', 'Database Backup');
 ?>
 
-<div class="ui secondary bottom attached padded segment">
+<div class="ui padded segment">
     <div class="ui two column grid">
         <div class="column">
             <!-- include / exclude tables -->

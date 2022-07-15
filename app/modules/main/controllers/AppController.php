@@ -4,6 +4,7 @@ namespace crudle\app\main\controllers;
 
 use crudle\app\enums\Status_Active;
 use crudle\app\main\controllers\base\BaseViewController;
+use crudle\app\main\enums\Type_View;
 use crudle\app\main\models\auth\LoginForm;
 use crudle\app\main\models\auth\PasswordResetRequestForm;
 use crudle\app\main\models\auth\ResetPasswordForm;
@@ -230,6 +231,11 @@ class AppController extends BaseViewController
     // {
     //     return $this->layout . '/_navbar';
     // }
+
+    public function defaultActionViewType()
+    {
+        return Type_View::Workspace;
+    }
 
     public function showViewHeader(): bool
     {

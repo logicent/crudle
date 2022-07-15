@@ -1,16 +1,16 @@
 <?php
 
 use yii\helpers\Html;
-use crudle\app\assets\DirrtyAsset;
+use crudle\app\assets\Dirrty;
 use crudle\app\main\enums\Type_Form_View;
 use crudle\app\setup\enums\Type_Role;
 use Zelenin\yii\SemanticUI\Elements;
 
-DirrtyAsset::register($this);
+Dirrty::register($this);
 
 ?>
 
-<div id="modal_header" class="ui top secondary attached segment">
+<div id="modal_header" class="ui small header">
     <div class="ui two column grid">
         <div class="ten wide column">
             <div class="ui floated header">
@@ -22,14 +22,14 @@ DirrtyAsset::register($this);
                 <i class="ui mini yellow empty circular label"></i>&ensp;<?= Yii::t('app', 'Not Saved') ?>&ensp;
             </span>
         <?php
-            if ( $this->context->formViewType == Type_Form_View::Multiple ) :
+            if ( $this->context->formViewType() == Type_Form_View::Multiple ) :
                 echo Html::a( Elements::icon('arrow up') . Yii::t('app', 'Back'),
                             ['/' . $this->context->module->id . '/' . $this->context->id . '/index'],
                             ['class' => 'compact ui button show-list-form']);
-                $this->registerJs( $this->render( '@appSetup/views/setup/_form.js' ) );
+                $this->registerJs( $this->render( '@appSetup/views/_list/_form.js' ) );
             endif;
-            if ( $this->context->formViewType == Type_Form_View::Single
-                || ($this->context->formViewType == Type_Form_View::Multiple &&
+            if ( $this->context->formViewType() == Type_Form_View::Single
+                || ($this->context->formViewType() == Type_Form_View::Multiple &&
                     Yii::$app->user->can('Update ' . $this->context->viewName()))
                 || $this->context->id == 'role' && Yii::$app->user->can(Type_Role::SystemManager)
             ) :

@@ -16,20 +16,29 @@ $this->beginContent($layoutPath . 'base.php') ?>
             if ($controller->id !== 'main' &&
                 $controller->showViewSidebar()) : ?>
             <div class="computer only large screen only <?= $controller->sidebarColWidth() ?> wide column">
-                <!-- <div class="ui rail"> -->
-                <div class="ui sticky">
-                <?php
-                    if ($controller->defaultViewType() == Type_View::List ||
-                        $controller->formViewType() == Type_Form_View::Single) :
-                        echo $this->render('@appMain/views/crud/_sidebar');
-                    else :
-                        if (file_exists($controller->viewPath . '/_sidebar.php')) :
-                            echo $this->renderFile($controller->viewPath . '/_sidebar.php');
+                <div class="ui rail">
+                    <!-- <div class="ui sticky"> -->
+                    <?php
+                        if ($controller->mapActionViewType() == Type_View::Form) :
+                            switch ($controller->formViewType()) :
+                                case Type_Form_View::Single:
+                                    echo $this->render('@appMain/views/crud/_sidebar');
+                                    break;
+                                case Type_Form_View::Multiple:
+                                    if (file_exists($controller->viewPath . '/_sidebar.php')) :
+                                        echo $this->renderFile($controller->viewPath . '/_sidebar.php');
+                                    else :
+                                        echo $this->render('@appMain/views/_form/_sidebar');
+                                    endif;
+                                    break;
+                            endswitch;
                         endif;
-                    endif;
-                ?>
+                        if ($controller->mapActionViewType() == Type_View::List) :
+                            echo $this->render('@appMain/views/crud/_sidebar');
+                        endif;
+                    ?>
+                    <!-- </div> -->
                 </div>
-                <!-- </div>./ui rail -->
             </div>
         <?php endif ?>
 

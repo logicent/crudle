@@ -6,7 +6,7 @@ use Zelenin\yii\SemanticUI\modules\Select;
 $this->title = Yii::t('app', 'SMTP Settings');
 ?>
 
-<div class="ui attached padded segment">
+<div class="ui padded segment">
     <div class="two fields">
         <?= $form->field( $model, 'smtp_host' )->textInput( ['maxlength' => true] ) ?>
         <?= $form->field( $model, 'smtp_port' )->textInput( ['maxlength' => true] ) ?>
@@ -28,7 +28,7 @@ $this->title = Yii::t('app', 'SMTP Settings');
     </div>
 </div>
 
-<div class="ui attached padded segment">
+<div class="ui padded segment">
     <div class="two fields">
         <?= $form->field( $model, 'from_address' )->textInput( ['maxlength' => true] ) ?>
         <?= $form->field( $model, 'from_name' )->textInput( ['maxlength' => true] ) ?>

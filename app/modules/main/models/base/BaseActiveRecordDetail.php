@@ -11,7 +11,7 @@ use yii\helpers\Json;
 abstract class BaseActiveRecordDetail extends ActiveRecord
 {
     public $listSettings;
-    // public $uploadForm, $fileAttribute = null;
+    public $uploadForm, $fileAttribute = null;
     private $_changedValues;
 
     public function beforeSave( $insert )

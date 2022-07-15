@@ -6,7 +6,7 @@ $modelClasses = array_flip(Type_Model::modelClasses());
 ksort($modelClasses);
 ?>
 
-<div class="ui attached padded segment">
+<div class="ui padded segment">
     <div class="two fields">
         <?= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>
         <?= $form->field($model, 'inactive')->checkbox()->label('&nbsp;') ?>
@@ -17,10 +17,10 @@ ksort($modelClasses);
     </div>
 </div>
 
-<div class="ui attached padded segment">
+<div class="ui padded segment">
     <div class="two fields">
     </div>
 </div>
 
-<div class="ui attached padded segment">
+<div class="ui padded segment">
 </div>
