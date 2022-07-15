@@ -22,7 +22,7 @@ $showListCaptions = $searchModel->getLayoutSettings('showHelpInfo');
 ?>
 
 <div class="<?= $controllerId ?>-index">
-    <?php Pjax::begin(); ?>
+<?php Pjax::begin(); ?>
     <?= GridView::widget([
         // 'afterRow' => function ( $model, $key, $index, $grid ) { return null; },
         // 'beforeRow' => function ( $model, $key, $index, $grid ) { return null; },
@@ -153,7 +153,7 @@ $showListCaptions = $searchModel->getLayoutSettings('showHelpInfo');
         // ],
         // ],
     ]) ?>
-    <?php Pjax::end() ?>
+<?php Pjax::end() ?>
 </div>
 
 <?php

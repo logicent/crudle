@@ -2,9 +2,11 @@
 
 namespace crudle\app\setup\controllers;
 
+use crudle\app\helpers\App;
 use crudle\app\main\controllers\base\BaseViewController;
 use crudle\app\main\enums\Type_Form_View;
 use crudle\app\main\enums\Type_View;
+use yii\data\ArrayDataProvider;
 use Yii;
 
 class AppModuleController extends BaseViewController
@@ -17,17 +19,30 @@ class AppModuleController extends BaseViewController
 
     public function actionIndex()
     {
-        $modules = Yii::$app->getModules();
+        $modules = App::getModuleList();
 
-        foreach ($modules as $id => $module)
-        {
-            $module = Yii::$app->getModule($id);
-            $module = Yii::getObjectVars($module);
-        }
+        $dataProvider = new ArrayDataProvider([
+            'allModels' => $modules,
+            'pagination' => [
+                'pageSize' => 10,
+            ],
+            'sort' => [
+                'attributes' => ['id', 'class'],
+            ],
+        ]);
 
-        // use ArrayDataProvider to populate list view
+        // retrieves paginated and sorted data
+        $models = $dataProvider->getModels();
 
-        return $this->render('index');
+        // get the number of data items in the current page
+        $count = $dataProvider->getCount();
+
+        // get the total number of data items across all pages
+        $totalCount = $dataProvider->getTotalCount();
+
+        return $this->render('index', [
+            'dataProvider' => $dataProvider
+        ]);
     }
 
     // ViewInterface

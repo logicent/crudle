@@ -32,6 +32,7 @@ else:
                 'style' => "
                     min-height: 106px;
                     color: #555;
+                    font-family: Ubuntu, 'Lato', 'Helvetica Neue', Arial, sans-serif;
                     font-size: 16px;
                     background: aliceblue;
                     border: 1px solid #dee5e7;
@@ -57,6 +58,9 @@ else:
 endif;
 
 $this->registerCss(<<<CSS
+    .ql-editor p {
+        line-height: 1.895em;
+    }
     .ql-toolbar.ql-snow {
         background: #fafbfc;
         border: 1px solid #dee5e7;
