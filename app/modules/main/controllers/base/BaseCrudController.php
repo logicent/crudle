@@ -2,6 +2,7 @@
 
 namespace crudle\app\main\controllers\base;
 
+use crudle\app\helpers\Uploader;
 use crudle\app\main\controllers\action\AddRow;
 use crudle\app\main\controllers\action\Amend;
 use crudle\app\main\controllers\action\AutoSuggestId;
@@ -36,7 +37,6 @@ use yii\helpers\Html;
 use yii\helpers\StringHelper;
 use yii\helpers\Url;
 use yii\web\NotFoundHttpException;
-use yii\web\UploadedFile;
 
 abstract class BaseCrudController extends BaseViewController implements CrudInterface
 {
@@ -158,7 +158,7 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
             // 2b. check if file upload is supported in model
             if ( $this->model->allowFileUpload() && isset( $this->model->{ $this->model->fileAttribute } ))
             {
-                $filePath = $this->uploadFile( $this->model );
+                $filePath = Uploader::getFile( $this->model );
                 if ( $filePath )
                     $this->model->{ $this->model->fileAttribute } = $filePath;
             }
@@ -298,7 +298,7 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
             if ( $this->model->allowFileUpload() )
                 if ( isset( $detailModel->{ $detailModel->fileAttribute } ))
                 {   // !! assumes multiple uploads in multiple lines
-                    $fileNames = $this->uploadAttachments( $detailModel, $i );
+                    $fileNames = Uploader::getFiles( $detailModel, $i );
                     if ( $fileNames )
                         $detailModel->{ $detailModel->fileAttribute } = $fileNames;
                 }
@@ -342,17 +342,6 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
             $query->where( $filters );
         $count = $query->count();
         return $count += 1;
-    }
-
-    protected function uploadAttachments( &$model, $index )
-    {
-        $model->uploadForm->file_uploads = UploadedFile::getInstances(
-                                            $model->uploadForm, "[$index]file_uploads"
-                                        );
-        if ( $model->uploadForm->file_uploads )
-            return $model->uploadForm->uploads(); // fileNames
-
-        return false;
     }
 
     // ViewInterface
