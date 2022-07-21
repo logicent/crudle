@@ -6,7 +6,7 @@ use crudle\app\main\controllers\base\BaseViewController;
 use crudle\app\main\enums\Type_Form_View;
 use crudle\app\main\enums\Type_View;
 use crudle\app\setup\enums\Type_Role;
-use crudle\app\setup\models\DataImportForm;
+use crudle\app\setup\forms\DataImportForm;
 use League\Csv\Reader;
 use League\Csv\Writer;
 use League\Csv\Statement;
@@ -181,7 +181,7 @@ class DataImportController extends BaseViewController
                         ->limit(5000);
 
                 $records = $stmt->process( $csv );
-                
+
                 foreach 
                 ( $records as $row => $record )
                 {
