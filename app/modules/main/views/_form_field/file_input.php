@@ -20,7 +20,7 @@ $imgTag = Elements::image($model->$attribute != '' ?
 echo
     Html::beginTag('div', ['class' => 'field']) .
         Html::activeFileInput( $model->uploadForm, 'file_upload', [
-            'accept' => 'image/*', 'style' => 'display: none'
+            'accept' => isset($fileTypes) ? $fileTypes : 'image/*', 'style' => 'display: none'
         ]) .
         // $form->field($model, $attribute)->hiddenInput(['class' => 'file-path']) .
         Html::activeHiddenInput($model, $attribute, [

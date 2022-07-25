@@ -31,10 +31,8 @@ endif ?>
 
 <?php
 $this->registerJs(<<<JS
-    $('.get-id').on('click', function ()
-    {
-        if ( $('#source_id').val() == '' || $('#source_id').val() == ' ' )
-        {
+    $('.get-id').on('click', function () {
+        if ( $('#source_id').val() == '' || $('#source_id').val() == ' ' ) {
             // $('#source_id').focus();
             labelText = $('#source_id').parent('div').siblings('label').text();
             // replace with SweetAlert
@@ -49,12 +47,10 @@ $this->registerJs(<<<JS
                 url: $(this).data('url'),
                 type: 'post',
                 data: form.serializeArray(),
-                success: function( response )
-                {
+                success: function( response ) {
                     fieldId.val( response );
                 },
-                error: function( jqXhr, textStatus, errorThrown )
-                {
+                error: function( jqXhr, textStatus, errorThrown ) {
                     console.log( errorThrown );
                 }
             });

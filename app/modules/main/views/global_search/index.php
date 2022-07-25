@@ -34,7 +34,7 @@ $form = ActiveForm::begin([
 
                 <div class="ui hidden divider"></div>
 
-                <?= $this->render('/_form_field/file_input', [
+                <?= $this->render('@appMain/views/_form_field/file_input', [
                                         'allowMultiple' => false,
                                         'fileTypes' => 'image/*',
                                         'form' => $form,

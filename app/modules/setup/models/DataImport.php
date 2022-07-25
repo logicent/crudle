@@ -2,6 +2,7 @@
 
 namespace crudle\app\setup\models;
 
+use crudle\app\main\enums\Type_Model_Id;
 use crudle\app\main\models\base\BaseActiveRecord;
 use crudle\app\main\models\UploadForm;
 use crudle\app\setup\enums\Status_Transaction;
@@ -16,9 +17,6 @@ class DataImport extends BaseActiveRecord
     {
         parent::init();
         $this->listSettings->listNameAttribute = 'id';
-
-        $this->uploadForm = new UploadForm();
-        $this->fileAttribute = 'import_file';
     }
 
     public static function tableName()
@@ -42,7 +40,12 @@ class DataImport extends BaseActiveRecord
 
     public static function autoSuggestIdValue()
     {
-        return false;
+        return true;
+    }
+
+    public static function autoSuggestIdType()
+    {
+        return Type_Model_Id::GeneratedUuid;
     }
 
     // public static function relations()

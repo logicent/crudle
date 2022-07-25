@@ -1,28 +1,33 @@
 // $('.ui.form').on('beforeSubmit', '.ajax-submit', 
-$('.ajax-submit').on('beforeSubmit',
+$('.button.action').on('click',
     function () {
-        var form = $(this);
-        // You need to use standard javascript object here
+        var form = $(this).parents('.ui.form');
+        // To-Do: check if form has file input elements
+
         // MUST USE $(form)[0] in order to get _FILES in post
-        // var formData = new FormData( $(form)[0] );
+        // var formData = new FormData($(form)[0]);
+        // if (hasFileInput)
+        //     data = new FormData($(form)[0]);
+        // else
+            data = form.serializeArray();
+
         $.ajax({
-            type: form.attr('method'), // default: 'post'
-            url: form.attr('action'),
-            // data: formData,
-            data: form.serializeArray(),
+            type: $(this).data('method'), // default: 'post'
+            url: $(this).data('url'),
+            data: data,
             // processData: false,
             // contentType: false,
         }).done(function (response) {
             if (response.success) {
                 $('#page_sidebar a.item.active')[0].click();
                 // renders success messages
-                // form.yiiActiveForm('updateMessages', response.success, true);
+                form[0].yiiActiveForm('updateMessages', response.success, true);
             }
             else if (response.validation) {
                 console.log(response.validation);
                 // server validation failed
                 // renders validation messages at appropriate places
-                form.yiiActiveForm('updateMessages', response.validation, true);
+                form[0].yiiActiveForm('updateMessages', response.validation, true);
             }
             else {
                 // incorrect server response

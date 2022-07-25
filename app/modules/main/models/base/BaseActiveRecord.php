@@ -413,6 +413,10 @@ abstract class BaseActiveRecord extends ActiveRecord implements ActiveRecordInte
                 $model = $query->orderBy($this->autoSuggestAttribute() . ' DESC')->one();
                 return $model->{$this->autoSuggestAttribute()} + 1;
 
+            case Type_Model_Id::GeneratedUuid:
+                $uuid = \thamtech\uuid\helpers\UuidHelper::uuid();
+                return $uuid;
+
             default:
                 return null; // ?
         }

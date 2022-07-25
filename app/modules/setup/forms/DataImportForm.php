@@ -4,16 +4,13 @@ namespace crudle\app\setup\forms;
 
 use crudle\app\main\enums\Type_Model;
 use crudle\app\main\models\UploadForm;
+use crudle\app\setup\models\DataImport;
 use Yii;
-use yii\base\Model;
 use yii\helpers\ArrayHelper;
 
-class DataImportForm extends Model
+class DataImportForm extends DataImport
 {
-    public $dataFile;
-    // OR
     public $importFromGoogleSheets; // Must be a publicly accessible Google Sheets URL
-    // public $status;
     // public $dataModel;
     // public $childDataModels;
     // public $dataModelAttributes;
@@ -32,6 +29,7 @@ class DataImportForm extends Model
     public function init()
     {
         $this->uploadForm = new UploadForm();
+        $this->fileAttribute = 'import_file';
     }
 
     public function rules()
@@ -39,9 +37,9 @@ class DataImportForm extends Model
         $rules = parent::rules();
 
         return ArrayHelper::merge($rules, [
-            [['dataFile'], 'file'],
-            [['dataFile'], 'file', 'extensions' => ['csv', 'excel']],
-            // [['targetTableName'], 'required'],
+            [['import_file'], 'file'],
+            [['import_file'], 'file', 'extensions' => ['csv', 'excel']],
+            [['model_name'], 'required'],
             [['createRecords', 'updateRecords'], 'boolean'],
         ]);
     }
@@ -51,14 +49,9 @@ class DataImportForm extends Model
         $attributeLabels = parent::attributeLabels();
 
         return ArrayHelper::merge($attributeLabels, [
-            'dataFile' => Yii::t('app', 'Data file'),
+            'import_file' => Yii::t('app', 'Data file'),
             'createRecords' => Yii::t('app', 'Add new records'),
             'updateRecords' => Yii::t('app', 'Update existing records'),
         ]);
-    }
-
-    public function getListOptions()
-    {
-        return array_flip(Type_Model::modelClasses());
     }
 }
