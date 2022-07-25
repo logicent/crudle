@@ -18,13 +18,13 @@ use Zelenin\yii\SemanticUI\Elements;
             Yii::t('app', 'Home'), ['/app/home'], ['class' => 'item']) */?>
     <?= Html::a(
             Elements::icon('blue pie chart large')
-            . Yii::t('app', 'Dashboard'),
-            ['/app/dashboard'],
+            . Yii::t('app', 'Dashboards'),
+            ['/app/dashboards'],
             ['class' => 'item']) ?>
     <?= Html::a(
             Elements::icon('teal line chart large')
-            . Yii::t('app', 'Report'),
-            ['/app/report'],
+            . Yii::t('app', 'Reports'),
+            ['/app/reports'],
             ['class' => 'item']) ?>
     <?= Html::a(
             Elements::icon('green windows large')

@@ -9,8 +9,8 @@ use yii\helpers\ArrayHelper;
 class Type_Menu_Sub_Group extends Type_Menu_Group
 {
     const Code = 'Code';
-    const Core = 'Core';
-    const Data = 'Data';
+    const System = 'System';
+    const Tool = 'Tool';
     const Email = 'Email';
     const Layout = 'Layout';
     const People = 'People';
@@ -24,9 +24,9 @@ class Type_Menu_Sub_Group extends Type_Menu_Group
             ArrayHelper::merge([
                 self::Printing => Yii::t('app', 'Printing'),
                 self::Email => Yii::t('app', 'Email Sending'),
-                self::Data => Yii::t('app', 'Data Tool'),
+                self::Tool => Yii::t('app', 'Data Tool'),
                 self::People => Yii::t('app', 'People'),
-                self::Core => Yii::t('app', 'System'),
+                self::System => Yii::t('app', 'System'),
                 self::Code => Yii::t('app', 'Code Generator'),
                 self::Layout => Yii::t('app', 'Workspace'),
                 self::Storage => Yii::t('app', 'Data Storage'),
@@ -39,10 +39,10 @@ class Type_Menu_Sub_Group extends Type_Menu_Group
             ArrayHelper::merge([
                 self::Printing => 'print',
                 self::Email => 'inbox',
-                self::Data => 'server',
+                self::Tool => 'server',
                 self::People => 'users',
                 self::Code => 'code',
-                self::Core => 'cog', // 'toggle on'
+                self::System => 'cog', // 'toggle on'
                 self::Layout => 'window maximize outline',
                 self::Storage => 'disk',
             ], parent::enumIcons());

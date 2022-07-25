@@ -120,7 +120,7 @@ Yii::setAlias('@tests', $testsPath);
 Yii::setAlias('@appModules', "$rootPath/app/modules");
 Yii::setAlias('@appMain', '@appModules/main');
 Yii::setAlias('@appSetup', '@appModules/setup');
-Yii::setAlias('@webCms', '@appModules/web_cms');
 // @appSettings GeneralSettings + Layout Settings
 Yii::setAlias('@appKit', "$rootPath/codegen");
 Yii::setAlias('@extModules', "$rootPath/modules");
+Yii::setAlias('@extCms', '@extModules/web_cms');

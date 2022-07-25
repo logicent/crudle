@@ -19,8 +19,8 @@ return [
     'app/reset-password' => 'main/app/reset-password',
 
     'app/home' => '/main/home/index',
-    'app/dashboard' => '/main/dashboard/index',
-    'app/report' => '/main/report/index',
+    'app/dashboards' => '/main/dashboards/index',
+    'app/reports' => '/main/reports/index',
 
     // ** app modules, std modules
     'app/<module>' => '/<module>',

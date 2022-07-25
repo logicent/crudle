@@ -10,27 +10,9 @@ $deployedSettings = Setup::getSettings( DeveloperSettingsForm::class );
 
 return [
     [
-        'route' => '/setup/app-module/index',
-        'label' => 'App Module',
-        'group' => Type_Menu_Sub_Group::Core,
-        'visible' => Yii::$app->user->can(Type_Role::SystemManager),
-    ],
-    [
         'route' => '/setup/data-model/index',
         'label' => 'Data Model',
-        'group' => Type_Menu_Sub_Group::Core,
-        'visible' => Yii::$app->user->can(Type_Role::SystemManager),
-    ],
-    [
-        'route' => '/setup/dashboard/index',
-        'label' => 'Dashboard',
-        'group' => Type_Menu_Sub_Group::Data,
-        'visible' => Yii::$app->user->can(Type_Role::SystemManager),
-    ],
-    [
-        'route' => '/setup/data-widget/index',
-        'label' => 'Data Widget',
-        'group' => Type_Menu_Sub_Group::Data,
+        'group' => Type_Menu_Sub_Group::Tool,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
@@ -48,31 +30,19 @@ return [
     [
         'route' => '/setup/general-settings/index',
         'label' => 'General Settings',
-        'group' => Type_Menu_Sub_Group::Core,
+        'group' => Type_Menu_Sub_Group::System,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
         'route' => '/setup/layout-settings/index',
         'label' => 'Layout Settings',
-        'group' => Type_Menu_Sub_Group::Core,
+        'group' => Type_Menu_Sub_Group::System,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
         'route' => '/setup/smtp-settings/index',
         'label' => 'SMTP Settings',
         'group' => Type_Menu_Sub_Group::Email,
-        'visible' => Yii::$app->user->can(Type_Role::SystemManager),
-    ],
-    [
-        'route' => '/setup/report-builder/index',
-        'label' => 'Report Builder',
-        'group' => Type_Menu_Sub_Group::Data,
-        'visible' => Yii::$app->user->can(Type_Role::SystemManager),
-    ],
-    [
-        'route' => '/setup/report-template/index',
-        'label' => 'Report Template',
-        'group' => Type_Menu_Sub_Group::Data,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
@@ -108,7 +78,7 @@ return [
     [
         'route' => '/setup/data-import/index',
         'label' => 'Data Import',
-        'group' => Type_Menu_Sub_Group::Data,
+        'group' => Type_Menu_Sub_Group::Tool,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
@@ -180,7 +150,7 @@ return [
     // [
     //     'route' => '/setup/developer-settings/index',
     //     'label' => 'Developer Settings',
-    //     'group' => Type_Menu_Sub_Group::Core,
+    //     'group' => Type_Menu_Sub_Group::System,
     //     'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     // ],
 ];

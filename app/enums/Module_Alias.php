@@ -6,9 +6,9 @@ class Module_Alias
 {
     const Main      = '@appMain';
     const Setup     = '@appSetup';
-    const WebCMS    = '@webCms';
     const Kit       = '@appKit';
     const Ext       = '@extModules';
+    const ExtCMS    = '@extCms';
     const User      = '@userModules';
 
     const AppNsPathname  = 'app';
@@ -21,9 +21,9 @@ class Module_Alias
         return [
             self::Main      => self::Main,
             self::Setup     => self::Setup,
-            self::WebCMS    => self::WebCMS,
             self::Kit    => self::Kit,
             self::Ext    => self::Ext,
+            self::ExtCMS    => self::ExtCMS,
             self::User    => self::User,
         ];
     }
@@ -33,9 +33,9 @@ class Module_Alias
         return [
             self::Main => self::AppNsPathname,
             self::Setup => self::AppNsPathname,
-            self::WebCMS => self::AppNsPathname,
             self::Kit => self::KitNsPathname,
             self::Ext => self::ExtNsPathname,
+            self::ExtCMS => self::ExtNsPathname,
             self::User => self::UserNsPathname,
         ];
     }

@@ -2,47 +2,19 @@
 
 namespace crudle\app\main\controllers;
 
-use crudle\app\main\controllers\base\BaseViewController;
-use crudle\app\main\enums\Type_View;
-use crudle\app\setup\models\Dashboard;
+use crudle\app\main\controllers\base\BaseCrudController;
+use crudle\app\main\models\Dashboard;
+use crudle\app\main\models\search\DashboardSearch;
 
-class DashboardController extends BaseViewController
+class DashboardController extends BaseCrudController
 {
-    public function actions()
+    public function modelClass(): string
     {
-        return [
-        ];
+        return Dashboard::class;
     }
 
-    /**
-     * Renders the index view for the controller
-     * @return string
-     */
-    public function actionIndex($id = null)
+    public function searchModelClass(): string
     {
-        $model = Dashboard::findOne(['route' => $id]);
-
-        if (!$model)
-            $model = new Dashboard();
-
-        return $this->render('index', [
-            'model' => $model
-        ]);
-    }
-
-    // ViewInterface
-    public function defaultActionViewType()
-    {
-        return Type_View::Dashboard;
-    }
-
-    public function showViewHeader(): bool
-    {
-        return false;
-    }
-
-    public function showViewSidebar(): bool
-    {
-        return false;
+        return DashboardSearch::class;
     }
 }
