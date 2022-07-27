@@ -4,7 +4,9 @@ namespace crudle\app\helpers;
 
 use crudle\app\enums\Module_Alias;
 use crudle\app\main\models\ActiveRecord;
+use crudle\app\setup\enums\Type_Model;
 use Yii;
+use yii\helpers\ArrayHelper;
 use yii\helpers\FileHelper;
 use yii\helpers\Inflector;
 use yii\helpers\Json;
@@ -197,5 +199,13 @@ class App
             }
         }
         return $result;
+    }
+
+    public static function getAllModels()
+    {
+        $userModels = self::getModules()->getModels(true);
+        $coreModels = array_flip(Type_Model::modelClasses());
+
+        return ArrayHelper::merge($userModels, $coreModels);
     }
 }

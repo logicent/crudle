@@ -10,6 +10,7 @@ use crudle\app\setup\enums\Type_Permission;
 use crudle\app\setup\enums\Type_Role;
 use Yii;
 use yii\console\Controller;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Inflector;
 use yii\helpers\StringHelper;
 
@@ -96,7 +97,7 @@ class RbacController extends Controller
             $sharePermissions = $emailPermissions = $submitPermissions = $cancelPermissions = 
             $amendPermissions = [];
 
-            $models = App::getModules()->getModels();
+            $models = App::getAllModels();
             foreach ( $models as $modelClass => $modelName )
             {
                 foreach ( $modelClass::permissions() as $operation )

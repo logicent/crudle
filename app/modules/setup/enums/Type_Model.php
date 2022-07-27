@@ -2,11 +2,8 @@
 
 namespace crudle\app\setup\enums;
 
-use crudle\app\setup\models\AppModule;
-use crudle\app\setup\models\Dashboard;
-use crudle\app\setup\models\DataImportForm;
+use crudle\app\setup\models\DataImport;
 use crudle\app\setup\models\DataModel;
-use crudle\app\setup\models\DataWidget;
 use crudle\app\setup\models\DbBackupSettingsForm;
 use crudle\app\setup\models\EmailNotification;
 use crudle\app\setup\models\EmailQueue;
@@ -17,21 +14,18 @@ use crudle\app\setup\models\PrinterSettingsForm;
 use crudle\app\setup\models\PrintFormat;
 use crudle\app\setup\models\PrintSettingsForm;
 use crudle\app\setup\models\PrintStyle;
-use crudle\app\setup\models\ReportBuilder;
 use crudle\app\setup\models\Role;
 use crudle\app\setup\models\Setup;
 use crudle\app\setup\models\SmtpSettingsForm;
 use crudle\app\setup\models\User;
 use crudle\app\setup\models\UserGroup;
 use crudle\app\setup\models\UserLog;
+use yii\helpers\ArrayHelper;
 
-class Type_Model
+class Type_Model extends \crudle\app\main\enums\Type_Model
 {
-    const AppModule         = 'App Module';
     const DataImport        = 'Data Import';
     const DataModel         = 'Data Model';
-    const Dashboard         = 'Dashboard';
-    const DataWidget        = 'Data Widget';
     const DatabaseBackup    = 'Database Backup';
     const EmailNotification = 'Email Notification';
     const EmailQueue        = 'Email Queue';
@@ -42,7 +36,6 @@ class Type_Model
     const PrintSettings     = 'Print Settings';
     const PrintStyle        = 'Print Style';
     const PrinterSettings   = 'Printer Settings';
-    const ReportBuilder     = 'Report Builder';
     const Role              = 'Role';
     const Setup             = 'Setup';
     const SmtpSettings      = 'Smtp Settings';
@@ -52,12 +45,9 @@ class Type_Model
 
     public static function enums()
     {
-        return [
-            self::AppModule         => self::AppModule,
-            self::DataModel         => self::DataModel,
+        return ArrayHelper::merge(parent::enums(), [
             self::DataImport        => self::DataImport,
-            self::Dashboard         => self::Dashboard,
-            self::DataWidget   => self::DataWidget,
+            self::DataModel         => self::DataModel,
             self::DatabaseBackup    => self::DatabaseBackup,
             self::EmailNotification => self::EmailNotification,
             self::EmailQueue        => self::EmailQueue,
@@ -70,22 +60,18 @@ class Type_Model
             self::PrinterSettings   => self::PrinterSettings,
             self::Setup             => self::Setup,
             self::SmtpSettings      => self::SmtpSettings,
-            self::ReportBuilder     => self::ReportBuilder,
             self::Role              => self::Role,
             self::User              => self::User,
             self::UserGroup         => self::UserGroup,
             self::UserLog           => self::UserLog,
-        ];
+        ]);
     }
 
     public static function modelClasses()
     {
-        return [
-            self::AppModule         => AppModule::class,
+        return ArrayHelper::merge(parent::modelClasses(), [
+            self::DataImport        => DataImport::class,
             self::DataModel         => DataModel::class,
-            self::DataImport        => DataImportForm::class,
-            self::Dashboard         => Dashboard::class,
-            self::DataWidget   => DataWidget::class,
             self::DatabaseBackup    => DbBackupSettingsForm::class,
             self::EmailNotification => EmailNotification::class,
             self::EmailQueue        => EmailQueue::class,
@@ -96,13 +82,12 @@ class Type_Model
             self::PrintSettings     => PrintSettingsForm::class,
             self::PrintStyle        => PrintStyle::class,
             self::PrinterSettings   => PrinterSettingsForm::class,
-            self::ReportBuilder     => ReportBuilder::class,
             self::Role              => Role::class,
             self::Setup             => Setup::class,
             self::SmtpSettings      => SmtpSettingsForm::class,
             self::User              => User::class,
             self::UserGroup         => UserGroup::class,
             self::UserLog           => UserLog::class,
-        ];
+        ]);
     }
 }

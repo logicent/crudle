@@ -5,6 +5,7 @@ namespace crudle\app\setup\models;
 use crudle\app\main\enums\Type_Model_Id;
 use crudle\app\main\models\base\BaseActiveRecord;
 use crudle\app\main\models\UploadForm;
+use crudle\app\setup\enums\Permission_Group;
 use crudle\app\setup\enums\Status_Transaction;
 use crudle\app\setup\enums\Type_Permission;
 
@@ -27,7 +28,7 @@ class DataImport extends BaseActiveRecord
     // Workflow Interface
     public static function permissions()
     {
-        return [Type_Permission::List => Type_Permission::List];
+        return Type_Permission::enums(Permission_Group::Crud);
     }
 
     // ActiveRecord Interface

@@ -7,6 +7,7 @@ use yii\helpers\Html;
 use yii\helpers\Inflector;
 use crudle\app\assets\DataTable;
 use crudle\app\helpers\App;
+use yii\helpers\ArrayHelper;
 use yii\helpers\StringHelper;
 use Zelenin\yii\SemanticUI\modules\Checkbox;
 
@@ -37,7 +38,7 @@ DataTable::register($this);
     </thead>
     <tbody>
     <?php
-        $models = App::getModels('@extModules', true);
+        $models = App::getAllModels();
         foreach ( $models as $modelClass => $modelName ) : ?>
             <tr>
                 <td style="background: #f5f7fa;"><?= $modelName ?></td>
