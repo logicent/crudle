@@ -13,7 +13,7 @@
             <?= $form->field($generator, 'baseControllerClass')->textInput(['placeholder' => 'e.g. crudle\app\main\controllers\base\BaseViewController']) ?>
             <?= $form->field($generator, 'controllerClass')->textInput(['placeholder' => 'e.g. crudle\app\main\controllers\TodoController']) ?>
             <?= $form->field($generator, 'actions')->textInput(['placeholder' => 'e.g. index, create-todo']) ?>
-            <?= $form->field($generator, 'viewPath')->textInput(['placeholder' => 'e.g. /home/logicent/yii2-crudle/controllers/views/todo -or- @appMain/views/todo']) ?>
+            <?= $form->field($generator, 'viewPath')->textInput(['placeholder' => 'e.g. <parent_dir>/app/modules/main/views/todo -or- @appMain/views/todo']) ?>
         </div>
     </div>
 </div>

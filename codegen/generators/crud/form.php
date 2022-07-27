@@ -11,7 +11,7 @@
     <div class="ui one column grid">
         <div class="column">
             <?= $form->field($generator, 'modelClass')->textInput(['placeholder' => 'e.g. crudle\app\main\models\Todo']) ?>
-            <?= $form->field($generator, 'searchModelClass')->textInput(['placeholder' => 'e.g. crudle\app\main\models\TodoSearch']) ?>
+            <?= $form->field($generator, 'searchModelClass')->textInput(['placeholder' => 'e.g. crudle\app\main\models\search\TodoSearch']) ?>
         </div>
     </div>
 </div>
@@ -30,7 +30,7 @@
     <div class="ui small header" style="font-weight: 500;">
         <?= Yii::t('app', 'Views') ?>
     </div>
-    <?= $form->field($generator, 'viewPath')->textInput(['placeholder' => 'e.g. /home/logicent/yii2-crudle/app/modules/main/controllers/views/todo -or- @appMain/views/todo']) ?>
+    <?= $form->field($generator, 'viewPath')->textInput(['placeholder' => 'e.g. <parent_dir>/app/modules/main/views/todo -or- @appMain/views/todo']) ?>
     <div class="ui two column grid">
         <div class="column">
             <?= $form->field($generator, 'enablePjax')->checkbox() ?>
