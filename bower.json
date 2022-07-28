@@ -1,5 +1,5 @@
 {
-  "name": "crudle-basic",
+  "name": "crudle",
   "authors": [
     "Ken Mwai <logicent.africa@gmail.com>"
   ],
@@ -26,6 +26,7 @@
     "semantic-ui": "^2.4.1",
     "datatables.net": "^1.11.5",
     "datatables.net-dt": "^3.2.2",
-    "datatables.net-se": "^1.11.5"
+    "datatables.net-se": "^1.11.5",
+    "splide": "npm:splide#^4.0.7"
   }
 }

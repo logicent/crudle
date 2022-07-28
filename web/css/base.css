@@ -680,9 +680,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 #main_sidebar {
-    position: absolute;
+    position: fixed;
     z-index: 100;
-    background: #FFF;
+    background: #fff;
     padding-top: 8.25em !important;
 }
 

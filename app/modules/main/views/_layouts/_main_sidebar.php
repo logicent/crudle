@@ -17,7 +17,7 @@ use Zelenin\yii\SemanticUI\Elements;
             Elements::icon('brown globe large') .
             Yii::t('app', 'Home'), ['/app/home'], ['class' => 'item']) */?>
     <?= Html::a(
-            Elements::icon('blue pie chart large')
+            Elements::icon('blue dashboard large')
             . Yii::t('app', 'Dashboards'),
             ['/app/dashboards'],
             ['class' => 'item']) ?>
