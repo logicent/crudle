@@ -21,8 +21,6 @@ Option 2: via CLI
 - Run `composer install`
 
 Continue:
-- Run `npm install -g bower && npm install -g bower-npm-resolver`
-- Run `bower install`
 - Create a database and update your `.env` settings
 - Run `./crudle migrate --migration-path 'app/database/migrations'`
 - Run `cat app/database/seeds/people.sql | mysql -u <my_root_user> -p <my_db_name>`
