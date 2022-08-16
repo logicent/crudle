@@ -107,7 +107,7 @@ class SetupController extends Controller
 
                 $this->stdout('Populating ' . $modelName . ' model table schema...' . PHP_EOL);
 
-                $user = People::findOne(['user_role' => 'Administrator']);
+                $user = People::findOne(['username' => 'Administrator']);
 
                 Yii::$app->db
                         ->createCommand()

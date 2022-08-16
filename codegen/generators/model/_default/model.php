@@ -19,6 +19,7 @@ echo "<?php\n";
 
 namespace <?= $generator->ns ?>;
 
+use crudle\app\enums\Status_Active;
 use Yii;
 
 /**
@@ -39,6 +40,15 @@ class <?= $className ?> extends <?= '\\' . ltrim($generator->baseModelClass, '\\
     /**
      * {@inheritdoc}
      */
+    public function init()
+    {
+        parent::init();
+        $this->listSettings->listNameAttribute = 'id';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public static function tableName()
     {
         return '<?= $generator->generateTableName($tableName) ?>';
@@ -51,6 +61,15 @@ class <?= $className ?> extends <?= '\\' . ltrim($generator->baseModelClass, '\\
     public static function getDb()
     {
         return Yii::$app->get('<?= $generator->db ?>');
+    }
+<?php endif; ?>
+
+<?php 
+$pk = Yii::$app->db->getTableSchema($generator->tableName)->primaryKey;
+if ($pk !== 'id') : ?>
+    public static function primaryKey()
+    {
+        return ['<?= $pk[0] ?>'];
     }
 <?php endif; ?>
 
@@ -97,4 +116,14 @@ class <?= $className ?> extends <?= '\\' . ltrim($generator->baseModelClass, '\\
         return new <?= $queryClassFullName ?>(get_called_class());
     }
 <?php endif; ?>
+
+    public static function enums()
+    {
+        return [
+            'status' => [
+                'class' => Status_Active::class,
+                'attribute' => 'inactive'
+            ]
+        ];
+    }
 }

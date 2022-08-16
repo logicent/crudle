@@ -40,29 +40,27 @@ Yii2 Crudle (CRUD logic engine) is a meta framework for rapid application develo
 
 **Components**
 
-_Main module_
+_Main module_ - to manage the core app-level interaction like authentication
+- **Home** - view the default workspace customized to show shortcuts and data widgets
+- **Dashboard** - view the dashboards created using the dashboard + data widget tools
+- **Report** - view the reports created using the report builder to show query result
 
-- **Home** - view the default workspace customized in setup to show shortcuts and data widgets
-- **Dashboard** - view the dashboards created using the dashboard + data widget tools in setup
-- **Report** - view the reports created using the report builder to show filtered/full query result
-
-_Setup module_
-
-- **System** - create/modify app modules, data models & configure core settings
-- **Data Tool** - import data, create data widgets, reports & configure backups
+_Setup module_ - to provide visibility and customization tools for end-users
+- **System** - configure general settings and layout (UI) preferences and menus
+- **Data Tool** - import and/or export data, create/modify domain master models
 - **Email Sending** - create email notifications, templates, check email queues
-- **Layout Settings** - create layout navbar menus and dashboard menu shortcuts
+- **Data Storage** - configure backups and manage file storage and system cache
 - **People** - add users, user groups, roles and permissions and view user logs
 - **Printing** - create print styles, print formats and configure print devices
 
-**Code**
+_Main app_
 - **app/config** to define app-level conventions
-- **app/database** to run db scripts that update db migrations published in modules
+- **app/database** to contain db scripts that run db migrations
 - **app/enums** to define app-level enumerations
-- **app/helpers** to provide reusable functionality
-- **app/modules** to contain the core functionality
-- **app/modules/main** to manage the core app-level interaction like authentication
-- **app/modules/setup** to provide visibility and customization tools for end-users
+- **app/helpers** to provide reusable app functions
+- **app/modules** to contain core app functionality
+
+_Extension modules_
 - **modules/web_cms** to easily setup a front-end site for users to engage with you
 
 ### Technology Stack
@@ -105,9 +103,9 @@ _Setup module_
 
 ### Roadmap
 _Now:_
-- [ ] Increase the UI layout width, add a pinable sidebar and editable menus
-- [ ] Improve all the end-user system tools options and performance
-- [ ] Email templates and email sending with attachment option for documents and reports
+- [ ] wip: Increase the UI layout width, add a pinable sidebar and editable menus
+- [ ] wip: Improve all the end-user system tools, app preferences and performance
+- [ ] Email templates for sending mail with attachments for documents and reports
 
 _Next:_
 - [ ] Upgrade to latest Yii2 using PHP 8+ and MySQL 8+ with Fomantic UI 2.8+

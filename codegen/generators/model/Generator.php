@@ -253,8 +253,10 @@ class Generator extends \crudle\kit\Generator
                 'rules' => $this->generateRules($tableSchema),
                 'relations' => isset($relations[$tableName]) ? $relations[$tableName] : [],
             ];
+            $ns = str_replace('\\', '/', $this->ns);
+            $ns = str_replace('ext', 'modules', $ns);
             $files[] = new CodeFile(
-                Yii::getAlias('@' . str_replace('\\', '/', $this->ns)) . '/' . $modelClassName . '.php',
+                Yii::getAlias('@' . $ns) . '/' . $modelClassName . '.php',
                 $this->render('model.php', $params)
             );
 
@@ -262,8 +264,10 @@ class Generator extends \crudle\kit\Generator
             if ($queryClassName) {
                 $params['className'] = $queryClassName;
                 $params['modelClassName'] = $modelClassName;
+                $queryNs = str_replace('\\', '/', $this->queryNs);
+                $queryNs = str_replace('ext', 'modules', $queryNs);
                 $files[] = new CodeFile(
-                    Yii::getAlias('@' . str_replace('\\', '/', $this->queryNs)) . '/' . $queryClassName . '.php',
+                    Yii::getAlias('@' . $queryNs) . '/' . $queryClassName . '.php',
                     $this->render('query.php', $params)
                 );
             }

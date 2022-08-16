@@ -1,9 +1,11 @@
 <?php
 
+use yii\helpers\StringHelper;
+
 echo "<?php\n";
 ?>
 
-namespace crudle\ext\<?= $generator->moduleID ?>\models;
+namespace crudle\ext\<?= StringHelper::basename($generator->modulePath) ?>\models;
 
 use crudle\app\main\enums\Type_Relation;
 use crudle\app\main\models\UploadForm;

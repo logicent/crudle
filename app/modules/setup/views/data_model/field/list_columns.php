@@ -118,6 +118,8 @@ use Zelenin\yii\SemanticUI\modules\Select;
                                 ]
                             ] ) .
                         Html::activeHiddenInput($model, "[$index]id", ['data' => ['modal-input' => 'id']]) .
+                        Html::activeHiddenInput($model, "[$index]col_index", ['data' => ['modal-input' => 'col_index']]) .
+                        Html::activeHiddenInput($model, "[$index]col_side", ['data' => ['modal-input' => 'col_side']]) .
                         Html::activeHiddenInput($model, "[$index]model_name", ['data' => ['modal-input' => 'model_name']]) .
                         Html::activeHiddenInput($model, "[$index]length", ['data' => ['modal-input' => 'length']]) .
                         Html::activeHiddenInput($model, "[$index]unique", ['data' => ['modal-input' => 'unique']]) .

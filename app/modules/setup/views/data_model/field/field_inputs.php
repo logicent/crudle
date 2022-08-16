@@ -25,6 +25,8 @@ echo $this->render('@appMain/views/_form/_modal_header', ['model' => $model]) ?>
     <div class="ui two column grid">
         <div class="column">
             <?= Html::activeHiddenInput( $model, 'id' ) ?>
+            <?= Html::activeHiddenInput( $model, 'col_index' ) ?>
+            <?= Html::activeHiddenInput( $model, 'col_side' ) ?>
             <?= $form->field( $model, 'label' )->textInput(['maxlength' => true, 'readonly' => $isReadonly]) ?>
             <?= Html::activeHiddenInput( $model, 'model_name' ) ?>
             <?= $form->field( $model, 'field_name' )->textInput(['maxlength' => true, 'readonly' => false]) ?>

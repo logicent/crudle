@@ -19,6 +19,12 @@ use crudle\app\main\enums\Type_View;
  */
 class <?= $generator->getModuleClass() ?>Controller extends BaseViewController
 {
+    public function actions()
+    {
+        return [
+        ];
+    }
+
     /**
      * Renders the index view for the module
      * @return string
@@ -29,7 +35,7 @@ class <?= $generator->getModuleClass() ?>Controller extends BaseViewController
     }
 
     // ViewInterface
-    public function defaultViewType()
+    public function defaultActionViewType()
     {
         return Type_View::Workspace;
     }

@@ -7,12 +7,14 @@
 
 namespace crudle\kit\generators\crud;
 
+use crudle\app\setup\models\DataModel;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\db\BaseActiveRecord;
 use yii\db\Schema;
 use crudle\kit\CodeFile;
 use yii\helpers\Inflector;
+use yii\helpers\StringHelper;
 use yii\helpers\VarDumper;
 use yii\web\Controller;
 
@@ -162,18 +164,23 @@ class Generator extends \crudle\kit\Generator
      */
     public function generate()
     {
-        $controllerFile = Yii::getAlias('@' . str_replace('\\', '/', ltrim($this->controllerClass, '\\')) . '.php');
+        $class = ltrim($this->controllerClass, '\\');
+        $class = str_replace('ext', 'modules', $class);
+        $controllerFile = Yii::getAlias('@' . str_replace('\\', '/', $class) . '.php');
 
         $files = [
             new CodeFile($controllerFile, $this->render('controller.php')),
         ];
 
         if (!empty($this->searchModelClass)) {
-            $searchModel = Yii::getAlias('@' . str_replace('\\', '/', ltrim($this->searchModelClass, '\\') . '.php'));
+            $class = ltrim($this->searchModelClass, '\\');
+            $class = str_replace('ext', 'modules', $class);
+            $searchModel = Yii::getAlias('@' . str_replace('\\', '/', $class . '.php'));
             $files[] = new CodeFile($searchModel, $this->render('search.php'));
         }
 
         $viewPath = $this->getViewPath();
+        $viewPath = str_replace('ext', 'modules', $viewPath);
         $templatePath = $this->getTemplatePath() . '/views';
         foreach (scandir($templatePath) as $file) {
             if (empty($this->searchModelClass) && $file === '_search.php') {
@@ -204,7 +211,7 @@ class Generator extends \crudle\kit\Generator
     public function getViewPath()
     {
         if (empty($this->viewPath)) {
-            return Yii::getAlias('@app/views/' . $this->getControllerID());
+            return Yii::getAlias('@extModules/' . $this->getControllerID());
         }
 
         return Yii::getAlias(str_replace('\\', '/', $this->viewPath));
@@ -581,5 +588,24 @@ class Generator extends \crudle\kit\Generator
         $class = $this->modelClass;
         $db = $class::getDb();
         return $db instanceof \yii\db\Connection ? $db->driverName : null;
+    }
+
+    public function getFormFields()
+    {
+        /* @var $class ActiveRecord */
+        $class = $this->modelClass;
+        if (!is_subclass_of($class, 'yii\db\ActiveRecord')) {
+            return [];
+        }
+
+        $modelDef = DataModel::find()
+                            ->where(['id' => StringHelper::basename($this->modelClass)])
+                            ->with(['dataModelFields' => function (\yii\db\ActiveQuery $query) {
+                                $query->orderBy('col_index');
+                            },
+                            ])
+                            ->one();
+
+        return !empty($modelDef->dataModelFields) ? $modelDef->dataModelFields : [];
     }
 }

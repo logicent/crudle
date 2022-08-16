@@ -3,7 +3,6 @@
 namespace crudle\app\setup\controllers;
 
 use crudle\app\main\controllers\action\Index;
-use crudle\app\main\controllers\action\Read;
 use crudle\app\main\controllers\base\BaseCrudController;
 use Yii;
 use yii\base\Model;
@@ -58,7 +57,7 @@ class DataModelController extends BaseCrudController
         }
 
         $this->fieldDataProvider = new ActiveDataProvider([
-            'query' => DataModelField::find()->where(['data_model' => '']),
+            'query' => DataModelField::find()->where(['model_name' => '']),
         ]);
 
         $this->fieldDataProvider->setModels( !empty($this->detailModels) ? $this->detailModels :  [new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION])] );
@@ -84,7 +83,7 @@ class DataModelController extends BaseCrudController
                 {
                     foreach($this->detailModels as $modelDetail) 
                     {
-                        $modelDetail->data_model = $this->model->name;
+                        $modelDetail->model_name = $this->model->name;
                         $modelDetail->save(false);
                     }
                     $this->model->createTable();
@@ -114,9 +113,12 @@ class DataModelController extends BaseCrudController
         foreach ($formDetails as $i => $formDetail) 
         {
             //loading the models if they are not new
-            if (isset($formDetail['name']) && isset($formDetail['actionType']) && $formDetail['actionType'] != DataModelField::ACTION_TYPE_CREATE) {
+            if (isset($formDetail['field_name']) &&
+                isset($formDetail['actionType']) && $formDetail['actionType'] != DataModelField::ACTION_TYPE_CREATE)
+            {
                 //making sure that it is actually a child of the main model
-                $modelDetail = DataModelField::findOne(['name' => $formDetail['name'], 'data_model' => $model->name]);
+                $modelDetail = DataModelField::findOne(['field_name' => $formDetail['field_name'], 
+                                                        'model_name' => $model->id]);
                 $modelDetail->setScenario(DataModelField::SCENARIO_BATCH_ACTION);
                 $modelDetail->setAttributes($formDetail);
                 $modelDetails[$i] = $modelDetail;
@@ -131,14 +133,17 @@ class DataModelController extends BaseCrudController
         }
 
         $this->fieldDataProvider = new ActiveDataProvider([
-            'query' => DataModelField::find()->where(['data_model' => '']),
+            'query' => DataModelField::find()->where(['model_name' => '']),
         ]);
 
         //handling if the addRow button has been pressed
         if ( isset( Yii::$app->request->post()['addRow']) ) 
         {
-            $model->load(Yii::$app->request->post());
-            $modelDetails[] = new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION]);
+            $model->load(Yii::$app->request->post(), 'DataModel');
+            unset($modelDetails['dataModelFields']); // To-Do: fix later by refactoring this action method
+            $modelDetail = new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION]);
+            $modelDetail->model_name = $model->id;
+            $modelDetails[] = $modelDetail;
             $this->fieldDataProvider->setModels( $modelDetails );
 
             $this->model = $model;
@@ -148,34 +153,40 @@ class DataModelController extends BaseCrudController
             ]);
         }
 
-        if ($model->load(Yii::$app->request->post())) 
-        {
-            if (Model::validateMultiple($modelDetails) && $model->validate()) 
+        $postData = Yii::$app->request->post();
+        if ($postData) {
+            if ($model->load($postData, 'DataModel'))
             {
-                if ( $model->save(false) ) 
+                $this->loadDetailModels(DataModelField::class, $formDetails);
+                if ($this->validateDetailModels() && $model->validate()) 
                 {
-                    foreach($modelDetails as $modelDetail) 
+                    if ( $model->save(false) ) 
                     {
-                        //details that has been flagged for deletion will be deleted
-                        if ($modelDetail->actionType == DataModelField::ACTION_TYPE_DELETE) {
-                            $modelDetail->delete();
-                        } else {
-                            //new or updated records go here
-                            $modelDetail->data_model = $model->name;
-                            $modelDetail->save(false);
+                        // echo '<pre>';print_r($this->detailModels);exit;
+                        foreach($modelDetails['dataModelFields'] as $modelDetail) 
+                        // foreach($this->detailModels['DataModelField'] as $id => $detailModel) 
+                        {
+                            // details that has been flagged for deletion will be deleted
+                            if ($modelDetail->actionType == DataModelField::ACTION_TYPE_DELETE) {
+                                $modelDetail->delete();
+                            } else {
+                                // new or updated records go here
+                                $modelDetail->model_name = $model->id;
+                                $modelDetail->save(false);
+                            }
                         }
+                        // $model->updateTable(); // TODO: define method in model
                     }
-                    // $model->updateTable(); // TODO: define method in model
+                    return $this->redirect(['update', 'id' => $model->id]);
                 }
-                return $this->redirect(['update', 'id' => $model->name]);
-            }
-            else
-            {
-                Yii::$app->session->setFlash( 'error', $model->errors);
+                else
+                {
+                    Yii::$app->session->setFlash( 'error', $model->errors);
+                }
             }
         }
 
-        $this->fieldDataProvider->setModels( !empty($modelDetails) ? $modelDetails :  [new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION])] );
+        $this->fieldDataProvider->setModels( !empty($modelDetails) ? $modelDetails['dataModelFields'] :  [new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION])] );
 
         $this->model = $model;
 
@@ -196,7 +207,7 @@ class DataModelController extends BaseCrudController
         $modelDetails = $this->getDetailModels();
 
         $this->fieldDataProvider = new ActiveDataProvider([
-            'query' => DataModelField::find()->where(['data_model' => $id]),
+            'query' => DataModelField::find()->where(['model_name' => $id]),
         ]);
 
         $this->fieldDataProvider->setModels(

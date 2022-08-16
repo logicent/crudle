@@ -128,37 +128,41 @@ EOD;
     {
         $files = [];
         $modulePath = $this->getModulePath();
+        $moduleDir = StringHelper::basename($modulePath);
+        $viewPath = "/views/{$moduleDir}";
+        $extModulesPath = Yii::getAlias('@extModules/') . $moduleDir;
 
         $files[] = new CodeFile(
-            $modulePath . '/config.php',
+            $extModulesPath . '/config.php',
             $this->render("config.php")
         );
         $files[] = new CodeFile(
-            $modulePath . '/' . StringHelper::basename($this->moduleClass) . '.php',
+            $extModulesPath . '/Module.php',
             $this->render("Module.php")
         );
         $files[] = new CodeFile(
-            $modulePath . '/enums/Type_Menu_Sub_Group.php',
+            $extModulesPath . '/enums/Type_Menu_Sub_Group.php',
             $this->render("enums/Type_Menu_Sub_Group.php")
         );
         $files[] = new CodeFile(
-            $modulePath . '/enums/Type_Model.php',
+            $extModulesPath . '/enums/Type_Model.php',
             $this->render("enums/Type_Model.php")
         );
         $files[] = new CodeFile(
-            $modulePath . '/enums/Type_Sub_Module.php',
+            $extModulesPath . '/enums/Type_Sub_Module.php',
             $this->render("enums/Type_Sub_Module.php")
         );
         $files[] = new CodeFile(
-            $modulePath . "/controllers/{$this->getModuleClass()}Controller.php",
+            $extModulesPath . "/controllers/{$this->getModuleClass()}Controller.php",
             $this->render("controllers/Controller.php")
         );
+
         $files[] = new CodeFile(
-            $modulePath . "/views/$this->moduleID/_menu.php",
+            $extModulesPath . "{$viewPath}/_menu.php",
             $this->render("views/_menu.php")
         );
         $files[] = new CodeFile(
-            $modulePath . "/views/$this->moduleID/index.php",
+            $extModulesPath . "{$viewPath}/index.php",
             $this->render("views/index.php")
         );
         return $files;

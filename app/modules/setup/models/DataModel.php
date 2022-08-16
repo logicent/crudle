@@ -79,7 +79,7 @@ class DataModel extends ActiveRecord
 
     public function getDataModelFields()
     {
-        return $this->hasMany(DataModelField::class, [ 'model_name' => 'id' ]);
+        return $this->hasMany(DataModelField::class, [ 'model_name' => 'id' ])->orderBy('col_index');
     }
 
     // Workflow Interface

@@ -1,11 +1,15 @@
 <?php
 
+use yii\helpers\StringHelper;
+
+$moduleDir = StringHelper::basename($generator->modulePath);
+
 echo "<?php\n";
 ?>
 
-namespace crudle\ext\<?= $generator->moduleID ?>\enums;
+namespace crudle\ext\<?= $moduleDir ?>\enums;
 
-// use crudle\ext\<?= $generator->moduleID ?>\models\<?= $generator->getModuleClass() ?>;
+// use crudle\ext\<?= $moduleDir ?>\models\<?= $generator->getModuleClass() ?>;
 
 class Type_Model
 {

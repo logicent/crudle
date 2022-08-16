@@ -1,9 +1,11 @@
 <?php
 
+use yii\helpers\StringHelper;
+
 echo "<?php\n";
 ?>
 
-namespace crudle\ext\<?= $generator->moduleID ?>\enums;
+namespace crudle\ext\<?= StringHelper::basename($generator->modulePath) ?>\enums;
 
 use Yii;
 
