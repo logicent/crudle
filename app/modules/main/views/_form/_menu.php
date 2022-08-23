@@ -4,8 +4,8 @@ use crudle\app\setup\enums\Type_Permission;
 use crudle\app\main\enums\Resource_Action;
 use yii\helpers\Html;
 use yii\helpers\Url;
-use Zelenin\yii\SemanticUI\helpers\Size;
-use Zelenin\yii\SemanticUI\modules\Modal;
+use icms\FomanticUI\helpers\Size;
+use icms\FomanticUI\modules\Modal;
 
 ?>
 

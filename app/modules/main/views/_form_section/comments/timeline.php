@@ -6,7 +6,7 @@
 use crudle\app\main\enums\Type_Comment;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\Elements;
+use icms\FomanticUI\Elements;
 
 ArrayHelper::multisort( $comments, 'createdAt', SORT_DESC );
 

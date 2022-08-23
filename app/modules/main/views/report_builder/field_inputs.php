@@ -7,7 +7,7 @@ use crudle\app\setup\models\Role;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
-use Zelenin\yii\SemanticUI\modules\Select;
+use icms\FomanticUI\modules\Select;
 
 
 $rolesCount = !empty($model->roles) ? count($model->roles) : '0';

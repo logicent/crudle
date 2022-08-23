@@ -2,7 +2,7 @@
 
 namespace crudle\app\widgets;
 
-class BarChart extends \Zelenin\yii\SemanticUI\Widget
+class BarChart extends \icms\FomanticUI\Widget
 {
     /**
      * {@inheritdoc}

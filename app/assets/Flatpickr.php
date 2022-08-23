@@ -6,7 +6,7 @@ use yii\web\AssetBundle;
 
 class Flatpickr extends AssetBundle
 {
-    public $sourcePath = '@bower/flatpickr';
+    public $sourcePath = '@npm/flatpickr';
     public $css = [
         "dist/flatpickr.min.css",
     ];

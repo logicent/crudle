@@ -163,11 +163,16 @@ class Generator extends \crudle\kit\Generator
     {
         $files = [];
 
+        $class = ltrim($this->controllerClass, '\\');
+        $class = str_replace('ext', 'modules', $class);
+        $controllerFile = Yii::getAlias('@' . str_replace('\\', '/', $class) . '.php');
+
         $files[] = new CodeFile(
-            $this->getControllerFile(),
+            $controllerFile,
             $this->render('controller.php')
         );
 
+        $this->viewPath = str_replace('ext', 'modules', $this->viewPath);
         foreach ($this->getActionIDs() as $action) {
             $files[] = new CodeFile(
                 $this->getViewFile($action),

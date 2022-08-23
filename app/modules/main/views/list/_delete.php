@@ -1,7 +1,7 @@
 <?php
 
-use Zelenin\yii\SemanticUI\helpers\Size;
-use Zelenin\yii\SemanticUI\modules\Modal;
+use icms\FomanticUI\helpers\Size;
+use icms\FomanticUI\modules\Modal;
 
 $modal = Modal::begin([
     'id' => 'confirm_delete_modal',

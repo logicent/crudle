@@ -8,9 +8,9 @@ use crudle\app\setup\models\UserGroup;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\MaskedInput;
-use Zelenin\yii\SemanticUI\Elements;
-use Zelenin\yii\SemanticUI\helpers\Size;
-use Zelenin\yii\SemanticUI\modules\Modal;
+use icms\FomanticUI\Elements;
+use icms\FomanticUI\helpers\Size;
+use icms\FomanticUI\modules\Modal;
 
 $this->title = $model->full_name;
 

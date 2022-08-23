@@ -5,8 +5,8 @@ use crudle\app\setup\enums\Type_Role;
 use crudle\app\helpers\StatusMarker;
 use yii\helpers\Html;
 use yii\helpers\Url;
-use Zelenin\yii\SemanticUI\helpers\Size;
-use Zelenin\yii\SemanticUI\modules\Modal;
+use icms\FomanticUI\helpers\Size;
+use icms\FomanticUI\modules\Modal;
 
 $url = Url::to([ 'change-status', 'id' => $model->id ]);
 

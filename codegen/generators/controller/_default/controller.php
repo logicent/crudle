@@ -14,8 +14,16 @@ echo "<?php\n";
 
 namespace <?= $generator->getControllerNamespace() ?>;
 
+use crudle\app\main\enums\Type_View;
+
 class <?= StringHelper::basename($generator->controllerClass) ?> extends <?= '\\' . trim($generator->baseControllerClass, '\\') . "\n" ?>
 {
+    public function actions()
+    {
+        return [
+        ];
+    }
+
 <?php foreach ($generator->getActionIDs() as $action): ?>
     public function action<?= Inflector::id2camel($action) ?>()
     {
@@ -23,4 +31,11 @@ class <?= StringHelper::basename($generator->controllerClass) ?> extends <?= '\\
     }
 
 <?php endforeach; ?>
+
+    // ViewInterface
+    public function defaultActionViewType()
+    {
+        return Type_View::List;
+    }
+
 }

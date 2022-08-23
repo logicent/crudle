@@ -31,7 +31,7 @@ class AppAsset extends AssetBundle
     public $depends = [
         'yii\web\YiiAsset', // !!! required if method POST is used in (anchor) element(s)
         // 'yii\web\JqueryAsset', // loaded as dependency
-        // 'Zelenin\yii\SemanticUI\assets\SemanticUICSSAsset', // loaded as dependency
-        'Zelenin\yii\SemanticUI\assets\SemanticUIJSAsset'
+        // 'icms\FomanticUI\assets\CSSAsset', // loaded as dependency
+        'icms\FomanticUI\assets\JSAsset'
     ];
 }

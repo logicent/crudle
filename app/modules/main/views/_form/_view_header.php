@@ -1,11 +1,12 @@
 <?php
 
 use crudle\app\main\enums\Type_View;
+use crudle\app\main\models\ActiveRecord;
 use crudle\app\setup\enums\Status_Transaction;
 use crudle\app\setup\enums\Type_Permission;
 use yii\helpers\Html;
 use yii\helpers\Url;
-use Zelenin\yii\SemanticUI\Elements;
+use icms\FomanticUI\Elements;
 
 ?>
 
@@ -19,7 +20,7 @@ use Zelenin\yii\SemanticUI\Elements;
 $controller = $this->context;
 $model = $this->context->getModel();
 
-if (is_a($model, BaseActiveRecord::class)) :
+if (is_a($model, ActiveRecord::class)) :
     if (!$model->isNewRecord &&
         $model->hasWorkflow() &&
         $model->status === Status_Transaction::Draft) :
@@ -48,14 +49,14 @@ if (is_a($model, BaseActiveRecord::class)) :
         echo Html::a(Elements::icon('left chevron'),
                     ['previous', 'id' => $model->id],
                     [
-                        'class' => 'compact ui basic icon button',
-                        'title' => 'Previous',
+                        'class' => 'compact ui icon button',
+                        'title' => Yii::t('app', 'Previous'),
                     ]);
         echo Html::a(Elements::icon('right chevron'),
                     ['next', 'id' => $model->id],
                     [
-                        'class' => 'compact ui basic icon button',
-                        'title' => 'Next',
+                        'class' => 'compact ui icon button',
+                        'title' => Yii::t('app', 'Next'),
                     ]);
         if ($model->allowPrint()) :
             echo Html::a(Elements::icon('print', ['class' => 'grey']),
@@ -82,7 +83,7 @@ else : // non-CRUD forms
         ]);
 endif;
 
-if ($controller->defaultActionViewType() == Type_View::Form) :
+if ($controller->mapActionViewType() == Type_View::Form) :
     $this->registerJs(<<<JS
         $('.ui.form').dirrty({
             preventLeaving : false,

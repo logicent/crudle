@@ -6,7 +6,7 @@ use yii\helpers\Html;
 
 <div class="ui two column grid">
     <div class="column">
-        <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>
     </div>
 </div>
 

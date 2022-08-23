@@ -2,8 +2,8 @@
 
 use crudle\app\helpers\App;
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\Elements;
-use Zelenin\yii\SemanticUI\modules\Checkbox;
+use icms\FomanticUI\Elements;
+use icms\FomanticUI\modules\Checkbox;
 
 ?>
 <tr id="<?= $model->formName() .'_'. $rowId ?>">

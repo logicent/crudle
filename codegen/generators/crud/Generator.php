@@ -13,6 +13,7 @@ use yii\db\ActiveRecord;
 use yii\db\BaseActiveRecord;
 use yii\db\Schema;
 use crudle\kit\CodeFile;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Inflector;
 use yii\helpers\StringHelper;
 use yii\helpers\VarDumper;
@@ -605,7 +606,6 @@ class Generator extends \crudle\kit\Generator
                             },
                             ])
                             ->one();
-
         return !empty($modelDef->dataModelFields) ? $modelDef->dataModelFields : [];
     }
 }

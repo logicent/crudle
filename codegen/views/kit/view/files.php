@@ -2,8 +2,8 @@
 
 use yii\helpers\Html;
 use crudle\kit\CodeFile;
-use Zelenin\yii\SemanticUI\Elements;
-use Zelenin\yii\SemanticUI\modules\Checkbox;
+use icms\FomanticUI\Elements;
+use icms\FomanticUI\modules\Checkbox;
 
 /* @var $this \yii\web\View */
 /* @var $generator \crudle\kit\Generator */

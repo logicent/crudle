@@ -32,10 +32,11 @@ endif;
         </div>
         <div class="six wide column right aligned">
         <?php
-            if ($controller->mapActionViewType() == Type_View::Form) :
+            if ($controller->mapActionViewType() == Type_View::Form && !$controller->isReadonly()) :
                 // new or update record and settings form view
                 echo $this->render('@appMain/views/_form/_view_header');
-            else : // all multiple record views like list view
+            elseif ($controller->mapActionViewType() == Type_View::List) :
+            // all multiple record views like list view
                 if ($controller->showViewTypeSwitcher())
                     echo $this->render('_view_type');
                 echo $this->render('@appMain/views/list/_view_header');

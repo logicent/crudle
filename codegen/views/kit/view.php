@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use crudle\kit\components\ActiveField;
 use crudle\kit\CodeFile;
-use Zelenin\yii\SemanticUI\widgets\ActiveForm;
+use icms\FomanticUI\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $generator crudle\kit\Generator */

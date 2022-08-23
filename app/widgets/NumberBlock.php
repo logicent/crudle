@@ -2,7 +2,7 @@
 
 namespace crudle\app\widgets;
 
-class NumberBlock extends \Zelenin\yii\SemanticUI\Widget
+class NumberBlock extends \icms\FomanticUI\Widget
 {
     /**
      * {@inheritdoc}

@@ -35,7 +35,10 @@ class User extends AuthUser
     public static function enums()
     {
         return [
-            'status' => Status_Active::class,
+            'status' => [
+                'class' => Status_Active::class,
+                'attribute' => 'status'
+            ]
         ];
     }
 

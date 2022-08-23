@@ -1,6 +1,6 @@
 <?php
 
-use Zelenin\yii\SemanticUI\widgets\ActiveForm;
+use icms\FomanticUI\widgets\ActiveForm;
 
 $this->title = Yii::t('app', '{title}', ['title' => $model->formName() . ' Payment']);
 $this->params['breadcrumbs'][] = $this->title;

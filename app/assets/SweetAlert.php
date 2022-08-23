@@ -6,7 +6,7 @@ use yii\web\AssetBundle;
 
 class SweetAlert extends AssetBundle
 {
-    public $sourcePath = '@bower/sweetalert';
+    public $sourcePath = '@npm/sweetalert';
 
     public $js = [
         "src/sweetalert.min.js",

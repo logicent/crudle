@@ -16,7 +16,7 @@ class UserGroup extends BaseActiveRecord
 {
     public function init()
     {
-        $this->listSettings = new ListViewSettingsForm();
+        parent::init();
         $this->listSettings->listNameAttribute = 'id';
     }
 
@@ -54,7 +54,10 @@ class UserGroup extends BaseActiveRecord
     public static function enums()
     {
         return [
-            'status' => Status_Active::class,
+            'status' => [
+                'class' => Status_Active::class,
+                'attribute' => 'status'
+            ]
         ];
     }
 

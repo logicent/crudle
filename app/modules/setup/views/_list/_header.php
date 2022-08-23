@@ -2,8 +2,8 @@
 
 use crudle\app\setup\enums\Type_Role;
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\helpers\Size;
-use Zelenin\yii\SemanticUI\modules\Modal;
+use icms\FomanticUI\helpers\Size;
+use icms\FomanticUI\modules\Modal;
 
 ?>
 

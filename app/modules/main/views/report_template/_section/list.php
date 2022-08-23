@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
-use Zelenin\yii\SemanticUI\Elements;
+use icms\FomanticUI\Elements;
 
 // Use static entry form since multiple modal forms are not working reliably
 $isReadonly = $this->context->isReadonly();

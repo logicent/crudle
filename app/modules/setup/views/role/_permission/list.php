@@ -9,7 +9,7 @@ use crudle\app\assets\DataTable;
 use crudle\app\helpers\App;
 use yii\helpers\ArrayHelper;
 use yii\helpers\StringHelper;
-use Zelenin\yii\SemanticUI\modules\Checkbox;
+use icms\FomanticUI\modules\Checkbox;
 
 DataTable::register($this);
 ?>

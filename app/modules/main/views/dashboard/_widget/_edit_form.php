@@ -1,7 +1,7 @@
 <?php
 
-use Zelenin\yii\SemanticUI\Elements;
-use Zelenin\yii\SemanticUI\widgets\ActiveForm;
+use icms\FomanticUI\Elements;
+use icms\FomanticUI\widgets\ActiveForm;
 
 
 $hintOptions = [

@@ -2,7 +2,7 @@
 
 namespace crudle\app\widgets;
 
-class LineChart extends \Zelenin\yii\SemanticUI\Widget
+class LineChart extends \icms\FomanticUI\Widget
 {
     /**
      * {@inheritdoc}

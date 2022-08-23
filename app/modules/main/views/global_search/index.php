@@ -1,9 +1,9 @@
 <?php
 
-use Zelenin\yii\SemanticUI\widgets\ActiveForm;
+use icms\FomanticUI\widgets\ActiveForm;
 use crudle\app\main\models\setup\GeneralSettingsForm;
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\Elements;
+use icms\FomanticUI\Elements;
 
 $this->title = Yii::t('app', 'General Settings');
 

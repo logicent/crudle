@@ -2,7 +2,7 @@
 
 use crudle\app\main\enums\Type_Form_View;
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\Elements;
+use icms\FomanticUI\Elements;
 
 $inputPlaceholder = isset($placeholder) ? $placeholder : null;
 $filePath = Yii::getAlias('@web/uploads/') . $model->$attribute;

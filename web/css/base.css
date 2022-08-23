@@ -306,6 +306,16 @@ body::-webkit-scrollbar-thumb {
     font-weight: 500;
 }
 
+.ui.form > .ui.disabled.segment {
+    opacity: unset;
+}
+
+.ui.form > .ui.disabled.segment .field > input,
+.ui.form > .ui.disabled.segment .field > textarea,
+.ui.form > .ui.disabled.segment .field > .ui.dropdown {
+    box-shadow: none;
+}
+
 .ui.checkbox > label,
 .ui.form .field > label,
 .ui.toggle.checkbox label,

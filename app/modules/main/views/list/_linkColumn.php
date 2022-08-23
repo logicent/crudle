@@ -21,7 +21,7 @@ return [
                             StringHelper::basename( $this->context->modelClass() )
                         );
         $linkColumn = Html::a( $model->$attribute,
-                            Url::to(['/'. $this->context->module->id .'/'. $controllerId .'/'. $action, 'id' => $model->id]), // ActionUrl::get()
+                            Url::to(['/'. $this->context->module->id .'/'. $controllerId .'/'. $action, 'id' => $model->$attribute]),
                             [
                                 'style' => 'font-weight: 500',
                                 'data' => [

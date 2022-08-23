@@ -14,7 +14,7 @@ use yii\helpers\Json;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class ActiveField extends \Zelenin\yii\SemanticUI\widgets\ActiveField
+class ActiveField extends \icms\FomanticUI\widgets\ActiveField
 {
     /**
      * @var Generator

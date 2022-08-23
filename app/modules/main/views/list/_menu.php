@@ -2,8 +2,8 @@
 
 use yii\helpers\Html;
 use yii\helpers\Inflector;
-use Zelenin\yii\SemanticUI\helpers\Size;
-use Zelenin\yii\SemanticUI\modules\Modal;
+use icms\FomanticUI\helpers\Size;
+use icms\FomanticUI\modules\Modal;
 
 ?>
 

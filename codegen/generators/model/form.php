@@ -2,7 +2,7 @@
 
 use crudle\kit\generators\model\Generator;
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\Elements;
+use icms\FomanticUI\Elements;
 
 /* @var $this yii\web\View */
 /* @var $form yii\widgets\ActiveForm */

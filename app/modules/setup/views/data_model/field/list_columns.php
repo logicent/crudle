@@ -6,11 +6,11 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\GridView;
 use yii\helpers\Json;
-use Zelenin\yii\SemanticUI\helpers\Size;
-use Zelenin\yii\SemanticUI\modules\Modal;
-use Zelenin\yii\SemanticUI\Elements;
-use Zelenin\yii\SemanticUI\modules\Checkbox;
-use Zelenin\yii\SemanticUI\modules\Select;
+use icms\FomanticUI\helpers\Size;
+use icms\FomanticUI\modules\Modal;
+use icms\FomanticUI\Elements;
+use icms\FomanticUI\modules\Checkbox;
+use icms\FomanticUI\modules\Select;
 
 ?>
 
@@ -20,12 +20,12 @@ use Zelenin\yii\SemanticUI\modules\Select;
     <?= GridView::widget([
         'layout' => "{items}\n{pager}",
         'dataProvider' => $dataProvider,
-        'tableOptions'=> ['class' => 'ui celled table'],
+        'tableOptions'=> ['class' => 'ui celled compact table'],
         'emptyText' => Yii::t('app', "No fields defined."),
         'emptyTextOptions' => ['class' => 'ui small header center aligned text-muted'], 
         'columns' => [
             [
-                'class' => 'Zelenin\yii\SemanticUI\widgets\CheckboxColumn',
+                'class' => 'icms\FomanticUI\widgets\CheckboxColumn',
                 'checkboxOptions' => function ($model, $key, $index, $column) {
                     return [
                         'class' => 'select-row',
@@ -38,12 +38,14 @@ use Zelenin\yii\SemanticUI\modules\Select;
             [
                 'attribute' => 'label',
                 'value' => function($model, $key, $index, $column){
-                            return Html::tag('div', 
-                                        Html::activeTextInput($model, "[$index]label", ['data' => ['modal-input' => 'label']]),
-                                        [
-                                            'class' => 'ui transparent input'
-                                        ]
-                                    );
+                            return 
+                                Html::tag('div', 
+                                    Html::activeTextInput($model, "[$index]label", [
+                                        'data' => ['modal-input' => 'label']
+                                    ]), [
+                                        'class' => 'ui transparent input'
+                                    ]
+                                );
                         },
                 'format' => 'raw'
             ],
@@ -57,6 +59,9 @@ use Zelenin\yii\SemanticUI\modules\Select;
                                 'attribute' => "[$index]field_type",
                                 'items' => Type_Field_Input::enums(),
                                 'search' => true,
+                                // 'options' => [
+                                //     'style' => 'border: none; box-shadow: none;'
+                                // ]
                             ]
                         ),
                         ['class' => 'ui transparent input']
@@ -98,7 +103,11 @@ use Zelenin\yii\SemanticUI\modules\Select;
                 'attribute' => 'options',
                 'value' => function($model, $key, $index, $column){
                             return Html::tag('div',
-                                    Html::activeTextInput($model, "[$index]options", ['data' => ['modal-input' => 'options']]),
+                                    Html::activeTextarea($model, "[$index]options", [
+                                        'data' => ['modal-input' => 'options'],
+                                        'rows' => 1,
+                                        'style' => 'font-size: 14px; max-height: 120px; min-height: 40px'
+                                    ]),
                                 ['class' => 'ui transparent input']);
                         },
                 'format' => 'raw'
@@ -155,7 +164,7 @@ use Zelenin\yii\SemanticUI\modules\Select;
                 ]
             ],
             [
-                'class' => 'Zelenin\yii\SemanticUI\widgets\ActionColumn',
+                'class' => 'icms\FomanticUI\widgets\ActionColumn',
                 'buttons' => [
                     'view' => function ( $url, $model, $key ) 
                     {

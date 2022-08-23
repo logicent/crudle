@@ -3,7 +3,7 @@
 use crudle\app\main\enums\Type_Field_Input;
 use crudle\app\setup\models\DataModelField;
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\widgets\ActiveForm;
+use icms\FomanticUI\widgets\ActiveForm;
 
 $isReadonly = $this->context->action->id == 'view';
 

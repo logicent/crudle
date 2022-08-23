@@ -24,7 +24,7 @@ class Person extends ActiveRecord
 
     public function init()
     {
-        $this->listSettings = new ListViewSettingsForm();
+        parent::init();
         $this->listSettings->listNameAttribute = 'full_name';
 
         $this->uploadForm = new UploadForm();
@@ -197,10 +197,14 @@ class Person extends ActiveRecord
         ];
     }
 
+    // ActiveRecord Interface
     public static function enums()
     {
         return [
-            'status' => Status_Active::class,
+            'status' => [
+                'class' => Status_Active::class,
+                'attribute' => 'status'
+            ]
         ];
     }
 

@@ -45,7 +45,7 @@ class DataModelController extends BaseCrudController
     public function actionCreate($id = null)
     {
         $this->model = new DataModel();
-        $this->getDetailModels();
+        $modelDetails = $this->getDetailModels();
 
         $formDetails = Yii::$app->request->post('DataModelField', []);
         foreach ($formDetails as $i => $formDetail) 
@@ -53,42 +53,50 @@ class DataModelController extends BaseCrudController
             $modelDetail = new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION]);
             $modelDetail->attributes = $formDetail;
             $modelDetail->actionType = DataModelField::ACTION_TYPE_CREATE;
-            $this->detailModels[] = $modelDetail;
+            $modelDetails[] = $modelDetail;
         }
 
         $this->fieldDataProvider = new ActiveDataProvider([
             'query' => DataModelField::find()->where(['model_name' => '']),
         ]);
 
-        $this->fieldDataProvider->setModels( !empty($this->detailModels) ? $this->detailModels :  [new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION])] );
+        $this->fieldDataProvider->setModels( !empty($modelDetails) ? $modelDetails['dataModelFields'] :  [new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION])] );
 
         // handling if the addRow button has been pressed
         if ( isset( Yii::$app->request->post()['addRow']) ) 
         {
-            $this->model->load(Yii::$app->request->post());
-            $this->detailModels[] = new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION]);
-            $this->fieldDataProvider->setModels( $this->detailModels );
+            $this->model->load(Yii::$app->request->post(), 'DataModel');
+            unset($modelDetails['dataModelFields']); // To-Do: fix later by refactoring this action method
+            $modelDetail = new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION]);
+            $modelDetail->model_name = $this->model->id;
+            $modelDetails[] = $modelDetail;
+            $this->fieldDataProvider->setModels( $modelDetails );
 
             return $this->render('@appMain/views/crud/index', [
                 'model' => $this->model,
             ]);
         }
 
-        if ($this->model->load(Yii::$app->request->post())) 
+        if ($this->model->load(Yii::$app->request->post(), 'DataModel'))
         {
-            if (Model::validateMultiple($this->detailModels) && $this->model->validate()) 
+            $hasDetailModels = $this->loadDetailModels(DataModelField::class, $formDetails);
+            if ($this->validateDetailModels() && $this->model->validate()) 
             {
-                // use AR/DB transaction here ?
-                if ( $this->model->save(false) ) 
+                if ( $this->model->save(false) && $hasDetailModels) 
                 {
-                    foreach($this->detailModels as $modelDetail) 
+                    foreach($this->detailModels['DataModelField'] as $modelDetail) 
                     {
-                        $modelDetail->model_name = $this->model->name;
+                        $modelDetail->model_name = $this->model->id;
                         $modelDetail->save(false);
                     }
-                    $this->model->createTable();
+                    if ((bool) $this->model->is_table)
+                        $this->model->createTable();
                 }
-                return $this->redirect(['update', 'id' => $this->model->name]);
+                return $this->redirect(['update', 'id' => $this->model->id]);
+            }
+            else
+            {
+                Yii::$app->session->setFlash( 'errors', $this->validationErrors);
             }
         }
 
@@ -157,14 +165,12 @@ class DataModelController extends BaseCrudController
         if ($postData) {
             if ($model->load($postData, 'DataModel'))
             {
-                $this->loadDetailModels(DataModelField::class, $formDetails);
+                $hasDetailModels = $this->loadDetailModels(DataModelField::class, $formDetails);
                 if ($this->validateDetailModels() && $model->validate()) 
                 {
-                    if ( $model->save(false) ) 
+                    if ( $model->save(false) && $hasDetailModels) 
                     {
-                        // echo '<pre>';print_r($this->detailModels);exit;
-                        foreach($modelDetails['dataModelFields'] as $modelDetail) 
-                        // foreach($this->detailModels['DataModelField'] as $id => $detailModel) 
+                        foreach($this->detailModels['DataModelField'] as $modelDetail) 
                         {
                             // details that has been flagged for deletion will be deleted
                             if ($modelDetail->actionType == DataModelField::ACTION_TYPE_DELETE) {
@@ -181,7 +187,7 @@ class DataModelController extends BaseCrudController
                 }
                 else
                 {
-                    Yii::$app->session->setFlash( 'error', $model->errors);
+                    Yii::$app->session->setFlash( 'errors', $this->validationErrors);
                 }
             }
         }

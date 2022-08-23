@@ -5,7 +5,7 @@ use crudle\app\helpers\App;
 use crudle\app\main\models\DashboardWidget;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
-use Zelenin\yii\SemanticUI\modules\Select;
+use icms\FomanticUI\modules\Select;
 
 if (isset($this->context->getDetailModels()['widgets']))
     $modelsId = 'widgets';

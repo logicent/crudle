@@ -7,6 +7,7 @@ use crudle\app\main\models\Dashboard;
 use crudle\app\main\models\ReportBuilder;
 use crudle\app\setup\models\DeveloperSettingsForm;
 use crudle\app\setup\models\Setup;
+use yii\helpers\Inflector;
 
 $this->params['menuGroupClass'] = Type_Menu_Sub_Group::class;
 $deployedSettings = Setup::getSettings( DeveloperSettingsForm::class );
@@ -14,7 +15,7 @@ $deployedSettings = Setup::getSettings( DeveloperSettingsForm::class );
 $dashboards = $reports = $modules = $workspaces = [];
 $dashboards = Dashboard::find()->where(['inactive' => false])->all();
 $reports = ReportBuilder::find()->where(['inactive' => false])->all();
-$modules = App::getModuleList();
+$modules = App::getModules();
 // $workspaces = Workspace::find()->where(['inactive' => false])->all();
 $dashboardMenus = $reportMenus = $moduleMenus = $workspaceMenus = [];
 
@@ -73,10 +74,12 @@ $moduleMenus[] = [
     'group' => Type_Menu_Sub_Group::Module,
     'visible' => Yii::$app->user->can(Type_Role::SystemManager),
 ];
-foreach ($modules as $id => $module) :
+foreach ($modules::$modules as $id => $module) :
+    $moduleName = Inflector::id2camel($module['id']);
+    $moduleLabel = Inflector::camel2words($moduleName);
     $moduleMenus[] = [
-        'route' =>  "/{$id}",
-        'label' => $module,
+        'route' =>  "/{$module['id']}",
+        'label' => $moduleLabel,
         'group' => Type_Menu_Sub_Group::Module,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ];

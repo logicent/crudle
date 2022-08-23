@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use crudle\app\assets\Dirrty;
 use crudle\app\main\enums\Type_Form_View;
 use crudle\app\setup\enums\Type_Role;
-use Zelenin\yii\SemanticUI\Elements;
+use icms\FomanticUI\Elements;
 
 Dirrty::register($this);
 

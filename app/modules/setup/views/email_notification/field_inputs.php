@@ -1,7 +1,7 @@
 <?php
 
 use crudle\app\main\enums\Type_Model;
-use Zelenin\yii\SemanticUI\modules\Select;
+use icms\FomanticUI\modules\Select;
 ?>
 
 <div class="ui padded segment">

@@ -4,7 +4,7 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Inflector;
 use yii\helpers\Url;
-use Zelenin\yii\SemanticUI\Elements;
+use icms\FomanticUI\Elements;
 
 ArrayHelper::multisort($menuList, 'label');
 ArrayHelper::multisort($menuList, 'group');

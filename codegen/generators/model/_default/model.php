@@ -66,7 +66,7 @@ class <?= $className ?> extends <?= '\\' . ltrim($generator->baseModelClass, '\\
 
 <?php 
 $pk = Yii::$app->db->getTableSchema($generator->tableName)->primaryKey;
-if ($pk !== 'id') : ?>
+if ($pk[0] !== 'id') : ?>
     public static function primaryKey()
     {
         return ['<?= $pk[0] ?>'];

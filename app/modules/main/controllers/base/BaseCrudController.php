@@ -307,8 +307,11 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
                 $this->model->detailValuesChanged .= ' '. $detailModel->getChangedValues();
 
             if ( $detailModel->isNewRecord || $detailModel->valuesChanged() )
+            {
                 $this->detailModels[$formName][] = $detailModel;
+            }
         }
+        return !empty($this->detailModels) ? true : false;
     }
 
     protected function validateDetailModels()
@@ -316,9 +319,11 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
         $valid = true;
         foreach ( $this->detailModels as $modelId => $detailModels )
         {
-            $valid = Model::validateMultiple( $detailModels ) && $valid;
-            if (! $valid )
+            $valid = Model::validateMultiple( $detailModels );
+            if ($valid === false) {
                 $this->validationErrors = Model::$errors;
+                return false;
+            }
         }
 
         return $valid;

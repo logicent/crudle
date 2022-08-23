@@ -91,7 +91,7 @@ class App
         return $modules;
     }
 
-    public static function getModules($pathAlias = Module_Alias::Ext)
+    public static function getModules($pathAlias = Module_Alias::Ext, $activated = true)
     {
         self::$modules = [];
 
@@ -105,6 +105,10 @@ class App
             $modulePath = $path . '/' . $moduleDirname;
             $ns = "crudle\\" . Module_Alias::nsPathname()[$pathAlias] . "\\" . $moduleDirname;
             $class = $ns . "\\Module";
+            // check if module is activated
+            $module = Yii::createObject($class);
+            if ((bool) $module->isActivated !== $activated)
+                continue;
             $config = require $dir . '/config.php';
             self::$modules[] = [
                 'id' => $config['id'],

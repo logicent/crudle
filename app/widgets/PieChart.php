@@ -2,7 +2,7 @@
 
 namespace crudle\app\widgets;
 
-class PieChart extends \Zelenin\yii\SemanticUI\Widget
+class PieChart extends \icms\FomanticUI\Widget
 {
     /**
      * {@inheritdoc}

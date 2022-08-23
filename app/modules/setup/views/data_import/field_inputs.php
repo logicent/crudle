@@ -4,8 +4,8 @@ use crudle\app\helpers\App;
 use crudle\app\setup\enums\Type_Import;
 use yii\helpers\Html;
 use yii\helpers\Url;
-use Zelenin\yii\SemanticUI\modules\RadioList;
-use Zelenin\yii\SemanticUI\modules\Select;
+use icms\FomanticUI\modules\RadioList;
+use icms\FomanticUI\modules\Select;
 
 ?>
 <div class="ui padded segment">

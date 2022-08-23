@@ -1,6 +1,6 @@
 <?php
 
-use Zelenin\yii\SemanticUI\Elements;
+use icms\FomanticUI\Elements;
 ?>
 <div class="ui padded segment">
     <!-- [

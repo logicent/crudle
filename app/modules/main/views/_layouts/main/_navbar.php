@@ -1,8 +1,8 @@
 <?php
 
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\collections\Breadcrumb;
-use Zelenin\yii\SemanticUI\Elements;
+use icms\FomanticUI\collections\Breadcrumb;
+use icms\FomanticUI\Elements;
 
 ?>
 

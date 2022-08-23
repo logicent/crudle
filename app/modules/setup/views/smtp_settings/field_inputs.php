@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\modules\Select;
+use icms\FomanticUI\modules\Select;
 
 $this->title = Yii::t('app', 'SMTP Settings');
 ?>

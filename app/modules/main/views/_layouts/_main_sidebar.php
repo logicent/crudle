@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\Elements;
+use icms\FomanticUI\Elements;
 
 ?>
 

@@ -1,17 +1,19 @@
 <?php
 
+use crudle\app\helpers\App;
 use crudle\app\helpers\SelectableItems;
 use crudle\app\main\enums\Type_Column;
 use crudle\app\main\enums\Type_Field_Input;
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\widgets\ActiveForm;
+use yii\helpers\Inflector;
+use icms\FomanticUI\widgets\ActiveForm;
 
 $model = new $generator->modelClass;
 
 $formSection = '';
 
 $beginFormSection = 
-    Html::beginTag('div', ['class' => 'ui padded segment']) . "\n   " .
+    Html::beginTag('div', ['class' => "ui padded <?= \$this->context->isReadonly() ? 'disabled' : null ?> segment"]) . "\n   " .
     Html::beginTag('div', ['class' => 'ui two column stackable grid']) . "\n      ";
 
 $endFormSection = 
@@ -80,42 +82,66 @@ foreach ($formFields as $id => $formFieldConfig) :
                 'model' => \$model,
                 'attribute' => '{$attribute}',
                 'form' => \$form,
-                'list' => '{$formField['list']}'
-            ]) ?>\n";
-            break;
-        case Type_Field_Input::CheckboxList:
-            $list = $formField['list'];
-            $field = "         <?= \$this->render('{$fieldView}/checkbox_list', [
-                'model' => \$model,
-                'attribute' => '{$attribute}',
-                'form' => \$form,
-                'items' => SelectableItems::get(
-                    '{$list['modelClass']}',
-                    \$form,
-                    [
-                        'addEmptyFirstItem' => '{$list['addEmptyFirstItem']}',
-                        'valueAttribute' => '{$list['valueAttribute']}',
-                        'filters' => '{$list['filters']}'
-                    ]
-                ),
-            ]) ?>\n";
-            break;
-        case Type_Field_Input::Checkbox:
-            $field = "         <?= \$this->render('{$fieldView}/checkbox', [
-                'model' => \$model,
-                'attribute' => '{$attribute}',
-            ]) ?>\n";
-            break;
-        case Type_Field_Input::RadioList:
-            $field = "         <?= \$this->render('{$fieldView}/radio_list', [
-                'model' => \$model,
-                'attribute' => '{$attribute}',
+                'list' => ['{$formField['options']}'],
+                'options' => []
             ]) ?>\n";
             break;
         case Type_Field_Input::Select:
-            $field = "         <?= \$this->render('{$fieldView}/select', [
+            $moduleId = Inflector::underscore(
+                Inflector::id2camel(App::getModuleOf($formField['options']))
+            );
+            $fieldType = 'select';
+            $field = "         <?= \$this->render('{$fieldView}/{$fieldType}', [
                 'model' => \$model,
                 'attribute' => '{$attribute}',
+                'form' => \$form,
+                'list' => [
+                    'modelClass' => 'crudle\\ext\\{$moduleId}\\models\\{$formField['options']}',
+                    'addEmptyFirstItem' => true,
+                    'keyAttribute' => 'id',
+                    'valueAttribute' => 'id',
+                    'filters' => [],
+                ],
+            ]) ?>\n";
+            break;
+        case Type_Field_Input::CheckboxList:
+            $moduleId = Inflector::underscore(
+                Inflector::id2camel(App::getModuleOf($formField['options']))
+            );
+            $fieldType = 'checkbox_list';
+            $list = $formField['list'];
+            $field = "         <?= \$this->render('{$fieldView}/{$fieldType}', [
+                'model' => \$model,
+                'attribute' => '{$attribute}',
+                'form' => \$form,
+                'list' => [
+                        'modelClass' => 'crudle\\ext\\{$moduleId}\\models\\{$formField['options']}',
+                        'addEmptyFirstItem' => '{$list['addEmptyFirstItem']}',
+                        'keyAttribute' => '{$list['keyAttribute']}',
+                        'valueAttribute' => '{$list['valueAttribute']}',
+                        'filters' => '{$list['filters']}'
+                    ]),
+            ]) ?>\n";
+            break;
+        case Type_Field_Input::Checkbox:
+            $field = "         <?= \$form->field($model, '{$attribute}')->checkbox()->label('&nbsp;') ?>\n";
+            break;
+            // To-Do: revisit this later
+            $field = "         <?= \$this->render('{$fieldView}/checkbox', [
+                'model' => \$model,
+                'attribute' => '{$attribute}',
+                'form' => \$form,
+            ]) ?>\n";
+        case Type_Field_Input::RadioList:
+            // $itemOptions = explode($formField['options'], '');
+            // $itemOptions = is_string($itemOptions) ? [$formField['options']] : $itemOptions;
+            $field = "         <?= \$this->render('{$fieldView}/radio_list', [
+                'model' => \$model,
+                'attribute' => '{$attribute}',
+                'form' => \$form,
+                'items' => [
+                    '{$formField['options']}'
+                ],
             ]) ?>\n";
             break;
         case Type_Field_Input::Textarea:
@@ -138,14 +164,16 @@ foreach ($formFields as $id => $formFieldConfig) :
             ]) ?>\n";
             break;
         case Type_Field_Input::ReadOnly:
-            $field = "         <?= \$form->field(\$model, '{$attribute}')->textInput(['readonly' => true]) ?>\n";
+            $field = "         <?= \$form->field(\$model, '{$attribute}')
+                ->textInput(['readonly' => true]) ?>\n";
             break;
         case Type_Field_Input::TextInput:
         default:
-            $field = "         <?= \$form->field(\$model, '{$attribute}') ?>\n";
+            $field = "         <?= \$form->field(\$model, '{$attribute}')
+                ->textInput(['maxlength' => {$formField['length']}) ?>\n";
     endswitch;
 
-    if (isset($formField['column']) && $formField['column'] == Type_Column::Right) :
+    if ($id % 2 !== 0 || $formField['col_side'] == Type_Column::Right) :
         $rightColumnFields .= $field;
     else :
         $formSection .= $field;

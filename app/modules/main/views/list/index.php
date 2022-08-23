@@ -23,12 +23,21 @@ if (file_exists($searchForm)) : ?>
     </div>
 <?php endif;
 
-$columns = require $context->viewPath . '/list_columns.php';
+$checkboxColumn = require '_checkboxColumn.php';
 $linkColumn = require '_linkColumn.php';
+$statusColumn = require '_statusColumn.php';
+$columns = require $context->viewPath . '/list_columns.php';
+$idColumn = require '_idColumn.php';
+$tsColumn = require '_tsColumn.php';
 
-echo $this->render('GridView', [
+echo
+    $this->render('GridView', [
         'dataProvider'  => $dataProvider, 
         'searchModel'   => $searchModel,
-        'columns'       => $columns,
+        'checkboxColumn'=> $checkboxColumn,
         'linkColumn'    => $linkColumn,
+        'statusColumn'  => $statusColumn,
+        'columns'       => $columns,
+        'idColumn'      => $idColumn,
+        'tsColumn'      => $tsColumn,
     ]) ?>

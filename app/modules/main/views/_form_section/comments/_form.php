@@ -2,12 +2,12 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
-use Zelenin\yii\SemanticUI\Elements;
+use icms\FomanticUI\Elements;
 
 ?>
 
 <?= Html::beginForm([$this->context->id . '/save-comment', 'id' => $model->{$model->primaryKey()[0]}], 
-                    'post', 
+                    'post',
                     ['class' => 'ui form comment-form']
     ) ?>
 
@@ -27,7 +27,7 @@ use Zelenin\yii\SemanticUI\Elements;
                         'data' => [
                             'url' => Url::to([
                                 'save-comment',
-                                'model_id' => $model->id,
+                                'model_id' => $model->{$model->primaryKey()[0]},
                             ])
                         ]
                     ]

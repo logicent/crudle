@@ -2,7 +2,7 @@
 
 namespace crudle\app\helpers;
 
-use Zelenin\yii\SemanticUI\Elements;
+use icms\FomanticUI\Elements;
 
 class StatusMarker
 {

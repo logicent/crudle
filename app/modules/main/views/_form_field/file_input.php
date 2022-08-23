@@ -2,7 +2,7 @@
 
 use crudle\app\main\enums\Type_Form_View;
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\Elements;
+use icms\FomanticUI\Elements;
 
 // To-Do: allow custom placeholder default to none
 $imgPlaceholder = Yii::getAlias('@web') . isset($placeholder) ? $placeholder : null;

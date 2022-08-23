@@ -1,19 +1,11 @@
 <?php
 
-use crudle\app\setup\enums\Type_Permission;
-use crudle\app\helpers\DateTimeHelper;
-use crudle\app\helpers\StatusMarker;
 use yii\helpers\ArrayHelper;
-use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\helpers\Inflector;
-use yii\helpers\Json;
-use yii\helpers\StringHelper;
-use Zelenin\yii\SemanticUI\widgets\GridView;
-use Zelenin\yii\SemanticUI\widgets\Pjax;
-use Zelenin\yii\SemanticUI\Elements;
+use icms\FomanticUI\widgets\GridView;
+use icms\FomanticUI\widgets\Pjax;
 
-$modelClass = $this->context->modelClass();
 $emptyText = "No {$this->context->viewName()} found.";
 $controllerId = $this->context->id;
 $newBtnLabel = Yii::t('app', 'New') . '&nbsp;' . Inflector::titleize($controllerId);
@@ -61,82 +53,18 @@ $showListCaptions = $searchModel->getLayoutSettings('showHelpInfo');
         'tableOptions' => ['class' => 'ui padded table'],
         'columns' => ArrayHelper::merge(
             [
-                [
-                    'class' => 'Zelenin\yii\SemanticUI\widgets\CheckboxColumn',
-                    // 'headerOptions' => [
-                    //     'id' => 'select_all_rows'
-                    // ],
-                    'checkboxOptions' => function ($model, $key, $index, $column) {
-                        return [
-                            'class' => 'select-row',
-                            'id' => $index,
-                            'value' => Json::encode($key),
-                        ];
-                    },
-                    // 'contentOptions' => [],
-                    // 'visible' => false
-                ],
-                [
-                    'class' => 'yii\grid\SerialColumn',
-                    'visible' => false
-                ],
+                $checkboxColumn,
                 $linkColumn,
-                [
-                    'attribute' => 'status',
-                    'format' => 'raw',
-                    'value' => function ( $model ) {
-                        $hasStatus = array_key_exists('status', $model->attributes);
-                        if ( $hasStatus )
-                            return 
-                                StatusMarker::icon('check circle', $model, 'status') . '&nbsp;' . 
-                                StatusMarker::label($model, 'status');
-                    },
-                    'contentOptions' => [
-                        'style' => 'font-weight: 500',
-                    ],
-                    'visible' => in_array('status', $modelClass::attributes())
-                ],
+                $statusColumn,
             ],
             $columns,
             [
-                [
-                    'attribute' => 'id',
-                    'label' => false,
-                    'format' => 'raw',
-                    'headerOptions' => ['class' => 'right aligned'],
-                    'value' => function( $model ) {
-                        return Html::tag('div', $model->id, ['class' => 'text-muted']);
-                    },
-                    'contentOptions' => ['class' => 'right aligned']
-                ],
-                [
-                    // 'attribute' => 'updated_at',
-                    // 'label' => Yii::t('app', 'Last Updated'),
-                    'format' => 'raw',
-                    'header' => $dataProvider->getCount() . ' of ' . $dataProvider->getTotalCount(),
-                    'headerOptions' => ['class' => 'text-muted right aligned'],
-                    // 'filter' => false,
-                    'contentOptions' => [
-                        'class' => 'right aligned text-muted'
-                    ],
-                    'value' => function ($model) {
-                        if ($model->commentsCount > 0) :
-                            $comment = 'comments';
-                        else :
-                            $comment = 'comments outline';
-                        endif;
-                        return
-                            Html::tag(
-                                'span',
-                                DateTimeHelper::getShortRelativeTime( $model->updated_at ) . '&ensp;' . Elements::icon($comment, ['grey']) . '&nbsp;' . $model->commentsCount,
-                                ['class' => 'text-muted']
-                            );
-                    }
-                ]
+                $idColumn,
+                $tsColumn,
             ]
         )
         // [
-        //     'class' => 'Zelenin\yii\SemanticUI\widgets\ActionColumn',
+        //     'class' => 'icms\FomanticUI\widgets\ActionColumn',
         //     // 'template' => '<div class="ui basic tiny compact icon buttons">{view}{update}{delete}</div>',
         //     'buttons' => [
         //         'delete' => function ($url, $model, $key) {

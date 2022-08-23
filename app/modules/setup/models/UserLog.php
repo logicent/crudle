@@ -18,7 +18,7 @@ class UserLog extends AuthUserLog
 
     public function init()
     {
-        $this->listSettings = new ListViewSettingsForm();
+        parent::init();
         $this->listSettings->listNameAttribute = 'username';
     }
 
@@ -44,7 +44,10 @@ class UserLog extends AuthUserLog
     public static function enums()
     {
         return [
-            'status' => Status_Active::class,
+            'status' => [
+                'class' => Status_Active::class,
+                'attribute' => 'status'
+            ]
         ];
     }
 

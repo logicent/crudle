@@ -91,7 +91,7 @@ class DataModelField extends ActiveRecordDetail
         return [
             'label' => Yii::t('app', 'Label'),
             'model_name' => Yii::t('app', 'Data model'),
-            'field_name' => Yii::t('app', 'Name'),
+            'field_name' => Yii::t('app', 'Field name'),
             'field_type' => Yii::t('app', 'Field type'),
             'db_type' => Yii::t('app', 'Db type'),
             'mandatory' => Yii::t('app', 'Mandatory'),

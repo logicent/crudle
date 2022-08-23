@@ -2,8 +2,8 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
-use Zelenin\yii\SemanticUI\Elements;
-use Zelenin\yii\SemanticUI\modules\Checkbox;
+use icms\FomanticUI\Elements;
+use icms\FomanticUI\modules\Checkbox;
 
 $attributes = [];
 // if ($itemModelClass) :

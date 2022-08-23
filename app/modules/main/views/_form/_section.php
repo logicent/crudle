@@ -1,7 +1,7 @@
 <?php
 // To-Do: remove all bootstrap assets in project
 // disable bootstrap assets from view(s) where called
-use Zelenin\yii\SemanticUI\modules\Accordion;
+use icms\FomanticUI\modules\Accordion;
 
 
 $active = isset($expanded) && $expanded === true ? 'active' : '';

@@ -1,8 +1,8 @@
 <?php
 
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\collections\Menu;
-use Zelenin\yii\SemanticUI\Elements;
+use icms\FomanticUI\collections\Menu;
+use icms\FomanticUI\Elements;
 
 ?>
 <div class="ui dropdown item right">

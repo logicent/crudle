@@ -1,8 +1,8 @@
 <?php
 
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\widgets\ActiveForm;
-use Zelenin\yii\SemanticUI\modules\Select;
+use icms\FomanticUI\widgets\ActiveForm;
+use icms\FomanticUI\modules\Select;
 
 $this->title = Yii::t('app', 'Email');
 

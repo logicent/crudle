@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\widgets\ActiveForm;
+use icms\FomanticUI\widgets\ActiveForm;
 
 $this->title = Yii::t('app', 'List View Settings');
 

@@ -2,7 +2,7 @@
 
 namespace crudle\app\widgets;
 
-class LatestEntries extends \Zelenin\yii\SemanticUI\Widget
+class LatestEntries extends \icms\FomanticUI\Widget
 {
     /**
      * {@inheritdoc}

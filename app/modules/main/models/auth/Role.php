@@ -52,5 +52,4 @@ class Role extends Item
             Type_Permission::Delete => Type_Permission::Delete,
         ];
     }
-
 }

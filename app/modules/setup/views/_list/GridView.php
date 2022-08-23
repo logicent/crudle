@@ -3,12 +3,12 @@
 use crudle\app\helpers\DateTimeHelper;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\widgets\GridView;
-use Zelenin\yii\SemanticUI\Elements;
+use icms\FomanticUI\widgets\GridView;
+use icms\FomanticUI\Elements;
 use crudle\app\assets\DataTable;
 use crudle\app\helpers\StatusMarker;
 use yii\helpers\Json;
-use Zelenin\yii\SemanticUI\modules\Checkbox;
+use icms\FomanticUI\modules\Checkbox;
 
 DataTable::register($this);
 
@@ -33,7 +33,7 @@ $this->title = Yii::t('app', '{listTitle}', ['listTitle' => $listTitle])
         'columns'  => ArrayHelper::merge(
             [
                 [
-                    'class' => 'Zelenin\yii\SemanticUI\widgets\CheckboxColumn',
+                    'class' => 'icms\FomanticUI\widgets\CheckboxColumn',
                     'header' => Checkbox::widget([
                         'name' => 'select_row',
                         // 'checked' => false, // default false

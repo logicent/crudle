@@ -4,8 +4,8 @@ use crudle\app\main\enums\Column_Width;
 use crudle\app\main\enums\Data_Aggregate_Function;
 use crudle\app\setup\enums\Type_Model;
 use crudle\app\main\enums\Type_Widget;
-use Zelenin\yii\SemanticUI\Elements;
-use Zelenin\yii\SemanticUI\modules\Radio;
+use icms\FomanticUI\Elements;
+use icms\FomanticUI\modules\Radio;
 
 ?>
 <div class="ui padded segment">

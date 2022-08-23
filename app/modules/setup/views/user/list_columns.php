@@ -4,8 +4,8 @@ use crudle\app\setup\enums\Type_Role;
 use crudle\app\helpers\DateTimeHelper;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\widgets\GridView;
-use Zelenin\yii\SemanticUI\Elements;
+use icms\FomanticUI\widgets\GridView;
+use icms\FomanticUI\Elements;
 use crudle\app\main\models\auth\Person;
 use crudle\app\helpers\StatusMarker;
 
@@ -19,7 +19,7 @@ $this->title = Yii::t('app', 'User');
 //         'filterRowOptions' => ['class' => 'filters', 'style' => 'display: none'],
         // 'columns' => [
     return [
-        // ['class' => 'Zelenin\yii\SemanticUI\widgets\CheckboxColumn'],
+        // ['class' => 'icms\FomanticUI\widgets\CheckboxColumn'],
 
         // [
         //     'attribute' => 'full_name',

@@ -1,10 +1,11 @@
 <?php
 
-use icms\FomanticUI\modules\Checkbox;
+use icms\FomanticUI\modules\Radio;
+
 ?>
 
-<!-- <br> -->
-<?= Checkbox::widget([
+<br>
+<?= Radio::widget([
         'model' => $model,
         'attribute' => $attribute,
         'labelOptions' => isset($labelOptions) ? $labelOptions : [],

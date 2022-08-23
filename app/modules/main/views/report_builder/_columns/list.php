@@ -4,10 +4,10 @@ use crudle\app\main\enums\Type_Model;
 use crudle\app\main\models\ReportBuilderItem;
 use yii\helpers\StringHelper;
 use yii\helpers\Url;
-use Zelenin\yii\SemanticUI\Elements;
-use Zelenin\yii\SemanticUI\helpers\Size;
-use Zelenin\yii\SemanticUI\modules\Checkbox;
-use Zelenin\yii\SemanticUI\modules\Modal;
+use icms\FomanticUI\Elements;
+use icms\FomanticUI\helpers\Size;
+use icms\FomanticUI\modules\Checkbox;
+use icms\FomanticUI\modules\Modal;
 
 
 $modal = Modal::begin([

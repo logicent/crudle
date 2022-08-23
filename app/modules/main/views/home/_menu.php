@@ -4,7 +4,7 @@ use crudle\app\setup\models\LayoutSettingsForm;
 use crudle\app\setup\models\Setup;
 use yii\helpers\Html;
 use yii\helpers\Url;
-use Zelenin\yii\SemanticUI\Elements;
+use icms\FomanticUI\Elements;
 
 
 $layoutSettings = Setup::getSettings( LayoutSettingsForm::class );

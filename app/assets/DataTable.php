@@ -6,7 +6,7 @@ use yii\web\AssetBundle;
 
 class DataTable extends AssetBundle
 {
-    public $sourcePath = '@bower';
+    public $sourcePath = '@npm';
 
     public $css = [
         "datatables.net-se/css/dataTables.semanticui.min.css",
