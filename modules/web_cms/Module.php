@@ -10,6 +10,12 @@ use yii\base\BootstrapInterface;
  */
 class Module extends \yii\base\Module implements BootstrapInterface
 {
+    public $moduleName = 'crudle\ext\web_cms\Module';
+    // public $isInstalled = true; // if db migrations have run
+    public $isActivated = true; // will be loaded in app run
+    // public $activationRule = [];
+    // public $isTranslatable = true; // if translation resource exists
+
     /**
      * {@inheritdoc}
      */

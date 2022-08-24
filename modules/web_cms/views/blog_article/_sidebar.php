@@ -1,9 +1,9 @@
 <?php
 
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\Elements;
-use Zelenin\yii\SemanticUI\modules\Checkbox;
-use Zelenin\yii\SemanticUI\modules\Select;
+use icms\FomanticUI\Elements;
+use icms\FomanticUI\modules\Checkbox;
+use icms\FomanticUI\modules\Select;
 
 $model = $this->context->model;
 ?>

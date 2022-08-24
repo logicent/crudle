@@ -4,7 +4,6 @@ namespace crudle\ext\web_cms\models;
 
 use crudle\app\main\models\ActiveRecord;
 use crudle\app\setup\enums\Status_Transaction;
-use crudle\app\setup\models\ListViewSettingsForm;
 use crudle\ext\web_cms\enums\Status_Article;
 use Yii;
 use yii\helpers\ArrayHelper;
@@ -13,7 +12,7 @@ class BlogArticle extends ActiveRecord
 {
     public function init()
     {
-        $this->listSettings = new ListViewSettingsForm();
+        parent::init();
         $this->listSettings->listNameAttribute = 'title'; // override in view index
     }
 

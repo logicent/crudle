@@ -1,6 +1,6 @@
 <?php
 
-use Zelenin\yii\SemanticUI\modules\Select;
+use icms\FomanticUI\modules\Select;
 ?>
 <div class="ui two column grid">
     <div class="column">

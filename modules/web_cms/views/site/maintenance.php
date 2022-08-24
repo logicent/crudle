@@ -1,7 +1,7 @@
 <?php
 /* @var yii\web\View $this */
 
-use Zelenin\yii\SemanticUI\Elements;
+use icms\FomanticUI\Elements;
 
 $this->context->layout = false;
 ?>
