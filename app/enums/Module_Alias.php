@@ -6,7 +6,7 @@ class Module_Alias
 {
     const Main      = '@appMain';
     const Setup     = '@appSetup';
-    const Kit       = '@appKit';
+    const Kit       = '@kitModule'; // '@appKit'
     const Ext       = '@extModules';
     const ExtCMS    = '@extCms';
     const User      = '@userModules';

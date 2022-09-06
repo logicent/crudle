@@ -15,7 +15,7 @@ class UserLog extends BaseActiveRecord
 {
     public static function tableName()
     {
-        return 'user_log';
+        return '{{%User_Log}}';
     }
 
     public function rules()

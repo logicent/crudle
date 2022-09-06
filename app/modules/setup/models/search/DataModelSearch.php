@@ -17,7 +17,7 @@ class DataModelSearch extends DataModel
     public function rules()
     {
         return [
-            [['id', 'module', 'title_field', 'image_field', 'search_fields', 'sort_field', 'sort_order', 'created_by', 'updated_by', 'created_at', 'updated_at', 'deleted_at'], 'safe'],
+            [['id', 'module', 'title_field', 'image_field', 'search_fields', 'sort_field', 'sort_order', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'safe'],
             [['max_attachments', 'hide_copy', 'is_table', 'quick_entry', 'track_changes', 'track_views', 'allow_auto_repeat', 'allow_import'], 'integer'],
         ];
     }
@@ -68,7 +68,6 @@ class DataModelSearch extends DataModel
             'allow_import' => $this->allow_import,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'deleted_at' => $this->deleted_at,
         ]);
 
         $query->andFilterWhere(['like', 'id', $this->id])

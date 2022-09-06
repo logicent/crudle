@@ -15,7 +15,7 @@ class EmailTemplate extends BaseActiveRecord
 {
     public static function tableName()
     {
-        return 'email_template';
+        return '{{%Email_Template}}';
     }
 
     public function rules()
@@ -44,7 +44,10 @@ class EmailTemplate extends BaseActiveRecord
     public static function enums()
     {
         return [
-            'status' => Status_Active::class,
+            'status' => [
+                'class' => Status_Active::class,
+                'attribute' => 'inactive'
+            ],
         ];
     }
 }

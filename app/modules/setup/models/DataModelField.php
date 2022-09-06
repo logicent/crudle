@@ -50,7 +50,7 @@ class DataModelField extends ActiveRecordDetail
      */
     public static function tableName()
     {
-        return 'data_model_field';
+        return '{{%Data_Model_Field}}';
     }
 
     /**

@@ -11,7 +11,7 @@ class ItemChild extends \yii\db\ActiveRecord
 {
     public static function tableName()
     {
-        return 'auth_item_child';
+        return '{{%Auth_Item_Child}}';
     }
 
     public function rules()

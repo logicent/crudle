@@ -22,7 +22,7 @@ class DataImport extends BaseActiveRecord
 
     public static function tableName()
     {
-        return 'data_import';
+        return '{{%Data_Import}}';
     }
 
     // Workflow Interface
@@ -35,7 +35,10 @@ class DataImport extends BaseActiveRecord
     public static function enums()
     {
         return [
-            'status' => Status_Transaction::class
+            'status' => [
+                'class' => Status_Transaction::class,
+                'attribute' => 'status'
+            ]
         ];
     }
 

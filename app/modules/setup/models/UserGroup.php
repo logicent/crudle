@@ -22,7 +22,7 @@ class UserGroup extends BaseActiveRecord
 
     public static function tableName()
     {
-        return 'user_group';
+        return '{{%User_Group}}';
     }
 
     public function rules()

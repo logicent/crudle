@@ -8,7 +8,7 @@ class RouteMetaTag extends ActiveRecordDetail
 {
     public static function tableName()
     {
-        return 'site_route_meta';
+        return '{{%Site_Route_Meta}}';
     }
 
     public function rules()

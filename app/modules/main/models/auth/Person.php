@@ -38,7 +38,7 @@ class Person extends ActiveRecord
 
     public static function tableName()
     {
-        return 'user';
+        return '{{%User}}';
     }
 
     public function rules()

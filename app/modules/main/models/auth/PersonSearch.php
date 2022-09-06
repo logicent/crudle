@@ -55,7 +55,7 @@ class PersonSearch extends Person
         $query = Person::find();
 
         if (!Yii::$app->user->can(Type_Role::Administrator))
-            $query->where(['not like', 'auth.username', Type_Role::Administrator]);
+            $query->where(['not like', 'crdl_Auth.username', Type_Role::Administrator]);
 
         $query->joinWith(['auth']);
 

@@ -26,7 +26,7 @@ class ReportBuilder extends BaseActiveRecord
 
     public static function tableName()
     {
-        return 'report_builder';
+        return '{{%Report_Builder}}';
     }
 
     public function rules()

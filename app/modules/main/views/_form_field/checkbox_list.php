@@ -2,26 +2,23 @@
 
 use yii\helpers\Html;
 
-$isReadonly = $this->context->isReadonly();
 ?>
 
 <?= $form->field($model, $attribute)->checkboxList($items, [
-        'class' => $isReadonly ? 'disabled custom-listbox' : 'custom-listbox', // for container styles
+        'class' => 'custom-listbox', // for container styles
         'item' => 
         function ($index, $label, $name, $checked, $value) 
         {
             return Html::tag('div', 
-                Html::tag('div', 
-                    Html::checkbox($name, $checked, [
+                Html::tag('div', Html::checkbox($name, $checked, [
                             'id' => $value,
                             'class' => 'hidden ',
                             'value' => $value
-                        ]) .
-                    Html::label($label, $name), [
-                        'id' => 'w' . $index,
-                        'class' => 'ui checkbox'
-                    ]
-                ),
+                        ]) . Html::label($label, $name),
+                        [
+                            'id' => 'w' . $index,
+                            'class' => 'ui checkbox'
+                        ]),
                 ['class' => 'field']
             );
         }

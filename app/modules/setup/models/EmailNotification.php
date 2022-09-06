@@ -19,7 +19,7 @@ class EmailNotification extends BaseActiveRecord
 
     public static function tableName()
     {
-        return 'email_notification';
+        return '{{%Email_Notification}}';
     }
 
     public function rules()
@@ -71,10 +71,14 @@ class EmailNotification extends BaseActiveRecord
         );
     }
 
+    // ActiveRecord Interface
     public static function enums()
     {
         return [
-            'inactive' => Status_Active::class
+            'status' => [
+                'class' => Status_Active::class,
+                'attribute' => 'inactive'
+            ],
         ];
     }
 

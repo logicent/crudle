@@ -107,8 +107,6 @@ error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
 // -----------------------------------------------------------------------------
 
 // Set aliases
-// Yii::setAlias('@root', $rootPath);
-Yii::setAlias('@crudle', $rootPath);
 // Yii::setAlias('@appIcons', $srcPath . DIRECTORY_SEPARATOR . 'icons');
 // Yii::setAlias('@config', $configPath);
 Yii::setAlias('@dbMigrations', $migrationsPath);
@@ -117,10 +115,12 @@ Yii::setAlias('@storage', $storagePath);
 // Yii::setAlias('@translations', $translationsPath);
 Yii::setAlias('@tests', $testsPath);
 
-Yii::setAlias('@appModules', "$rootPath/app/modules");
+Yii::setAlias('@crudle', $rootPath);
+Yii::setAlias('@app', "@crudle/app");
+Yii::setAlias('@appModules', "@app/modules");
 Yii::setAlias('@appMain', '@appModules/main');
 Yii::setAlias('@appSetup', '@appModules/setup');
 // @appSettings GeneralSettings + Layout Settings
-Yii::setAlias('@appKit', "$rootPath/codegen");
-Yii::setAlias('@extModules', "$rootPath/modules");
+Yii::setAlias('@kitModule', "@crudle/codegen"); // or '@appKit', "@appModules/kit"
+Yii::setAlias('@extModules', "@crudle/modules");
 Yii::setAlias('@extCms', '@extModules/web_cms');

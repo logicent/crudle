@@ -1,7 +1,6 @@
 <?php
 
 use crudle\app\helpers\App;
-use crudle\app\helpers\SelectableItems;
 use crudle\app\main\enums\Type_Column;
 use crudle\app\main\enums\Type_Field_Input;
 use yii\helpers\Html;
@@ -13,7 +12,7 @@ $model = new $generator->modelClass;
 $formSection = '';
 
 $beginFormSection = 
-    Html::beginTag('div', ['class' => "ui padded <?= \$this->context->isReadonly() ? 'disabled' : null ?> segment"]) . "\n   " .
+    Html::beginTag('div', ['class' => "ui padded \<?= \$this-\>context-\>isReadonly() ? \'disabled\' : null ?\> segment"]) . "\n   " .
     Html::beginTag('div', ['class' => 'ui two column stackable grid']) . "\n      ";
 
 $endFormSection = 
@@ -32,7 +31,9 @@ $formSection = $beginFormSection . $beginLeftColumn;
 $formFields = $generator->getFormFields();
 foreach ($formFields as $id => $formFieldConfig) :
     $formField = $formFieldConfig->attributes;
-
+    $moduleId = Inflector::underscore(
+        Inflector::id2camel(App::getModuleOf($formField['options']))
+    );
     if ($formField['field_type'] == Type_Field_Input::SectionBreak) :
         $formSection .= $endLeftColumn
                      . $beginRightColumn
@@ -87,9 +88,6 @@ foreach ($formFields as $id => $formFieldConfig) :
             ]) ?>\n";
             break;
         case Type_Field_Input::Select:
-            $moduleId = Inflector::underscore(
-                Inflector::id2camel(App::getModuleOf($formField['options']))
-            );
             $fieldType = 'select';
             $field = "         <?= \$this->render('{$fieldView}/{$fieldType}', [
                 'model' => \$model,
@@ -105,26 +103,23 @@ foreach ($formFields as $id => $formFieldConfig) :
             ]) ?>\n";
             break;
         case Type_Field_Input::CheckboxList:
-            $moduleId = Inflector::underscore(
-                Inflector::id2camel(App::getModuleOf($formField['options']))
-            );
             $fieldType = 'checkbox_list';
-            $list = $formField['list'];
+            // $list = $formField['list'];
             $field = "         <?= \$this->render('{$fieldView}/{$fieldType}', [
                 'model' => \$model,
                 'attribute' => '{$attribute}',
                 'form' => \$form,
                 'list' => [
-                        'modelClass' => 'crudle\\ext\\{$moduleId}\\models\\{$formField['options']}',
-                        'addEmptyFirstItem' => '{$list['addEmptyFirstItem']}',
-                        'keyAttribute' => '{$list['keyAttribute']}',
-                        'valueAttribute' => '{$list['valueAttribute']}',
-                        'filters' => '{$list['filters']}'
-                    ]),
+                    'modelClass' => 'crudle\\ext\\{$moduleId}\\models\\{$formField['options']}',
+                    'addEmptyFirstItem' => true,
+                    'keyAttribute' => 'id',
+                    'valueAttribute' => 'id',
+                    'filters' => [],
+                ],
             ]) ?>\n";
             break;
         case Type_Field_Input::Checkbox:
-            $field = "         <?= \$form->field($model, '{$attribute}')->checkbox()->label('&nbsp;') ?>\n";
+            $field = "         <?= \$form->field(\$model, '{$attribute}')->checkbox()->label('&nbsp;') ?>\n";
             break;
             // To-Do: revisit this later
             $field = "         <?= \$this->render('{$fieldView}/checkbox', [
@@ -164,13 +159,11 @@ foreach ($formFields as $id => $formFieldConfig) :
             ]) ?>\n";
             break;
         case Type_Field_Input::ReadOnly:
-            $field = "         <?= \$form->field(\$model, '{$attribute}')
-                ->textInput(['readonly' => true]) ?>\n";
+            $field = "         <?= \$form->field(\$model, '{$attribute}')->textInput(['readonly' => true]) ?>\n";
             break;
         case Type_Field_Input::TextInput:
         default:
-            $field = "         <?= \$form->field(\$model, '{$attribute}')
-                ->textInput(['maxlength' => {$formField['length']}) ?>\n";
+            $field = "         <?= \$form->field(\$model, '{$attribute}')->textInput(['maxlength' => {$formField['length']}]) ?>\n";
     endswitch;
 
     if ($id % 2 !== 0 || $formField['col_side'] == Type_Column::Right) :

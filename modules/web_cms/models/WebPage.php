@@ -15,7 +15,7 @@ class WebPage extends ActiveRecord
 
     public static function tableName()
     {
-        return 'site_page';
+        return '{{%Site_Page}}';
     }
 
     public function rules()
@@ -46,7 +46,10 @@ class WebPage extends ActiveRecord
     public static function enums()
     {
         return [
-            'status' => Status_Article::class
+            'status' => [
+                'class' => Status_Article::class,
+                'attribute' => 'status'
+            ]
         ];
     }
 }

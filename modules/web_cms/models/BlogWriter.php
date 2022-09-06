@@ -14,12 +14,13 @@ class BlogWriter extends ActiveRecord
     public function init()
     {
         parent::init();
-        $this->listSettings->listNameAttribute = 'full_name'; // override in view index
+        // $this->listSettings->listIdAttribute = 'id';
+        $this->listSettings->listNameAttribute = 'full_name';
     }
 
     public static function tableName()
     {
-        return 'site_post_author';
+        return '{{%Site_Post_Author}}';
     }
 
     public function rules()

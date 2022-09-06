@@ -29,8 +29,8 @@ class Delete extends Action
             if ( !is_array( $details ))
             {
                 // soft delete
-                $details->deleted_at = date('Y-m-d H:i:s');
-                $details->save(false);
+                // $details->deleted_at = date('Y-m-d H:i:s');
+                // $details->save(false);
                 // hard delete
                 // if ( $details->delete() !== false )
                 //     $messages['success'][$details->id] = $details->id . ' has been deleted successfully';
@@ -41,11 +41,11 @@ class Delete extends Action
             foreach ( $details as $detailModel )
             {
                 // soft delete
-                if (property_exists($detailModel, 'deleted_at'))
-                {
-                    $detailModel->deleted_at = date('Y-m-d H:i:s');
-                    $detailModel->save(false);
-                }
+                // if (property_exists($detailModel, 'deleted_at'))
+                // {
+                //     $detailModel->deleted_at = date('Y-m-d H:i:s');
+                //     $detailModel->save(false);
+                // }
                 // hard delete
                 // if ( $detailModel->delete() !== false )
                 //     $messages['success'][$detailModel->id] = $detailModel->id . ' has been deleted successfully';
@@ -54,8 +54,8 @@ class Delete extends Action
             }
         }
         // soft delete
-        $model->deleted_at = date('Y-m-d H:i:s');
-        $model->save(); // false
+        // $model->deleted_at = date('Y-m-d H:i:s');
+        // $model->save(); // false
         // hard delete
         // if ( $model->delete() !== false )
         // {

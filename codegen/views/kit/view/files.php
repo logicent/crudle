@@ -54,7 +54,7 @@ use icms\FomanticUI\modules\Checkbox;
         </div>
     </div>
 
-    <table class="ui celled striped teal table">
+    <table class="ui celled teal table">
         <thead>
             <tr>
                 <th class="file"><?= Yii::t('app', 'Code File') ?></th>
@@ -81,11 +81,11 @@ use icms\FomanticUI\modules\Checkbox;
         <?php
             foreach ($files as $file):
                 if ($file->operation === CodeFile::OP_OVERWRITE) :
-                    $trClass = 'warning';
+                    $trClass = 'negative';
                 elseif ($file->operation === CodeFile::OP_SKIP) :
-                    $trClass = 'active';
+                    $trClass = 'default';
                 elseif ($file->operation === CodeFile::OP_CREATE) :
-                    $trClass = 'success';
+                    $trClass = 'positive';
                 else :
                     $trClass = '';
                 endif ?>
@@ -93,14 +93,19 @@ use icms\FomanticUI\modules\Checkbox;
                 <td class="file">
                     <?= Html::a(Html::encode($file->getRelativePath()),
                                 ['preview', 'id' => $id, 'file' => $file->id],
-                                ['class' => 'preview-code', 'data-title' => $file->getRelativePath()]) ?>
+                                [
+                                    'class' => 'preview-code',
+                                    'data-title' => $file->getRelativePath(),
+                                    'data-method' => 'post',
+                                ]) ?>
                     <?php
                     if ($file->operation === CodeFile::OP_OVERWRITE):
-                        echo Html::a('diff',
+                        echo '&emsp;' . Html::a(Elements::icon('code'),
                                     ['diff', 'id' => $id, 'file' => $file->id],
                                     [
-                                        'class' => 'diff-code label label-warning',
-                                        'data-title' => $file->getRelativePath()
+                                        'class' => 'diff-code small ui compact icon label orange',
+                                        'data-title' => $file->getRelativePath(),
+                                        'data-method' => 'post',
                                     ]);
                     endif ?>
                 </td>
@@ -168,3 +173,11 @@ use icms\FomanticUI\modules\Checkbox;
             // 'size' => '',
         ]) ?>
 </div>
+
+<!-- To-Do:
+
+- Search and filter code files in generated list
+- Click on action btn to select same action rows
+- Click on header checkbox to select listed rows
+- Uncheck header checkbox if one of all is unchecked
+- Load modal with diff changes on click of label/btn -->

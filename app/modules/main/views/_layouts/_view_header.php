@@ -32,7 +32,7 @@ endif;
         </div>
         <div class="six wide column right aligned">
         <?php
-            if ($controller->mapActionViewType() == Type_View::Form && !$controller->isReadonly()) :
+            if ($controller->mapActionViewType() == Type_View::Form && $controller->action->id !== 'read') :
                 // new or update record and settings form view
                 echo $this->render('@appMain/views/_form/_view_header');
             elseif ($controller->mapActionViewType() == Type_View::List) :

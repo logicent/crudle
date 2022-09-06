@@ -20,7 +20,7 @@ class EmailQueue extends BaseActiveRecord
 {
     public static function tableName()
     {
-        return 'email_queue';
+        return '{{%Email_Queue}}';
     }
 
     public function behaviors()
@@ -95,7 +95,10 @@ class EmailQueue extends BaseActiveRecord
     public static function enums()
     {
         return [
-            'status' => Status_Queue::class,
+            'status' => [
+                'class' => Status_Queue::class,
+                'attribute' => 'inactive'
+            ],
         ];
     }
 

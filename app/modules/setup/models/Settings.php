@@ -10,7 +10,7 @@ class Settings extends BaseActiveRecord
 {
     public static function tableName()
     {
-        return 'settings';
+        return '{{%Settings}}';
     }
 
     public static function primaryKey()

@@ -16,7 +16,7 @@ $('.ui.modals').on('click', '.update-row',
         $('#' + modal_id).parents('.ui.modal').modal('hide');
     });
 
-$('table.in-form').on('click', '.edit-item--btn',
+$('table.in-form').on('click', '.edit-row',
     function (e) {
         edit_btn = $(this);
         table_row = edit_btn.closest('tr');

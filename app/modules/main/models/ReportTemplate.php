@@ -25,7 +25,7 @@ class ReportTemplate extends ActiveRecord
 
     public static function tableName()
     {
-        return 'report_template';
+        return '{{%Report_Template}}';
     }
 
     public function rules()

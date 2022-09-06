@@ -7,7 +7,7 @@ use Yii;
 class Report_Status
 {
     // const NotApplicable = 'Not Applicable'; // Default if Report is not applicable
-    const NotRequired = 'Not Required'; // Default if Report is NOT required
+    const NotRequired = 'Not Required'; // Default if Report is not required
     const NotDrafted  = 'Not Drafted'; // Default if Report is required
     const Drafted     = 'Drafted'; // i.e. Prepared - TODO: Identify trigger to set as (Not Submitted)
     const Submitted   = 'Submitted'; // + Request Approval or + Closed

@@ -11,7 +11,7 @@ class Rule extends \yii\db\ActiveRecord
 {
     public static function tableName()
     {
-        return 'auth_rule';
+        return '{{%Auth_Rule}}';
     }
 
     public function rules()

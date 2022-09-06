@@ -16,7 +16,7 @@ class ReportTemplateItem extends ActiveRecordDetail
 
     public static function tableName()
     {
-        return 'report_template_detail';
+        return '{{%Report_Template_Detail}}';
     }
 
     public function rules()

@@ -628,6 +628,12 @@ body::-webkit-scrollbar-thumb {
     width: 0
 }
 
+.ui.form textarea:not([rows]) {
+    height: 12em;
+    min-height: 6em;
+    max-height: 18em;
+}
+
 .ui.form textarea {
     /* resize: none; */
     /* min-height: initial; */

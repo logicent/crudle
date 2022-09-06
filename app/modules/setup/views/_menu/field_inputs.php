@@ -44,7 +44,7 @@ use icms\FomanticUI\modules\Checkbox;
     </td>
     <td class="one wide center aligned">
         <?= Html::a(Elements::icon('grey pencil'), null, [
-                    'class' => 'edit-item--btn compact ui small basic icon button',
+                    'class' => 'edit-row compact ui small basic icon button',
                     'style' => 'margin: 0em;',
                     'data' => [
                         'model-class' => App::className($model),

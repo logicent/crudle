@@ -40,7 +40,7 @@ class ReportTemplateSearch extends ReportTemplate
      */
     public function search($params)
     {
-        $query = ReportTemplate::find()->where(['deleted_at' => null]);
+        $query = ReportTemplate::find();
 
         // add conditions that should always apply here
 

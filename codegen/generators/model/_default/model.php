@@ -20,6 +20,10 @@ echo "<?php\n";
 namespace <?= $generator->ns ?>;
 
 use crudle\app\enums\Status_Active;
+<?php if (!empty($relations)): ?>
+use crudle\app\main\enums\Type_Relation;
+<?php endif; ?>
+use <?= '\\' . ltrim($generator->baseModelClass, '\\') . "\n" ?>
 use Yii;
 
 /**
@@ -65,8 +69,8 @@ class <?= $className ?> extends <?= '\\' . ltrim($generator->baseModelClass, '\\
 <?php endif; ?>
 
 <?php 
-$pk = Yii::$app->db->getTableSchema($generator->tableName)->primaryKey;
-if ($pk[0] !== 'id') : ?>
+$pk = $tableSchema->primaryKey;
+if (isset($pk[0]) && $pk[0] !== 'id') : ?>
     public static function primaryKey()
     {
         return ['<?= $pk[0] ?>'];
@@ -92,6 +96,19 @@ if ($pk[0] !== 'id') : ?>
 <?php endforeach; ?>
         ];
     }
+
+    public static function relations()
+    {
+        return [
+<?php foreach ($relations as $name => $relation): ?>
+            '<?= $name ?>'     => [
+                'class' => <?= $name ?>::class,
+                'type' => Type_Relation::ChildModel
+            ],
+<?php endforeach; ?>
+        ];
+    }
+
 <?php foreach ($relations as $name => $relation): ?>
 
     /**

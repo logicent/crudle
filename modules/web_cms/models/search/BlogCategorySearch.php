@@ -55,10 +55,9 @@ class BlogCategorySearch extends BlogCategory
         $query->andFilterWhere([
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'deleted_at' => $this->deleted_at,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
+        $query->andFilterWhere(['like', 'id', $this->id])
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'created_by', $this->created_by])
             ->andFilterWhere(['like', 'updated_by', $this->updated_by]);

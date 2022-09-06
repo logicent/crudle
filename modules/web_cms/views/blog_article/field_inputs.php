@@ -4,8 +4,7 @@
             <?= $form->field($model, 'published')->checkbox(['class' => 'toggle']) ?>
         </div>
         <div class="column">
-            <?= $form->field($model, 'title')->textInput(['maxlength' => 140]) ?>
-            <?= $form->field($model, 'slug')->textInput(['maxlength' => 140]) ?>
+            <?= $form->field($model, 'title')->textInput(['maxlength' => 280]) ?>
         </div>
         <div class="column">
             <?= $form->field($model, 'route')->textInput(['maxlength' => 140]) ?>

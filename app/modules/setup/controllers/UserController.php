@@ -207,6 +207,7 @@ class UserController extends BaseCrudController
         $this->auth = Auth::findOne( $id );
         $person = Person::findOne( $this->auth->id );
 
+        // add a comment
         if ($this->auth) {
             $this->auth->status = Auth::STATUS_DELETED;
             $this->auth->save(false);
@@ -214,7 +215,7 @@ class UserController extends BaseCrudController
 
         if ($person) {
             $person->status = Status_Active::No;
-            $person->deleted_at = date('Y-m-d H:i:s');
+            // $person->update_at = date('Y-m-d H:i:s');
             $person->save(false);
         }
 
@@ -238,7 +239,7 @@ class UserController extends BaseCrudController
 
             if ($person) {
                 $person->status = Status_Active::No;
-                $person->deleted_at = date('Y-m-d H:i:s');
+                // $person->updated_at = date('Y-m-d H:i:s');
                 $person->save(false);
             }
         }

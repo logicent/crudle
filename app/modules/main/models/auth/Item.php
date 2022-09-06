@@ -16,7 +16,7 @@ class Item extends BaseActiveRecord
 
     public static function tableName()
     {
-        return 'auth_item';
+        return '{{%Auth_Item}}';
     }
 
     public function behaviors()

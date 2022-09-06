@@ -9,15 +9,22 @@ use crudle\app\setup\enums\Type_Permission;
 
 class BlogCategory extends ActiveRecord
 {
+    public function init()
+    {
+        parent::init();
+        $this->listSettings->listIdAttribute = 'id';
+        $this->listSettings->listNameAttribute = 'id';
+    }
+
     public static function tableName()
     {
-        return 'site_post_category';
+        return '{{%Site_Post_Category}}';
     }
 
     public function rules()
     {
         return [
-            [['name'], 'required'],
+            [['id'], 'required'],
             [['published'], 'boolean'],
             [['description', 'route'], 'string'],
         ];

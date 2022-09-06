@@ -12,8 +12,8 @@ class Type_Field_Input extends Type_Field
     const WholeNumber = 'whole';
     const FloatNumber = 'float';
     const Currency = 'money';
-    const SmallText = 'text';
-    const LargeText = 'text';
+    const SmallText = 'smalltext';
+    const LargeText = 'largetext';
     const FileInput = 'file';
     const Code = 'code';
     const Color = 'color';

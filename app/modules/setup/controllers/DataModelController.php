@@ -2,10 +2,10 @@
 
 namespace crudle\app\setup\controllers;
 
+use crudle\app\main\controllers\action\EditRow;
 use crudle\app\main\controllers\action\Index;
 use crudle\app\main\controllers\base\BaseCrudController;
 use Yii;
-use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
 use crudle\app\setup\models\DataModel;
@@ -34,6 +34,7 @@ class DataModelController extends BaseCrudController
     {
         return [
             'index' => Index::class,
+            'edit-row' => EditRow::class,
         ];
     }
 

@@ -13,12 +13,13 @@ class BlogArticle extends ActiveRecord
     public function init()
     {
         parent::init();
-        $this->listSettings->listNameAttribute = 'title'; // override in view index
+        $this->listSettings->listIdAttribute = 'title';
+        $this->listSettings->listNameAttribute = 'title';
     }
 
     public static function tableName()
     {
-        return 'site_post';
+        return '{{%Site_Post}}';
     }
 
     public function rules()
@@ -26,7 +27,7 @@ class BlogArticle extends ActiveRecord
         return [
             [['title', 'route'], 'required'],
             [['content', 'tags'], 'string'],
-            [['title', 'slug'], 'string', 'max' => 280],
+            [['title'], 'string', 'max' => 280],
             [['status'], 'default', 'value' => Status_Transaction::Draft],
             [[
                 'layout', 'author', 'route', 'status', 'featured_image', 'category_id', 'parent'
@@ -48,7 +49,10 @@ class BlogArticle extends ActiveRecord
     public static function enums()
     {
         return [
-            'status' => Status_Article::class
+            'status' => [
+                'class' => Status_Article::class,
+                'attribute' => 'status'
+            ]
         ];
     }
 }

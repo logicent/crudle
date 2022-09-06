@@ -17,9 +17,7 @@ return [
             $action = 'read';
         endif;
         $attribute = $column->attribute;
-        $controllerId = Inflector::camel2id(
-                            StringHelper::basename( $this->context->modelClass() )
-                        );
+        $controllerId = StringHelper::basename( $this->context->id );
         $linkColumn = Html::a( $model->$attribute,
                             Url::to(['/'. $this->context->module->id .'/'. $controllerId .'/'. $action, 'id' => $model->$attribute]),
                             [

@@ -60,7 +60,6 @@ class EmailTemplateSearch extends EmailTemplate
             'inactive' => $this->inactive,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'deleted_at' => $this->deleted_at,
         ]);
 
         $query

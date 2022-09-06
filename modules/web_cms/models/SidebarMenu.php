@@ -10,7 +10,7 @@ class SidebarMenu extends ActiveRecord
 {
     public static function tableName()
     {
-        return 'site_sidebar';
+        return '{{%Site_Sidebar}}';
     }
 
     public function rules()

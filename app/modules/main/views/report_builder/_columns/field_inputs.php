@@ -31,7 +31,10 @@ $isReadonly =
     <td>
         <?= Html::activeDropDownList($model, "[{$rowId}]attribute_name", 
                 $attributes,
-                ['class' => 'rb--attribute-name']
+                [
+                    'class' => 'rb--attribute-name',
+                    'data-name' => 'attributeName'
+                ]
             ) ?>
     </td>
     <td class="center aligned sort-by">
@@ -40,7 +43,7 @@ $isReadonly =
                 'attribute' => "[$rowId]sort_by",
                 'labelOptions' => ['label' => false],
                 'options' => [
-                    'data' => ['name' => 'sort_by'],
+                    'data-name' => 'sortBy',
                     'style' => 'vertical-align: text-top'
                 ]
             ]) ?>
@@ -50,7 +53,8 @@ $isReadonly =
                 null => '',
                 SORT_ASC => Yii::t('app', 'ASC'),
                 SORT_DESC => Yii::t('app', 'DESC'),
-        ]) ?>
+            ],
+            ['data-name' => 'sortOrder']) ?>
     </td>
     <td class="center aligned filter-by">
         <?= Checkbox::widget([
@@ -58,22 +62,22 @@ $isReadonly =
                 'attribute' => "[$rowId]filter_by",
                 'labelOptions' => ['label' => false],
                 'options' => [
-                    'data' => ['name' => 'filter_by'],
+                    'data-name' => 'filterBy',
                     'style' => 'vertical-align: text-top'
                 ]
             ]) ?>
     </td>
     <td class="center aligned">
         <?= Elements::button(Elements::icon('horizontal ellipsis'),
-                    [
-                        'class' => 'compact ui basic icon button edit-column--btn',
-                        'data' => [
-                            'url' => Url::to(['setup/report-builder/edit-row', 'id' => $model->id]),
-                            'model-class' => get_class($model),
-                            'model-id' => $model->id,
-                            'form-view' => 'column/edit',
-                        ]
+                [
+                    'class' => 'compact basic icon edit-row',
+                    'data' => [
+                        'url' => Url::to(['edit-row', 'id' => $model->id]),
+                        'model-class' => get_class($model),
+                        'model-id' => $model->id,
+                        'form-view' => '_columns/edit',
                     ]
-                ) ?>
+                ]
+            ) ?>
     </td>
 </tr>

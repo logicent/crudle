@@ -8,6 +8,7 @@ return [
     'username' => App::env('CRUDLE_DB_USERNAME'),
     'password' => App::env('CRUDLE_DB_PASSWORD'),
     'tablePrefix' => App::env('CRUDLE_DB_TABLE_PREFIX'),
+    // 'enableQueryCache' => false,
     'charset' => 'utf8',
 
     // Schema cache options (for production environment)

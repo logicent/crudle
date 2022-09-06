@@ -13,7 +13,7 @@ class User extends ActiveRecord implements IdentityInterface
 
     public static function tableName()
     {
-        return '{{%auth}}';
+        return '{{%Auth}}';
     }
 
     public function behaviors()

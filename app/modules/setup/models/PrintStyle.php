@@ -17,13 +17,13 @@ class PrintStyle extends BaseActiveRecord
 {
     public function init()
     {
-        $this->listSettings = new ListViewSettingsForm();
+        parent::init();
         $this->listSettings->listNameAttribute = 'id';
     }
 
     public static function tableName()
     {
-        return 'print_style';
+        return '{{%Print_Style}}';
     }
 
     public function rules()
@@ -60,10 +60,14 @@ class PrintStyle extends BaseActiveRecord
         );
     }
 
+    // ActiveRecord Interface
     public static function enums()
     {
         return [
-            'status' => Status_Transaction::class
+            'status' => [
+                'class' => Status_Transaction::class,
+                'attribute' => 'status'
+            ],
         ];
     }
 

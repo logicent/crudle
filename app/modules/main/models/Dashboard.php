@@ -23,7 +23,7 @@ class Dashboard extends BaseActiveRecord
 
     public static function tableName()
     {
-        return 'dashboard';
+        return '{{%Dashboard}}';
     }
 
     public function rules()

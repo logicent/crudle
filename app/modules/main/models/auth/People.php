@@ -17,7 +17,7 @@ class People extends BaseActiveRecord
 
     public static function tableName()
     {
-        return 'people';
+        return '{{%People}}';
     }
 
     public function attributeLabels()

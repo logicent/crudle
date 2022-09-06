@@ -12,16 +12,8 @@ class Index extends Action
 {
     public function run()
     {
-        // Url::remember(Yii::$app->request->getUrl(), Yii::$app->controller->id);
-
         $searchModelClass = $this->controller->searchModelClass();
         $searchClassname = StringHelper::basename($searchModelClass);
-        // filter out the (soft) deleted data
-        $prefilter = [
-            $searchClassname => [
-                'deleted_at' => null
-            ]
-        ];
 
         // check if global search is used to fetch result
         if (!empty(Yii::$app->request->get('GlobalSearch')))
@@ -36,11 +28,8 @@ class Index extends Action
         else
             $userFilters = Yii::$app->request->queryParams;
 
-        $listFilters = ArrayHelper::merge($prefilter, $userFilters);
         $searchModel = new $searchModelClass;
-        $dataProvider = $searchModel->search($listFilters);
-
-        // $this->sidebar = false;
+        $dataProvider = $searchModel->search($userFilters);
 
         if (Yii::$app->request->isAjax)
             return $this->controller->renderAjax('@appMain/views/list/index', [

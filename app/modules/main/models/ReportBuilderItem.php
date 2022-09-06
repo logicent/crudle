@@ -15,7 +15,7 @@ class ReportBuilderItem extends BaseActiveRecordDetail
 {
     public static function tableName()
     {
-        return 'report_builder_item';
+        return '{{%Report_Builder_Item}}';
     }
 
     public function rules()

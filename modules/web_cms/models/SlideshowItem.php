@@ -8,7 +8,7 @@ class SlideshowItem extends ActiveRecordDetail
 {
     public static function tableName()
     {
-        return 'site_slideshow_item';
+        return '{{%Site_Slideshow_Item}}';
     }
 
     public function rules()

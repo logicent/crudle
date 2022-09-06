@@ -95,7 +95,6 @@ abstract class BaseActiveRecord extends ActiveRecord implements ActiveRecordInte
                 'tags',
                 'created_at', // YYYY-MM-DD HH:MM:SS
                 'updated_at', // YYYY-MM-DD HH:MM:SS
-                'deleted_at'
             ], 'safe'],
             [['created_by', 'updated_by'], 'string', 'max' => 140],
         ];
@@ -113,7 +112,6 @@ abstract class BaseActiveRecord extends ActiveRecord implements ActiveRecordInte
             'created_by' => Yii::t('app', 'Created By'),
             'updated_at' => Yii::t('app', 'Updated At'),
             'updated_by' => Yii::t('app', 'Updated By'),
-            'deleted_at' => Yii::t('app', 'Deleted At'),
         ];
     }
 
@@ -146,7 +144,6 @@ abstract class BaseActiveRecord extends ActiveRecord implements ActiveRecordInte
             'created_by',
             'updated_at',
             'updated_by',
-            'deleted_at',
         ];
 
         foreach ($fromModel->attributes as $attribute => $value) {
@@ -553,7 +550,6 @@ abstract class BaseActiveRecord extends ActiveRecord implements ActiveRecordInte
             'created_by',
             'updated_at',
             'updated_by',
-            'deleted_at',
         ];
     }
 

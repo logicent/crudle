@@ -41,5 +41,4 @@ foreach ($menuGroups as $groupName => $groupItems) :
         </div><!-- ./content -->
     </div><!-- ./ui card -->
 <?php
-endforeach; ?>
-
+endforeach;

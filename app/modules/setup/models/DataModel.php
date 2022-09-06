@@ -29,7 +29,7 @@ class DataModel extends ActiveRecord
      */
     public static function tableName()
     {
-        return 'data_model';
+        return '{{%Data_Model}}';
     }
 
     /**

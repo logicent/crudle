@@ -34,7 +34,7 @@ class DashboardWidget extends ActiveRecordDetail
 
     public static function tableName()
     {
-        return 'dashboard_widget';
+        return '{{%Dashboard_Widget}}';
     }
 
     public function rules()

@@ -38,4 +38,3 @@ use yii\helpers\Html;
 <?= Html::activeHiddenInput($model, 'updated_by') ?>
 <?= Html::activeHiddenInput($model, 'created_at') ?>
 <?= Html::activeHiddenInput($model, 'updated_at') ?>
-<?= Html::activeHiddenInput($model, 'deleted_at') ?>

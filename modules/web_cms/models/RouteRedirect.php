@@ -8,7 +8,7 @@ class RouteRedirect extends ActiveRecord
 {
     public static function tableName()
     {
-        return 'site_redirect';
+        return '{{%Site_Redirect}}';
     }
 
     public function rules()
