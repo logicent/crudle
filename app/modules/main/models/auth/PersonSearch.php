@@ -18,7 +18,7 @@ class PersonSearch extends Person
     public function rules()
     {
         return [
-            [['id', 'user_role', 'user_group', 'full_name', 'auth.status',
+            [['id', 'user_role', 'user_group', 'full_name', 'crdl_Auth.status',
                 'sex', 'title_of_courtesy', 'personal_email', 'mobile_no', 'official_status',
                 'status', 'avatar', 'notes', 'comments'], 
             'safe'],
@@ -31,7 +31,7 @@ class PersonSearch extends Person
     public function attributes()
     {
         // add related fields to searchable attributes
-        return array_merge(parent::attributes(), ['auth.status']);
+        return array_merge(parent::attributes(), ['crdl_Auth.status']);
     }
 
     /**
@@ -63,7 +63,7 @@ class PersonSearch extends Person
             'query' => $query,
             'sort' => [
                 'defaultOrder' => [
-                    'auth.status' => SORT_DESC,
+                    'crdl_Auth.status' => SORT_DESC,
                     'firstname' => SORT_ASC,
                     'surname' => SORT_ASC,
                 ]
@@ -75,9 +75,9 @@ class PersonSearch extends Person
             'desc' => ['firstname' => SORT_DESC, 'surname' => SORT_DESC],
         ];
 
-        $dataProvider->sort->attributes['auth.status'] = [
-            'asc' => ['auth.status' => SORT_ASC],
-            'desc' => ['auth.status' => SORT_DESC],
+        $dataProvider->sort->attributes['crdl_Auth.status'] = [
+            'asc' => ['crdl_Auth.status' => SORT_ASC],
+            'desc' => ['crdl_Auth.status' => SORT_DESC],
         ];
 
         $this->load($params);
@@ -96,7 +96,7 @@ class PersonSearch extends Person
             'user_role' => $this->user_role,
             'user_group' => $this->user_group,
             'official_status' => $this->official_status,
-            'auth.status' => $this->getAttribute('auth.status'),
+            'crdl_Auth.status' => $this->getAttribute('crdl_Auth.status'),
         ]);
 
         $query

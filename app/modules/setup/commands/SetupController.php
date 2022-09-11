@@ -14,39 +14,49 @@ class SetupController extends Controller
 {
     /** @var array */
     public $excludeTables = [
-        'auth',
-        'auth_assignment',
-        'auth_item',
-        'auth_item_child',
-        'auth_rule',
-        // 'data_import',
-        'data_model',
-        'data_model_field',
-        'data_widget',
-        'dashboard',
-        'dashboard_widget',
-        'email_digest',
-        'email_notification',
-        'email_queue',
-        'email_template',
-        'i18n_message',
-        'i18n_source_message',
-        'i18n_timezone',
+        'crdl_Auth',
+        'crdl_Auth_Assignment',
+        'crdl_Auth_Item',
+        'crdl_Auth_Item_Child',
+        'crdl_Auth_Rule',
+        'crdl_Data_Import',
+        'crdl_Data_Model',
+        'crdl_Data_Model_Field',
+        'crdl_Data_Widget',
+        'crdl_Dashboard',
+        'crdl_Dashboard_Widget',
+        'crdl_Deleted_Record',
+        'crdl_Email_Digest',
+        'crdl_Email_Notification',
+        'crdl_Email_Queue',
+        'crdl_Email_Template',
+        'crdl_I18n_Message',
+        'crdl_I18n_Source_Message',
+        'crdl_I18n_Timezone',
+        'crdl_Migration',
+        'crdl_People',
+        'crdl_Print_Format',
+        'crdl_Print_Style',
+        'crdl_Migration',
+        'crdl_Settings',
+        'crdl_Report_Auto_Email',
+        'crdl_Report_Builder',
+        'crdl_Report_Builder_Item',
+        'crdl_Report_Template',
+        'crdl_Report_Template_Detail',
+        'crdl_User',
+        'crdl_User_Group',
+        'crdl_User_Log',
+        'crdl_User_Settings',
         'migration',
-        'people',
-        'print_format',
-        'print_style',
-        'migration',
-        'settings',
-        'report_auto_email',
-        'report_builder',
-        'report_builder_item',
-        'report_template',
-        'report_template_detail',
-        'user',
-        'user_group',
-        'user_log',
-        'user_settings',
+        'crdl_Site_Form',
+        'crdl_Site_Form_Field',
+        'crdl_Site_Page',
+        'crdl_Site_Post',
+        'crdl_Site_Post_Author',
+        'crdl_Site_Post_Category',
+        'crdl_Site_Sidebar',
+        'crdl_Site_Slide',
     ];
 
     /** @var array */
@@ -60,6 +70,9 @@ class SetupController extends Controller
         'updated_at',
         'updated_by',
     ];
+
+    const DataModel = 'crdl_Data_Model';
+    const DataModelField = 'crdl_Data_Model_Field';
 
     public function init()
     {
@@ -92,29 +105,37 @@ class SetupController extends Controller
         return $env;
     }
 
-    public function actionPopulateDataModelTables()
+    public function actionPopulateDataModelTables($tablePrefix = null)
     {
         $dbName = Yii::$app->db->createCommand('SELECT DATABASE()')->queryScalar();
-        if ($this->confirm('This will populate `data_model` and `data_model_field` from columns in `' . $dbName . '` DB tables.' . PHP_EOL)) {
-            // Yii::$app->db->createCommand("SET foreign_key_checks = 0")->execute();
+        if ($this->confirm('This will populate `' . self::DataModel . '` and `' . self::DataModelField . '` from columns in `' . $dbName . '` DB tables.' . PHP_EOL)) {
+            Yii::$app->db->createCommand('SET foreign_key_checks=0')->execute();
+            $this->stdout('Preparing...' . PHP_EOL, Console::FG_YELLOW);
+            $this->stdout('Truncating table...' . self::DataModelField . PHP_EOL, Console::FG_RED);
+            Yii::$app->db->createCommand()->truncateTable(self::DataModelField)->execute();
+            $this->stdout('Truncating table...' . self::DataModel . PHP_EOL, Console::FG_RED);
+            Yii::$app->db->createCommand()->truncateTable(self::DataModel)->execute();
+
+            $this->stdout('Starting...' . PHP_EOL, Console::FG_YELLOW);
+
             $tableSchemas = Yii::$app->db->schema->getTableSchemas();
             foreach ($tableSchemas as $tableSchema) {
                 if (in_array($tableSchema->name, $this->excludeTables))
                     continue;
 
-                $modelName = Inflector::camelize($tableSchema->name);
+                $modelName = str_replace($tablePrefix, '', $tableSchema->name);
+                $modelName = Inflector::camelize($modelName);
 
-                $this->stdout('Populating ' . $modelName . ' model table schema...' . PHP_EOL);
+                $this->stdout('Populating table schema of model...' . $modelName . PHP_EOL);
 
                 $user = People::findOne(['username' => 'Administrator']);
 
                 Yii::$app->db
                         ->createCommand()
                         ->upsert(
-                            'data_model',
+                            self::DataModel,
                             [
                                 'id' => $modelName,
-                                'name' => Inflector::camel2words($modelName),
                                 'module' => App::getModuleOf($modelName),
                                 'status' => 0, // Active - Yes
                                 'is_table' => 1,
@@ -126,7 +147,9 @@ class SetupController extends Controller
                         )
                         ->execute();
 
-                $this->stdout('Populating `' . $tableSchema->name . '` column schemas...' . PHP_EOL);
+                $viewName = Inflector::underscore($modelName);
+
+                $this->stdout('Populating column schemas of view...' . $viewName . PHP_EOL);
 
                 $fields = [];
                 foreach ($tableSchema->columns as $column) {
@@ -162,7 +185,7 @@ class SetupController extends Controller
                     Yii::$app->db
                             ->createCommand()
                             ->batchInsert(
-                                'data_model_field',
+                                self::DataModelField,
                                 $tableColumns,
                                 $fields
                             )
@@ -172,8 +195,8 @@ class SetupController extends Controller
                     Yii::$app->end(1);
                 }
             }
-            // Yii::$app->db->createCommand("SET foreign_key_checks = 1")->execute();
-            $this->stdout('Done.' . PHP_EOL, Console::FG_GREEN);
+            Yii::$app->db->createCommand('SET FOREIGN_KEY_CHECKS=1')->execute();
+            $this->stdout('Finished!' . PHP_EOL, Console::FG_GREEN);
         }
     }
 }

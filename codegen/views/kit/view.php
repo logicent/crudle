@@ -14,6 +14,8 @@ use icms\FomanticUI\widgets\ActiveForm;
 /* @var $files CodeFile[] */
 /* @var $selectedFiles array */
 
+// crudle\kit\KitAsset::register($this);
+
 $title = $generator->getName() . ' Generate';
 $this->title = Yii::t('app', '{title}', ['title' => $title]);
 echo $this->render('_breadcrumb');
@@ -81,4 +83,6 @@ $form = ActiveForm::begin([
         endif ?>
     </div>
 <?php
-    ActiveForm::end() ?>
+ActiveForm::end();
+
+$this->registerJs($this->render('@kitModule/assets/kit.js'));

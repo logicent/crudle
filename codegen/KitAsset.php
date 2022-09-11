@@ -17,14 +17,17 @@ use yii\web\AssetBundle;
  */
 class KitAsset extends AssetBundle
 {
-    public $sourcePath = '@app_kit/assets';
+    public $sourcePath = '@kitModule/assets';
     public $css = [
-        'main.css',
+        'kit.css',
     ];
     public $js = [
         'kit.js',
     ];
     public $depends = [
-        // 'yii\web\YiiAsset',
+        'yii\web\YiiAsset',
+        // 'yii\bootstrap\BootstrapAsset',
+        // 'yii\bootstrap\BootstrapPluginAsset',
+        // 'yii\gii\TypeAheadAsset',
     ];
 }

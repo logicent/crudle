@@ -51,6 +51,10 @@ $config = [
         ],
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
+            'assignmentTable' => '{{%Auth_Assignment}}',
+            'itemTable' => '{{%Auth_Item}}',
+            'itemChildTable' => '{{%Auth_Item_Child}}',
+            'ruleTable' => '{{%Auth_Rule}}',
         ],
         'db' => $db,
     ],

@@ -30,25 +30,34 @@ use icms\FomanticUI\modules\Checkbox;
                     <?= Checkbox::widget([
                             'name' => 'create__btn',
                             'inputOptions' => ['value' => CodeFile::OP_CREATE],
-                            'checked' => true,
-                            'label' => Yii::t('app', 'Create'),
+                            'options' => ['class' => 'select-' . CodeFile::OP_CREATE],
+                            // 'checked' => true,
                         ]) ?>
+                    <span style="vertical-align: text-top; line-height: 7px; font-size: 108%;">
+                        <?= Yii::t('app', 'Create') ?>
+                    </span>
                 </label>
                 <label class="ui button" title="Filter unchanged files">
                     <?= Checkbox::widget([
                             'name' => 'unchanged__btn',
-                            'inputOptions' => ['value' => CodeFile::OP_SKIP],
-                            'checked' => true,
-                            'label' => Yii::t('app', 'Unchanged'),
+                            'inputOptions' => ['class' => 'select-rows', 'value' => CodeFile::OP_SKIP],
+                            'options' => ['class' => 'select-' . CodeFile::OP_SKIP],
+                            // 'checked' => true,
                         ]) ?>
+                    <span style="vertical-align: text-top; line-height: 7px; font-size: 108%;">
+                        <?= Yii::t('app', 'Unchanged') ?>
+                    </span>
                 </label>
                 <label class="ui button" title="Filter overwritten files">
                     <?= Checkbox::widget([
                             'name' => 'overwrite__btn',
                             'inputOptions' => ['value' => CodeFile::OP_OVERWRITE],
-                            'checked' => true,
-                            'label' => Yii::t('app', 'Overwrite'),
+                            'options' => ['class' => 'select-' . CodeFile::OP_OVERWRITE],
+                            // 'checked' => true,
                         ]) ?>
+                    <span style="vertical-align: text-top; line-height: 7px; font-size: 108%;">
+                        <?= Yii::t('app', 'Overwrite') ?>
+                    </span>
                 </label>
             </div>
         </div>
@@ -67,9 +76,10 @@ use icms\FomanticUI\modules\Checkbox;
                         echo Html::beginTag('th', ['class' => 'center aligned']);
                             echo Checkbox::widget([
                                     'name' => 'check_all__btn',
-                                    'checked' => true,
+                                    // 'checked' => true,
                                     'inputOptions' => ['id' => 'check-all'],
-                                    'labelOptions' => ['label' => false]
+                                    // 'labelOptions' => ['label' => false]
+                                    'options' => ['class' => 'check-all']
                                 ]);
                         echo Html::endTag('th');
                         break;
@@ -118,7 +128,7 @@ use icms\FomanticUI\modules\Checkbox;
                     endif ?>
                 </td>
                 <?php if ($fileChangeExists) : ?>
-                <td class="check center aligned">
+                <td class="check center aligned <?= $file->operation ?>">
                 <?php
                     if ($file->operation === CodeFile::OP_SKIP) :
                         echo '&nbsp;';

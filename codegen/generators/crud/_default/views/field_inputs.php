@@ -12,7 +12,7 @@ $model = new $generator->modelClass;
 $formSection = '';
 
 $beginFormSection = 
-    Html::beginTag('div', ['class' => "ui padded \<?= \$this-\>context-\>isReadonly() ? \'disabled\' : null ?\> segment"]) . "\n   " .
+    Html::beginTag('div', ['class' => "ui padded {\$this->context->isReadonly() ? 'disabled' : null} segment"]) . "\n   " .
     Html::beginTag('div', ['class' => 'ui two column stackable grid']) . "\n      ";
 
 $endFormSection = 
@@ -163,7 +163,8 @@ foreach ($formFields as $id => $formFieldConfig) :
             break;
         case Type_Field_Input::TextInput:
         default:
-            $field = "         <?= \$form->field(\$model, '{$attribute}')->textInput(['maxlength' => {$formField['length']}]) ?>\n";
+            $length = !empty($formField['length']) ? $formField['length'] : 140;
+            $field = "         <?= \$form->field(\$model, '{$attribute}')->textInput(['maxlength' => {$length}]) ?>\n";
     endswitch;
 
     if ($id % 2 !== 0 || $formField['col_side'] == Type_Column::Right) :

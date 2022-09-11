@@ -45,6 +45,7 @@ $config = [
             'assignmentTable' => '{{%Auth_Assignment}}',
             'itemTable' => '{{%Auth_Item}}',
             'itemChildTable' => '{{%Auth_Item_Child}}',
+            'ruleTable' => '{{%Auth_Rule}}',
         ],
         'user' => [
             'identityClass' => User::class,

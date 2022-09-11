@@ -32,6 +32,7 @@ use icms\FomanticUI\Elements;
         <div class="column">
             <?= $form->field($generator, 'modelClass') ?>
             <?= $form->field($generator, 'standardizeCapitals')->checkbox() ?>
+            <?= $form->field($generator, 'isDetailModel')->checkbox() ?>
         </div>
         <div class="column">
             <?= $form->field($generator, 'ns') ?>

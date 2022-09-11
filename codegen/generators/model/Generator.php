@@ -41,6 +41,7 @@ class Generator extends \crudle\kit\Generator
     public $generateLabelsFromComments = false;
     public $useTablePrefix = false;
     public $standardizeCapitals = false;
+    public $isDetailModel = false;
     public $useSchemaName = true;
     public $generateQuery = false;
     public $queryNs = 'crudle\app\main\models\query';
@@ -85,7 +86,7 @@ class Generator extends \crudle\kit\Generator
             [['queryBaseClass'], 'validateClass', 'params' => ['extends' => ActiveQuery::class]],
             [['relations'], 'in', 'range' => [self::RELATIONS_ALL, self::RELATIONS_ALL_INVERSE]],
             [['generateLabelsFromComments', 'useTablePrefix', 'useSchemaName', 'generateQuery', 'generateRelationsFromCurrentSchema'], 'boolean'],
-            [['enableI18N', 'standardizeCapitals'], 'boolean'],
+            [['enableI18N', 'standardizeCapitals', 'isDetailModel'], 'boolean'],
             [['messageCategory'], 'validateMessageCategory', 'skipOnEmpty' => false],
         ]);
     }
@@ -100,6 +101,7 @@ class Generator extends \crudle\kit\Generator
             'db' => 'Database Connection ID',
             'tableName' => 'Table Name',
             'standardizeCapitals' => 'Standardize Capitals',
+            'isDetailModel' => 'Is Detail Model',
             'modelClass' => 'Model Class',
             'baseModelClass' => 'Base Model Class',
             'generateRelations' => 'Generate Relations',
@@ -145,6 +147,7 @@ class Generator extends \crudle\kit\Generator
                 will have class names <code>SomeTable</code> and <code>OtherTable</code>, respectively.
                 <br>If not checked, the same tables will have class names <code>SOMETABLE</code> 
                 and <code>OtherTable</code> instead.',
+            'isDetailModel' => 'This indicates the generated model will be a child model',
             'baseModelClass' => 
                 'This is the base class of the new ActiveRecord class. It is a fully qualified namespaced class name.',
             'generateRelations' => 
@@ -257,7 +260,7 @@ class Generator extends \crudle\kit\Generator
             $ns = str_replace('ext', 'modules', $ns);
             $files[] = new CodeFile(
                 Yii::getAlias('@' . $ns) . '/' . $modelClassName . '.php',
-                $this->render('model.php', $params)
+                $this->render($this->isDetailModel ? 'model_detail.php' : 'model.php', $params)
             );
 
             // query :

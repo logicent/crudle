@@ -18,8 +18,9 @@ return [
         endif;
         $attribute = $column->attribute;
         $controllerId = StringHelper::basename( $this->context->id );
+        $route = '/'. $this->context->module->id .'/'. $controllerId .'/'. $action;
         $linkColumn = Html::a( $model->$attribute,
-                            Url::to(['/'. $this->context->module->id .'/'. $controllerId .'/'. $action, 'id' => $model->$attribute]),
+                            Url::to([$route, 'id' => $model->{$model->listSettings->listIdAttribute}]),
                             [
                                 'style' => 'font-weight: 500',
                                 'data' => [

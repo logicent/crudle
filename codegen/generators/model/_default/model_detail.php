@@ -19,11 +19,8 @@ echo "<?php\n";
 
 namespace <?= $generator->ns ?>;
 
-use crudle\app\enums\Status_Active;
 <?php if (!empty($relations)): ?>
 use crudle\app\main\enums\Type_Relation;
-use crudle\app\setup\enums\Permission_Group;
-use crudle\app\setup\enums\Type_Permission;
 <?php endif; ?>
 use Yii;
 
@@ -48,29 +45,10 @@ $pk = $tableSchema->primaryKey;
     /**
      * {@inheritdoc}
      */
-    public function init()
-    {
-        parent::init();
-        $this->listSettings->listNameAttribute = '<?= $pk[0] ?>';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public static function tableName()
     {
         return '<?= $generator->generateTableName($tableName) ?>';
     }
-<?php if ($generator->db !== 'db'): ?>
-
-    /**
-     * @return \yii\db\Connection the database connection used by this AR class.
-     */
-    public static function getDb()
-    {
-        return Yii::$app->get('<?= $generator->db ?>');
-    }
-<?php endif; ?>
 <?php 
 if (isset($pk[0]) && $pk[0] !== 'id') : ?>
     public static function primaryKey()
@@ -105,7 +83,7 @@ if (isset($pk[0]) && $pk[0] !== 'id') : ?>
 <?php foreach ($relations as $name => $relation): ?>
             '<?= $name ?>'     => [
                 'class' => <?= $name ?>::class,
-                'type' => Type_Relation::ChildModel
+                'type' => Type_Relation::ParentModel
             ],
 <?php endforeach; ?>
         ];
@@ -135,21 +113,8 @@ if (isset($pk[0]) && $pk[0] !== 'id') : ?>
     }
 <?php endif; ?>
 
-    public static function permissions()
+    public static function foreignKeyAttribute()
     {
-        return array_merge(
-            Type_Permission::enums(Permission_Group::Crud),
-            // Type_Permission::enums(Permission_Group::Data),
-        );
-    }
-
-    public static function enums()
-    {
-        return [
-            'status' => [
-                'class' => Status_Active::class,
-                'attribute' => 'inactive'
-            ]
-        ];
+        return '_id'; // set FK column here
     }
 }
