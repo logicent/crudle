@@ -187,14 +187,14 @@ class Generator extends \crudle\kit\Generator
      */
     public function autoCompleteData()
     {
-        $db = $this->getDbConnection();
-        if ($db !== null) {
-            return [
-                'tableName' => function () use ($db) {
-                    return $db->getSchema()->getTableNames();
-                },
-            ];
-        }
+        // $db = $this->getDbConnection();
+        // if ($db !== null) {
+        //     return [
+        //         'tableName' => function () use ($db) {
+        //             return $db->getSchema()->getTableNames();
+        //         },
+        //     ];
+        // }
 
         return [];
     }

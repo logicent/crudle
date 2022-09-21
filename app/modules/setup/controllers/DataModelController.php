@@ -12,6 +12,7 @@ use crudle\app\setup\models\DataModel;
 use crudle\app\setup\models\search\DataModelSearch;
 use crudle\app\setup\models\DataModelField;
 use crudle\app\setup\models\search\DataModelFieldSearch;
+use yii\helpers\ArrayHelper;
 
 /**
  * DataModelController implements the CRUD actions for DataModel model.
@@ -166,7 +167,8 @@ class DataModelController extends BaseCrudController
         if ($postData) {
             if ($model->load($postData, 'DataModel'))
             {
-                $hasDetailModels = $this->loadDetailModels(DataModelField::class, $formDetails);
+                $detailModels = $this->_reIndexFieldList($formDetails);
+                $hasDetailModels = $this->loadDetailModels(DataModelField::class, $detailModels);
                 if ($this->validateDetailModels() && $model->validate()) 
                 {
                     if ( $model->save(false) && $hasDetailModels) 
@@ -236,5 +238,53 @@ class DataModelController extends BaseCrudController
         return [
             'fieldSearchModel' => $searchModel,
         ];
+    }
+
+    private function _reIndexFieldList(&$formDetails)
+    {
+        $colIndex = 0;
+        foreach ($formDetails as $i => $formDetail) 
+        {
+            $colIndex = $colIndex + 1;
+            $formDetail['col_index'] = $colIndex;
+            $formDetails[$i] = $formDetail;
+        }
+
+        return $formDetails;
+    }
+
+    public function actionReIndexFieldList()
+    {
+        if ( Yii::$app->request->isAjax )
+        {
+            $modelId = Yii::$app->request->post('modelId');
+            $model = DataModel::findOne($modelId);
+            if (is_null($model))
+                $model = new DataModel();
+            $rows = Yii::$app->request->post('gridData');
+            $modelDetails = []; $colIndex = 0;
+            foreach ($rows as $row) {
+                $modelDetail = DataModelField::findOne($row['id']);
+                if (is_null($modelDetail))
+                    $modelDetail = new DataModelField();
+                $modelDetail->col_index = $colIndex + 1;
+                $modelDetails[] = $modelDetail;
+            }
+
+            $fieldDataProvider = new ActiveDataProvider([
+                'query' => DataModelField::find()->where(['model_name' => '']),
+            ]);
+            $fieldDataProvider->setModels(!empty($modelDetails) ?
+                    $modelDetails :
+                    [new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION])] );
+
+            return 
+                $this->controller->renderAjax('@appSetup/views/data_model/field/list_columns', [
+                    'dataProvider' => $fieldDataProvider,
+                    'model' => $model,
+                ]);
+        }
+        // else
+        Yii::$app->end();
     }
 }

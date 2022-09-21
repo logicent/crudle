@@ -12,7 +12,8 @@ $model = new $generator->modelClass;
 $formSection = '';
 
 $beginFormSection = 
-    Html::beginTag('div', ['class' => "ui padded {\$this->context->isReadonly() ? 'disabled' : null} segment"]) . "\n   " .
+    // Html::beginTag('div', ['class' => "ui padded \$disabledClass segment"]) . "\n   " .
+    '<div class="ui padded <?= $disabledClass ?> segment">' . "\n   " .
     Html::beginTag('div', ['class' => 'ui two column stackable grid']) . "\n      ";
 
 $endFormSection = 
@@ -79,22 +80,29 @@ foreach ($formFields as $id => $formFieldConfig) :
             ]) ?>\n";
             break;
         case Type_Field_Input::Dropdown:
+            $options = explode(',', $formField['options']);
+            $options = implode(',', $options);
             $field = "         <?= \$this->render('{$fieldView}/dropdown', [
                 'model' => \$model,
                 'attribute' => '{$attribute}',
                 'form' => \$form,
-                'list' => ['{$formField['options']}'],
+                'list' => ['{$options}'],
                 'options' => []
             ]) ?>\n";
             break;
         case Type_Field_Input::Select:
+            if (!$formField['options']) {
+                $field = "         <?= \$form->field(\$model, '{$attribute}')->dropDownList([]) ?>\n";
+                break;
+            }
+            $modelClass = "crudle\\ext\\{$moduleId}\\models\\{$formField['options']}";
             $fieldType = 'select';
             $field = "         <?= \$this->render('{$fieldView}/{$fieldType}', [
                 'model' => \$model,
                 'attribute' => '{$attribute}',
                 'form' => \$form,
                 'list' => [
-                    'modelClass' => 'crudle\\ext\\{$moduleId}\\models\\{$formField['options']}',
+                    'modelClass' => '{$modelClass}',
                     'addEmptyFirstItem' => true,
                     'keyAttribute' => 'id',
                     'valueAttribute' => 'id',
@@ -180,6 +188,8 @@ $formSection .= $endLeftColumn
              . $endRightColumn
              . $endFormSection;
 
-// echo "<?php \n\n";
-
-echo $formSection;
+echo "<?php \n\n";
+?>
+$disabledClass = $this->context->isReadonly() ? 'disabled' : null; ?>
+<?php
+echo "\n" . $formSection;

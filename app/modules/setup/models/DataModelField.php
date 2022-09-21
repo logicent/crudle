@@ -73,12 +73,13 @@ class DataModelField extends ActiveRecordDetail
                 'length', 'mandatory', 'unique', 'in_list_view', 'in_standard_filter', 'in_global_search',
                 'bold', 'allow_in_quick_entry', 'translatable', 'fetch_from', 'fetch_if_empty',
                 'ignore_user_permissions', 'allow_on_submit', 'report_hide', 'perm_level', 'hidden',
-                'readonly', 'in_filter', 'print_hide', 'print_width', 'width', 'col_index', 'col_side'
+                'readonly', 'in_filter', 'print_hide', 'print_width', 'width', 'col_index'
             ], 'integer'],
             [['options'], 'string'],
             [[
                 'field_name', 'model_name', 'label', 'db_type', 'depends_on', 'mandatory_depends_on',
-                'readonly_depends_on', 'default', 'description'], 'string', 'max' => 140],
+                'readonly_depends_on', 'default', 'description', 'col_side'
+            ], 'string', 'max' => 140],
             [['field_name', 'model_name'], 'unique', 'targetAttribute' => ['field_name', 'model_name']],
         ];
     }
@@ -121,6 +122,8 @@ class DataModelField extends ActiveRecordDetail
             'print_hide' => Yii::t('app', 'Print hide'),
             'print_width' => Yii::t('app', 'Print width'),
             'width' => Yii::t('app', 'Width'),
+            'col_index' => Yii::t('app', 'Index'),
+            'col_side' => Yii::t('app', 'Side'),
         ];
     }
 

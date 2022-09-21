@@ -96,7 +96,7 @@ abstract class BaseActiveRecord extends ActiveRecord implements ActiveRecordInte
                 'created_at', // YYYY-MM-DD HH:MM:SS
                 'updated_at', // YYYY-MM-DD HH:MM:SS
             ], 'safe'],
-            [['created_by', 'updated_by'], 'string', 'max' => 140],
+            [['id', 'created_by', 'updated_by'], 'string', 'max' => 140],
         ];
     }
 

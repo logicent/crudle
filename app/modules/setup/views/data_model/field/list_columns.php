@@ -11,7 +11,9 @@ use icms\FomanticUI\modules\Modal;
 use icms\FomanticUI\Elements;
 use icms\FomanticUI\modules\Checkbox;
 use icms\FomanticUI\modules\Select;
+use crudle\app\assets\Sortablejs;
 
+Sortablejs::register($this);
 ?>
 
 <p class="text-muted">
@@ -20,7 +22,10 @@ use icms\FomanticUI\modules\Select;
     <?= GridView::widget([
         'layout' => "{items}\n{pager}",
         'dataProvider' => $dataProvider,
-        'tableOptions'=> ['class' => 'ui celled compact table in-form'],
+        'tableOptions'=> [
+            'class' => 'ui celled compact table in-form sortable',
+            // 'data' => ['hx-post' => Url::to(['re-index-field-list']), 'hx-trigger' => 'end']
+        ],
         'emptyText' => Yii::t('app', "No fields defined."),
         'emptyTextOptions' => ['class' => 'ui small header center aligned text-muted'], 
         'rowOptions' => function ( $model, $key, $index, $grid ) {
@@ -134,6 +139,7 @@ use icms\FomanticUI\modules\Select;
                                 ]
                             ] ) .
                         Html::activeHiddenInput($model, "[$index]id", ['data' => ['modal-input' => 'id']]) .
+                        Html::activeHiddenInput($model, "[$index]model_name", ['data' => ['modal-input' => 'model_name']]) .
                         Html::activeHiddenInput($model, "[$index]col_index", ['data' => ['modal-input' => 'col_index']]) .
                         Html::activeHiddenInput($model, "[$index]col_side", ['data' => ['modal-input' => 'col_side']]) .
                         Html::activeHiddenInput($model, "[$index]length", ['data' => ['modal-input' => 'length']]) .
@@ -295,6 +301,17 @@ $('.ui.modals').on('click', '.update-row',
         });
         // close the modal form
         $('.data-field--modal').modal('hide');
+    });
+
+    htmx.onLoad(function(content) {
+        var sortables = content.querySelectorAll(".sortable > tbody");
+        for (var i = 0; i < sortables.length; i++) {
+        var sortable = sortables[i];
+        new Sortable(sortable, {
+            animation: 150,
+            ghostClass: 'blue-background-class'
+        });
+        }
     });
 JS);
 ?>

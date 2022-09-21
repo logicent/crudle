@@ -11,4 +11,8 @@ class Sortablejs extends AssetBundle
     public $js = [
         'Sortable.min.js',
     ];
+
+    public $depends = [
+        'crudle\app\assets\HtmxAsset',
+    ];
 }

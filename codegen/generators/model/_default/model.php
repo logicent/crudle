@@ -84,7 +84,9 @@ if (isset($pk[0]) && $pk[0] !== 'id') : ?>
      */
     public function rules()
     {
-        return [<?= empty($rules) ? '' : ("\n            " . implode(",\n            ", $rules) . ",\n        ") ?>];
+        return array_merge(parent::rules(),
+            [<?= empty($rules) ? '' : ("\n            " . implode(",\n            ", $rules) . ",\n        ") ?>]
+        );
     }
 
     /**
@@ -92,11 +94,11 @@ if (isset($pk[0]) && $pk[0] !== 'id') : ?>
      */
     public function attributeLabels()
     {
-        return [
+        return array_merge(parent::attributeLabels(), [
 <?php foreach ($labels as $name => $label): ?>
             <?= "'$name' => " . $generator->generateString($label) . ",\n" ?>
 <?php endforeach; ?>
-        ];
+        ]);
     }
 
     public static function relations()
@@ -134,7 +136,7 @@ if (isset($pk[0]) && $pk[0] !== 'id') : ?>
         return new <?= $queryClassFullName ?>(get_called_class());
     }
 <?php endif; ?>
-
+<?php if (!empty($relations)): ?>
     public static function permissions()
     {
         return array_merge(
@@ -142,6 +144,7 @@ if (isset($pk[0]) && $pk[0] !== 'id') : ?>
             // Type_Permission::enums(Permission_Group::Data),
         );
     }
+<?php endif; ?>
 
     public static function enums()
     {

@@ -304,7 +304,7 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
                 }
             // TODO: use a helper with DTO to check and collect changed values if any
             if ( $detailModel->valuesChanged() )
-                $this->model->detailValuesChanged .= ' '. $detailModel->getChangedValues();
+                $this->model->detailValuesChanged .= ' ' . $detailModel->getChangedValues();
 
             if ( $detailModel->isNewRecord || $detailModel->valuesChanged() )
             {

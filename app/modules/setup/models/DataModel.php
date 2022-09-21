@@ -37,7 +37,7 @@ class DataModel extends ActiveRecord
      */
     public function rules()
     {
-        return [
+        return array_merge(parent::rules(), [
             [['id', 'module'], 'required'],
             [['id'], 'unique'],
             [['status'], 'default', 'value' => Status_Active::Yes],
@@ -45,7 +45,7 @@ class DataModel extends ActiveRecord
             [['hide_copy', 'is_table', 'quick_entry', 'track_changes', 'track_views', 'allow_auto_repeat', 'allow_import'], 'boolean'],
             [['search_fields'], 'string'],
             [['module', 'title_field', 'image_field', 'sort_field', 'sort_order'], 'string', 'max' => 140],
-        ];
+        ]);
     }
 
     /**
@@ -53,7 +53,7 @@ class DataModel extends ActiveRecord
      */
     public function attributeLabels()
     {
-        return [
+        return array_merge(parent::attributeLabels(), [
             'id' => Yii::t('app', 'Name'),
             'module' => Yii::t('app', 'Module'),
             'title_field' => Yii::t('app', 'Title Field'),
@@ -69,7 +69,7 @@ class DataModel extends ActiveRecord
             'search_fields' => Yii::t('app', 'Search Fields'),
             'sort_field' => Yii::t('app', 'Sort Field'),
             'sort_order' => Yii::t('app', 'Sort Order'),
-        ];
+        ]);
     }
 
     public static function relations()
