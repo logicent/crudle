@@ -4,6 +4,7 @@ namespace crudle\app\helpers;
 
 use crudle\app\enums\Module_Alias;
 use crudle\app\main\models\ActiveRecord;
+use crudle\app\main\models\ActiveRecordDetail;
 use crudle\app\setup\enums\Type_Model;
 use Yii;
 use yii\helpers\ArrayHelper;
@@ -178,7 +179,7 @@ class App
                 $modelClass = $module['ns'] . "\\models\\" . $modelClassname;
                 // check if modelClass is a AR class
                 $model = new $modelClass();
-                if (! $model InstanceOf ActiveRecord)
+                if (! $model InstanceOf ActiveRecord && ! $model InstanceOf ActiveRecordDetail)
                     continue;
 
                 self::$models[$module['id']][$modelClass] = Inflector::camel2words($modelClassname);

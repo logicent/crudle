@@ -306,6 +306,7 @@ body::-webkit-scrollbar-thumb {
     font-weight: 500;
 }
 
+.ui.form > .ui.disabled.segments,
 .ui.form > .ui.disabled.segment {
     opacity: unset;
 }

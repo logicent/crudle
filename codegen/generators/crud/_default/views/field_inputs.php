@@ -5,9 +5,7 @@ use crudle\app\main\enums\Type_Column;
 use crudle\app\main\enums\Type_Field_Input;
 use yii\helpers\Html;
 use yii\helpers\Inflector;
-use icms\FomanticUI\widgets\ActiveForm;
-
-$model = new $generator->modelClass;
+use yii\helpers\StringHelper;
 
 $beginFormSection = <<<HTML
     <div class="ui <?= \$disabledClass ?> segments">
@@ -56,7 +54,7 @@ foreach ($formFields as $id => $formFieldConfig) :
             endif;
             $formSection .= $beginSectionBody . $beginLeftColumn;
             continue 2;
-        break;
+            break;
         case Type_Field_Input::ColumnBreak :
             $formSection .= $endLeftColumn
                         . $beginRightColumn
@@ -65,7 +63,34 @@ foreach ($formFields as $id => $formFieldConfig) :
             $rightColumnFields = ''; // clear the right column fields
             $formSection .= $beginLeftColumn;
             continue 2;
-        break;
+            break;
+        case Type_Field_Input::Table:
+            $tableViewName = Inflector::underscore($options);
+            $detailModelName = Inflector::variablize($tableViewName);
+            $formViewName = Inflector::underscore(StringHelper::basename($generator->modelClass));
+            $field = "         <?= \$this->render('@appMain/views/_form_section/item', [
+                'model' => \$model,
+                'detailModels' => \$this->context->getDetailModels()['{$detailModelName}'],
+                'form' => \$form,
+                'formView' => '@extModules/{$moduleId}/views/{$formViewName}/{$tableViewName}/field_inputs',
+                'listColumns' => '@extModules/{$moduleId}/views/{$formViewName}/{$tableViewName}/list_columns',
+                'listId' => '{$attribute}',
+            ]) ?>\n";
+            $formSection .= $endLeftColumn
+                        . $beginRightColumn
+                        . $rightColumnFields
+                        . $endRightColumn
+                        . $endSectionBody;
+            $rightColumnFields = ''; // clear the right column fields
+            $formSection .= 
+                Html::beginTag('div', ['class' => 'ui padded segment']) . "\n      "
+                . Html::beginTag('div', ['class' => 'ui one column stackable grid']) . "\n      "
+                . $beginLeftColumn
+                . $field
+                . $endLeftColumn
+                . $endSectionBody;
+            continue 2;
+            break;
         case Type_Field_Input::Code:
             $field = "         <?= \$this->render('{$fieldView}/id', [
                 'model' => \$model
