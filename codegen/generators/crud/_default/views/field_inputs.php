@@ -9,16 +9,16 @@ use icms\FomanticUI\widgets\ActiveForm;
 
 $model = new $generator->modelClass;
 
-$formSection = '';
-
-$beginFormSection = 
-    // Html::beginTag('div', ['class' => "ui padded \$disabledClass segment"]) . "\n   " .
-    '<div class="ui padded <?= $disabledClass ?> segment">' . "\n   " .
+$beginFormSection = <<<HTML
+    <div class="ui <?= \$disabledClass ?> segments">
+    HTML . "\n   ";
+$beginSectionBody = 
+    Html::beginTag('div', ['class' => 'ui padded segment']) . "\n      " . 
     Html::beginTag('div', ['class' => 'ui two column stackable grid']) . "\n      ";
-
-$endFormSection = 
+$endSectionBody = 
     Html::endTag('div') . "\n" . // ui two column stackable grid
     Html::endTag('div') . "\n"; // ui padded segment
+$endFormSection = Html::endTag('div') . "\n"; // ui segments
 
 $beginLeftColumn = Html::beginTag('div', ['class' => 'column']) . "\n";
 $endLeftColumn = "      " . Html::endTag('div') . "\n      "; // column
@@ -27,38 +27,45 @@ $beginRightColumn = Html::beginTag('div', ['class' => 'column']) . "\n";
 $endRightColumn = "      " . Html::endTag('div') . "\n   "; // column
 $rightColumnFields = '';
 
-$formSection = $beginFormSection . $beginLeftColumn;
+$formSection = $beginFormSection . $beginSectionBody . $beginLeftColumn;
 
 $formFields = $generator->getFormFields();
 foreach ($formFields as $id => $formFieldConfig) :
     $formField = $formFieldConfig->attributes;
-    $moduleId = Inflector::underscore(
-        Inflector::id2camel(App::getModuleOf($formField['options']))
-    );
-    if ($formField['field_type'] == Type_Field_Input::SectionBreak) :
-        $formSection .= $endLeftColumn
-                     . $beginRightColumn
-                     . $rightColumnFields
-                     . $endRightColumn
-                     . $endFormSection;
-        $rightColumnFields = '';
-        $formSection .= $beginFormSection . $beginLeftColumn;
-        continue;
-    endif;
-    if ($formField['field_type'] == Type_Field_Input::ColumnBreak) :
-        $formSection .= $endLeftColumn
-                     . $beginRightColumn
-                     . $rightColumnFields
-                     . $endRightColumn;
-        $rightColumnFields = '';
-        $formSection .= $beginLeftColumn;
-        continue;
-    endif;
-
-    $form = new ActiveForm();
+    $moduleId = Inflector::underscore(Inflector::id2camel(App::getModuleOf($formField['options'])));
     $fieldView = "@appMain/views/_form_field";
     $attribute = $formField['field_name'];
+    $form = new ActiveForm();
     switch ($formField['field_type']) :
+        case Type_Field_Input::SectionBreak :
+            $formSection .= $endLeftColumn
+                        . $beginRightColumn
+                        . $rightColumnFields
+                        . $endRightColumn
+                        . $endSectionBody
+                        . $endFormSection;
+            $rightColumnFields = ''; // clear the right column fields
+            $formSection .= $beginFormSection;
+            if (!empty($formField['label'])) :
+                $sectionHead = <<<HTML
+                    <div class="ui padded segment" style="padding-bottom: 0.5em">
+                        <div class="ui small header">{$formField['label']}</div>
+                    </div>
+                    HTML . "\n   ";
+                $formSection .= $sectionHead;
+            endif;
+            $formSection .= $beginSectionBody . $beginLeftColumn;
+            continue 2;
+        break;
+        case Type_Field_Input::ColumnBreak :
+            $formSection .= $endLeftColumn
+                        . $beginRightColumn
+                        . $rightColumnFields
+                        . $endRightColumn;
+            $rightColumnFields = ''; // clear the right column fields
+            $formSection .= $beginLeftColumn;
+            continue 2;
+        break;
         case Type_Field_Input::Code:
             $field = "         <?= \$this->render('{$fieldView}/id', [
                 'model' => \$model
@@ -183,10 +190,11 @@ foreach ($formFields as $id => $formFieldConfig) :
 endforeach;
 
 $formSection .= $endLeftColumn
-             . $beginRightColumn
-             . $rightColumnFields
-             . $endRightColumn
-             . $endFormSection;
+            . $beginRightColumn
+            . $rightColumnFields
+            . $endRightColumn
+            . $endSectionBody
+            . $endFormSection;
 
 echo "<?php \n\n";
 ?>
