@@ -691,6 +691,38 @@ body::-webkit-scrollbar-thumb {
     font-weight: normal !important;
 }
 
+.in-form.table td {
+    padding: 0.5em !important;
+    font-size: 14px !important;
+}
+
+.in-form.table td > div > input {
+    padding: 0.5em 0em !important;
+    font-size: 14px !important;
+}
+
+.in-form.table td.select-field-type {
+    padding: 0em !important;
+}
+
+.in-form.table td.select-field-type > div.input > .ui.dropdown {
+    /* padding: 0.5em !important; */
+    font-size: 14px;
+    border: none;
+    border-radius: 0em;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.in-form.table td > div.input > textarea {
+    padding: 0.5em 0em !important;
+    line-height: 17px;
+}
+
+.grid-view .select-row > div.ui.checkbox {
+    width: 18px;
+}
+
 .login {
     padding-left: 3em !important;
     padding-right: 3em !important;

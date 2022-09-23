@@ -36,13 +36,15 @@ Sortablejs::register($this);
                 'class' => 'icms\FomanticUI\widgets\CheckboxColumn',
                 'checkboxOptions' => function ($model, $key, $index, $column) {
                     return [
-                        'class' => 'select-row',
+                        // 'class' => 'select-row',
                         'id' => $index,
                         'value' => Json::encode($key),
                     ];
                 },
+                'headerOptions' => ['class' => 'center aligned select-row'],
+                'contentOptions' => ['class' => 'center aligned select-row']
             ],
-            ['class' => 'yii\grid\SerialColumn'],
+            ['class' => 'yii\grid\SerialColumn', 'contentOptions' => ['class' => 'center aligned']],
             [
                 'attribute' => 'label',
                 'value' => function($model, $key, $index, $column){
@@ -76,7 +78,8 @@ Sortablejs::register($this);
                         ['class' => 'ui transparent input']
                     );
                 },
-                'format' => 'raw'
+                'format' => 'raw',
+                'contentOptions' => ['class' => 'select-field-type']
             ],
             [
                 'attribute' => 'field_name',
