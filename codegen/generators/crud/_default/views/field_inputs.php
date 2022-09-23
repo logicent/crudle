@@ -32,10 +32,10 @@ $formSection = $beginFormSection . $beginSectionBody . $beginLeftColumn;
 $formFields = $generator->getFormFields();
 foreach ($formFields as $id => $formFieldConfig) :
     $formField = $formFieldConfig->attributes;
-    $moduleId = Inflector::underscore(Inflector::id2camel(App::getModuleOf($formField['options'])));
-    $fieldView = "@appMain/views/_form_field";
     $attribute = $formField['field_name'];
-    $form = new ActiveForm();
+    $options = trim($formField['options']);
+    $moduleId = Inflector::underscore(Inflector::id2camel(App::getModuleOf($options)));
+    $fieldView = "@appMain/views/_form_field";
     switch ($formField['field_type']) :
         case Type_Field_Input::SectionBreak :
             $formSection .= $endLeftColumn
@@ -87,22 +87,22 @@ foreach ($formFields as $id => $formFieldConfig) :
             ]) ?>\n";
             break;
         case Type_Field_Input::Dropdown:
-            $options = explode(',', $formField['options']);
-            $options = implode(',', $options);
+            $options = explode("\r\n", $options);
+            $options = json_encode($options);
             $field = "         <?= \$this->render('{$fieldView}/dropdown', [
                 'model' => \$model,
                 'attribute' => '{$attribute}',
                 'form' => \$form,
-                'list' => ['{$options}'],
+                'list' => {$options},
                 'options' => []
             ]) ?>\n";
             break;
         case Type_Field_Input::Select:
-            if (!$formField['options']) {
+            if (!$options) {
                 $field = "         <?= \$form->field(\$model, '{$attribute}')->dropDownList([]) ?>\n";
                 break;
             }
-            $modelClass = "crudle\\ext\\{$moduleId}\\models\\{$formField['options']}";
+            $modelClass = "crudle\\ext\\{$moduleId}\\models\\{$options}";
             $fieldType = 'select';
             $field = "         <?= \$this->render('{$fieldView}/{$fieldType}', [
                 'model' => \$model,
@@ -119,13 +119,13 @@ foreach ($formFields as $id => $formFieldConfig) :
             break;
         case Type_Field_Input::CheckboxList:
             $fieldType = 'checkbox_list';
-            // $list = $formField['list'];
+            // $list = json_encode($formField['list']);
             $field = "         <?= \$this->render('{$fieldView}/{$fieldType}', [
                 'model' => \$model,
                 'attribute' => '{$attribute}',
                 'form' => \$form,
                 'list' => [
-                    'modelClass' => 'crudle\\ext\\{$moduleId}\\models\\{$formField['options']}',
+                    'modelClass' => 'crudle\\ext\\{$moduleId}\\models\\{$options}',
                     'addEmptyFirstItem' => true,
                     'keyAttribute' => 'id',
                     'valueAttribute' => 'id',
@@ -143,15 +143,13 @@ foreach ($formFields as $id => $formFieldConfig) :
                 'form' => \$form,
             ]) ?>\n";
         case Type_Field_Input::RadioList:
-            // $itemOptions = explode($formField['options'], '');
-            // $itemOptions = is_string($itemOptions) ? [$formField['options']] : $itemOptions;
+            $options = explode("\r\n", trim($options));
+            $options = json_encode($options);
             $field = "         <?= \$this->render('{$fieldView}/radio_list', [
                 'model' => \$model,
                 'attribute' => '{$attribute}',
                 'form' => \$form,
-                'items' => [
-                    '{$formField['options']}'
-                ],
+                'items' => {$options},
             ]) ?>\n";
             break;
         case Type_Field_Input::Textarea:
