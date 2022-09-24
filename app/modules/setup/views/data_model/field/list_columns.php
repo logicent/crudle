@@ -135,7 +135,7 @@ Sortablejs::register($this);
                             [
                                 'class' => 'action-type',
                                 'data' => [
-                                    'modal-input' => 'model_name',
+                                    // 'modal-input' => 'actionType',
                                     'action-create' => DataModelField::ACTION_TYPE_CREATE,
                                     'action-update' => DataModelField::ACTION_TYPE_UPDATE,
                                     'action-delete' => DataModelField::ACTION_TYPE_DELETE,

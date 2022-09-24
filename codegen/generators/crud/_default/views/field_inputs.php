@@ -77,11 +77,7 @@ foreach ($formFields as $id => $formFieldConfig) :
                 'listId' => '{$attribute}',
             ]) ?>\n";
             $formSection .= $endLeftColumn
-                        . $beginRightColumn
-                        . $rightColumnFields
-                        . $endRightColumn
                         . $endSectionBody;
-            $rightColumnFields = ''; // clear the right column fields
             $formSection .= 
                 Html::beginTag('div', ['class' => 'ui padded segment']) . "\n      "
                 . Html::beginTag('div', ['class' => 'ui one column stackable grid']) . "\n      "
@@ -89,6 +85,7 @@ foreach ($formFields as $id => $formFieldConfig) :
                 . $field
                 . $endLeftColumn
                 . $endSectionBody;
+            $formSection .= $beginSectionBody . $beginLeftColumn;
             continue 2;
             break;
         case Type_Field_Input::Code:
@@ -195,6 +192,11 @@ foreach ($formFields as $id => $formFieldConfig) :
                 'model' => \$model,
                 'attribute' => '{$attribute}',
             ]) ?>\n";
+            break;
+        case Type_Field_Input::Currency:
+            // $readonly = (bool) $formField['readonly'] === false ? '' : $formField['readonly'];
+            $readonly = true;
+            $field = "         <?= \$form->field(\$model, '{$attribute}')->textInput(['class' => 'right aligned', 'readonly' => {$readonly}]) ?>\n";
             break;
         case Type_Field_Input::ReadOnly:
             $field = "         <?= \$form->field(\$model, '{$attribute}')->textInput(['readonly' => true]) ?>\n";

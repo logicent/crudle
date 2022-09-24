@@ -70,11 +70,14 @@ class DataModelField extends ActiveRecordDetail
             ['model_name', 'required', 'except' => self::SCENARIO_BATCH_ACTION],
             [['field_name', 'field_type', 'model_name'], 'required'],
             [[
-                'length', 'mandatory', 'unique', 'in_list_view', 'in_standard_filter', 'in_global_search',
-                'bold', 'allow_in_quick_entry', 'translatable', 'fetch_from', 'fetch_if_empty',
-                'ignore_user_permissions', 'allow_on_submit', 'report_hide', 'perm_level', 'hidden',
-                'readonly', 'in_filter', 'print_hide', 'print_width', 'width', 'col_index'
+                'length', 'perm_level', 'print_width', 'width', 'col_index'
             ], 'integer'],
+            [[
+                'mandatory', 'unique', 'in_list_view', 'in_standard_filter', 'in_global_search',
+                'bold', 'allow_in_quick_entry', 'translatable', 'fetch_if_empty',
+                'ignore_user_permissions', 'allow_on_submit', 'report_hide', 'hidden',
+                'readonly', 'in_filter', 'print_hide'
+            ], 'boolean'],
             [['options'], 'string'],
             [[
                 'field_name', 'model_name', 'label', 'db_type', 'depends_on', 'mandatory_depends_on',
