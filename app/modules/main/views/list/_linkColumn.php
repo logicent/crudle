@@ -45,6 +45,6 @@ return [
         //     );
     },
     'contentOptions' => [
-        'style' => 'white-space: normal; width: 40%',
+        'style' => 'white-space: normal; width: 33%',
     ],
 ];

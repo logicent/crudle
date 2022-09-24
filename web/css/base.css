@@ -779,9 +779,13 @@ body::-webkit-scrollbar-thumb {
 }
 
 .ui.cards > .card, .ui.card {
-    border-radius: 0.15rem;
-    -webkit-box-shadow: 0px 1px 3px 0px #dee5e7, 0px 0px 0px 1px #dee5e7;
-    box-shadow: 0px 1px 3px 0px #dee5e7, 0px 0px 0px 1px #dee5e7;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.ui.cards > .card, .ui.card .content {
+    /* border-top: none; */
+    margin-top: 1em;
 }
 
 #page_head .ui.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
@@ -811,4 +815,32 @@ body::-webkit-scrollbar-thumb {
 .ui.accordion .ui.header .dropdown.icon {
     /* vertical-align: text-bottom; */
     margin-left: -5px;
+}
+
+.in-page-sidebar .header {
+    padding-top: 1em !important;
+}
+
+.in-page-sidebar {
+    background: inherit !important;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.in-page-sidebar .content {
+    padding: 0em !important;
+    /* background: inherit !important; */
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.in-page-sidebar .content .header {
+    margin-left: 0.85em;
+}
+
+/* .in-page-sidebar .content .header .dashboard.icon {
+} */
+
+.in-page-sidebar .content .description .selection.list .item {
+    padding: 0.5em 0em;
 }

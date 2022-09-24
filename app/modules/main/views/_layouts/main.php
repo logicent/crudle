@@ -16,7 +16,7 @@ $this->beginContent($layoutPath . 'base.php') ?>
             if ($controller->id !== 'main' &&
                 $controller->showViewSidebar()) : ?>
             <div class="computer only large screen only <?= $controller->sidebarColWidth() ?> wide column">
-                <div class="ui rail">
+                <!-- <div class="ui rail"> -->
                     <!-- <div class="ui sticky"> -->
                     <?php
                         if ($controller->mapActionViewType() == Type_View::Form) :
@@ -38,7 +38,7 @@ $this->beginContent($layoutPath . 'base.php') ?>
                         endif;
                     ?>
                     <!-- </div> -->
-                </div>
+                <!-- </div> -->
             </div>
         <?php endif ?>
 
