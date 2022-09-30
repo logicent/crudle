@@ -14,13 +14,14 @@ class Index extends Action
     {
         $searchModelClass = $this->controller->searchModelClass();
         $searchClassname = StringHelper::basename($searchModelClass);
+        $searchModel = new $searchModelClass;
 
         // check if global search is used to fetch result
         if (!empty(Yii::$app->request->get('GlobalSearch')))
         {
             $globalSearchTerm = [
                 $searchClassname => [
-                    $searchModelClass::listNameAttribute() => Yii::$app->request->get('GlobalSearch')['gs_term'],
+                    $searchModel->listSettings->listNameAttribute => Yii::$app->request->get('GlobalSearch')['gs_term'],
                 ],
             ];
             $userFilters = $globalSearchTerm;
@@ -28,7 +29,6 @@ class Index extends Action
         else
             $userFilters = Yii::$app->request->queryParams;
 
-        $searchModel = new $searchModelClass;
         $dataProvider = $searchModel->search($userFilters);
 
         if (Yii::$app->request->isAjax)
