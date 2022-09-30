@@ -13,7 +13,7 @@ class EmailNotification extends BaseActiveRecord
 {
     public function init()
     {
-        $this->listSettings = new ListViewSettingsForm();
+        parent::init();
         $this->listSettings->listNameAttribute = 'id';
     }
 

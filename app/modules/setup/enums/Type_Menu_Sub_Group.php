@@ -42,7 +42,7 @@ class Type_Menu_Sub_Group extends Type_Menu_Group
                 self::Tool => 'server',
                 self::People => 'users',
                 self::Code => 'code',
-                self::System => 'cog', // 'toggle on'
+                self::System => 'dot circle',
                 self::Layout => 'window maximize outline',
                 self::Storage => 'disk',
             ], parent::enumIcons());

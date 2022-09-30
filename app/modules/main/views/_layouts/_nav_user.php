@@ -12,11 +12,11 @@ use icms\FomanticUI\Elements;
     <?= Elements::icon('down small chevron') ?>
     <div class="menu nav-menu">
     <?php
-        if ((bool) $layoutSettings->allowUserPreference) :
-            echo Html::a(Yii::t('app', 'My preferences'),
-                        ['/setup/user/edit-preferences', 'id' => Yii::$app->user->id],
-                        ['class' => 'item']);
-        endif ?>
+        // if ((bool) $layoutSettings->allowUserPreference) :
+        //     echo Html::a(Yii::t('app', 'My preferences'),
+        //                 ['/setup/user/edit-preferences', 'id' => Yii::$app->user->id],
+        //                 ['class' => 'item']);
+        // endif ?>
         <?= Html::a(Yii::t('app', 'My account'),
                     ['/setup/user/update', 'id' => Yii::$app->user->id],
                     ['class' => 'item']) ?>

@@ -36,7 +36,7 @@ use icms\FomanticUI\Elements;
         </div>
     </div>
 
-    <div class="ui bottom attached padded segment">
+    <div class="ui attached padded segment">
         <?= Html::activeTextarea($comment, 'comment', [
                 'class' => 'comment-box',
                 'rows' => 2, 

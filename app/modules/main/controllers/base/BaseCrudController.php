@@ -50,17 +50,17 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
                     [
                         'actions' => ['index', 'list'],
                         'allow' => true,
-                        // 'roles' => [ Type_Permission::List .' '. $this->viewName() ],
+                        'roles' => [ Type_Permission::List .' '. $this->viewName() ],
                     ],
                     [
                         'actions' => ['read'], // view
                         'allow' => true,
-                        // 'roles' => [ Type_Permission::Read .' '. $this->viewName() ],
+                        'roles' => [ Type_Permission::Read .' '. $this->viewName() ],
                     ],
                     [
                         'actions' => ['update'], // edit
                         'allow' => true,
-                        // 'roles' => [ Type_Permission::Update .' '. $this->viewName() ],
+                        'roles' => [ Type_Permission::Update .' '. $this->viewName() ],
                         // 'roleParams' => function() {
                         //     return ['model' => Person::findOne(Yii::$app->request->get('id'))];
                         // },
@@ -73,17 +73,17 @@ abstract class BaseCrudController extends BaseViewController implements CrudInte
                     [
                         'actions' => ['create'], // addNew
                         'allow' => true,
-                        // 'roles' => [ Type_Permission::Create .' '. $this->viewName() ],
+                        'roles' => [ Type_Permission::Create .' '. $this->viewName() ],
                     ],
                     [
                         'actions' => ['delete', 'delete-many'],
                         'allow' => true,
-                        // 'roles' => [ Type_Permission::Delete .' '. $this->viewName() ],
+                        'roles' => [ Type_Permission::Delete .' '. $this->viewName() ],
                     ],
                     [
                         'actions' => ['cancel'],
                         'allow' => true,
-                        // 'roles' => [ Type_Permission::Cancel .' '. $this->viewName() ],
+                        'roles' => [ Type_Permission::Cancel .' '. $this->viewName() ],
                     ],
                 ],
             ],

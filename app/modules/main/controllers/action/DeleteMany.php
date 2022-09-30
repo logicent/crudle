@@ -22,11 +22,11 @@ class DeleteMany extends Delete
             $this->deleteModels( $model, $detailModels );
         }
 
-        // if ( !empty( $result ) )
-        //     $messages[] = $result . ' rows have been deleted.';
+        if ( !empty( $result ) )
+            $messages[] = $result . ' rows have been deleted.';
 
-        // if ( !empty( $errors ) )
-        //     $messages[] = $errors . ' rows could not be deleted';
+        if ( !empty( $errors ) )
+            $messages[] = $errors . ' rows could not be deleted';
 
         if (Yii::$app->request->isAjax)
             return $this->controller->asJson( ['success' => true] );

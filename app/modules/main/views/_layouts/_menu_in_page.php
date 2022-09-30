@@ -6,10 +6,11 @@ use yii\helpers\Inflector;
 use yii\helpers\Url;
 use icms\FomanticUI\Elements;
 
-ArrayHelper::multisort($menuList, 'label');
-ArrayHelper::multisort($menuList, 'group');
+// ArrayHelper::multisort($menuList, 'label');
+// ArrayHelper::multisort($menuList, 'group', SORT_DESC);
 $menuGroups = ArrayHelper::map($menuList, 'label', 'label', 'group');
 $menuGroupClass = $this->params['menuGroupClass'];
+$currentUrl = explode('/', Url::current());
 ?>
 
 <div class="ui five column grid">
@@ -29,11 +30,15 @@ $menuGroupClass = $this->params['menuGroupClass'];
                 foreach ( $menuList as $menu ) :
                     if ( (empty($menu['group']) || $menu['group'] == $groupName)
                         && $menu['visible'] === true) :
+                        $currentMenu = explode('/', $menu['route']);
                         echo Html::tag('div',
                                 Html::a(Elements::icon('angle right') .
                                         Yii::t('app', '{menuLabel}', ['menuLabel' => $menu['label']]),
                                         Url::to([$menu['route']]),
-                                        ['class' => 'item', 'style' => 'color: #6c7680;']
+                                        [
+                                            'class' => $currentUrl[3] == $currentMenu[2] ? 'item active' : 'item',
+                                            'style' => 'color: #6c7680;'
+                                        ]
                                 ),
                                 ['class' => 'ui link selection list']
                             );

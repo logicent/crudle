@@ -4,7 +4,7 @@ use crudle\app\setup\enums\Type_Role;
 use crudle\app\setup\enums\Status_Work;
 use crudle\app\main\models\auth\Role;
 use crudle\app\helpers\SelectableItems;
-use crudle\app\setup\models\UserGroup;
+use crudle\app\setup\enums\Type_User;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\MaskedInput;
@@ -101,7 +101,8 @@ echo $this->render('_stats', ['model' => $model]) ?>
     <div class="two fields">
         <div class="eight wide field">
             <?= $form->field($model, 'user_group')->dropDownList(
-                    UserGroup::enums(), [
+                    Type_User::enums(),
+                    [
                         'prompt' => '',
                         'disabled' => $isReadonly || !Yii::$app->user->can(Type_Role::SystemManager)
                     ]) ?>

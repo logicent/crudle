@@ -23,4 +23,9 @@ class Role extends AuthRole
             ]
         ];
     }
+
+    public static function autoSuggestIdValue()
+    {
+        return false;
+    }
 }

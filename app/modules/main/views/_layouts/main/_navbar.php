@@ -35,7 +35,7 @@ use icms\FomanticUI\Elements;
 
         <div class="computer only large screen only ten wide column item right">
         <?php
-            if ((bool) $layoutSettings->hideCreateMenu == false) :
+            if ((bool) $layoutSettings->hideCreateMenu == false && ! is_null($layoutSettings->createMenu)) :
                 echo $this->render('../_nav_new', ['menuItems' => $layoutSettings->createMenu]);
             endif;
 
@@ -43,13 +43,13 @@ use icms\FomanticUI\Elements;
                 echo $this->render('../_global_search');
             endif;
 
-            if ((bool) $layoutSettings->hideHelpMenu == false) :
+            if ((bool) $layoutSettings->hideHelpMenu == false && ! is_null($layoutSettings->helpMenu)) :
                 echo $this->render('../_nav_help', ['menuItems' => $layoutSettings->helpMenu]);
             endif;
 
             echo $this->render('../_nav_user', ['layoutSettings' => $layoutSettings]);
 
-            if ((bool) $layoutSettings->hideAlertMenu == false) :
+            if ((bool) $layoutSettings->hideAlertMenu == false && ! is_null($layoutSettings->alertMenu)) :
                 echo $this->render('../_nav_alert', ['menuItems' => $layoutSettings->alertMenu]);
             endif ?>
         </div>

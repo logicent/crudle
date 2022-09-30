@@ -164,9 +164,9 @@ class App
         return false;
     }
 
-    public static function getModels($flattenArray = false)
+    public static function getModels($includeChildModels = false, $flattenArray = false)
     {
-        foreach (self::$modules as $id => $module) 
+        foreach (self::$modules as $id => $module)
         {
             $dir = $module['path'] . '/models';
             if (!is_dir($dir))
@@ -177,11 +177,14 @@ class App
             {
                 $modelClassname = StringHelper::basename($file, '.php');
                 $modelClass = $module['ns'] . "\\models\\" . $modelClassname;
-                // check if modelClass is a AR class
+                // check if modelClass is a ActiveRecord class
                 $model = new $modelClass();
-                if (! $model InstanceOf ActiveRecord && ! $model InstanceOf ActiveRecordDetail)
+                if (! $model InstanceOf ActiveRecord)
                     continue;
-
+                // check if modelClass is a ActiveRecordDetail class
+                if ($includeChildModels)
+                    if (! $model InstanceOf ActiveRecordDetail)
+                        continue;
                 self::$models[$module['id']][$modelClass] = Inflector::camel2words($modelClassname);
             }
         }
@@ -208,7 +211,7 @@ class App
 
     public static function getAllModels()
     {
-        $userModels = self::getModules()->getModels(true);
+        $userModels = self::getModules()->getModels($includeChildModels = false, $flattenArray = true);
         $coreModels = array_flip(Type_Model::modelClasses());
 
         return ArrayHelper::merge($userModels, $coreModels);

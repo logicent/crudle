@@ -657,12 +657,23 @@ body::-webkit-scrollbar-thumb {
     line-height: 2;
 }
 
-.text-muted {
+.text-muted, .not-set {
     color: #8D99A6 !important
 }
 
-.ui.form .grouped.fields .field, .ui.form .grouped.inline.fields .field {
+.not-set {
+    font-weight: lighter;
+    font-style: italic;
+}
+
+.ui.form .grouped.fields .field,
+.ui.form .grouped.inline.fields .field {
     margin: 0em 0em 0.5em 0em;
+}
+
+.ui.ui.form .field .fields .field:not(:only-child) .ui.checkbox {
+    margin-top: 0em;
+    margin-bottom: 0.825em;
 }
 
 .custom-listbox {
@@ -818,13 +829,14 @@ body::-webkit-scrollbar-thumb {
 }
 
 .in-page-sidebar .header {
-    padding-top: 1em !important;
+    margin-top: 1em !important;
 }
 
 .in-page-sidebar {
     background: inherit !important;
     box-shadow: none;
     -webkit-box-shadow: none;
+    margin-bottom: 1em !important;
 }
 
 .in-page-sidebar .content {

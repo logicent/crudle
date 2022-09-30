@@ -2,7 +2,9 @@
 
 use yii\helpers\Html;
 use icms\FomanticUI\Elements;
+use yii\helpers\Url;
 
+$currentUrl = explode('/', Url::current());
 ?>
 
 <div class="ui visible icon sidebar vertical menu" id="main_sidebar">
@@ -17,35 +19,35 @@ use icms\FomanticUI\Elements;
             Elements::icon('brown globe large') .
             Yii::t('app', 'Home'), ['/app/home'], ['class' => 'item']) */?>
     <?= Html::a(
-            Elements::icon('blue dashboard large')
+            Elements::icon('grey dashboard large')
             . Yii::t('app', 'Dashboards'),
             ['/app/dashboards'],
-            ['class' => 'item']) ?>
+            ['class' => $currentUrl[2] == 'dashboards' ? 'item active' : 'item']) ?>
     <?= Html::a(
-            Elements::icon('teal line chart large')
+            Elements::icon('grey line chart large')
             . Yii::t('app', 'Reports'),
             ['/app/reports'],
-            ['class' => 'item']) ?>
+            ['class' => $currentUrl[2] == 'reports' ? 'item active' : 'item']) ?>
     <?= Html::a(
-            Elements::icon('green windows large')
+            Elements::icon('grey windows large')
             . Yii::t('app', 'Main'),
             ['/main'],
-            ['class' => 'item']) ?>
+            ['class' => $currentUrl[1] == 'main' ? 'item active' : 'item']) ?>
     <?= Html::a(
-            Elements::icon('olive cog large')
+            Elements::icon('grey toggle on large')
             . Yii::t('app', 'Setup'),
             ['/setup'],
-            ['class' => 'item']) ?>
+            ['class' => $currentUrl[1] == 'setup' ? 'item active' : 'item']) ?>
     <?= Html::a(
-            Elements::icon('yellow sitemap large')
+            Elements::icon('grey sitemap large')
             . Yii::t('app', 'Web CMS'),
             ['/web-cms'],
-            ['class' => 'item']) ?>
+            ['class' => $currentUrl[1] == 'web-cms' ? 'item active' : 'item']) ?>
     <?= Html::a(
-            Elements::icon('brown code large')
+            Elements::icon('grey code large')
             . Yii::t('app', 'Kit'),
             '/kit',
-            ['class' => 'item']) ?>
+            ['class' => $currentUrl[1] == 'kit' ? 'item active' : 'item']) ?>
 </div>
 
 <?php

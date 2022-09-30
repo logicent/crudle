@@ -18,6 +18,12 @@ use yii\helpers\Json;
  */
 class EmailQueue extends BaseActiveRecord
 {
+    public function init()
+    {
+        parent::init();
+        $this->listSettings->listNameAttribute = 'id';
+    }
+
     public static function tableName()
     {
         return '{{%Email_Queue}}';
