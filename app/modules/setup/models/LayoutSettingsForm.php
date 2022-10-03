@@ -10,12 +10,12 @@ use Yii;
 
 class LayoutSettingsForm extends BaseSettingsForm
 {
-    public $shortcutMenu;
-    public $createMenu;
-    public $alertMenu;
-    public $helpMenu;
-    // public $sidebarMenu;
-    // public $userMenu;
+    public $appShortcutMenu;
+    public $appCreateMenu;
+    public $appAlertMenu;
+    public $appHelpMenu;
+    // public $appSidebarMenu;
+    // public $appUserMenu;
     public $hideCreateMenu      = false;
     public $hideHelpMenu        = false;
     public $hideAlertMenu       = false;
@@ -42,24 +42,24 @@ class LayoutSettingsForm extends BaseSettingsForm
         $this->uploadForm = new UploadForm();
         $this->fileAttribute = 'bgImagePath';
 
-        $this->shortcutMenu = new AppShortcutMenu();
-        $this->createMenu = new AppCreateMenu();
-        $this->alertMenu = new AppAlertMenu();
-        $this->helpMenu = new AppHelpMenu();
-        // $this->userMenu = new AppUserMenu();
-        // $this->sidebarMenu = new AppSidebarMenu();
+        $this->appShortcutMenu = new AppShortcutMenu();
+        $this->appCreateMenu = new AppCreateMenu();
+        $this->appAlertMenu = new AppAlertMenu();
+        $this->appHelpMenu = new AppHelpMenu();
+        // $this->appUserMenu = new AppUserMenu();
+        // $this->appSidebarMenu = new AppSidebarMenu();
     }
 
     public function rules()
     {
         return [
             // [[
-            //     'shortcutMenu',
-            //     'sidebarMenu',
-            //     'createMenu',
-            //     'alertMenu',
-            // //     'helpMenu',
-            // //     'userMenu',
+            //     'appShortcutMenu',
+            //     'appSidebarMenu',
+            //     'appCreateMenu',
+            //     'appAlertMenu',
+            // //     'appHelpMenu',
+            // //     'appUserMenu',
             // ], 'string'], // To-Do: use JSONValidator and/or model Object validator
             [[
                 'homeButtonIcon',
@@ -84,12 +84,12 @@ class LayoutSettingsForm extends BaseSettingsForm
     public function attributeLabels()
     {
         return [
-            'shortcutMenu'    =>  Yii::t('app', 'Shortcut menu'),
-            'sidebarMenu'    =>  Yii::t('app', 'Sidebar menu'),
-            'createMenu'    =>  Yii::t('app', 'Create menu'),
-            'helpMenu'    =>  Yii::t('app', 'Help menu'),
-            'alertMenu'    =>  Yii::t('app', 'Alert menu'),
-            'userMenu'    =>  Yii::t('app', 'User menu'),
+            'appShortcutMenu'    =>  Yii::t('app', 'Shortcut menu'),
+            'appSidebarMenu'    =>  Yii::t('app', 'Sidebar menu'),
+            'appCreateMenu'    =>  Yii::t('app', 'Create menu'),
+            'appHelpMenu'    =>  Yii::t('app', 'Help menu'),
+            'appAlertMenu'    =>  Yii::t('app', 'Alert menu'),
+            'appUserMenu'    =>  Yii::t('app', 'User menu'),
             'hideCreateMenu'    =>  Yii::t('app', 'Hide create menu'),
             'hideHelpMenu'      =>  Yii::t('app', 'Hide help menu'),
             'hideAlertMenu'     =>  Yii::t('app', 'Hide alert menu'),
@@ -109,27 +109,27 @@ class LayoutSettingsForm extends BaseSettingsForm
     public static function relations(): array
     {
         return [
-            'createMenu' => [
+            'appCreateMenu' => [
                 'class' => AppCreateMenu::class,
                 'type' => Type_Relation::InlineModel,
             ],
-            'helpMenu' => [
+            'appHelpMenu' => [
                 'class' => AppHelpMenu::class,
                 'type' => Type_Relation::InlineModel,
             ],
-            // 'userMenu' => [
+            // 'appUserMenu' => [
             //     'class' => AppUserMenu::class,
             //     'type' => Type_Relation::InlineModel,
             // ],
-            'alertMenu' => [
+            'appAlertMenu' => [
                 'class' => AppAlertMenu::class,
                 'type' => Type_Relation::InlineModel,
             ],
-            // 'sidebarMenu' => [
+            // 'appSidebarMenu' => [
             //     'class' => AppSidebarMenu::class,
             //     'type' => Type_Relation::InlineModel,
             // ],
-            'shortcutMenu' => [
+            'appShortcutMenu' => [
                 'class' => AppShortcutMenu::class,
                 'type' => Type_Relation::InlineModel,
             ],
@@ -145,12 +145,12 @@ class LayoutSettingsForm extends BaseSettingsForm
     {
         return [
             // Type_Mixed_Value::JsonFormatted => [
-                'shortcutMenu',
-                'createMenu',
-                'alertMenu',
-                'helpMenu',
-                // 'sidebarMenu',
-                // 'userMenu',
+                'appShortcutMenu',
+                'appCreateMenu',
+                'appAlertMenu',
+                'appHelpMenu',
+                // 'appSidebarMenu',
+                // 'appUserMenu',
             // ]
         ];
     }

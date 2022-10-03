@@ -13,7 +13,7 @@ $layoutSettings = Setup::getSettings( LayoutSettingsForm::class );
 <div id="dash" class="ui stackable grid main-index">
     <div class="doubling eight column row">
     <?php
-        foreach ($layoutSettings->shortcutMenu as $menuItem) :
+        foreach ($layoutSettings->appShortcutMenu as $menuItem) :
             echo Html::tag('div',
                     Html::a(!empty($menuItem['icon']) ? Elements::icon($menuItem['icon']) :
                             Elements::image(Yii::getAlias('@web/') . $menuItem['iconPath'], ['style' => 'width: 48px']),

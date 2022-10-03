@@ -1,11 +1,13 @@
 <?php
 
-use yii\helpers\Html;
 use crudle\app\assets\AppAsset;
+use crudle\app\assets\HtmxAsset;
 use crudle\app\setup\models\LayoutSettingsForm;
 use crudle\app\setup\models\Setup;
+use yii\helpers\Html;
 
 AppAsset::register($this);
+HtmxAsset::register($this);
 
 $layoutSettings = Setup::getSettings( LayoutSettingsForm::class );
 

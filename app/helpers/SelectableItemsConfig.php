@@ -24,6 +24,8 @@ class SelectableItemsConfig
             'addCreateListItemLink' => false, // loads quick form modal if exists
             'refreshListItemsAfterCreate' => true,
             'selectAddedItemAfterRefresh' => true,
+            'join' => null,
+            'alias' => null,
         ];
     }
 }

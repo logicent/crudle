@@ -19,21 +19,22 @@ class SelectableItems
         if ( !empty( $viewItemsConfig ))
             $itemsConfig = ArrayHelper::merge( $itemsConfig, $viewItemsConfig );
 
-        if (in_array('deleted_at', $listModelClass::attributes())) :
-            $itemQuery = $listModelClass::find()->where(['deleted_at' => null]);
-        else :
-            $itemQuery = $listModelClass::find();
+        $itemQuery = $listModelClass::find();
+        if (!empty($itemsConfig['join'])) :
+            $itemQuery->alias($itemsConfig['alias']);
+            $itemQuery->joinWith($itemsConfig['join'], false);
         endif;
 
         if ( !empty( $itemsConfig['groupAttribute'] ))
-            $itemQuery->select( $itemsConfig['keyAttribute'],
+            $itemQuery->select( $itemsConfig['alias'].'.'.$itemsConfig['keyAttribute'],
                                 $itemsConfig['valueAttribute'],
                                 $itemsConfig['groupAttribute']
                             );
         else
-            $itemQuery->select([$itemsConfig['keyAttribute'],
-                                $itemsConfig['valueAttribute'],
-                            ]);
+            $itemQuery->select([
+                $itemsConfig['alias'].'.'.$itemsConfig['keyAttribute'],
+                $itemsConfig['valueAttribute'],
+            ]);
         // if ( $itemsConfig['applyListModelFilters'] )
         //     $itemQuery->where( $listModelClass::defaultListFilters() );
 

@@ -35,22 +35,22 @@ use icms\FomanticUI\Elements;
 
         <div class="computer only large screen only ten wide column item right">
         <?php
-            if ((bool) $layoutSettings->hideCreateMenu == false && ! is_null($layoutSettings->createMenu)) :
-                echo $this->render('../_nav_new', ['menuItems' => $layoutSettings->createMenu]);
+            if ((bool) $layoutSettings->hideCreateMenu == false && ! is_null($layoutSettings->appCreateMenu)) :
+                echo $this->render('../_nav_new', ['menuItems' => $layoutSettings->appCreateMenu]);
             endif;
 
             if ((bool) $layoutSettings->hideSearchbar == false) :
                 echo $this->render('../_global_search');
             endif;
 
-            if ((bool) $layoutSettings->hideHelpMenu == false && ! is_null($layoutSettings->helpMenu)) :
-                echo $this->render('../_nav_help', ['menuItems' => $layoutSettings->helpMenu]);
+            if ((bool) $layoutSettings->hideHelpMenu == false && ! is_null($layoutSettings->appHelpMenu)) :
+                echo $this->render('../_nav_help', ['menuItems' => $layoutSettings->appHelpMenu]);
             endif;
 
             echo $this->render('../_nav_user', ['layoutSettings' => $layoutSettings]);
 
-            if ((bool) $layoutSettings->hideAlertMenu == false && ! is_null($layoutSettings->alertMenu)) :
-                echo $this->render('../_nav_alert', ['menuItems' => $layoutSettings->alertMenu]);
+            if ((bool) $layoutSettings->hideAlertMenu == false && ! is_null($layoutSettings->appAlertMenu)) :
+                echo $this->render('../_nav_alert', ['menuItems' => $layoutSettings->appAlertMenu]);
             endif ?>
         </div>
     </div><!-- ./grid container -->

@@ -4,12 +4,13 @@ use crudle\app\assets\Flatpickr;
 
 Flatpickr::register($this);
 
+$fieldOptions = array_merge([
+    'class' => 'selected-date pikadaytime',
+    'readonly' => $this->context->isReadonly()
+], $options ?? []);
 ?>
 
-<?= $form->field($model, $attribute)->textInput([
-        'class' => 'selected-date pikadaytime',
-        'readonly' => $this->context->isReadonly(),
-    ]) ?>
+<?= $form->field($model, $attribute)->textInput($fieldOptions) ?>
 
 <?php $this->registerJs(<<<JS
     isReadonly = $('.selected-date').attr('readonly') == 'readonly';

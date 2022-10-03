@@ -22,7 +22,10 @@ echo $form
                         $model, [
                             'keyAttribute' => $list['keyAttribute'],
                             'valueAttribute' => $list['valueAttribute'],
-                            'filters' => $list['filters']
+                            'filters' => $list['filters'] ?? [],
+                            'join' => $list['join'] ?? null,
+                            'alias' => $list['alias'] ?? null,
+                            'displayLabel' => $list['displayLabel'] ?? null,
                         ]),
-            // 'disabled' => $isReadonly
+            'options' => $options ?? null
         ]);

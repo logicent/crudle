@@ -1,17 +1,17 @@
 <?php
 
+use crudle\app\assets\Sortablejs;
 use crudle\app\main\enums\Type_Field_Input;
 use crudle\app\setup\models\DataModelField;
-use yii\helpers\Html;
-use yii\helpers\Url;
-use yii\grid\GridView;
-use yii\helpers\Json;
-use icms\FomanticUI\helpers\Size;
-use icms\FomanticUI\modules\Modal;
 use icms\FomanticUI\Elements;
+use icms\FomanticUI\helpers\Size;
 use icms\FomanticUI\modules\Checkbox;
+use icms\FomanticUI\modules\Modal;
 use icms\FomanticUI\modules\Select;
-use crudle\app\assets\Sortablejs;
+use yii\grid\GridView;
+use yii\helpers\Html;
+use yii\helpers\Json;
+use yii\helpers\Url;
 
 Sortablejs::register($this);
 ?>

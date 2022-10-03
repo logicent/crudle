@@ -1,16 +1,16 @@
 <?php
 
+use yii\helpers\Inflector;
+use yii\helpers\StringHelper;
 use yii\helpers\Url;
 
-$columnHeaders = require Yii::getAlias($listColumns . '.php');
+$viewPath = $this->context->viewPath;
+$listId = Inflector::underscore(StringHelper::basename($modelClass));
+$model = new $modelClass;
 
 echo $this->render('item/list', [
-        'model' => $model,
-        'detailModels' => $detailModels,
-        'form' => $form,
-        'formView' => $formView,
-        'columnHeaders' => $columnHeaders,
         'listId' => $listId,
+        'modelClass' => $modelClass,
     ]);
 
 $params = [

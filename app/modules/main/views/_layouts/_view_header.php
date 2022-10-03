@@ -36,7 +36,7 @@ endif;
                 // new or update record and settings form view
                 echo $this->render('@appMain/views/_form/_view_header');
             elseif ($controller->mapActionViewType() == Type_View::List) :
-            // all multiple record views like list view
+                // all multiple record views like list view
                 if ($controller->showViewTypeSwitcher())
                     echo $this->render('_view_type');
                 echo $this->render('@appMain/views/list/_view_header');

@@ -120,6 +120,11 @@ foreach ($formFields as $id => $formFieldConfig) :
             ]) ?>\n";
             break;
         case Type_Field_Input::Select:
+            // To-Do: implement query options as below but optional if not defined
+            // Customer:id:value
+            // Customer
+            // key:id
+            // value: name
             if (!$options) {
                 $field = "         <?= \$form->field(\$model, '{$attribute}')->dropDownList([]) ?>\n";
                 break;
@@ -140,8 +145,9 @@ foreach ($formFields as $id => $formFieldConfig) :
             ]) ?>\n";
             break;
         case Type_Field_Input::CheckboxList:
+            // To-Do: improve the options box to specify type: enum|query
             $fieldType = 'checkbox_list';
-            // $list = json_encode($formField['list']);
+            // $list = json_encode($formField['list']); 
             $field = "         <?= \$this->render('{$fieldView}/{$fieldType}', [
                 'model' => \$model,
                 'attribute' => '{$attribute}',
