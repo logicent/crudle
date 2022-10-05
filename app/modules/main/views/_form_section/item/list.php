@@ -15,13 +15,19 @@ $modal = Modal::begin([
 ]);
 $modal::end();
 
-$detailModelId = Inflector::variablize(StringHelper::basename($modelClass));
-$detailModels = $this->context->getDetailModels()[$detailModelId];
+$modelName = StringHelper::basename($modelClass);
+if ($this->context->action == 'create'):
+    $detailModels = $this->context->getDetailModels()[$modelName];
+else :
+    $detailModelId = Inflector::variablize($modelName);
+    $detailModels = $this->context->getDetailModels()[$detailModelId];
+endif;
 $viewPath = $this->context->viewPath;
 $listColumns = $viewPath . "/$listId/list_columns.php";
 $columnHeaders = require $listColumns;
-$tableRowView = $viewPath . "/$listId/field_inputs.php";
-$formSubView = "$listId/field_inputs.php";
+$tableRowView = $viewPath . "/$listId/_row_inputs.php";
+$detailView = Inflector::underscore($modelName);
+$rowInputView = "$detailView/_row_inputs";
 $hideSelectAllCheckbox = empty($detailModels) ? 'none' : '';
 ?>
 
@@ -57,7 +63,8 @@ $hideSelectAllCheckbox = empty($detailModels) ? 'none' : '';
             if (!empty($detailModels)) :
                 $rowId = 0;
                 foreach ($detailModels as $id => $detailModel) :
-                    echo $this->render($tableRowView, [
+                    echo $this->renderFile($tableRowView, [
+                            'modelClass' => $modelClass,
                             'model' => $detailModel,
                             'rowId' => $rowId++
                         ]);
@@ -71,15 +78,15 @@ $hideSelectAllCheckbox = empty($detailModels) ? 'none' : '';
     echo Elements::button('Delete', [
             'class' => 'compact red small del-row',
             'data' => [
-                'model-class' => App::className($model)
+                'model-class' => $modelClass
             ],
             'style' => 'display : none'
         ]);
     echo Elements::button('Add row', [
             'class' => 'compact small add-row',
             'data'  => [
-                'model-class' => App::className($model),
-                'form-view' => $formSubView,
+                'model-class' => $modelClass,
+                'form-view' => $rowInputView,
             ]
         ]) ?>
 </div>

@@ -69,7 +69,8 @@
         "npm-asset/svg-loaders": "^0.2.0",
         "npm-asset/alpinejs": "^3.10",
         "npm-asset/picocss--pico": "^1.5",
-        "npm-asset/fullcalendar": "^6.0@beta"
+        "aeon-php/calendar": "^1.0",
+        "npm-asset/fullcalendar": "5.11.3"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

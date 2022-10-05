@@ -5,10 +5,11 @@ use icms\FomanticUI\modules\Accordion;
 
 
 $active = isset($expanded) && $expanded === true ? 'active' : '';
+$disabledClass = $this->context->isReadonly() ? 'disabled' : null;
 
 if (isset($collapsible) && $collapsible === false) :
 ?>
-    <div class="ui segments">
+    <div class="ui <?= $disabledClass ?> segments">
     <?php
         if ($title) : ?>
         <div class="ui padded segment" style="padding-bottom: 0.5em;">
@@ -24,7 +25,7 @@ if (isset($collapsible) && $collapsible === false) :
     </div>
 <?php
 else : ?>
-    <div class="ui padded segment">
+    <div class="ui <?= $disabledClass ?> padded segment">
         <?= Accordion::widget([
                 // 'fluid' => true,
                 'titleOptions' => [

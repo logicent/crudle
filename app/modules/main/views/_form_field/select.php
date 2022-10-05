@@ -1,31 +1,32 @@
 <?php
 
 use crudle\app\helpers\SelectableItems;
-use icms\FomanticUI\helpers\Size;
-use icms\FomanticUI\modules\Modal;
 use icms\FomanticUI\modules\Select;
+use yii\helpers\Html;
 
-$modal = Modal::begin([
-    'id' => 'dropdown_modal',
-    'size' => Size::SMALL,
-]);
-$modal::end();
 
-// $isReadonly = $this->context->isReadonly();
+$items = SelectableItems::get(
+    $list['modelClass'],
+    $model,
+    [
+        'keyAttribute' => $list['keyAttribute'],
+        'valueAttribute' => $list['valueAttribute'],
+        'filters' => $list['filters'] ?? [],
+        'join' => $list['join'] ?? null,
+        'alias' => $list['alias'] ?? null,
+        'displayLabel' => $list['displayLabel'] ?? null,
+    ]
+);
+$options = $options ?? [];
 
-echo $form
-        ->field($model, $attribute)
-        ->widget(Select::class, [
-            'search' => true,
-            'items' => SelectableItems::get(
-                        $list['modelClass'],
-                        $model, [
-                            'keyAttribute' => $list['keyAttribute'],
-                            'valueAttribute' => $list['valueAttribute'],
-                            'filters' => $list['filters'] ?? [],
-                            'join' => $list['join'] ?? null,
-                            'alias' => $list['alias'] ?? null,
-                            'displayLabel' => $list['displayLabel'] ?? null,
-                        ]),
-            'options' => $options ?? null
-        ]);
+if (isset($form)) :
+    $field = $form->field($model, $attribute)->widget(Select::class, [
+        'search' => true,
+        'items' => $items,
+        'options' => $options
+    ]);
+else :
+    $field = Html::activeDropDownList($model, $attribute, $items, $options);
+endif;
+
+echo $field;

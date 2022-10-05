@@ -157,4 +157,9 @@ abstract class BaseSettingsController extends BaseFormController
     {
         return Type_Form_View::Single;
     }
+
+    public function isReadonly()
+    {
+        return $this->action->id == 'read';
+    }
 }

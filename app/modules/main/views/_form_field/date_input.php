@@ -1,17 +1,24 @@
 <?php
 
 use crudle\app\assets\Flatpickr;
+use yii\helpers\Html;
 
 Flatpickr::register($this);
 
-?>
+$defaultOptions = [
+    'class' => 'selected-date pikaday',
+    'readonly' => $this->context->isReadonly(),
+];
+$options = isset($options) ? array_merge($defaultOptions, $options) : $defaultOptions;
 
-<?= $form->field($model, $attribute)->textInput([
-        'class' => 'selected-date pikaday',
-        'readonly' => $this->context->isReadonly(),
-    ]) ?>
+if (isset($form)) :
+    $field = $form->field($model, $attribute)->textInput($options);
+else :
+    $field = Html::activeTextInput($model, $attribute, $options);
+endif;
 
-<?php
+echo $field;
+
 $this->registerJs(<<<JS
     isReadonly = $('.selected-date').attr('readonly') == 'readonly';
     if (isReadonly)
