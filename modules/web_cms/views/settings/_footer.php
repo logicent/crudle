@@ -25,10 +25,5 @@ use crudle\ext\web_cms\models\SiteNavFooter;
 <br>
 
 <?= $this->render('@appMain/views/_form_section/item', [
-        'model' => new SiteNavFooter(),
-        'detailModels' => $this->context->getDetailModels()['footerNav'],
-        'form' => $form,
-        'formView' => '@appSetup/views/_menu/field_inputs',
-        'listColumns' => '@appSetup/views/_menu/list_columns',
-        'listId' => 'footer_nav',
+        'modelClass' => SiteNavFooter::class,
     ]) ?>

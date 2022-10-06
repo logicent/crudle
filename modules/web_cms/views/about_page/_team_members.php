@@ -23,12 +23,7 @@ use yii\helpers\Html;
 <div class="ui hidden divider"></div>
 
 <?= $this->render('@appMain/views/_form_section/item', [
-        'model' => new AboutTeamMember(),
-        'detailModels' => $this->context->getDetailModels()['teamMember'],
-        'form' => $form,
-        'formView' => '@extCms/views/about_page/team_member/field_inputs',
-        'listColumns' => '@extCms/views/about_page/team_member/list_columns',
-        'listId' => 'team_member',
+        'modelClass' => AboutTeamMember::class,
     ]) ?>
 
 <?= Html::activeHiddenInput($model, "photoImage", ['data' => ['name' => 'photoImage']]) ?>

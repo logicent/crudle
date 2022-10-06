@@ -83,6 +83,7 @@ abstract class BaseSettingsController extends BaseFormController
             return $this->renderPartial($formView, [
                         'rowId' => Yii::$app->request->get('nextRowId'),
                         'model' => $model,
+                        'modelClass' => $modelClass,
                         'formData' => null
                     ]);
         }

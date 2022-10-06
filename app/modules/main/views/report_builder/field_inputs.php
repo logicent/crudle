@@ -90,7 +90,7 @@ $rolesCount = !empty($model->roles) ? count($model->roles) : '0';
         </div>
     </div>
 
-    <?= $this->render('_columns/index', ['model' => $model, 'form' => $form]) ?>
+    <?= $this->render('report_builder_item/index', ['model' => $model, 'form' => $form]) ?>
     <?= $this->render('_query_cmd', ['model' => $model, 'form' => $form]) ?>
 <?php
 $this->registerJs($this->render('@appMain/views/_form_field/load_related_list_options.js'));

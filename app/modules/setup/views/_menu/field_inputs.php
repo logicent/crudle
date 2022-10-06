@@ -1,62 +1,63 @@
 <?php
 
-use crudle\app\helpers\App;
 use yii\helpers\Html;
 use icms\FomanticUI\Elements;
-use icms\FomanticUI\modules\Checkbox;
+use icms\FomanticUI\widgets\ActiveForm;
 
-?>
-<tr id="<?= $model->formName() .'_'. $rowId ?>">
-    <td class="select-row center aligned">
-        <?= Checkbox::widget([
-                'name' => "[$rowId]item",
-                'options' => ['style' => 'vertical-align: text-top']
-            ]) ?>
-    </td>
-    <td>
-        <?= Html::activeTextInput($model, "[$rowId]label", [
-                'maxlength' => true,
-                'data' => ['name' => 'label']
-            ]) ?>
-    </td>
-    <td>
-        <?= Html::activeTextInput($model, "[$rowId]route", [
-                'maxlength' => true,
-                'data' => ['name' => 'route']
-            ]) ?>
-    </td>
-    <td>
-        <?= Html::activeTextInput($model, "[$rowId]icon", [
-                'maxlength' => true,
-                'data' => ['name' => 'icon']
-            ]) ?>
-    </td>
-    <td class="center aligned">
-        <?= Checkbox::widget([
-                'model' => $model,
-                'attribute' => "[$rowId]inactive",
-                'labelOptions' => ['label' => false],
-                'options' => [
-                    'data' => ['name' => 'inactive'],
-                    'style' => 'vertical-align: text-top'
-                ]
-            ]) ?>
-    </td>
-    <td class="one wide center aligned">
-        <?= Html::a(Elements::icon('grey pencil'), null, [
-                    'class' => 'edit-row compact ui small basic icon button',
-                    'style' => 'margin: 0em;',
-                    'data' => [
-                        'model-class' => App::className($model),
-                        'form-view' => '@appSetup/views/_menu/_edit_form',
-                    ]
+
+$hintOptions = [
+    'tag' => 'div',
+    'class' => 'text-muted',
+    'style' => 'font-size: 0.95em; padding-left: 0.25em'
+];
+
+$form = ActiveForm::begin([
+    'id' => $rowId . '__modal',
+    'action' => false,
+    'enableClientValidation' => false,
+    'fieldConfig' => ['hintOptions' => $hintOptions],
+    'options' => [
+        'autocomplete' => 'off',
+        'class' => 'ui form',
+    ],
+]) ?>
+
+<div class="ui padded segment" style="margin-top: 0em">
+    <div class="ui small header"><?= Yii::t('app', 'Edit item') ?></div>
+    <div class="ui divider"></div>
+    <div class="ui two column stackable grid">
+        <div class="column">
+            <?= $form->field($model, 'label')->textInput(['maxlength' => true, 'data' => ['name' => 'label']]) ?>
+            <?= $model->parentLabel !== false ? $form->field($model, 'parentLabel')->dropDownList([]) : null ?>
+            <?php //= $form->field($model, "iconPath")->textInput(['maxlength' => true, 'data' => ['name' => 'iconPath']]) ?>
+            <?= $form->field($model, 'icon')->textInput(['maxlength' => true, 'data' => ['name' => 'icon']]) ?>
+            <?= $form->field($model, 'iconColor')->textInput(['maxlength' => true, 'data' => ['name' => 'iconColor']]) ?>
+        </div>
+        <div class="column">
+            <?= $form->field($model, 'route')->textInput(['maxlength' => true, 'data' => ['name' => 'route']]) ?>
+            <?= $form->field($model, 'openInNewTab')->checkbox([
+                    'data' => ['name' => 'openInNewTab'],
+                    'options' => ['style' => 'vertical-align: text-top']
                 ]) ?>
-        <?= Html::activeHiddenInput($model, "[$rowId]openInNewTab", ['data' => ['name' => 'openInNewTab']]) ?>
-        <?= Html::activeHiddenInput($model, "[$rowId]alignRight", ['data' => ['name' => 'alignRight']]) ?>
-        <?= Html::activeHiddenInput($model, "[$rowId]type", ['data' => ['name' => 'type']]) ?>
-        <?= Html::activeHiddenInput($model, "[$rowId]parentLabel", ['data' => ['name' => 'parentLabel']]) ?>
-        <?= Html::activeHiddenInput($model, "[$rowId]icon", ['data' => ['name' => 'icon']]) ?>
-        <?= Html::activeHiddenInput($model, "[$rowId]iconPath", ['data' => ['name' => 'iconPath']]) ?>
-        <?= Html::activeHiddenInput($model, "[$rowId]iconColor", ['data' => ['name' => 'iconColor']]) ?>
-    </td>
-</tr>
+            <?= Html::activeHiddenInput($model, "type", ['data' => ['name' => 'type']]) ?>
+            <?= $form->field($model, "alignRight")->checkbox([
+                    'data' => ['name' => 'alignRight'],
+                    'options' => ['style' => 'vertical-align: text-top']
+                ]) ?>
+            <?= $form->field($model, "inactive")->checkbox([
+                    'data' => ['name' => 'inactive'],
+                    'options' => ['style' => 'vertical-align: text-top']
+                ]) ?>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+
+    <?= Elements::button('Update Item', [
+            'class' => 'compact small update-row',
+            'data'  => [
+                'row-id' => $rowId
+            ]
+        ]) ?>
+</div>
+<?php
+ActiveForm::end() ?>

@@ -22,7 +22,7 @@ $webSettings = Setup::getSettings( WebsiteSettingsForm::class );
                 </div>
             </div>
         <?php
-            foreach ($webSettings->headerNav as $navItem) :
+            foreach ($webSettings->siteNavHeader as $navItem) :
                 $route = 'site' . $navItem['route'];
                 if ($route == $this->context->id) :
                     $active = 'active';

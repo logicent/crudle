@@ -38,11 +38,11 @@ use icms\FomanticUI\modules\Checkbox;
     </td>
     <td class="one wide center aligned">
         <?= Html::a(Elements::icon('grey pencil'), null, [
-                    'class' => 'edit-item--btn compact ui small basic icon button',
+                    'class' => 'edit-row compact ui small basic icon button',
                     'style' => 'margin: 0em;',
                     'data' => [
                         'model-class' => App::className($model),
-                        'form-view' => '@extCms/views/about_page/team_member/_edit_form',
+                        'form-view' => 'about_team_member/field_inputs',
                         // 'row-id' => $rowId,
                     ]
                 ]) ?>

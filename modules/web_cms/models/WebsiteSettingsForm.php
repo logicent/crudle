@@ -20,10 +20,10 @@ class WebsiteSettingsForm extends BaseSettingsForm
     public $hideLogin;
     public $includeSearchInTopBar;
     public $showLanguagePicker;
-    public $headerNav;
+    public $siteNavHeader;
     public $banner; // Banner is above the Top Menu Bar.
     public $footerLogo;
-    public $footerNav;
+    public $siteNavFooter;
     public $copyright;
     public $address;
     public $footerMenu;
@@ -127,11 +127,11 @@ class WebsiteSettingsForm extends BaseSettingsForm
     public static function relations(): array
     {
         return [
-            'headerNav' => [
+            'siteNavHeader' => [
                 'class' => SiteNavHeader::class,
                 'type' => Type_Relation::InlineModel,
             ],
-            'footerNav' => [
+            'siteNavFooter' => [
                 'class' => SiteNavFooter::class,
                 'type' => Type_Relation::InlineModel,
             ],
@@ -147,8 +147,8 @@ class WebsiteSettingsForm extends BaseSettingsForm
     {
         return [
             // Type_Mixed_Value::JsonFormatted => [
-                'footerNav',
-                'headerNav',
+                'siteNavFooter',
+                'siteNavHeader',
             // ]
         ];
     }

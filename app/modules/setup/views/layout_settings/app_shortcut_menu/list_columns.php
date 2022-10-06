@@ -1,3 +1,5 @@
 <?php
 
-echo $this->render('@appSetup/views/_menu/list_columns') ?>
+$columnHeaders = require Yii::getAlias('@appSetup/views/_menu/list_columns.php');
+
+return $columnHeaders ?>

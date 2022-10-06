@@ -19,7 +19,7 @@ class AboutPage extends BaseSettingsForm
     public $ourTeamHeading;
     public $ourTeamSubheading;
     public $hideTeamSection;
-    public $teamMember;
+    public $aboutTeamMember;
     public $showTeamMemberBio = true;
     public $footer;
     // Don't persist in DB
@@ -78,7 +78,7 @@ class AboutPage extends BaseSettingsForm
     public static function relations(): array
     {
         return [
-            'teamMember' => [
+            'aboutTeamMember' => [
                 'class' => AboutTeamMember::class,
                 'type' => Type_Relation::InlineModel,
             ],
@@ -98,7 +98,7 @@ class AboutPage extends BaseSettingsForm
     {
         return [
             // Type_Mixed_Value::JsonFormatted => [
-                'teamMember',
+                'aboutTeamMember',
             // ]
         ];
     }

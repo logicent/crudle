@@ -87,14 +87,14 @@ class ReportBuilder extends BaseActiveRecord
     public static function relations()
     {
         return [
-            'reportBuilderItems'     => [
+            'reportBuilderItem'     => [
                 'class' => ReportBuilderItem::class,
                 'type' => Type_Relation::ChildModel
             ],
         ];
     }
 
-    public function getReportBuilderItems()
+    public function getReportBuilderItem()
     {
         return $this->hasMany(ReportBuilderItem::class, ['report_builder_id' => 'id']);
     }

@@ -24,7 +24,7 @@ if (!$model->hideTeamSection) :
 ?>
     <div class="ui column grid">
 <?php
-    foreach ($model->teamMember as $teamMember) :
+    foreach ($model->aboutTeamMember as $teamMember) :
         if ((bool) $teamMember['inactive']) :
             continue;
         endif;

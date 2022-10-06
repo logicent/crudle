@@ -36,7 +36,7 @@ $currentUrl = explode('/', Url::current());
                                         Yii::t('app', '{menuLabel}', ['menuLabel' => $menu['label']]),
                                         Url::to([$menu['route']]),
                                         [
-                                            'class' => $currentUrl[3] == $currentMenu[2] ? 'item active' : 'item',
+                                            'class' =>  'item',
                                             'style' => 'color: #6c7680;'
                                         ]
                                 ),

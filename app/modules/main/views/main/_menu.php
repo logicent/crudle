@@ -68,12 +68,6 @@ foreach ($reports as $report) :
     ];
 endforeach;
 
-$moduleMenus[] = [
-    'route' => '/main/app-module/index',
-    'label' => 'App Module',
-    'group' => Type_Menu_Sub_Group::Module,
-    'visible' => Yii::$app->user->can(Type_Role::SystemManager),
-];
 foreach ($modules::$modules as $id => $module) :
     $moduleName = Inflector::id2camel($module['id']);
     $moduleLabel = Inflector::camel2words($moduleName);

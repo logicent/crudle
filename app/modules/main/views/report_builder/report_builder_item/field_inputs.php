@@ -27,35 +27,29 @@ $form = ActiveForm::begin([
     <div class="ui divider"></div>
     <div class="ui two column stackable grid">
         <div class="column">
-            <?= $form->field($model, 'fullName')->textInput([
-                    'maxlength' => true,
-                    'data' => ['name' => 'fullName']
+            <?= $form->field($model, "[{$rowId}]attribute_name")->dropDownList([], [
+                    'class' => 'rb--attribute-name',
+                    'data' => ['name' => 'attributeName']
                 ]) ?>
-            <?= $form->field($model, 'designation')->textInput([
-                    'maxlength' => true,
-                    'data' => ['name' => 'designation']
+            <?= $form->field($model, "[{$rowId}]sort_by")->checkbox([
+                    'data' => ['name' => 'sortBy']
                 ]) ?>
-            <?= $form->field($model, 'bio')->textArea([
-                    'class' => 'small-textbox',
-                    'maxlength' => true,
-                    'rows' => 9,
-                    'data' => ['name' => 'bio'],
+            <?= $form->field($model, "[{$rowId}]sort_order")->dropDownList([
+                    null => '&nbsp;',
+                    SORT_ASC => Yii::t('app', 'ASC'),
+                    SORT_DESC => Yii::t('app', 'DESC')
+                ], ['data' => ['name' => 'sortOrder']
                 ]) ?>
-            <?= $form->field($model, "inactive")->checkbox([
-                    'data' => ['name' => 'inactive'],
-                    'options' => ['style' => 'vertical-align: text-top']
+            <?= $form->field($model, "[{$rowId}]filter_by")->checkbox([
+                    'data' => ['name' => 'filterBy']
                 ]) ?>
         </div>
         <div class="column">
-            <?= $this->render('@appMain/views/_form_field/file_input', [
-                    'attribute' => 'photoImage',
-                    'model' => $model,
-                ]) ?>
         </div>
     </div>
     <div class="ui divider"></div>
 
-    <?= Elements::button('Update Item', [
+    <?= Elements::button('Update Row', [
             'class' => 'compact small update-row',
             'data'  => [
                 'row-id' => $rowId
