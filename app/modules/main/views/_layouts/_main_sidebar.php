@@ -25,21 +25,9 @@ $currentUrl = explode('/', Url::current());
                         ['class' => 'item']
                 ) ?>
         <?= Html::a(
-                Elements::icon('grey bus large')
-                        . Yii::t('app', 'Tours'),
-                ['/tours/tour'],
-                ['class' => 'item']
-        ) ?>
-        <?= Html::a(
                 Elements::icon('grey bar chart large')
                         . Yii::t('app', 'Reports'),
                 ['/reports'],
-                ['class' => 'item']
-        ) ?>
-        <?= Html::a(
-                Elements::icon('grey atlas large')
-                        . Yii::t('app', 'Back Office'),
-                ['/back-office/payment-entry'],
                 ['class' => 'item']
         ) ?>
         <?= Html::a(

@@ -36,4 +36,14 @@ class SidebarMenu extends ActiveRecord
             'inactive' => Yii::t('app', 'Inactive'),
         ];
     }
+
+    public static function enums()
+    {
+        return [
+            'status' => [
+                'class' => Status_Active::class,
+                'attribute' => 'inactive'
+            ]
+        ];
+    }
 }
