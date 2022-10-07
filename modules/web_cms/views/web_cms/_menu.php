@@ -67,7 +67,7 @@ return [
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/web-cms/sidebar/index',
+        'route' => '/web-cms/sidebar-menu/index',
         'label' => 'Sidebar Menu',
         'group' => Type_Menu_Sub_Group::Content,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),

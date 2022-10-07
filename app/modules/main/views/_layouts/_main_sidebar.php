@@ -24,7 +24,7 @@ $currentUrl = explode('/', Url::current());
                         ['/app/dashboards'],
                         ['class' => 'item']
                 ) ?>
-        
+
         <?= Html::a(
                 Elements::icon('grey bar chart large')
                         . Yii::t('app', 'Reports'),

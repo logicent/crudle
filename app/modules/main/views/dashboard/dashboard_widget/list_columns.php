@@ -1,7 +1,7 @@
 <?php
 
 return [
-    ['name' => 'type', 'width' => 'three'],
-    ['name' => 'column_width', 'width' => 'two'],
-    // ['name' => 'data_model', 'width' => 'three'],
+    ['name' => 'id', 'width' => 'three'],
+    ['name' => 'type', 'width' => 'two'],
+    ['name' => 'data_model', 'width' => 'three'],
 ];
