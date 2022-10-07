@@ -35,7 +35,7 @@ class DataWidget extends BaseActiveRecord
     public function init()
     {
         parent::init();
-        $this->listSettings->listNameAttribute = 'id';
+        $this->listSettings->listNameAttribute = 'title';
     }
 
     public static function tableName()
@@ -50,7 +50,10 @@ class DataWidget extends BaseActiveRecord
         return ArrayHelper::merge($rules, [
             [[
                 'type',
-                'data_model'
+                'title',
+                'data_model',
+                'data_aggregate_function',
+                'group_by_column'
             ], 'required'],
             [[
                 'data_aggregate_function',
@@ -93,8 +96,8 @@ class DataWidget extends BaseActiveRecord
         ];
     }
 
-    public static function autoSuggestIdValue()
-    {
-        return false;
-    }
+    // public static function autoSuggestIdValue()
+    // {
+    //     return false;
+    // }
 }

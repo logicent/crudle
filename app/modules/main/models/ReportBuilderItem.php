@@ -48,7 +48,7 @@ class ReportBuilderItem extends BaseActiveRecordDetail
 
     public function getReportBuilder()
     {
-        return $this->hasMany(ReportBuilder::class, ['report_builder_item_id' => 'id']);
+        return $this->hasOne(ReportBuilder::class, ['id' => 'report_builder_id']);
     }
 
     public static function foreignKeyAttribute()

@@ -5,4 +5,4 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Dashboard'), 'url' =
 
 ?>
 
-<?= $this->render('_widget/index', ['models' => $model->widgets]) ?>
+<?= $this->render('_widget/index', ['models' => $model->dashboardWidget]) ?>

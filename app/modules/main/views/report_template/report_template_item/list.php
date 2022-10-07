@@ -48,7 +48,7 @@ if ( !$isReadonly ) :
                 'id'    => 'add_section', 
                 'class' => 'compact ui mini button',
                 'data'  => [
-                    'url' => Url::to( ['report-template/add-section'] )
+                    'url' => Url::to( ['report-template/add-row'] )
                 ]
             ]);
 endif ?>

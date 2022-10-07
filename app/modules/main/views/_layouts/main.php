@@ -10,7 +10,7 @@ $this->beginContent($layoutPath . 'base.php') ?>
 
 <?= $this->render('_main_sidebar') ?>
 
-<div class="main ui container pusher" style="margin-top: <?= $controller->id == 'main/dashboard' ? '103px;' : '133px;' ?>">
+<div class="main ui container pusher" style="margin-top: <?= $controller->id == 'main/dashboard' ? '103px;' : '133px;' ?> margin-left:142px;">
     <div class="ui stackable grid">
         <?php
             if ($controller->id !== 'main' &&

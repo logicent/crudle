@@ -1,44 +1,105 @@
 <?php
 
-use crudle\app\setup\enums\Type_Widget;
-use crudle\app\widgets\BarChart;
+use crudle\app\assets\ChartJsAsset;
+use crudle\app\main\enums\Type_Widget;
+use crudle\app\main\models\DataWidget;
+use crudle\app\widgets\ChartJs;
 use crudle\app\widgets\LatestEntries;
-use crudle\app\widgets\LineChart;
-use crudle\app\widgets\NumberBlock;
-use crudle\app\widgets\PieChart;
 
-foreach ($models as $model) :
-    switch ($model->type) :
-        case Type_Widget::LineChart:
-            echo LineChart::widget([]);
-            break;
-        case Type_Widget::BarChart:
-            echo BarChart::widget([]);
-            break;
-        case Type_Widget::PieChart:
-            echo PieChart::widget([]);
-            break;
-        case Type_Widget::NumberBlock:
-            echo NumberBlock::widget([]);
-            break;
-        case Type_Widget::LatestEntries:
-            echo LatestEntries::widget([]);
-            break;
-        default:
-    endswitch;
-endforeach;
+ChartJsAsset::register($this);
+
+
+
+
+
 ?>
-<!-- <div class="ui stackable three column grid">
-    <div class="five wide column">
-        <h3 class="ui center aligned secondary top attached header segment">
-            <span class="text-muted"></span>
-        </h3>
-        <div class="ui center aligned bottom attached padded segment">
-            <div class="ui small statistic">
-                <div class="value"></div>
-                <div class="ui hidden divider"></div>
-                <div class="text-muted"></div>
+
+
+<div class="ui stackable sixteen column grid">
+    <?php foreach ($models as $model) : ?>
+        <?php $widget = DataWidget::findOne($model->type);  ?>
+        <div class="<?= $model->column_width ?> wide column">
+            <h3 class="ui center aligned secondary top attached header segment">
+                <span class="text-muted"><?= $widget->title ?></span>
+            </h3>
+            <div class="ui center aligned bottom attached padded segment">
+
+
+                <?php switch ($widget->type):
+                    case Type_Widget::NumberBlock:
+                        echo $this->render('@appMain/views/dashboards/_widget/_card',[
+                            'count' => $widget->data_model::find()
+                            ->select($widget->group_by_column)
+                            ->addSelect("{$widget->data_aggregate_function}(*) as data")
+                            ->groupBy($widget->group_by_column)->createCommand(),
+                            'column' => $widget->group_by_column
+                        ]);
+                        break;
+                    case Type_Widget::LineChart:
+                        echo ChartJs::widget([
+                            'type' => ChartJs::TYPE_LINE,
+                            'clientOptions' => [
+
+                                'legend' => ['display' => false],
+                            ],
+                            'datasets' => [
+                                [
+                                    'query' => $widget->data_model::find()
+                                        ->select($widget->group_by_column)
+                                        ->addSelect("{$widget->data_aggregate_function}(*) as data")
+                                        ->groupBy($widget->group_by_column)
+                                        ->createCommand(),
+                                    'labelAttribute' => $widget->group_by_column
+                                ]
+                            ]
+                        ]);
+                        break;
+                    case Type_Widget::BarChart:
+                        echo ChartJs::widget([
+                            'type' => ChartJs::TYPE_BAR,
+                            'clientOptions' => [
+
+                                'legend' => ['display' => false],
+                            ],
+                            'datasets' => [
+                                [
+                                    'query' => $widget->data_model::find()
+                                        ->select($widget->group_by_column)
+                                        ->addSelect("{$widget->data_aggregate_function}(*) as data")
+                                        ->groupBy($widget->group_by_column)
+                                        ->createCommand(),
+                                    'labelAttribute' => $widget->group_by_column
+                                ]
+                            ]
+                        ]);
+                        break;
+                    case Type_Widget::PieChart:
+                        echo ChartJs::widget([
+                            'type' => ChartJs::TYPE_PIE,
+                            'clientOptions' => [
+
+                                'legend' => ['display' => false],
+                            ],
+                            'datasets' => [
+                                [
+                                    'query' => $widget->data_model::find()
+                                        ->select($widget->group_by_column)
+                                        ->addSelect("{$widget->data_aggregate_function}(*) as data")
+                                        ->groupBy($widget->group_by_column)
+                                        ->createCommand(),
+                                    'labelAttribute' => $widget->group_by_column
+                                ]
+                            ]
+                        ]);
+                        break;
+
+                    case Type_Widget::LatestEntries:
+                        echo LatestEntries::widget([]);
+                        break;
+                    default:
+                endswitch;
+                ?>
             </div>
         </div>
-    </div>
-</div> -->
+    <?php endforeach; ?>
+</div>

@@ -24,22 +24,11 @@ $currentUrl = explode('/', Url::current());
                         ['/app/dashboards'],
                         ['class' => 'item']
                 ) ?>
-        <?= Html::a(
-                Elements::icon('grey bus large')
-                        . Yii::t('app', 'Tours'),
-                ['/tours/tour'],
-                ['class' => 'item']
-        ) ?>
+        
         <?= Html::a(
                 Elements::icon('grey bar chart large')
                         . Yii::t('app', 'Reports'),
                 ['/reports'],
-                ['class' => 'item']
-        ) ?>
-        <?= Html::a(
-                Elements::icon('grey atlas large')
-                        . Yii::t('app', 'Back Office'),
-                ['/back-office/payment-entry'],
                 ['class' => 'item']
         ) ?>
         <?= Html::a(
@@ -63,7 +52,7 @@ $currentUrl = explode('/', Url::current());
         <?= Html::a(
                 Elements::icon('grey code large')
                         . Yii::t('app', 'Kit'),
-                '/kit',
+                ['/kit'],
                 ['class' => 'item']
         ) ?>
 </div>

@@ -2,6 +2,7 @@
 
 use crudle\app\helpers\App;
 use crudle\app\helpers\SelectableItems;
+use crudle\app\main\enums\Column_Width;
 use crudle\app\main\enums\Type_Widget;
 use crudle\app\main\models\DashboardWidget;
 use crudle\app\main\models\DataWidget;
@@ -20,28 +21,20 @@ use icms\FomanticUI\modules\Checkbox;
             ]) ?>
     </td>
     <td>
-        <?= Html::activeDropDownList($model, "[$rowId]id",
+        <?= Html::activeDropDownList($model, "[$rowId]type",
                 SelectableItems::get( DataWidget::class, $model, [
-                    'valueAttribute' => 'id',
+                    'valueAttribute' => "CONCAT(`id`,' -', `title`)",
                     'filters' => [
                         'status' => false,
                     ]
                 ]),
-                ['data' => ['name' => 'id']]) ?>
+                ['data' => ['name' => 'type']]) ?>
     </td>
     <td>
-        <?= Html::activeDropDownList($model, "[$rowId]type",
-                Type_Widget::enums(),
-                ['data' => ['name' => 'type']]
+        <?= Html::activeDropDownList($model, "[$rowId]column_width",
+                Column_Width::enums(),
+                ['data' => ['name' => 'column_width']]
             ) ?>
-    </td>
-    <td class="center aligned">
-        <?= Html::activeDropDownList($model, "[$rowId]data_model",
-                ArrayHelper::merge([' ' => ''], App::getModels()),
-                [
-                    'class' => 'rb--model-name',
-                    'data' => ['name' => 'data_model']
-                ]) ?>
     </td>
     <td class="one wide center aligned">
         <?= Html::a(Elements::icon('grey pencil'), null, [
@@ -56,6 +49,7 @@ use icms\FomanticUI\modules\Checkbox;
         <?= Html::activeHiddenInput($model, "[$rowId]data_aggregate_function", ['data' => ['name' => 'data_aggregate_function']]) ?>
         <?= Html::activeHiddenInput($model, "[$rowId]group_by_column", ['data' => ['name' => 'group_by_column']]) ?>
         <?= Html::activeHiddenInput($model, "[$rowId]show_filtered_data", ['data' => ['name' => 'show_filtered_data']]) ?>
-        <?= Html::activeHiddenInput($model, "[$rowId]column_width", ['data' => ['name' => 'column_width']]) ?>
+        <?= Html::activeHiddenInput($model, "[$rowId]data_model", ['data' => ['name' => 'data_model']]) ?>
+        <?= Html::activeHiddenInput($model, "[$rowId]id", ['data' => ['name' => 'id']]) ?>
     </td>
 </tr>

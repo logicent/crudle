@@ -43,9 +43,8 @@ class DashboardWidget extends ActiveRecordDetail
 
         return ArrayHelper::merge($rules, [
             [[
-                'type',
-                'data_model',
-                'dashboard_id'
+                'column_width',
+                'type'
             ], 'required'],
             [[
                 'data_aggregate_function',

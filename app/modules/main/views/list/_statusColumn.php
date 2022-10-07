@@ -19,5 +19,5 @@ return [
     'contentOptions' => [
         'style' => 'font-weight: 500',
     ],
-    'visible' => in_array($modelClass::enums()['status']['attribute'], $modelClass::attributes())
+    'visible' => in_array($modelClass::enums()['status']['attribute'], (new $modelClass)->attributes)
 ];

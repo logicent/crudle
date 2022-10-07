@@ -5,14 +5,15 @@ use yii\helpers\Url;
 use icms\FomanticUI\Elements;
 use icms\FomanticUI\modules\Checkbox;
 
+
 $attributes = [];
-// if ($itemModelClass) :
-//     $fieldModel = new $itemModelClass();
-//     foreach ($fieldModel::attributes() as $attribute) :
-//         $attributes[$attribute] = $fieldModel->getAttributeLabel($attribute);
-//     endforeach;
-//     array_multisort($attributes);
-// endif;
+if (!$model->isNewRecord) :
+    $fieldModel = new $model->reportBuilder->model_name;
+    foreach ($fieldModel->attributes() as $attribute) :
+        $attributes[$attribute] = $fieldModel->getAttributeLabel($attribute);
+    endforeach;
+    array_multisort($attributes);
+endif;
 
 $isReadonly = 
     $this->context->action->id == 'create' || 

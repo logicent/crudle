@@ -15,14 +15,13 @@ class LoadAttributesByModel extends Action
         if (Yii::$app->request->isAjax)
         {
             $modelClass = Yii::$app->request->get('list_item');
-            $attributes = $modelClass::attributes();
-
+            $attributes = (new $modelClass)->attributes();
+            
             $selectOptions = Html::tag('option', '', ['value' => ' ']);;
             foreach ($attributes as $attribute) {
-                $attributeLabel = Inflector::camel2words(
-                    Inflector::camelize($attribute)
-                );
+                $attributeLabel = Inflector::camel2words(Inflector::camelize($attribute));
                 $selectOptions .= Html::tag('option', $attributeLabel, ['value' => $attribute]);
+                
             }
 
             return $selectOptions;

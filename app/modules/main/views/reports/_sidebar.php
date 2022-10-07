@@ -34,7 +34,7 @@ $reportGroups = ArrayHelper::map($reports, 'id', 'id', 'group');
                 //     continue;
                 echo Html::a(
                     Yii::t('app', '{setupMenuLabel}', ['setupMenuLabel' => $report['id']]),
-                    Url::to(['report/index', 'id' => $report['id']]),
+                    Url::to(['reports/index', 'id' => $report['route']]),
                     ['class' => 'item']
                 );
             endforeach;
@@ -47,11 +47,9 @@ $reportGroups = ArrayHelper::map($reports, 'id', 'id', 'group');
 $this->registerJs(<<<JS
     //  Use transitions for better UX
     $('#report_sidebar .item').on('click', function(e) {
-        e.stopPropagation();
+        e.preventDefault();
 
         item = $(this);
-        tab = $(this).data('tab');
-
         $.ajax({
             url: $(this).attr('href'),
             type: 'get',
@@ -64,7 +62,7 @@ $this->registerJs(<<<JS
                 $('.item.active').removeClass('active');
                 item.addClass('active');
                 // load the response view to shared 'tab'
-                $('.active.ui.tab').html(response);
+                $('.ui.tab.active.segment').html(response);
             },
             error: function( jqXhr, textStatus, errorThrown )
             {

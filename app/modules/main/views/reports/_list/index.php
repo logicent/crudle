@@ -13,17 +13,17 @@ DataTable::register($this);
 $this->title = Yii::t('app', '{reportTitle}', ['reportTitle' => $reportTitle])
 ?>
 
-<?= $this->render('header') ?>
+<?php //= $this->render('header') ?>
 
 <div class="ui bottom attached padded segment">
 <?php
     echo GridView::widget([
         'layout' => "{items}\n{pager}",
         'tableOptions' => [
-            'class' => 'ui very basic table'
+            'class' => 'ui padded table'
         ],
         'caption' => isset($caption) ? $caption : null,
-        'captionOptions' => ['class' => 'ui left aligned small secondary header basic segment text-muted', 'style' => 'font-weight: 500'],
+        'captionOptions' => ['class' => 'ui header text-muted', 'style' => 'font-weight: 500'],
         'dataProvider' => $dataProvider,
         'columns'  => ArrayHelper::merge(
             [
