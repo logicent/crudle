@@ -51,12 +51,7 @@ else // id changes on validation
 <?= $this->render('@appMain/views/_form/_section', [
         'title'         => Yii::t('app', 'Widgets'),
         'content'       => $this->render('@appMain/views/_form_section/item', [
-                                'form' => $form,
-                                'model' => new DashboardWidget(),
-                                'detailModels' => $this->context->getDetailModels()[$modelsId],
-                                'formView' => '@appMain/views/dashboard/_widget/field_inputs',
-                                'listColumns' => '@appMain/views/dashboard/_widget/list_columns',
-                                'listId' => 'dashboard_widget',
+                                'modelClass' => DashboardWidget::class
                             ]),
         'collapsible'   => false,
         'expanded'      => true,

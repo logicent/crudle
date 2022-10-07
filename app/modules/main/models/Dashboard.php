@@ -82,14 +82,14 @@ class Dashboard extends BaseActiveRecord
     public static function relations()
     {
         return [
-            'widgets'   => [
+            'dashboardWidget'   => [
                 'class' => DashboardWidget::class,
                 'type' => Type_Relation::ChildModel
             ],
         ];
     }
 
-    public function getWidgets()
+    public function getDashboardWidget()
     {
         return $this->hasMany(DashboardWidget::class, ['dashboard_id' => 'id']);
     }

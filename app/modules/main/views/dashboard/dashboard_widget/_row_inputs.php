@@ -45,11 +45,11 @@ use icms\FomanticUI\modules\Checkbox;
     </td>
     <td class="one wide center aligned">
         <?= Html::a(Elements::icon('grey pencil'), null, [
-                    'class' => 'edit-item--btn compact ui small basic icon button',
+                    'class' => 'edit-row compact ui small basic icon button',
                     'style' => 'margin: 0em;',
                     'data' => [
                         'model-class' => DashboardWidget::class,
-                        'form-view' => '@appMain/views/dashboard/_widget/_edit_form',
+                        'form-view' => '@appMain/views/dashboard/dashboard_widget/field_inputs',
                     ]
                 ]) ?>
         <?= Html::activeHiddenInput($model, "[$rowId]status", ['data' => ['name' => 'status']]) ?>
