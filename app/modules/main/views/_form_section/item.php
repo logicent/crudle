@@ -30,4 +30,3 @@ $this->registerJs(
 );
 
 $this->registerJs($this->render('item/list.js'));
-?>

@@ -85,4 +85,4 @@ $('.user-action').on('click', function(e)
         }
     });
 });
-JS) ?>
+JS);

@@ -96,4 +96,4 @@ use icms\FomanticUI\Elements;
         $('#search_text').trigger('keyup');
         $('#search_text').focus();
     });
-JS) ?>
+JS);

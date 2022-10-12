@@ -80,5 +80,4 @@ $('#add_comment').on('click', function(e)
     });
     return false; // prevent default form submission
 });
-JS)
-?>
+JS);

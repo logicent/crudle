@@ -40,4 +40,4 @@ echo
         'columns'       => $columns,
         'idColumn'      => $idColumn,
         'tsColumn'      => $tsColumn,
-    ]) ?>
+    ]);

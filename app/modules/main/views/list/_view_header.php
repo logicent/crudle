@@ -81,4 +81,4 @@ $this->registerJs(<<<JS
             $('#show_filters').show();
         }
     });
-JS) ?>
+JS);

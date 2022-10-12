@@ -46,4 +46,3 @@ $this->registerJs(<<<JS
     });
 JS
 );
-?>

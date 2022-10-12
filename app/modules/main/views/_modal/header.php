@@ -83,5 +83,4 @@ $this->registerJs(<<<JS
     //     minuteIncrement: 15,
     //     enableTime: true
     // });
-JS)
-?>
+JS);

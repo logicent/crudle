@@ -46,18 +46,18 @@ if (is_a($model, ActiveRecord::class)) :
                 );
     endif;
     if (! $model->isNewRecord) :
-        // echo Html::a(Elements::icon('left chevron'),
-        //             ['previous', 'id' => $model->id],
-        //             [
-        //                 'class' => 'compact ui icon button',
-        //                 'title' => Yii::t('app', 'Previous'),
-        //             ]);
-        // echo Html::a(Elements::icon('right chevron'),
-        //             ['next', 'id' => $model->id],
-        //             [
-        //                 'class' => 'compact ui icon button',
-        //                 'title' => Yii::t('app', 'Next'),
-        //             ]);
+        echo Html::a(Elements::icon('left chevron'),
+                    ['previous', 'id' => $model->id],
+                    [
+                        'class' => 'compact ui icon button',
+                        'title' => Yii::t('app', 'Previous'),
+                    ]);
+        echo Html::a(Elements::icon('right chevron'),
+                    ['next', 'id' => $model->id],
+                    [
+                        'class' => 'compact ui icon button',
+                        'title' => Yii::t('app', 'Next'),
+                    ]);
         if ($model->allowPrint()) :
             echo Html::a(Elements::icon('print', ['class' => 'grey']),
                         ['print-preview', 'id' => $model->id],

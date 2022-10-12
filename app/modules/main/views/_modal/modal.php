@@ -64,4 +64,4 @@ $this->registerJs(<<<JS
         .modal('show');
         return false;
     });
-JS) ?>
+JS);

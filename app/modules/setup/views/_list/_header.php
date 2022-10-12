@@ -102,5 +102,4 @@ $this->registerJs(<<<JS
             .modal('show');
         return false; // this prevents the browser dialog from being loaded.
     });
-JS)
-?>
+JS);

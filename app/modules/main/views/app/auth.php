@@ -51,4 +51,4 @@ $form = ActiveForm::begin([
 <?php ActiveForm::end(); ?>
 </div>
 
-<?php $this->registerCssFile("@web/css/login.css") ?>
+<?php $this->registerCssFile("@web/css/login.css");

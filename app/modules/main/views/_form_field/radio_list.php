@@ -42,4 +42,4 @@ $this->registerJs(<<<JS
         selectedCount = $(this).siblings('label').children('span.selected-list-options');
         selectedCount.text(count);
     });
-JS) ?>
+JS);

@@ -20,4 +20,4 @@ $this->params['breadcrumbs'][] = [
         )
     ]),
     'url' => ['/app' .'/'. $module->id . '/' . $context->id]
-] ?>
+];

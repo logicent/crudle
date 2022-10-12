@@ -42,4 +42,4 @@ foreach ( $comments as $id => $comment ) : ?>
         </div>
     </div>
     <!-- <div class="ui hidden divider"></div> -->
-<?php endforeach ?>
+<?php endforeach;

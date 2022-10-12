@@ -7,5 +7,4 @@ $businessProfile = Setup::getSettings( GeneralSettingsForm::class );
 $this->params['businessLogo'] = $businessProfile->logoPath;
 $this->params['businessName'] = $businessProfile->name;
 
-?>
-<!-- !! content hidden in page view if not lengthy -->
+// !! content hidden in page view if not lengthy

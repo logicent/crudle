@@ -66,4 +66,4 @@ $this->registerCss(<<<CSS
         border: 1px solid #dee5e7;
         border-radius: 0.28571429rem 0.28571429rem 0em 0em;
     }
-CSS) ?>
+CSS);

@@ -55,4 +55,3 @@ echo
 echo
     Html::endTag('div');
 $this->registerJs( $this->render('file_upload.js') );
-?>

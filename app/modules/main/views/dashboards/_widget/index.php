@@ -8,12 +8,7 @@ use crudle\app\widgets\LatestEntries;
 
 ChartJsAsset::register($this);
 
-
-
-
-
 ?>
-
 
 <div class="ui stackable sixteen column grid">
     <?php foreach ($models as $model) : ?>
@@ -23,7 +18,6 @@ ChartJsAsset::register($this);
                 <span class="text-muted"><?= $widget->title ?></span>
             </h3>
             <div class="ui center aligned bottom attached padded segment">
-
 
                 <?php switch ($widget->type):
                     case Type_Widget::NumberBlock:
@@ -92,7 +86,6 @@ ChartJsAsset::register($this);
                             ]
                         ]);
                         break;
-
                     case Type_Widget::LatestEntries:
                         echo LatestEntries::widget([]);
                         break;
@@ -101,5 +94,5 @@ ChartJsAsset::register($this);
                 ?>
             </div>
         </div>
-    <?php endforeach; ?>
+    <?php endforeach ?>
 </div>

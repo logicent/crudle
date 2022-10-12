@@ -16,4 +16,4 @@ Flatpickr::register($this);
         minuteIncrement: 1,
         enableSeconds: true,
     });
-JS) ?>
+JS);

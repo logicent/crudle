@@ -30,4 +30,4 @@ $fieldOptions = array_merge([
         minuteIncrement: 1,
         enableSeconds: true,
     });
-JS) ?>
+JS);

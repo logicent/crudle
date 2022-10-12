@@ -57,4 +57,4 @@ $form = ActiveForm::begin([
         ]) ?>
 </div>
 <?php
-ActiveForm::end() ?>
+ActiveForm::end();

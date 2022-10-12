@@ -55,4 +55,4 @@ function confirmDelete(delete_url, data = null) {
         // .modal('hide dimmer') // not working !!
         .modal('show');
 }
-JS) ?>
+JS);

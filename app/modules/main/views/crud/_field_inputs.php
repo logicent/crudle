@@ -155,4 +155,3 @@ $formSection .= $endLeftColumn .
                 $endFormSection;
 
 echo $formSection;
-?>

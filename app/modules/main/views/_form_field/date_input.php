@@ -34,4 +34,4 @@ $this->registerJs(<<<JS
         // time_24hr : false
         // weekNumbers : false
     });
-JS) ?>
+JS);

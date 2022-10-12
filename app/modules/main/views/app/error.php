@@ -45,5 +45,4 @@ $this->params['businessName'] = $businessProfile->name;
         <!-- ToDo: allow user to set this redirection route and whether it is automatic after mail is sent -->
         <?= Html::a('Go Home', ['/app/home'], ['class' => 'compact ui small primary button']) ?>
     </div>
-
 </div>

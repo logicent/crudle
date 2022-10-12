@@ -41,4 +41,4 @@ function confirmAction(url, data = null)
         }
     });
 }
-JS) ?>
+JS);

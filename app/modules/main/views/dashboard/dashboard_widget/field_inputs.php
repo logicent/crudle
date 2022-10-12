@@ -39,4 +39,4 @@ $form = ActiveForm::begin([
             // 'style' => 'margin-top: 0em'
         ]) ?>
 <?php
-ActiveForm::end() ?>
+ActiveForm::end();

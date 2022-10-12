@@ -21,7 +21,7 @@ $layoutSettings = Setup::getSettings( LayoutSettingsForm::class );
                             ['class' => "massive ui {$menuItem['iconColor']} icon button"]
                         ) .
                     Html::tag('div', Yii::t('app', '{menuLabel}', ['menuLabel' => $menuItem['label']]),
-                            ['class' => 'ui mini header', 'style' => 'margin: 0.5em 0; font-weight: 500']
+                            ['class' => 'ui tiny header', 'style' => 'margin: 0.5em 0; font-weight: 500']
                         ),
                     ['class' => 'column center aligned app-icon']
                 );

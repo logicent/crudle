@@ -99,5 +99,4 @@ $this->registerJs(<<<JS
             $('#template_section #no_data').hide();
 
     });
-JS)
-?>
+JS);

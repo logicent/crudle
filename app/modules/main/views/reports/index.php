@@ -34,4 +34,4 @@ $this->registerJs(<<<JS
         animation : 'pulse',
         duration  : 800
     });
-JS) ?>
+JS);
