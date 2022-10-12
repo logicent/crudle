@@ -50,4 +50,3 @@ $lastElement = $currentUrl[array_key_last($currentUrl)];
     endforeach; ?>
     </div><!-- ./ui card -->
 </div><!-- ./ui column grid -->
-

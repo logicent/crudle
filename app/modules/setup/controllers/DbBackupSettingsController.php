@@ -26,8 +26,9 @@ class DbBackupSettingsController extends BaseSettingsController
 
     public function init()
     {
-        $this->backups = FileHelper::findFiles(Yii::getAlias('@app/../storage/backups'));
-
+        $this->backups = FileHelper::findFiles(Yii::getAlias('@app/../storage/backups'), [
+            'except' => ['.gitignore']
+        ]);
         return parent::init();
     }
 

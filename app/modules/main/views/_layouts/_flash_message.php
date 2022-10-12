@@ -103,4 +103,4 @@ $this->registerJs(<<<JS
   //     });
   //     return false;
   // }
-JS) ?>
+JS);

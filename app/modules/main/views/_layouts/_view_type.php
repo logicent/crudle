@@ -47,4 +47,4 @@ $this->registerJs(<<<JS
             }
         });
     });
-JS) ?>
+JS);

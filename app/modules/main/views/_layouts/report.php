@@ -33,4 +33,4 @@ $this->beginContent($layoutPath . 'base.php') ?>
 </div>
 <?php
     $this->registerCssFile("@web/css/report.css");
-$this->endContent() ?>
+$this->endContent();

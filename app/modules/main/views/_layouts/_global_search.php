@@ -24,5 +24,4 @@ $model = new GlobalSearch;
         <?= Elements::icon('search small link') ?>
     </div>
 <?php ActiveForm::end() ?>
-
 </div>

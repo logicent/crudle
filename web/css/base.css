@@ -1,5 +1,5 @@
 body {
-    /* font-family: "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; */
+    font-family: "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     /* #eef0f6 #fff whitesmoke hsl(225,30,94) rgb(238,240,246) */
     background-color: #eef0f6 !important;
     /* override height: 100% in semantic-ui.css to remove scrollbar in short pages */

@@ -33,4 +33,4 @@ $this->beginContent('@appMain/views/_layouts/base.php') ?>
     </div>
 <?php
     $this->registerCssFile("@web/css/site.css");
-$this->endContent() ?>
+$this->endContent();

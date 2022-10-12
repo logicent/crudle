@@ -59,4 +59,4 @@ $this->beginPage() ?>
     </body>
 </html>
 
-<?php $this->endPage() ?>
+<?php $this->endPage();

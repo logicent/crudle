@@ -8,16 +8,16 @@ $currentUrl = explode('/', Url::current());
 ?>
 
 <div class="ui visible icon sidebar vertical menu" id="main_sidebar">
-        <!-- <div class="item" id="menu_icon"> -->
-        <?php /*= Html::a(Elements::icon('grey close outline grey', ['style' => 'margin-right: 0em;']),
+        <div class="item" id="menu_icon">
+        <?= Html::a(Elements::icon('grey close outline grey', ['style' => 'margin-right: 0em;']),
                     false,
-                    ['id' => 'hide_sidebar']) */ ?>
-        <?php /*= Html::a(Elements::icon('grey grey'), ['#'],
-                ['id' => 'pin_sidebar', 'class' => 'right floated']) */ ?>
-        <!-- </div> -->
-        <?php /*= Html::a(
+                    ['id' => 'hide_sidebar']) ?>
+        <?= Html::a(Elements::icon('grey menu'), ['#'],
+                ['id' => 'pin_sidebar', 'class' => 'right floated']) ?>
+        </div>
+        <?= Html::a(
             Elements::icon('grey globe large') .
-            Yii::t('app', 'Home'), ['/app/home'], ['class' => 'item']) */ ?>
+            Yii::t('app', 'Home'), ['/app/home'], ['class' => 'item']) ?>
         <?= Html::a(
                         Elements::icon('grey dashboard large')
                                 . Yii::t('app', 'Dashboards'),
@@ -67,4 +67,4 @@ $this->registerJs(<<<JS
             .sidebar('setting', 'onChange', $('body').removeClass('dimmable pushable'))
             .sidebar('toggle');
     });
-JS) ?>
+JS);

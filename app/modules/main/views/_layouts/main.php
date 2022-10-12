@@ -53,4 +53,4 @@ $this->beginContent($layoutPath . 'base.php') ?>
 
 <?php
     $this->registerCssFile("@web/css/main.css");
-$this->endContent() ?>
+$this->endContent();

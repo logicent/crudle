@@ -42,4 +42,4 @@ $generalSettings = Setup::getSettings( GeneralSettingsForm::class );
     </div>
 </div>
 
-<?php $this->endBlock() ?>
+<?php $this->endBlock();

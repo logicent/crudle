@@ -56,4 +56,4 @@ use icms\FomanticUI\Elements;
     </div><!-- ./grid container -->
 </div><!-- ./attached menu text -->
 
-<?php $this->endBlock() ?>
+<?php $this->endBlock();
