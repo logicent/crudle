@@ -96,8 +96,8 @@ class DataWidget extends BaseActiveRecord
         ];
     }
 
-    // public static function autoSuggestIdValue()
-    // {
-    //     return false;
-    // }
+    public static function autoSuggestIdValue()
+    {
+        return false;
+    }
 }

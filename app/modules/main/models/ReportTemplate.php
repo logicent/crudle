@@ -83,14 +83,14 @@ class ReportTemplate extends ActiveRecord
     public static function relations()
     {
         return [
-            'templateSection' => [
+            'reportTemplateItem' => [
                 'class' =>  ReportTemplateItem::class,
                 'type'  =>  Type_Relation::ChildModel,
             ],
         ];
     }
 
-    public function getTemplateSection()
+    public function getReportTemplateItem()
     {
         return $this->hasMany(ReportTemplateItem::class, ['template_id' => 'id'])
                     ->orderBy('level ASC');

@@ -77,23 +77,6 @@ class ReportsController extends BaseViewController
         return $this->render('index', [
             'model' => $model,
         ]);
-
-
-
-
-        // $columns = array_diff_key($model->attributeLabels(), $model->skip_in_report);
-
-        // return $this->renderAjax('/report/index', [
-        //     'title' =>  Inflector::titleize($this->id),
-        //     // 'module' => Inflector::titleize(Inflector::pluralize($this->id)),
-        //     'showFilters' => true,
-        //     'pickColumns' => [], // Add column and drag to change position
-        //     'sortBy' => [],
-        //     'showTotals' => false,
-        //     'columns' => $columns, // headers
-        //     'rows' => $model->getReportData($columns),
-        //     'totals' => []
-        // ]);
     }
 
     public function pageNavbar(): string
