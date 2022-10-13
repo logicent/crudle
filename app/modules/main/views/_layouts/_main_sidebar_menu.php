@@ -17,7 +17,7 @@ return [
                 'inactive' => true,
         ],
         [
-                'icon' => 'grey clone outline large',
+                'icon' => 'grey window restore outline large',
                 'route' => 'main',
                 'label' => 'Main',
                 'inactive' => true,
