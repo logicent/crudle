@@ -9,14 +9,14 @@ foreach ($sections as $section) :
     // if (!file_exists('_' . $section['id'] . '.php')) :
     //     continue;
     // endif;
-    echo 
-        $this->render('@appMain/views/_form/_section', [
-            'title'         => $section['label'],
-            'content'       => $this->render($section['id'], [
-                                    'form' => $form,
-                                    'model' => $model
-                                ]),
-            'collapsible'   => $section['collapsible'],
-            'expanded'      => $section['expanded'],
-        ]);
-endforeach ?>
+    echo
+    $this->render('@appMain/views/_form/_section', [
+        'title'         => $section['label'],
+        'content'       => $this->render($section['id'], [
+            'form' => $form,
+            'model' => $model
+        ]),
+        'collapsible'   => $section['collapsible'],
+        'expanded'      => $section['expanded'],
+    ]);
+endforeach;

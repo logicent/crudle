@@ -19,6 +19,8 @@ use crudle\app\main\controllers\action\SwitchViewType;
 use crudle\app\main\enums\Type_Form_View;
 use crudle\app\main\enums\Type_Link;
 use crudle\app\main\enums\Type_View;
+use crudle\app\setup\models\LayoutSettingsForm;
+use crudle\app\setup\models\Setup;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Inflector;
@@ -183,6 +185,13 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
                 return true;
             default:
         }
+    }
+
+    public function sidebarMenus(): array
+    {
+        $layoutSettings = Setup::getSettings( LayoutSettingsForm::class );
+        $menus = $layoutSettings->appSidebarMenu;
+        return $menus ?? [];
     }
 
     public function sidebarColWidth(): string

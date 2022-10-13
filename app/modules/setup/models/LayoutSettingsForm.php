@@ -14,7 +14,7 @@ class LayoutSettingsForm extends BaseSettingsForm
     public $appCreateMenu;
     public $appAlertMenu;
     public $appHelpMenu;
-    // public $appSidebarMenu;
+    public $appSidebarMenu;
     // public $appUserMenu;
     public $hideCreateMenu      = false;
     public $hideHelpMenu        = false;
@@ -46,8 +46,8 @@ class LayoutSettingsForm extends BaseSettingsForm
         $this->appCreateMenu = new AppCreateMenu();
         $this->appAlertMenu = new AppAlertMenu();
         $this->appHelpMenu = new AppHelpMenu();
+        $this->appSidebarMenu = new AppSidebarMenu();
         // $this->appUserMenu = new AppUserMenu();
-        // $this->appSidebarMenu = new AppSidebarMenu();
     }
 
     public function rules()
@@ -125,10 +125,10 @@ class LayoutSettingsForm extends BaseSettingsForm
                 'class' => AppAlertMenu::class,
                 'type' => Type_Relation::InlineModel,
             ],
-            // 'appSidebarMenu' => [
-            //     'class' => AppSidebarMenu::class,
-            //     'type' => Type_Relation::InlineModel,
-            // ],
+            'appSidebarMenu' => [
+                'class' => AppSidebarMenu::class,
+                'type' => Type_Relation::InlineModel,
+            ],
             'appShortcutMenu' => [
                 'class' => AppShortcutMenu::class,
                 'type' => Type_Relation::InlineModel,
@@ -149,7 +149,7 @@ class LayoutSettingsForm extends BaseSettingsForm
                 'appCreateMenu',
                 'appAlertMenu',
                 'appHelpMenu',
-                // 'appSidebarMenu',
+                'appSidebarMenu',
                 // 'appUserMenu',
             // ]
         ];

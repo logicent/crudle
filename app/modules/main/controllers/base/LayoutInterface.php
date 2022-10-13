@@ -11,6 +11,7 @@ interface LayoutInterface
 
     public function pageNavbar(): string;
     public function showMainSidebar(): bool;
+    public function sidebarMenus(): array;
     public function sidebarColWidth(): string;
     public function mainColumnWidth(): string;
     public function fullColumnWidth(): string;

@@ -37,7 +37,6 @@ return [
         'label' => 'Sidebar menu',
         'collapsible' => true,
         'expanded' => false,
-        'hidden' => true,
     ], [
         'id' => '_background_image',
         'label' => 'Background image',

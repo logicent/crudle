@@ -80,7 +80,7 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             // 'enableStrictParsing' => true,
-            'showScriptName' => App::env('CRUDLE_SHOW_SCRIPT_NAME') == 'false' ? false : true,
+            'showScriptName' => (bool) App::env('CRUDLE_SHOW_SCRIPT_NAME'),
             'rules' => $routes,
         ],
         'formatter' => [

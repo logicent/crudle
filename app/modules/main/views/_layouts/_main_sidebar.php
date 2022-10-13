@@ -4,57 +4,27 @@ use yii\helpers\Html;
 use icms\FomanticUI\Elements;
 use yii\helpers\Url;
 
-$currentUrl = explode('/', Url::current());
+$currentRoute = explode('/', Url::current());
+$moduleSegment = $currentRoute[array_key_last($currentRoute)]; // module id
+
+$sidebarMenus = $this->context->sidebarMenus();
+if (empty($sidebarMenus)) : // fetch the default sidebar menus
+        $sidebarMenus = require Yii::getAlias('@appMain/views/_layouts/_main_sidebar_menu.php');
+endif;
 ?>
 
 <div class="ui visible icon sidebar vertical menu" id="main_sidebar">
-        <div class="item" id="menu_icon">
-        <?= Html::a(Elements::icon('grey close outline grey', ['style' => 'margin-right: 0em;']),
-                    false,
-                    ['id' => 'hide_sidebar']) ?>
-        <?= Html::a(Elements::icon('grey menu'), ['#'],
-                ['id' => 'pin_sidebar', 'class' => 'right floated']) ?>
-        </div>
-        <?= Html::a(
-            Elements::icon('grey globe large') .
-            Yii::t('app', 'Home'), ['/app/home'], ['class' => 'item']) ?>
-        <?= Html::a(
-                        Elements::icon('grey dashboard large')
-                                . Yii::t('app', 'Dashboards'),
-                        ['/app/dashboards'],
-                        ['class' => 'item']
-                ) ?>
-
-        <?= Html::a(
-                Elements::icon('grey bar chart large')
-                        . Yii::t('app', 'Reports'),
-                ['/reports'],
-                ['class' => 'item']
-        ) ?>
-        <?= Html::a(
-                        Elements::icon('grey windows large')
-                                . Yii::t('app', 'Main'),
-                        ['/main'],
-                        ['class' => 'item']
-                ) ?>
-        <?= Html::a(
-                Elements::icon('grey toggle on large')
-                        . Yii::t('app', 'Setup'),
-                ['/setup/user'],
-                ['class' => 'item']
-        ) ?>
-        <?= Html::a(
-                Elements::icon('grey sitemap large')
-                        . Yii::t('app', 'Web CMS'),
-                ['/web-cms'],
-                ['class' => 'item']
-        ) ?>
-        <?= Html::a(
-                Elements::icon('grey code large')
-                        . Yii::t('app', 'Kit'),
-                ['/kit'],
-                ['class' => 'item']
-        ) ?>
+<?php
+        foreach ($sidebarMenus as $sidebarMenu) :
+                $menuRoute = explode('/', $sidebarMenu['route']);
+                // avoid -1 issue if index is last key is 0
+                $menuIndex = count($menuRoute) > 1 ? array_key_last($menuRoute) : 1;
+                echo Html::a(
+                        Elements::icon($sidebarMenu['icon']) . Yii::t('app', $sidebarMenu['label']),
+                        ["/app/{$sidebarMenu['route']}"],
+                        ['class' => $moduleSegment == $menuRoute[$menuIndex - 1] ? 'item active' : 'item'],
+                );
+        endforeach ?>
 </div>
 
 <?php
