@@ -23,7 +23,7 @@ Option 2: via CLI
 Continue:
 - Create a database and update your `.env` settings
 - Run `./crudle migrate --migration-path 'app/database/migrations'`
-- Run `cat app/database/seeds/people.sql | mysql -u <my_root_user> -p <my_db_name>`
+- Run `cat app/database/seeds/crdl_People.sql | mysql -u <my_root_user> -p <my_db_name>`
 - Run `./crudle user/create-superuser 'my_password'` and `./crudle rbac/init`
 - Run `./crudle serve -t web` in local environment or use preferred web server in production
 
@@ -31,7 +31,7 @@ Continue:
 
 **Context**
 
-Yii2 Crudle (CRUD logic engine) is a meta framework for rapid application development and customization using a modified project template, some predefined coding conventions and a fully-fledged admin backend built with Semantic UI.
+Yii2 Crudle (CRUD logic engine) is a meta framework for rapid application development and customization using a modified project template, some predefined coding conventions and a fully-fledged admin backend built with Fomantic UI.
 
 **Containers**
 - backend   (App)
@@ -66,7 +66,7 @@ _Extension modules_
 ### Technology Stack
 **Programming Languages and Frameworks**
 - PHP 7.4 using Yii2 _(latest)_ and JavaScript using jQuery _(latest)_
-- Yii2-dockerized _(optional)_
+- To-Do: Yii2-dockerized _(optional)_
 
 **Templating**
 - Twig _(to consider)_
@@ -76,16 +76,15 @@ _Extension modules_
 - SQLite (offline) _(todo later)_
 
 **UI Frameworks, Components and Libraries**
-- jQuery
-- HTMX 2  _(todo later)_
-- Fullcalendar 5.3  _(todo next)_
-- LeafletJS 1.8  _(todo next)_
+- HTMX 2 _(wip)_
+- Fullcalendar 5.x _(todo later)_
+- LeafletJS 1.8 _(todo later)_
 
 **Web Servers**
 - PHP built-in web server via `./crudle serve -t web` (Development)
 - Nginx (Production)
 
-**Process Manager**  _(to consider)_
+**Process Manager** _(to consider)_
 - Development
 - Production
 
@@ -103,12 +102,12 @@ _Extension modules_
 
 ### Roadmap
 _Now:_
-- [ ] wip: Increase the UI layout width, add a pinable sidebar and editable menus
-- [ ] wip: Improve all the end-user system tools, app preferences and performance
+- [ ] _wip:_ Increase the UI layout width, add a pinable sidebar and editable menus
+- [ ] _wip:_ Improve all the end-user system tools, app preferences and performance
 - [ ] Email templates for sending mail with attachments for documents and reports
 
 _Next:_
-- [ ] Upgrade to latest Yii2 using PHP 8+ and MySQL 8+ with Fomantic UI 2.8+
+- [ ] Upgrade to latest Yii2 using PHP 8+ and MySQL 8+ with Fomantic UI 2.9+
 - [ ] Create Yii extensions for the tools and starter kit as composer packages
 - [ ] Add multi-tenant project structure and init script - _PoC done_
 
