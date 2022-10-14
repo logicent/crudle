@@ -6,9 +6,6 @@ use yii\helpers\Html;
 
 <div class="ui padded segment">
     <div class="two fields">
-        <?= Html::activeHiddenInput($model, 'organization_id', [
-                'value' => $model->isNewRecord ? Yii::$app->user->identity->person->organization_id : $model->organization_id,
-        ]) ?>
         <?= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>
         <?= $form->field($model, 'alias')->textInput(['maxlength' => true]) ?>
     </div>

@@ -99,6 +99,7 @@ foreach ($fieldInputs as $attribute => $fieldInput) :
             $field = $this->render('@appMain/views/_form_field/select', [
                         'model' => $model,
                         'attribute' => $attribute,
+                        'list' => []
                     ]);
             break;
         case Type_Field_Input::Dropdown:
@@ -113,6 +114,7 @@ foreach ($fieldInputs as $attribute => $fieldInput) :
             $field = $this->render('@appMain/views/_form_field/textarea', [
                         'model' => $model,
                         'attribute' => $attribute,
+                        'form' => $form,
                     ]);
             break;
         case Type_Field_Input::LargeText:

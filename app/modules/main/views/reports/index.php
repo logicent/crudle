@@ -19,14 +19,15 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['/app/repor
 </div>
 <div class="ui tab active segment" style="margin-left: 120px;">
 
-    <?php if (in_array('dataProvider', array_keys(get_defined_vars()))) : ?>
-    <?= $this->render('_list/index', [
+<?php
+if (in_array('dataProvider', array_keys(get_defined_vars()))) :
+    echo $this->render('_list/index', [
             'dataProvider' => $dataProvider,
             'reportTitle' => $model->title,
             'hideId' => true,
-            'columns' => $columns
-        ]) ?>
-<?php endif; ?>
+            'columns' => [], // $columns
+    ]);
+endif ?>
 </div>
 <?php
 $this->registerJs(<<<JS

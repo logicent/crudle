@@ -18,9 +18,7 @@ $this->beginContent('@appMain/views/_layouts/base.php') ?>
             <div class="ui two column stackable grid">
                 <div class="eight wide column">
                     <!-- <p> -->
-                        <?= $layoutSettings->copyrightLabel ?
-                            $layoutSettings->copyrightLabel :
-                            Yii::$app->params['appCopyright'] .'&nbsp;'. Yii::$app->params['appVersion'] ?>
+                        <?= $layoutSettings->copyrightLabel ??= Yii::$app->params['appCopyright'] .'&nbsp;'. Yii::$app->params['appVersion'] ?>
                     <!-- </p> -->
                 </div>
                 <div class="eight wide column right aligned">

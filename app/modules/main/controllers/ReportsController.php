@@ -29,12 +29,13 @@ class ReportsController extends BaseViewController
     public function actionIndex($id = null)
     {
         $model = ReportBuilder::findOne(['route' => $id]);
-       
-        
-        if ($model != null) {
 
-            $columns = ReportBuilderItem::find()->where(['report_builder_id' => $model->id])->select('attribute_name')->column();
-
+        if ($model != null) 
+        {
+            $columns = ReportBuilderItem::find()
+                            ->where(['report_builder_id' => $model->id])
+                            ->select('attribute_name')
+                            ->column();
             $query = $model->model_name::find();
 
             $provider = new ActiveDataProvider([
@@ -67,11 +68,11 @@ class ReportsController extends BaseViewController
                     'columns' => $columns
                 ]);
             else
-            return $this->render('index', [
-                'model' => $model,
-                'dataProvider' => $provider,
-                'columns' => $columns
-            ]);
+                return $this->render('index', [
+                    'model' => $model,
+                    'dataProvider' => $provider,
+                    'columns' => $columns
+                ]);
         }
 
         return $this->render('index', [
