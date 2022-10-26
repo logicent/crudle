@@ -23,3 +23,5 @@ $form = ActiveForm::begin([
         // ->label(Yii::t('app', 'Send password change email notification')) 
         ?>
 </div>
+<?php ActiveForm::end();
+$this->registerJs($this->render('@appMain/views/_modal/submit.js'));

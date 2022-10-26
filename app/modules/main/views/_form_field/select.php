@@ -27,6 +27,13 @@ if (isset($form)) :
     ]);
 else :
     $field = Html::activeDropDownList($model, $attribute, $items, $options);
+    // $field = Select::widget([
+    //     'model' => $model,
+    //     'attribute' =>  $attribute,
+    //     'items' => $items,
+    //     // 'search' => false,
+    //     'options' => $options 
+    // ]);
 endif;
 
 echo $field;

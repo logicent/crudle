@@ -1,21 +1,27 @@
 <?php
 
 use crudle\app\assets\Flatpickr;
+use yii\helpers\Html;
 
 Flatpickr::register($this);
 
 $fieldOptions = array_merge([
     'class' => 'selected-date pikadaytime',
-    'readonly' => $this->context->isReadonly()
+    // 'readonly' => $this->context->isReadonly() ? 'readonly' : false,
 ], $options ?? []);
-?>
 
-<?= $form->field($model, $attribute)->textInput($fieldOptions) ?>
+if (isset($form)) :
+    $field = $form->field($model, $attribute)->textInput($fieldOptions);
+else :
+    $field = Html::activeTextInput($model, $attribute, $fieldOptions);
+endif;
 
-<?php $this->registerJs(<<<JS
-    isReadonly = $('.selected-date').attr('readonly') == 'readonly';
-    if (isReadonly)
-        $('.selected-date').removeClass('pikaday');
+echo $field;
+
+$this->registerJs(<<<JS
+    // isReadonly = $('.selected-date').attr('readonly') == 'readonly';
+    // if (isReadonly)
+    //     $('.selected-date').removeClass('pikadaytime');
 
     $('.pikadaytime').flatpickr({
         // minDate : null,
@@ -28,6 +34,6 @@ $fieldOptions = array_merge([
         // weekNumbers : false
         enableTime: true,
         minuteIncrement: 1,
-        enableSeconds: true,
+        enableSeconds: false,
     });
 JS);

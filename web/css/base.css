@@ -6,22 +6,17 @@ body {
     height: auto;
 }
 
-@media only screen and (min-width: 1300px) {
+/* @media only screen and (min-width: 1300px) {
     .ui.container, .ui.grid.container {
         width: 1290px !important;
     }
-}
+} */
 
 /* @media only screen and (min-width: 1600px) {
     .ui.container, .ui.grid.container {
         width: 1590px !important;
     }
 } */
-
-#page_head > .grid > .column {
-    padding-left: 0rem;
-    padding-right: 0rem;
-}
 
 .main {
     /* background-color: #4b4c9d; */
@@ -30,6 +25,8 @@ body {
     /* color: #fff; */
     /* min-width: 100%; */
     margin-top: 124px;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
     /* border: 0px; */
     /* position: absolute; */
     /* top: 0; */
@@ -37,40 +34,70 @@ body {
     /* overflow: auto; */
 }
 
-#main_nav, #page_head {
-    /* #ffffff #fff white hsl(0,0,100) rgb(255,255,255) */
-    background-color: #ffffff;
-    border-color: #ebeff2;
-    padding: 1em 0;
-}
-/* Alert / Notifications counters */
-#main_nav .ui.dropdown .menu > .item > .label {
-    float: right;
-    margin-top: -1.45em;
-    margin-right: 0;
-}
-
-#page_head .view-header {
-    text-overflow: ellipsis; 
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-#page_head .ui.header, .ui.floated.header {
-    font-weight: normal;
-    color:#36414c;
-}
-
-#header_wrapper {
-    left: 0;
+hgroup {
     position: fixed;
+    left: 0;
     right: 0;
     top: 0;
     z-index: 801;
 }
 
-#main_nav, #page_header {
-    position: relative;
+.main-head.ui.menu.text {
+    margin: 0em -0.5em;
+}
+
+.main-container, .page-container {
+    /* position: relative; */
+    border-bottom: 1px solid #ebeff2;
+}
+
+.main-head, .page-head {
+    /* #ffffff #fff white hsl(0,0,100) rgb(255,255,255) */
+    background-color: #ffffff !important;
+    padding: 1em 0em;
+}
+
+.main-head .ui.breadcrumb {
+    padding-inline-start: 0px;
+}
+
+/* Alert / Notifications counters */
+.main-head .ui.dropdown .menu > .item > .label {
+    float: right;
+    margin-top: -1.45em;
+    margin-right: 0;
+}
+
+.page-head > .ui.grid  > .column {
+    padding-left: 0.22rem;
+    padding-right: 0.22rem;
+}
+
+.page-head .page-title {
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.page-head .page-title {
+    font-weight: normal;
+    color:#36414c;
+}
+
+.page-head .ui.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+    font-size: 1.5em;
+}
+
+.ui.header .icon:only-child {
+    /* display: inline-block;
+    padding: 0em; */
+    margin-right: 0.4em;
+    vertical-align: 0.1em;
+    font-size: 75%;
+}
+
+.ui.header small {
+    font-size: 70%;
 }
 
 #home_icon .ui.button, #main_menu {
@@ -192,7 +219,7 @@ body::-webkit-scrollbar-thumb {
     font-weight: 500;
 }
 
-#main_nav.ui.text.menu .item {
+.main-head.ui.text.menu .item {
     font-weight: 500;
     font-size: 1rem;
     padding: 0.35714286em 0em;
@@ -230,28 +257,27 @@ body::-webkit-scrollbar-thumb {
 }
 
 #sidebar {
-    position: fixed;
+    /* position: fixed; */
     transition: none;
     z-index: 800;
-    width: 188.562px;
 }
 
-.page-sidebar .ui.vertical.menu {
+/* .page-sidebar .ui.vertical.menu {
     width: 17.9rem;
-}
+} */
 
 .page-sidebar .ui.secondary.vertical.pointing.menu .item:hover, 
 .page-sidebar .ui.secondary.vertical.pointing.menu .item.active {
     border-right-color: #1B1C1D;
-    width: 99%;
+    /* width: 99%; */
 }
 
 .page-sidebar {
-    position: fixed;
+    /* position: fixed; */
     height: 50rem;
     overflow-x: hidden;
     overflow-y: scroll;
-    margin-left: 40px;
+    /* margin-left: 40px; */
 }
 
 .ui.secondary.vertical.pointing.menu {
@@ -282,6 +308,7 @@ body::-webkit-scrollbar-thumb {
 
 .ui.table thead th {
     border-bottom: 2px solid #dee5e7;
+    /* padding: 0.875em 0.78571429em !important; */
 }
 
 .ui.structured.celled.table tr th,
@@ -713,20 +740,29 @@ body::-webkit-scrollbar-thumb {
     font-size: 14px !important;
 }
 
-.in-form.table td.select-field-type {
+.in-form.ui.table td {
     padding: 0em !important;
 }
 
-.in-form.table td.select-field-type > div.input > .ui.dropdown {
-    /* padding: 0.5em !important; */
+.ui.table .ui.selection.dropdown {
+    width: 100%;
+}
+
+.ui.table input[type="text"],
+.ui.table input[type="text"]:focus,
+.ui.table select,
+.ui.table select:focus-visible,
+.ui.table .ui.selection.dropdown {
+    padding: 1em 0.85em !important;
     font-size: 14px;
+    color: #555;
     border: none;
     border-radius: 0em;
     box-shadow: none;
     -webkit-box-shadow: none;
 }
 
-.in-form.table td > div.input > textarea {
+.ui.table textarea {
     padding: 0.5em 0em !important;
     line-height: 17px;
 }
@@ -735,42 +771,36 @@ body::-webkit-scrollbar-thumb {
     width: 18px;
 }
 
-.login {
-    padding-left: 3em !important;
-    padding-right: 3em !important;
-}
-
-#main_sidebar {
-    position: fixed;
+#crudle__main_sidebar > .ui.vertical.menu {
     z-index: 100;
     background: #fff;
     padding-top: 8.25em !important;
 }
 
-#main_sidebar.ui.vertical.menu .item {
+#crudle__main_sidebar .ui.vertical.menu .item {
     padding: 1.5em .75em;
     border: none !important;
 }
 
-#main_sidebar.ui.vertical.menu {
+#crudle__main_sidebar .ui.vertical.menu {
     border: none;
 }
 
-#main_sidebar.ui.vertical.menu .item > i.icon {
+#crudle__main_sidebar .ui.vertical.menu .item > i.icon {
     /* float: left; */
     line-height: 0.5em;
 }
 
-#main_sidebar > a.item > i.grey {
+#crudle__main_sidebar > a.item > i.grey {
     /* color: #8D99A6 !important; */
     opacity: 0.8;
 }
 
-#main_sidebar a#pin_sidebar {
+#crudle__main_sidebar a#pin_sidebar {
     float: right;
 }
 
-#main_sidebar a#pin_sidebar i {
+#crudle__main_sidebar a#pin_sidebar i {
     margin-right: 0em;
     color: #8d99a6 !important;
 }
@@ -798,22 +828,6 @@ body::-webkit-scrollbar-thumb {
 .ui.cards > .card, .ui.card .content {
     /* border-top: none; */
     margin-top: 1em;
-}
-
-#page_head .ui.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-    font-size: 1.5em;
-}
-
-.ui.header .icon:only-child {
-    /* display: inline-block;
-    padding: 0em; */
-    margin-right: 0.4em;
-    vertical-align: 0.1em;
-    font-size: 75%;
-}
-
-.ui.header small {
-    font-size: 70%;
 }
 
 .ui.form > .ui.segments, .ui.form > .ui.segment {

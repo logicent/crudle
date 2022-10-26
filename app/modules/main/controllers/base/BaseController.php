@@ -25,14 +25,4 @@ abstract class BaseController extends Controller
         // stop executing this action and refresh the current page
         return $this->refresh();
     }
-
-    // public function afterAction($action, $result)
-    // {
-    //     $result = parent::afterAction($action, $result);
-    //     // your custom code here
-    //     // Yii::$app->response->statusCode = 200;
-    //     // get URLs for back button - not working perhaps use a cache of links
-    //         // Do this for all actionIndex
-    //     return $result;
-    // }
 }

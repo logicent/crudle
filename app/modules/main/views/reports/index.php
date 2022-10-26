@@ -14,20 +14,17 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['/app/repor
             'style' => "$model->bgImageStyles"
         ]);
     endif ?>
-    
-
 </div>
-<div class="ui tab active segment" style="margin-left: 120px;">
-
+<div class="ui tab active padded segment" style="margin: 0em;">
 <?php
-if (in_array('dataProvider', array_keys(get_defined_vars()))) :
-    echo $this->render('_list/index', [
-            'dataProvider' => $dataProvider,
-            'reportTitle' => $model->title,
-            'hideId' => true,
-            'columns' => [], // $columns
-    ]);
-endif ?>
+    if (in_array('dataProvider', array_keys(get_defined_vars()))) :
+        echo $this->render('_list/index', [
+                'dataProvider' => $dataProvider,
+                'reportTitle' => $model->title,
+                'hideId' => true,
+                'columns' => [], // $columns
+        ]);
+    endif ?>
 </div>
 <?php
 $this->registerJs(<<<JS

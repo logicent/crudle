@@ -19,7 +19,8 @@ if (empty($sidebarMenus)) : // fetch the default sidebar menus
 endif;
 ?>
 
-<div class="ui visible icon sidebar vertical menu" id="main_sidebar">
+<div class="one wide column" id="crudle__main_sidebar" style="background: inherit">
+        <div class="ui visible icon sidebar vertical menu">
 <?php
         foreach ($sidebarMenus as $sidebarMenu) :
                 $menuRoute = explode('/', $sidebarMenu['route']);
@@ -31,6 +32,7 @@ endif;
                         ['class' => $moduleSegment == $menuRoute[$menuIndex] ? 'item active' : 'item'],
                 );
         endforeach ?>
+        </div>
 </div>
 
 <?php

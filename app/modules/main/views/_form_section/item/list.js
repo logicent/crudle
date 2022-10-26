@@ -1,48 +1,61 @@
 $('.ui.modals').on('click', '.update-row',
-    function (e) {
-        update_btn = $(this);
-        table_row = $('#' + update_btn.data('row-id'));
-        row_inputs = table_row.children('td').children('input');
-        // row_checkbox = table_row.children('td').children('div').children('input[type="hidden"]');
-        // formData = new FormData( document.getElementById(update_btn.data('row-id') + '__modal'));
-        form_inputs = $('#' + update_btn.data('row-id') + '__modal').find('input');
-        modal_id = table_row.attr('id') + '__modal';
+    function(ev) {
+        el_button = $(this);
+        sl_table_id = '#' + el_button.data('table-id');
+        sl_modal_id = '#' + el_button.data('table-id') + '__modal';
+        // formData = new FormData( document.getElementById(el_button.data('table-id') + '__modal');
 
-        form_inputs.each(function(){
-            input = table_row.find('input[data-name=' + $(this).data('name') + ']');
-            input.val($(this).val());
+        el_tr = $(sl_table_id).find('tr[data-row-id="' + el_button.data('row-id') + '"]');
+
+        el_tr_inputs = el_tr.children('td').children('input');
+        el_form_inputs = $(sl_modal_id).find('input');
+        el_form_inputs.each(function(ix, el){
+            el_tr_input = el_tr.find('input[name="' + $(this).attr('name') + '"]');
+            el_tr_input.val($(this).val());
+        });
+
+        el_tr_selects = el_tr.children('td').children('select');
+        el_form_selects = $(sl_modal_id).find('select');
+        el_form_selects.each(function(ix, el){
+            el_tr_select = el_tr.find('select[name="' + $(this).attr('name') + '"]');
+            el_tr_select.find('option[value="' + $(this).val() + '"]').attr('selected', 'selected');
         });
         // close the modal form
-        $('#' + modal_id).parents('.ui.modal').modal('hide');
+        $(sl_modal_id).closest('.ui.modal').modal('hide');
     });
 
 $('table.in-form').on('click', '.edit-row',
-    function (e) {
-        edit_btn = $(this);
-        table_row = edit_btn.closest('tr');
-        row_inputs = table_row.children('td').children('input');
-        row_selects = table_row.children('td').children('select');
+    function(ev) {
+        el_tr = $(this).closest('tr');
+        el_table_div = el_tr.closest('table').parent('div');
+        modal_id = el_table_div.attr('id') + '__modal';
 
-        modal_id = table_row.parents('table').parent('div').attr('id') + '__modal';
+        el_tr_inputs = el_tr.children('td').children('input');
+        el_tr_selects = el_tr.children('td').children('select');
 
-        row_fields = [];
-        row_inputs.each(function(){
-            field = { 'name': $(this).data('name'), 'value': $(this).val()};
-            row_fields.push(field);
+        tr_fields = [];
+        el_tr_inputs.each(function(){
+            field = { 'name': $(this).attr('name'), 'value': $(this).val()};
+            tr_fields.push(field);
         });
-        row_selects.each(function(){
-            field = { 'name': $(this).data('name'), 'value': $(this).val()};
-            row_fields.push(field);
+        el_tr_selects.each(function(){
+            field = { 'name': $(this).attr('name'), 'value': $(this).val()};
+            tr_fields.push(field);
         });
+
+        _modal_form = $(this).data('modal-form');
+        if (typeof(_modal_form) === 'undefined')
+            _modal_form = el_table_div.attr('id') + '/field_inputs';
 
         $.ajax({
-            url: tableRow.editUrl,
-            type: 'get',
+            url: js_listParams.edit_row_url,
+            type: 'post',
             data: {
-                'modelClass': $(this).data('model-class'),
-                'editView': $(this).data('form-view'),
-                'rowData': row_fields,
-                'rowId': table_row.attr('id'),
+                '_model_class'  : el_table_div.find('.add-row').data('model-class'),
+                '_modal_form'   : _modal_form,
+                '_row_inputs'   : el_table_div.attr('id') + '/_row_inputs',
+                '_row_values'   : tr_fields,
+                '_row_counter'  : el_tr.data('row-id'),
             },
             success: function( response )
             {
@@ -62,7 +75,7 @@ $('table.in-form').on('click', '.edit-row',
     });
 
 $('table.in-form tbody').on('click', 'input.pikadaytime',
-    function(e) {
+    function(ev) {
         $(this).flatpickr({
             // hourIncrement : 1,
             minuteIncrement: 15,
@@ -71,16 +84,16 @@ $('table.in-form tbody').on('click', 'input.pikadaytime',
     });
 
 $('table.in-form tbody').on('change', 'select.list-option',
-    function(e) {
-        e.stopPropagation(); // !! DO NOT use return false it stops execution
+    function(ev) {
+        ev.stopPropagation();
 
         if ($(this).val() == '')
             return false;
 
-        table_row = $(this).closest('tr');
+        el_tr = $(this).closest('tr');
 
         $.ajax({
-            url: tableRow.getUrl,
+            url: js_listParams.getUrl,
             type: 'get',
             data: {
                 'item_id': $(this).val()
@@ -95,17 +108,17 @@ $('table.in-form tbody').on('change', 'select.list-option',
     });
 
 $('table.in-form tbody').on('change', 'td > input',
-    function(e) {
-        e.stopPropagation(); // !! DO NOT use return false it stops execution
+    function(ev) {
+        ev.stopPropagation();
 
         if ($(this).val() == '')
             return false;
 
-        table_row = $(this).closest('tr');
+        el_tr = $(this).closest('tr');
     });
 
 $('table.in-form').on('click',  'th.select-all-rows > .ui.checkbox',
-    function(e) {
+    function(ev) {
         select_all_rows = $(this).find('input').is(':checked');
         all_rows = $(this).parents('table').find('td.select-row input');
         del_row = $(this).parents('table').siblings('.del-row');
@@ -113,7 +126,7 @@ $('table.in-form').on('click',  'th.select-all-rows > .ui.checkbox',
         if (select_all_rows) {
             del_row.show();
             all_rows.each(
-                function (e) {
+                function(ev) {
                     $(this).prop('checked', true);
                 }
             );
@@ -121,7 +134,7 @@ $('table.in-form').on('click',  'th.select-all-rows > .ui.checkbox',
         else {
             del_row.hide();
             all_rows.each(
-                function (e) {
+                function(ev) {
                     $(this).prop('checked', false);
                 }
             );
@@ -129,22 +142,25 @@ $('table.in-form').on('click',  'th.select-all-rows > .ui.checkbox',
     });
 
 $('.add-row').on('click',
-    function(e) {
-        e.stopPropagation(); // !! DO NOT use return false it stops execution
-        el_table = $(this).siblings('table.in-form');
-        el_table_body = el_table.find('tbody');
+    function(ev) {
+        ev.stopPropagation();
+        el_table_div = $(this).parent('div')
+        at_table_id = el_table_div.attr('id')
+        el_table = el_table_div.find('table');
+        el_tbody = el_table_div.find('tbody');
+        vl_trCount = el_table_div.find('tbody > tr').not('#no_data').length
 
         $.ajax({
-            url: tableRow.addUrl,
+            url: js_listParams.add_row_url,
             type: 'get',
             data: {
-                'modelClass': $(this).data('model-class'),
-                'formView': $(this).data('form-view'),
-                'nextRowId': el_table_body.find('tr').not('#no_data').length + 1
+                '_model_class': $(this).data('model-class'),
+                '_row_inputs': at_table_id + '/_row_inputs',
+                '_row_counter': vl_trCount
             },
             success: function(response) {
-                el_table_body.find('tr#no_data').hide();
-                el_table_body.append(response);
+                el_tbody.find('tr#no_data').hide();
+                el_tbody.append(response);
 
                 displaySelectAllCheckboxIf(el_table);
             },
@@ -155,7 +171,7 @@ $('.add-row').on('click',
     });
 
 $('table.in-form tbody').on('click', 'td.select-row > .ui.checkbox',
-    function(e) {
+    function(ev) {
         select_all_rows = $(this).parents('table').find('th.select-all-rows > .ui.checkbox > input');
         selected_rows = $(this).parents('table').find('.select-row input:checked').length;
         all_rows = $(this).parents('tbody').find('.select-row input:checkbox').length;
@@ -175,15 +191,15 @@ $('table.in-form tbody').on('click', 'td.select-row > .ui.checkbox',
     });
 
 $('.del-row').on('click',
-    function(e) {
+    function(ev) {
         $(this).css('display', 'none');
         el_table = $(this).siblings('table.in-form');
         selected_rows = el_table.find('td.select-row > .ui.checkbox > input:checked');
 
         selected_rows.each(
-            function(e) {
-                table_row = $(this).parents('tr');
-                table_row.remove();
+            function(ev) {
+                el_tr = $(this).parents('tr');
+                el_tr.remove();
             });
         displaySelectAllCheckboxIf(el_table);
     });
@@ -193,8 +209,8 @@ function displaySelectAllCheckboxIf(el_table)
     cb_select_all_rows = el_table.find('thead th.select-all-rows .ui.checkbox');
     cb_select_all_rows.find('input').prop('checked', false);
 
-    rowCount = el_table.find('tbody > tr').not('#no_data').length;
-    if (rowCount == 0) {
+    vl_trCount = el_table.find('tbody > tr').not('#no_data').length;
+    if (vl_trCount == 0) {
         el_table.find('tbody > tr#no_data').show();
         cb_select_all_rows.hide();
     }

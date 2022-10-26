@@ -39,7 +39,6 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
     public function init()
     {
         parent::init();
-
         Yii::$app->language = Yii::$app->request->cookies->getValue('language', 'en');
 
         $this->viewPath = dirname($this->viewPath) .'/'. Inflector::underscore(
@@ -55,16 +54,31 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
     {
         // If there is no logged in user session
         if (is_null(Yii::$app->user->identity) &&
+            $this->action->id !== '' &&
             $this->action->id !== 'login' &&
             $this->action->id !== 'request-password-reset' &&
             $this->action->id !== 'reset-password'
         )
-            $this->redirect(['/app/login']);
+        {
+            $headers = Yii::$app->request->headers;
+            if ($headers->has('HX-Request'))
+                return $this->redirect(['/app/login'], 302); // !! Experimental : Testing behavior
+            // else
+            return $this->redirect(['/app/login']);
+        }
 
         Url::remember(Yii::$app->request->getUrl(), 'go back');
 
         return parent::beforeAction($action);
     }
+
+    // public function afterAction($action, $result)
+    // {
+    //     $result = parent::afterAction($action, $result);
+    //     // your custom code here
+    //     // Yii::$app->response->statusCode = 204;
+    //     return $result;
+    // }
 
     public function actions()
     {
@@ -201,12 +215,12 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
 
     public function mainColumnWidth(): string
     {
-        return 'thirteen';
+        return 'twelve';
     }
 
     public function fullColumnWidth(): string
     {
-        return 'sixteen';
+        return 'fourteen';
     }
 
     public function showQuickReportMenu(): bool

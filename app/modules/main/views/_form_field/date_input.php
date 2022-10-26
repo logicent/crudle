@@ -7,7 +7,7 @@ Flatpickr::register($this);
 
 $defaultOptions = [
     'class' => 'selected-date pikaday',
-    'readonly' => $this->context->isReadonly(),
+    // 'readonly' => $this->context->isReadonly() ? 'readonly' : false,
 ];
 $options = isset($options) ? array_merge($defaultOptions, $options) : $defaultOptions;
 
@@ -20,9 +20,9 @@ endif;
 echo $field;
 
 $this->registerJs(<<<JS
-    isReadonly = $('.selected-date').attr('readonly') == 'readonly';
-    if (isReadonly)
-        $('.selected-date').removeClass('pikaday');
+    // isReadonly = $('.selected-date').attr('readonly') == 'readonly';
+    // if (isReadonly)
+    //     $('.selected-date').removeClass('pikaday');
 
     $('.pikaday').flatpickr({
         // minDate : null,

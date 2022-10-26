@@ -29,7 +29,7 @@ $this->beginPage() ?>
 <?php
     $this->beginBody() ?>
 
-    <div id="header_wrapper">
+    <hgroup>
     <?php
         $controller = $this->context;
         // $layoutPath = '@appMain/views/_layouts/';
@@ -44,7 +44,7 @@ $this->beginPage() ?>
             // echo $this->render($layoutPath . '_view_header');
             echo $this->render('@appMain/views/_layouts/_view_header');
         endif ?>
-    </div>
+    </hgroup>
 
     <?= $content ?>
 <?php

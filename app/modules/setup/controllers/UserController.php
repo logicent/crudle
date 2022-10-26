@@ -257,7 +257,7 @@ class UserController extends BaseCrudController
     public function actionChangePwd( $id )
     {
         $this->auth = Auth::findOne( $id );
- 
+
         if (Yii::$app->request->isAjax && $this->auth->load(Yii::$app->request->post(), 'Auth'))
         {
             if (!empty( $this->auth->new_password ))

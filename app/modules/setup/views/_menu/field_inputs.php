@@ -27,37 +27,31 @@ $form = ActiveForm::begin([
     <div class="ui divider"></div>
     <div class="ui two column stackable grid">
         <div class="column">
-            <?= $form->field($model, 'label')->textInput(['maxlength' => true, 'data' => ['name' => 'label']]) ?>
+            <?= $form->field($model, 'label')->textInput(['maxlength' => true]) ?>
             <?= $model->parentLabel !== false ? $form->field($model, 'parentLabel')->dropDownList([]) : null ?>
-            <?php //= $form->field($model, "iconPath")->textInput(['maxlength' => true, 'data' => ['name' => 'iconPath']]) ?>
-            <?= $form->field($model, 'icon')->textInput(['maxlength' => true, 'data' => ['name' => 'icon']]) ?>
-            <?= $form->field($model, 'iconColor')->textInput(['maxlength' => true, 'data' => ['name' => 'iconColor']]) ?>
+            <?php //= $form->field($model, "iconPath")->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'icon')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'iconColor')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="column">
-            <?= $form->field($model, 'route')->textInput(['maxlength' => true, 'data' => ['name' => 'route']]) ?>
+            <?= $form->field($model, 'route')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'openInNewTab')->checkbox([
-                    'data' => ['name' => 'openInNewTab'],
                     'options' => ['style' => 'vertical-align: text-top']
                 ]) ?>
-            <?= Html::activeHiddenInput($model, "type", ['data' => ['name' => 'type']]) ?>
+            <?= Html::activeHiddenInput($model, "type") ?>
             <?= $form->field($model, "alignRight")->checkbox([
-                    'data' => ['name' => 'alignRight'],
                     'options' => ['style' => 'vertical-align: text-top']
                 ]) ?>
             <?= $form->field($model, "inactive")->checkbox([
-                    'data' => ['name' => 'inactive'],
                     'options' => ['style' => 'vertical-align: text-top']
                 ]) ?>
         </div>
     </div>
-    <div class="ui divider"></div>
-
-    <?= Elements::button('Update Item', [
-            'class' => 'compact small update-row',
-            'data'  => [
-                'row-id' => $rowId
-            ]
-        ]) ?>
 </div>
-<?php
+<?= Elements::button('Update row', [
+        'class' => 'compact small update-row',
+        'data'  => [
+            'row-id' => $rowId
+        ]
+        ]);
 ActiveForm::end();

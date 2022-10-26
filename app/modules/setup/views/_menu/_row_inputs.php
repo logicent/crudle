@@ -14,22 +14,13 @@ use icms\FomanticUI\modules\Checkbox;
             ]) ?>
     </td>
     <td>
-        <?= Html::activeTextInput($model, "[$rowId]label", [
-                'maxlength' => true,
-                'data' => ['name' => 'label']
-            ]) ?>
+        <?= Html::activeTextInput($model, "[$rowId]label", ['maxlength' => true]) ?>
     </td>
     <td>
-        <?= Html::activeTextInput($model, "[$rowId]route", [
-                'maxlength' => true,
-                'data' => ['name' => 'route']
-            ]) ?>
+        <?= Html::activeTextInput($model, "[$rowId]route", ['maxlength' => true]) ?>
     </td>
     <td>
-        <?= Html::activeTextInput($model, "[$rowId]icon", [
-                'maxlength' => true,
-                'data' => ['name' => 'icon']
-            ]) ?>
+        <?= Html::activeTextInput($model, "[$rowId]icon", ['maxlength' => true]) ?>
     </td>
     <td class="center aligned">
         <?= Checkbox::widget([
@@ -37,7 +28,6 @@ use icms\FomanticUI\modules\Checkbox;
                 'attribute' => "[$rowId]inactive",
                 'labelOptions' => ['label' => false],
                 'options' => [
-                    'data' => ['name' => 'inactive'],
                     'style' => 'vertical-align: text-top'
                 ]
             ]) ?>
@@ -48,15 +38,15 @@ use icms\FomanticUI\modules\Checkbox;
                     'style' => 'margin: 0em;',
                     'data' => [
                         'model-class' => App::className($model),
-                        'form-view' => '@appSetup/views/_menu/field_inputs',
+                        'modal-form' => '@appSetup/views/_menu/field_inputs',
                     ]
                 ]) ?>
-        <?= Html::activeHiddenInput($model, "[$rowId]openInNewTab", ['data' => ['name' => 'openInNewTab']]) ?>
-        <?= Html::activeHiddenInput($model, "[$rowId]alignRight", ['data' => ['name' => 'alignRight']]) ?>
-        <?= Html::activeHiddenInput($model, "[$rowId]type", ['data' => ['name' => 'type']]) ?>
-        <?= Html::activeHiddenInput($model, "[$rowId]parentLabel", ['data' => ['name' => 'parentLabel']]) ?>
-        <?= Html::activeHiddenInput($model, "[$rowId]icon", ['data' => ['name' => 'icon']]) ?>
-        <?= Html::activeHiddenInput($model, "[$rowId]iconPath", ['data' => ['name' => 'iconPath']]) ?>
-        <?= Html::activeHiddenInput($model, "[$rowId]iconColor", ['data' => ['name' => 'iconColor']]) ?>
+        <?= Html::activeHiddenInput($model, "[$rowId]openInNewTab") ?>
+        <?= Html::activeHiddenInput($model, "[$rowId]alignRight") ?>
+        <?= Html::activeHiddenInput($model, "[$rowId]type") ?>
+        <?= Html::activeHiddenInput($model, "[$rowId]parentLabel") ?>
+        <?= Html::activeHiddenInput($model, "[$rowId]icon") ?>
+        <?= Html::activeHiddenInput($model, "[$rowId]iconPath") ?>
+        <?= Html::activeHiddenInput($model, "[$rowId]iconColor") ?>
     </td>
 </tr>

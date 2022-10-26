@@ -9,7 +9,6 @@ use icms\FomanticUI\widgets\ActiveForm;
 
 $isReadonly = $this->context->action->id == 'view';
 
-$model->attributes = $rowData;
 $form = ActiveForm::begin([
     'id' => $rowId . '__modal',
     'enableClientValidation' => true,

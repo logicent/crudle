@@ -70,22 +70,20 @@ abstract class BaseSettingsController extends BaseFormController
 
     public function actionAddRow()
     {
-        if ( Yii::$app->request->isAjax )
+        if (Yii::$app->request->isAjax) // !! isAjax won't work in Htmx use isPost or check headers (HX-Request).
         {
-            $modelClass = Yii::$app->request->get('modelClass');
+            $modelClass = Yii::$app->request->get('_model_class');
             $model = new $modelClass();
             // check for additional query params in get request
-            if ( !empty(Yii::$app->request->queryParams) )
+            if (!empty(Yii::$app->request->queryParams))
                 $model->attributes = Yii::$app->request->queryParams;
 
-            $formView = Yii::$app->request->get('formView');
-
-            return $this->renderPartial($formView, [
-                        'rowId' => Yii::$app->request->get('nextRowId'),
-                        'model' => $model,
-                        'modelClass' => $modelClass,
-                        'formData' => null
-                    ]);
+            $rowInputsView = Yii::$app->request->get('_row_inputs');
+            return $this->renderPartial($rowInputsView, [
+                'rowId' => (int) Yii::$app->request->get('_row_counter') + 1,
+                'model' => $model,
+                'modelClass' => $modelClass,
+            ]);
         }
         // else
         Yii::$app->end();
@@ -93,22 +91,30 @@ abstract class BaseSettingsController extends BaseFormController
 
     public function actionEditRow()
     {
-        if ( Yii::$app->request->isAjax )
+        if (Yii::$app->request->isAjax) // !! isAjax won't work in Htmx use isPost or check headers (HX-Request).
         {
-            $modelClass = Yii::$app->request->get('modelClass');
+            $modelClass = Yii::$app->request->post('_model_class');
             $model = new $modelClass();
 
-            $rowData = Yii::$app->request->get('rowData');
-            $fields = ArrayHelper::map($rowData, 'name', 'value');
-            // populate model with inline field values
-            $model->attributes = $fields;
-
-            $rowId = Yii::$app->request->get('rowId');
-            $editView = Yii::$app->request->get('editView');
-            return $this->renderAjax($editView, [
-                        'model' => $model,
-                        'rowId' => $rowId,
-                    ]);
+            $rowData = ArrayHelper::map(
+                Yii::$app->request->post('_row_values'),
+                'name',
+                'value'
+            );
+            $rowId = Yii::$app->request->post('_row_counter');
+            $prefix = strlen("{$model->formName()}[$rowId]");
+            $formData = [];
+            foreach ($rowData as $name => $value) {
+                $key = substr($name, $prefix);
+                $key = trim($key, '[]');
+                $formData[$key] = $value;
+            }
+            $model->setAttributes($formData);
+            $modalFormView = Yii::$app->request->post('_modal_form');
+            return $this->renderAjax($modalFormView, [
+                'model' => $model,
+                'rowId' => $rowId,
+            ]);
         }
         // else
         Yii::$app->end();
