@@ -6,18 +6,6 @@ body {
     height: auto;
 }
 
-/* @media only screen and (min-width: 1300px) {
-    .ui.container, .ui.grid.container {
-        width: 1290px !important;
-    }
-} */
-
-/* @media only screen and (min-width: 1600px) {
-    .ui.container, .ui.grid.container {
-        width: 1590px !important;
-    }
-} */
-
 .main {
     /* background-color: #4b4c9d; */
     /* background-attachment: fixed; */
@@ -47,7 +35,6 @@ hgroup {
 }
 
 .main-container, .page-container {
-    /* position: relative; */
     border-bottom: 1px solid #ebeff2;
 }
 
@@ -55,6 +42,7 @@ hgroup {
     /* #ffffff #fff white hsl(0,0,100) rgb(255,255,255) */
     background-color: #ffffff !important;
     padding: 1em 0em;
+    height: 60px;
 }
 
 .main-head .ui.breadcrumb {

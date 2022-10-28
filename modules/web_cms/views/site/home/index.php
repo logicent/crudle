@@ -5,7 +5,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Home'), 'url' => ['/
 
 $this->registerMetaTag([
     'name' => 'keywords',
-    'content' => 
+    'content' => '' // fetch from route meta in setup
 ]);
 // author
 // description
