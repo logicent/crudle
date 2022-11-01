@@ -15,11 +15,11 @@ endif;
 
 $sidebarMenus = $this->context->sidebarMenus();
 if (empty($sidebarMenus)) : // fetch the default sidebar menus
-        $sidebarMenus = require Yii::getAlias('@appMain/views/_layouts/_main_sidebar_menu.php');
+        $sidebarMenus = require Yii::getAlias('@appMain/views/_layouts/_main_sidebar__menu.php');
 endif;
 ?>
 
-<div class="one wide column" id="crudle__main_sidebar" style="background: inherit">
+<div class="computer only large screen only one wide column" id="crudle__main_sidebar" style="background: inherit">
         <div class="ui visible icon sidebar vertical menu">
 <?php
         foreach ($sidebarMenus as $sidebarMenu) :

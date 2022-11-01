@@ -113,6 +113,7 @@ class App
             $config = require $dir . '/config.php';
             self::$modules[] = [
                 'id' => $config['id'],
+                'name' => $module->moduleName, // will be $module->name
                 'ns' => $ns,
                 'class' => $class,
                 'path' => $modulePath,

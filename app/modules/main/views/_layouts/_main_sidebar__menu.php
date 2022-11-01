@@ -29,12 +29,6 @@ return [
                 'inactive' => Yii::$app->user->can(Type_Role::SystemManager),
         ],
         [
-                'icon' => 'grey sitemap large',
-                'route' => 'web-cms',
-                'label' => 'Web CMS',
-                'inactive' => true,
-        ],
-        [
                 'icon' => 'grey laptop code large',
                 'route' => 'kit',
                 'label' => 'Kit',

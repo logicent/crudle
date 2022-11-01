@@ -34,7 +34,7 @@ class WebsiteSettingsForm extends BaseSettingsForm
     public $googleAnalyticsAnonymizeIP = true;
     public $appName;
     public $appLogo;
-    public $disableSignUp = true;
+    public $disableSignup = true;
     public $htmlHeader;
     public $robotsTxt;
 
@@ -72,7 +72,7 @@ class WebsiteSettingsForm extends BaseSettingsForm
                 'showFooterSignup',
                 'enableGoogleIndexing',
                 'googleAnalyticsAnonymizeIP',
-                'disableSignUp',
+                'disableSignup',
             ], 'boolean'],
         ];
     }
@@ -104,7 +104,7 @@ class WebsiteSettingsForm extends BaseSettingsForm
             'showFooterSignup' => Yii::t('app', 'Show footer signup'),
             'enableGoogleIndexing' => Yii::t('app', 'Enable google indexing'),
             'googleAnalyticsAnonymizeIP' => Yii::t('app', 'Google analytics anonymize IP'),
-            'disableSignUp' => Yii::t('app', 'Disable signup'),
+            'disableSignup' => Yii::t('app', 'Disable signup'),
         ];
     }
 
@@ -116,7 +116,7 @@ class WebsiteSettingsForm extends BaseSettingsForm
             'brandImage' => Yii::t('app', 'Select an image of approx width 150px with a transparent background for best results.'),
             'brandHtml' => Yii::t('app', 'Brand is what appears on the top-left of the toolbar. If it is an image, make sure it has a transparent background and use the <img /> tag. Keep size as 200px x 30px'),
             'favicon' => Yii::t('app', 'An icon file with .ico extension. Should be 16 x 16 px. Generated using a favicon generator. [favicon-generator.org]'),
-            'disableSignUp' => Yii::t('app', 'Disable Customer Signup link in Login page'),
+            'disableSignup' => Yii::t('app', 'Disable Customer Signup link in Login page'),
             'htmlHeader' => Yii::t('app', "Added HTML in the &lt;head&gt; section of the web page, primarily used for website verification and SEO"),
             'banner' => Yii::t('app', 'Banner is above the Top Menu Bar.'),
             'address' => Yii::t('app', 'Address and other legal information you may want to put in the footer.'),

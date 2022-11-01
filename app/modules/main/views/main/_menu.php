@@ -70,10 +70,9 @@ endforeach;
 
 foreach ($modules::$modules as $id => $module) :
     $moduleName = Inflector::id2camel($module['id']);
-    $moduleLabel = Inflector::camel2words($moduleName);
     $moduleMenus[] = [
         'route' =>  "/{$module['id']}",
-        'label' => $moduleLabel,
+        'label' => $module['name'],
         'group' => Type_Menu_Sub_Group::Module,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ];

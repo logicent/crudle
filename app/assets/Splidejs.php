@@ -14,5 +14,7 @@ class Splidejs extends AssetBundle
 
     public $css = [
         "dist/css/splide.min.css",
+        // "dist/css/themes/splide-sea-green.min.css",
+        // "dist/css/themes/splide-skyblue.min.css",
     ];
 }

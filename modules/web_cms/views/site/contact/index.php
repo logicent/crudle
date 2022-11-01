@@ -11,11 +11,19 @@ $model = $this->context->getModel();
 // $detailModels = $this->context->getDetailModels();
 ?>
 
-<?= Elements::header($model->heading, ['class' => 'huge', 'style' => 'font-weight: 500']) ?>
-<?= $model->shortIntro ?>
+<div class="ui inverted vertical center aligned segment">
+    <?= $this->render('@extCms/views/_layouts/site/_navbar') ?>
+</div>
 
-<div style="font-family: Ubuntu mono, Monospace"><?= $model->enquiryDetail ?></div>
+<div class="ui vertical stripe segment">
+    <div class="ui text container">
+    <?= Elements::header($model->heading, ['class' => 'huge', 'style' => 'font-weight: 500']) ?>
+    <?= $model->shortIntro ?>
 
-<?php
-if (! (bool) $model->hideContactForm) :
-endif ?>
+    <div style="font-family: Ubuntu mono, Monospace"><?= $model->enquiryDetail ?></div>
+
+    <?php
+    if (! (bool) $model->hideContactForm) :
+    endif ?>
+    </div>
+</div>

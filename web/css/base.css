@@ -1,10 +1,23 @@
 body {
-    font-family: "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    /* 'Lato', Arial, "Liberation Sans", */
+    font-family: Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     /* #eef0f6 #fff whitesmoke hsl(225,30,94) rgb(238,240,246) */
     background-color: #eef0f6 !important;
     /* override height: 100% in semantic-ui.css to remove scrollbar in short pages */
     height: auto;
 }
+
+/* @media only screen and (min-width: 1300px) {
+    .ui.container, .ui.grid.container {
+        width: 1290px !important;
+    }
+} */
+
+/* @media only screen and (min-width: 1600px) {
+    .ui.container, .ui.grid.container {
+        width: 1590px !important;
+    }
+} */
 
 .main {
     /* background-color: #4b4c9d; */
@@ -35,6 +48,7 @@ hgroup {
 }
 
 .main-container, .page-container {
+    /* position: relative; */
     border-bottom: 1px solid #ebeff2;
 }
 
@@ -736,12 +750,13 @@ body::-webkit-scrollbar-thumb {
     width: 100%;
 }
 
-.ui.table input[type="text"],
-.ui.table input[type="text"]:focus,
-.ui.table select,
-.ui.table select:focus-visible,
-.ui.table .ui.selection.dropdown {
+.ui.form .ui.table input[type="text"],
+.ui.form .ui.table input[type="text"]:focus,
+.ui.form .ui.table select,
+.ui.form .ui.table select:focus-visible,
+.ui.form .ui.table .ui.selection.dropdown {
     padding: 1em 0.85em !important;
+    font-family: Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     font-size: 14px;
     color: #555;
     border: none;

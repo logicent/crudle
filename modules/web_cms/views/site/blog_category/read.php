@@ -5,6 +5,11 @@ use icms\FomanticUI\Elements;
 
 $this->title = Yii::t('app', 'Blog Category');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Blog Category'), 'url' => ['/blog/category']];
+?>
 
-echo Elements::header($category->name);
-echo Html::tag('div', $category->description);
+<div class="ui vertical stripe segment">
+    <div class="ui text container">
+<?= Elements::header($category->name) ?>
+<?= Html::tag('div', $category->description) ?>
+    </div>
+</div>

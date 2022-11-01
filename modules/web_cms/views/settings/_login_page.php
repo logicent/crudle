@@ -7,6 +7,6 @@
             ]) ?>
     </div>
     <div class="column">
-        <?= $form->field($model, 'disableSignUp')->checkbox()->label('&nbsp;') ?>
+        <?= $form->field($model, 'disableSignup')->checkbox()->label('&nbsp;') ?>
     </div>
 </div>
