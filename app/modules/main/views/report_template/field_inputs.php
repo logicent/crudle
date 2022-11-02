@@ -18,4 +18,4 @@ use yii\helpers\Html;
     <?= $form->field($model, 'description')->textarea(['style' => 'resize: none; height: 115px']) ?>
 </div>
 <!-- TODO: Use in page form to populate the detail table see Activity locations -->
-<?= $this->render('report_template_item/index', ['form' => $form, 'model' => $model]); ?>
+<?= $this->render('report_template_item/index', ['form' => $form, 'model' => $model]);
