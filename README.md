@@ -102,17 +102,17 @@ _Extension modules_
 
 ### Roadmap
 _Now:_
-- [ ] _wip:_ Increase the UI layout width, add a pinable sidebar and editable menus
-- [ ] _wip:_ Improve all the end-user system tools, app preferences and performance
-- [ ] Email templates for sending mail with attachments for documents and reports
+- [x] Increase the UI layout width, add a pinable sidebar and editable menus
+- [x] Improve all the end-user system tools, app preferences and performance
+- [ ] _wip:_ Upgrade to latest Yii2 using PHP 8+ and MySQL 8+ with Fomantic UI 2.9+
 
 _Next:_
-- [ ] Upgrade to latest Yii2 using PHP 8+ and MySQL 8+ with Fomantic UI 2.9+
 - [ ] Create Yii extensions for the tools and starter kit as composer packages
+- [ ] Email templates for sending mail with attachments for documents and reports
 - [ ] Add multi-tenant project structure and init script - _PoC done_
 
 _Later:_
-- [ ] Upgrade to Yii3 (with CycleORM datamapper) using Bulma and HTMX/AlpineJS
+- [ ] Upgrade to Yii3 (with CycleORM datamapper) using Bulma and Buefy
 - [ ] Use hybrid of Php Auth Manager _(predefined)_ and Db Auth Manager _(user-defined)_
 - [ ] Test and prefer RoadRunner 2 over Nginx for production in Ubuntu 20.04+
 - [ ] Testing - look into PestPHP but keep an open mind on the way forward
