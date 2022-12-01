@@ -11,10 +11,12 @@ $items = SelectableItems::get(
     [
         'keyAttribute' => $list['keyAttribute'],
         'valueAttribute' => $list['valueAttribute'],
+        'groupAttribute' => $list['groupAttribute'] ?? null,
         'filters' => $list['filters'] ?? [],
         'join' => $list['join'] ?? null,
         'alias' => $list['alias'] ?? null,
         'displayLabel' => $list['displayLabel'] ?? null,
+        'addEmptyFirstItem' => $list['addEmptyFirstItem'] ?? false
     ]
 );
 $options = $options ?? [];

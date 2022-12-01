@@ -1,8 +1,5 @@
 <?php
 
-use crudle\app\main\enums\Type_Form_View;
-use crudle\app\main\enums\Type_View;
-
 $controller = $this->context;
 $layoutPath = '@appMain/views/_layouts/';
 
@@ -14,31 +11,21 @@ $this->beginContent($layoutPath . 'base.php') ?>
     if ($controller->id !== 'main' &&
         $controller->showViewSidebar()) : ?>
     <div class="computer only large screen only <?= $controller->sidebarColWidth() ?> wide column">
-        <?php
-            if ($controller->mapActionViewType() == Type_View::Form) :
-                switch ($controller->formViewType()) :
-                    case Type_Form_View::Single:
-                        echo $this->render('@appMain/views/crud/_sidebar');
-                        break;
-                    case Type_Form_View::Multiple:
-                        if (file_exists($controller->viewPath . '/_sidebar.php')) :
-                            echo $this->renderFile($controller->viewPath . '/_sidebar.php');
-                        else :
-                            echo $this->render('@appMain/views/_form/_sidebar');
-                        endif;
-                        break;
-                endswitch;
-            endif;
-            if ($controller->mapActionViewType() == Type_View::List) :
-                echo $this->render('@appMain/views/crud/_sidebar');
-            endif;
-        ?>
+        <!-- side view loads here -->
+    <?php
+        if (file_exists($controller->viewPath . '/_sidebar.php')) :
+            echo $this->renderFile($controller->viewPath . '/_sidebar.php', ['context' => $controller]);
+        endif ?>
     </div>
 <?php endif ?>
     <div id="content"
-        class="<?= $controller->id !== 'main' && $controller->showViewSidebar() ?
-            $controller->mainColumnWidth() : $controller->fullColumnWidth() ?> wide column">
+        class="
+        <?= $controller->id !== 'main' && $controller->showViewSidebar() ?
+            $controller->mainColumnWidth() : 
+            $controller->fullColumnWidth() ?> wide column"
+        style="padding-top: 0.25rem;">
         <?= $this->render($layoutPath . '_flash_message', ['context' => $controller]) ?>
+        <!-- main view loads here -->
         <?= $content ?>
     </div>
 </div>

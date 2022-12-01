@@ -1,5 +1,7 @@
 <?php
 
+use crudle\app\main\enums\Resource_Action;
+use crudle\app\main\enums\Type_Form_View;
 use yii\helpers\Url;
 use icms\FomanticUI\widgets\ActiveForm;
 
@@ -22,7 +24,13 @@ $form = ActiveForm::begin([
         'enctype' => $hasFileInput ? 'multipart/form-data' : false,
     ],
 ]);
-    echo $this->render('@appMain/views/_form/_header', ['model' => $model]);
+    if (
+        $this->context->action->id == Resource_Action::Create
+        || $this->context->action->id == Resource_Action::Update
+        || $this->context->formViewType() == Type_Form_View::Single
+    ) :
+        echo $this->render('@appMain/views/_form/_header', ['model' => $model]);
+    endif;
     // insert page/route-specific form view input fields
     if (method_exists($model, 'fieldInputs')) :
         echo $this->render('_field_inputs', ['model' => $model, 'form' => $form]);

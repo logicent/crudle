@@ -14,14 +14,14 @@ $inputTag = Html::tag('div',
     Html::activeTextInput($model, $attribute, [
         'class' => 'file-input',
         'readonly' => true,
-        // 'placeholder' => Yii::t('app', 'Click here to upload'),
+        'placeholder' => $placeholder // Yii::t('app', 'Click here to upload'),
     ]),
     ['class' => 'field', 'style' => 'margin: 0em;']
 );
 echo
     Html::beginTag('div', ['class' => 'field']) .
         Html::activeFileInput( $model->uploadForm, 'file_upload', [
-            'accept' => isset($fileTypes) ? $fileTypes : 'application/*', 'style' => 'display: none'
+            'accept' => isset($fileTypes) ? $fileTypes : 'application/*, text/*', 'style' => 'display: none'
         ]) .
         $inputTag;
         if ($this->context->action->id !== 'read' || // isReadonly()

@@ -32,8 +32,6 @@ $this->beginPage() ?>
     <hgroup>
     <?php
         $controller = $this->context;
-        // $layoutPath = '@appMain/views/_layouts/';
-        // $navbarView = $layoutPath . $controller->pageNavbar();
         $navbarView = $controller->pageNavbar();
         // load navbar in memory
         echo $this->render($navbarView, ['layoutSettings' => $layoutSettings]);
@@ -41,8 +39,7 @@ $this->beginPage() ?>
         echo $this->blocks[$controller->pageNavbar()];
         // load view header if used
         if ($controller->showViewHeader()) :
-            // echo $this->render($layoutPath . '_view_header');
-            echo $this->render('@appMain/views/_layouts/_view_header');
+            echo $this->render('@appMain/views/_layouts/_nav/_view_header');
         endif ?>
     </hgroup>
 

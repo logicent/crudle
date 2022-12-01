@@ -504,8 +504,8 @@ body::-webkit-scrollbar-thumb {
     padding: 1rem;
 }
 
-.grid-view .ui.table th a {
-    color: #8d99a6;
+.grid-view .ui.table th a, .grid-view .ui.table th {
+    color: #6c7680;
     font-weight: 500;
 }
 
@@ -774,36 +774,36 @@ body::-webkit-scrollbar-thumb {
     width: 18px;
 }
 
-#crudle__main_sidebar > .ui.vertical.menu {
+#_sidebar_main > .ui.vertical.menu {
     z-index: 100;
     background: #fff;
     padding-top: 8.25em !important;
 }
 
-#crudle__main_sidebar .ui.vertical.menu .item {
+#_sidebar_main .ui.vertical.menu .item {
     padding: 1.5em .75em;
     border: none !important;
 }
 
-#crudle__main_sidebar .ui.vertical.menu {
+#_sidebar_main .ui.vertical.menu {
     border: none;
 }
 
-#crudle__main_sidebar .ui.vertical.menu .item > i.icon {
+#_sidebar_main .ui.vertical.menu .item > i.icon {
     /* float: left; */
     line-height: 0.5em;
 }
 
-#crudle__main_sidebar > a.item > i.grey {
+#_sidebar_main > a.item > i.grey {
     /* color: #8D99A6 !important; */
     opacity: 0.8;
 }
 
-#crudle__main_sidebar a#pin_sidebar {
+#_sidebar_main a#pin_sidebar {
     float: right;
 }
 
-#crudle__main_sidebar a#pin_sidebar i {
+#_sidebar_main a#pin_sidebar i {
     margin-right: 0em;
     color: #8d99a6 !important;
 }

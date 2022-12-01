@@ -1,1 +1,21 @@
 @import url('base.css');
+
+.ui.breadcrumb .section div.active {
+    font-weight: normal;
+}
+
+#sidebar_menu {
+    max-height: 910px;
+    overflow-x: hidden;
+    /* overflow-y: scroll; */
+}
+
+.grid-view {
+    overflow-x: auto;
+}
+
+.grid-view > table.single.line > tbody td {
+    max-width: 500px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

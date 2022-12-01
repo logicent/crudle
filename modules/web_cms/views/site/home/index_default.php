@@ -5,11 +5,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Home'), 'url' => ['/
 
 $this->registerMetaTag([
     'name' => 'keywords',
-    'content' => 
-        'accounting, erp, dokos erp, erpnext, bakery management system, tour operator management system, 
-         hotel management system, hotel front desk, property management, schools management, learning app,
-         program management, project management, grants management, monitoring and evaluation, survey app,
-         logistics, procurement, hr, payroll, retail, point of sale, policy tracker, contracts management',
+    'content' => '',
 ]);
 // author
 // description

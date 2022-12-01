@@ -62,7 +62,6 @@ $hideSelectAllCheckbox = empty($detailModels) ? 'none' : '';
         <?php
             echo $this->render('../_no_data', ['hidden' => !empty($detailModels)]);
                 for ($rowId = 0; $rowId < count($detailModels); $rowId++) :
-                    // echo '<pre>';print_r($detailModels[$rowId]); exit;
                     echo $this->renderFile($tableRowView, [
                             'modelClass' => $modelClass,
                             'model' => $detailModels[$rowId],

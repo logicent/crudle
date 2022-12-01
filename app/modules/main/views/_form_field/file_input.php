@@ -5,7 +5,7 @@ use yii\helpers\Html;
 use icms\FomanticUI\Elements;
 
 // To-Do: allow custom placeholder default to none
-$placeholder = in_array('placeholder',array_keys(get_defined_vars())) ? $placeholder : null;
+$placeholder = in_array('placeholder', array_keys(get_defined_vars())) ? $placeholder : null;
 $imgPlaceholder = Yii::getAlias('@web') . $placeholder;
 $imgPath = Yii::getAlias('@web/uploads/') . $model->$attribute;
 $btnTag = Elements::button(Yii::t('app', 'Attach'), [

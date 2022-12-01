@@ -4,13 +4,11 @@ namespace crudle\app\main\controllers\base;
 
 interface ListViewInterface
 {
-    public function listviewType(); // enum
+    public function listRouteId(): string;
+
+    // public function listRouteParams(): array;
 
     public function showBatchActions(): bool;
 
-    public function batchActionsMenu(): bool;
-
-    public function showListMenu(): bool;
-
-    public function listMenu(): array;
+    public function batchActionsMenu(): array;
 }

@@ -43,26 +43,29 @@ $showListCaptions = $searchModel->getLayoutSettings('showHelpInfo');
         // 'footerRowOptions' => [],
         // 'formatter' => null,
         // 'headerRowOptions' => [],
-        'layout' => "{items}\n{pager}", // {summary} {errors} {sorter}
+        'layout' => "{summary}\n{items}\n{pager}\n{errors}", // {sorter}
         // 'options' => ['class' => 'grid-view'],
         // 'placeFooterAfterBody' => false,
         // 'rowOptions' => function ( $model, $key, $index, $grid ) { return []; },
         // 'showFooter' => false,
         // 'showHeader' => true,
         // '$showOnEmpty' => true,
-        'tableOptions' => ['class' => 'ui padded table'],
-        'columns' => ArrayHelper::merge(
-            [
-                $checkboxColumn,
-                $linkColumn,
-                $statusColumn,
-            ],
-            $columns,
-            [
-                $idColumn,
-                $tsColumn,
-            ]
-        )
+        'summary' => 'Showing <b>{begin} - {end}</b> of <b>{totalCount}</b> objects.', // 
+        'summaryOptions' => ['class' => 'text-muted', 'style' => 'text-align: right;'],
+        'tableOptions' => ['class' => 'ui padded striped selectable single line primary table'],
+        'columns' => $viewColumns,
+        // 'columns' => ArrayHelper::merge(
+        //     [
+        //         $checkboxColumn,
+        //         $linkColumn,
+        //         $statusColumn,
+        //     ],
+        //     $viewColumns,
+        //     [
+        //         $idColumn,
+        //         $tsColumn,
+        //     ]
+        // )
         // [
         //     'class' => 'icms\FomanticUI\widgets\ActionColumn',
         //     // 'template' => '<div class="ui basic tiny compact icon buttons">{view}{update}{delete}</div>',
@@ -111,23 +114,47 @@ $this->registerJs(<<<JS
         }
     });
 
+    $('.grid-view').on('click', '#select_all_rows', function(e) 
+    {
+        el_select_all_rows = $(this).find('input');
+        el_select_rows = $(this).closest('table').find('tbody td.select-row');
+        el_select_rows.each(function(i) {
+            input = $(this).find('input');
+            if (el_select_all_rows.prop('checked')) {
+                input.prop('checked', true);
+                $(this).closest('tr').css('background', 'aliceblue');   
+                $('#delete_btn').show();
+                $('#create_btn').hide();
+            }
+            else {
+                input.prop('checked', false);
+                $(this).closest('tr').css('background', 'none');
+                if ($('.ui.checkbox.checked').length == 0) {
+                    $('#delete_btn').hide();
+                    $('#create_btn').show();
+                }
+            }
+        });
+    })
+
     $('.grid-view').on('click', '.ui.checkbox', function(e) 
     {
-        el_select_row = $(this).find('input');
-        if (el_select_row.prop('checked'))
-        {
-            $(this).parent('td').parent('tr').css('background', 'aliceblue');
-            $('#delete_btn').show();
-            $('#create_btn').hide();
-        }
-        else {
-            $(this).parent('td').parent('tr').css('background', 'none');
-            // check for count of other selected rows
-            if ($('.ui.checkbox.checked').length == 0)
-            {
-                $('#delete_btn').hide();
-                $('#create_btn').show();
+        el_select_rows = $(this).closest('tbody').find('td.select-row');
+        el_select_rows.each(function(i) {
+            input = $(this).find('input');
+            if (input.prop('checked')) {
+                $(this).closest('tr').css('background', 'aliceblue');
+                $('#delete_btn').show();
+                $('#create_btn').hide();
             }
-        }
+            else {
+                $(this).closest('tr').css('background', 'none');
+                // check for count of other selected rows
+                if ($('.ui.checkbox.checked').length == 0) {
+                    $('#delete_btn').hide();
+                    $('#create_btn').show();
+                }
+            }
+        });
     })
 JS);

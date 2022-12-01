@@ -55,7 +55,7 @@ $this->title = Yii::t('app', 'Database Backup');
     </div>
 </div>
 <?php
-echo $this->render('@appMain/views/list/_delete');
+echo $this->render('@appMain/views/list/_action/batch_menu/delete');
 $this->registerJs($this->render('@appMain/views/_form/_submit.js'));
 $this->registerJs(<<<JS
     $('#delete_all_data').on('click', 

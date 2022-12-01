@@ -20,26 +20,39 @@ class SelectableItems
             $itemsConfig = ArrayHelper::merge( $itemsConfig, $viewItemsConfig );
 
         $itemQuery = $listModelClass::find();
-        if (!empty($itemsConfig['join'])) :
+        if (!empty($itemsConfig['join'])) {
             $itemQuery->alias($itemsConfig['alias']);
             $itemQuery->joinWith($itemsConfig['join'], false);
-        endif;
+        }
 
-        if ( !empty( $itemsConfig['groupAttribute'] ))
-            $itemQuery->select( $itemsConfig['alias'].'.'.$itemsConfig['keyAttribute'],
-                                $itemsConfig['valueAttribute'],
-                                $itemsConfig['groupAttribute']
+        if ( !empty( $itemsConfig['groupAttribute'] )) {
+            if (!empty($itemsConfig['join']))
+                $itemQuery->select( $itemsConfig['alias'].'.'.$itemsConfig['keyAttribute'],
+                                    $itemsConfig['valueAttribute'],
+                                    $itemsConfig['groupAttribute']
                             );
-        else
-            $itemQuery->select([
-                $itemsConfig['alias'].'.'.$itemsConfig['keyAttribute'],
-                $itemsConfig['valueAttribute'],
-            ]);
+            else
+                $itemQuery->select( $itemsConfig['keyAttribute'],
+                                    $itemsConfig['valueAttribute'],
+                                    $itemsConfig['groupAttribute']
+                            );
+        }
+        else {
+            if (!empty($itemsConfig['join']))
+                $itemQuery->select([
+                    $itemsConfig['alias'].'.'.$itemsConfig['keyAttribute'],
+                    $itemsConfig['valueAttribute'],
+                ]);
+            else
+                $itemQuery->select([
+                    $itemsConfig['keyAttribute'],
+                    $itemsConfig['valueAttribute'],
+                ]);
+        }
         // if ( $itemsConfig['applyListModelFilters'] )
         //     $itemQuery->where( $listModelClass::defaultListFilters() );
 
-        foreach ( $itemsConfig['filters'] as $column => $value )
-        {
+        foreach ( $itemsConfig['filters'] as $column => $value ) {
             if ( is_array( $value ))
                 $itemQuery->andWhere( $value );
             else
@@ -53,7 +66,7 @@ class SelectableItems
 
         $result = $itemQuery->all();
 
-        if ( $itemsConfig['mapListResult'] )
+        if ( $itemsConfig['mapListResult'] ) {
             if ( !empty( $itemsConfig['groupAttribute'] ))
                 $listItems = ArrayHelper::map( $result,
                                             $itemsConfig['keyAttribute'],
@@ -65,6 +78,7 @@ class SelectableItems
                                             $itemsConfig['keyAttribute'],
                                             !empty($itemsConfig['displayLabel']) ? $itemsConfig['displayLabel'] : $itemsConfig['valueAttribute']
                                         );
+        }
         else
             $listItems = $result;
 
@@ -82,7 +96,7 @@ class SelectableItems
 
     private static function _emptyArrayItem()
     {
-        return ['' => ' '];
+        return [' ' => ' '];
     }
 
     private static function _addSelectedFieldValue( &$listItems, $formModel, $keyAttribute )

@@ -9,8 +9,19 @@ interface ViewInterface
     // tabs support - multiple views of type
     public function showTabbedViews(): bool;
 
-    public function mapActionViewType();
-    public function defaultActionViewType();
+    public function mapActionToViewType();
+    // public function mapActionToViewSubtype();
+
+    // public function defaultActionViewType();
+
+    // primary action
+    public function mainAction(): array;
+    // secondary action(s)
+    public function viewActions(): array;
+    // context action(s)
+    public function menuActions(): array;
+    // custom? action(s)
+    public function userActions(): array;
 
     public function showViewTypeSwitcher(): bool;
     public function showViewFilterButton(): bool;

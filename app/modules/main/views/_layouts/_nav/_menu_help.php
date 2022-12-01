@@ -2,9 +2,39 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
-use icms\FomanticUI\collections\Menu;
 use icms\FomanticUI\Elements;
 
+
+$menuItems = [
+    [
+        // 'icon' => 'grey download large',
+        'route' => 'https://mysqltutorial.org',
+        'label' => 'MySQL Tutorial',
+        'openInNewTab' => true,
+        'inactive' => false,
+    ],
+    // [
+    //     // 'icon' => 'grey download large',
+    //     'route' => 'https://www.sqltutorial.org',
+    //     'label' => 'SQL Tutorial',
+    //     'openInNewTab' => true,
+    //     'inactive' => false,
+    // ],
+    [
+        // 'icon' => 'grey download large',
+        'route' => 'https://sqlfordevs.com/tips',
+        'label' => 'SQL Tips for Devs',
+        'openInNewTab' => true,
+        'inactive' => false,
+    ],
+    [
+        // 'icon' => 'grey download large',
+        'route' => 'https://mode.com/sql-tutorial',
+        'label' => 'Mode SQL Tutorial',
+        'openInNewTab' => true,
+        'inactive' => false,
+    ],
+];
 ?>
 
 <div class="ui dropdown item">&ensp;

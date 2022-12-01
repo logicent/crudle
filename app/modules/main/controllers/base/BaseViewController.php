@@ -27,7 +27,7 @@ use yii\helpers\Inflector;
 use yii\helpers\StringHelper;
 use yii\helpers\Url;
 
-abstract class BaseViewController extends BaseController implements LayoutInterface, ViewInterface
+abstract class BaseViewController extends BaseController implements LayoutInterface, ViewInterface, ListViewInterface
 {
     protected $name; // view name
     protected $detailModels = [];
@@ -60,16 +60,20 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
             $this->action->id !== 'reset-password'
         )
         {
+            Url::remember(Yii::$app->request->getUrl(), 'go back');
             $headers = Yii::$app->request->headers;
             if ($headers->has('HX-Request'))
-                return $this->redirect(['/app/login'], 302); // !! Experimental : Testing behavior
-            // else
-            return $this->redirect(['/app/login']);
+                $this->redirect(['/app/login'], 302); // !! Experimental : Testing behavior
+            else
+                $this->redirect(['/app/login']);
+            return false; // do not run the action
         }
 
-        Url::remember(Yii::$app->request->getUrl(), 'go back');
+        if (!parent::beforeAction($action)) {
+             return false; // do not run the action
+        }
 
-        return parent::beforeAction($action);
+        return true; // run the action
     }
 
     // public function afterAction($action, $result)
@@ -121,84 +125,14 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
         return false;
     }
 
-    public function mapActionViewType()
-    {
-        switch ($this->action->id)
-        {
-            case 'view-list':
-                return Type_View::List;
-            case 'view-calendar':
-                return Type_View::Calendar;
-            case 'view-dashboard':
-                return Type_View::Dashboard;
-            case 'view-image':
-                return Type_View::Image;
-            case 'view-map':
-                return Type_View::Map;
-            case 'view-report':
-                return Type_View::Report;
-            case 'view-tree':
-                return Type_View::Tree;
-            case 'view-workspace':
-                return Type_View::Workspace;
-            case 'create':
-            case 'read':
-            case 'update':
-                return Type_View::Form;
-            default: // index or other
-                return $this->defaultActionViewType();
-        }
-    }
-
-    public function showViewTypeSwitcher(): bool
-    {
-        return false;
-    }
-
-    public function showViewFilterButton(): bool
-    {
-        return true;
-    }
-
-    public function getViewFilterButtonState()
-    {
-    }
-
-    public function setViewFilterButtonState()
-    {
-    }
-
     public function pageNavbar(): string
     {
         return $this->layout . '/_navbar';
     }
 
-    public function showViewHeader(): bool
-    {
-        return true;
-    }
-
     public function showMainSidebar(): bool
     {
         return true;
-    }
-
-    public function showViewSidebar(): bool
-    {
-        return true;
-
-        switch ($this->action->id)
-        {
-            case 'index':
-                if ($this->formViewType() == Type_Form_View::Single ||
-                    $this->defaultActionViewType() == Type_View::List)
-                    return true;
-            case 'create':
-            case 'read':
-            case 'update':
-                return true;
-            default:
-        }
     }
 
     public function sidebarMenus(): array
@@ -221,16 +155,6 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
     public function fullColumnWidth(): string
     {
         return 'fourteen';
-    }
-
-    public function showQuickReportMenu(): bool
-    {
-        return false;
-    }
-
-    public function quickReportMenu(): array
-    {
-        return [];
     }
 
     public function showActiveUsers(): bool
@@ -262,6 +186,106 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
         return '';
     }
 
+    public function mapActionToViewType()
+    {
+        switch ($this->action->id)
+        {
+            case 'view-list':
+                return Type_View::List;
+            case 'view-calendar':
+                return Type_View::Calendar;
+            case 'view-dashboard':
+                return Type_View::Dashboard;
+            case 'view-image':
+                return Type_View::Image;
+            case 'view-map':
+                return Type_View::Map;
+            case 'view-report':
+                return Type_View::Report;
+            case 'view-tree':
+                return Type_View::Tree;
+            case 'view-workspace':
+                return Type_View::Workspace;
+            case 'create':
+            case 'read':
+            case 'update':
+                return Type_View::Form;
+            default: // index or other
+                return $this->defaultActionViewType();
+        }
+    }
+
+    public function mainAction(): array
+    {
+        return [];
+    }
+
+    public function viewActions(): array
+    {
+        return [];
+    }
+
+    public function menuActions(): array
+    {
+        return [];
+    }
+
+    public function userActions(): array
+    {
+        return [];
+    }
+
+    public function showViewTypeSwitcher(): bool
+    {
+        return false;
+    }
+
+    public function showViewFilterButton(): bool
+    {
+        return true;
+    }
+
+    public function getViewFilterButtonState()
+    {
+    }
+
+    public function setViewFilterButtonState()
+    {
+    }
+
+    public function showViewHeader(): bool
+    {
+        return true;
+    }
+
+    public function showViewSidebar(): bool
+    {
+        return true;
+
+        switch ($this->action->id)
+        {
+            case 'index':
+                if ($this->formViewType() == Type_Form_View::Single ||
+                    $this->defaultActionViewType() == Type_View::List)
+                    return true;
+            case 'create':
+            case 'read':
+            case 'update':
+                return true;
+            default:
+        }
+    }
+
+    public function showQuickReportMenu(): bool
+    {
+        return false;
+    }
+
+    public function quickReportMenu(): array
+    {
+        return [];
+    }
+
     public function getModel($id = null)
     {
         return $this->model ??= $this->findModel($id);
@@ -272,20 +296,41 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
         $this->model = $model;
     }
 
-    public function detailModelClass(): array
+    public function redirectTo(string $action = null)
+    {}
+
+    public function validationErrors(): array
     {
         return [];
     }
 
-    public function redirectTo(string $action = null)
-    {}
+    public function detailModelClass(): array
+    {
+        return [];
+    }
 
     public function getDetailModels(): array
     {
         return !empty($this->detailModels) ? $this->detailModels : $this->model->links(Type_Link::Model, $includeEmpty = true);
     }
 
-    public function validationErrors(): array
+    // ListViewInterface
+    public function listRouteId(): string
+    {
+        return '';
+    }
+
+    public function listRouteParams(): array
+    {
+        return [];
+    }
+
+    public function showBatchActions(): bool
+    {
+        return true;
+    }
+
+    public function batchActionsMenu(): array
     {
         return [];
     }

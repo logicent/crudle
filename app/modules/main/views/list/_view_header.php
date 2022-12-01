@@ -48,7 +48,7 @@ if ( Yii::$app->user->can( Type_Permission::Delete .' '. $controller->viewName()
     ]);
 endif;
 echo $this->render('@appMain/views/_modal/confirm_action', ['action' => Status_Transaction::Submit]);
-echo $this->render('@appMain/views/list/_delete');
+echo $this->render('@appMain/views/list/_action/batch_menu/delete');
 
 $this->registerJs(<<<JS
     $('#delete_btn').on('click', function(e) {
