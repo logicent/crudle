@@ -54,7 +54,6 @@ abstract class BaseViewController extends BaseController implements LayoutInterf
     {
         // If there is no logged in user session
         if (is_null(Yii::$app->user->identity) &&
-            $this->action->id !== '' &&
             $this->action->id !== 'login' &&
             $this->action->id !== 'request-password-reset' &&
             $this->action->id !== 'reset-password'

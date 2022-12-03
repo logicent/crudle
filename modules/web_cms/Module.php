@@ -38,7 +38,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
     {
         if ($app instanceof \yii\web\Application) {
             $app->getUrlManager()->addRules([
-                ['class' => 'yii\web\UrlRule', 'pattern' => '/' , 'route' => $this->id . '/site/home/index'],
+                // ['class' => 'yii\web\UrlRule', 'pattern' => '/' , 'route' => $this->id . '/site/home/index'],
                 ['class' => 'yii\web\UrlRule', 'pattern' => '/home', 'route' => $this->id . '/site/home/index'],
                 ['class' => 'yii\web\UrlRule', 'pattern' => '/about', 'route' => $this->id . '/site/about/index'],
                 ['class' => 'yii\web\UrlRule', 'pattern' => '/contact', 'route' => $this->id . '/site/contact/index'],
