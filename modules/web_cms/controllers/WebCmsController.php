@@ -2,13 +2,13 @@
 
 namespace crudle\ext\web_cms\controllers;
 
-use crudle\app\main\controllers\base\BaseViewController;
+use crudle\app\main\controllers\base\ViewController;
 use crudle\app\main\enums\Type_View;
 
 /**
  * WebCmsController for the `web_cms` module
  */
-class WebCmsController extends BaseViewController
+class WebCmsController extends ViewController
 {
     public function actions()
     {

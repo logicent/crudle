@@ -8,8 +8,8 @@ require dirname(__DIR__) . '/bootstrap.php';
 
 require CRUDLE_VENDOR_PATH . '/yiisoft/yii2/Yii.php';
 
-require CRUDLE_BASE_PATH . '/app/config/bootstrap.php';
-$config = require CRUDLE_BASE_PATH . '/app/config/web.php';
+require CRUDLE_BASE_PATH . '/config/bootstrap.php';
+$config = require CRUDLE_BASE_PATH . '/config/web.php';
 
 // Load and run Crudle
 // /** @var crudle\web\Application $app */

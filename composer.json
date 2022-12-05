@@ -24,7 +24,7 @@
     },
     "minimum-stability": "beta",
     "require": {
-        "php": "^7.4.0 || ^8.0",
+        "php": "^8.0",
         "yiisoft/yii2": "~2.0.14",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
@@ -83,9 +83,9 @@
     "autoload": {
         "psr-4": {
             "crudle\\app\\": "app",
-            "crudle\\app\\main\\": "app/modules/main",
-            "crudle\\app\\setup\\": "app/modules/setup",
-            "crudle\\kit\\": "codegen",
+            "crudle\\app\\main\\": "app/main",
+            "crudle\\app\\setup\\": "app/setup",
+            "crudle\\kit\\": "app/codegen",
             "crudle\\ext\\": "modules"
         }
     },

@@ -21,7 +21,7 @@ if (class_exists(Dotenv\Dotenv::class)) {
 // Determine if Crudle is running in Dev Mode
 // -----------------------------------------------------------------------------
 
-use crudle\app\helpers\App;
+use crudle\app\main\helpers\App;
 
 $devMode = (bool) App::env('CRUDLE_APP_DEBUG') ?? false;
 
@@ -35,7 +35,7 @@ if ($devMode) {
     defined('YII_ENV') || define('YII_ENV', 'prod');
 }
 
-// Ensure you're running PHP 7.4+
-if (PHP_VERSION_ID < 70400) {
-    exit('Crudle requires PHP 7.4');
+// Ensure you're running PHP 8.0+
+if (PHP_VERSION_ID < 80000) {
+    exit('Crudle requires PHP 8.0');
 }

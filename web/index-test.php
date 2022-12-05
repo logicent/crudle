@@ -13,7 +13,7 @@ if (!in_array(@$_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1'])) {
 
 require CRUDLE_VENDOR_PATH . '/yiisoft/yii2/Yii.php';
 
-require CRUDLE_BASE_PATH . '/app/config/bootstrap.php';
-$config = require CRUDLE_BASE_PATH . '/app/config/test.php';
+require CRUDLE_BASE_PATH . '/config/bootstrap.php';
+$config = require CRUDLE_BASE_PATH . '/config/test.php';
 
 (new yii\web\Application($config))->run();
