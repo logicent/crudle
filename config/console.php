@@ -1,6 +1,6 @@
 <?php
 
-use crudle\app\helpers\App;
+use crudle\app\main\helpers\App;
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
