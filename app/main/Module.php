@@ -24,4 +24,6 @@ class Module extends ExtModule
         // custom initialization code goes here
         Yii::configure($this, require __DIR__ . '/config.php');
     }
+
+    // 'app' => 'main/app/index', // defaultRoute requires this rule
 }

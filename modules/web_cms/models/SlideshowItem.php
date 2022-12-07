@@ -2,7 +2,7 @@
 
 namespace crudle\ext\web_cms\models;
 
-use crudle\app\main\models\ActiveRecordDetail;
+use crudle\app\crud\models\ActiveRecordDetail;
 
 class SlideshowItem extends ActiveRecordDetail
 {

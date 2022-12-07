@@ -2,6 +2,7 @@
 
 namespace crudle\app\user\models;
 
+use crudle\app\auth\models\Auth;
 use crudle\app\auth\models\Assignment;
 use crudle\app\auth\models\Item;
 use crudle\app\main\enums\Status_Active;

@@ -2,9 +2,9 @@
 
 namespace crudle\ext\web_cms\controllers;
 
-use crudle\app\main\controllers\base\BaseCrudController;
+use crudle\app\crud\controllers\CrudController;
 
-class RouteRedirectController extends BaseCrudController
+class RouteRedirectController extends CrudController
 {
     public function actionIndex()
     {

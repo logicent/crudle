@@ -1,6 +1,6 @@
 <?php
 
-use crudle\app\helpers\App;
+use crudle\app\main\helpers\App;
 use yii\helpers\Html;
 use icms\FomanticUI\Elements;
 use icms\FomanticUI\modules\Checkbox;

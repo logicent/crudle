@@ -2,7 +2,7 @@
 
 namespace crudle\ext\web_cms\controllers\site;
 
-use crudle\app\helpers\App;
+use crudle\app\main\helpers\App;
 use crudle\app\setup\models\Setup;
 use crudle\ext\web_cms\models\ContactPage;
 

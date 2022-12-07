@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\app\user\models;
+namespace crudle\app\user\models\search;
 
 use crudle\app\user\enums\Type_Role;
 use Yii;
@@ -8,7 +8,7 @@ use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * PeopleSearch represents the model behind the search form about `app\modules\main\models\user\People`.
+ * PeopleSearch represents the model behind the search form about `app\modules\user\models\search\People`.
  */
 class PeopleSearch extends People
 {

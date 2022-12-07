@@ -1,14 +1,14 @@
 <?php
 
-namespace crudle\app\setup\models\search;
+namespace crudle\app\email\models\search;
 
-use crudle\app\setup\models\EmailNotification;
+use crudle\app\email\models\EmailNotification;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * EmailNotificationSearch represents the model behind the search form of `app\modules\setup\models\EmailNotification`.
+ * EmailNotificationSearch represents the model behind the search form of `app\modules\email\models\EmailNotification`.
  */
 class EmailNotificationSearch extends EmailNotification
 {

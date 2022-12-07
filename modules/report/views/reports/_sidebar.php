@@ -14,7 +14,7 @@ $reportGroups = ArrayHelper::map($reports, 'id', 'id', 'group');
 ?>
 
 <div id="report_sidebar" class="page-sidebar">
-    <?= $this->render('/_form_field/search_input', [
+    <?= $this->render('@appMain/views/_form_field/search_input', [
                     'filterClass' => 'searchList',
                     'showSortButtons' => false,
                     'showGroupButton' => true

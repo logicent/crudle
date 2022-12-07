@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\app\setup\forms;
+namespace crudle\app\database\forms;
 
 use crudle\app\main\enums\Type_Model;
 use crudle\app\upload\forms\UploadForm;

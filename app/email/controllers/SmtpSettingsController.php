@@ -4,7 +4,7 @@ namespace crudle\app\email\controllers;
 
 use crudle\app\setup\controllers\base\BaseSettingsController;
 use crudle\app\setup\models\Setup;
-use crudle\app\email\models\SmtpSettingsForm;
+use crudle\app\email\forms\SmtpSettingsForm;
 use Yii;
 
 class SmtpSettingsController extends BaseSettingsController

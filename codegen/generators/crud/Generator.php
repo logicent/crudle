@@ -38,7 +38,7 @@ class Generator extends \crudle\kit\Generator
     public $modelClass;
     public $controllerClass;
     public $viewPath;
-    public $baseControllerClass = 'crudle\app\main\controllers\base\BaseCrudController';
+    public $baseControllerClass = 'crudle\app\crud\controllers\CrudController';
     public $indexWidgetType = 'grid';
     public $searchModelClass = '';
     /**

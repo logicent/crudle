@@ -5,8 +5,8 @@ $layoutPath = '@appMain/layouts/';
 
 $this->beginContent($layoutPath . 'base.php') ?>
 
-<div class="main ui three column stackable grid pusher" style="margin-top: <?= $controller->id == 'main/dashboard' ? '103px;' : '133px;' ?>">
-    <?= $this->render('_main_sidebar') ?>
+<div class="main ui three column stackable grid pusher" style="margin-top: <?= $controller->id == 'aap/dashboard' ? '103px;' : '133px;' ?>">
+    <?= $this->render('@appMain/layouts/_main_sidebar') ?>
     <?php
     if ($controller->showViewSidebar()) : ?>
         <div class="computer only large screen only <?= $controller->sidebarColWidth() ?> wide column">

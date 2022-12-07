@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use icms\FomanticUI\Elements;
-use crudle\app\assets\SweetAlert;
+use crudle\app\main\assets\SweetAlert;
 
 SweetAlert::register($this);
 
@@ -55,7 +55,7 @@ $this->title = Yii::t('app', 'Database Backup');
     </div>
 </div>
 <?php
-echo $this->render('@appMain/views/list/_action/batch_menu/delete');
+echo $this->render('@appModules/list_view/views/list_view/_action/batch_menu/delete');
 $this->registerJs($this->render('@appMain/views/_form/_submit.js'));
 $this->registerJs(<<<JS
     $('#delete_all_data').on('click', 

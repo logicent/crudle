@@ -1,14 +1,14 @@
 <?php
 
-namespace crudle\app\setup\models\search;
+namespace crudle\app\email\models\search;
 
-use crudle\app\setup\models\EmailQueue;
+use crudle\app\email\models\EmailQueue;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * EmailQueueSearch represents the model behind the search form of `app\modules\setup\models\EmailQueue`.
+ * EmailQueueSearch represents the model behind the search form of `app\modules\email\models\EmailQueue`.
  */
 class EmailQueueSearch extends EmailQueue
 {

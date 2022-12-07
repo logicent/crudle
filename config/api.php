@@ -1,6 +1,6 @@
 <?php
 
-// use crudle\app\helpers\App;
+// use crudle\app\main\helpers\App;
 // use crudle\app\main\models\auth\User;
 
 // $params = require __DIR__ . '/params.php';

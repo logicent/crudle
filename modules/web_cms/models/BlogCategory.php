@@ -3,7 +3,7 @@
 namespace crudle\ext\web_cms\models;
 
 use crudle\app\enums\Status_Active;
-use crudle\app\main\models\ActiveRecord;
+use crudle\app\crud\models\ActiveRecord;
 use crudle\app\setup\enums\Permission_Group;
 use crudle\app\setup\enums\Type_Permission;
 

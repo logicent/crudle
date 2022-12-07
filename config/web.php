@@ -104,11 +104,11 @@ if (YII_ENV_DEV) {
         'allowedIPs' => ['192.168.*.*', '172.16.*.*', '10.*.*.*', '127.0.0.1', '::1'],
     ];
 
-    // $config['bootstrap'][] = 'kit';
-    // $config['modules']['kit'] = [
-    //     'class' => 'crudle\kit\Module',
-    //     'allowedIPs' => ['192.168.*.*', '172.16.*.*', '10.*.*.*', '127.0.0.1', '::1'],
-    // ];
+    $config['bootstrap'][] = 'kit';
+    $config['modules']['kit'] = [
+        'class' => 'crudle\kit\Module',
+        'allowedIPs' => ['192.168.*.*', '172.16.*.*', '10.*.*.*', '127.0.0.1', '::1'],
+    ];
 }
 
 return $config;

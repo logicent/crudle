@@ -2,10 +2,10 @@
 
 namespace crudle\ext\web_cms\controllers;
 
-use crudle\app\main\controllers\base\BaseCrudController;
+use crudle\app\crud\controllers\CrudController;
 use crudle\app\main\enums\Type_Form_View;
 
-class RouteMetaController extends BaseCrudController
+class RouteMetaController extends CrudController
 {
     public function actions()
     {

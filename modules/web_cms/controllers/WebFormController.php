@@ -2,14 +2,14 @@
 
 namespace crudle\ext\web_cms\controllers;
 
-use crudle\app\main\controllers\base\BaseCrudController;
+use crudle\app\crud\controllers\CrudController;
 use crudle\ext\web_cms\models\WebForm;
 use crudle\ext\web_cms\models\search\WebFormSearch;
 
 /**
  * WebFormController for the `WebForm` model
  */
-class WebFormController extends BaseCrudController
+class WebFormController extends CrudController
 {
     public function modelClass(): string
     {

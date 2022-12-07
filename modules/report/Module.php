@@ -15,7 +15,7 @@ class Module extends ExtModule
     /**
      * {@inheritdoc}
      */
-    public $controllerNamespace = 'crudle\app\report\controllers';
+    public $controllerNamespace = 'crudle\ext\report\controllers';
 
     /**
      * {@inheritdoc}
@@ -32,9 +32,11 @@ class Module extends ExtModule
      */
     public function bootstrap($app)
     {
+        // Standard/custom reports routes
         if ($app instanceof \yii\web\Application) {
             $app->getUrlManager()->addRules([
                 ['class' => 'yii\web\UrlRule', 'pattern' => 'app/reports' , 'route' => $this->id . '/reports/index'],
+                // ['class' => 'yii\web\UrlRule', 'pattern' => 'app/query-report/<\w+>' , 'route' => $this->id . '/report/query/<\w+>'],
             ], false);
         }
     }

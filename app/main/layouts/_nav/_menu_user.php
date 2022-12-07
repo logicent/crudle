@@ -14,11 +14,11 @@ use icms\FomanticUI\Elements;
     <?php
         if ((bool) $layoutSettings->allowUserPreference) :
             echo Html::a(Yii::t('app', 'My preferences'),
-                        ['/setup/user/edit-preferences', 'id' => Yii::$app->user->id],
+                        ['/app/user/my-preferences', 'id' => Yii::$app->user->id],
                         ['class' => 'item']);
         endif ?>
         <?= Html::a(Yii::t('app', 'My account'),
-                    ['/setup/user/update', 'id' => Yii::$app->user->id],
+                    ['/app/user/my-account', 'id' => Yii::$app->user->id],
                     ['class' => 'item']) ?>
         <?php
             if ((bool) $layoutSettings->hideWebsiteLink === false) :
@@ -56,7 +56,7 @@ Menu::widget([
                 ],
                 [
                     'label' => Yii::t('app', 'My account'),
-                    'url' => ['/setup/user/update', 'id' => Yii::$app->user->id],
+                    'url' => ['/app/user/update', 'id' => Yii::$app->user->id],
                     'options' => ['class' => 'item']
                 ],
                 [

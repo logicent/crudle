@@ -2,7 +2,7 @@
 
 use crudle\app\assets\Sortablejs;
 use crudle\app\main\enums\Type_Field_Input;
-use crudle\app\setup\models\DataModelField;
+use crudle\app\database\models\DataModelField;
 use icms\FomanticUI\Elements;
 use icms\FomanticUI\helpers\Size;
 use icms\FomanticUI\modules\Checkbox;

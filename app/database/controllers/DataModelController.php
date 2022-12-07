@@ -3,7 +3,7 @@
 namespace crudle\app\database\controllers;
 
 use crudle\app\main\controllers\action\EditRow;
-use crudle\app\main\controllers\action\Index;
+use crudle\app\list_view\controllers\action\Index;
 use crudle\app\crud\controllers\CrudController;
 use Yii;
 use yii\data\ActiveDataProvider;

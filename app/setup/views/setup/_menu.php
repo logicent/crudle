@@ -10,7 +10,7 @@ $deployedSettings = Setup::getSettings( DeveloperSettingsForm::class );
 
 return [
     [
-        'route' => '/setup/data-model/index',
+        'route' => '/database/data-model/index',
         'label' => 'Data Model',
         'group' => Type_Menu_Group::Tool,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
@@ -40,25 +40,25 @@ return [
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/setup/smtp-settings/index',
+        'route' => '/email/smtp-settings/index',
         'label' => 'SMTP Settings',
         'group' => Type_Menu_Group::Email,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/setup/email-template/index',
+        'route' => '/email/email-template/index',
         'label' => 'Email Template',
         'group' => Type_Menu_Group::Email,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/setup/email-notification/index',
+        'route' => '/email/email-notification/index',
         'label' => 'Email Notification',
         'group' => Type_Menu_Group::Email,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/setup/email-queue/index',
+        'route' => '/email/email-queue/index',
         'label' => 'Email Queue',
         'group' => Type_Menu_Group::Email,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
@@ -76,7 +76,7 @@ return [
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/setup/data-import/index',
+        'route' => '/database/data-import/index',
         'label' => 'Data Import',
         'group' => Type_Menu_Group::Tool,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
@@ -94,37 +94,37 @@ return [
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/setup/db-migration/index',
+        'route' => '/database/db-migration/index',
         'label' => 'Table Migration',
         'group' => Type_Menu_Group::Storage,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/setup/db-backup-settings/index',
+        'route' => '/database/db-backup-settings/index',
         'label' => 'Backup & Restore',
         'group' => Type_Menu_Group::Storage,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/setup/user/index',
+        'route' => '/user/user/index',
         'label' => 'User & Preferences',
         'group' => Type_Menu_Group::People,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/setup/user-group/index',
+        'route' => '/user/user-group/index',
         'label' => 'User Group',
         'group' => Type_Menu_Group::People,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/setup/role/index',
+        'route' => '/user/role/index',
         'label' => 'Role & Permissions',
         'group' => Type_Menu_Group::People,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/setup/user-log/index',
+        'route' => '/user/user-log/index',
         'label' => 'User Log',
         'group' => Type_Menu_Group::People,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
@@ -136,4 +136,3 @@ return [
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
 ];
-?>

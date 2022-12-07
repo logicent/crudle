@@ -3,7 +3,7 @@
 namespace crudle\ext\web_cms\models;
 
 use crudle\app\enums\Status_Active;
-use crudle\app\main\models\ActiveRecord;
+use crudle\app\crud\models\ActiveRecord;
 
 class Slideshow extends ActiveRecord
 {

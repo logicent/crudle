@@ -1,10 +1,10 @@
 <?php
 
-namespace crudle\app\setup\controllers;
+namespace crudle\app\user\controllers;
 
 use crudle\app\crud\controllers\CrudController;
 use crudle\app\main\enums\Status_Active;
-use crudle\app\main\controllers\action\Index;
+use crudle\app\list_view\controllers\action\Index;
 use crudle\app\main\enums\Type_Form_View;
 use crudle\app\user\enums\Status_User;
 use crudle\app\auth\models\Auth;
@@ -195,7 +195,14 @@ class UserController extends CrudController
             ]);
     }
 
-    public function actionEditPreferences($id)
+    public function actionMyAccount($id)
+    {
+        throw new NotFoundHttpException(
+            Yii::t('app', 'User account is not yet implemented')
+        );
+    }
+
+    public function actionMyPreferences($id)
     {
         throw new NotFoundHttpException(
             Yii::t('app', 'User preferences is not yet implemented')

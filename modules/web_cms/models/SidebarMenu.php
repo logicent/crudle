@@ -2,7 +2,7 @@
 
 namespace crudle\ext\web_cms\models;
 
-use crudle\app\main\models\ActiveRecord;
+use crudle\app\crud\models\ActiveRecord;
 use Yii;
 use yii\helpers\ArrayHelper;
 

@@ -1,7 +1,7 @@
 <?php
 
 use crudle\app\main\helpers\App;
-use crudle\app\setup\enums\Type_Import;
+use crudle\app\database\enums\Type_Import;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use icms\FomanticUI\modules\RadioList;

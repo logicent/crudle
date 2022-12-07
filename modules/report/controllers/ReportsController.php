@@ -11,7 +11,7 @@ use yii\data\ActiveDataProvider;
 
 class ReportsController extends ViewController
 {
-    public $layout = '@appMain/layouts/report';
+    public $layout = '@extModules/report/layouts/report';
 
     public $reports;
 

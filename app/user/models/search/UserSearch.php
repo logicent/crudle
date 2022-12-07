@@ -2,7 +2,7 @@
 
 namespace crudle\app\user\models\search;
 
-use crudle\app\user\models\PersonSearch;
+use crudle\app\user\models\search\PersonSearch;
 use crudle\app\user\enums\Type_Role;
 use Yii;
 use yii\base\Model;

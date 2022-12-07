@@ -22,7 +22,7 @@ echo "<?php\n";
 
 namespace <?= StringHelper::dirname(ltrim($generator->controllerClass, '\\')) ?>;
 
-use crudle\app\main\controllers\base\BaseCrudController;
+use crudle\app\crud\controllers\CrudController;
 use crudle\app\main\enums\Type_View;
 use crudle\ext\<?= $moduleDir ?>\models\<?= $modelClass ?>;
 use crudle\ext\<?= $moduleDir ?>\models\search\<?= $searchModelClass ?>;
@@ -30,7 +30,7 @@ use crudle\ext\<?= $moduleDir ?>\models\search\<?= $searchModelClass ?>;
 /**
  * <?= $controllerClass ?> for the `<?= $modelClass ?>` model
  */
-class <?= $controllerClass ?> extends BaseCrudController
+class <?= $controllerClass ?> extends CrudController
 {
     public function modelClass(): string
     {

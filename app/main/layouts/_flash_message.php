@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-// use crudle\app\assets\SweetAlert;
+// use crudle\app\main\assets\SweetAlert;
 
 // SweetAlert::register($this);
 

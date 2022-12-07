@@ -3,7 +3,7 @@
 namespace crudle\app\user\models;
 
 use crudle\app\main\enums\Status_Active;
-use crudle\app\user\models\Role as AuthRole;
+use crudle\app\auth\models\Role as AuthRole;
 
 class Role extends AuthRole
 {
