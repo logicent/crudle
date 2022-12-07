@@ -1,7 +1,7 @@
 <?php
 
 use crudle\app\main\helpers\App;
-use crudle\app\helpers\SelectableItems;
+use crudle\app\crud\helpers\SelectableItems;
 use crudle\app\main\enums\Column_Width;
 use crudle\app\main\enums\Type_Widget;
 use crudle\ext\dashboard\models\DashboardWidget;

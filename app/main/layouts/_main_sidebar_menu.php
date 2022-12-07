@@ -1,7 +1,7 @@
 <?php
 
 use crudle\app\user\enums\Type_Role;
-use crudle\app\setup\enums\Type_User;
+use crudle\app\user\enums\Type_User;
 
 return [
         [

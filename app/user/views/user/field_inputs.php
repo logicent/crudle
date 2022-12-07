@@ -2,9 +2,9 @@
 
 use crudle\app\user\enums\Type_Role;
 use crudle\app\setup\enums\Status_Work;
-use crudle\app\main\models\auth\Role;
-use crudle\app\helpers\SelectableItems;
-use crudle\app\setup\enums\Type_User;
+use crudle\app\user\models\Role;
+use crudle\app\crud\helpers\SelectableItems;
+use crudle\app\user\enums\Type_User;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\MaskedInput;

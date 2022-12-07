@@ -1,6 +1,6 @@
 <?php
 
-use crudle\app\helpers\SelectableItems;
+use crudle\app\crud\helpers\SelectableItems;
 use icms\FomanticUI\modules\Select;
 use yii\helpers\Html;
 

@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'defaultRoute' => 'login',
+    'defaultRoute' => 'user',
 ];
