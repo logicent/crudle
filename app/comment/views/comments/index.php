@@ -1,6 +1,6 @@
 <?php
 
-use crudle\app\main\models\CommentForm;
+use crudle\app\comment\forms\CommentForm;
 use yii\helpers\Html;
 
 $this->params['count_comments'] = $model->commentsCount;

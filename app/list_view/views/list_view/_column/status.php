@@ -1,6 +1,6 @@
 <?php
 
-use crudle\app\helpers\StatusMarker;
+use crudle\app\crud\helpers\StatusMarker;
 
 $modelClass = $this->context->modelClass();
 

@@ -1,13 +1,13 @@
 <?php
 
-namespace crudle\app\setup\models;
+namespace crudle\app\email\models;
 
-use crudle\app\setup\enums\Type_Permission;
-use crudle\app\setup\enums\Status_Queue;
-use crudle\app\setup\enums\Type_Role;
-use crudle\app\setup\enums\Status_User;
-use crudle\app\user\models\Person;
 use crudle\app\crud\models\BaseActiveRecord;
+use crudle\app\email\enums\Status_Queue;
+use crudle\app\user\enums\Type_Permission;
+use crudle\app\user\enums\Type_Role;
+use crudle\app\user\enums\Status_User;
+use crudle\app\user\models\Person;
 use crudle\app\setup\models\Setup;
 use Yii;
 use yii\helpers\ArrayHelper;

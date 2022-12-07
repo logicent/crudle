@@ -1,8 +1,8 @@
 <?php
 
-use crudle\app\setup\enums\Type_Role;
+use crudle\app\user\enums\Type_Role;
 use crudle\app\setup\enums\Type_Menu_Group;
-use crudle\app\setup\models\DeveloperSettingsForm;
+use crudle\app\setup\forms\DeveloperSettingsForm;
 use crudle\app\setup\models\Setup;
 
 $this->params['menuGroupClass'] = Type_Menu_Group::class;
@@ -16,13 +16,13 @@ return [
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/setup/printer-settings/index',
+        'route' => '/printing/printer-settings/index',
         'label' => 'Printer Settings',
         'group' => Type_Menu_Group::Printing,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/setup/print-settings/index',
+        'route' => '/printing/print-settings/index',
         'label' => 'Print Settings',
         'group' => Type_Menu_Group::Printing,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
@@ -64,13 +64,13 @@ return [
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/setup/print-style/index',
+        'route' => '/printing/print-style/index',
         'label' => 'Print Style',
         'group' => Type_Menu_Group::Printing,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/setup/print-format/index',
+        'route' => '/printing/print-format/index',
         'label' => 'Print Format',
         'group' => Type_Menu_Group::Printing,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),

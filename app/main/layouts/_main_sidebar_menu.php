@@ -1,6 +1,6 @@
 <?php
 
-use crudle\app\setup\enums\Type_Role;
+use crudle\app\user\enums\Type_Role;
 use crudle\app\setup\enums\Type_User;
 
 return [

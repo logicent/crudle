@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\app\helpers;
+namespace crudle\app\main\helpers;
 
 use Knp\Snappy\Pdf; 
 use Yii;

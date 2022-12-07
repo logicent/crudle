@@ -1,8 +1,8 @@
 <?php
 
-namespace crudle\app\setup\models\search;
+namespace crudle\app\database\models\search;
 
-use crudle\app\setup\models\DataImport;
+use crudle\app\database\models\DataImport;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 

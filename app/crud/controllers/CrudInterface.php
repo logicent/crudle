@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\app\main\controllers\base;
+namespace crudle\app\crud\controllers;
 
 interface CrudInterface
 {

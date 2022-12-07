@@ -1,14 +1,14 @@
 <?php
 
-namespace crudle\app\helpers;
+namespace crudle\app\email\helpers;
 
-use crudle\app\main\enums\Type_Comment;
-use crudle\app\main\models\CommentForm;
-use crudle\app\setup\enums\Status_Queue;
-use crudle\app\setup\models\EmailNotificationSettingsForm;
-use crudle\app\setup\models\EmailQueue;
+use crudle\app\comment\enums\Type_Comment;
+use crudle\app\comment\forms\CommentForm;
+use crudle\app\email\enums\Status_Queue;
+use crudle\app\email\forms\EmailNotificationSettingsForm;
+use crudle\app\email\models\EmailQueue;
 use crudle\app\setup\models\Setup;
-use crudle\app\setup\models\SmtpSettingsForm;
+use crudle\app\email\forms\SmtpSettingsForm;
 use Yii;
 use yii\helpers\Json;
 

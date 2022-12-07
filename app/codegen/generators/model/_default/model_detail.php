@@ -20,7 +20,7 @@ echo "<?php\n";
 namespace <?= $generator->ns ?>;
 
 <?php if (!empty($relations)): ?>
-use crudle\app\main\enums\Type_Relation;
+use crudle\app\crud\enums\Type_Relation;
 <?php endif; ?>
 use Yii;
 

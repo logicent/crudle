@@ -2,24 +2,24 @@
 
 namespace crudle\app\setup\enums;
 
-use crudle\app\setup\models\DataImport;
-use crudle\app\setup\models\DataModel;
-use crudle\app\setup\models\DbBackupSettingsForm;
-use crudle\app\setup\models\EmailNotification;
-use crudle\app\setup\models\EmailQueue;
-use crudle\app\setup\models\EmailTemplate;
-use crudle\app\setup\models\GeneralSettingsForm;
-use crudle\app\setup\models\LayoutSettingsForm;
-use crudle\app\setup\models\PrinterSettingsForm;
-use crudle\app\setup\models\PrintFormat;
-use crudle\app\setup\models\PrintSettingsForm;
-use crudle\app\setup\models\PrintStyle;
-use crudle\app\setup\models\Role;
+use crudle\app\database\models\DataImport;
+use crudle\app\database\models\DataModel;
+use crudle\app\database\models\DbBackupSettingsForm;
+use crudle\app\email\models\EmailNotification;
+use crudle\app\email\models\EmailQueue;
+use crudle\app\email\models\EmailTemplate;
+use crudle\app\setup\forms\GeneralSettingsForm;
+use crudle\app\setup\forms\LayoutSettingsForm;
+use crudle\app\printing\forms\PrinterSettingsForm;
+use crudle\app\printing\models\PrintFormat;
+use crudle\app\printing\forms\PrintSettingsForm;
+use crudle\app\printing\models\PrintStyle;
+use crudle\app\user\models\Role;
 use crudle\app\setup\models\Setup;
-use crudle\app\setup\models\SmtpSettingsForm;
-use crudle\app\setup\models\User;
-use crudle\app\setup\models\UserGroup;
-use crudle\app\setup\models\UserLog;
+use crudle\app\email\forms\SmtpSettingsForm;
+use crudle\app\user\models\User;
+use crudle\app\user\models\UserGroup;
+use crudle\app\user\models\UserLog;
 use yii\helpers\ArrayHelper;
 
 class Type_Model extends \crudle\app\main\enums\Type_Model

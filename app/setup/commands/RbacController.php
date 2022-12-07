@@ -7,7 +7,7 @@ use crudle\app\main\models\auth\Auth;
 use crudle\app\main\models\auth\Role;
 use crudle\app\setup\enums\Type_Model;
 use crudle\app\setup\enums\Type_Permission;
-use crudle\app\setup\enums\Type_Role;
+use crudle\app\user\enums\Type_Role;
 use Yii;
 use yii\console\Controller;
 use yii\helpers\ArrayHelper;

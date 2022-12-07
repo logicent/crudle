@@ -1,10 +1,10 @@
 <?php
 
-namespace crudle\app\main\controllers;
+namespace crudle\app\email\controllers;
 
 use crudle\app\main\controllers\base\FormController;
 use crudle\app\main\enums\Type_View;
-use crudle\app\main\models\EmailForm;
+use crudle\app\email\forms\EmailForm;
 
 class EmailController extends FormController
 {

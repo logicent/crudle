@@ -1,6 +1,6 @@
 <?php
 
-use crudle\app\helpers\DateTimeHelper;
+use crudle\app\main\helpers\DateTimeHelper;
 use icms\FomanticUI\Elements;
 use yii\helpers\Html;
 

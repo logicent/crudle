@@ -3,9 +3,9 @@
 namespace crudle\app\user\models;
 
 use crudle\app\main\enums\Status_Active;
-use crudle\app\main\enums\Type_Relation;
+use crudle\app\crud\enums\Type_Relation;
 use crudle\app\user\models\base\UserLog as AuthUserLog;
-use crudle\app\setup\enums\Type_Permission;
+use crudle\app\user\enums\Type_Permission;
 use Yii;
 use yii\helpers\ArrayHelper;
 

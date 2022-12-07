@@ -3,7 +3,7 @@
 namespace crudle\app\user\models\base;
 
 use crudle\app\crud\models\BaseActiveRecord;
-use crudle\app\setup\enums\Type_Permission;
+use crudle\app\user\enums\Type_Permission;
 use Yii;
 
 /**

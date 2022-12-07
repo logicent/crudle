@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\app\helpers;
+namespace crudle\app\database\helpers;
 
 use Yii;
 use Spatie\DbDumper\Databases\MySql;

@@ -1,7 +1,7 @@
 <?php
 
 use crudle\app\setup\models\Setup;
-use crudle\app\setup\models\GeneralSettingsForm;
+use crudle\app\setup\forms\GeneralSettingsForm;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use icms\FomanticUI\Elements;

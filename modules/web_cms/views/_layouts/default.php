@@ -5,7 +5,7 @@ use crudle\ext\web_cms\models\WebsiteSettingsForm;
 
 $webSettings = Setup::getSettings( WebsiteSettingsForm::class );
 
-$this->beginContent('@appMain/views/_layouts/base.php') ?>
+$this->beginContent('@appMain/layouts/base.php') ?>
 
     <main class="ui container" style="margin-top: 110px;">
         <div class="ui stackable grid">

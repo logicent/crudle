@@ -24,6 +24,6 @@ use crudle\ext\web_cms\models\SiteNavFooter;
 
 <br>
 
-<?= $this->render('@appMain/views/_form_section/item', [
+<?= $this->render('@appMain/views/_form_table/item', [
         'modelClass' => SiteNavFooter::class,
     ]) ?>

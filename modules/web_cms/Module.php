@@ -2,17 +2,17 @@
 
 namespace crudle\ext\web_cms;
 
+use crudle\ext\Module as ExtModule;
 use Yii;
-use yii\base\BootstrapInterface;
 
 /**
  * cms module definition class
  */
-class Module extends \yii\base\Module implements BootstrapInterface
+class Module extends ExtModule
 {
     public $moduleName = 'Web CMS';
     // public $isInstalled = true; // if db migrations have run
-    public $isActivated = true; // will be loaded in app run
+    // public $isActivated = true; // will be loaded in app run
     // public $activationRule = [];
     // public $isTranslatable = true; // if translation resource exists
 

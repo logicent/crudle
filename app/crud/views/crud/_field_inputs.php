@@ -1,6 +1,6 @@
 <?php
 
-use crudle\app\helpers\SelectableItems;
+use crudle\app\crud\helpers\SelectableItems;
 use crudle\app\main\enums\Type_Column;
 use crudle\app\main\enums\Type_Field_Input;
 use yii\helpers\Html;

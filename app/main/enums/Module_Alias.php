@@ -7,6 +7,7 @@ class Module_Alias
     const Main      = '@appMain';
     const Setup     = '@appSetup';
     const Kit       = '@kitModule'; // '@appKit'
+    const App       = '@appModules';
     const Ext       = '@extModules';
     const User      = '@userModules';
 
@@ -21,6 +22,7 @@ class Module_Alias
             self::Main      => self::Main,
             self::Setup     => self::Setup,
             self::Kit    => self::Kit,
+            self::App    => self::App,
             self::Ext    => self::Ext,
             self::User    => self::User,
         ];
@@ -32,6 +34,7 @@ class Module_Alias
             self::Main => self::AppNsPathname,
             self::Setup => self::AppNsPathname,
             self::Kit => self::KitNsPathname,
+            self::App => self::AppNsPathname,
             self::Ext => self::ExtNsPathname,
             self::User => self::UserNsPathname,
         ];

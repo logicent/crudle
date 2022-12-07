@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\app\main\models;
+namespace crudle\app\email\forms;
 
 use crudle\app\main\models\Model;
 use crudle\app\upload\forms\UploadForm;

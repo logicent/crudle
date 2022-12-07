@@ -1,8 +1,8 @@
 <?php
 
-use crudle\app\setup\enums\Type_Permission;
-use crudle\app\setup\enums\Type_Role;
-use crudle\app\helpers\StatusMarker;
+use crudle\app\user\enums\Type_Permission;
+use crudle\app\user\enums\Type_Role;
+use crudle\app\crud\helpers\StatusMarker;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use icms\FomanticUI\helpers\Size;

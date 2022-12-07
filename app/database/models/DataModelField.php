@@ -1,8 +1,8 @@
 <?php
 
-namespace crudle\app\setup\models;
+namespace crudle\app\database\models;
 
-use crudle\app\main\models\ActiveRecordDetail;
+use crudle\app\crud\models\ActiveRecordDetail;
 use Yii;
 use yii\db\Schema;
 

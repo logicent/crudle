@@ -3,7 +3,7 @@
 // use app\assets\PikadayAsset;
 // PikadayAsset::register($this);
 
-use crudle\app\setup\enums\Type_Role;
+use crudle\app\user\enums\Type_Role;
 
 $this->title = Yii::t('app', 'Developer');
 ?>

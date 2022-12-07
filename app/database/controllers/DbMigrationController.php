@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\app\setup\controllers;
+namespace crudle\app\database\controllers;
 
 use crudle\app\main\controllers\base\ViewController;
 use crudle\app\main\enums\Type_Form_View;

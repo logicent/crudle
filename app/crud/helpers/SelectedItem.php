@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\app\helpers;
+namespace crudle\app\crud\helpers;
 
 class SelectedItem
 {

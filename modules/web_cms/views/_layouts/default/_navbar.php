@@ -1,6 +1,6 @@
 <?php
 
-use crudle\app\setup\models\GeneralSettingsForm;
+use crudle\app\setup\forms\GeneralSettingsForm;
 use crudle\app\setup\models\Setup;
 use crudle\ext\web_cms\models\WebsiteSettingsForm;
 use yii\helpers\Url;
@@ -10,7 +10,7 @@ $generalSettings = Setup::getSettings( GeneralSettingsForm::class );
 $webSettings = Setup::getSettings( WebsiteSettingsForm::class );
 ?>
 
-<?php $this->beginBlock('@extCms/views/_layouts/site/_navbar') ?>
+<?php $this->beginBlock('@extCms/layouts/site/_navbar') ?>
 
 <div id="site_header">
     <div class="ui menu borderless" style="padding: 1em 0em;">

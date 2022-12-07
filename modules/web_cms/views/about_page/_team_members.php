@@ -22,7 +22,7 @@ use yii\helpers\Html;
 
 <div class="ui hidden divider"></div>
 
-<?= $this->render('@appMain/views/_form_section/item', [
+<?= $this->render('@appMain/views/_form_table/item', [
         'modelClass' => AboutTeamMember::class,
     ]) ?>
 

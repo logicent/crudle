@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\app\auth\models;
+namespace crudle\app\auth\forms;
 
 use yii\base\Model;
 

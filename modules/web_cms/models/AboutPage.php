@@ -2,7 +2,7 @@
 
 namespace crudle\ext\web_cms\models;
 
-use crudle\app\main\enums\Type_Relation;
+use crudle\app\crud\enums\Type_Relation;
 use crudle\app\setup\models\base\BaseSettingsForm;
 use Yii;
 

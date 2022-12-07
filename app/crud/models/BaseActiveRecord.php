@@ -3,19 +3,19 @@
 namespace crudle\app\crud\models;
 
 use crudle\app\main\helpers\App;
-use crudle\app\main\enums\Type_Comment;
-use crudle\app\main\enums\Type_Link;
+use crudle\app\comment\enums\Type_Comment;
+use crudle\app\crud\enums\Type_Link;
 use crudle\app\main\enums\Type_Mixed_Value;
-use crudle\app\main\enums\Type_Model_Id;
-use crudle\app\main\enums\Type_Relation;
+use crudle\app\crud\enums\Type_Model_Id;
+use crudle\app\crud\enums\Type_Relation;
 use crudle\app\main\enums\Type_View;
 use crudle\app\user\models\Person;
-use crudle\app\setup\enums\Permission_Group;
-use crudle\app\setup\enums\Type_Permission;
-use crudle\app\list_view\forms\LayoutSettingsForm;
+use crudle\app\user\enums\Permission_Group;
+use crudle\app\user\enums\Type_Permission;
+use crudle\app\setup\forms\LayoutSettingsForm;
 use crudle\app\list_view\forms\ListViewSettingsForm;
 use crudle\app\setup\models\Setup;
-use crudle\app\workflow\WorkflowInterface;
+use crudle\app\workflow\components\WorkflowInterface;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\behaviors\BlameableBehavior;

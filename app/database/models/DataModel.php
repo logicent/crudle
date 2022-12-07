@@ -1,13 +1,13 @@
 <?php
 
-namespace crudle\app\setup\models;
+namespace crudle\app\database\models;
 
-use crudle\app\enums\Status_Active;
+use crudle\app\main\enums\Status_Active;
 use crudle\app\main\enums\Type_Field_Input;
-use crudle\app\main\enums\Type_Relation;
+use crudle\app\crud\enums\Type_Relation;
 use crudle\app\crud\models\ActiveRecord;
-use crudle\app\setup\enums\Type_Permission;
-use crudle\app\setup\enums\Permission_Group;
+use crudle\app\user\enums\Type_Permission;
+use crudle\app\user\enums\Permission_Group;
 use Yii;
 
 /**

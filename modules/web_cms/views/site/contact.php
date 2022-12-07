@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <br><?= Yii::t('app', 'Thank you.') ?>
         </p>
         <?php $form = ActiveForm::begin(['id' => 'contact-form']) ?>
-        <?= $this->render('@appMain/views/_layouts/_form/_header', ['model' => $model]) ?>
+        <?= $this->render('@appMain/layouts/_form/_header', ['model' => $model]) ?>
         <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
         <?= $form->field($model, 'email') ?>
         <?= $form->field($model, 'subject') ?>

@@ -1,6 +1,6 @@
 <?php
 
-use crudle\app\helpers\StatusMarker;
+use crudle\app\crud\helpers\StatusMarker;
 use yii\helpers\Html;
 use yii\helpers\Url;
 

@@ -4,7 +4,7 @@ namespace crudle\app\main\helpers;
 
 use crudle\app\main\enums\Module_Alias;
 use crudle\app\crud\models\ActiveRecord;
-use crudle\app\main\models\ActiveRecordDetail;
+use crudle\app\crud\models\ActiveRecordDetail;
 use crudle\app\setup\enums\Type_Model;
 use Yii;
 use yii\helpers\ArrayHelper;

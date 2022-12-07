@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\app\workflows;
+namespace crudle\app\workflow\components;
 
 class Viewing
 {

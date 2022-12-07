@@ -1,9 +1,9 @@
 <?php
 
-namespace crudle\app\helpers;
+namespace crudle\app\email\helpers;
 
 use crudle\app\setup\models\Setup;
-use crudle\app\setup\models\SmtpSettingsForm;
+use crudle\app\email\forms\SmtpSettingsForm;
 use Yii;
 
 class Mailer

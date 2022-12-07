@@ -1,7 +1,8 @@
 <?php
 
-namespace crudle\app\auth\models;
+namespace crudle\app\auth\forms;
 
+use crudle\app\auth\models\User;
 use Yii;
 use yii\helpers\Html;
 

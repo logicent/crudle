@@ -2,7 +2,7 @@
 
 namespace crudle\ext\web_cms\enums;
 
-use crudle\app\main\enums\Type_Menu_Group;
+use crudle\app\setup\enums\Type_Menu_Group;
 use Yii;
 use yii\helpers\ArrayHelper;
 

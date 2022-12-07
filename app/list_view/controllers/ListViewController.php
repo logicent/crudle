@@ -1,6 +1,6 @@
 <?php
 
-use crudle\app\main\controllers\base\ListViewInterface;
+use crudle\app\list_view\controllers\base\ListViewInterface;
 use crudle\app\main\controllers\base\ViewController;
 
 abstract class ListViewController extends ViewController implements ListViewInterface

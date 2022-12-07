@@ -4,7 +4,7 @@ namespace crudle\app\setup\forms;
 
 use crudle\app\main\enums\Type_Model;
 use crudle\app\upload\forms\UploadForm;
-use crudle\app\setup\models\DataImport;
+use crudle\app\database\models\DataImport;
 use Yii;
 use yii\helpers\ArrayHelper;
 

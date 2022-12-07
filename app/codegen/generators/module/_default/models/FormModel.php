@@ -7,7 +7,7 @@ echo "<?php\n";
 
 namespace crudle\ext\<?= StringHelper::basename($generator->modulePath) ?>\models;
 
-use crudle\app\main\enums\Type_Relation;
+use crudle\app\crud\enums\Type_Relation;
 use crudle\app\upload\forms\UploadForm;
 use crudle\app\setup\models\base\BaseSettingsForm;
 use Yii;

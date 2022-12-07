@@ -1,14 +1,14 @@
 <?php
 
-namespace crudle\app\setup\models\search;
+namespace crudle\app\user\models\search;
 
-use crudle\app\setup\models\UserGroup;
+use crudle\app\user\models\UserGroup;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * UserGroupSearch represents the model behind the search form of `app\modules\setup\models\UserGroup`.
+ * UserGroupSearch represents the model behind the search form of `app\modules\user\models\UserGroup`.
  */
 class UserGroupSearch extends UserGroup
 {

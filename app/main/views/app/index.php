@@ -1,6 +1,6 @@
 <?php
 
-use crudle\app\setup\models\GeneralSettingsForm;
+use crudle\app\setup\forms\GeneralSettingsForm;
 use crudle\app\setup\models\Setup;
 
 $businessProfile = Setup::getSettings( GeneralSettingsForm::class );

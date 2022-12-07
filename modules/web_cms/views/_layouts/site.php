@@ -3,7 +3,7 @@
 // use crudle\app\setup\models\Setup;
 // use crudle\ext\web_cms\models\WebsiteSettingsForm;
 
-$this->beginContent('@extCms/views/_layouts/base.php') ?>
+$this->beginContent('@extCms/layouts/base.php') ?>
 <!-- Header -->
 <?= $this->render('site/_header') ?>
 <div class="pusher">

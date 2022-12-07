@@ -68,7 +68,7 @@ foreach ($formFields as $id => $formFieldConfig) :
             $tableViewName = Inflector::underscore($options);
             $detailModelName = Inflector::variablize($tableViewName);
             $formViewName = Inflector::underscore(StringHelper::basename($generator->modelClass));
-            $field = "         <?= \$this->render('@appMain/views/_form_section/item', [
+            $field = "         <?= \$this->render('@appMain/views/_form_table/item', [
                 'model' => \$model,
                 'detailModels' => \$this->context->getDetailModels()['{$detailModelName}'],
                 'form' => \$form,

@@ -1,6 +1,6 @@
 <?php
 
-use crudle\app\setup\models\GeneralSettingsForm;
+use crudle\app\setup\forms\GeneralSettingsForm;
 use crudle\app\setup\models\Setup;
 use yii\helpers\Html;
 use yii\helpers\Inflector;

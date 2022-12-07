@@ -21,7 +21,7 @@ namespace <?= $generator->ns ?>;
 
 use crudle\app\enums\Status_Active;
 <?php if (!empty($relations)): ?>
-use crudle\app\main\enums\Type_Relation;
+use crudle\app\crud\enums\Type_Relation;
 use crudle\app\setup\enums\Permission_Group;
 use crudle\app\setup\enums\Type_Permission;
 <?php endif; ?>

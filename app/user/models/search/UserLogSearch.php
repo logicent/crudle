@@ -1,14 +1,14 @@
 <?php
 
-namespace crudle\app\setup\models\search;
+namespace crudle\app\user\models\search;
 
-use crudle\app\setup\models\UserLog;
+use crudle\app\user\models\UserLog;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * UserLogSearch represents the model behind the search form of `app\modules\setup\models\UserLog`.
+ * UserLogSearch represents the model behind the search form of `app\modules\user\models\UserLog`.
  */
 class UserLogSearch extends UserLog
 {

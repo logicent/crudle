@@ -1,17 +1,17 @@
 <?php
 
-namespace crudle\app\setup\controllers;
+namespace crudle\app\database\controllers;
 
 use crudle\app\main\controllers\action\EditRow;
 use crudle\app\main\controllers\action\Index;
-use crudle\app\main\controllers\base\CrudController;
+use crudle\app\crud\controllers\CrudController;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
-use crudle\app\setup\models\DataModel;
-use crudle\app\setup\models\search\DataModelSearch;
-use crudle\app\setup\models\DataModelField;
-use crudle\app\setup\models\search\DataModelFieldSearch;
+use crudle\app\database\models\DataModel;
+use crudle\app\database\models\search\DataModelSearch;
+use crudle\app\database\models\DataModelField;
+use crudle\app\database\models\search\DataModelFieldSearch;
 use yii\helpers\ArrayHelper;
 
 /**

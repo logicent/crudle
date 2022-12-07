@@ -1,9 +1,9 @@
 <?php
 
-namespace crudle\app\main\controllers\action;
+namespace crudle\app\comment\controllers\action;
 
-use crudle\app\main\enums\Type_Comment;
-use crudle\app\main\models\CommentForm;
+use crudle\app\comment\enums\Type_Comment;
+use crudle\app\comment\forms\CommentForm;
 use Yii;
 use yii\base\Action;
 
@@ -14,7 +14,7 @@ class SaveComment extends Action
         $controller = $this->controller;
 
         if (Yii::$app->request->isAjax); {
-            // 1. create main model instance
+            // 1. create comment model instance
             $model = $controller->getModel($id);
 
             $comment = new CommentForm();

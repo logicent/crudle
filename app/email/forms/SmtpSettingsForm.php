@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\app\setup\models;
+namespace crudle\app\email\forms;
 
 use crudle\app\setup\models\base\BaseSettingsForm;
 use Yii;

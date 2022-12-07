@@ -3,7 +3,7 @@
 namespace crudle\app\auth\controllers;
 
 use crudle\app\main\controllers\AppController;
-use crudle\app\main\models\auth\ResetPasswordForm;
+use crudle\app\auth\forms\ResetPasswordForm;
 use Yii;
 use yii\helpers\Html;
 use yii\filters\AccessControl;

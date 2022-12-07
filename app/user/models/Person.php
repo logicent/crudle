@@ -4,9 +4,9 @@ namespace crudle\app\user\models;
 
 use crudle\app\auth\models\Assignment;
 use crudle\app\auth\models\Item;
-use crudle\app\enums\Status_Active;
+use crudle\app\main\enums\Status_Active;
 use crudle\app\crud\models\ActiveRecord;
-use crudle\app\setup\enums\Type_Role;
+use crudle\app\user\enums\Type_Role;
 use crudle\app\upload\forms\UploadForm;
 use crudle\app\list_view\forms\ListViewSettingsForm;
 use Yii;

@@ -1,24 +1,35 @@
 <?php
 
+use crudle\app\main\enums\Module_Alias;
 use crudle\app\main\helpers\App;
 use yii\db\Connection;
 use yii\helpers\ArrayHelper;
 
+// core modules
 $coreModules = [
-    // core modules
-    'auth'  => crudle\app\auth\Module::class,
-    'main'  => crudle\app\main\Module::class,
-    'setup' => crudle\app\setup\Module::class,
-    // code module
-    // 'kit' => crudle\kit\Module::class,
+    'auth'      => crudle\app\auth\Module::class,
+    'codegen'   => crudle\kit\Module::class,
+    'comment'   => crudle\app\comment\Module::class,
+    'crud'      => crudle\app\crud\Module::class,
+    'database'  => crudle\app\database\Module::class,
+    'email'     => crudle\app\email\Module::class,
+    'list_view' => crudle\app\list_view\Module::class,
+    'main'      => crudle\app\main\Module::class,
+    'printing'  => crudle\app\printing\Module::class,
+    'settings'  => crudle\app\settings\Module::class,
+    'setup'     => crudle\app\setup\Module::class,
+    'upload'    => crudle\app\upload\Module::class,
+    'user'      => crudle\app\user\Module::class,
+    'workflow'  => crudle\app\workflow\Module::class,
+    'workspace' => crudle\app\workspace\Module::class,
 ];
-
 // user modules
 $userModules = App::getModules();
 $userModules = ArrayHelper::map($userModules::$modules, 'id', 'class');
-// set modules tablePrefix
+
 return ArrayHelper::merge($coreModules, $userModules);
 
+// set modules tablePrefix
 // $modules = [];
 // foreach ($userModules::$modules as $userModule)
 // {

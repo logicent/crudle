@@ -12,7 +12,7 @@ $model = $this->context->getModel();
 ?>
 
 <div class="ui inverted vertical center aligned segment">
-    <?= $this->render('@extCms/views/_layouts/site/_navbar') ?>
+    <?= $this->render('@extCms/layouts/site/_navbar') ?>
 </div>
 
 <div class="ui vertical stripe segment">

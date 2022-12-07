@@ -1,15 +1,15 @@
 <?php
 
-namespace crudle\app\setup\models\search;
+namespace crudle\app\user\models\search;
 
-use crudle\app\setup\enums\Type_Role;
-use crudle\app\setup\models\Role;
+use crudle\app\user\enums\Type_Role;
+use crudle\app\user\models\Role;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * RoleSearch represents the model behind the search form of `app\modules\setup\models\Role`.
+ * RoleSearch represents the model behind the search form of `app\modules\user\models\Role`.
  */
 class RoleSearch extends Role
 {
@@ -51,7 +51,7 @@ class RoleSearch extends Role
         if (Yii::$app->user->can(Type_Role::SystemManager))
             $roles_filter = ['not in', 'name', [Type_Role::Administrator]];
 
-        $query = Role::find()->where(['type' => Role::TYPE_ROLE])
+        $query = Role::find()->where(['type' => 1])
                             ->andWhere($roles_filter);
         // add conditions that should always apply here
 

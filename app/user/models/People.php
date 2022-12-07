@@ -1,8 +1,8 @@
 <?php
 
-namespace crudle\app\auth\models;
+namespace crudle\app\user\models;
 
-use crudle\app\enums\Status_Person;
+use crudle\app\user\enums\Status_Person;
 use crudle\app\crud\models\BaseActiveRecord;
 use Yii;
 

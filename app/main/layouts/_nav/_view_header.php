@@ -27,7 +27,7 @@ $menuItems = [];
                 endif;
                 // other multiple records view list/tree etc.
                 if ($controller->mapActionToViewType() == Type_View::List) :
-                    echo $this->render('@appMain/views/list/action');
+                    echo $this->render('@appModules/list_view/views/list_view/action');
                 endif ?>
                 </div>
             </div>

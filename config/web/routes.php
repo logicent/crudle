@@ -18,10 +18,6 @@ return [
     'app/forgot-password' => 'auth/request-password-reset',
     'app/reset-password' => 'auth/reset-password',
 
-    'app/home' => '/main/home/index',
-    'app/dashboards' => 'dashboard/dashboards/index',
-    'app/reports' => 'report/reports/index',
-
     // ** app modules, std modules
     'app/<module>' => '/<module>',
 

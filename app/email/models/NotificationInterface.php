@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\app\main\models\base;
+namespace crudle\app\email\models;
 
 interface NotificationInterface
 {

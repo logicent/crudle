@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\app\main\controllers\action;
+namespace crudle\app\upload\controllers\action;
 
 use Yii;
 use yii\base\Action;

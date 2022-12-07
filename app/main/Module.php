@@ -2,12 +2,13 @@
 
 namespace crudle\app\main;
 
+use crudle\ext\Module as ExtModule;
 use Yii;
 
 /**
  * main module definition class
  */
-class Module extends \yii\base\Module
+class Module extends ExtModule
 {
     /**
      * {@inheritdoc}

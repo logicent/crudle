@@ -3,10 +3,10 @@
 use crudle\app\main\helpers\App;
 use crudle\app\crud\enums\Type_Menu_Group;
 // use crudle\app\main\enums\Type_Menu_Group;
-use crudle\app\setup\enums\Type_Role;
-use crudle\app\dashboard\models\Dashboard;
-use crudle\app\report\models\ReportBuilder;
-use crudle\app\setup\models\DeveloperSettingsForm;
+use crudle\app\user\enums\Type_Role;
+use crudle\ext\dashboard\models\Dashboard;
+use crudle\ext\report\models\ReportBuilder;
+use crudle\app\setup\forms\DeveloperSettingsForm;
 use crudle\app\setup\models\Setup;
 use yii\helpers\Inflector;
 
@@ -21,27 +21,27 @@ $modules = App::getModules();
 $dashboardMenus = $reportMenus = $moduleMenus = $workspaceMenus = [];
 
 $workspaceMenus[] = [
-    'route' => '/main/home/index',
+    'route' => '/workspace/home/index',
     'label' => 'Home',
     'group' => Type_Menu_Group::Workspace,
     'visible' => Yii::$app->user->can(Type_Role::SystemManager),
 ];
 
 $dashboardMenus[] = [
-    'route' => '/main/dashboard/index',
+    'route' => '/dashboard/dashboard/index',
     'label' => 'Dashboard',
     'group' => Type_Menu_Group::Dashboard,
     'visible' => Yii::$app->user->can(Type_Role::SystemManager),
 ];
 $dashboardMenus[] = [
-    'route' => '/main/data-widget/index',
+    'route' => '/dashboard/data-widget/index',
     'label' => 'Data Widget',
     'group' => Type_Menu_Group::Dashboard,
     'visible' => Yii::$app->user->can(Type_Role::SystemManager),
 ];
 foreach ($dashboards as $dashboard) :
     $dashboardMenus[] = [
-        'route' => "/main/dashboards/index?id={$dashboard->route}",
+        'route' => "/dashboard/dashboards/index?id={$dashboard->route}",
         'label' => $dashboard->id,
         'group' => Type_Menu_Group::Dashboard,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
@@ -49,20 +49,20 @@ foreach ($dashboards as $dashboard) :
 endforeach;
 
 $reportMenus[] = [
-    'route' => '/main/report-builder/index',
+    'route' => '/report/report-builder/index',
     'label' => 'Report Builder',
     'group' => Type_Menu_Group::Reports,
     'visible' => Yii::$app->user->can(Type_Role::SystemManager),
 ];
 $reportMenus[] = [
-    'route' => '/main/report-template/index',
+    'route' => '/report/report-template/index',
     'label' => 'Report Template',
     'group' => Type_Menu_Group::Reports,
     'visible' => Yii::$app->user->can(Type_Role::SystemManager),
 ];
 foreach ($reports as $report) :
     $reportMenus[] = [
-        'route' =>  "/main/reports/index?id={$report->route}",
+        'route' =>  "/report/reports/index?id={$report->route}",
         'label' => $report->id,
         'group' => Type_Menu_Group::Reports,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),

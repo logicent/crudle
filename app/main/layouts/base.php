@@ -2,7 +2,7 @@
 
 use crudle\app\main\assets\AppAsset;
 use crudle\app\main\assets\HtmxAsset;
-use crudle\app\setup\models\LayoutSettingsForm;
+use crudle\app\setup\forms\LayoutSettingsForm;
 use crudle\app\setup\models\Setup;
 use yii\helpers\Html;
 

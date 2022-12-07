@@ -1,8 +1,8 @@
 <?php
 
-namespace crudle\app\main\controllers\action;
+namespace crudle\app\email\controllers\action;
 
-use crudle\app\helpers\SendNotification;
+use crudle\app\email\helpers\SendNotification;
 use yii\base\Action;
 
 class ResendNotification extends Action

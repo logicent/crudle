@@ -1,8 +1,8 @@
 <?php
 
-namespace crudle\app\setup\models;
+namespace crudle\app\database\models;
 
-use crudle\app\setup\enums\Type_Permission;
+use crudle\app\user\enums\Type_Permission;
 use crudle\app\setup\models\base\BaseSettingsForm;
 use Yii;
 

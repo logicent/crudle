@@ -1,34 +1,36 @@
 <?php
 
-namespace crudle\app\main\controllers\base;
+namespace crudle\app\crud\controllers;
 
-use crudle\app\helpers\Uploader;
-use crudle\app\main\controllers\action\AddRow;
-use crudle\app\main\controllers\action\Amend;
-use crudle\app\main\controllers\action\AutoSuggestId;
-use crudle\app\main\controllers\action\Cancel;
-use crudle\app\main\controllers\action\Create;
-use crudle\app\main\controllers\action\DeleteMany;
-use crudle\app\main\controllers\action\DeleteRow;
-use crudle\app\main\controllers\action\EditRow;
-use crudle\app\main\controllers\action\FindItem;
-use crudle\app\main\controllers\action\Index;
+use crudle\app\upload\helpers\Uploader;
+use crudle\app\crud\controllers\action\AddRow;
+use crudle\app\crud\controllers\action\Amend;
+use crudle\app\crud\controllers\action\AutoSuggestId;
+use crudle\app\crud\controllers\action\Cancel;
+use crudle\app\crud\controllers\action\Create;
+use crudle\app\crud\controllers\action\DeleteMany;
+use crudle\app\crud\controllers\action\DeleteRow;
+use crudle\app\crud\controllers\action\EditRow;
+use crudle\app\crud\controllers\action\FindItem;
+use crudle\app\list_view\controllers\action\Index;
 use crudle\app\main\controllers\action\LoadAttributesByModel;
 use crudle\app\main\controllers\action\LoadModelsByModule;
-use crudle\app\main\controllers\action\Read;
-use crudle\app\main\controllers\action\SaveComment;
-use crudle\app\main\controllers\action\ShowCommentModal;
+use crudle\app\crud\controllers\action\Read;
+use crudle\app\comment\controllers\action\SaveComment;
+use crudle\app\comment\controllers\action\ShowCommentModal;
 use crudle\app\main\controllers\action\ShowRelatedText;
-use crudle\app\main\controllers\action\Submit;
-use crudle\app\main\controllers\action\Update;
-use crudle\app\main\controllers\action\UpdateStatus;
-use crudle\app\main\enums\Type_Comment;
+use crudle\app\crud\controllers\action\Submit;
+use crudle\app\crud\controllers\action\Update;
+use crudle\app\workflow\controllers\action\UpdateStatus;
+use crudle\app\comment\enums\Type_Comment;
 use crudle\app\main\enums\Type_Form_View;
-use crudle\app\main\enums\Type_Relation;
+use crudle\app\crud\enums\Type_Relation;
 use crudle\app\main\enums\Type_View;
-use crudle\app\main\models\CommentForm;
+use crudle\app\comment\forms\CommentForm;
+use crudle\app\crud\controllers\CrudInterface;
+use crudle\app\main\controllers\base\ViewController;
 use crudle\app\main\models\Model;
-use crudle\app\setup\enums\Type_Permission;
+use crudle\app\user\enums\Type_Permission;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -131,6 +133,7 @@ abstract class CrudController extends ViewController implements CrudInterface
             'delete-many'   => DeleteMany::class,
             'add-row'       => AddRow::class,
             'edit-row'      => EditRow::class,
+            'index'         => Index::class,
             'find-item'      => FindItem::class,
             'delete-row'        => DeleteRow::class,
             'auto-suggest-id'   => AutoSuggestId::class,

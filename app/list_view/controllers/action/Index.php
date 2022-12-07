@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\app\main\controllers\action;
+namespace crudle\app\list_view\controllers\action;
 
 use Yii;
 use yii\base\Action;
@@ -32,12 +32,12 @@ class Index extends Action
         $dataProvider = $searchModel->search($userFilters);
 
         if (Yii::$app->request->isAjax)
-            return $this->controller->renderAjax('@appMain/views/list/index', [
+            return $this->controller->renderAjax('@appModules/list_view/views/list_view/index', [
                 'searchModel' => $searchModel,
                 'dataProvider' => $dataProvider,
             ]);
         else
-            return $this->controller->render('@appMain/views/list/index', [
+            return $this->controller->render('@appModules/list_view/views/list_view/index', [
                 'searchModel' => $searchModel,
                 'dataProvider' => $dataProvider,
             ]);

@@ -1,20 +1,20 @@
 <?php
 
-namespace crudle\app\setup\controllers;
+namespace crudle\app\database\controllers;
 
 use crudle\app\setup\controllers\base\BaseSettingsController;
 use crudle\app\main\enums\Type_Model;
-use crudle\app\main\enums\Type_Relation;
-use crudle\app\helpers\DbDumper;
+use crudle\app\crud\enums\Type_Relation;
+use crudle\app\database\helpers\DbDumper;
 // use crudle\app\helpers\DbRestore;
-use crudle\app\main\models\auth\Auth;
-use crudle\app\main\models\auth\Assignment;
-use crudle\app\main\models\auth\Item;
-use crudle\app\main\models\auth\ItemChild;
-use crudle\app\setup\models\DbBackupSettingsForm;
-use crudle\app\setup\enums\Type_Role;
+use crudle\app\auth\models\Auth;
+use crudle\app\auth\models\Assignment;
+use crudle\app\auth\models\Item;
+use crudle\app\auth\models\ItemChild;
+use crudle\app\database\models\DbBackupSettingsForm;
+use crudle\app\user\enums\Type_Role;
 use crudle\app\user\models\Person;
-use crudle\app\auth\models\UserLog;
+use crudle\app\user\models\UserLog;
 use crudle\app\setup\models\Settings;
 use Yii;
 use yii\filters\AccessControl;

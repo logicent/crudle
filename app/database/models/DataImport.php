@@ -1,13 +1,13 @@
 <?php
 
-namespace crudle\app\setup\models;
+namespace crudle\app\database\models;
 
-use crudle\app\main\enums\Type_Model_Id;
 use crudle\app\crud\models\BaseActiveRecord;
+use crudle\app\main\enums\Type_Model_Id;
 use crudle\app\upload\forms\UploadForm;
-use crudle\app\setup\enums\Permission_Group;
-use crudle\app\setup\enums\Status_Transaction;
-use crudle\app\setup\enums\Type_Permission;
+use crudle\app\user\enums\Permission_Group;
+use crudle\app\user\enums\Type_Permission;
+use crudle\app\workflow\enums\Status_Transaction;
 
 /**
  * This is the model class for table "data_import".

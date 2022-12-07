@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\app\helpers;
+namespace crudle\app\upload\helpers;
 
 use yii\web\UploadedFile;
 

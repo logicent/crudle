@@ -13,6 +13,6 @@ use crudle\ext\web_cms\models\SiteNavHeader;
 
 <br>
 
-<?= $this->render('@appMain/views/_form_section/item', [
+<?= $this->render('@appMain/views/_form_table/item', [
         'modelClass' => SiteNavHeader::class
     ]) ?>
