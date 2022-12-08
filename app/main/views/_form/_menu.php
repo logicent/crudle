@@ -1,6 +1,6 @@
 <?php
 
-use crudle\app\setup\enums\Type_Permission;
+use crudle\app\user\enums\Type_Permission;
 use crudle\app\main\enums\Resource_Action;
 use yii\helpers\Html;
 use yii\helpers\Url;

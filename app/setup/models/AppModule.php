@@ -3,9 +3,9 @@
 namespace crudle\app\setup\models;
 
 use crudle\app\setup\enums\Status_Transaction;
-use crudle\app\setup\enums\Type_Permission;
+use crudle\app\user\enums\Type_Permission;
 use crudle\app\crud\models\BaseActiveRecord;
-use crudle\app\setup\enums\Permission_Group;
+use crudle\app\user\enums\Permission_Group;
 use Yii;
 
 /**

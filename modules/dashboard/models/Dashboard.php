@@ -5,8 +5,8 @@ namespace crudle\ext\dashboard\models;
 use crudle\app\main\enums\Status_Active;
 use crudle\app\crud\enums\Type_Relation;
 use crudle\app\crud\models\BaseActiveRecord;
-use crudle\app\setup\enums\Permission_Group;
-use crudle\app\setup\enums\Type_Permission;
+use crudle\app\user\enums\Permission_Group;
+use crudle\app\user\enums\Type_Permission;
 use Yii;
 use yii\helpers\ArrayHelper;
 

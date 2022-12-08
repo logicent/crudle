@@ -3,7 +3,7 @@
 namespace crudle\app\setup\commands;
 
 use crudle\app\main\helpers\App;
-use crudle\app\main\models\auth\Auth;
+use crudle\app\auth\models\Auth;
 use crudle\app\auth\models\Role;
 use crudle\app\crud\enums\Type_Model;
 use crudle\app\user\enums\Type_Permission;

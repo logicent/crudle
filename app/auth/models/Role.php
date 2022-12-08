@@ -2,7 +2,7 @@
 
 namespace crudle\app\auth\models;
 
-use crudle\app\setup\enums\Type_Permission;
+use crudle\app\user\enums\Type_Permission;
 
 class Role extends Item
 {

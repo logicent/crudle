@@ -2,7 +2,7 @@
 
 namespace crudle\app\setup\models\base;
 
-use crudle\app\setup\enums\Type_Permission;
+use crudle\app\user\enums\Type_Permission;
 use crudle\app\setup\models\Settings;
 use Yii;
 use yii\base\Model;

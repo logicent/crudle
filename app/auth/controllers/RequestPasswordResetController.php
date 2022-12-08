@@ -5,7 +5,7 @@ namespace crudle\app\auth\controllers;
 use crudle\app\helpers\Mailer;
 use crudle\app\main\controllers\AppController;
 use crudle\app\auth\forms\PasswordResetRequestForm;
-use crudle\app\main\models\auth\Auth;
+use crudle\app\auth\models\Auth;
 use crudle\app\auth\models\User;
 use crudle\app\email\models\EmailQueue;
 use Yii;

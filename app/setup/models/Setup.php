@@ -2,7 +2,7 @@
 
 namespace crudle\app\setup\models;
 
-use crudle\app\setup\enums\Type_Permission;
+use crudle\app\user\enums\Type_Permission;
 
 /**
  * This is the model class for page "Setup".

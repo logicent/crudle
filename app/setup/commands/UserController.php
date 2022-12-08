@@ -2,7 +2,7 @@
 namespace crudle\app\setup\commands;
 
 use crudle\app\setup\enums\Status_User;
-use crudle\app\main\models\auth\Auth;
+use crudle\app\auth\models\Auth;
 use crudle\app\user\enums\Type_Role;
 use crudle\app\user\models\Person;
 use Yii;
