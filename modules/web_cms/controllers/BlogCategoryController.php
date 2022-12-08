@@ -2,14 +2,14 @@
 
 namespace crudle\ext\web_cms\controllers;
 
-use crudle\app\crud\controllers\CrudController;
+use crudle\app\list_view\controllers\ListViewController;
 use crudle\ext\web_cms\models\BlogCategory;
 use crudle\ext\web_cms\models\search\BlogCategorySearch;
 
 /**
  * BlogCategoryController for the `BlogCategory` model
  */
-class BlogCategoryController extends CrudController
+class BlogCategoryController extends ListViewController
 {
     public function modelClass(): string
     {

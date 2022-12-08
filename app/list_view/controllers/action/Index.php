@@ -31,13 +31,14 @@ class Index extends Action
 
         $dataProvider = $searchModel->search($userFilters);
 
+        $view = '@appModules/list_view/views/list_view/index';
         if (Yii::$app->request->isAjax)
-            return $this->controller->renderAjax('@appModules/list_view/views/list_view/index', [
+            return $this->controller->renderAjax($view, [
                 'searchModel' => $searchModel,
                 'dataProvider' => $dataProvider,
             ]);
         else
-            return $this->controller->render('@appModules/list_view/views/list_view/index', [
+            return $this->controller->render($view, [
                 'searchModel' => $searchModel,
                 'dataProvider' => $dataProvider,
             ]);

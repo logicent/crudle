@@ -1,7 +1,7 @@
 <?php
 
 use crudle\ext\dashboard\assets\ChartJsAsset;
-use crudle\app\main\enums\Type_Widget;
+use crudle\ext\dashboard\enums\Type_Widget;
 use crudle\ext\dashboard\models\DataWidget;
 use crudle\app\widgets\ChartJs;
 use crudle\app\widgets\LatestEntries;

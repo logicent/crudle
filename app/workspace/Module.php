@@ -3,11 +3,12 @@
 namespace crudle\app\workspace;
 
 use Yii;
+use yii\base\BootstrapInterface;
 
 /**
  * workspace module definition class
  */
-class Module extends \yii\base\Module
+class Module extends \yii\base\Module implements BootstrapInterface
 {
     /**
      * {@inheritdoc}

@@ -106,13 +106,13 @@ return [
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/user/user/index',
+        'route' => '/user/account/index',
         'label' => 'User & Preferences',
         'group' => Type_Menu_Group::People,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/user/user-group/index',
+        'route' => '/user/group/index',
         'label' => 'User Group',
         'group' => Type_Menu_Group::People,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
@@ -124,7 +124,7 @@ return [
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/user/user-log/index',
+        'route' => '/user/log/index',
         'label' => 'User Log',
         'group' => Type_Menu_Group::People,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),

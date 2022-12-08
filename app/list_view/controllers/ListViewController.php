@@ -1,6 +1,11 @@
 <?php
 
-use crudle\app\list_view\controllers\base\ListViewInterface;
+namespace crudle\app\list_view\controllers;
+
+use crudle\app\list_view\controllers\action\Batch;
+use crudle\app\list_view\controllers\action\Index;
+use crudle\app\list_view\controllers\action\MyListViewSettings;
+use crudle\app\list_view\controllers\ListViewInterface;
 use crudle\app\main\controllers\base\ViewController;
 
 abstract class ListViewController extends ViewController implements ListViewInterface
@@ -18,7 +23,7 @@ abstract class ListViewController extends ViewController implements ListViewInte
     // ListViewInterface
     public function listRouteId(): string
     {
-        return '';
+        return $this->id . '/update';
     }
 
     public function listRouteParams(): array

@@ -2,7 +2,7 @@
 
 namespace crudle\ext\dashboard\models;
 
-use crudle\app\enums\Status_Active;
+use crudle\app\main\enums\Status_Active;
 use crudle\app\crud\models\BaseActiveRecord;
 use crudle\app\setup\enums\Permission_Group;
 use crudle\app\setup\enums\Type_Permission;

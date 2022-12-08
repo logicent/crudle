@@ -53,19 +53,18 @@ $showListCaptions = $searchModel->getLayoutSettings('showHelpInfo');
         'summary' => 'Showing <b>{begin} - {end}</b> of <b>{totalCount}</b> objects.', // 
         'summaryOptions' => ['class' => 'text-muted', 'style' => 'text-align: right;'],
         'tableOptions' => ['class' => 'ui padded striped selectable single line primary table'],
-        'columns' => $viewColumns,
-        // 'columns' => ArrayHelper::merge(
-        //     [
-        //         $checkboxColumn,
-        //         $linkColumn,
-        //         $statusColumn,
-        //     ],
-        //     $viewColumns,
-        //     [
-        //         $idColumn,
-        //         $tsColumn,
-        //     ]
-        // )
+        'columns' => array_merge(
+            [
+                $checkboxColumn,
+                $linkColumn,
+                $statusColumn,
+            ],
+            $viewColumns,
+            [
+                $idColumn,
+                $tsColumn,
+            ]
+        )
         // [
         //     'class' => 'icms\FomanticUI\widgets\ActionColumn',
         //     // 'template' => '<div class="ui basic tiny compact icon buttons">{view}{update}{delete}</div>',

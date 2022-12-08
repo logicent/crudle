@@ -33,8 +33,8 @@ class Module extends \yii\base\Module implements BootstrapInterface
         // ** Crud action routes
         if ($app instanceof \yii\web\Application) {
             $app->getUrlManager()->addRules([
-                ['class' => 'yii\web\UrlRule', 'pattern' => 'app/user/my-account/<id:\w+>', 'route' => $this->id . '/user/my-account'],
-                ['class' => 'yii\web\UrlRule', 'pattern' => 'app/user/my-preferences/<id:\w+>', 'route' => $this->id . '/user/my-preferences'],
+                ['class' => 'yii\web\UrlRule', 'pattern' => 'app/user/my-account/<id:\w+>', 'route' => $this->id . '/account/my-account'],
+                ['class' => 'yii\web\UrlRule', 'pattern' => 'app/user/my-preferences/<id:\w+>', 'route' => $this->id . '/account/my-preferences'],
             ], false);
         }
     }

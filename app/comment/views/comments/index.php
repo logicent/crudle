@@ -8,11 +8,11 @@ $this->params['count_comments'] = $model->commentsCount;
 if (!$model->isNewRecord) :
     $comment = new CommentForm();
 
-    echo $this->render('comments/_form', ['model' => $model, 'comment' => $comment]);
+    echo $this->render('_form', ['model' => $model, 'comment' => $comment]);
 
     // List all system-generated and user created Comments
     Html::tag('div', is_array( $model->comments ) ? 
-        $this->render('comments/timeline', ['comments' => $model->comments]) : null,
+        $this->render('timeline', ['comments' => $model->comments]) : null,
         [
             'class' => 'ui threaded comments',
             'id' => 'comment_timeline'

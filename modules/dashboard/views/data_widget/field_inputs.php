@@ -2,9 +2,9 @@
 
 use crudle\app\main\helpers\App;
 use crudle\app\main\enums\Column_Width;
-use crudle\app\main\enums\Data_Aggregate_Function;
 use crudle\app\setup\enums\Type_Model;
-use crudle\app\main\enums\Type_Widget;
+use crudle\ext\dashboard\enums\Type_Aggregate;
+use crudle\ext\dashboard\enums\Type_Widget;
 use icms\FomanticUI\Elements;
 use icms\FomanticUI\modules\Radio;
 use icms\FomanticUI\modules\Select;
@@ -65,7 +65,7 @@ endif;
                         ]
                     ])->label('Data model') ?>
             
-            <?= $form->field($model, 'data_aggregate_function')->dropDownList(Data_Aggregate_Function::enums()) ?>
+            <?= $form->field($model, 'data_aggregate_function')->dropDownList(Type_Aggregate::enums()) ?>
         </div>
         <div class="column">
         <?= Html::activeLabel($model, 'group_by_column') ?>

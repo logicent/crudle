@@ -2,7 +2,7 @@
 
 namespace crudle\app\email\models;
 
-use crudle\app\enums\Status_Active;
+use crudle\app\main\enums\Status_Active;
 use crudle\app\crud\models\BaseActiveRecord;
 use crudle\app\user\enums\Permission_Group;
 use crudle\app\user\enums\Type_Permission;

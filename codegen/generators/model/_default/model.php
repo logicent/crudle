@@ -19,7 +19,7 @@ echo "<?php\n";
 
 namespace <?= $generator->ns ?>;
 
-use crudle\app\enums\Status_Active;
+use crudle\app\main\enums\Status_Active;
 <?php if (!empty($relations)): ?>
 use crudle\app\crud\enums\Type_Relation;
 use crudle\app\setup\enums\Permission_Group;

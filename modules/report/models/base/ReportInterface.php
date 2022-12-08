@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\ext\report\models;
+namespace crudle\ext\report\models\base;
 
 interface ReportInterface
 {

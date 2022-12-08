@@ -11,7 +11,7 @@ use crudle\app\main\controllers\action\MyLayoutSettings;
 use crudle\app\main\controllers\action\RestoreDefaults;
 use crudle\app\main\controllers\action\SwitchViewType;
 use crudle\app\main\enums\Type_Form_View;
-use crudle\app\main\enums\Type_Link;
+use crudle\app\crud\enums\Type_Link;
 use crudle\app\main\enums\Type_View;
 use crudle\app\setup\forms\LayoutSettingsForm;
 use crudle\app\setup\models\Setup;

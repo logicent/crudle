@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\app\list_view\controllers\base;
+namespace crudle\app\list_view\controllers;
 
 interface ListViewInterface
 {

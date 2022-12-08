@@ -28,6 +28,7 @@ use crudle\app\crud\enums\Type_Relation;
 use crudle\app\main\enums\Type_View;
 use crudle\app\comment\forms\CommentForm;
 use crudle\app\crud\controllers\CrudInterface;
+use crudle\app\list_view\controllers\ListViewController;
 use crudle\app\main\controllers\base\ViewController;
 use crudle\app\main\models\Model;
 use crudle\app\user\enums\Type_Permission;
@@ -36,14 +37,18 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
+use yii\helpers\Inflector;
 use yii\helpers\StringHelper;
 use yii\helpers\Url;
 use yii\web\NotFoundHttpException;
 
-abstract class CrudController extends ViewController implements CrudInterface
+abstract class CrudController extends ListViewController implements CrudInterface
 {
     public function behaviors()
     {
+        $modelClassname = StringHelper::basename($this->modelClass());
+        $modelName = Inflector::camel2words($modelClassname);
+
         return [
             'access' => [
                 'class' => AccessControl::class,
@@ -52,17 +57,17 @@ abstract class CrudController extends ViewController implements CrudInterface
                     [
                         'actions' => ['index', 'list'],
                         'allow' => true,
-                        'roles' => [ Type_Permission::List .' '. $this->viewName() ],
+                        'roles' => [ Type_Permission::List .' '. $modelName ],
                     ],
                     [
                         'actions' => ['read'], // view
                         'allow' => true,
-                        'roles' => [ Type_Permission::Read .' '. $this->viewName() ],
+                        'roles' => [ Type_Permission::Read .' '. $modelName ],
                     ],
                     [
                         'actions' => ['update'], // edit
                         'allow' => true,
-                        'roles' => [ Type_Permission::Update .' '. $this->viewName() ],
+                        'roles' => [ Type_Permission::Update .' '. $modelName ],
                         // 'roleParams' => function() {
                         //     return ['model' => Person::findOne(Yii::$app->request->get('id'))];
                         // },
@@ -75,17 +80,17 @@ abstract class CrudController extends ViewController implements CrudInterface
                     [
                         'actions' => ['create'], // addNew
                         'allow' => true,
-                        'roles' => [ Type_Permission::Create .' '. $this->viewName() ],
+                        'roles' => [ Type_Permission::Create .' '. $modelName ],
                     ],
                     [
                         'actions' => ['delete', 'delete-many'],
                         'allow' => true,
-                        'roles' => [ Type_Permission::Delete .' '. $this->viewName() ],
+                        'roles' => [ Type_Permission::Delete .' '. $modelName ],
                     ],
                     [
                         'actions' => ['cancel'],
                         'allow' => true,
-                        'roles' => [ Type_Permission::Cancel .' '. $this->viewName() ],
+                        'roles' => [ Type_Permission::Cancel .' '. $modelName ],
                     ],
                 ],
             ],
@@ -353,14 +358,53 @@ abstract class CrudController extends ViewController implements CrudInterface
     }
 
     // ViewInterface
-    public function menuActions(): array
+
+    // public function mapActionToViewType()
+    // {
+    //     switch ($this->action->id)
+    //     {
+    //         case '':
+    //             return Type_View::Form;
+    //         default: // index
+    //             return $this->defaultActionViewType();
+    //     }
+    // }
+
+    public function mainAction(): array
     {
         return [
             'index' => [
                 'route' => 'create',
-                'label' => 'New'
+                'label' => 'New',
+            ],
+            'create' => [
+                'route' => 'create',
+                'label' => 'Save',
+            ],
+            'update' => [
+                'route' => 'update',
+                'label' => 'Save',
+            ],
+        ];
+    }
+
+    public function viewActions(): array
+    {
+        return [
+            'index' => [
             ]
         ];
+    }
+
+    public function menuActions(): array
+    {
+        return [
+        ];
+    }
+
+    public function userActions(): array
+    {
+        return [];
     }
 
     public function defaultActionViewType()
@@ -406,11 +450,11 @@ abstract class CrudController extends ViewController implements CrudInterface
 
     public function formView(string $action = null, string $path = null)
     {
-        return '@appMain/views/crud/index';
+        return '@appModules/crud/views/crud/index';
     }
 
     public function commentView(): string
     {
-        return '@appMain/layouts/_comments';
+        return '@appModules/comment/views/comments';
     }
 }

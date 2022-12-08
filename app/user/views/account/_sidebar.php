@@ -4,7 +4,7 @@ use yii\helpers\Url;
 use crudle\app\auth\models\User;
 use crudle\app\user\models\Person;
 
-$model = $this->context->model;
+// $model = $this->context->model;
 
 if ($this->context->action->id == 'index') : ?>
 
@@ -34,9 +34,7 @@ endif;
 if ( $this->context->action->id != 'create' ) :
     // $approvedBy = Person::findOne(['id' => $model->approved_by]);
 ?>
-
 <div class="ui hidden divider"></div>
-
 <div id="sidebar">
     <?= $this->render('@appMain/views/_form/_sidebar_links') ?>
 </div>

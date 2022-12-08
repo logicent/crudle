@@ -3,7 +3,7 @@
 use crudle\app\main\helpers\App;
 use crudle\app\crud\helpers\SelectableItems;
 use crudle\app\main\enums\Column_Width;
-use crudle\app\main\enums\Type_Widget;
+use crudle\ext\dashboard\enums\Type_Widget;
 use crudle\ext\dashboard\models\DashboardWidget;
 use crudle\ext\dashboard\models\DataWidget;
 use yii\helpers\ArrayHelper;

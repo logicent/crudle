@@ -3,11 +3,12 @@
 namespace crudle\app\auth;
 
 use Yii;
+use yii\base\BootstrapInterface;
 
 /**
  * auth module definition class
  */
-class Module extends \yii\base\Module
+class Module extends \yii\base\Module implements BootstrapInterface
 {
     /**
      * {@inheritdoc}
