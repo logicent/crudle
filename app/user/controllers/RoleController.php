@@ -53,7 +53,7 @@ class RoleController extends CrudController
         $this->model->loadDefaultValues();
         $this->model->type = Role::TYPE_ROLE;
 
-        return $this->render('@appMain/views/crud/index', [
+        return $this->render('@appModules/crud/views/crud/index', [
             'model' => $this->model,
         ]);
     }
@@ -111,7 +111,7 @@ class RoleController extends CrudController
                 return $this->asJson(['validation' => $result]);
             }
 
-        return $this->render('@appMain/views/crud/index', [
+        return $this->render('@appModules/crud/views/crud/index', [
             'model' => $this->model,
         ]);
     }

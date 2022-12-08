@@ -44,12 +44,12 @@ class AccountController extends CrudController
         $this->model = $person;
 
         if (Yii::$app->request->isAjax)
-            return $this->renderAjax('@appMain/views/crud/index', [
+            return $this->renderAjax('@appModules/crud/views/crud/index', [
                 // 'auth' => $this->auth,
                 'model' => $person,
             ]);
         else
-            return $this->render('@appMain/views/crud/index', [
+            return $this->render('@appModules/crud/views/crud/index', [
                 // 'auth' => $this->auth,
                 'model' => $person,
             ]);
@@ -172,12 +172,12 @@ class AccountController extends CrudController
         $this->model = $person;
 
         if (Yii::$app->request->isAjax)
-            return $this->renderAjax('@appMain/views/crud/index', [
+            return $this->renderAjax('@appModules/crud/views/crud/index', [
                 // 'auth' => $this->auth,
                 'model' => $person,
             ]);
         else
-            return $this->render('@appMain/views/crud/index', [
+            return $this->render('@appModules/crud/views/crud/index', [
                 // 'auth' => $this->auth,
                 'model' => $person,
             ]);

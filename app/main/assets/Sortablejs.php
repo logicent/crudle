@@ -13,6 +13,6 @@ class Sortablejs extends AssetBundle
     ];
 
     public $depends = [
-        'crudle\app\assets\HtmxAsset',
+        'crudle\app\main\assets\HtmxAsset',
     ];
 }

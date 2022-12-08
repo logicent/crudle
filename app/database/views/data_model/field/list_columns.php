@@ -1,6 +1,6 @@
 <?php
 
-use crudle\app\assets\Sortablejs;
+use crudle\app\main\assets\Sortablejs;
 use crudle\app\main\enums\Type_Field_Input;
 use crudle\app\database\models\DataModelField;
 use icms\FomanticUI\Elements;

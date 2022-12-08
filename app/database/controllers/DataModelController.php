@@ -74,7 +74,7 @@ class DataModelController extends CrudController
             $modelDetails[] = $modelDetail;
             $this->fieldDataProvider->setModels( $modelDetails );
 
-            return $this->render('@appMain/views/crud/index', [
+            return $this->render('@appModules/crud/views/crud/index', [
                 'model' => $this->model,
             ]);
         }
@@ -102,7 +102,7 @@ class DataModelController extends CrudController
             }
         }
 
-        return $this->render('@appMain/views/crud/index', [
+        return $this->render('@appModules/crud/views/crud/index', [
             'model' => $this->model,
         ]);
     }
@@ -158,7 +158,7 @@ class DataModelController extends CrudController
 
             $this->model = $model;
 
-            return $this->render('@appMain/views/crud/index', [
+            return $this->render('@appModules/crud/views/crud/index', [
                 'model' => $model,
             ]);
         }
@@ -199,7 +199,7 @@ class DataModelController extends CrudController
 
         $this->model = $model;
 
-        return $this->render('@appMain/views/crud/index', [
+        return $this->render('@appModules/crud/views/crud/index', [
             'model' => $model,
         ]);
     }
@@ -225,7 +225,7 @@ class DataModelController extends CrudController
                 [new DataModelField(['scenario' => DataModelField::SCENARIO_BATCH_ACTION])] );
         $this->model = $model;
 
-        return $this->render('@appMain/views/crud/index', [
+        return $this->render('@appModules/crud/views/crud/index', [
             'model' => $model,
         ]);
     }
