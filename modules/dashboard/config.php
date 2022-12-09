@@ -2,5 +2,5 @@
 
 return [
     'id' => 'dashboard',
-    'defaultRoute' => 'dashboards',
+    'defaultRoute' => 'visualize',
 ];

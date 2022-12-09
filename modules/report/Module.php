@@ -35,7 +35,7 @@ class Module extends ExtModule
         // Standard/custom reports routes
         if ($app instanceof \yii\web\Application) {
             $app->getUrlManager()->addRules([
-                ['class' => 'yii\web\UrlRule', 'pattern' => 'app/reports' , 'route' => $this->id . '/reports/index'],
+                ['class' => 'yii\web\UrlRule', 'pattern' => 'app/reports', 'route' => $this->id . '/viewer/index'],
                 // ['class' => 'yii\web\UrlRule', 'pattern' => 'app/query-report/<\w+>' , 'route' => $this->id . '/report/query/<\w+>'],
             ], false);
         }

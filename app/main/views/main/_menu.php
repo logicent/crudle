@@ -34,14 +34,14 @@ $dashboardMenus[] = [
     'visible' => Yii::$app->user->can(Type_Role::SystemManager),
 ];
 $dashboardMenus[] = [
-    'route' => '/dashboard/data-widget/index',
+    'route' => '/dashboard/widget/index',
     'label' => 'Data Widget',
     'group' => Type_Menu_Group::Dashboard,
     'visible' => Yii::$app->user->can(Type_Role::SystemManager),
 ];
 foreach ($dashboards as $dashboard) :
     $dashboardMenus[] = [
-        'route' => "/dashboard/dashboards/index?id={$dashboard->route}",
+        'route' => "/dashboard/visualize/index?id={$dashboard->route}",
         'label' => $dashboard->id,
         'group' => Type_Menu_Group::Dashboard,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
@@ -49,20 +49,20 @@ foreach ($dashboards as $dashboard) :
 endforeach;
 
 $reportMenus[] = [
-    'route' => '/report/report-builder/index',
+    'route' => '/report/builder/index',
     'label' => 'Report Builder',
     'group' => Type_Menu_Group::Reports,
     'visible' => Yii::$app->user->can(Type_Role::SystemManager),
 ];
 $reportMenus[] = [
-    'route' => '/report/report-template/index',
+    'route' => '/report/template/index',
     'label' => 'Report Template',
     'group' => Type_Menu_Group::Reports,
     'visible' => Yii::$app->user->can(Type_Role::SystemManager),
 ];
 foreach ($reports as $report) :
     $reportMenus[] = [
-        'route' =>  "/report/reports/index?id={$report->route}",
+        'route' =>  "/report/viewer/index?id={$report->route}",
         'label' => $report->id,
         'group' => Type_Menu_Group::Reports,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),

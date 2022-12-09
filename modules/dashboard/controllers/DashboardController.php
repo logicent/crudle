@@ -17,21 +17,4 @@ class DashboardController extends CrudController
     {
         return DashboardSearch::class;
     }
-
-    // public function showViewSidebar(): bool
-    // {
-    //     return $this->action->id == 'index';
-    // }
-
-    // ListViewInterface
-    public function listRouteId(): string
-    {
-        return '/dashboard/dashboard';
-    }
-
-    public function batchActionsMenu(): array
-    {
-        return [
-        ];
-    }
 }

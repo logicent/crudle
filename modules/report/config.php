@@ -2,5 +2,5 @@
 
 return [
     'id' => 'report',
-    'defaultRoute' => 'reports',
+    'defaultRoute' => 'viewer',
 ];

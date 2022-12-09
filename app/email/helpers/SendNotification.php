@@ -2,8 +2,8 @@
 
 namespace crudle\app\email\helpers;
 
-use crudle\app\comment\enums\Type_Comment;
-use crudle\app\comment\forms\CommentForm;
+use crudle\app\crud\enums\Type_Comment;
+use crudle\app\crud\forms\CommentForm;
 use crudle\app\email\enums\Status_Queue;
 use crudle\app\email\forms\EmailNotificationSettingsForm;
 use crudle\app\email\models\EmailQueue;

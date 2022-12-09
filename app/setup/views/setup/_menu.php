@@ -46,19 +46,19 @@ return [
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/email/email-template/index',
+        'route' => '/email/template/index',
         'label' => 'Email Template',
         'group' => Type_Menu_Group::Email,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/email/email-notification/index',
+        'route' => '/email/notification/index',
         'label' => 'Email Notification',
         'group' => Type_Menu_Group::Email,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),
     ],
     [
-        'route' => '/email/email-queue/index',
+        'route' => '/email/queue/index',
         'label' => 'Email Queue',
         'group' => Type_Menu_Group::Email,
         'visible' => Yii::$app->user->can(Type_Role::SystemManager),

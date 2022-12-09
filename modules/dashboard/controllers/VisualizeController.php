@@ -6,7 +6,7 @@ use crudle\app\main\controllers\base\ViewController;
 use crudle\app\main\enums\Type_View;
 use crudle\ext\dashboard\models\Dashboard;
 
-class DashboardsController extends ViewController
+class VisualizeController extends ViewController
 {
     public function actions()
     {

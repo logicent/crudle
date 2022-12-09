@@ -1,10 +1,10 @@
 <?php
 
-namespace crudle\app\settings\controllers\action;
+namespace crudle\app\user\controllers\action;
 
 use yii\base\Action;
 
-class StoreUserPreferences extends Action
+class RestoreDefaults extends Action
 {
     public function run()
     {

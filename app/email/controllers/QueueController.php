@@ -6,7 +6,7 @@ use crudle\app\crud\controllers\CrudController;
 use crudle\app\email\models\EmailQueue;
 use crudle\app\email\models\search\EmailQueueSearch;
 
-class EmailQueueController extends CrudController
+class QueueController extends CrudController
 {
     public function modelClass(): string
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\app\comment\enums;
+namespace crudle\app\crud\enums;
 
 use Yii;
 

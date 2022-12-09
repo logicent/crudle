@@ -8,14 +8,12 @@ use yii\helpers\ArrayHelper;
 // core modules
 $coreModules = [
     'auth'      => crudle\app\auth\Module::class,
-    'comment'   => crudle\app\comment\Module::class,
     'crud'      => crudle\app\crud\Module::class,
     'database'  => crudle\app\database\Module::class,
     'email'     => crudle\app\email\Module::class,
     'list_view' => crudle\app\list_view\Module::class,
     'main'      => crudle\app\main\Module::class,
     'printing'  => crudle\app\printing\Module::class,
-    'settings'  => crudle\app\settings\Module::class,
     'setup'     => crudle\app\setup\Module::class,
     'upload'    => crudle\app\upload\Module::class,
     'user'      => crudle\app\user\Module::class,

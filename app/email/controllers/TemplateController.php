@@ -6,7 +6,7 @@ use crudle\app\crud\controllers\CrudController;
 use crudle\app\email\models\EmailTemplate;
 use crudle\app\email\models\search\EmailTemplateSearch;
 
-class EmailTemplateController extends CrudController
+class TemplateController extends CrudController
 {
     public function modelClass(): string
     {

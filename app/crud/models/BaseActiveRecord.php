@@ -3,7 +3,7 @@
 namespace crudle\app\crud\models;
 
 use crudle\app\main\helpers\App;
-use crudle\app\comment\enums\Type_Comment;
+use crudle\app\crud\enums\Type_Comment;
 use crudle\app\crud\enums\Type_Link;
 use crudle\app\main\enums\Type_Mixed_Value;
 use crudle\app\crud\enums\Type_Model_Id;

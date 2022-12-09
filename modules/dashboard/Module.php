@@ -34,7 +34,7 @@ class Module extends ExtModule
     {
         if ($app instanceof \yii\web\Application) {
             $app->getUrlManager()->addRules([
-                ['class' => 'yii\web\UrlRule', 'pattern' => 'app/dashboards' , 'route' => $this->id . '/dashboards/index'],
+                ['class' => 'yii\web\UrlRule', 'pattern' => 'app/dashboards' , 'route' => $this->id . '/visualize/index'],
             ], false);
         }
     }

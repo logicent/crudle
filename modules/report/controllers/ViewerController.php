@@ -9,7 +9,7 @@ use crudle\ext\report\models\ReportBuilderItem;
 use Yii;
 use yii\data\ActiveDataProvider;
 
-class ReportsController extends ViewController
+class ViewerController extends ViewController
 {
     public $layout = '@extModules/report/layouts/report';
 

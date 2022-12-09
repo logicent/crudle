@@ -7,7 +7,7 @@ use crudle\ext\report\models\ReportTemplate;
 use crudle\ext\report\models\ReportTemplateItem;
 use crudle\ext\report\models\search\ReportTemplateSearch;
 
-class ReportTemplateController extends CrudController
+class TemplateController extends CrudController
 {
     public $sectionModelClass;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace crudle\app\comment\controllers\action;
+namespace crudle\app\crud\controllers\action;
 
-use crudle\app\comment\enums\Type_Comment;
-use crudle\app\comment\forms\CommentForm;
+use crudle\app\crud\enums\Type_Comment;
+use crudle\app\crud\forms\CommentForm;
 use Yii;
 use yii\base\Action;
 

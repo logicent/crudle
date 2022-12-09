@@ -2,8 +2,8 @@
 
 namespace crudle\app\workflow\controllers\action;
 
-use crudle\app\comment\enums\Type_Comment;
-use crudle\app\comment\forms\CommentForm;
+use crudle\app\crud\enums\Type_Comment;
+use crudle\app\crud\forms\CommentForm;
 use crudle\app\workflow\enums\Status_Transaction;
 use Yii;
 use yii\base\Action;

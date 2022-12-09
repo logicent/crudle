@@ -8,7 +8,7 @@ use crudle\ext\report\models\ReportBuilderItem;
 use crudle\ext\report\models\search\ReportBuilderSearch;
 
 
-class ReportBuilderController extends CrudController
+class BuilderController extends CrudController
 {
     public $columnModelClass;
 
