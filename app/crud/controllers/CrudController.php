@@ -4,24 +4,19 @@ namespace crudle\app\crud\controllers;
 
 use crudle\app\upload\helpers\Uploader;
 use crudle\app\crud\controllers\action\AddRow;
-use crudle\app\crud\controllers\action\Amend;
 use crudle\app\crud\controllers\action\AutoSuggestId;
-use crudle\app\crud\controllers\action\Cancel;
 use crudle\app\crud\controllers\action\Create;
 use crudle\app\crud\controllers\action\DeleteMany;
 use crudle\app\crud\controllers\action\DeleteRow;
 use crudle\app\crud\controllers\action\EditRow;
 use crudle\app\crud\controllers\action\FindItem;
-use crudle\app\list_view\controllers\action\Index;
 use crudle\app\main\controllers\action\LoadAttributesByModel;
 use crudle\app\main\controllers\action\LoadModelsByModule;
 use crudle\app\crud\controllers\action\Read;
 use crudle\app\comment\controllers\action\SaveComment;
 use crudle\app\comment\controllers\action\ShowCommentModal;
 use crudle\app\main\controllers\action\ShowRelatedText;
-use crudle\app\crud\controllers\action\Submit;
 use crudle\app\crud\controllers\action\Update;
-use crudle\app\workflow\controllers\action\UpdateStatus;
 use crudle\app\crud\enums\Type_Comment;
 use crudle\app\main\enums\Type_Form_View;
 use crudle\app\crud\enums\Type_Relation;
@@ -29,7 +24,6 @@ use crudle\app\main\enums\Type_View;
 use crudle\app\crud\forms\CommentForm;
 use crudle\app\crud\controllers\CrudInterface;
 use crudle\app\list_view\controllers\ListViewController;
-use crudle\app\main\controllers\base\ViewController;
 use crudle\app\main\models\Model;
 use crudle\app\user\enums\Type_Permission;
 use Yii;
@@ -52,13 +46,8 @@ abstract class CrudController extends ListViewController implements CrudInterfac
         return [
             'access' => [
                 'class' => AccessControl::class,
-                'only' => ['index', 'create', 'read', 'update', 'delete'],
+                'only' => ['create', 'read', 'update', 'delete'],
                 'rules' => [
-                    [
-                        'actions' => ['index', 'list'],
-                        'allow' => true,
-                        'roles' => [ Type_Permission::List .' '. $modelName ],
-                    ],
                     [
                         'actions' => ['read'], // view
                         'allow' => true,
@@ -87,11 +76,6 @@ abstract class CrudController extends ListViewController implements CrudInterfac
                         'allow' => true,
                         'roles' => [ Type_Permission::Delete .' '. $modelName ],
                     ],
-                    [
-                        'actions' => ['cancel'],
-                        'allow' => true,
-                        'roles' => [ Type_Permission::Cancel .' '. $modelName ],
-                    ],
                 ],
             ],
             'verbs' => [
@@ -99,7 +83,6 @@ abstract class CrudController extends ListViewController implements CrudInterfac
                 'actions' => [
                     'delete' => ['POST'],
                     'delete-many' => ['POST'],
-                    'cancel' => ['POST'],
                 ],
             ],
         ];
@@ -131,14 +114,10 @@ abstract class CrudController extends ListViewController implements CrudInterfac
             'read'          => Read::class,
             'create'        => Create::class,
             'update'        => Update::class,
-            'submit'        => Submit::class,
-            'cancel'        => Cancel::class,
-            'amend'         => Amend::class,
             'delete'        => Delete::class,
             'delete-many'   => DeleteMany::class,
             'add-row'       => AddRow::class,
             'edit-row'      => EditRow::class,
-            'index'         => Index::class,
             'find-item'      => FindItem::class,
             'delete-row'        => DeleteRow::class,
             'auto-suggest-id'   => AutoSuggestId::class,
@@ -148,7 +127,6 @@ abstract class CrudController extends ListViewController implements CrudInterfac
             'show-related-text'     => ShowRelatedText::class,
             'load-models-by-module'     => LoadModelsByModule::class,
             'load-attributes-by-model'  => LoadAttributesByModel::class,
-            'update-status'         => UpdateStatus::class,
         ]);
     }
 
@@ -358,7 +336,6 @@ abstract class CrudController extends ListViewController implements CrudInterfac
     }
 
     // ViewInterface
-
     // public function mapActionToViewType()
     // {
     //     switch ($this->action->id)

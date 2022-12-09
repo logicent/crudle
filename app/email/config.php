@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'defaultRoute' => 'email-queue',
+    'defaultRoute' => 'queue',
 ];

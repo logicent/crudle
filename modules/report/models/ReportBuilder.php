@@ -4,7 +4,7 @@ namespace crudle\ext\report\models;
 
 use crudle\app\main\enums\Status_Active;
 use crudle\app\crud\enums\Type_Relation;
-use crudle\app\crud\models\BaseActiveRecord;
+use crudle\app\crud\models\ActiveRecord;
 use crudle\app\user\enums\Permission_Group;
 use crudle\app\user\enums\Type_Permission;
 use Yii;
@@ -16,7 +16,7 @@ use yii\helpers\Json;
  *
  * @property ReportBuilderItem[] $reportBuilderItems
  */
-class ReportBuilder extends BaseActiveRecord
+class ReportBuilder extends ActiveRecord
 {
     public function init()
     {

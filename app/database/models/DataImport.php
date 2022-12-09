@@ -2,8 +2,8 @@
 
 namespace crudle\app\database\models;
 
+use crudle\app\crud\enums\Type_Model_Id;
 use crudle\app\crud\models\BaseActiveRecord;
-use crudle\app\main\enums\Type_Model_Id;
 use crudle\app\upload\forms\UploadForm;
 use crudle\app\user\enums\Permission_Group;
 use crudle\app\user\enums\Type_Permission;
@@ -18,6 +18,9 @@ class DataImport extends BaseActiveRecord
     {
         parent::init();
         $this->listSettings->listNameAttribute = 'id';
+
+        $this->uploadForm = new UploadForm();
+        $this->fileAttribute = 'import_file';
     }
 
     public static function tableName()

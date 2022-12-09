@@ -14,7 +14,7 @@ $inputTag = Html::tag('div',
     Html::activeTextInput($model, $attribute, [
         'class' => 'file-input',
         'readonly' => true,
-        'placeholder' => $placeholder // Yii::t('app', 'Click here to upload'),
+        'placeholder' => $inputPlaceholder // Yii::t('app', 'Click here to upload'),
     ]),
     ['class' => 'field', 'style' => 'margin: 0em;']
 );

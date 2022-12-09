@@ -2,22 +2,17 @@
 
 namespace crudle\app\database\controllers;
 
-use crudle\app\main\controllers\action\Create;
-use crudle\app\list_view\controllers\action\Index;
+use crudle\app\crud\controllers\action\Create;
 use crudle\app\crud\controllers\CrudController;
-use crudle\app\main\controllers\base\ViewController;
-use crudle\app\main\enums\Type_Form_View;
-use crudle\app\main\enums\Type_View;
-use crudle\app\user\enums\Type_Role;
 use crudle\app\database\forms\DataImportForm;
+use crudle\app\database\models\DataImport;
 use crudle\app\database\models\search\DataImportSearch;
+use crudle\app\list_view\controllers\action\Index;
 use League\Csv\Reader;
 use League\Csv\Writer;
 use League\Csv\Statement;
 use SplTempFileObject;
 use Yii;
-use yii\filters\AccessControl;
-use yii\filters\VerbFilter;
 use yii\helpers\Inflector;
 use yii\helpers\StringHelper;
 use yii\web\UploadedFile;
@@ -26,13 +21,14 @@ class DataImportController extends CrudController
 {
     public function modelClass(): string
     {
-        return DataImportForm::class;
+        return DataImport::class;
     }
 
     public function searchModelClass(): string
     {
         return DataImportSearch::class;
     }
+
 
     public function actions()
     {

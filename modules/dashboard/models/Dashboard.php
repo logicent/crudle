@@ -4,7 +4,7 @@ namespace crudle\ext\dashboard\models;
 
 use crudle\app\main\enums\Status_Active;
 use crudle\app\crud\enums\Type_Relation;
-use crudle\app\crud\models\BaseActiveRecord;
+use crudle\app\crud\models\ActiveRecord;
 use crudle\app\user\enums\Permission_Group;
 use crudle\app\user\enums\Type_Permission;
 use Yii;
@@ -13,7 +13,7 @@ use yii\helpers\ArrayHelper;
 /**
  * This is the model class for table "app_dashboard".
  */
-class Dashboard extends BaseActiveRecord
+class Dashboard extends ActiveRecord
 {
     public function init()
     {

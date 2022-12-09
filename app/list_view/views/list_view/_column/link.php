@@ -17,7 +17,7 @@ return [
         $route = $this->context->listRouteId();
         $urlParams = array_merge(
             Yii::$app->request->queryParams,
-            [$route, $linkId => $model->{$linkId}]
+            [$route, 'id' => $model->{$linkId}]
         );
 
         $linkColumn = Html::a( $model->$attribute,

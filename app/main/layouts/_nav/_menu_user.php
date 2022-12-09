@@ -14,11 +14,11 @@ use icms\FomanticUI\Elements;
     <?php
         if ((bool) $layoutSettings->allowUserPreference) :
             echo Html::a(Yii::t('app', 'My preferences'),
-                        ['/app/user/my-preferences', 'id' => Yii::$app->user->id],
+                        ['/user/account/my-preferences', 'id' => Yii::$app->user->id],
                         ['class' => 'item']);
         endif ?>
         <?= Html::a(Yii::t('app', 'My account'),
-                    ['/app/user/my-account', 'id' => Yii::$app->user->id],
+                    ['/user/account/my-account', 'id' => Yii::$app->user->id],
                     ['class' => 'item']) ?>
         <?php
             if ((bool) $layoutSettings->hideWebsiteLink === false) :

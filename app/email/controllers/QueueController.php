@@ -17,4 +17,10 @@ class QueueController extends CrudController
     {
         return EmailQueueSearch::class;
     }
+
+    public function mainAction(): array
+    {
+        return [
+        ];
+    }
 }

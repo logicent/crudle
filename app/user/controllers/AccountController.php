@@ -6,9 +6,13 @@ use crudle\app\crud\controllers\CrudController;
 use crudle\app\main\enums\Status_Active;
 use crudle\app\user\enums\Status_User;
 use crudle\app\auth\models\Auth;
+use crudle\app\list_view\controllers\action\Index;
+use crudle\app\user\enums\Type_Permission;
 use crudle\app\user\models\Person;
 use crudle\app\user\models\search\UserSearch;
 use Yii;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\web\NotFoundHttpException;
@@ -16,6 +20,62 @@ use yii\web\NotFoundHttpException;
 class AccountController extends CrudController
 {
     public $auth;
+
+    public function behaviors()
+    {
+        $modelName = 'User';
+
+        return [
+            'access' => [
+                'class' => AccessControl::class,
+                'only' => ['create', 'read', 'update', 'delete'],
+                'rules' => [
+                    [
+                        'actions' => ['read'],
+                        'allow' => true,
+                        'roles' => [ Type_Permission::Read .' '. $modelName ],
+                    ],
+                    [
+                        'actions' => ['update'],
+                        'allow' => true,
+                        'roles' => [ Type_Permission::Update .' '. $modelName ],
+                        // 'roleParams' => function() {
+                        //     return ['model' => Person::findOne(Yii::$app->request->get('id'))];
+                        // },
+                        // 'matchCallback' => function ($rule, $action)
+                        // {
+                        //     $this->model = Person::findOne(Yii::$app->request->get('id'));
+                        //     return  Yii::$app->user->can('Update Own Person', ['model' => $this->model]);
+                        // }
+                    ],
+                    [
+                        'actions' => ['create'],
+                        'allow' => true,
+                        'roles' => [ Type_Permission::Create .' '. $modelName ],
+                    ],
+                    [
+                        'actions' => ['delete', 'delete-many'],
+                        'allow' => true,
+                        'roles' => [ Type_Permission::Delete .' '. $modelName ],
+                    ],
+                ],
+            ],
+            'verbs' => [
+                'class' => VerbFilter::class,
+                'actions' => [
+                    'delete' => ['POST'],
+                    'delete-many' => ['POST'],
+                ],
+            ],
+        ];
+    }
+
+    public function actions()
+    {
+        return [
+            'index' => Index::class,
+        ];
+    }
 
     public function modelClass(): string
     {
@@ -185,16 +245,12 @@ class AccountController extends CrudController
 
     public function actionMyAccount($id)
     {
-        throw new NotFoundHttpException(
-            Yii::t('app', 'User account is not yet implemented')
-        );
+        return $this->render('my_account', []);
     }
 
     public function actionMyPreferences($id)
     {
-        throw new NotFoundHttpException(
-            Yii::t('app', 'User preferences is not yet implemented')
-        );
+        return $this->render('my_preferences', []);
     }
 
     public function actionDelete($id)

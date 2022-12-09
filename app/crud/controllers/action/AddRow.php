@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\app\list_view\controllers\action;
+namespace crudle\app\crud\controllers\action;
 
 use Yii;
 use yii\base\Action;

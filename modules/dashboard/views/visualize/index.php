@@ -1,7 +1,7 @@
 <?php
 
-$this->title = Yii::t('app', 'Dashboard');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Dashboard'), 'url' => ['/dashboard']];
+$this->title = Yii::t('app', 'Dashboards');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Dashboards'), 'url' => ['/dashboards']];
 
 ?>
 

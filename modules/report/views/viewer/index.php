@@ -2,8 +2,8 @@
 
 use yii\helpers\Html;
 
-$this->title = Yii::t('app', 'Report');
-$this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['/app/report']];
+$this->title = Yii::t('app', 'Reports');
+$this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['/app/reports']];
 ?>
 
 <div id="report" class="active ui tab">

@@ -4,9 +4,7 @@ namespace crudle\app\list_view\controllers\action;
 
 use Yii;
 use yii\base\Action;
-use yii\helpers\ArrayHelper;
 use yii\helpers\StringHelper;
-use yii\helpers\Url;
 
 class Index extends Action
 {

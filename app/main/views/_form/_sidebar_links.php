@@ -1,6 +1,6 @@
 <?php
 
-use crudle\app\main\models\auth\People;
+use crudle\app\user\models\People;
 
 $model = $this->context->model;
 

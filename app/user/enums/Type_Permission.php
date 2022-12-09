@@ -5,16 +5,12 @@ namespace crudle\app\user\enums;
 class Type_Permission
 {
     // Basic CRUD operations
-    const Create = 'Create'; // and Duplicate
+    const Create = 'Create';
     const List   = 'List';
     const Read   = 'Read';
     const Update = 'Update'; // Write
     const Delete  = 'Delete';
     const Restore = 'Restore'; // Use if Soft Delete is supported or if restoring data dumps
-    // Work flow operations
-    const Submit = 'Submit';
-    const Cancel = 'Cancel';
-    const Amend  = 'Amend';
     // Data operations
     const Export = 'Export'; // Download ?
     const Import = 'Import';
@@ -32,14 +28,10 @@ class Type_Permission
             case Permission_Group::Data:
                 return self::_dataEnums();
 
-            case Permission_Group::Flow:
-                return self::_flowEnums();
-
             default: // self::All
                 return array_merge(
                         self::_crudEnums(),
                         self::_dataEnums(),
-                        self::_flowEnums(),
                     );
         }
     }
@@ -63,15 +55,6 @@ class Type_Permission
             self::Print => self::Print,
             self::Share => self::Share,
             self::Email => self::Email,
-        ];
-    }
-
-    private static function _flowEnums()
-    {
-        return [
-            self::Submit => self::Submit,
-            self::Cancel => self::Cancel,
-            self::Amend  => self::Amend,
         ];
     }
 }

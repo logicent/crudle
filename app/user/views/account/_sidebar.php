@@ -13,11 +13,11 @@ if ($this->context->action->id == 'index') : ?>
         <a href="#<?= Url::to(['index', 'UserSearch' => ['status' => User::STATUS_ACTIVE]]) ?>" class="item">
             <?= Yii::t('app', 'Active') ?>
             <!-- Ignore Administrator in count (hack please improve this) -->
-            <div class="ui mini green circular label"><?= Person::find()->where(['status' => User::STATUS_ACTIVE])->count() - 1 ?></div>
+            <div class="ui tiny green circular label"><?= Person::find()->where(['status' => User::STATUS_DELETED])->count() ?></div>
         </a>
         <a href="#<?= Url::to(['index', 'UserSearch' => ['status' => User::STATUS_DELETED]]) ?>" class="item">
             <?= Yii::t('app', 'Deleted') ?>
-            <div class="ui mini red circular label"><?= Person::find()->where(['status' => User::STATUS_DELETED])->count() ?></div>
+            <div class="ui tiny red circular label"><?= Person::find()->where(['status' => User::STATUS_ACTIVE])->count() ?></div>
         </a>    
     </div>
 </div>
@@ -31,7 +31,8 @@ if ( $this->context->action->id !== 'index' ) :
     //         ]);
 endif;
 
-if ( $this->context->action->id != 'create' ) :
+if ($this->context->action->id == 'read' &&
+    $this->context->action->id == 'update' ) :
     // $approvedBy = Person::findOne(['id' => $model->approved_by]);
 ?>
 <div class="ui hidden divider"></div>

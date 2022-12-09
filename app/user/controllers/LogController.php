@@ -17,4 +17,10 @@ class LogController extends CrudController
     {
         return UserLogSearch::class;
     }
+
+    // ListViewInterface
+    public function listRouteId(): string
+    {
+        return $this->id . '/read';
+    }
 }

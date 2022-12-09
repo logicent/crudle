@@ -10,9 +10,6 @@ use crudle\app\user\enums\Type_Permission;
 use crudle\app\user\enums\Type_Role;
 use Yii;
 use yii\console\Controller;
-use yii\helpers\ArrayHelper;
-use yii\helpers\Inflector;
-use yii\helpers\StringHelper;
 
 class RbacController extends Controller
 {
@@ -94,8 +91,8 @@ class RbacController extends Controller
         try {
             $createPermissions = $listPermissions = $readPermissions = $updatePermissions = 
             $deletePermissions = $exportPermissions = $importPermissions = $printPermissions = 
-            $sharePermissions = $emailPermissions = $submitPermissions = $cancelPermissions = 
-            $amendPermissions = [];
+            $sharePermissions = $emailPermissions = [];
+            // $submitPermissions = $cancelPermissions = $amendPermissions = [];
 
             $models = App::getAllModels();
             foreach ( $models as $modelClass => $modelName )
@@ -141,15 +138,15 @@ class RbacController extends Controller
                         case Type_Permission::Import:
                             $importPermissions[] = $permission;
                             break;
-                        case Type_Permission::Submit:
-                            $submitPermissions[] = $permission;
-                            break;
-                        case Type_Permission::Cancel:
-                            $cancelPermissions[] = $permission;
-                            break;
-                        case Type_Permission::Amend:
-                            $amendPermissions[] = $permission;
-                            break;
+                        // case Type_Permission::Submit:
+                        //     $submitPermissions[] = $permission;
+                        //     break;
+                        // case Type_Permission::Cancel:
+                        //     $cancelPermissions[] = $permission;
+                        //     break;
+                        // case Type_Permission::Amend:
+                        //     $amendPermissions[] = $permission;
+                        //     break;
                         default:
                     }
                 }
@@ -189,14 +186,14 @@ class RbacController extends Controller
             foreach($emailPermissions as $permission)
                 $this->_auth->addChild($systemManager, $permission);
 
-            foreach($submitPermissions as $permission)
-                $this->_auth->addChild($systemManager, $permission);
+            // foreach($submitPermissions as $permission)
+            //     $this->_auth->addChild($systemManager, $permission);
 
-            foreach($cancelPermissions as $permission)
-                $this->_auth->addChild($systemManager, $permission);
+            // foreach($cancelPermissions as $permission)
+            //     $this->_auth->addChild($systemManager, $permission);
 
-            foreach($amendPermissions as $permission)
-                $this->_auth->addChild($systemManager, $permission);
+            // foreach($amendPermissions as $permission)
+            //     $this->_auth->addChild($systemManager, $permission);
             // restore cached user assignments if cleared earlier
             foreach ( $this->_assignments as $roleName => $userIds )
             {
