@@ -1,6 +1,6 @@
 <?php
 
-namespace crudle\ext\web_cms\controllers;
+namespace crudle\ext\web_cms\controllers\cms;
 
 use crudle\ext\web_cms\controllers\base\BaseWebSettingsController;
 use crudle\ext\web_cms\models\ThemeForm;

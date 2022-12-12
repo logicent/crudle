@@ -1,10 +1,10 @@
 <?php
 
-namespace crudle\ext\web_cms\controllers\site;
+namespace crudle\ext\web_cms\controllers\blog;
 
+use crudle\ext\web_cms\controllers\site\SiteController;
 use crudle\ext\web_cms\models\BlogArticle;
 // use crudle\ext\web_cms\models\BlogArticleSearch;
-
 
 class ArticleController extends SiteController
 {
