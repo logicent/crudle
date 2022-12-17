@@ -22,8 +22,8 @@ Option 2: via CLI
 
 Continue:
 - Create a database and update your `.env` settings
-- Run `./crudle migrate --migration-path 'app/database/migrations'`
-- Run `cat app/database/seeds/crdl_People.sql | mysql -u <my_root_user> -p <my_db_name>`
+- Run `./crudle migrate --migration-path 'backend/<module_name>/migrations'`
+- Run `cat backend/<module_name>/seeds/crdl_People.sql | mysql -u <my_root_user> -p <my_db_name>`
 - Run `./crudle user/create-superuser 'my_password'` and `./crudle rbac/init`
 - Run `./crudle serve -t web` in local environment or use preferred web server in production
 
@@ -40,11 +40,6 @@ Yii2 Crudle (CRUD logic engine) is a meta framework for rapid application develo
 
 **Components**
 
-_Main module_ - to manage the core app-level interaction like authentication
-- **Home** - view the default workspace customized to show shortcuts and data widgets
-- **Dashboard** - view the dashboards created using the dashboard + data widget tools
-- **Report** - view the reports created using the report builder to show query result
-
 _Setup module_ - to provide visibility and customization tools for end-users
 - **System** - configure general settings and layout (UI) preferences and menus
 - **Data Tool** - import and/or export data, create/modify domain master models
@@ -53,26 +48,29 @@ _Setup module_ - to provide visibility and customization tools for end-users
 - **People** - add users, user groups, roles and permissions and view user logs
 - **Printing** - create print styles, print formats and configure print devices
 
-_Main app_
-- **app/config** to define app-level conventions
-- **app/database** to contain db scripts that run db migrations
-- **app/enums** to define app-level enumerations
-- **app/helpers** to provide reusable app functions
-- **app/modules** to contain core app functionality
+_Core app_ - to manage the core app-level interaction like authentication
+- **backend/_config** to define app-level conventions
+- **backend/database/scripts** to contain db scripts that run db migrations
+- **backend/main/enums** to define app-level enumerations
+- **backend/main/helpers** to provide reusable app functions
+- **backend/{module_name}** to contain core app functionality
 
-_Extension modules_
-- **modules/web_cms** to easily setup a front-end site for users to engage with you
+_User modules_
+- **modules/dashboard** - view the dashboards created using the dashboard + data widget tools
+- **modules/reporting** - view the reports created using the query/report builder + templates
+- **modules/web_cms** - to easily set up a front-end site for users to engage with you online
+- **modules/workspace** - define work spaces customized to view shortcuts and UI data widgets
 
 ### Technology Stack
 **Programming Languages and Frameworks**
-- PHP 7.4 using Yii2 _(latest)_ and JavaScript using jQuery _(latest)_
+- PHP 8.0 using Yii2 _(latest)_ and JavaScript using jQuery _(latest)_
 - To-Do: Yii2-dockerized _(optional)_
 
 **Templating**
 - Twig _(to consider)_
 
 **Databases Supported**
-- MySQL 5.7
+- MySQL 8
 - SQLite (offline) _(todo later)_
 
 **UI Frameworks, Components and Libraries**
@@ -104,7 +102,7 @@ _Extension modules_
 _Now:_
 - [x] Increase the UI layout width, add a pinable sidebar and editable menus
 - [x] Improve all the end-user system tools, app preferences and performance
-- [ ] _wip:_ Upgrade to latest Yii2 using PHP 8+ and MySQL 8+ with Fomantic UI 2.9+
+- [x] Upgrade to latest Yii2 using PHP 8+ and MySQL 8+ with Fomantic UI 2.9+
 
 _Next:_
 - [ ] Create Yii extensions for the tools and starter kit as composer packages

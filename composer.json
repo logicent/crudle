@@ -82,7 +82,7 @@
     },
     "autoload": {
         "psr-4": {
-            "crudle\\app\\": "app",
+            "crudle\\app\\": "backend",
             "crudle\\kit\\": "codegen",
             "crudle\\ext\\": "modules"
         }
