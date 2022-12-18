@@ -89,4 +89,14 @@ class UserLog extends AuthUserLog
     //         }
     //     ];
     // }
+
+    public static function makeEntry($status)
+    {
+        $userLog = new self;
+        $userLog->user_id = Yii::$app->user->id;
+        $userLog->login_ip = Yii::$app->request->userIP;
+        $userLog->login_at = time();
+        $userLog->status = $status;
+        $userLog->save(false);
+    }
 }

@@ -4,7 +4,7 @@ namespace crudle\app\database\controllers;
 
 use crudle\app\crud\controllers\action\EditRow;
 use crudle\app\crud\controllers\CrudController;
-use crudle\app\list_view\controllers\action\Index;
+use crudle\app\listing\controllers\action\Index;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;

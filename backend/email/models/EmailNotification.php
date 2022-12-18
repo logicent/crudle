@@ -2,11 +2,10 @@
 
 namespace crudle\app\email\models;
 
-use crudle\app\main\enums\Status_Active;
 use crudle\app\crud\models\BaseActiveRecord;
+use crudle\app\main\enums\Status_Active;
 use crudle\app\user\enums\Permission_Group;
 use crudle\app\user\enums\Type_Permission;
-use crudle\app\list_view\forms\ListViewSettingsForm;
 use Yii;
 
 class EmailNotification extends BaseActiveRecord

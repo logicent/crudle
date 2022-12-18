@@ -9,7 +9,7 @@ use crudle\app\setup\models\AppCreateMenu;
 use crudle\app\setup\models\AppHelpMenu;
 use crudle\app\setup\models\AppShortcutMenu;
 use crudle\app\setup\models\AppSidebarMenu;
-use crudle\app\upload\forms\UploadForm;
+use crudle\app\main\forms\UploadForm;
 use crudle\app\setup\models\base\BaseSettingsForm;
 use Yii;
 

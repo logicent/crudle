@@ -13,7 +13,7 @@ use crudle\app\user\models\Person;
 use crudle\app\user\enums\Permission_Group;
 use crudle\app\user\enums\Type_Permission;
 use crudle\app\setup\forms\LayoutSettingsForm;
-use crudle\app\list_view\forms\ListViewSettingsForm;
+use crudle\app\listing\forms\ListSettingsForm;
 use crudle\app\setup\models\Setup;
 use crudle\app\workflow\components\WorkflowInterface;
 use Yii;
@@ -45,7 +45,7 @@ abstract class BaseActiveRecord extends ActiveRecord implements ActiveRecordInte
     public function init()
     {
         parent::init();
-        $this->listSettings = new ListViewSettingsForm();
+        $this->listSettings = new ListSettingsForm();
         $this->listSettings->listIdAttribute = 'id';
     }
 

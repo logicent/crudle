@@ -10,7 +10,7 @@ $generalSettings = Setup::getSettings( GeneralSettingsForm::class );
 $webSettings = Setup::getSettings( WebsiteSettingsForm::class );
 ?>
 
-<?php $this->beginBlock('@extCms/layouts/site/_navbar') ?>
+<?php $this->beginBlock('@extModules/web_cms/views/_layouts/site/_navbar') ?>
 
 <div id="site_header">
     <div class="ui menu borderless" style="padding: 1em 0em;">

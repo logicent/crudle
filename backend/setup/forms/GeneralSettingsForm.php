@@ -2,7 +2,7 @@
 
 namespace crudle\app\setup\forms;
 
-use crudle\app\upload\forms\UploadForm;
+use crudle\app\main\forms\UploadForm;
 use crudle\app\setup\models\base\BaseSettingsForm;
 use Yii;
 

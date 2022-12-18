@@ -38,16 +38,20 @@ class Module extends ExtModule
     {
         if ($app instanceof \yii\web\Application) {
             $app->getUrlManager()->addRules([
+                // cms urls
+                ['class' => 'yii\web\UrlRule', 'pattern' => '/app\/' . $this->id . '/<controller>', 'route' => $this->id . '/cms/<controller>/index'],
+                // website urls
                 // ['class' => 'yii\web\UrlRule', 'pattern' => '/' , 'route' => $this->id . '/site/home/index'],
                 ['class' => 'yii\web\UrlRule', 'pattern' => '/home', 'route' => $this->id . '/site/home/index'],
                 ['class' => 'yii\web\UrlRule', 'pattern' => '/about', 'route' => $this->id . '/site/about/index'],
                 ['class' => 'yii\web\UrlRule', 'pattern' => '/contact', 'route' => $this->id . '/site/contact/index'],
-                ['class' => 'yii\web\UrlRule', 'pattern' => '/blog/category/<id:\w+>', 'route' => $this->id . '/site/blog-category/read'],
-                ['class' => 'yii\web\UrlRule', 'pattern' => '/blog/category', 'route' => $this->id . '/site/blog-category/index'],
-                ['class' => 'yii\web\UrlRule', 'pattern' => '/blog/writer/<id:\w+>', 'route' => $this->id . '/site/blog-writer/read'],
-                ['class' => 'yii\web\UrlRule', 'pattern' => '/blog/writer', 'route' => $this->id . '/site/blog-writer/index'],
-                ['class' => 'yii\web\UrlRule', 'pattern' => '/blog/<id:\w+>', 'route' => $this->id . '/site/blog-article/read'],
-                ['class' => 'yii\web\UrlRule', 'pattern' => '/blog', 'route' => $this->id . '/site/blog-article/index'],
+                // blog urls
+                ['class' => 'yii\web\UrlRule', 'pattern' => '/blog/category/<id:\w+>', 'route' => $this->id . '/blog/category/read'],
+                ['class' => 'yii\web\UrlRule', 'pattern' => '/blog/category', 'route' => $this->id . '/blog/category/index'],
+                ['class' => 'yii\web\UrlRule', 'pattern' => '/blog/writer/<id:\w+>', 'route' => $this->id . '/blog/writer/read'],
+                ['class' => 'yii\web\UrlRule', 'pattern' => '/blog/writer', 'route' => $this->id . '/blog/writer/index'],
+                ['class' => 'yii\web\UrlRule', 'pattern' => '/blog/<id:\w+>', 'route' => $this->id . '/blog/article/read'],
+                ['class' => 'yii\web\UrlRule', 'pattern' => '/blog', 'route' => $this->id . '/blog/article/index'],
             ], false);
         }
         // elseif ($app instanceof \yii\console\Application) {

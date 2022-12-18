@@ -23,7 +23,7 @@ use crudle\app\crud\enums\Type_Relation;
 use crudle\app\main\enums\Type_View;
 use crudle\app\crud\forms\CommentForm;
 use crudle\app\crud\controllers\CrudInterface;
-use crudle\app\list_view\controllers\ListViewController;
+use crudle\app\listing\controllers\GridViewController;
 use crudle\app\main\models\Model;
 use crudle\app\user\enums\Type_Permission;
 use Yii;
@@ -36,7 +36,7 @@ use yii\helpers\StringHelper;
 use yii\helpers\Url;
 use yii\web\NotFoundHttpException;
 
-abstract class CrudController extends ListViewController implements CrudInterface
+abstract class CrudController extends GridViewController implements CrudInterface
 {
     public function behaviors()
     {

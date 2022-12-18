@@ -29,7 +29,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
      * {@inheritdoc}
      */
     public function bootstrap($app)
-    {exit;
+    {
         // ** Crud action routes
         if ($app instanceof \yii\web\Application) {
             $app->getUrlManager()->addRules([

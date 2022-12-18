@@ -22,12 +22,11 @@ $form = ActiveForm::begin([
             <div class="column center aligned">
             <?php Html::tag('div', Html::activeLabel($model, 'bgImagePath'), ['class' => 'field']) ?>
                 <?php Html::a(Elements::image($model->bgImagePath != '' ? 
-                                                Yii::getAlias('@web/uploads/') . $model->bgImagePath : 
-                                                Yii::getAlias('@web') . '/img/image-ph-220.jpg',
-                                            ['class' => 'medium bordered rounded']),
+                                    Yii::getAlias('@web/uploads/') . $model->bgImagePath : 
+                                    Yii::getAlias('@web') . '/img/image-ph-220.jpg',
+                                ['class' => 'medium bordered rounded']),
                             ['#'],
                             ['id' => 'bg_image', 'class' => 'ui small image']) ?>
-
                 <div class="ui transparent input">
                     <?php Html::activeHiddenInput($model, 'bgImagePath', ['readonly' => true]) ?>
                 </div>

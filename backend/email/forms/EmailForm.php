@@ -3,7 +3,7 @@
 namespace crudle\app\email\forms;
 
 use crudle\app\main\models\Model;
-use crudle\app\upload\forms\UploadForm;
+use crudle\app\main\forms\UploadForm;
 use Yii;
 
 class EmailForm extends Model

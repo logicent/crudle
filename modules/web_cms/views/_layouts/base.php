@@ -1,7 +1,7 @@
 <?php
 
-use crudle\app\assets\AppAsset;
-use crudle\app\assets\HtmxAsset;
+use crudle\app\main\assets\AppAsset;
+use crudle\app\main\assets\HtmxAsset;
 use crudle\app\setup\models\Setup;
 use crudle\ext\web_cms\models\WebsiteSettingsForm;
 use yii\helpers\Html;
@@ -24,8 +24,8 @@ $this->beginPage() ?>
         <title><?= Html::encode($this->title) ?></title>
 
         <!-- Site Properties -->
-        <?= $this->registerCss($this->render('@extCms/views/_assets/site.css')) ?>
-        <?= $this->registerJs($this->render('@extCms/views/_assets/site.js')) ?>
+        <?= $this->registerCss($this->render('@extModules/web_cms/views/_assets/site.css')) ?>
+        <?= $this->registerJs($this->render('@extModules/web_cms/views/_assets/site.js')) ?>
 
         <?php $this->head() ?>
     </head>

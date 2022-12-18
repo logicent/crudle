@@ -1,23 +1,24 @@
 <?php
 
 use yii\helpers\Inflector;
+use yii\helpers\StringHelper;
 
 $context = $this->context;
 $module = $this->context->module;
 
 $this->params['breadcrumbs'][] = [
     'label' => Yii::t('app', '{moduleName}', [
-        'moduleName' => Inflector::camel2words(
-            Inflector::id2camel($module->id)
-        )
+        'moduleName' => $module->moduleName
     ]),
     'url' => ['/app' .'/'. $module->id]
 ];
 $this->params['breadcrumbs'][] = [
     'label' => Yii::t('app', '{contextName}', [
         'contextName' => Inflector::camel2words(
-            Inflector::id2camel($context->id)
+            Inflector::id2camel(
+                StringHelper::basename($context->id)
+            )
         )
     ]),
-    'url' => ['/app' .'/'. $module->id . '/' . $context->id]
+    'url' => ['/app' .'/'. $module->id . '/' . StringHelper::basename($context->id)]
 ];

@@ -10,7 +10,7 @@ use Yii;
  */
 class Module extends ExtModule
 {
-    public $moduleName = 'Reporting';
+    public $moduleName = 'Report';
 
     /**
      * {@inheritdoc}
@@ -36,6 +36,8 @@ class Module extends ExtModule
         if ($app instanceof \yii\web\Application) {
             $app->getUrlManager()->addRules([
                 ['class' => 'yii\web\UrlRule', 'pattern' => 'app/reports', 'route' => $this->id . '/viewer/index'],
+                ['class' => 'yii\web\UrlRule', 'pattern' => 'app/report/builder', 'route' => $this->id . '/builder/index'],
+                ['class' => 'yii\web\UrlRule', 'pattern' => 'app/report/template', 'route' => $this->id . '/template/index'],
                 // ['class' => 'yii\web\UrlRule', 'pattern' => 'app/query-report/<\w+>' , 'route' => $this->id . '/report/query/<\w+>'],
             ], false);
         }

@@ -1,15 +1,11 @@
 <?php
 
-use crudle\app\setup\enums\Type_Model;
-use crudle\app\user\enums\Type_Permission;
 use crudle\app\auth\models\RolePermission;
-use yii\helpers\Html;
-use yii\helpers\Inflector;
-use crudle\app\main\assets\DataTable;
+use crudle\app\listing\assets\DataTable;
 use crudle\app\main\helpers\App;
-use yii\helpers\ArrayHelper;
-use yii\helpers\StringHelper;
+use crudle\app\user\enums\Type_Permission;
 use icms\FomanticUI\modules\Checkbox;
+use yii\helpers\Html;
 
 DataTable::register($this);
 ?>

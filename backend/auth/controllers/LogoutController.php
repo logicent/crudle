@@ -2,8 +2,8 @@
 
 namespace crudle\app\auth\controllers;
 
-use crudle\app\main\enums\Status_Active;
 use crudle\app\main\controllers\AppController;
+use crudle\app\main\enums\Status_Active;
 use crudle\app\user\models\UserLog;
 use Yii;
 use yii\filters\AccessControl;
@@ -40,13 +40,7 @@ class LogoutController extends AppController
 
     public function actionLogout()
     {
-        $userLog = new UserLog();
-        $userLog->user_id = Yii::$app->user->id;
-        $userLog->logout_ip = Yii::$app->request->userIP;
-        $userLog->logout_at = time();
-        $userLog->status = Status_Active::No;
-        $userLog->save(false);
-
+        UserLog::makeEntry(Status_Active::No);
         // Yii::$app->cache->flush(); // Clear all cache here
         Yii::$app->user->logout();
 

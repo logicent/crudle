@@ -6,7 +6,7 @@ use crudle\app\crud\controllers\CrudController;
 use crudle\app\main\enums\Status_Active;
 use crudle\app\user\enums\Status_User;
 use crudle\app\auth\models\Auth;
-use crudle\app\list_view\controllers\action\Index;
+use crudle\app\listing\controllers\action\Index;
 use crudle\app\user\enums\Type_Permission;
 use crudle\app\user\models\Person;
 use crudle\app\user\models\search\UserSearch;

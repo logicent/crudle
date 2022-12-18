@@ -11,14 +11,12 @@ $coreModules = [
     'crud'      => crudle\app\crud\Module::class,
     'database'  => crudle\app\database\Module::class,
     'email'     => crudle\app\email\Module::class,
-    'list_view' => crudle\app\list_view\Module::class,
+    'listing'   => crudle\app\listing\Module::class,
     'main'      => crudle\app\main\Module::class,
     'printing'  => crudle\app\printing\Module::class,
     'setup'     => crudle\app\setup\Module::class,
-    'upload'    => crudle\app\upload\Module::class,
     'user'      => crudle\app\user\Module::class,
     'workflow'  => crudle\app\workflow\Module::class,
-    'workspace' => crudle\ext\workspace\Module::class,
 ];
 // user modules
 $userModules = App::getModules();

@@ -1,6 +1,6 @@
 <?php
 
-use yii\helpers\Html;
+$this->renderFile($this->context->viewPath . '/_breadcrumbs.php');
 
 ?>
 

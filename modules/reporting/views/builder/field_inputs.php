@@ -9,6 +9,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use icms\FomanticUI\modules\Select;
 
+$this->renderFile($this->context->viewPath . '/_breadcrumbs.php');
 
 $rolesCount = !empty($model->roles) ? count($model->roles) : '0';
 ?>

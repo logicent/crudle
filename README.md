@@ -23,15 +23,15 @@ Option 2: via CLI
 Continue:
 - Create a database and update your `.env` settings
 - Run `./crudle migrate --migration-path 'backend/<module_name>/migrations'`
-- Run `cat backend/<module_name>/seeds/crdl_People.sql | mysql -u <my_root_user> -p <my_db_name>`
+- Run `cat backend/user/migrations/seeds/crdl_People.sql | mysql -u <my_root_user> -p <my_db_name>`
 - Run `./crudle user/create-superuser 'my_password'` and `./crudle rbac/init`
-- Run `./crudle serve -t web` in local environment or use preferred web server in production
+- Run `./crudle serve -t backend/_web` in local environment or use preferred web server in production
 
 ### System Architecture
 
 **Context**
 
-Yii2 Crudle (CRUD logic engine) is a meta framework for rapid application development and customization using a modified project template, some predefined coding conventions and a fully-fledged admin backend built with Fomantic UI.
+Yii2 Crudle (CRUD logic extensions) is a meta framework for rapid application development and customization using a modified project template, some predefined coding conventions and a fully-fledged admin backend built with Fomantic UI.
 
 **Containers**
 - backend   (App)
@@ -50,7 +50,7 @@ _Setup module_ - to provide visibility and customization tools for end-users
 
 _Core app_ - to manage the core app-level interaction like authentication
 - **backend/_config** to define app-level conventions
-- **backend/database/scripts** to contain db scripts that run db migrations
+- **backend/database/commands** to contain db commands that run db migrations
 - **backend/main/enums** to define app-level enumerations
 - **backend/main/helpers** to provide reusable app functions
 - **backend/{module_name}** to contain core app functionality
@@ -79,7 +79,7 @@ _User modules_
 - LeafletJS 1.8 _(todo later)_
 
 **Web Servers**
-- PHP built-in web server via `./crudle serve -t web` (Development)
+- PHP built-in web server via `./crudle serve -t backend/_web` (Development)
 - Nginx (Production)
 
 **Process Manager** _(to consider)_
@@ -102,12 +102,12 @@ _User modules_
 _Now:_
 - [x] Increase the UI layout width, add a pinable sidebar and editable menus
 - [x] Improve all the end-user system tools, app preferences and performance
-- [x] Upgrade to latest Yii2 using PHP 8+ and MySQL 8+ with Fomantic UI 2.9+
+- [x] Upgrade to latest Yii2 using PHP 8.0 and MySQL 8.0 with Fomantic UI 2.9
 
 _Next:_
 - [ ] Create Yii extensions for the tools and starter kit as composer packages
 - [ ] Email templates for sending mail with attachments for documents and reports
-- [ ] Add multi-tenant project structure and init script - _PoC done_
+- [ ] Add multi-tenant (site) support in project with init script - _PoC done_
 
 _Later:_
 - [ ] Upgrade to Yii3 (with CycleORM datamapper) using Bulma and Buefy

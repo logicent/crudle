@@ -8,7 +8,7 @@ use Yii;
 
 class SiteController extends AppController
 {
-    public $layout = '@extCms/layouts/site';
+    public $layout = '@extModules/web_cms/views/_layouts/site';
 
     public function beforeAction($action)
     {

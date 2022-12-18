@@ -6,7 +6,6 @@ use crudle\app\workflow\enums\Status_Transaction;
 use crudle\app\crud\models\BaseActiveRecord;
 use crudle\app\user\enums\Permission_Group;
 use crudle\app\user\enums\Type_Permission;
-use crudle\app\list_view\forms\ListViewSettingsForm;
 use Yii;
 use yii\helpers\ArrayHelper;
 
