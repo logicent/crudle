@@ -7,16 +7,19 @@ use yii\helpers\ArrayHelper;
 
 // core modules
 $coreModules = [
-    'auth'      => crudle\app\auth\Module::class,
-    'crud'      => crudle\app\crud\Module::class,
-    'database'  => crudle\app\database\Module::class,
-    'email'     => crudle\app\email\Module::class,
-    'listing'   => crudle\app\listing\Module::class,
-    'main'      => crudle\app\main\Module::class,
-    'printing'  => crudle\app\printing\Module::class,
-    'setup'     => crudle\app\setup\Module::class,
-    'user'      => crudle\app\user\Module::class,
-    'workflow'  => crudle\app\workflow\Module::class,
+    'auth'      =>  crudle\app\auth\Module::class,
+    'crud'      =>  crudle\app\crud\Module::class,
+    'database'  =>  crudle\app\database\Module::class,
+    'dashboard' =>  crudle\app\dashboard\Module::class,
+    'email'     =>  crudle\app\email\Module::class,
+    'listing'   =>  crudle\app\listing\Module::class,
+    'main'      =>  crudle\app\main\Module::class,
+    'printing'  =>  crudle\app\printing\Module::class,
+    'reporting' =>  crudle\app\reporting\Module::class,
+    'setting'   =>  crudle\app\setting\Module::class,
+    'user'      =>  crudle\app\user\Module::class,
+    'workflow'  =>  crudle\app\workflow\Module::class,
+    'workspace' =>  crudle\app\workspace\Module::class,
 ];
 // user modules
 $userModules = App::getModules();

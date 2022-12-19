@@ -4,7 +4,7 @@ namespace crudle\ext\web_cms\models;
 
 use crudle\app\crud\enums\Type_Relation;
 use crudle\app\main\forms\UploadForm;
-use crudle\app\setup\models\base\BaseSettingsForm;
+use crudle\app\setting\models\base\BaseSettingsForm;
 use Yii;
 
 class WebsiteSettingsForm extends BaseSettingsForm

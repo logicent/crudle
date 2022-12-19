@@ -2,12 +2,12 @@
 
 namespace crudle\app\email\controllers;
 
-use crudle\app\setup\controllers\base\BaseSettingsController;
-use crudle\app\setup\models\Setup;
+use crudle\app\setting\controllers\base\SettingsController;
+use crudle\app\setting\models\Setup;
 use crudle\app\email\forms\SmtpSettingsForm;
 use Yii;
 
-class SmtpSettingsController extends BaseSettingsController
+class SmtpSettingsController extends SettingsController
 {
     public function modelClass(): string
     {

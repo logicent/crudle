@@ -2,7 +2,7 @@
 
 use crudle\app\main\enums\Type_View;
 use crudle\app\crud\models\ActiveRecord;
-use crudle\app\setup\enums\Status_Transaction;
+use crudle\app\setting\enums\Status_Transaction;
 use crudle\app\user\enums\Type_Permission;
 use yii\helpers\Html;
 use yii\helpers\Url;

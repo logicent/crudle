@@ -2,7 +2,7 @@
 
 namespace crudle\ext\web_cms\models\base;
 
-use crudle\app\setup\models\base\BaseMenu;
+use crudle\app\setting\models\base\BaseMenu;
 use Yii;
 use yii\helpers\ArrayHelper;
 

@@ -7,7 +7,7 @@
 
 namespace crudle\kit\generators\crud;
 
-use crudle\app\setup\models\DataModel;
+use crudle\app\setting\models\DataModel;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\db\BaseActiveRecord;

@@ -2,13 +2,13 @@
 
 namespace crudle\app\email;
 
-use crudle\ext\Module as ExtModule;
+use crudle\app\Module as AppModule;
 use Yii;
 
 /**
  * email module definition class
  */
-class Module extends ExtModule
+class Module extends AppModule
 {
     /**
      * {@inheritdoc}
@@ -21,7 +21,6 @@ class Module extends ExtModule
     public function init()
     {
         parent::init();
-        // custom initialization code goes here
         Yii::configure($this, require __DIR__ . '/config.php');
     }
 }

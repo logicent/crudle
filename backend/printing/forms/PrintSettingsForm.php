@@ -3,7 +3,7 @@
 namespace crudle\app\printing\forms;
 
 use crudle\app\main\forms\UploadForm;
-use crudle\app\setup\models\base\BaseSettingsForm;
+use crudle\app\setting\models\base\BaseSettingsForm;
 use Yii;
 
 class PrintSettingsForm extends BaseSettingsForm

@@ -7,7 +7,7 @@ use crudle\app\crud\forms\CommentForm;
 use crudle\app\email\enums\Status_Queue;
 use crudle\app\email\forms\EmailNotificationSettingsForm;
 use crudle\app\email\models\EmailQueue;
-use crudle\app\setup\models\Setup;
+use crudle\app\setting\models\Setup;
 use crudle\app\email\forms\SmtpSettingsForm;
 use Yii;
 use yii\helpers\Json;

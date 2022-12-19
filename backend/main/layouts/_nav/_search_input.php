@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use icms\FomanticUI\widgets\ActiveForm;
 use icms\FomanticUI\Elements;
 
-use crudle\app\main\models\GlobalSearch;
+use crudle\app\database\models\GlobalSearch;
 
 $model = new GlobalSearch;
 ?>

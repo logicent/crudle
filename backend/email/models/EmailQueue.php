@@ -8,7 +8,7 @@ use crudle\app\user\enums\Type_Permission;
 use crudle\app\user\enums\Type_Role;
 use crudle\app\user\enums\Status_User;
 use crudle\app\user\models\Person;
-use crudle\app\setup\models\Setup;
+use crudle\app\setting\models\Setup;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Json;

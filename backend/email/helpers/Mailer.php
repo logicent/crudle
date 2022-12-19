@@ -2,7 +2,7 @@
 
 namespace crudle\app\email\helpers;
 
-use crudle\app\setup\models\Setup;
+use crudle\app\setting\models\Setup;
 use crudle\app\email\forms\SmtpSettingsForm;
 use Yii;
 

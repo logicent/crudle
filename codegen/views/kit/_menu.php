@@ -1,9 +1,9 @@
 <?php
 
 use crudle\app\user\enums\Type_Role;
-use crudle\app\setup\enums\Type_Menu_Sub_Group;
-use crudle\app\setup\forms\DeveloperSettingsForm;
-use crudle\app\setup\models\Setup;
+use crudle\app\setting\enums\Type_Menu_Sub_Group;
+use crudle\app\setting\forms\DeveloperSettingsForm;
+use crudle\app\setting\models\Setup;
 
 $this->params['menuGroupClass'] = Type_Menu_Sub_Group::class;
 $deployedSettings = Setup::getSettings( DeveloperSettingsForm::class );

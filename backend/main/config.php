@@ -10,5 +10,14 @@
 // ]);
 
 return [
-    'defaultRoute' => 'main',
+    // 'controllerNamespace' => 'crudle\app\main\controllers',
+    // 'params' => [],
+    // 'id' => 'main',
+    // 'layout' => 'main',
+    // 'controllerMap' => [],
+    'defaultRoute' => 'main', // !! MUST be set
+    // 'basePath' => '@appMain',
+    // 'controllerPath' => '@appMain/controllers'
+    // 'viewPath' => '@appMain/views',
+    // 'layoutPath' => '@appMain/layouts',
 ];

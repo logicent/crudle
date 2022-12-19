@@ -2,12 +2,13 @@
 
 namespace crudle\app\listing;
 
+use crudle\app\Module as AppModule;
 use Yii;
 
 /**
  * listing module definition class
  */
-class Module extends \yii\base\Module
+class Module extends AppModule
 {
     /**
      * {@inheritdoc}
@@ -20,7 +21,6 @@ class Module extends \yii\base\Module
     public function init()
     {
         parent::init();
-        // custom initialization code goes here
         Yii::configure($this, require __DIR__ . '/config.php');
     }
 }

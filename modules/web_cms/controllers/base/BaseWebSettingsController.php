@@ -2,9 +2,9 @@
 
 namespace crudle\ext\web_cms\controllers\base;
 
-use crudle\app\setup\controllers\base\BaseSettingsController;
+use crudle\app\setting\controllers\base\SettingsController;
 
-class BaseWebSettingsController extends BaseSettingsController
+class BaseWebSettingsController extends SettingsController
 {
     public function redirectTo(string $action = null)
     {

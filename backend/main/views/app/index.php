@@ -1,7 +1,7 @@
 <?php
 
-use crudle\app\setup\forms\GeneralSettingsForm;
-use crudle\app\setup\models\Setup;
+use crudle\app\setting\forms\GeneralSettingsForm;
+use crudle\app\setting\models\Setup;
 
 $businessProfile = Setup::getSettings( GeneralSettingsForm::class );
 $this->params['businessLogo'] = $businessProfile->logoPath;

@@ -3,7 +3,7 @@
 namespace crudle\ext\web_cms\models;
 
 use crudle\app\crud\models\ActiveRecord;
-use crudle\app\setup\enums\Status_Transaction;
+use crudle\app\setting\enums\Status_Transaction;
 use crudle\ext\web_cms\enums\Status_Article;
 use Yii;
 use yii\helpers\ArrayHelper;

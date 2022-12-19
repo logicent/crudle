@@ -1,7 +1,7 @@
 <?php
 
 use crudle\app\user\enums\Type_Role;
-use crudle\app\setup\enums\Status_Work;
+use crudle\app\setting\enums\Status_Work;
 use crudle\app\user\models\Role;
 use crudle\app\crud\helpers\SelectableItems;
 use crudle\app\user\enums\Type_User;

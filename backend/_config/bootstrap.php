@@ -119,7 +119,7 @@ Yii::setAlias('@crudle', $rootPath);
 Yii::setAlias('@app', "@crudle/backend");
 Yii::setAlias('@appModules', "@app");
 Yii::setAlias('@appMain', '@appModules/main');
-Yii::setAlias('@appSetup', '@appModules/setup');
+Yii::setAlias('@appSetup', '@appModules/setting');
 // @appSettings GeneralSettings + Layout Settings
 Yii::setAlias('@kitModule', "@crudle/codegen"); // or '@appKit', "@appModules/kit"
 Yii::setAlias('@extModules', "@crudle/modules");

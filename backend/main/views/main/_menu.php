@@ -4,10 +4,10 @@ use crudle\app\main\helpers\App;
 use crudle\app\crud\enums\Type_Menu_Group;
 // use crudle\app\main\enums\Type_Menu_Group;
 use crudle\app\user\enums\Type_Role;
-use crudle\ext\dashboard\models\Dashboard;
-use crudle\ext\reporting\models\ReportBuilder;
-use crudle\app\setup\forms\DeveloperSettingsForm;
-use crudle\app\setup\models\Setup;
+use crudle\app\dashboard\models\Dashboard;
+use crudle\app\reporting\models\ReportBuilder;
+use crudle\app\setting\forms\DeveloperSettingsForm;
+use crudle\app\setting\models\Setup;
 use yii\helpers\Inflector;
 
 $this->params['menuGroupClass'] = Type_Menu_Group::class;

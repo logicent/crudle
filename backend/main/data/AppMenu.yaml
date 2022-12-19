@@ -1,0 +1,11 @@
+Menu:
+    - icon: 
+    - iconPath: 
+    - iconColor: 
+    - route: '/main'
+    - label: 'Main'
+    - openInNewTab: 
+    - parentLabel: 
+    - alignRight: 
+    - inactive: false
+    - type: 

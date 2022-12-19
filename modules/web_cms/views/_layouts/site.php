@@ -1,6 +1,6 @@
 <?php
 
-// use crudle\app\setup\models\Setup;
+// use crudle\app\setting\models\Setup;
 // use crudle\ext\web_cms\models\WebsiteSettingsForm;
 
 $this->beginContent('@extModules/web_cms/views/_layouts/base.php') ?>

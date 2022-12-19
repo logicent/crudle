@@ -2,7 +2,7 @@
 
 namespace crudle\app\database\controllers;
 
-use crudle\app\setup\controllers\base\BaseSettingsController;
+use crudle\app\setting\controllers\base\SettingsController;
 use crudle\app\main\enums\Type_Model;
 use crudle\app\crud\enums\Type_Relation;
 use crudle\app\database\helpers\DbDumper;
@@ -15,12 +15,12 @@ use crudle\app\database\models\DbBackupSettingsForm;
 use crudle\app\user\enums\Type_Role;
 use crudle\app\user\models\Person;
 use crudle\app\user\models\UserLog;
-use crudle\app\setup\models\Settings;
+use crudle\app\setting\models\Settings;
 use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\FileHelper;
 
-class DbBackupSettingsController extends BaseSettingsController
+class DbBackupSettingsController extends SettingsController
 {
     public $backups;
 

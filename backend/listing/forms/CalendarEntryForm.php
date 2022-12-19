@@ -2,7 +2,7 @@
 
 namespace crudle\app\listing\forms;
 
-use crudle\app\setup\models\base\BaseSettingsForm;
+use crudle\app\setting\models\base\BaseSettingsForm;
 use Yii;
 
 class CalendarEntryForm extends BaseSettingsForm

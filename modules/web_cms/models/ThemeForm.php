@@ -2,7 +2,7 @@
 
 namespace crudle\ext\web_cms\models;
 
-use crudle\app\setup\models\base\BaseSettingsForm;
+use crudle\app\setting\models\base\BaseSettingsForm;
 use Yii;
 
 class ThemeForm extends BaseSettingsForm

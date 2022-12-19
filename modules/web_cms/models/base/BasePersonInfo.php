@@ -3,7 +3,7 @@
 namespace crudle\ext\web_cms\models\base;
 
 use crudle\app\main\forms\UploadForm;
-use crudle\app\setup\models\base\BaseSettingsForm;
+use crudle\app\setting\models\base\BaseSettingsForm;
 use Yii;
 
 class BasePersonInfo extends BaseSettingsForm
