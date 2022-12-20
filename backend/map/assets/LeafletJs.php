@@ -6,14 +6,14 @@ use yii\web\AssetBundle;
 
 class LeafletJs extends AssetBundle
 {
-    // public $sourcePath = '@bower/leafletjs';
+    public $sourcePath = '@npm/leaflet';
 
-    // public $css = [
-    //     "main.min.css",
-    // ];
+    public $css = [
+        "dist/leaflet.css",
+    ];
 
     public $js = [
-        // 'main.min.js',
+        "dist/leaflet.js",
     ];
 
     // public $depends = [
