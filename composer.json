@@ -70,7 +70,8 @@
         "npm-asset/alpinejs": "^3.10",
         "npm-asset/picocss--pico": "^1.5",
         "aeon-php/calendar": "^1.0",
-        "npm-asset/fullcalendar": "5.11.3"
+        "npm-asset/fullcalendar": "5.11.3",
+        "npm-asset/leaflet": "1.9.3"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

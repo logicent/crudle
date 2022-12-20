@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0ab0a8f0856639a58e55164609efa409",
+    "content-hash": "da457ec56cd6b62ce540c4401181e701",
     "packages": [
         {
             "name": "aeon-php/calendar",
@@ -2658,6 +2658,18 @@
             "type": "npm-asset",
             "license": [
                 "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/leaflet",
+            "version": "1.9.3",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/leaflet/-/leaflet-1.9.3.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "BSD-2-Clause"
             ]
         },
         {

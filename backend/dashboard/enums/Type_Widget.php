@@ -30,7 +30,7 @@ class Type_Widget
     public static function enumIcons()
     {
         return [
-            self::LineChart     => 'line chart',
+            self::LineChart     => 'chartline', // v.2.9.0 ? chart line
             self::BarChart      => 'bar chart',
             self::PieChart      => 'pie chart',
             self::NumberBlock   => 'calculator',
