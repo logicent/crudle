@@ -1,21 +1,21 @@
 <?php
 
-namespace crudle\app\workspace;
+namespace crudle\app\report;
 
 use crudle\app\Module as AppModule;
 use Yii;
 
 /**
- * workspace module definition class
+ * report module definition class
  */
 class Module extends AppModule
 {
-    public $moduleName = 'Workspace';
+    public $moduleName = 'Report';
 
     /**
      * {@inheritdoc}
      */
-    public $controllerNamespace = 'crudle\app\workspace\controllers';
+    public $controllerNamespace = 'crudle\app\report\controllers';
 
     /**
      * {@inheritdoc}
@@ -31,10 +31,11 @@ class Module extends AppModule
      */
     public function bootstrap($app)
     {
+        // Standard/custom reports routes
         if ($app instanceof \yii\web\Application) {
             $app->getUrlManager()->addRules([
-                ['class' => $this->urlRule, 'pattern' => 'app' , 'route' => $this->id . '/home/index'],
-                ['class' => $this->urlRule, 'pattern' => 'app/home' , 'route' => $this->id . '/home/index'],
+                ['class' => $this->urlRule, 'pattern' => 'app/reports', 'route' => $this->id . '/viewer/index'],
+                // ['class' => $this->urlRule, 'pattern' => 'app/query-report/<\w+>' , 'route' => $this->id . '/report/query/<\w+>'],
             ], false);
         }
     }

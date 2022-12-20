@@ -5,7 +5,7 @@ use crudle\app\crud\enums\Type_Menu_Group;
 // use crudle\app\main\enums\Type_Menu_Group;
 use crudle\app\user\enums\Type_Role;
 use crudle\app\dashboard\models\Dashboard;
-use crudle\app\reporting\models\ReportBuilder;
+use crudle\app\report\models\ReportBuilder;
 use crudle\app\setting\forms\DeveloperSettingsForm;
 use crudle\app\setting\models\Setup;
 use yii\helpers\Inflector;
