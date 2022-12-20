@@ -41,8 +41,7 @@ Yii2 Crudle (CRUD logic extensions) is a meta framework for rapid application de
 **Components**
 
 _Main page_ - to provide custom interaction components built for end-users
-- **Home** - view the default workspace created to display menus and data widgets
-<!-- - **Workspace** - view the workspaces created to show favorite menus and widgets -->
+- **Workspace** - view the workspaces created to show favorite menus and widgets
 - **Dashboard** - view the dashboards created using the dashboard + widgets tool
 - **Report** - view the reports created with report builder to show query result
 
