@@ -40,7 +40,13 @@ Yii2 Crudle (CRUD logic extensions) is a meta framework for rapid application de
 
 **Components**
 
-_Setup module_ - to provide visibility and customization tools for end-users
+_Main page_ - to provide custom interaction components built for end-users
+- **Home** - view the default workspace created to display menus and data widgets
+<!-- - **Workspace** - view the workspaces created to show favorite menus and widgets -->
+- **Dashboard** - view the dashboards created using the dashboard + widgets tool
+- **Report** - view the reports created with report builder to show query result
+
+_Setup page_ - to provide visibility and customization tools for end-users
 - **System** - configure general settings and layout (UI) preferences and menus
 - **Data Tool** - import and/or export data, create/modify domain master models
 - **Email Sending** - create email notifications, templates, check email queues
@@ -48,18 +54,16 @@ _Setup module_ - to provide visibility and customization tools for end-users
 - **People** - add users, user groups, roles and permissions and view user logs
 - **Printing** - create print styles, print formats and configure print devices
 
-_Core app_ - to manage the core app-level interaction like authentication
+_App modules_ - contains core app functionality like auth, crud, email etc
 - **backend/_config** to define app-level conventions
-- **backend/database/commands** to contain db commands that run db migrations
-- **backend/main/enums** to define app-level enumerations
-- **backend/main/helpers** to provide reusable app functions
-- **backend/{module_name}** to contain core app functionality
+- **backend/database/commands** to run db migrations and related database tasks
+- **backend/main** to define app-level enums and provide reusable app functions
+- **backend/listing** to display a set of data entries in a multi-record viewer
+- **backend/setting** to define UI preferences and system-level operation menus
+- **backend/workflow** to define approval routing, change triggers and statuses
 
-_User modules_
-- **modules/dashboard** - view the dashboards created using the dashboard + data widget tools
-- **modules/reporting** - view the reports created using the query/report builder + templates
-- **modules/web_cms** - to easily set up a front-end site for users to engage with you online
-- **modules/workspace** - define work spaces customized to view shortcuts and UI data widgets
+_Extension modules_
+- **modules/web_cms** - to set up a website for content publishing and engagements
 
 ### Technology Stack
 **Programming Languages and Frameworks**
@@ -70,17 +74,17 @@ _User modules_
 - Twig _(to consider)_
 
 **Databases Supported**
-- MySQL 8
+- MySQL 8.0
 - SQLite (offline) _(todo later)_
 
 **UI Frameworks, Components and Libraries**
-- HTMX 2 _(wip)_
-- Fullcalendar 5.x _(todo later)_
+- HTMX 2 _(for SPA-like UX)_
+- Fullcalendar 5.x
 - LeafletJS 1.8 _(todo later)_
 
 **Web Servers**
 - PHP built-in web server via `./crudle serve -t backend/_web` (Development)
-- Nginx (Production)
+- Nginx via PHP-FPM (Production)
 
 **Process Manager** _(to consider)_
 - Development
@@ -106,8 +110,8 @@ _Now:_
 
 _Next:_
 - [ ] Create Yii extensions for the tools and starter kit as composer packages
-- [ ] Email templates for sending mail with attachments for documents and reports
-- [ ] Add multi-tenant (site) support in project with init script - _PoC done_
+- [ ] Email templates for sending mails + attachments of documents and reports
+- [x] Add multi-tenant (sites) support in template + init script for instances
 
 _Later:_
 - [ ] Upgrade to Yii3 (with CycleORM datamapper) using Bulma and Buefy
