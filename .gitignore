@@ -41,3 +41,7 @@ phpunit.phar
 
 tests/_output/*
 tests/_support/_generated
+
+# tenants instance dir
+tenants/*
+!tenants/_default
