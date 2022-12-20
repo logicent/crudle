@@ -1,8 +1,8 @@
 <?php
-namespace crudle\app\setting\commands;
+namespace crudle\app\database\commands;
 
 use crudle\app\main\helpers\App;
-use crudle\app\main\models\auth\People;
+use crudle\app\user\models\People;
 use Yii;
 use yii\console\Controller;
 use yii\db\IntegrityException;

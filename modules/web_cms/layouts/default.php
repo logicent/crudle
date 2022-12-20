@@ -32,5 +32,5 @@ $this->beginContent('@appMain/layouts/base.php') ?>
         </footer>
     </main>
 <?php
-    $this->registerCss($this->render('@extModules/web_cms/views/_assets/site.css'));
+    $this->registerCss($this->render('@extModules/web_cms/web_assets/site.css'));
 $this->endContent() ?>

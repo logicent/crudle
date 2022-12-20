@@ -21,7 +21,7 @@ $this->title = Yii::t('app', 'Log in');
 
 <div class="ui basic segment center aligned">
     <?= Html::a(Yii::t('app', 'Forgot password?'),
-            ['app/request-password-reset'],
+            ['/app/forgot-password'],
             ['id' => 'forgot_pwd', 'class' => 'ui center aligned grey']
         ) ?>
 </div>

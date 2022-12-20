@@ -1,7 +1,7 @@
 <?php
-namespace crudle\app\setting\commands;
+namespace crudle\app\user\commands;
 
-use crudle\app\setting\enums\Status_User;
+use crudle\app\user\enums\Status_User;
 use crudle\app\auth\models\Auth;
 use crudle\app\user\enums\Type_Role;
 use crudle\app\user\models\Person;
@@ -31,7 +31,7 @@ class UserController extends Controller
 
             if (!$auth->validate())
             {
-                \Kint::dump($auth->errors);
+                // \Kint::dump($auth->errors);
                 exit;
             }
             // else
@@ -49,7 +49,7 @@ class UserController extends Controller
 
             if (!$person->validate())
             {
-                \Kint::dump($person->errors);
+                // \Kint::dump($person->errors);
                 exit;
             }
             // else
@@ -83,7 +83,7 @@ class UserController extends Controller
             if ($auth->validate())
                 $auth->save(false);
             else
-                \Kint::dump(Yii::t('app', 'Auth validation error encountered'), $auth->errors);
+                // \Kint::dump(Yii::t('app', 'Auth validation error encountered'), $auth->errors);
 
             $person->id = $auth->id;
             $person->user_role = $user_role;
@@ -94,7 +94,7 @@ class UserController extends Controller
             if ($person->validate())
                 $person->save(false);
             else
-                \Kint::dump(Yii::t('app', 'Person data validation error encountered'), $person->errors);
+                // \Kint::dump(Yii::t('app', 'Person data validation error encountered'), $person->errors);
 
             $transaction->commit();
 

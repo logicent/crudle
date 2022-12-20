@@ -12,7 +12,7 @@ $detailModels = $this->context->getDetailModels();
 ?>
 
 <div class="ui inverted vertical center aligned segment">
-    <?= $this->render('@extModules/web_cms/views/_layouts/site/_navbar') ?>
+    <?= $this->render('@extModules/web_cms/layouts/site/_navbar') ?>
 </div>
 
 <div class="ui vertical stripe segment">

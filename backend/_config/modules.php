@@ -21,15 +21,15 @@ $coreModules = [
     'workflow'  =>  crudle\app\workflow\Module::class,
     'workspace' =>  crudle\app\workspace\Module::class,
 ];
-// user modules
-$userModules = App::getModules();
-$userModules = ArrayHelper::map($userModules::$modules, 'id', 'class');
+// ext modules
+$extModules = App::getModules();
+$extModules = ArrayHelper::map($extModules::$modules, 'id', 'class');
 
-return ArrayHelper::merge($coreModules, $userModules);
+return ArrayHelper::merge($coreModules, $extModules);
 
 // set modules tablePrefix
 // $modules = [];
-// foreach ($userModules::$modules as $userModule)
+// foreach ($extModules::$modules as $userModule)
 // {
 //     $modules[$userModule['id']] = [
 //         'class' => $userModule['class'],

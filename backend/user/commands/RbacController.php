@@ -1,11 +1,10 @@
 <?php
 
-namespace crudle\app\setting\commands;
+namespace crudle\app\user\commands;
 
-use crudle\app\main\helpers\App;
 use crudle\app\auth\models\Auth;
 use crudle\app\auth\models\Role;
-use crudle\app\crud\enums\Type_Model;
+use crudle\app\main\helpers\App;
 use crudle\app\user\enums\Type_Permission;
 use crudle\app\user\enums\Type_Role;
 use Yii;

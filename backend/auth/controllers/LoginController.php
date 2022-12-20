@@ -46,7 +46,7 @@ class LoginController extends AppController
 
         $model->password = ''; // clear the password
 
-        return $this->render('index', [
+        return $this->render('/_form/index', [
             'model' => $model,
         ]);
     }

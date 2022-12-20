@@ -21,10 +21,6 @@ class LogoutController extends AppController
                     [
                         'actions' => ['logout'],
                         'allow' => true,
-                    ],
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
                         'roles' => ['@'],
                     ],
                 ],

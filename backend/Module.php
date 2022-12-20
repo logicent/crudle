@@ -11,7 +11,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
 {
     public $moduleName;
     public $isInstalled; // if db migrations have run
-    public $isActivated; // will be loaded in app run
+    public $isActivated = true; // will be loaded in app run
     // public $activationRule = [];
     // public $isTranslatable; // if translation resource exists
     public $urlRule = 'yii\web\UrlRule';

@@ -62,9 +62,9 @@ abstract class ViewController extends BaseController implements LayoutInterface,
             return false; // do not run the action
         }
 
-        if (!parent::beforeAction($action)) {
-             return false; // do not run the action
-        }
+        // if (!parent::beforeAction($action)) {
+        //     return false; // do not run the action
+        // }
 
         return true; // run the action
     }

@@ -96,8 +96,8 @@ foreach ($modules as $id => $class) {
     $config['bootstrap'][] = $id;
 }
 
+// configuration adjustments for 'dev' environment
 if (YII_ENV_DEV) {
-    // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',

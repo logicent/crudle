@@ -36,7 +36,7 @@ class Module extends AppModule
                 // cms urls
                 ['class' => $this->urlRule, 'pattern' => '/app\/' . $this->id . '/<controller>', 'route' => $this->id . '/cms/<controller>/index'],
                 // website urls
-                // ['class' => $this->urlRule, 'pattern' => '/' , 'route' => $this->id . '/site/home/index'],
+                ['class' => $this->urlRule, 'pattern' => '/' , 'route' => $this->id . '/site/home/index'],
                 ['class' => $this->urlRule, 'pattern' => '/home', 'route' => $this->id . '/site/home/index'],
                 ['class' => $this->urlRule, 'pattern' => '/about', 'route' => $this->id . '/site/about/index'],
                 ['class' => $this->urlRule, 'pattern' => '/contact', 'route' => $this->id . '/site/contact/index'],

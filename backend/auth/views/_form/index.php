@@ -26,7 +26,7 @@ $form = ActiveForm::begin([
         ],
     ]);
 
-    $fieldInputs = $this->render('_form', ['form' => $form, 'model' => $model]);
+    $fieldInputs = $this->renderFile($this->context->viewPath . '/field_inputs.php', ['form' => $form, 'model' => $model]);
 ?>
 
 <div class="ui centered three column grid">
@@ -51,4 +51,4 @@ $form = ActiveForm::begin([
 <?php ActiveForm::end(); ?>
 </div>
 
-<?php $this->registerCssFile("@web/css/login.css");
+<?php $this->registerCss($this->renderFile('@appModules/auth/assets/login.css'));

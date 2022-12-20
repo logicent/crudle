@@ -15,6 +15,8 @@ use yii\filters\VerbFilter;
 
 class RequestPasswordResetController extends AppController
 {
+    public $layout = '@appMain/layouts/site';
+
     public function behaviors()
     {
         return [
@@ -25,11 +27,6 @@ class RequestPasswordResetController extends AppController
                     [
                         'actions' => ['request-password-reset'],
                         'allow' => true,
-                    ],
-                    [
-                        'actions' => ['request-password-reset'],
-                        'allow' => true,
-                        'roles' => ['@'],
                     ],
                 ],
             ],
@@ -86,7 +83,7 @@ class RequestPasswordResetController extends AppController
             }
         }
 
-        return $this->render('auth', [
+        return $this->render('/_form/index', [
             'model' => $model,
         ]);
     }

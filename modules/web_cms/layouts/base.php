@@ -24,8 +24,8 @@ $this->beginPage() ?>
         <title><?= Html::encode($this->title) ?></title>
 
         <!-- Site Properties -->
-        <?= $this->registerCss($this->render('@extModules/web_cms/views/_assets/site.css')) ?>
-        <?= $this->registerJs($this->render('@extModules/web_cms/views/_assets/site.js')) ?>
+        <?= $this->registerCss($this->render('@extModules/web_cms/web_assets/site.css')) ?>
+        <?= $this->registerJs($this->render('@extModules/web_cms/web_assets/site.js')) ?>
 
         <?php $this->head() ?>
     </head>
