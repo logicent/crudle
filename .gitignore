@@ -20,7 +20,7 @@
 /Thumbs.db
 
 # local settings variables
-/.env
+.env
 
 # composer vendor dir
 /vendor
@@ -44,4 +44,6 @@ tests/_support/_generated
 
 # tenants instance dir
 tenants/*
+!tenants/_config
 !tenants/_default
+!tenants/README.md

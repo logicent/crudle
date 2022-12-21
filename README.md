@@ -67,7 +67,7 @@ _Extension modules_
 ### Technology Stack
 **Programming Languages and Frameworks**
 - PHP 8.0 using Yii2 _(latest)_ and JavaScript using jQuery _(latest)_
-- To-Do: Yii2-dockerized _(optional)_
+- Yii2-dockerized _(todo later)_
 
 **Templating**
 - Twig _(to consider)_
@@ -77,9 +77,9 @@ _Extension modules_
 - SQLite (offline) _(todo later)_
 
 **UI Frameworks, Components and Libraries**
-- HTMX 2 _(for SPA-like UX)_
-- Fullcalendar 5.x
-- LeafletJS 1.8 _(todo later)_
+- HTMX 2
+- Fullcalendar 5.11.x
+- LeafletJS 1.9.x
 
 **Web Servers**
 - PHP built-in web server via `./crudle serve -t backend/_web` (Development)

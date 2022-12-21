@@ -123,4 +123,3 @@ Yii::setAlias('@appSetup', '@appModules/setting');
 // @appSettings GeneralSettings + Layout Settings
 Yii::setAlias('@kitModule', "@crudle/codegen"); // or '@appKit', "@appModules/kit"
 Yii::setAlias('@extModules', "@crudle/modules");
-// Yii::setAlias('@usrModules', "@crudle/tenants/{$tenantId}/modules");
