@@ -18,17 +18,17 @@ Option 2: via Commands
 
 Continue:
 - Run `./crudle tenant/migrate --migration-path 'tenants/<tenant_name>/<module_name>/migrations'`
-- Run `./crudle serve -t tenants/<tenant_name>/web` in local environment or use preferred web server in production
+- Run `./crudle serve -t tenants/<tenant_name>/web` in local environment or use a web server in production
 
 ### System Architecture
 
 **Context**
 
-It's desirable for ease of deployment and maintenance to host multiple customer instances via a shared code base while keeping the data separate.
+It is desirable for ease of deployment and maintenance to host multiple tenant instances via a shared code base while keeping the data separate either using a database per tenant or new table + prefix for tenant in database.
 
 **Containers**
-- <tenant_name>   (Ten)
-- <tenant_name>/modules   (Cus)
+- Tenant instance {tenant_name}   (Ins)
+- {tenant_name}/modules   (Mod)
 
 **Components**
 
@@ -44,8 +44,7 @@ _Custom modules_
 
 ### Roadmap
 _Now:_
-- [ ] Create init script to deploy new customer instance
-- [ ] Create commands to deploy new customer instance
+- [ ] Create init script to deploy a new tenant and commands to manage existing instances
 
 _Next:_
 
