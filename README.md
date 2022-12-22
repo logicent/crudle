@@ -68,6 +68,7 @@ _Extension modules_
 **Programming Languages and Frameworks**
 - PHP 8.0 using Yii2 _(latest)_ and JavaScript using jQuery _(latest)_
 - Yii2-dockerized _(todo later)_
+- Deploy via deployer _(todo later)_
 
 **Templating**
 - Twig _(to consider)_
@@ -84,6 +85,7 @@ _Extension modules_
 **Web Servers**
 - PHP built-in web server via `./crudle serve -t backend/_web` (Development)
 - Nginx via PHP-FPM (Production)
+- RoadRunner 2 _(to be tested)_
 
 **Process Manager** _(to consider)_
 - Development
@@ -115,10 +117,7 @@ _Next:_
 _Later:_
 - [ ] Upgrade to Yii3 (with CycleORM datamapper) using Bulma and Buefy
 - [ ] Use hybrid of Php Auth Manager _(predefined)_ and Db Auth Manager _(user-defined)_
-- [ ] Test and prefer RoadRunner 2 over Nginx for production in Ubuntu 20.04+
-- [ ] Testing - look into PestPHP but keep an open mind on the way forward
-- [ ] Development via Yii2-dockerized - _PoC done_
-- [ ] Deploying using deployer.org (optional)
+- [ ] Write tests using PestPHP, but keep an open mind for PHPUnit too.
 
 **Want to contribute?**
 Thank you for considering to make a contribution to Yii2 Crudle.
