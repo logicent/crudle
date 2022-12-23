@@ -14,7 +14,7 @@ require CRUDLE_BASE_PATH . '/backend/_config/bootstrap.php';
 
 $config = yii\helpers\ArrayHelper::merge(
     require CRUDLE_BASE_PATH . '/backend/_config/web.php',
-    require CRUDLE_BASE_PATH . '/tenants/_config/web.php',
+    require CRUDLE_BASE_PATH . '/sites/_config/web.php',
 );
 // Load and run Crudle
 // /** @var crudle\web\Application $app */

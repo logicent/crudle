@@ -42,8 +42,8 @@ phpunit.phar
 tests/_output/*
 tests/_support/_generated
 
-# tenants instance dir
-tenants/*
-!tenants/_config
-!tenants/_default
-!tenants/README.md
+# sites instance dir
+sites/*
+!sites/_config
+!sites/_default
+!sites/README.md

@@ -4,10 +4,10 @@ use crudle\app\main\helpers\App;
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => App::env('TENANT_DB_DSN'), // ?: null
-    'username' => App::env('TENANT_DB_USERNAME'),
-    'password' => App::env('TENANT_DB_PASSWORD'),
-    'tablePrefix' => App::env('TENANT_DB_TABLE_PREFIX'),
+    'dsn' => App::env('SITE_DB_DSN'), // ?: null
+    'username' => App::env('SITE_DB_USERNAME'),
+    'password' => App::env('SITE_DB_PASSWORD'),
+    'tablePrefix' => App::env('SITE_DB_TABLE_PREFIX'),
     // 'enableQueryCache' => false,
     'charset' => 'utf8',
 
