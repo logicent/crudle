@@ -2,14 +2,16 @@
 
 namespace crudle\app\user;
 
+use crudle\app\Module as AppModule;
 use Yii;
-use yii\base\BootstrapInterface;
 
 /**
  * user module definition class
  */
-class Module extends \yii\base\Module implements BootstrapInterface
+class Module extends AppModule
 {
+    public $moduleName = 'User';
+
     /**
      * {@inheritdoc}
      */

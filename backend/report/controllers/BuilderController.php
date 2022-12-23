@@ -3,9 +3,9 @@
 namespace crudle\app\report\controllers;
 
 use crudle\app\crud\controllers\CrudController;
-use crudle\app\report\models\ReportBuilder;
-use crudle\app\report\models\ReportBuilderItem;
-use crudle\app\report\models\search\ReportBuilderSearch;
+use crudle\app\report\models\ReportQuery;
+use crudle\app\report\models\ReportQueryItem;
+use crudle\app\report\models\search\ReportQuerySearch;
 
 class BuilderController extends CrudController
 {
@@ -13,18 +13,18 @@ class BuilderController extends CrudController
 
     public function init()
     {
-        $this->columnModelClass = ReportBuilderItem::class;
+        $this->columnModelClass = ReportQueryItem::class;
 
         return parent::init();
     }
 
     public function modelClass(): string
     {
-        return ReportBuilder::class;
+        return ReportQuery::class;
     }
 
     public function searchModelClass(): string
     {
-        return ReportBuilderSearch::class;
+        return ReportQuerySearch::class;
     }
 }

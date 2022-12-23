@@ -7,15 +7,15 @@ use Yii;
 use yii\helpers\ArrayHelper;
 
 /**
- * This is the model class for table "report_builder_item".
+ * This is the model class for table "report_query_item".
  *
- * @property ReportBuilder $reportBuilder
+ * @property ReportQuery $reportQuery
  */
-class ReportBuilderItem extends BaseActiveRecordDetail
+class ReportQueryItem extends BaseActiveRecordDetail
 {
     public static function tableName()
     {
-        return '{{%Report_Builder_Item}}';
+        return '{{%Report_Query_Item}}';
     }
 
     public function rules()
@@ -46,13 +46,13 @@ class ReportBuilderItem extends BaseActiveRecordDetail
         ], $attributeLabels);
     }
 
-    public function getReportBuilder()
+    public function getReportQuery()
     {
-        return $this->hasOne(ReportBuilder::class, ['id' => 'report_builder_id']);
+        return $this->hasOne(ReportQuery::class, ['id' => 'query_id']);
     }
 
     public static function foreignKeyAttribute()
     {
-        return 'report_builder_id';
+        return 'query_id';
     }
 }

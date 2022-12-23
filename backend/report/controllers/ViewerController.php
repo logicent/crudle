@@ -4,8 +4,8 @@ namespace crudle\app\report\controllers;
 
 use crudle\app\main\controllers\base\ViewController;
 use crudle\app\main\enums\Type_View;
-use crudle\app\report\models\ReportBuilder;
-use crudle\app\report\models\ReportBuilderItem;
+use crudle\app\report\models\ReportQuery;
+use crudle\app\report\models\ReportQueryItem;
 use Yii;
 use yii\data\ActiveDataProvider;
 
@@ -18,7 +18,7 @@ class ViewerController extends ViewController
     public function init()
     {
         parent::init();
-        $this->reports = ReportBuilder::find()->where(['inactive' => false])->asArray()->all();
+        $this->reports = ReportQuery::find()->where(['inactive' => false])->asArray()->all();
     }
 
     public function actions()
@@ -28,12 +28,12 @@ class ViewerController extends ViewController
 
     public function actionIndex($id = null)
     {
-        $model = ReportBuilder::findOne(['route' => $id]);
+        $model = ReportQuery::findOne(['route' => $id]);
 
         if ($model != null) 
         {
-            $columns = ReportBuilderItem::find()
-                            ->where(['report_builder_id' => $model->id])
+            $columns = ReportQueryItem::find()
+                            ->where(['query_id' => $model->id])
                             ->select('attribute_name')
                             ->column();
             $query = $model->model_name::find();

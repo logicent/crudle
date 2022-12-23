@@ -12,11 +12,11 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
 
 /**
- * This is the model class for table "report_builder".
+ * This is the model class for table "report_query".
  *
- * @property ReportBuilderItem[] $reportBuilderItems
+ * @property ReportQueryItem[] $reportQueryItems
  */
-class ReportBuilder extends ActiveRecord
+class ReportQuery extends ActiveRecord
 {
     public function init()
     {
@@ -26,7 +26,7 @@ class ReportBuilder extends ActiveRecord
 
     public static function tableName()
     {
-        return '{{%Report_Builder}}';
+        return '{{%Report_Query}}';
     }
 
     public function rules()
@@ -39,7 +39,7 @@ class ReportBuilder extends ActiveRecord
             [['inactive'], 'boolean'],
             ['roles', 'safe'], // 'allow_roles'
             // 'is_custom', 'custom_style', 'custom_script', 'show_summary', 'show_charts'
-            [['description', 'query_cmd'], 'string'],
+            [['description', 'sql_cmd'], 'string'],
         ], $rules);
     }
 
@@ -54,7 +54,7 @@ class ReportBuilder extends ActiveRecord
             'type' => Yii::t('app', 'Type'),
             'inactive' => Yii::t('app', 'Hidden'),
             'description' => Yii::t('app', 'Description'),
-            'query_cmd' => Yii::t('app', 'Query command'),
+            'sql_cmd' => Yii::t('app', 'SQL command'),
             'title' => Yii::t('app', 'Title'),
             'subtitle' => Yii::t('app', 'Subtitle'),
             'roles' => Yii::t('app', 'Roles'),
@@ -87,16 +87,16 @@ class ReportBuilder extends ActiveRecord
     public static function relations()
     {
         return [
-            'reportBuilderItem'     => [
-                'class' => ReportBuilderItem::class,
+            'reportQueryItem'     => [
+                'class' => ReportQueryItem::class,
                 'type' => Type_Relation::ChildModel
             ],
         ];
     }
 
-    public function getReportBuilderItem()
+    public function getReportQueryItem()
     {
-        return $this->hasMany(ReportBuilderItem::class, ['report_builder_id' => 'id']);
+        return $this->hasMany(ReportQueryItem::class, ['query_id' => 'id']);
     }
 
     public static function mixedValueFields()

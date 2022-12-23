@@ -9,8 +9,6 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use icms\FomanticUI\modules\Select;
 
-$this->renderFile($this->context->viewPath . '/_breadcrumbs.php');
-
 $rolesCount = !empty($model->roles) ? count($model->roles) : '0';
 ?>
     <div class="ui padded segment">
@@ -91,7 +89,7 @@ $rolesCount = !empty($model->roles) ? count($model->roles) : '0';
         </div>
     </div>
 
-    <?= $this->render('report_builder_item/index', ['model' => $model, 'form' => $form]) ?>
+    <?= $this->render('report_query_item/index', ['model' => $model, 'form' => $form]) ?>
     <?= $this->render('_query_cmd', ['model' => $model, 'form' => $form]) ?>
 <?php
 $this->registerJs($this->render('@appMain/views/_form_field/load_related_list_options.js'));

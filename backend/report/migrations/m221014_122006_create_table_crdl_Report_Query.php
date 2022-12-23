@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m221014_122006_create_table_crdl_Report_Builder extends Migration
+class m221014_122006_create_table_crdl_Report_Query extends Migration
 {
     public function safeUp()
     {
@@ -12,7 +12,7 @@ class m221014_122006_create_table_crdl_Report_Builder extends Migration
         }
 
         $this->createTable(
-            '{{%Report_Builder}}',
+            '{{%Report_Query}}',
             [
                 'id' => $this->string(140)->notNull()->append('PRIMARY KEY'),
                 'route' => $this->string(140),
@@ -23,7 +23,7 @@ class m221014_122006_create_table_crdl_Report_Builder extends Migration
                 'group' => $this->string(140),
                 'type' => $this->string(140),
                 'inactive' => $this->boolean()->defaultValue('0'),
-                'query_cmd' => $this->text()->notNull(),
+                'sql_cmd' => $this->text()->notNull(),
                 'roles' => $this->text(),
                 'comments' => $this->text(),
                 'tags' => $this->text(),
@@ -38,6 +38,6 @@ class m221014_122006_create_table_crdl_Report_Builder extends Migration
 
     public function safeDown()
     {
-        $this->dropTable('{{%Report_Builder}}');
+        $this->dropTable('{{%Report_Query}}');
     }
 }

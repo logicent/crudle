@@ -5,7 +5,7 @@ use crudle\app\crud\enums\Type_Menu_Group;
 // use crudle\app\main\enums\Type_Menu_Group;
 use crudle\app\user\enums\Type_Role;
 use crudle\app\dashboard\models\Dashboard;
-use crudle\app\report\models\ReportBuilder;
+use crudle\app\report\models\ReportQuery;
 use crudle\app\setting\forms\DeveloperSettingsForm;
 use crudle\app\setting\models\Setup;
 use yii\helpers\Inflector;
@@ -15,7 +15,7 @@ $deployedSettings = Setup::getSettings( DeveloperSettingsForm::class );
 
 $dashboards = $reports = $modules = $workspaces = [];
 $dashboards = Dashboard::find()->where(['inactive' => false])->all();
-$reports = ReportBuilder::find()->where(['inactive' => false])->all();
+$reports = ReportQuery::find()->where(['inactive' => false])->all();
 $modules = App::getModules();
 // $workspaces = Workspace::find()->where(['inactive' => false])->all();
 $dashboardMenus = $reportMenus = $moduleMenus = $workspaceMenus = [];

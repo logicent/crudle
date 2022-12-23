@@ -23,7 +23,7 @@ $isReadonly =
 <tr id="<?= $model->formName() ?>_<?= $rowId ?>">
     <td class="center aligned select-row">
         <?= Html::activeHiddenInput($model, "[{$rowId}]id") ?>
-        <?= Html::activeHiddenInput($model, "[{$rowId}]report_builder_id") ?>
+        <?= Html::activeHiddenInput($model, "[{$rowId}]query_id") ?>
         <?= Checkbox::widget([
                 'name' => "[$rowId]id",
                 'options' => ['style' => 'vertical-align: text-top']

@@ -1,6 +1,6 @@
 <?php
 
-use crudle\app\report\models\ReportBuilderItem;
+use crudle\app\report\models\ReportQueryItem;
 use crudle\app\report\models\ReportTemplateItem;
 
 ?>

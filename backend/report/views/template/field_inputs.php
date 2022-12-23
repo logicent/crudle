@@ -1,9 +1,3 @@
-<?php
-
-$this->renderFile($this->context->viewPath . '/_breadcrumbs.php');
-
-?>
-
 <div class="ui padded segment">
     <div class="two fields">
         <?= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>

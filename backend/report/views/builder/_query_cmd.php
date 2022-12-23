@@ -9,7 +9,7 @@ use icms\FomanticUI\Elements;
     ],
         'toolbarOptions' => [['code-block']] // Include button in toolbar
     ] -->
-    <?= $form->field($model, 'query_cmd')->textarea(['rows' => 8]) ?>
+    <?= $form->field($model, 'sql_cmd')->textarea(['rows' => 8]) ?>
 
     <?= Elements::button(Yii::t('app', 'Test query'), [
             'id' => 'test_connection',

@@ -2,14 +2,14 @@
 
 namespace crudle\app\report\models\search;
 
-use crudle\app\report\models\ReportBuilder;
+use crudle\app\report\models\ReportQuery;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * ReportBuilderSearch represents the model behind the search form of `app\modules\main\models\ReportBuilder`.
+ * ReportQuerySearch represents the model behind the search form of `app\modules\main\models\ReportQuery`.
  */
-class ReportBuilderSearch extends ReportBuilder
+class ReportQuerySearch extends ReportQuery
 {
     /**
      * {@inheritdoc}
@@ -38,7 +38,7 @@ class ReportBuilderSearch extends ReportBuilder
      */
     public function search($params)
     {
-        $query = ReportBuilder::find();
+        $query = ReportQuery::find();
 
         // add conditions that should always apply here
 

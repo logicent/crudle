@@ -10,6 +10,8 @@ use Yii;
  */
 class Module extends AppModule
 {
+    public $moduleName = 'Printing';
+
     /**
      * {@inheritdoc}
      */

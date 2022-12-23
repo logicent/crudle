@@ -71,4 +71,9 @@ class ReportTemplateItem extends ActiveRecordDetail
     {
         $this->actionType = $action_type;
     }
+
+    public static function foreignKeyAttribute()
+    {
+        return 'template_id';
+    }
 }
