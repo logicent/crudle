@@ -25,7 +25,7 @@ Continue:
 - Run `./crudle migrate --migration-path 'backend/<module_name>/migrations'`
 - Run `cat backend/user/migrations/seeds/crdl_People.sql | mysql -u <my_root_user> -p <my_db_name>`
 - Run `./crudle user/create-superuser 'my_password'` and `./crudle rbac/init`
-- Run `./crudle serve -t backend/_web` in local environment or use preferred web server in production
+- Run `./crudle serve -t web` in local environment or use preferred web server in production
 
 ### System Architecture
 
@@ -83,7 +83,7 @@ _Extension modules_
 - LeafletJS 1.9.x
 
 **Web Servers**
-- PHP built-in web server via `./crudle serve -t backend/_web` (Development)
+- PHP built-in web server via `./crudle serve -t web` (Development)
 - Nginx via PHP-FPM (Production)
 - RoadRunner 2 _(to be tested)_
 

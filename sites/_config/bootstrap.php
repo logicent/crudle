@@ -2,6 +2,6 @@
 
 use crudle\app\main\helpers\App;
 
-$tenantId = App::env('SITE_ID');
+$siteId = App::env('SITE_ID');
 
-Yii::setAlias('@usrModules', "@crudle/sites/{$tenantId}/modules");
+Yii::setAlias('@usrModules', "@crudle/sites/{$siteId}/modules");

@@ -13,7 +13,7 @@ class AppController extends Controller
 {
     /** @var array */
     public $writablePaths = [
-        '@crudle/backend/_web/assets',
+        '@crudle/web/assets',
         '@storage/backups',
         '@storage/logs',
         '@storage/runtime',

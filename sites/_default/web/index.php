@@ -10,10 +10,10 @@ require dirname(__DIR__, 1) . '/bootstrap.php';
 
 require CRUDLE_VENDOR_PATH . '/yiisoft/yii2/Yii.php';
 
-require CRUDLE_BASE_PATH . '/backend/_config/bootstrap.php';
+require CRUDLE_BASE_PATH . '/config/bootstrap.php';
 
 $config = yii\helpers\ArrayHelper::merge(
-    require CRUDLE_BASE_PATH . '/backend/_config/web.php',
+    require CRUDLE_BASE_PATH . '/config/web.php',
     require CRUDLE_BASE_PATH . '/sites/_config/web.php',
 );
 // Load and run Crudle

@@ -72,11 +72,11 @@ $ensureFolderIsReadable = function($path, $writableToo = false) {
 // -----------------------------------------------------------------------------
 
 // Set the vendor path. By default assume that it's 3 levels up from here
-$vendorPath = $findConfigPath('--vendorPath', 'CRUDLE_VENDOR_PATH') ?? dirname(__DIR__, 2) . '/vendor';
+$vendorPath = $findConfigPath('--vendorPath', 'CRUDLE_VENDOR_PATH') ?? dirname(__DIR__, 1) . '/vendor';
 // Set the "app root" path that contains app/, storage/, etc. By default assume that it's up a level from vendor/.
 $rootPath = $findConfigPath('--basePath', 'CRUDLE_BASE_PATH') ?? dirname($vendorPath);
 // By default the remaining directories will be in the base directory
-$configPath = $findConfigPath('--configPath', 'CRUDLE_CONFIG_PATH') ?? "$rootPath/backend/_config";
+$configPath = $findConfigPath('--configPath', 'CRUDLE_CONFIG_PATH') ?? "$rootPath/config";
 $migrationsPath = $findConfigPath('--migrationsPath', 'CRUDLE_MIGRATIONS_PATH') ?? "$rootPath/database/migrations";
 $storagePath = $findConfigPath('--storagePath', 'CRUDLE_STORAGE_PATH') ?? "$rootPath/storage";
 // $templatesPath = $findConfigPath('--templatesPath', 'CRUDLE_TEMPLATES_PATH') ?? "$rootPath/templates";

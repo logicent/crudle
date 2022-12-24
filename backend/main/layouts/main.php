@@ -13,7 +13,7 @@ $this->beginContent($layoutPath . 'base.php') ?>
     <div class="computer only large screen only <?= $controller->sidebarColWidth() ?> wide column">
         <!-- side view loads here -->
     <?php
-        if (file_exists($controller->viewPath . '/_sidebar.php')) :
+        if (file_exists($controller->viewPath . '/_sidebar.php') && $controller->action->id != 'index') :
             echo $this->renderFile($controller->viewPath . '/_sidebar.php', ['context' => $controller]);
         endif ?>
     </div>
