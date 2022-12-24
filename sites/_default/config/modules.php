@@ -1,7 +1,7 @@
 <?php
 
-// user modules
-$userModules = [
+// site modules
+$siteModules = [
 ];
 
-return $userModules;
+return $siteModules;

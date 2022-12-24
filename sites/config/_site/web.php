@@ -5,7 +5,10 @@ use crudle\app\main\helpers\App;
 $siteId = App::env('SITE_ID');
 
 $db = require __DIR__ . '/db.php';
-$modules = require dirname(__DIR__, 1) . "/{$siteId}/config/modules.php";
+$modules = yii\helpers\ArrayHelper::merge(
+    require dirname(__DIR__, 1) . '/modules.php',
+    require dirname(__DIR__, 2) . "/{$siteId}/config/modules.php"
+);
 
 $config = [
     'name' => App::env('SITE_APP_NAME'),

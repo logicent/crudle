@@ -1,12 +1,10 @@
 <?php
 
-use crudle\app\main\enums\Module_Alias;
 use crudle\app\main\helpers\App;
-use yii\db\Connection;
 use yii\helpers\ArrayHelper;
 
-// core modules
-$coreModules = [
+// app modules
+$appModules = [
     'auth'      =>  crudle\app\auth\Module::class,
     'crud'      =>  crudle\app\crud\Module::class,
     'database'  =>  crudle\app\database\Module::class,
@@ -25,21 +23,4 @@ $coreModules = [
 $extModules = App::getModules();
 $extModules = ArrayHelper::map($extModules::$modules, 'id', 'class');
 
-return ArrayHelper::merge($coreModules, $extModules);
-
-// set modules tablePrefix
-// $modules = [];
-// foreach ($extModules::$modules as $userModule)
-// {
-//     $modules[$userModule['id']] = [
-//         'class' => $userModule['class'],
-//         'components' => [
-//             'db' => [
-//                 'class' => 'yii\db\Connection',
-//                 'tablePrefix' => App::env('CRUDLE_DB_MODULE_TABLE_PREFIX'),
-//             ]
-//         ]
-//     ];
-// }
-
-// return ArrayHelper::merge($coreModules, $modules);
+return ArrayHelper::merge($appModules, $extModules);

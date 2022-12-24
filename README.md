@@ -25,7 +25,7 @@ Continue:
 - Run `./crudle migrate --migration-path 'backend/<module_name>/migrations'`
 - Run `cat backend/user/migrations/seeds/crdl_People.sql | mysql -u <my_root_user> -p <my_db_name>`
 - Run `./crudle user/create-superuser 'my_password'` and `./crudle rbac/init`
-- Run `./crudle serve -t web` in local environment or use preferred web server in production
+- Run `./crudle serve -t sites/web` in local environment or use preferred web server in production
 
 ### System Architecture
 
@@ -54,7 +54,6 @@ _Setup page_ - to provide visibility and customization tools for end-users
 - **Printing** - create print styles, print formats and configure print devices
 
 _App modules_ - contains core app functionality like auth, crud, email etc
-- **backend/_config** to define app-level conventions
 - **backend/database/commands** to run db migrations and related database tasks
 - **backend/main** to define app-level enums and provide reusable app functions
 - **backend/listing** to display a set of data entries in a multi-record viewer
@@ -63,6 +62,10 @@ _App modules_ - contains core app functionality like auth, crud, email etc
 
 _Extension modules_
 - **modules/web_cms** - to set up a website for content publishing and engagements
+
+_Sites_
+- **sites/config** to define global config settings
+- **sites/web** to define global JS and CSS scripts
 
 ### Technology Stack
 **Programming Languages and Frameworks**
@@ -83,7 +86,7 @@ _Extension modules_
 - LeafletJS 1.9.x
 
 **Web Servers**
-- PHP built-in web server via `./crudle serve -t web` (Development)
+- PHP built-in web server via `./crudle serve -t sites/web` (Development)
 - Nginx via PHP-FPM (Production)
 - RoadRunner 2 _(to be tested)_
 
@@ -117,7 +120,7 @@ _Next:_
 _Later:_
 - [ ] Upgrade to Yii3 (with CycleORM datamapper) using Bulma and Buefy
 - [ ] Use hybrid of Php Auth Manager _(predefined)_ and Db Auth Manager _(user-defined)_
-- [ ] Write tests using PestPHP, but keep an open mind for PHPUnit too.
+- [ ] Write tests using either PestPHP or PHPUnit.
 
 **Want to contribute?**
 Thank you for considering to make a contribution to Yii2 Crudle.

@@ -43,7 +43,4 @@ tests/_output/*
 tests/_support/_generated
 
 # sites instance dir
-sites/*
-!sites/_config
-!sites/_default
-!sites/README.md
+# sites/site_*
