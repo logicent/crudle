@@ -21,11 +21,11 @@ Option 2: via CLI
 - Run `composer install`
 
 Continue:
-- Create a database and update your `.env` settings
-- Run `./crudle migrate --migration-path 'backend/<module_name>/migrations'`
-- Run `cat backend/user/migrations/seeds/crdl_People.sql | mysql -u <my_root_user> -p <my_db_name>`
+- Create a database and update your site `sites/<site_name>/.env` settings
+- Run `./crudle migrate --migrationPath sites/database/migrations'`
+- Run `cat sites/database/seeds/crdl_People.sql | mysql -u <my_root_user> -p <my_db_name>`
 - Run `./crudle user/create-superuser 'my_password'` and `./crudle rbac/init`
-- Run `./crudle serve -t sites/web` in local environment or use preferred web server in production
+- Run `./crudle serve -t sites/<site_name>/web` in local environment or use preferred web server in production
 
 ### System Architecture
 
@@ -86,7 +86,7 @@ _Sites_
 - LeafletJS 1.9.x
 
 **Web Servers**
-- PHP built-in web server via `./crudle serve -t sites/web` (Development)
+- PHP built-in web server via `./crudle serve -t sites/<site_name>/web` (Development)
 - Nginx via PHP-FPM (Production)
 - RoadRunner 2 _(to be tested)_
 
@@ -113,9 +113,9 @@ _Now:_
 - [x] Upgrade to latest Yii2 using PHP 8.0 and MySQL 8.0 with Fomantic UI 2.9
 
 _Next:_
-- [ ] Create Yii extensions for the tools and starter kit as composer packages
-- [ ] Email templates for sending mails + attachments of documents and reports
 - [x] Add multi-tenant (sites) support in template + init script for instances
+- [ ] Email templates for sending mails + attachments of documents and reports
+- [ ] Create Yii extensions for the tools and starter kit as composer packages
 
 _Later:_
 - [ ] Upgrade to Yii3 (with CycleORM datamapper) using Bulma and Buefy

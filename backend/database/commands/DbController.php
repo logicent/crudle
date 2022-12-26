@@ -2,6 +2,8 @@
 
 namespace crudle\app\database\commands;
 
+use crudle\app\main\enums\Module_Alias;
+use crudle\app\main\helpers\App;
 use Yii;
 use yii\console\Controller;
 use yii\helpers\Console;
@@ -21,6 +23,26 @@ class DbController extends Controller
     {
         \Yii::$app->runAction('migrate/up', ['interactive' => $this->interactive]);
         \Yii::$app->runAction('rbac-migrate/up', ['interactive' => $this->interactive]);
+    }
+
+    public function actionMigrate($moduleName)
+    {
+        \Yii::$app->runAction("migrate/up --migration-path 'backend/$moduleName/migrations'", ['interactive' => $this->interactive]);
+    }
+
+    public function actionMigrateAll()
+    {
+        $modules = App::getModules(Module_Alias::App);
+
+        foreach($modules::$modules as $id => $module) {
+            \Yii::$app->runAction("migrate/up --migration-path 'backend/$id/migrations'", ['interactive' => $this->interactive]);
+        }
+    }
+
+    public function actionSeed($dbUser, $dbPass = null)
+    {
+        $sqlCmd = shell_exec("cat backend/user/migrations/seeds/crdl_People.sql");
+        exec("mysql -u $dbUser -p $dbPass < $sqlCmd");
     }
 
     /**

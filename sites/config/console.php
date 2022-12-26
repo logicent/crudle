@@ -4,6 +4,7 @@ use crudle\app\main\helpers\App;
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
+$modules = require __DIR__ . '/modules.php';
 
 $config = [
     'id' => 'yii2-crudle-cli',
@@ -12,15 +13,6 @@ $config = [
     'basePath' => dirname( __DIR__ ),
     'bootstrap' => ['log'],
     'timeZone' => 'Africa/Nairobi',
-    'controllerNamespace' => 'crudle\app\setting\commands',
-    // 'controllerMap' => [
-    //     'batch' => [
-    //         'class' => 'schmunk42\giiant\commands\BatchController',
-    //         'overwrite' => true,
-    //         'modelNamespace' => 'app\\modules\\crud\\models',
-    //         'crudTidyOutput' => true,
-    //     ]
-    // ],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -58,6 +50,7 @@ $config = [
         ],
         'db' => $db,
     ],
+    'modules' => $modules,
     'params' => $params,
 
     'controllerMap' => [
@@ -69,6 +62,11 @@ $config = [
         // ],
     ],
 ];
+
+// add dynamic options via Module bootstrap($app)
+foreach ($modules as $id => $class) {
+    $config['bootstrap'][] = $id;
+}
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment

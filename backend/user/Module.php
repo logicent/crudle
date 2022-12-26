@@ -24,6 +24,13 @@ class Module extends AppModule
     {
         parent::init();
         // custom initialization code goes here
+        // if (Yii::$app instanceof \yii\console\Application) {
+        //     $this->controllerMap[$this->id] = [
+        //         'class'  => 'crudle\app\user\commands\RbacController',
+        //         'module' => $this
+        //     ];
+        //     $this->controllerNamespace = 'crudle\app\user\commands';
+        // }
         Yii::configure($this, require __DIR__ . '/config.php');
     }
 
@@ -32,6 +39,14 @@ class Module extends AppModule
      */
     public function bootstrap($app)
     {
+        // if ($app instanceof \yii\console\Application) {
+        //     $app->controllerMap[$this->id] = [
+        //         'class'  => 'crudle\app\user\commands\RbacController',
+        //         'module' => $this
+        //     ];
+        //     // $app->getModule('user')->controllerNamespace = 'crudle\app\user\commands';
+        //     // $this->controllerNamespace = 'crudle\app\user\commands';
+        // }
         // ** Crud action routes
         if ($app instanceof \yii\web\Application) {
             $app->getUrlManager()->addRules([
