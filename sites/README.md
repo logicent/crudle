@@ -14,11 +14,14 @@ Option 1: via Script
 - Run `init` script via command-line
 
 Option 2: via Commands
-- Run `crudle sites/create-new --id='new_customer'`
+- Run `crudle sites/create-new --id='site_name'`
 
 Continue:
-- Run `./crudle sites/migrate --migration-path 'sites/<site_name>/<module_name>/migrations'`
-- Run `./crudle serve -t sites/<site_name>/web` in local environment or use a web server in production
+- Create a database and update your site `sites/<site_name>/.env` settings
+- Run `./crudle migrate --migrationPath sites/database/migrations'`
+- Run `cat sites/database/seeds/crdl_People.sql | mysql -u <my_root_user> -p <my_db_name>`
+- Run `./crudle user/create-superuser 'my_password'` and `./crudle rbac/init`
+- Run `./crudle serve -t sites/<site_name>/web` in local environment or use preferred web server in production
 
 ### System Architecture
 
