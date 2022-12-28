@@ -1,4 +1,4 @@
-**_Note: This is experimental multi-tenancy support!_**
+**_Note: These instructions help simplify new site deployment to support multiple site instances!_**
 
 ### Introduction
 
@@ -33,13 +33,13 @@ It is desirable for ease of deployment and maintenance to host multiple tenant i
 
 **Components**
 
-_config_ - to define global application configs and site-specific settings
+_config_ - to define global app-level config and site-specific settings
 
-_storage_ - to provide customer-specific database backups and runtime dumps
+_modules_ - to define site-specific modules customized by the end-users
 
-_web_ - to provide customer-specific entry script, assets cache and uploads
+_storage_ - to provide site-specific database backups and runtime dumps
 
-_Custom modules_
+_web_ - to provide site-specific entry script, assets cache and uploads
 
 **Web Servers**
 - PHP built-in web server via `./crudle serve -t sites/<site_name>/web` (Development)

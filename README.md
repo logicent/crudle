@@ -64,7 +64,8 @@ _Ext modules_
 
 _Sites_
 - **sites/config** to define global config settings
-- **sites/database** to define DB scripts and data
+- **sites/database** to define DB scripts and seeds
+- **sites/storage** to hold shared data & resources
 - **sites/web** to define global JS and CSS scripts
 
 ### Technology Stack
@@ -81,10 +82,10 @@ _Sites_
 - SQLite (offline) _(todo later)_
 
 **UI Frameworks, Components and Libraries**
-- Fomantic UI
+- Fomantic UI 2.9
 - HTMX 2
-- Fullcalendar 5.11.x
-- LeafletJS 1.9.x
+- Fullcalendar 5.11
+- LeafletJS 1.9
 
 **Web Servers**
 - PHP built-in web server via `./crudle serve -t sites/_default/web` (Development)
