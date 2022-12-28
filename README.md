@@ -23,7 +23,7 @@ Option 2: via CLI
 Continue:
 - Create a database and update your site `sites/_default/.env` settings
 - Run `./crudle migrate --migrationPath sites/database/migrations'`
-- Run `cat sites/database/seeds/crdl_People.sql | mysql -u <my_root_user> -p <my_db_name>`
+- Run `cat sites/database/scripts/crdl_People.sql | mysql -u <my_root_user> -p <my_db_name>`
 - Run `./crudle user/create-superuser 'my_password'` and `./crudle rbac/init`
 - Run `./crudle serve -t sites/_default/web` in local environment or use preferred web server in production
 
@@ -53,18 +53,18 @@ _Setup page_ - to provide visibility and customization tools for end-users
 - **People** - add users, user groups, roles and permissions and view user logs
 - **Printing** - create print styles, print formats and configure print devices
 
-_App modules_ - contains core app functionality like auth, crud, email etc
-- **backend/database/commands** to run db migrations and related database tasks
+_App modules_ - contains core app functionality like auth, crud, email, map etc
+- **backend/database** provides tool to interact with DB connection and storage
 - **backend/main** to define app-level enums and provide reusable app functions
-- **backend/listing** to display a set of data entries in a multi-record viewer
-- **backend/setting** to define UI preferences and system-level operation menus
+- **backend/listing** to display a set of records in multi-record visualization
 - **backend/workflow** to define approval routing, change triggers and statuses
 
-_Extension modules_
-- **modules/web_cms** - to set up a website for content publishing and engagements
+_Ext modules_
+- **modules/web_cms** - to set up a website for content publishing
 
 _Sites_
 - **sites/config** to define global config settings
+- **sites/database** to define DB scripts and data
 - **sites/web** to define global JS and CSS scripts
 
 ### Technology Stack
@@ -81,6 +81,7 @@ _Sites_
 - SQLite (offline) _(todo later)_
 
 **UI Frameworks, Components and Libraries**
+- Fomantic UI
 - HTMX 2
 - Fullcalendar 5.11.x
 - LeafletJS 1.9.x

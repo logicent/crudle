@@ -18,9 +18,7 @@ Option 2: via Commands
 
 Continue:
 - Create a database and update your site `sites/<site_name>/.env` settings
-- Run `./crudle migrate --migrationPath sites/database/migrations'`
-- Run `cat sites/database/seeds/crdl_People.sql | mysql -u <my_root_user> -p <my_db_name>`
-- Run `./crudle user/create-superuser 'my_password'` and `./crudle rbac/init`
+- See [yii2-crudle](https://github.com/logicent/yii2-crudle) for migrations, seeds and new user creation steps
 - Run `./crudle serve -t sites/<site_name>/web` in local environment or use preferred web server in production
 
 ### System Architecture
@@ -30,20 +28,21 @@ Continue:
 It is desirable for ease of deployment and maintenance to host multiple tenant instances via a shared code base while keeping the data separate either using a database per tenant or new table + prefix for tenant in database.
 
 **Containers**
-- Site instance {site_name}   (Ins)
-- {site_name}/modules   (Mod)
+- Site instance {site_name}
+- User modules  {site_name}/modules
 
 **Components**
 
-_Storage_ - to provide customer-specific database backups and runtime dumps
+_config_ - to define global application configs and site-specific settings
 
-_Web_ - to provide customer-specific entry script, assets cache and uploads
+_storage_ - to provide customer-specific database backups and runtime dumps
+
+_web_ - to provide customer-specific entry script, assets cache and uploads
 
 _Custom modules_
 
 **Web Servers**
 - PHP built-in web server via `./crudle serve -t sites/<site_name>/web` (Development)
-- Nginx via PHP-FPM (Production)
 
 ### Roadmap
 _Now:_

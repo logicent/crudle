@@ -6,8 +6,8 @@ $siteId = App::env('SITE_ID');
 
 $db = require __DIR__ . '/db.php';
 $modules = yii\helpers\ArrayHelper::merge(
-    require dirname(__DIR__, 1) . '/modules.php',
-    require dirname(__DIR__, 2) . "/{$siteId}/config/modules.php"
+    require CRUDLE_BASE_PATH . '/sites/config/modules.php',
+    require SITE_BASE_PATH . '/config/modules.php'
 );
 
 $config = [
