@@ -21,11 +21,11 @@ Option 2: via CLI
 - Run `composer install`
 
 Continue:
-- Create a database and update your site `sites/_default/.env` settings
+- Create a database and update `sites/.env` settings
 - Run `./crudle migrate --migrationPath sites/database/migrations'`
 - Run `cat sites/database/scripts/crdl_People.sql | mysql -u <my_root_user> -p <my_db_name>`
 - Run `./crudle user/create-superuser 'my_password'` and `./crudle rbac/init`
-- Run `./crudle serve -t sites/_default/web` in local environment or use preferred web server in production
+- Run `./crudle serve -t sites/web` in local environment or use preferred web server in production
 
 ### System Architecture
 
@@ -88,7 +88,7 @@ _Sites_
 - LeafletJS 1.9
 
 **Web Servers**
-- PHP built-in web server via `./crudle serve -t sites/_default/web` (Development)
+- PHP built-in web server via `./crudle serve -t sites/web` (Development)
 - Nginx via PHP-FPM (Production)
 - RoadRunner 2 _(to be tested)_
 

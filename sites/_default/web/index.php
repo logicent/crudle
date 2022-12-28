@@ -4,7 +4,7 @@
  */
 
 // Load shared bootstrap
-require dirname(__DIR__, 3) . '/bootstrap.php';
+require dirname(__DIR__, 2) . '/bootstrap.php';
 // Load tenant bootstrap
 require dirname(__DIR__, 1) . '/bootstrap.php';
 

@@ -4,7 +4,7 @@
  */
 
 // Load shared bootstrap
-require dirname(__DIR__, 2) . '/bootstrap.php';
+require dirname(__DIR__) . '/bootstrap.php';
 
 require CRUDLE_VENDOR_PATH . '/yiisoft/yii2/Yii.php';
 

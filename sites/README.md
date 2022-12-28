@@ -18,7 +18,9 @@ Option 2: via Commands
 
 Continue:
 - Create a database and update your site `sites/<site_name>/.env` settings
-- See [yii2-crudle](https://github.com/logicent/yii2-crudle) for migrations, seeds and new user creation steps
+- Run `./crudle migrate --migrationPath sites/<site_name>/database/migrations'`
+- Run `cat sites/<site_name>/database/scripts/*.sql | mysql -u <my_root_user> -p <my_db_name>`
+- Run `./crudle user/create-superuser 'my_password'` and `./crudle rbac/init`
 - Run `./crudle serve -t sites/<site_name>/web` in local environment or use preferred web server in production
 
 ### System Architecture

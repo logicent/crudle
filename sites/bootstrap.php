@@ -4,7 +4,7 @@
  */
 
 // Define path constants
-define('CRUDLE_BASE_PATH', __DIR__);
+define('CRUDLE_BASE_PATH', dirname(__DIR__));
 define('CRUDLE_VENDOR_PATH', CRUDLE_BASE_PATH . '/vendor');
 
 // Load Composer's autoloader
@@ -14,7 +14,7 @@ require_once CRUDLE_VENDOR_PATH . '/autoload.php';
 if (class_exists(Dotenv\Dotenv::class)) {
     // By default, this will allow .env file values to override environment variables
     // with matching names. Use `createUnsafeImmutable` to disable this.
-    Dotenv\Dotenv::createUnsafeMutable(CRUDLE_BASE_PATH)->safeLoad();
+    Dotenv\Dotenv::createUnsafeMutable(CRUDLE_BASE_PATH . '/sites')->safeLoad();
 }
 
 
