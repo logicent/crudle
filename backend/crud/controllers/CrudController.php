@@ -2,7 +2,7 @@
 
 namespace crudle\app\crud\controllers;
 
-use crudle\app\upload\helpers\Uploader;
+use crudle\app\main\helpers\Uploader;
 use crudle\app\crud\controllers\action\AddRow;
 use crudle\app\crud\controllers\action\AutoSuggestId;
 use crudle\app\crud\controllers\action\Create;
@@ -24,6 +24,7 @@ use crudle\app\main\enums\Type_View;
 use crudle\app\crud\forms\CommentForm;
 use crudle\app\crud\controllers\CrudInterface;
 use crudle\app\listing\controllers\GridViewController;
+use crudle\app\main\enums\Resource_Action;
 use crudle\app\main\models\Model;
 use crudle\app\user\enums\Type_Permission;
 use Yii;
@@ -212,7 +213,7 @@ abstract class CrudController extends GridViewController implements CrudInterfac
                         if ( Yii::$app->request->isAjax )
                             return $this->asJson([ 'success' => true ]);
                         // else
-                        return $this->redirect(['index']);
+                        return $this->redirectOnAction($this->action->id);
                     }
                     else {
                         // save error occurred - most likely in the DB
@@ -247,6 +248,18 @@ abstract class CrudController extends GridViewController implements CrudInterfac
         }
         // nothing happened go back
         return $this->loadView();
+    }
+
+    protected function redirectOnAction($actionId)
+    {
+        switch ($actionId)
+        {
+            case Resource_Action::Create:
+                return $this->redirectOnCreate();
+            case Resource_Action::Update:
+                return $this->redirectOnUpdate();
+            default:
+        }
     }
 
     public function loadView()
@@ -392,7 +405,10 @@ abstract class CrudController extends GridViewController implements CrudInterfac
     // CrudInterface
     public function redirectOnCreate()
     {
-        return $this->redirect(['update']);
+        // formulate the route
+        $controllerId = StringHelper::basename($this->id);
+        $route = "/app/{$this->module->id}/$controllerId";
+        return $this->redirect([$route]);
     }
 
     public function viewCreated(): bool
@@ -402,7 +418,10 @@ abstract class CrudController extends GridViewController implements CrudInterfac
 
     public function redirectOnUpdate()
     {
-        return $this->redirect(['index']);
+        // formulate the route
+        $controllerId = StringHelper::basename($this->id);
+        $route = "/app/{$this->module->id}/$controllerId";
+        return $this->redirect([$route]);
     }
 
     public function viewUpdated(): bool
