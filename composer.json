@@ -53,7 +53,7 @@
         "bower-asset/fomantic-ui": "^2.9.0",
         "bizley/quill": "^3.3",
         "npm-asset/quill-smart-break": "^0.2",
-        "npm-asset/splidejs--splide": "^4.0.7",
+        "npm-asset/splidejs--splide": "^4.1.4",
         "npm-asset/sweetalert2": "^11.4.24",
         "npm-asset/animate.css": "^4.1.1",
         "npm-asset/dirrty": "^1.0.0",
