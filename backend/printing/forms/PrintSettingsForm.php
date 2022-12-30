@@ -51,7 +51,7 @@ class PrintSettingsForm extends BaseSettingsForm
                 'allowPrintForCancelled',
                 'printTaxesWithZeroAmount',
                 'enableRawPrinting',
-                'Style',
+                // 'printStyle',
                 'font',
                 'fontSize',
             ], 'safe'],

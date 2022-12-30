@@ -165,6 +165,34 @@ class App
         return false;
     }
 
+    public static function getModelNames($includeChildModels = false, $flattenArray = false)
+    {
+        foreach (self::$modules as $id => $module)
+        {
+            $dir = $module['path'] . '/models';
+            if (!is_dir($dir))
+                continue;
+            $files = FileHelper::findFiles($dir, ['recursive' => false]);
+            sort($files);
+            foreach ($files as $file)
+            {
+                $modelClassname = StringHelper::basename($file, '.php');
+                $modelClass = $module['ns'] . "\\models\\" . $modelClassname;
+                // check if modelClass is a ActiveRecord class
+                $model = new $modelClass();
+                if (! $model InstanceOf ActiveRecord)
+                    continue;
+                // check if modelClass is a ActiveRecordDetail class
+                if ($includeChildModels)
+                    if (! $model InstanceOf ActiveRecordDetail)
+                        continue;
+                $modelName = Inflector::camel2words($modelClassname);
+                self::$models[$module['id']][$modelName] = $modelName;
+            }
+        }
+        return $flattenArray ? self::flattenArray(self::$models) : self::$models;
+    }
+
     public static function getModels($includeChildModels = false, $flattenArray = false)
     {
         foreach (self::$modules as $id => $module)

@@ -4,7 +4,7 @@ $context = $this->context;
 $model = $context->model;
 
 $this->title = $model->isNewRecord ? Yii::t('app', '{formTitle}', [
-    'formTitle' => 'New ' . $context->viewName()]) : $model->{$model->listSettings->listIdAttribute};
+    'formTitle' => 'New ' . $context->viewName()]) : $model->{$model->listSettings->listNameAttribute};
 ?>
 
 <?= $this->render('_breadcrumb') ?>

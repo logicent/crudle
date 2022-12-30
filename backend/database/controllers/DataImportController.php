@@ -3,6 +3,7 @@
 namespace crudle\app\database\controllers;
 
 use crudle\app\crud\controllers\action\Create;
+use crudle\app\crud\controllers\action\Update;
 use crudle\app\crud\controllers\CrudController;
 use crudle\app\database\forms\DataImportForm;
 use crudle\app\database\models\DataImport;
@@ -29,12 +30,12 @@ class DataImportController extends CrudController
         return DataImportSearch::class;
     }
 
-
     public function actions()
     {
         return [
             'index' => Index::class,
             'create' => Create::class,
+            'update' => Update::class,
         ];
     }
 

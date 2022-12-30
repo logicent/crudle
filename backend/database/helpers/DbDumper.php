@@ -13,7 +13,7 @@ class DbDumper
     {
         $db = Yii::$app->getDb();
         $dbName = Yii::$app->db->createCommand("SELECT DATABASE()")->queryScalar();
-        $dbFile = Yii::getAlias('@app/../storage/backups/') . $dbName . '_' . date('Y-m-d_H-i') . '.sql.gz';
+        $dbFile = Yii::getAlias('@crudle/sites/storage/backups/') . $dbName . '_' . date('Y-m-d_H-i') . '.sql.gz';
 
         try {
             MySql::create()

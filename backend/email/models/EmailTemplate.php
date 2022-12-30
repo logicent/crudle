@@ -50,4 +50,9 @@ class EmailTemplate extends BaseActiveRecord
             ],
         ];
     }
+
+    public static function autoSuggestIdValue()
+    {
+        return false;
+    }
 }

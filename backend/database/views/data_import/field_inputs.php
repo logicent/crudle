@@ -14,7 +14,7 @@ use icms\FomanticUI\modules\Select;
             <?= Html::activeHiddenInput($model, 'id') ?>
             <?= $form->field($model, 'model_name')
                     ->widget(Select::class, [
-                        'items' => App::getModels(),
+                        'items' => App::getModelNames(),
                         'search' => true,
                         'options' => ['required' => true]
                     ])
@@ -34,11 +34,11 @@ use icms\FomanticUI\modules\Select;
             </div>
             <!-- Recommended for inserting new records. -->
             <!-- Recommended bulk editing records via import, or understanding the import format. -->
-                        <!-- Download in Excel File Format -->
-            <?= Html::submitButton(Yii::t('app', 'Download') , [
+            <!-- Download in Excel File Format -->
+            <?= Html::button(Yii::t('app', 'Download') , [
                     'class' => 'compact basic ui button action',
                     'data' => [
-                        'method' => 'post',
+                        // 'method' => 'post',
                         'url' => Url::to(['export-template'])
                     ]
                 ]) ?>

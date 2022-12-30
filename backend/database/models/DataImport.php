@@ -14,10 +14,14 @@ use crudle\app\workflow\enums\Status_Transaction;
  */
 class DataImport extends BaseActiveRecord
 {
+    // Scenarios
+    // - Download
+    // - Upload
+
     public function init()
     {
         parent::init();
-        $this->listSettings->listNameAttribute = 'id';
+        $this->listSettings->listNameAttribute = 'model_name';
 
         $this->uploadForm = new UploadForm();
         $this->fileAttribute = 'import_file';
@@ -26,6 +30,16 @@ class DataImport extends BaseActiveRecord
     public static function tableName()
     {
         return '{{%Data_Import}}';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function rules()
+    {
+        return array_merge(parent::rules(), [
+            [['model_name'], 'required'],
+        ]);
     }
 
     // Workflow Interface

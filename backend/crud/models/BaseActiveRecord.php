@@ -87,6 +87,7 @@ abstract class BaseActiveRecord extends ActiveRecord implements ActiveRecordInte
     {
         return [
             [['id'], 'required'],
+            [['id'], 'unique'],
             [['id'], 'trim'],
             [[
                 'status',

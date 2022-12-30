@@ -1,6 +1,7 @@
 <?php
 
 use crudle\app\main\enums\Type_Model;
+use crudle\app\main\helpers\App;
 use icms\FomanticUI\modules\Select;
 ?>
 
@@ -11,7 +12,7 @@ use icms\FomanticUI\modules\Select;
     </div>
     <div class="two fields">
         <?= $form->field($model, 'data_model')->widget(Select::class, [
-                'items' => Type_Model::enums(),
+                'items' => App::getModelNames($includeChildModels = false, $flattenArray = true),
                 'options' => ['maxlength' => true]
             ]) ?>
     </div>

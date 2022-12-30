@@ -81,6 +81,11 @@ class EmailNotification extends BaseActiveRecord
         ];
     }
 
+    public static function autoSuggestIdValue()
+    {
+        return false;
+    }
+
     public function afterFind()
     {
         $this->cc_if_statuses = explode(',', $this->cc_if_statuses);
