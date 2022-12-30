@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "64ef9cfb3ccfc3b793a5f497ae1cdeb2",
+    "content-hash": "21959194003347826dcb5dcc954c0a8d",
     "packages": [
         {
             "name": "aeon-php/calendar",
@@ -2879,10 +2879,10 @@
         },
         {
             "name": "npm-asset/sweetalert2",
-            "version": "11.6.15",
+            "version": "11.6.16",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/sweetalert2/-/sweetalert2-11.6.15.tgz"
+                "url": "https://registry.npmjs.org/sweetalert2/-/sweetalert2-11.6.16.tgz"
             },
             "type": "npm-asset",
             "license": [
