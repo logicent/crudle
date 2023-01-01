@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use icms\FomanticUI\Elements;
 
+$fileTypes = isset($fileTypes) ? $fileTypes : '*';
+
 echo Html::tag('div', 
     Html::tag('span', Yii::t('app', 'No attachment'), ['id' => 'no_attachment']), 
     ['id' => 'file_preview', 'class' => '']);

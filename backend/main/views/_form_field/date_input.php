@@ -1,6 +1,6 @@
 <?php
 
-use crudle\app\assets\Flatpickr;
+use crudle\app\main\assets\Flatpickr;
 use yii\helpers\Html;
 
 Flatpickr::register($this);

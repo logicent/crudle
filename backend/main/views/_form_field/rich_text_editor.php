@@ -1,6 +1,7 @@
 <?php
 
 use bizley\quill\Quill;
+use icms\FomanticUI\Elements;
 use yii\helpers\Html;
 
 $readOnly = $this->context->action->id == 'read';
@@ -19,11 +20,24 @@ if ($readOnly) :
         "
     ]);
 else:
+    $toolbar = isset($toolbar) ? $toolbar : Quill::TOOLBAR_BASIC;
     $field = $form->field($model, $attribute)->widget(Quill::class, [
             // 'autoIdPrefix' => 'quill-',
-            'theme' => Quill::THEME_SNOW, // alt: THEME_BUBBLE
-            'toolbarOptions' => Quill::TOOLBAR_BASIC, // alt: TOOLBAR_FULL,
-            // 'icons' => [],
+            'theme' => Quill::THEME_SNOW,
+            'toolbarOptions' => $toolbar,
+            // 'icons' => [
+            //     'bold' => Elements::icon('grey bold'),
+            //     'italic' => Elements::icon('grey italic'),
+            //     'underline' => Elements::icon('grey underline'),
+            //     'strike' => Elements::icon('grey strikethrough'),
+            //     'code-block' => Elements::icon('grey code'),
+            //     // 'list' => Elements::icon('grey ordered list'),
+            //     // 'list' => Elements::icon('grey unordered list'),
+            //     'link' => Elements::icon('grey linkify'),
+            //     'image' => Elements::icon('grey large image outline'),
+            //     'video' => Elements::icon('grey large film'),
+            //     'blockquote' => Elements::icon('grey quote right'),
+            // ],
             // 'placeholder' => '',
             // 'hiddenOptions' => [],
             // 'tag' => 'div,'
@@ -31,6 +45,8 @@ else:
                 // 'class' => '',
                 'style' => "
                     min-height: 106px;
+                    max-height: 606px;
+                    overflow-y: auto;
                     color: #555;
                     font-family: Ubuntu, 'Lato', 'Helvetica Neue', Arial, sans-serif;
                     font-size: 16px;
@@ -42,7 +58,7 @@ else:
                 }
                 "
             ],
-            'allowResize' => true, // default: false
+            // 'allowResize' => true, // default: false
             'modules' => [
                 'smart-breaker' => true, // Shift+Enter
             ],

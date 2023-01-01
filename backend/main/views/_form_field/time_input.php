@@ -1,6 +1,6 @@
 <?php
 
-use crudle\app\assets\Flatpickr;
+use crudle\app\main\assets\Flatpickr;
 
 Flatpickr::register($this);
 

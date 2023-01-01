@@ -10,4 +10,9 @@ class BaseWebSettingsController extends SettingsController
     {
         return $this->redirect(['/web-cms']);
     }
+
+    public function showViewSidebar(): bool
+    {
+        return false;
+    }
 }

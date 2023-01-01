@@ -20,4 +20,9 @@ class BlogArticleController extends CrudController
     {
         return BlogArticleSearch::class;
     }
+
+    public function showViewSidebar(): bool
+    {
+        return false;
+    }
 }

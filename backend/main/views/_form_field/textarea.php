@@ -7,7 +7,7 @@ $field = $form->field($model, $attribute)
         'style' => isset($style) ? $style : 'resize:none',
     ]);
 
-if (isset($label) & $label === false) :
+if (isset($label) && $label === false) :
     $field->label(false);
 endif;
 

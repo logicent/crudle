@@ -12,9 +12,17 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Blog'), 'url' => ['/
 
 <div class="ui vertical stripe segment">
     <div class="ui text container">
+        <div class="ui relaxed link list">
 <?php
-foreach ($articles as $article) :
-    echo Html::a($article->title, "/blog/{$article->id}");
+foreach ($articles as $article) : ?>
+            <div class="item">
+                <?= Html::a($article->title, "/blog/{$article->id}", ['class' => 'header']) ?>
+                <div class="description">
+                    <?= Html::tag('p', $article->intro) ?>
+                </div>
+            </div>
+<?php
 endforeach ?>
+        </div>
     </div>
 </div>
