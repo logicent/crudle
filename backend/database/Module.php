@@ -24,5 +24,11 @@ class Module extends AppModule
     {
         parent::init();
         Yii::configure($this, require __DIR__ . '/config.php');
+
+        if (Yii::$app->getRequest()->getIsConsoleRequest()) {
+            $this->controllerMap['data-model'] = 'crudle\app\database\commands\DataModelController';
+            $this->controllerMap['db'] = 'crudle\app\database\commands\DbController';
+            $this->controllerMap['migration'] = 'crudle\app\database\commands\MigrationController';
+        }
     }
 }

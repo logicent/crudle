@@ -24,5 +24,9 @@ class Module extends AppModule
     {
         parent::init();
         Yii::configure($this, require __DIR__ . '/config.php');
+
+        if (Yii::$app->getRequest()->getIsConsoleRequest()) {
+            $this->controllerMap['queue'] = 'crudle\app\email\commands\QueueController';
+        }
     }
 }

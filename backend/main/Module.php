@@ -22,6 +22,11 @@ class Module extends AppModule
     {
         parent::init();
         Yii::configure($this, require __DIR__ . '/config.php');
+
+        if (Yii::$app->getRequest()->getIsConsoleRequest()) {
+            $this->controllerMap['app'] = 'crudle\app\main\commands\AppController';
+        }
+
     }
 
     // 'app' => 'main/app/index', // defaultRoute requires this rule

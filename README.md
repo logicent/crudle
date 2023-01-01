@@ -24,7 +24,7 @@ Continue:
 - Create a database and update `sites/.env` settings
 - Run `./crudle migrate --migrationPath sites/database/migrations'`
 - Run `cat sites/database/scripts/crdl_People.sql | mysql -u <my_root_user> -p <my_db_name>`
-- Run `./crudle user/create-superuser 'my_password'` and `./crudle rbac/init`
+- Run `./crudle user/user/create-superuser 'my_password'` and `./crudle user/rbac/init`
 - Run `./crudle serve -t sites/web` in local environment or use preferred web server in production
 
 ### System Architecture

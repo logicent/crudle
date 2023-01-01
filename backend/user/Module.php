@@ -24,14 +24,12 @@ class Module extends AppModule
     {
         parent::init();
         // custom initialization code goes here
-        // if (Yii::$app instanceof \yii\console\Application) {
-        //     $this->controllerMap[$this->id] = [
-        //         'class'  => 'crudle\app\user\commands\RbacController',
-        //         'module' => $this
-        //     ];
-        //     $this->controllerNamespace = 'crudle\app\user\commands';
-        // }
         Yii::configure($this, require __DIR__ . '/config.php');
+
+        if (Yii::$app->getRequest()->getIsConsoleRequest()) {
+            $this->controllerMap['user'] = 'crudle\app\user\commands\UserController';
+            $this->controllerMap['rbac'] = 'crudle\app\user\commands\RbacController';
+        }
     }
 
     /**

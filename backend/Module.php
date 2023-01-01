@@ -2,6 +2,7 @@
 
 namespace crudle\app;
 
+use Yii;
 use yii\base\BootstrapInterface;
 
 /**
