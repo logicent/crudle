@@ -6,8 +6,10 @@ $layoutPath = '@appMain/layouts/';
 $this->beginContent($layoutPath . 'base.php') ?>
 
 <div class="main ui three column stackable grid pusher" style="margin-top: <?= $controller->id == 'app/dashboards' ? '103px;' : '133px;' ?>">
-    <?= $this->render('@appMain/layouts/_main_sidebar') ?>
-    <?php
+    <div class="computer only large screen only one wide column" id="_sidebar_main" style="background: inherit">
+        <?= $this->render('@appMain/layouts/_main_sidebar') ?>
+    </div>
+<?php
     if ($controller->showViewSidebar()) : ?>
         <div class="computer only large screen only <?= $controller->sidebarColWidth() ?> wide column">
             <div class="ui sticky">
@@ -18,7 +20,8 @@ $this->beginContent($layoutPath . 'base.php') ?>
             ?>
             </div>
         </div>
-    <?php endif ?>
+<?php 
+    endif ?>
 
     <div id="content"
         class="<?= $controller->showViewSidebar() ?

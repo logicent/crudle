@@ -186,7 +186,7 @@ EOD;
      */
     public function getModuleClass()
     {
-        return Inflector::id2camel($this->moduleID);
+        return Inflector::id2camel($this->moduleID, '_');
     }
 
     /**

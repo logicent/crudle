@@ -8,7 +8,9 @@ $layoutPath = '@appMain/layouts/';
 $this->beginContent($layoutPath . 'base.php') ?>
 
 <div class="main ui three column stackable grid pusher" style="<?= LH::sidebarMargin($controller) ?>">
-    <?= $this->render('_main_sidebar') ?>
+    <div class="computer only large screen only one wide column" id="_sidebar_main" style="background: inherit">
+        <?= $this->render('_main_sidebar') ?>
+    </div>
 <?php
     if ($controller->id !== 'main' && $controller->showViewSidebar()) : ?>
     <div class="computer only large screen only <?= $controller->sidebarColWidth() ?> wide column">
@@ -20,7 +22,7 @@ $this->beginContent($layoutPath . 'base.php') ?>
     </div>
 <?php
     endif ?>
-    <div id="content" class="<?= LH::colWidth($controller) ?> wide column" style="<?= LH::colPadding($controller) ?> padding-top: 0.25rem;">
+    <div id="content" class="<?= LH::colWidth($controller) ?> wide column" style="padding-top: 0.25rem;">
         <?= $this->render($layoutPath . '_flash_message', ['context' => $controller]) ?>
         <!-- main view loads here -->
         <?= $content ?>

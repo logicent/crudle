@@ -19,8 +19,7 @@ if (empty($sidebarMenus)) : // fetch the default sidebar menus
 endif;
 ?>
 
-<div class="computer only large screen only one wide column" id="_sidebar_main" style="background: inherit">
-        <div class="ui visible icon sidebar vertical menu">
+<div class="ui visible icon sidebar vertical menu">
 <?php
         foreach ($sidebarMenus as $sidebarMenu) :
                 $menuRoute = explode('/', $sidebarMenu['route']);
@@ -32,7 +31,6 @@ endif;
                         ['class' => $moduleSegment == $menuRoute[$menuIndex] ? 'item active' : 'item'],
                 );
         endforeach ?>
-        </div>
 </div>
 
 <?php

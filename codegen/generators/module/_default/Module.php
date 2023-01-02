@@ -3,6 +3,9 @@
  * This is the template for generating a module class file.
  */
 
+use yii\helpers\Inflector;
+use yii\helpers\StringHelper;
+
 /* @var $this yii\web\View */
 /* @var $generator crudle\kit\generators\module\Generator */
 
@@ -10,6 +13,8 @@ $className = $generator->moduleClass;
 $pos = strrpos($className, '\\');
 $ns = ltrim(substr($className, 0, $pos), '\\');
 $className = substr($className, $pos + 1);
+
+$moduleName = Inflector::camel2words($generator->getModuleClass());
 
 echo "<?php\n";
 ?>
@@ -21,13 +26,9 @@ use Yii;
 /**
  * <?= $generator->moduleID ?> module definition class
  */
-class <?= $className ?> extends \yii\base\Module
+class <?= $className ?> extends \crudle\app\Module
 {
-    public $moduleName = '<?= $generator->moduleClass ?>';
-    // public $isInstalled = true; // if db migrations have run
-    public $isActivated = true; // will be loaded in app run
-    // public $activationRule = [];
-    // public $isTranslatable = true; // if translation resource exists
+    public $moduleName = '<?= $moduleName ?>';
 
     /**
      * {@inheritdoc}
