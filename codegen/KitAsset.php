@@ -1,8 +1,8 @@
 <?php
 /**
- * @link https://github.com/logicent/yii2-crudle
+ * @link https://github.com/logicent/crudle
  * @copyright Copyright (c) 2022 Appsoft
- * @license http://github.com/logicent/yii2-crudle/LICENSE.md
+ * @license http://github.com/logicent/crudle/LICENSE.md
  */
 
 namespace crudle\kit;

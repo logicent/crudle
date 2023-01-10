@@ -80,7 +80,7 @@ class DataModelController extends Controller
         // - Composer
         // - NPM
 
-        // - Clone the github repo `git@github.com:logicent/yii2-crudle.git && cd yii2-crudle`
+        // - Clone the github repo `git@github.com:logicent/crudle.git && cd crudle`
 
         // - Run `composer install`
 

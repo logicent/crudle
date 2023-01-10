@@ -1,13 +1,13 @@
 {
-    "name": "logicent/yii2-crudle",
-    "description": "Yii2 Crudle",
+    "name": "logicent/crudle",
+    "description": "Crudle",
     "version": "1.0.0-beta",
     "keywords": [
         "crud",
         "starter kit",
         "yii2"
     ],
-    "homepage": "https://github.com/logicent/yii2-crudle",
+    "homepage": "https://github.com/logicent/crudle",
     "type": "project",
     "license": "BSD-3-Clause",
     "authors": [
@@ -18,9 +18,9 @@
     ],
     "support": {
         "email": "mwaigichuhi@gmail.com",
-        "issues": "https://github.com/logicent/yii2-crudle/issues?state=open",
-        "source": "https://github.com/logicent/yii2-crudle",
-        "docs": "https://github.com/logicent/yii2-crudle/wiki/1.x/"
+        "issues": "https://github.com/logicent/crudle/issues?state=open",
+        "source": "https://github.com/logicent/crudle",
+        "docs": "https://github.com/logicent/crudle/wiki/1.x/"
     },
     "minimum-stability": "beta",
     "require": {

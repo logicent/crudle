@@ -6,7 +6,7 @@
     <br>
 </p>
 
-This module provides a builtin code generator, called Kit, for [Crudle 1.0](https://github.com/logicent/yii2-crudle) application starter kit.
+This module provides a builtin code generator, called Kit, for [Crudle 1.0](https://github.com/logicent/crudle) application starter kit.
 You can use Kit to quickly generate models, forms, modules, CRUD, etc.
 
 For license information check the [LICENSE](LICENSE.md)-file.

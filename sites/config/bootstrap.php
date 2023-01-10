@@ -2,9 +2,9 @@
 /**
  * Crudle bootstrap file.
  *
- * @link https://github.com/logicent/yii2-crudle
+ * @link https://github.com/logicent/crudle
  * @copyright Copyright (c) Appsoft
- * @license https://github.com/logicent/yii2-crudle/LICENSE.md
+ * @license https://github.com/logicent/crudle/LICENSE.md
  */
 
 // Setup

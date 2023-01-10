@@ -7,7 +7,7 @@ $db = require __DIR__ . '/test/db.php';
  * Application configuration shared by all test types
  */
 return [
-    'id' => 'yii2-crudle-tests',
+    'id' => 'crudle-tests',
     'basePath' => dirname(__DIR__),
     'aliases' => [
         '@bower' => '@vendor/bower-asset',

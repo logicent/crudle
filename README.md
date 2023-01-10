@@ -14,10 +14,10 @@ Prerequisites
 - NPM
 
 Option 1: via Composer
-- Run `composer create-project logicent/yii2-crudle:dev-main && cd yii2-crudle`
+- Run `composer create-project logicent/crudle:dev-main && cd crudle`
 
 Option 2: via CLI
-- Run `git clone git@github.com:logicent/yii2-crudle.git && cd yii2-crudle`
+- Run `git clone git@github.com:logicent/crudle.git && cd crudle`
 - Run `composer install`
 
 Continue:
@@ -31,7 +31,7 @@ Continue:
 
 **Context**
 
-Yii2 Crudle (CRUD logic extensions) is a meta framework for rapid application development and customization using a modified project template, some predefined coding conventions and a fully-fledged admin backend built with Fomantic UI.
+Crudle (CRUD logic extensions) is a meta framework for rapid application development and customization using a modified project template, some predefined coding conventions and a fully-fledged admin backend built with Fomantic UI.
 
 **Containers**
 - backend   (App)
@@ -128,8 +128,8 @@ _Later:_
 - [ ] Upgrade to Yii3 (with CycleORM datamapper) using Bulma and Buefy
 
 **Want to contribute?**
-Thank you for considering to make a contribution to Yii2 Crudle.
+Thank you for considering to make a contribution to Crudle.
 New contributors to improve the solution further or help provide support to issues are most welcome.
 
 **License**
-Yii2 Crudle is released under the [BSD-3-Clause](https://opensource.org/licenses/BSD-3-Clause).
+Crudle is released under the [BSD-3-Clause](https://opensource.org/licenses/BSD-3-Clause).

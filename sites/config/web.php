@@ -9,7 +9,7 @@ $routes = require __DIR__ . '/web/routes.php';
 $modules = require __DIR__ . '/modules.php';
 
 $config = [
-    'id' => 'yii2-crudle-web',
+    'id' => 'crudle-web',
     'name' => App::env('CRUDLE_APP_NAME'),
     'runtimePath' => '@storage/runtime',
     'vendorPath' => '@crudle/vendor',

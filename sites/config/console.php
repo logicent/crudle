@@ -7,7 +7,7 @@ $db = require __DIR__ . '/db.php';
 $modules = require __DIR__ . '/modules.php';
 
 $config = [
-    'id' => 'yii2-crudle-cli',
+    'id' => 'crudle-cli',
     'runtimePath' => '@storage/runtime',
     'vendorPath' => '@crudle/vendor',
     'basePath' => dirname( __DIR__ ),

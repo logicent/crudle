@@ -11,14 +11,14 @@ return [
     'appName' => App::env('CRUDLE_APP_NAME'),
     'appShortName' => '',
     'appDescription' => 'Web application development starter kit',
-    'appWebsite' => 'https://github.com/logicent/yii2-crudle',
+    'appWebsite' => 'https://github.com/logicent/crudle',
     'appCopyright' => '&copy; 2020 Appsoft',
 
     'appVersion' => '1.0.0-beta',
     'mobileAppVersion' => 'N/A',
     'appDeveloper' => '@mwaigichuhi',
 
-    'helpUrl' => 'https://github.com/logicent/yii2-crudle/wiki',
+    'helpUrl' => 'https://github.com/logicent/crudle/wiki',
 
     'flashMessagePositionY' => 'bottom',
     'flashMessagePositionX' => 'right',
